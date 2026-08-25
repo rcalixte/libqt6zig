@@ -1153,6 +1153,31 @@ pub const KAssistantDialog = extern struct {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KAssistantDialog `
+    ///
+    pub fn asQPaintDevice(self: KAssistantDialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KAssistantDialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KAssistantDialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7137,7 +7162,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn paintingActive(self: KAssistantDialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7153,7 +7178,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn widthMM(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7169,7 +7194,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn heightMM(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7185,7 +7210,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn logicalDpiX(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7201,7 +7226,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn logicalDpiY(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7217,7 +7242,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn physicalDpiX(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7233,7 +7258,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn physicalDpiY(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7249,7 +7274,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn devicePixelRatio(self: KAssistantDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7265,7 +7290,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn devicePixelRatioF(self: KAssistantDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7281,7 +7306,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn colorCount(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7297,7 +7322,7 @@ pub const KAssistantDialog = extern struct {
     /// ` self: KAssistantDialog `
     ///
     pub fn depth(self: KAssistantDialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

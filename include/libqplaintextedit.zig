@@ -4270,6 +4270,31 @@ pub const QPlainTextEdit = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlainTextEdit `
+    ///
+    pub fn asQPaintDevice(self: QPlainTextEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QPlainTextEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QPlainTextEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -10238,7 +10263,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn paintingActive(self: QPlainTextEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -10254,7 +10279,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn widthMM(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -10270,7 +10295,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn heightMM(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -10286,7 +10311,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn logicalDpiX(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -10302,7 +10327,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn logicalDpiY(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -10318,7 +10343,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn physicalDpiX(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -10334,7 +10359,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn physicalDpiY(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -10350,7 +10375,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn devicePixelRatio(self: QPlainTextEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -10366,7 +10391,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn devicePixelRatioF(self: QPlainTextEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -10382,7 +10407,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn colorCount(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -10398,7 +10423,7 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     pub fn depth(self: QPlainTextEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -16079,7 +16104,7 @@ pub const QPlainTextDocumentLayout = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#public-types)
 pub const enums = struct {
-    pub const LineWrapMode = enum(i32) {
+    pub const LineWrapMode = enum {
         pub const NoWrap: i32 = 0;
         pub const WidgetWidth: i32 = 1;
     };

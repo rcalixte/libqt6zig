@@ -46,7 +46,7 @@ pub const QtVideo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtvideo.html#public-types)
 pub const enums = struct {
-    pub const Rotation = enum(i32) {
+    pub const Rotation = enum {
         pub const None: i32 = 0;
         pub const Clockwise90: i32 = 90;
         pub const Clockwise180: i32 = 180;

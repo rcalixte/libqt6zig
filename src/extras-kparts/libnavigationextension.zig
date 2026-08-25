@@ -2924,7 +2924,7 @@ pub const KParts__NavigationExtension = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#public-types)
 pub const enums = struct {
-    pub const PopupFlag = enum(i32) {
+    pub const PopupFlag = enum {
         pub const DefaultPopupItems: i32 = 0;
         pub const ShowBookmark: i32 = 8;
         pub const ShowCreateDirectory: i32 = 16;

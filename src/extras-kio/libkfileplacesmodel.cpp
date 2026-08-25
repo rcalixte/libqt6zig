@@ -451,9 +451,8 @@ QMetaObject* KFilePlacesModel_SuperMetaObject(const KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMetaObject(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MetaObject_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -470,9 +469,8 @@ void* KFilePlacesModel_SuperMetacast(KFilePlacesModel* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMetacast(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Metacast_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -489,9 +487,8 @@ int KFilePlacesModel_SuperMetacall(KFilePlacesModel* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMetacall(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Metacall_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -508,9 +505,8 @@ QVariant* KFilePlacesModel_SuperData(const KFilePlacesModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Data_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -527,9 +523,8 @@ QModelIndex* KFilePlacesModel_SuperIndex(const KFilePlacesModel* self, int row, 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnIndex(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Index_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -546,9 +541,8 @@ QModelIndex* KFilePlacesModel_SuperParent(const KFilePlacesModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnParent(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Parent_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -603,9 +597,8 @@ libqt_map /* of int to libqt_string */ KFilePlacesModel_SuperRoleNames(const KFi
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnRoleNames(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_RoleNames_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -622,9 +615,8 @@ int KFilePlacesModel_SuperRowCount(const KFilePlacesModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnRowCount(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_RowCount_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -641,9 +633,8 @@ int KFilePlacesModel_SuperColumnCount(const KFilePlacesModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnColumnCount(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ColumnCount_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -660,9 +651,8 @@ int KFilePlacesModel_SuperSupportedDropActions(const KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSupportedDropActions(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -679,9 +669,8 @@ int KFilePlacesModel_SuperFlags(const KFilePlacesModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnFlags(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Flags_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -732,9 +721,8 @@ libqt_list /* of libqt_string */ KFilePlacesModel_SuperMimeTypes(const KFilePlac
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMimeTypes(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MimeTypes_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -757,9 +745,8 @@ QMimeData* KFilePlacesModel_SuperMimeData(const KFilePlacesModel* self, const li
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMimeData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MimeData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -776,9 +763,8 @@ bool KFilePlacesModel_SuperDropMimeData(KFilePlacesModel* self, const QMimeData*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnDropMimeData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_DropMimeData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +791,8 @@ QModelIndex* KFilePlacesModel_SuperSibling(const KFilePlacesModel* self, int row
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSibling(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Sibling_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +819,8 @@ bool KFilePlacesModel_SuperHasChildren(const KFilePlacesModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnHasChildren(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_HasChildren_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +847,8 @@ bool KFilePlacesModel_SuperSetData(KFilePlacesModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSetData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SetData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +875,8 @@ QVariant* KFilePlacesModel_SuperHeaderData(const KFilePlacesModel* self, int sec
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnHeaderData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_HeaderData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +903,8 @@ bool KFilePlacesModel_SuperSetHeaderData(KFilePlacesModel* self, int section, in
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSetHeaderData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SetHeaderData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +987,8 @@ libqt_map /* of int to QVariant* */ KFilePlacesModel_SuperItemData(const KFilePl
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnItemData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ItemData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1027,8 @@ bool KFilePlacesModel_SuperSetItemData(KFilePlacesModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSetItemData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SetItemData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1055,8 @@ bool KFilePlacesModel_SuperClearItemData(KFilePlacesModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnClearItemData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ClearItemData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1083,8 @@ bool KFilePlacesModel_SuperCanDropMimeData(const KFilePlacesModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnCanDropMimeData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1111,8 @@ int KFilePlacesModel_SuperSupportedDragActions(const KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSupportedDragActions(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1139,8 @@ bool KFilePlacesModel_SuperInsertRows(KFilePlacesModel* self, int row, int count
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnInsertRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_InsertRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1167,8 @@ bool KFilePlacesModel_SuperInsertColumns(KFilePlacesModel* self, int column, int
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnInsertColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_InsertColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1195,8 @@ bool KFilePlacesModel_SuperRemoveRows(KFilePlacesModel* self, int row, int count
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnRemoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_RemoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1223,8 @@ bool KFilePlacesModel_SuperRemoveColumns(KFilePlacesModel* self, int column, int
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnRemoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_RemoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1251,8 @@ bool KFilePlacesModel_SuperMoveRows(KFilePlacesModel* self, const QModelIndex* s
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1279,8 @@ bool KFilePlacesModel_SuperMoveColumns(KFilePlacesModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1307,8 @@ void KFilePlacesModel_SuperFetchMore(KFilePlacesModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnFetchMore(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_FetchMore_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1335,8 @@ bool KFilePlacesModel_SuperCanFetchMore(const KFilePlacesModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnCanFetchMore(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_CanFetchMore_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1363,8 @@ void KFilePlacesModel_SuperSort(KFilePlacesModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSort(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Sort_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1391,8 @@ QModelIndex* KFilePlacesModel_SuperBuddy(const KFilePlacesModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBuddy(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Buddy_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1489,9 +1455,8 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_SuperMatch(const KFilePlacesMo
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMatch(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Match_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1518,9 +1483,8 @@ QSize* KFilePlacesModel_SuperSpan(const KFilePlacesModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSpan(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Span_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1547,9 +1511,8 @@ void KFilePlacesModel_SuperMultiData(const KFilePlacesModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnMultiData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_MultiData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1576,9 +1539,8 @@ bool KFilePlacesModel_SuperSubmit(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSubmit(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Submit_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1605,9 +1567,8 @@ void KFilePlacesModel_SuperRevert(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnRevert(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Revert_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1634,9 +1595,8 @@ void KFilePlacesModel_SuperResetInternalData(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnResetInternalData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ResetInternalData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1663,9 +1623,8 @@ bool KFilePlacesModel_SuperEvent(KFilePlacesModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEvent(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Event_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1692,9 +1651,8 @@ bool KFilePlacesModel_SuperEventFilter(KFilePlacesModel* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEventFilter(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EventFilter_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1721,9 +1679,8 @@ void KFilePlacesModel_SuperTimerEvent(KFilePlacesModel* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnTimerEvent(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_TimerEvent_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1750,9 +1707,8 @@ void KFilePlacesModel_SuperChildEvent(KFilePlacesModel* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnChildEvent(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ChildEvent_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1779,9 +1735,8 @@ void KFilePlacesModel_SuperCustomEvent(KFilePlacesModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnCustomEvent(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_CustomEvent_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1808,9 +1763,8 @@ void KFilePlacesModel_SuperConnectNotify(KFilePlacesModel* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnConnectNotify(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1791,8 @@ void KFilePlacesModel_SuperDisconnectNotify(KFilePlacesModel* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnDisconnectNotify(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1817,8 @@ QModelIndex* KFilePlacesModel_SuperCreateIndex(const KFilePlacesModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnCreateIndex(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_CreateIndex_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1857,8 @@ void KFilePlacesModel_SuperEncodeData(const KFilePlacesModel* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEncodeData(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EncodeData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1934,9 +1885,8 @@ bool KFilePlacesModel_SuperDecodeData(KFilePlacesModel* self, int row, int colum
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnDecodeData(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_DecodeData_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1963,9 +1913,8 @@ void KFilePlacesModel_SuperBeginInsertRows(KFilePlacesModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginInsertRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1992,9 +1941,8 @@ void KFilePlacesModel_SuperEndInsertRows(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndInsertRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndInsertRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2021,9 +1969,8 @@ void KFilePlacesModel_SuperBeginRemoveRows(KFilePlacesModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginRemoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2050,9 +1997,8 @@ void KFilePlacesModel_SuperEndRemoveRows(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndRemoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2079,9 +2025,8 @@ bool KFilePlacesModel_SuperBeginMoveRows(KFilePlacesModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginMoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2108,9 +2053,8 @@ void KFilePlacesModel_SuperEndMoveRows(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndMoveRows(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndMoveRows_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2137,9 +2081,8 @@ void KFilePlacesModel_SuperBeginInsertColumns(KFilePlacesModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginInsertColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2166,9 +2109,8 @@ void KFilePlacesModel_SuperEndInsertColumns(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndInsertColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2195,9 +2137,8 @@ void KFilePlacesModel_SuperBeginRemoveColumns(KFilePlacesModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginRemoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2224,9 +2165,8 @@ void KFilePlacesModel_SuperEndRemoveColumns(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndRemoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2253,9 +2193,8 @@ bool KFilePlacesModel_SuperBeginMoveColumns(KFilePlacesModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginMoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2282,9 +2221,8 @@ void KFilePlacesModel_SuperEndMoveColumns(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndMoveColumns(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2311,9 +2249,8 @@ void KFilePlacesModel_SuperBeginResetModel(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnBeginResetModel(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_BeginResetModel_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2340,9 +2277,8 @@ void KFilePlacesModel_SuperEndResetModel(KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnEndResetModel(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_EndResetModel_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2369,9 +2305,8 @@ void KFilePlacesModel_SuperChangePersistentIndex(KFilePlacesModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnChangePersistentIndex(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2422,9 +2357,8 @@ void KFilePlacesModel_SuperChangePersistentIndexList(KFilePlacesModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnChangePersistentIndexList(KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2487,9 +2421,8 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_SuperPersistentIndexList(const
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnPersistentIndexList(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2516,9 +2449,8 @@ QObject* KFilePlacesModel_SuperSender(const KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSender(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Sender_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2545,9 +2477,8 @@ int KFilePlacesModel_SuperSenderSignalIndex(const KFilePlacesModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnSenderSignalIndex(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2574,9 +2505,8 @@ int KFilePlacesModel_SuperReceivers(const KFilePlacesModel* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnReceivers(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_Receivers_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2603,9 +2533,8 @@ bool KFilePlacesModel_SuperIsSignalConnected(const KFilePlacesModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesModel_OnIsSignalConnected(const KFilePlacesModel* self, intptr_t slot) {
     auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel)
         vkfileplacesmodel->setKFilePlacesModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFilePlacesModel_Delete(KFilePlacesModel* self) {

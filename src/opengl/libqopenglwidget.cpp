@@ -249,9 +249,8 @@ QMetaObject* QOpenGLWidget_SuperMetaObject(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetaObject(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +267,8 @@ void* QOpenGLWidget_SuperMetacast(QOpenGLWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetacast(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Metacast_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -287,9 +285,8 @@ int QOpenGLWidget_SuperMetacall(QOpenGLWidget* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetacall(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Metacall_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -306,9 +303,8 @@ void QOpenGLWidget_SuperInitializeGL(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInitializeGL(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_InitializeGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitializeGL_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -325,9 +321,8 @@ void QOpenGLWidget_SuperResizeGL(QOpenGLWidget* self, int w, int h) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnResizeGL(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ResizeGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeGL_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -344,9 +339,8 @@ void QOpenGLWidget_SuperPaintGL(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnPaintGL(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_PaintGL_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintGL_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -363,9 +357,8 @@ void QOpenGLWidget_SuperPaintEvent(QOpenGLWidget* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnPaintEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_PaintEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -382,9 +375,8 @@ void QOpenGLWidget_SuperResizeEvent(QOpenGLWidget* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnResizeEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -401,9 +393,8 @@ bool QOpenGLWidget_SuperEvent(QOpenGLWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Event_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -420,9 +411,8 @@ int QOpenGLWidget_SuperMetric(const QOpenGLWidget* self, int metric) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMetric(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Metric_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metric_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -439,9 +429,8 @@ QPaintDevice* QOpenGLWidget_SuperRedirected(const QOpenGLWidget* self, QPoint* p
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnRedirected(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Redirected_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -458,9 +447,8 @@ QPaintEngine* QOpenGLWidget_SuperPaintEngine(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnPaintEngine(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_PaintEngine_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +475,8 @@ int QOpenGLWidget_SuperDevType(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDevType(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DevType_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +503,8 @@ void QOpenGLWidget_SuperSetVisible(QOpenGLWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSetVisible(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_SetVisible_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +531,8 @@ QSize* QOpenGLWidget_SuperSizeHint(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSizeHint(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_SizeHint_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +559,8 @@ QSize* QOpenGLWidget_SuperMinimumSizeHint(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMinimumSizeHint(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +587,8 @@ int QOpenGLWidget_SuperHeightForWidth(const QOpenGLWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnHeightForWidth(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +615,8 @@ bool QOpenGLWidget_SuperHasHeightForWidth(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnHasHeightForWidth(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +643,8 @@ void QOpenGLWidget_SuperMousePressEvent(QOpenGLWidget* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMousePressEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +671,8 @@ void QOpenGLWidget_SuperMouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseReleaseEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +699,8 @@ void QOpenGLWidget_SuperMouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseDoubleClickEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +727,8 @@ void QOpenGLWidget_SuperMouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMouseMoveEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +755,8 @@ void QOpenGLWidget_SuperWheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnWheelEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_WheelEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +783,8 @@ void QOpenGLWidget_SuperKeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnKeyPressEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +811,8 @@ void QOpenGLWidget_SuperKeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnKeyReleaseEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +839,8 @@ void QOpenGLWidget_SuperFocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusInEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +867,8 @@ void QOpenGLWidget_SuperFocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusOutEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +895,8 @@ void QOpenGLWidget_SuperEnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEnterEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_EnterEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +923,8 @@ void QOpenGLWidget_SuperLeaveEvent(QOpenGLWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnLeaveEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +951,8 @@ void QOpenGLWidget_SuperMoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnMoveEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_MoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +979,8 @@ void QOpenGLWidget_SuperCloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnCloseEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_CloseEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1007,8 @@ void QOpenGLWidget_SuperContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnContextMenuEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1035,8 @@ void QOpenGLWidget_SuperTabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnTabletEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_TabletEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1063,8 @@ void QOpenGLWidget_SuperActionEvent(QOpenGLWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnActionEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ActionEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1091,8 @@ void QOpenGLWidget_SuperDragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragEnterEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1119,8 @@ void QOpenGLWidget_SuperDragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragMoveEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1147,8 @@ void QOpenGLWidget_SuperDragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDragLeaveEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1175,8 @@ void QOpenGLWidget_SuperDropEvent(QOpenGLWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDropEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DropEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1203,8 @@ void QOpenGLWidget_SuperShowEvent(QOpenGLWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnShowEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ShowEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1231,8 @@ void QOpenGLWidget_SuperHideEvent(QOpenGLWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnHideEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_HideEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1261,8 @@ bool QOpenGLWidget_SuperNativeEvent(QOpenGLWidget* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnNativeEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_NativeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1289,8 @@ void QOpenGLWidget_SuperChangeEvent(QOpenGLWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnChangeEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1317,8 @@ void QOpenGLWidget_SuperInitPainter(const QOpenGLWidget* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInitPainter(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_InitPainter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1345,8 @@ QPainter* QOpenGLWidget_SuperSharedPainter(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSharedPainter(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_SharedPainter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1373,8 @@ void QOpenGLWidget_SuperInputMethodEvent(QOpenGLWidget* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInputMethodEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1401,8 @@ QVariant* QOpenGLWidget_SuperInputMethodQuery(const QOpenGLWidget* self, int par
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnInputMethodQuery(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1429,8 @@ bool QOpenGLWidget_SuperFocusNextPrevChild(QOpenGLWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusNextPrevChild(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1457,8 @@ bool QOpenGLWidget_SuperEventFilter(QOpenGLWidget* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnEventFilter(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1485,8 @@ void QOpenGLWidget_SuperTimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnTimerEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1513,8 @@ void QOpenGLWidget_SuperChildEvent(QOpenGLWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnChildEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1541,8 @@ void QOpenGLWidget_SuperCustomEvent(QOpenGLWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnCustomEvent(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1569,8 @@ void QOpenGLWidget_SuperConnectNotify(QOpenGLWidget* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnConnectNotify(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1597,8 @@ void QOpenGLWidget_SuperDisconnectNotify(QOpenGLWidget* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDisconnectNotify(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1625,8 @@ void QOpenGLWidget_SuperUpdateMicroFocus(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnUpdateMicroFocus(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1653,8 @@ void QOpenGLWidget_SuperCreate(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnCreate(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Create_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1681,8 @@ void QOpenGLWidget_SuperDestroy(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnDestroy(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Destroy_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1709,8 @@ bool QOpenGLWidget_SuperFocusNextChild(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusNextChild(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1737,8 @@ bool QOpenGLWidget_SuperFocusPreviousChild(QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnFocusPreviousChild(QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1765,8 @@ QObject* QOpenGLWidget_SuperSender(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSender(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Sender_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1793,8 @@ int QOpenGLWidget_SuperSenderSignalIndex(const QOpenGLWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnSenderSignalIndex(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1821,8 @@ int QOpenGLWidget_SuperReceivers(const QOpenGLWidget* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnReceivers(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_Receivers_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1849,8 @@ bool QOpenGLWidget_SuperIsSignalConnected(const QOpenGLWidget* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnIsSignalConnected(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1877,8 @@ double QOpenGLWidget_SuperGetDecodedMetricF(const QOpenGLWidget* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWidget_OnGetDecodedMetricF(const QOpenGLWidget* self, intptr_t slot) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
-    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget)
         vqopenglwidget->setQOpenGLWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QOpenGLWidget_Delete(QOpenGLWidget* self) {

@@ -193,9 +193,8 @@ QMetaObject* QFontDialog_SuperMetaObject(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMetaObject(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MetaObject_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +211,8 @@ void* QFontDialog_SuperMetacast(QFontDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMetacast(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Metacast_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +229,8 @@ int QFontDialog_SuperMetacall(QFontDialog* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMetacall(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Metacall_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -250,9 +247,8 @@ void QFontDialog_SuperSetVisible(QFontDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnSetVisible(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_SetVisible_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -269,9 +265,8 @@ void QFontDialog_SuperChangeEvent(QFontDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnChangeEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -288,9 +283,8 @@ void QFontDialog_SuperDone(QFontDialog* self, int result) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDone(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Done_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Done_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -307,9 +301,8 @@ bool QFontDialog_SuperEventFilter(QFontDialog* self, QObject* object, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnEventFilter(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_EventFilter_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +329,8 @@ QSize* QFontDialog_SuperSizeHint(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnSizeHint(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_SizeHint_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +357,8 @@ QSize* QFontDialog_SuperMinimumSizeHint(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMinimumSizeHint(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +385,8 @@ void QFontDialog_SuperOpen(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnOpen(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Open_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +413,8 @@ int QFontDialog_SuperExec(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnExec(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Exec_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +441,8 @@ void QFontDialog_SuperAccept(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnAccept(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Accept_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +469,8 @@ void QFontDialog_SuperReject(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnReject(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Reject_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +497,8 @@ void QFontDialog_SuperKeyPressEvent(QFontDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnKeyPressEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +525,8 @@ void QFontDialog_SuperCloseEvent(QFontDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnCloseEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_CloseEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +553,8 @@ void QFontDialog_SuperShowEvent(QFontDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnShowEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ShowEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +581,8 @@ void QFontDialog_SuperResizeEvent(QFontDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnResizeEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +609,8 @@ void QFontDialog_SuperContextMenuEvent(QFontDialog* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnContextMenuEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +637,8 @@ int QFontDialog_SuperDevType(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDevType(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DevType_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +665,8 @@ int QFontDialog_SuperHeightForWidth(const QFontDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnHeightForWidth(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +693,8 @@ bool QFontDialog_SuperHasHeightForWidth(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnHasHeightForWidth(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +721,8 @@ QPaintEngine* QFontDialog_SuperPaintEngine(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnPaintEngine(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_PaintEngine_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +749,8 @@ bool QFontDialog_SuperEvent(QFontDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Event_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +777,8 @@ void QFontDialog_SuperMousePressEvent(QFontDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMousePressEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +805,8 @@ void QFontDialog_SuperMouseReleaseEvent(QFontDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMouseReleaseEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +833,8 @@ void QFontDialog_SuperMouseDoubleClickEvent(QFontDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMouseDoubleClickEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +861,8 @@ void QFontDialog_SuperMouseMoveEvent(QFontDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMouseMoveEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +889,8 @@ void QFontDialog_SuperWheelEvent(QFontDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnWheelEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_WheelEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +917,8 @@ void QFontDialog_SuperKeyReleaseEvent(QFontDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnKeyReleaseEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +945,8 @@ void QFontDialog_SuperFocusInEvent(QFontDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnFocusInEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +973,8 @@ void QFontDialog_SuperFocusOutEvent(QFontDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnFocusOutEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1001,8 @@ void QFontDialog_SuperEnterEvent(QFontDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnEnterEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_EnterEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1029,8 @@ void QFontDialog_SuperLeaveEvent(QFontDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnLeaveEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1057,8 @@ void QFontDialog_SuperPaintEvent(QFontDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnPaintEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_PaintEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1085,8 @@ void QFontDialog_SuperMoveEvent(QFontDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMoveEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_MoveEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1113,8 @@ void QFontDialog_SuperTabletEvent(QFontDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnTabletEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_TabletEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1141,8 @@ void QFontDialog_SuperActionEvent(QFontDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnActionEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ActionEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1169,8 @@ void QFontDialog_SuperDragEnterEvent(QFontDialog* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDragEnterEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1197,8 @@ void QFontDialog_SuperDragMoveEvent(QFontDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDragMoveEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1225,8 @@ void QFontDialog_SuperDragLeaveEvent(QFontDialog* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDragLeaveEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1253,8 @@ void QFontDialog_SuperDropEvent(QFontDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDropEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DropEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1281,8 @@ void QFontDialog_SuperHideEvent(QFontDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnHideEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_HideEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1311,8 @@ bool QFontDialog_SuperNativeEvent(QFontDialog* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnNativeEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_NativeEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1339,8 @@ int QFontDialog_SuperMetric(const QFontDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnMetric(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Metric_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1367,8 @@ void QFontDialog_SuperInitPainter(const QFontDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnInitPainter(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_InitPainter_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1395,8 @@ QPaintDevice* QFontDialog_SuperRedirected(const QFontDialog* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnRedirected(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Redirected_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1423,8 @@ QPainter* QFontDialog_SuperSharedPainter(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnSharedPainter(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_SharedPainter_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1451,8 @@ void QFontDialog_SuperInputMethodEvent(QFontDialog* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnInputMethodEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1479,8 @@ QVariant* QFontDialog_SuperInputMethodQuery(const QFontDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnInputMethodQuery(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1507,8 @@ bool QFontDialog_SuperFocusNextPrevChild(QFontDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnFocusNextPrevChild(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1535,8 @@ void QFontDialog_SuperTimerEvent(QFontDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnTimerEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_TimerEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1563,8 @@ void QFontDialog_SuperChildEvent(QFontDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnChildEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ChildEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1591,8 @@ void QFontDialog_SuperCustomEvent(QFontDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnCustomEvent(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_CustomEvent_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1619,8 @@ void QFontDialog_SuperConnectNotify(QFontDialog* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnConnectNotify(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1647,8 @@ void QFontDialog_SuperDisconnectNotify(QFontDialog* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDisconnectNotify(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1675,8 @@ void QFontDialog_SuperAdjustPosition(QFontDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnAdjustPosition(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1703,8 @@ void QFontDialog_SuperUpdateMicroFocus(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnUpdateMicroFocus(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1731,8 @@ void QFontDialog_SuperCreate(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnCreate(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Create_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1759,8 @@ void QFontDialog_SuperDestroy(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnDestroy(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Destroy_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1787,8 @@ bool QFontDialog_SuperFocusNextChild(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnFocusNextChild(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1815,8 @@ bool QFontDialog_SuperFocusPreviousChild(QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnFocusPreviousChild(QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1843,8 @@ QObject* QFontDialog_SuperSender(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnSender(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Sender_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1871,8 @@ int QFontDialog_SuperSenderSignalIndex(const QFontDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnSenderSignalIndex(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1899,8 @@ int QFontDialog_SuperReceivers(const QFontDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnReceivers(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_Receivers_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1927,8 @@ bool QFontDialog_SuperIsSignalConnected(const QFontDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnIsSignalConnected(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1955,8 @@ double QFontDialog_SuperGetDecodedMetricF(const QFontDialog* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QFontDialog_OnGetDecodedMetricF(const QFontDialog* self, intptr_t slot) {
     auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog)
         vqfontdialog->setQFontDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QFontDialog_Delete(QFontDialog* self) {

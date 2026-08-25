@@ -437,9 +437,8 @@ QMetaObject* QSortFilterProxyModel_SuperMetaObject(const QSortFilterProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMetaObject(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -456,9 +455,8 @@ void* QSortFilterProxyModel_SuperMetacast(QSortFilterProxyModel* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMetacast(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Metacast_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -475,9 +473,8 @@ int QSortFilterProxyModel_SuperMetacall(QSortFilterProxyModel* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMetacall(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Metacall_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -494,9 +491,8 @@ void QSortFilterProxyModel_SuperSetSourceModel(QSortFilterProxyModel* self, QAbs
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSetSourceModel(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -513,9 +509,8 @@ QModelIndex* QSortFilterProxyModel_SuperMapToSource(const QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMapToSource(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -532,9 +527,8 @@ QModelIndex* QSortFilterProxyModel_SuperMapFromSource(const QSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMapFromSource(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -551,9 +545,8 @@ QItemSelection* QSortFilterProxyModel_SuperMapSelectionToSource(const QSortFilte
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMapSelectionToSource(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -570,9 +563,8 @@ QItemSelection* QSortFilterProxyModel_SuperMapSelectionFromSource(const QSortFil
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMapSelectionFromSource(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -589,9 +581,8 @@ bool QSortFilterProxyModel_SuperFilterAcceptsRow(const QSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnFilterAcceptsRow(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_FilterAcceptsRow_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_FilterAcceptsRow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -608,9 +599,8 @@ bool QSortFilterProxyModel_SuperFilterAcceptsColumn(const QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnFilterAcceptsColumn(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_FilterAcceptsColumn_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_FilterAcceptsColumn_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -627,9 +617,8 @@ bool QSortFilterProxyModel_SuperLessThan(const QSortFilterProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnLessThan(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_LessThan_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_LessThan_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -646,9 +635,8 @@ QModelIndex* QSortFilterProxyModel_SuperIndex(const QSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnIndex(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Index_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -665,9 +653,8 @@ QModelIndex* QSortFilterProxyModel_SuperParent(const QSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnParent(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Parent_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -684,9 +671,8 @@ QModelIndex* QSortFilterProxyModel_SuperSibling(const QSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSibling(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Sibling_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -703,9 +689,8 @@ int QSortFilterProxyModel_SuperRowCount(const QSortFilterProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnRowCount(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_RowCount_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -722,9 +707,8 @@ int QSortFilterProxyModel_SuperColumnCount(const QSortFilterProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnColumnCount(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -741,9 +725,8 @@ bool QSortFilterProxyModel_SuperHasChildren(const QSortFilterProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnHasChildren(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_HasChildren_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -760,9 +743,8 @@ QVariant* QSortFilterProxyModel_SuperData(const QSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Data_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -779,9 +761,8 @@ bool QSortFilterProxyModel_SuperSetData(QSortFilterProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSetData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SetData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -798,9 +779,8 @@ QVariant* QSortFilterProxyModel_SuperHeaderData(const QSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnHeaderData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -817,9 +797,8 @@ bool QSortFilterProxyModel_SuperSetHeaderData(QSortFilterProxyModel* self, int s
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSetHeaderData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -842,9 +821,8 @@ QMimeData* QSortFilterProxyModel_SuperMimeData(const QSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMimeData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MimeData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -861,9 +839,8 @@ bool QSortFilterProxyModel_SuperDropMimeData(QSortFilterProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnDropMimeData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -880,9 +857,8 @@ bool QSortFilterProxyModel_SuperInsertRows(QSortFilterProxyModel* self, int row,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnInsertRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -899,9 +875,8 @@ bool QSortFilterProxyModel_SuperInsertColumns(QSortFilterProxyModel* self, int c
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnInsertColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -918,9 +893,8 @@ bool QSortFilterProxyModel_SuperRemoveRows(QSortFilterProxyModel* self, int row,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnRemoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -937,9 +911,8 @@ bool QSortFilterProxyModel_SuperRemoveColumns(QSortFilterProxyModel* self, int c
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnRemoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -956,9 +929,8 @@ void QSortFilterProxyModel_SuperFetchMore(QSortFilterProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnFetchMore(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_FetchMore_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -975,9 +947,8 @@ bool QSortFilterProxyModel_SuperCanFetchMore(const QSortFilterProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnCanFetchMore(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -994,9 +965,8 @@ int QSortFilterProxyModel_SuperFlags(const QSortFilterProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnFlags(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Flags_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1013,9 +983,8 @@ QModelIndex* QSortFilterProxyModel_SuperBuddy(const QSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBuddy(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Buddy_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1050,9 +1019,8 @@ libqt_list /* of QModelIndex* */ QSortFilterProxyModel_SuperMatch(const QSortFil
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMatch(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Match_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1069,9 +1037,8 @@ QSize* QSortFilterProxyModel_SuperSpan(const QSortFilterProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSpan(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Span_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1088,9 +1055,8 @@ void QSortFilterProxyModel_SuperSort(QSortFilterProxyModel* self, int column, in
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSort(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Sort_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1141,9 +1107,8 @@ libqt_list /* of libqt_string */ QSortFilterProxyModel_SuperMimeTypes(const QSor
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMimeTypes(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1160,9 +1125,8 @@ int QSortFilterProxyModel_SuperSupportedDropActions(const QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSupportedDropActions(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1189,9 +1153,8 @@ bool QSortFilterProxyModel_SuperSubmit(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSubmit(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Submit_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1218,9 +1181,8 @@ void QSortFilterProxyModel_SuperRevert(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnRevert(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Revert_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1303,9 +1265,8 @@ libqt_map /* of int to QVariant* */ QSortFilterProxyModel_SuperItemData(const QS
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnItemData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ItemData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1305,8 @@ bool QSortFilterProxyModel_SuperSetItemData(QSortFilterProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSetItemData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1333,8 @@ bool QSortFilterProxyModel_SuperClearItemData(QSortFilterProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnClearItemData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1361,8 @@ bool QSortFilterProxyModel_SuperCanDropMimeData(const QSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnCanDropMimeData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1389,8 @@ int QSortFilterProxyModel_SuperSupportedDragActions(const QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSupportedDragActions(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1536,9 +1493,8 @@ libqt_map /* of int to libqt_string */ QSortFilterProxyModel_SuperRoleNames(cons
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnRoleNames(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_RoleNames_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1565,9 +1521,8 @@ bool QSortFilterProxyModel_SuperMoveRows(QSortFilterProxyModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1594,9 +1549,8 @@ bool QSortFilterProxyModel_SuperMoveColumns(QSortFilterProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1577,8 @@ void QSortFilterProxyModel_SuperMultiData(const QSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnMultiData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_MultiData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1605,8 @@ void QSortFilterProxyModel_SuperResetInternalData(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnResetInternalData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1633,8 @@ bool QSortFilterProxyModel_SuperEvent(QSortFilterProxyModel* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEvent(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Event_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1661,8 @@ bool QSortFilterProxyModel_SuperEventFilter(QSortFilterProxyModel* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEventFilter(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EventFilter_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1689,8 @@ void QSortFilterProxyModel_SuperTimerEvent(QSortFilterProxyModel* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnTimerEvent(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1717,8 @@ void QSortFilterProxyModel_SuperChildEvent(QSortFilterProxyModel* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnChildEvent(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1745,8 @@ void QSortFilterProxyModel_SuperCustomEvent(QSortFilterProxyModel* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnCustomEvent(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1773,8 @@ void QSortFilterProxyModel_SuperConnectNotify(QSortFilterProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnConnectNotify(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1801,8 @@ void QSortFilterProxyModel_SuperDisconnectNotify(QSortFilterProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnDisconnectNotify(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1829,8 @@ void QSortFilterProxyModel_SuperInvalidateFilter(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnInvalidateFilter(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_InvalidateFilter_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_InvalidateFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1857,8 @@ void QSortFilterProxyModel_SuperInvalidateRowsFilter(QSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnInvalidateRowsFilter(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_InvalidateRowsFilter_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_InvalidateRowsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1885,8 @@ void QSortFilterProxyModel_SuperInvalidateColumnsFilter(QSortFilterProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnInvalidateColumnsFilter(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_InvalidateColumnsFilter_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_InvalidateColumnsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1969,9 +1911,8 @@ QModelIndex* QSortFilterProxyModel_SuperCreateSourceIndex(const QSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnCreateSourceIndex(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1996,9 +1937,8 @@ QModelIndex* QSortFilterProxyModel_SuperCreateIndex(const QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnCreateIndex(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1977,8 @@ void QSortFilterProxyModel_SuperEncodeData(const QSortFilterProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEncodeData(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EncodeData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2066,9 +2005,8 @@ bool QSortFilterProxyModel_SuperDecodeData(QSortFilterProxyModel* self, int row,
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnDecodeData(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_DecodeData_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2095,9 +2033,8 @@ void QSortFilterProxyModel_SuperBeginInsertRows(QSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginInsertRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2124,9 +2061,8 @@ void QSortFilterProxyModel_SuperEndInsertRows(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndInsertRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2153,9 +2089,8 @@ void QSortFilterProxyModel_SuperBeginRemoveRows(QSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginRemoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2182,9 +2117,8 @@ void QSortFilterProxyModel_SuperEndRemoveRows(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndRemoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2211,9 +2145,8 @@ bool QSortFilterProxyModel_SuperBeginMoveRows(QSortFilterProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginMoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2240,9 +2173,8 @@ void QSortFilterProxyModel_SuperEndMoveRows(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndMoveRows(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2269,9 +2201,8 @@ void QSortFilterProxyModel_SuperBeginInsertColumns(QSortFilterProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginInsertColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2298,9 +2229,8 @@ void QSortFilterProxyModel_SuperEndInsertColumns(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndInsertColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2327,9 +2257,8 @@ void QSortFilterProxyModel_SuperBeginRemoveColumns(QSortFilterProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginRemoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2356,9 +2285,8 @@ void QSortFilterProxyModel_SuperEndRemoveColumns(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndRemoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2385,9 +2313,8 @@ bool QSortFilterProxyModel_SuperBeginMoveColumns(QSortFilterProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginMoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2414,9 +2341,8 @@ void QSortFilterProxyModel_SuperEndMoveColumns(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndMoveColumns(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2443,9 +2369,8 @@ void QSortFilterProxyModel_SuperBeginResetModel(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnBeginResetModel(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2472,9 +2397,8 @@ void QSortFilterProxyModel_SuperEndResetModel(QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnEndResetModel(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2501,9 +2425,8 @@ void QSortFilterProxyModel_SuperChangePersistentIndex(QSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnChangePersistentIndex(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2554,9 +2477,8 @@ void QSortFilterProxyModel_SuperChangePersistentIndexList(QSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnChangePersistentIndexList(QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = dynamic_cast<VirtualQSortFilterProxyModel*>(self);
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2619,9 +2541,8 @@ libqt_list /* of QModelIndex* */ QSortFilterProxyModel_SuperPersistentIndexList(
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnPersistentIndexList(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2648,9 +2569,8 @@ QObject* QSortFilterProxyModel_SuperSender(const QSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSender(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Sender_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2677,9 +2597,8 @@ int QSortFilterProxyModel_SuperSenderSignalIndex(const QSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnSenderSignalIndex(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2706,9 +2625,8 @@ int QSortFilterProxyModel_SuperReceivers(const QSortFilterProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnReceivers(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_Receivers_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2735,9 +2653,8 @@ bool QSortFilterProxyModel_SuperIsSignalConnected(const QSortFilterProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QSortFilterProxyModel_OnIsSignalConnected(const QSortFilterProxyModel* self, intptr_t slot) {
     auto* vqsortfilterproxymodel = const_cast<VirtualQSortFilterProxyModel*>(dynamic_cast<const VirtualQSortFilterProxyModel*>(self));
-    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
+    if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel)
         vqsortfilterproxymodel->setQSortFilterProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQSortFilterProxyModel::QSortFilterProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSortFilterProxyModel_Delete(QSortFilterProxyModel* self) {

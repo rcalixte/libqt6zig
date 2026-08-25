@@ -2497,7 +2497,7 @@ pub const QGeoServiceProvider = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceprovider.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const NotSupportedError: i32 = 1;
         pub const UnknownParameterError: i32 = 2;
@@ -2506,7 +2506,7 @@ pub const enums = struct {
         pub const LoaderError: i32 = 5;
     };
 
-    pub const RoutingFeature = enum(i32) {
+    pub const RoutingFeature = enum {
         pub const NoRoutingFeatures: i32 = 0;
         pub const OnlineRoutingFeature: i32 = 1;
         pub const OfflineRoutingFeature: i32 = 2;
@@ -2517,7 +2517,7 @@ pub const enums = struct {
         pub const AnyRoutingFeatures: i32 = -1;
     };
 
-    pub const GeocodingFeature = enum(i32) {
+    pub const GeocodingFeature = enum {
         pub const NoGeocodingFeatures: i32 = 0;
         pub const OnlineGeocodingFeature: i32 = 1;
         pub const OfflineGeocodingFeature: i32 = 2;
@@ -2526,7 +2526,7 @@ pub const enums = struct {
         pub const AnyGeocodingFeatures: i32 = -1;
     };
 
-    pub const MappingFeature = enum(i32) {
+    pub const MappingFeature = enum {
         pub const NoMappingFeatures: i32 = 0;
         pub const OnlineMappingFeature: i32 = 1;
         pub const OfflineMappingFeature: i32 = 2;
@@ -2534,7 +2534,7 @@ pub const enums = struct {
         pub const AnyMappingFeatures: i32 = -1;
     };
 
-    pub const PlacesFeature = enum(i32) {
+    pub const PlacesFeature = enum {
         pub const NoPlacesFeatures: i32 = 0;
         pub const OnlinePlacesFeature: i32 = 1;
         pub const OfflinePlacesFeature: i32 = 2;
@@ -2550,7 +2550,7 @@ pub const enums = struct {
         pub const AnyPlacesFeatures: i32 = -1;
     };
 
-    pub const NavigationFeature = enum(i32) {
+    pub const NavigationFeature = enum {
         pub const NoNavigationFeatures: i32 = 0;
         pub const OnlineNavigationFeature: i32 = 1;
         pub const OfflineNavigationFeature: i32 = 2;

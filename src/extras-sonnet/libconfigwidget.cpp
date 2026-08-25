@@ -111,9 +111,8 @@ QMetaObject* Sonnet__ConfigWidget_SuperMetaObject(const Sonnet__ConfigWidget* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMetaObject(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MetaObject_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +129,8 @@ void* Sonnet__ConfigWidget_SuperMetacast(Sonnet__ConfigWidget* self, const char*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMetacast(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metacast_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +147,8 @@ int Sonnet__ConfigWidget_SuperMetacall(Sonnet__ConfigWidget* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMetacall(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metacall_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +175,8 @@ int Sonnet__ConfigWidget_SuperDevType(const Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDevType(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DevType_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +203,8 @@ void Sonnet__ConfigWidget_SuperSetVisible(Sonnet__ConfigWidget* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSetVisible(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SetVisible_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +231,8 @@ QSize* Sonnet__ConfigWidget_SuperSizeHint(const Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSizeHint(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SizeHint_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +259,8 @@ QSize* Sonnet__ConfigWidget_SuperMinimumSizeHint(const Sonnet__ConfigWidget* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMinimumSizeHint(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +287,8 @@ int Sonnet__ConfigWidget_SuperHeightForWidth(const Sonnet__ConfigWidget* self, i
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnHeightForWidth(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_HeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +315,8 @@ bool Sonnet__ConfigWidget_SuperHasHeightForWidth(const Sonnet__ConfigWidget* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnHasHeightForWidth(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +343,8 @@ QPaintEngine* Sonnet__ConfigWidget_SuperPaintEngine(const Sonnet__ConfigWidget* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnPaintEngine(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_PaintEngine_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +371,8 @@ bool Sonnet__ConfigWidget_SuperEvent(Sonnet__ConfigWidget* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Event_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +399,8 @@ void Sonnet__ConfigWidget_SuperMousePressEvent(Sonnet__ConfigWidget* self, QMous
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMousePressEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MousePressEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +427,8 @@ void Sonnet__ConfigWidget_SuperMouseReleaseEvent(Sonnet__ConfigWidget* self, QMo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMouseReleaseEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ void Sonnet__ConfigWidget_SuperMouseDoubleClickEvent(Sonnet__ConfigWidget* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMouseDoubleClickEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +483,8 @@ void Sonnet__ConfigWidget_SuperMouseMoveEvent(Sonnet__ConfigWidget* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMouseMoveEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +511,8 @@ void Sonnet__ConfigWidget_SuperWheelEvent(Sonnet__ConfigWidget* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnWheelEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_WheelEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +539,8 @@ void Sonnet__ConfigWidget_SuperKeyPressEvent(Sonnet__ConfigWidget* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnKeyPressEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +567,8 @@ void Sonnet__ConfigWidget_SuperKeyReleaseEvent(Sonnet__ConfigWidget* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnKeyReleaseEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +595,8 @@ void Sonnet__ConfigWidget_SuperFocusInEvent(Sonnet__ConfigWidget* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnFocusInEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusInEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +623,8 @@ void Sonnet__ConfigWidget_SuperFocusOutEvent(Sonnet__ConfigWidget* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnFocusOutEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +651,8 @@ void Sonnet__ConfigWidget_SuperEnterEvent(Sonnet__ConfigWidget* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnEnterEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_EnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +679,8 @@ void Sonnet__ConfigWidget_SuperLeaveEvent(Sonnet__ConfigWidget* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnLeaveEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_LeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ void Sonnet__ConfigWidget_SuperPaintEvent(Sonnet__ConfigWidget* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnPaintEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_PaintEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ void Sonnet__ConfigWidget_SuperMoveEvent(Sonnet__ConfigWidget* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMoveEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_MoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ void Sonnet__ConfigWidget_SuperResizeEvent(Sonnet__ConfigWidget* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnResizeEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ResizeEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ void Sonnet__ConfigWidget_SuperCloseEvent(Sonnet__ConfigWidget* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnCloseEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_CloseEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ void Sonnet__ConfigWidget_SuperContextMenuEvent(Sonnet__ConfigWidget* self, QCon
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnContextMenuEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ void Sonnet__ConfigWidget_SuperTabletEvent(Sonnet__ConfigWidget* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnTabletEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_TabletEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ void Sonnet__ConfigWidget_SuperActionEvent(Sonnet__ConfigWidget* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnActionEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ActionEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ void Sonnet__ConfigWidget_SuperDragEnterEvent(Sonnet__ConfigWidget* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDragEnterEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void Sonnet__ConfigWidget_SuperDragMoveEvent(Sonnet__ConfigWidget* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDragMoveEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ void Sonnet__ConfigWidget_SuperDragLeaveEvent(Sonnet__ConfigWidget* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDragLeaveEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void Sonnet__ConfigWidget_SuperDropEvent(Sonnet__ConfigWidget* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDropEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DropEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ void Sonnet__ConfigWidget_SuperShowEvent(Sonnet__ConfigWidget* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnShowEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ShowEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1043,8 @@ void Sonnet__ConfigWidget_SuperHideEvent(Sonnet__ConfigWidget* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnHideEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_HideEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1073,8 @@ bool Sonnet__ConfigWidget_SuperNativeEvent(Sonnet__ConfigWidget* self, const lib
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnNativeEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_NativeEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1101,8 @@ void Sonnet__ConfigWidget_SuperChangeEvent(Sonnet__ConfigWidget* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnChangeEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ChangeEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1129,8 @@ int Sonnet__ConfigWidget_SuperMetric(const Sonnet__ConfigWidget* self, int param
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnMetric(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Metric_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1157,8 @@ void Sonnet__ConfigWidget_SuperInitPainter(const Sonnet__ConfigWidget* self, QPa
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnInitPainter(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_InitPainter_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1224,9 +1185,8 @@ QPaintDevice* Sonnet__ConfigWidget_SuperRedirected(const Sonnet__ConfigWidget* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnRedirected(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Redirected_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1253,9 +1213,8 @@ QPainter* Sonnet__ConfigWidget_SuperSharedPainter(const Sonnet__ConfigWidget* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSharedPainter(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SharedPainter_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1241,8 @@ void Sonnet__ConfigWidget_SuperInputMethodEvent(Sonnet__ConfigWidget* self, QInp
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnInputMethodEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1269,8 @@ QVariant* Sonnet__ConfigWidget_SuperInputMethodQuery(const Sonnet__ConfigWidget*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnInputMethodQuery(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1297,8 @@ bool Sonnet__ConfigWidget_SuperFocusNextPrevChild(Sonnet__ConfigWidget* self, bo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnFocusNextPrevChild(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1325,8 @@ bool Sonnet__ConfigWidget_SuperEventFilter(Sonnet__ConfigWidget* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnEventFilter(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_EventFilter_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1353,8 @@ void Sonnet__ConfigWidget_SuperTimerEvent(Sonnet__ConfigWidget* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnTimerEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_TimerEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1381,8 @@ void Sonnet__ConfigWidget_SuperChildEvent(Sonnet__ConfigWidget* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnChildEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ChildEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1409,8 @@ void Sonnet__ConfigWidget_SuperCustomEvent(Sonnet__ConfigWidget* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnCustomEvent(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_CustomEvent_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1437,8 @@ void Sonnet__ConfigWidget_SuperConnectNotify(Sonnet__ConfigWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnConnectNotify(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1465,8 @@ void Sonnet__ConfigWidget_SuperDisconnectNotify(Sonnet__ConfigWidget* self, cons
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDisconnectNotify(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1493,8 @@ void Sonnet__ConfigWidget_SuperSlotIgnoreWordRemoved(Sonnet__ConfigWidget* self)
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSlotIgnoreWordRemoved(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SlotIgnoreWordRemoved_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SlotIgnoreWordRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1521,8 @@ void Sonnet__ConfigWidget_SuperSlotIgnoreWordAdded(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSlotIgnoreWordAdded(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SlotIgnoreWordAdded_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SlotIgnoreWordAdded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1549,8 @@ void Sonnet__ConfigWidget_SuperUpdateMicroFocus(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnUpdateMicroFocus(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void Sonnet__ConfigWidget_SuperCreate(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnCreate(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Create_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ void Sonnet__ConfigWidget_SuperDestroy(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnDestroy(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Destroy_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ bool Sonnet__ConfigWidget_SuperFocusNextChild(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnFocusNextChild(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusNextChild_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ bool Sonnet__ConfigWidget_SuperFocusPreviousChild(Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnFocusPreviousChild(Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = dynamic_cast<VirtualSonnetConfigWidget*>(self);
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ QObject* Sonnet__ConfigWidget_SuperSender(const Sonnet__ConfigWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSender(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Sender_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ int Sonnet__ConfigWidget_SuperSenderSignalIndex(const Sonnet__ConfigWidget* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnSenderSignalIndex(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ int Sonnet__ConfigWidget_SuperReceivers(const Sonnet__ConfigWidget* self, const 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnReceivers(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_Receivers_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ bool Sonnet__ConfigWidget_SuperIsSignalConnected(const Sonnet__ConfigWidget* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnIsSignalConnected(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1801,8 @@ double Sonnet__ConfigWidget_SuperGetDecodedMetricF(const Sonnet__ConfigWidget* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigWidget_OnGetDecodedMetricF(const Sonnet__ConfigWidget* self, intptr_t slot) {
     auto* vsonnetconfigwidget = const_cast<VirtualSonnetConfigWidget*>(dynamic_cast<const VirtualSonnetConfigWidget*>(self));
-    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget) {
+    if (vsonnetconfigwidget && vsonnetconfigwidget->isVirtualSonnetConfigWidget)
         vsonnetconfigwidget->setSonnet__ConfigWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualSonnetConfigWidget::Sonnet__ConfigWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void Sonnet__ConfigWidget_Delete(Sonnet__ConfigWidget* self) {

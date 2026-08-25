@@ -2655,7 +2655,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-statjob.html#public-types)
 pub const enums = struct {
-    pub const StatSide = enum(i32) {
+    pub const StatSide = enum {
         pub const SourceSide: i32 = 0;
         pub const DestinationSide: i32 = 1;
     };

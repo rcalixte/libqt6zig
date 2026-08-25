@@ -266,7 +266,7 @@ pub const KRecentDocument = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/krecentdocument.html#public-types)
 pub const enums = struct {
-    pub const RecentDocumentGroup = enum(i32) {
+    pub const RecentDocumentGroup = enum {
         pub const Development: i32 = 0;
         pub const Office: i32 = 1;
         pub const Database: i32 = 2;

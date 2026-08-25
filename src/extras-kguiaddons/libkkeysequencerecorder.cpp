@@ -197,9 +197,8 @@ QMetaObject* KKeySequenceRecorder_SuperMetaObject(const KKeySequenceRecorder* se
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -216,9 +215,8 @@ void* KKeySequenceRecorder_SuperMetacast(KKeySequenceRecorder* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +233,8 @@ int KKeySequenceRecorder_SuperMetacall(KKeySequenceRecorder* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnMetacall(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_Metacall_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +261,8 @@ bool KKeySequenceRecorder_SuperEvent(KKeySequenceRecorder* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnEvent(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_Event_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +289,8 @@ bool KKeySequenceRecorder_SuperEventFilter(KKeySequenceRecorder* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnEventFilter(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_EventFilter_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +317,8 @@ void KKeySequenceRecorder_SuperTimerEvent(KKeySequenceRecorder* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnTimerEvent(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_TimerEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +345,8 @@ void KKeySequenceRecorder_SuperChildEvent(KKeySequenceRecorder* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnChildEvent(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_ChildEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +373,8 @@ void KKeySequenceRecorder_SuperCustomEvent(KKeySequenceRecorder* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnCustomEvent(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_CustomEvent_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +401,8 @@ void KKeySequenceRecorder_SuperConnectNotify(KKeySequenceRecorder* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnConnectNotify(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_ConnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +429,8 @@ void KKeySequenceRecorder_SuperDisconnectNotify(KKeySequenceRecorder* self, cons
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnDisconnectNotify(KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_DisconnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +457,8 @@ QObject* KKeySequenceRecorder_SuperSender(const KKeySequenceRecorder* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnSender(const KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_Sender_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +485,8 @@ int KKeySequenceRecorder_SuperSenderSignalIndex(const KKeySequenceRecorder* self
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnSenderSignalIndex(const KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_SenderSignalIndex_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +513,8 @@ int KKeySequenceRecorder_SuperReceivers(const KKeySequenceRecorder* self, const 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnReceivers(const KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_Receivers_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +541,8 @@ bool KKeySequenceRecorder_SuperIsSignalConnected(const KKeySequenceRecorder* sel
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceRecorder_OnIsSignalConnected(const KKeySequenceRecorder* self, intptr_t slot) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder)
         vkkeysequencerecorder->setKKeySequenceRecorder_IsSignalConnected_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KKeySequenceRecorder_Delete(KKeySequenceRecorder* self) {

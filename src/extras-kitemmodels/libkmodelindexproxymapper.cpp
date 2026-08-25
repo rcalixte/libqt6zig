@@ -78,9 +78,8 @@ QMetaObject* KModelIndexProxyMapper_SuperMetaObject(const KModelIndexProxyMapper
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +96,8 @@ void* KModelIndexProxyMapper_SuperMetacast(KModelIndexProxyMapper* self, const c
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +114,8 @@ int KModelIndexProxyMapper_SuperMetacall(KModelIndexProxyMapper* self, int param
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnMetacall(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacall_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -145,9 +142,8 @@ bool KModelIndexProxyMapper_SuperEvent(KModelIndexProxyMapper* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnEvent(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Event_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -174,9 +170,8 @@ bool KModelIndexProxyMapper_SuperEventFilter(KModelIndexProxyMapper* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnEventFilter(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_EventFilter_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +198,8 @@ void KModelIndexProxyMapper_SuperTimerEvent(KModelIndexProxyMapper* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnTimerEvent(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_TimerEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ void KModelIndexProxyMapper_SuperChildEvent(KModelIndexProxyMapper* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnChildEvent(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_ChildEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ void KModelIndexProxyMapper_SuperCustomEvent(KModelIndexProxyMapper* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnCustomEvent(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_CustomEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +282,8 @@ void KModelIndexProxyMapper_SuperConnectNotify(KModelIndexProxyMapper* self, con
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnConnectNotify(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_ConnectNotify_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +310,8 @@ void KModelIndexProxyMapper_SuperDisconnectNotify(KModelIndexProxyMapper* self, 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnDisconnectNotify(KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +338,8 @@ QObject* KModelIndexProxyMapper_SuperSender(const KModelIndexProxyMapper* self) 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnSender(const KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Sender_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +366,8 @@ int KModelIndexProxyMapper_SuperSenderSignalIndex(const KModelIndexProxyMapper* 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnSenderSignalIndex(const KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +394,8 @@ int KModelIndexProxyMapper_SuperReceivers(const KModelIndexProxyMapper* self, co
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnReceivers(const KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Receivers_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +422,8 @@ bool KModelIndexProxyMapper_SuperIsSignalConnected(const KModelIndexProxyMapper*
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnIsSignalConnected(const KModelIndexProxyMapper* self, intptr_t slot) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
         vkmodelindexproxymapper->setKModelIndexProxyMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KModelIndexProxyMapper_Delete(KModelIndexProxyMapper* self) {

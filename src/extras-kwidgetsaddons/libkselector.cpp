@@ -154,9 +154,8 @@ QMetaObject* KSelector_SuperMetaObject(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetaObject(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MetaObject_Callback(reinterpret_cast<VirtualKSelector::KSelector_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +172,8 @@ void* KSelector_SuperMetacast(KSelector* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetacast(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Metacast_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +190,8 @@ int KSelector_SuperMetacall(KSelector* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetacall(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Metacall_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +208,8 @@ void KSelector_SuperDrawContents(KSelector* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDrawContents(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DrawContents_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -230,9 +226,8 @@ void KSelector_SuperDrawArrow(KSelector* self, QPainter* painter, const QPoint* 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDrawArrow(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DrawArrow_Callback(reinterpret_cast<VirtualKSelector::KSelector_DrawArrow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -249,9 +244,8 @@ void KSelector_SuperPaintEvent(KSelector* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnPaintEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_PaintEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +262,8 @@ void KSelector_SuperMousePressEvent(KSelector* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMousePressEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -287,9 +280,8 @@ void KSelector_SuperMouseMoveEvent(KSelector* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseMoveEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -306,9 +298,8 @@ void KSelector_SuperMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseReleaseEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -325,9 +316,8 @@ void KSelector_SuperWheelEvent(KSelector* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnWheelEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_WheelEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +344,8 @@ bool KSelector_SuperEvent(KSelector* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Event_Callback(reinterpret_cast<VirtualKSelector::KSelector_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +372,8 @@ void KSelector_SuperSliderChange(KSelector* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSliderChange(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SliderChange_Callback(reinterpret_cast<VirtualKSelector::KSelector_SliderChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +400,8 @@ void KSelector_SuperKeyPressEvent(KSelector* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnKeyPressEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +428,8 @@ void KSelector_SuperTimerEvent(KSelector* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnTimerEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_TimerEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +456,8 @@ void KSelector_SuperChangeEvent(KSelector* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnChangeEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +484,8 @@ int KSelector_SuperDevType(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDevType(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DevType_Callback(reinterpret_cast<VirtualKSelector::KSelector_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +512,8 @@ void KSelector_SuperSetVisible(KSelector* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSetVisible(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SetVisible_Callback(reinterpret_cast<VirtualKSelector::KSelector_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +540,8 @@ QSize* KSelector_SuperSizeHint(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSizeHint(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SizeHint_Callback(reinterpret_cast<VirtualKSelector::KSelector_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +568,8 @@ QSize* KSelector_SuperMinimumSizeHint(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMinimumSizeHint(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSelector::KSelector_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +596,8 @@ int KSelector_SuperHeightForWidth(const KSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnHeightForWidth(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKSelector::KSelector_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +624,8 @@ bool KSelector_SuperHasHeightForWidth(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnHasHeightForWidth(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSelector::KSelector_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +652,8 @@ QPaintEngine* KSelector_SuperPaintEngine(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnPaintEngine(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_PaintEngine_Callback(reinterpret_cast<VirtualKSelector::KSelector_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +680,8 @@ void KSelector_SuperMouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMouseDoubleClickEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +708,8 @@ void KSelector_SuperKeyReleaseEvent(KSelector* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnKeyReleaseEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +736,8 @@ void KSelector_SuperFocusInEvent(KSelector* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusInEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +764,8 @@ void KSelector_SuperFocusOutEvent(KSelector* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusOutEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +792,8 @@ void KSelector_SuperEnterEvent(KSelector* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEnterEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_EnterEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +820,8 @@ void KSelector_SuperLeaveEvent(KSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnLeaveEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +848,8 @@ void KSelector_SuperMoveEvent(KSelector* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMoveEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_MoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +876,8 @@ void KSelector_SuperResizeEvent(KSelector* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnResizeEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +904,8 @@ void KSelector_SuperCloseEvent(KSelector* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnCloseEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_CloseEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +932,8 @@ void KSelector_SuperContextMenuEvent(KSelector* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnContextMenuEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +960,8 @@ void KSelector_SuperTabletEvent(KSelector* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnTabletEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_TabletEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1021,9 +988,8 @@ void KSelector_SuperActionEvent(KSelector* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnActionEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ActionEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1016,8 @@ void KSelector_SuperDragEnterEvent(KSelector* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragEnterEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1044,8 @@ void KSelector_SuperDragMoveEvent(KSelector* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragMoveEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1072,8 @@ void KSelector_SuperDragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDragLeaveEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1100,8 @@ void KSelector_SuperDropEvent(KSelector* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDropEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DropEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1128,8 @@ void KSelector_SuperShowEvent(KSelector* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnShowEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ShowEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1156,8 @@ void KSelector_SuperHideEvent(KSelector* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnHideEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_HideEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1186,8 @@ bool KSelector_SuperNativeEvent(KSelector* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnNativeEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_NativeEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1214,8 @@ int KSelector_SuperMetric(const KSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnMetric(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Metric_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1242,8 @@ void KSelector_SuperInitPainter(const KSelector* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnInitPainter(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_InitPainter_Callback(reinterpret_cast<VirtualKSelector::KSelector_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1270,8 @@ QPaintDevice* KSelector_SuperRedirected(const KSelector* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnRedirected(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Redirected_Callback(reinterpret_cast<VirtualKSelector::KSelector_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1298,8 @@ QPainter* KSelector_SuperSharedPainter(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSharedPainter(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SharedPainter_Callback(reinterpret_cast<VirtualKSelector::KSelector_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1326,8 @@ void KSelector_SuperInputMethodEvent(KSelector* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnInputMethodEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1354,8 @@ QVariant* KSelector_SuperInputMethodQuery(const KSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnInputMethodQuery(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKSelector::KSelector_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1382,8 @@ bool KSelector_SuperFocusNextPrevChild(KSelector* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusNextPrevChild(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1410,8 @@ bool KSelector_SuperEventFilter(KSelector* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnEventFilter(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_EventFilter_Callback(reinterpret_cast<VirtualKSelector::KSelector_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1438,8 @@ void KSelector_SuperChildEvent(KSelector* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnChildEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ChildEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1466,8 @@ void KSelector_SuperCustomEvent(KSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnCustomEvent(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_CustomEvent_Callback(reinterpret_cast<VirtualKSelector::KSelector_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1494,8 @@ void KSelector_SuperConnectNotify(KSelector* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnConnectNotify(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKSelector::KSelector_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1522,8 @@ void KSelector_SuperDisconnectNotify(KSelector* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDisconnectNotify(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelector::KSelector_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1550,8 @@ void KSelector_SuperSetRepeatAction(KSelector* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSetRepeatAction(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SetRepeatAction_Callback(reinterpret_cast<VirtualKSelector::KSelector_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1578,8 @@ int KSelector_SuperRepeatAction(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnRepeatAction(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_RepeatAction_Callback(reinterpret_cast<VirtualKSelector::KSelector_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1606,8 @@ void KSelector_SuperUpdateMicroFocus(KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnUpdateMicroFocus(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSelector::KSelector_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1634,8 @@ void KSelector_SuperCreate(KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnCreate(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Create_Callback(reinterpret_cast<VirtualKSelector::KSelector_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1662,8 @@ void KSelector_SuperDestroy(KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnDestroy(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Destroy_Callback(reinterpret_cast<VirtualKSelector::KSelector_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1690,8 @@ bool KSelector_SuperFocusNextChild(KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusNextChild(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1718,8 @@ bool KSelector_SuperFocusPreviousChild(KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnFocusPreviousChild(KSelector* self, intptr_t slot) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSelector::KSelector_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1746,8 @@ QObject* KSelector_SuperSender(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSender(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Sender_Callback(reinterpret_cast<VirtualKSelector::KSelector_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1774,8 @@ int KSelector_SuperSenderSignalIndex(const KSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnSenderSignalIndex(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelector::KSelector_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1802,8 @@ int KSelector_SuperReceivers(const KSelector* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnReceivers(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_Receivers_Callback(reinterpret_cast<VirtualKSelector::KSelector_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1893,9 +1830,8 @@ bool KSelector_SuperIsSignalConnected(const KSelector* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnIsSignalConnected(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelector::KSelector_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1922,9 +1858,8 @@ double KSelector_SuperGetDecodedMetricF(const KSelector* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void KSelector_OnGetDecodedMetricF(const KSelector* self, intptr_t slot) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
-    if (vkselector && vkselector->isVirtualKSelector) {
+    if (vkselector && vkselector->isVirtualKSelector)
         vkselector->setKSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSelector::KSelector_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSelector_Delete(KSelector* self) {
@@ -2079,9 +2014,8 @@ QMetaObject* KGradientSelector_SuperMetaObject(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetaObject(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MetaObject_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2098,9 +2032,8 @@ void* KGradientSelector_SuperMetacast(KGradientSelector* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetacast(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Metacast_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2117,9 +2050,8 @@ int KGradientSelector_SuperMetacall(KGradientSelector* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetacall(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Metacall_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2136,9 +2068,8 @@ void KGradientSelector_SuperDrawContents(KGradientSelector* self, QPainter* para
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDrawContents(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DrawContents_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2154,9 +2085,8 @@ QSize* KGradientSelector_SuperMinimumSize(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMinimumSize(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MinimumSize_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2183,9 +2113,8 @@ void KGradientSelector_SuperDrawArrow(KGradientSelector* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDrawArrow(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DrawArrow_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DrawArrow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2212,9 +2141,8 @@ void KGradientSelector_SuperPaintEvent(KGradientSelector* self, QPaintEvent* par
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnPaintEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_PaintEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2241,9 +2169,8 @@ void KGradientSelector_SuperMousePressEvent(KGradientSelector* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMousePressEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2270,9 +2197,8 @@ void KGradientSelector_SuperMouseMoveEvent(KGradientSelector* self, QMouseEvent*
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseMoveEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2299,9 +2225,8 @@ void KGradientSelector_SuperMouseReleaseEvent(KGradientSelector* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseReleaseEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2328,9 +2253,8 @@ void KGradientSelector_SuperWheelEvent(KGradientSelector* self, QWheelEvent* par
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnWheelEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_WheelEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2357,9 +2281,8 @@ bool KGradientSelector_SuperEvent(KGradientSelector* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Event_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2386,9 +2309,8 @@ void KGradientSelector_SuperSliderChange(KGradientSelector* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSliderChange(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SliderChange_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SliderChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2415,9 +2337,8 @@ void KGradientSelector_SuperKeyPressEvent(KGradientSelector* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnKeyPressEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2444,9 +2365,8 @@ void KGradientSelector_SuperTimerEvent(KGradientSelector* self, QTimerEvent* par
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnTimerEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_TimerEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2473,9 +2393,8 @@ void KGradientSelector_SuperChangeEvent(KGradientSelector* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnChangeEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2502,9 +2421,8 @@ int KGradientSelector_SuperDevType(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDevType(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DevType_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2531,9 +2449,8 @@ void KGradientSelector_SuperSetVisible(KGradientSelector* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSetVisible(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SetVisible_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2560,9 +2477,8 @@ QSize* KGradientSelector_SuperSizeHint(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSizeHint(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SizeHint_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2589,9 +2505,8 @@ QSize* KGradientSelector_SuperMinimumSizeHint(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMinimumSizeHint(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2618,9 +2533,8 @@ int KGradientSelector_SuperHeightForWidth(const KGradientSelector* self, int par
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnHeightForWidth(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2647,9 +2561,8 @@ bool KGradientSelector_SuperHasHeightForWidth(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnHasHeightForWidth(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2676,9 +2589,8 @@ QPaintEngine* KGradientSelector_SuperPaintEngine(const KGradientSelector* self) 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnPaintEngine(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_PaintEngine_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2705,9 +2617,8 @@ void KGradientSelector_SuperMouseDoubleClickEvent(KGradientSelector* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMouseDoubleClickEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2734,9 +2645,8 @@ void KGradientSelector_SuperKeyReleaseEvent(KGradientSelector* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnKeyReleaseEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2763,9 +2673,8 @@ void KGradientSelector_SuperFocusInEvent(KGradientSelector* self, QFocusEvent* e
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusInEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2792,9 +2701,8 @@ void KGradientSelector_SuperFocusOutEvent(KGradientSelector* self, QFocusEvent* 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusOutEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2821,9 +2729,8 @@ void KGradientSelector_SuperEnterEvent(KGradientSelector* self, QEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEnterEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_EnterEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2850,9 +2757,8 @@ void KGradientSelector_SuperLeaveEvent(KGradientSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnLeaveEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2879,9 +2785,8 @@ void KGradientSelector_SuperMoveEvent(KGradientSelector* self, QMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMoveEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_MoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2908,9 +2813,8 @@ void KGradientSelector_SuperResizeEvent(KGradientSelector* self, QResizeEvent* e
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnResizeEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2937,9 +2841,8 @@ void KGradientSelector_SuperCloseEvent(KGradientSelector* self, QCloseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnCloseEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_CloseEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2966,9 +2869,8 @@ void KGradientSelector_SuperContextMenuEvent(KGradientSelector* self, QContextMe
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnContextMenuEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2995,9 +2897,8 @@ void KGradientSelector_SuperTabletEvent(KGradientSelector* self, QTabletEvent* e
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnTabletEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_TabletEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3024,9 +2925,8 @@ void KGradientSelector_SuperActionEvent(KGradientSelector* self, QActionEvent* e
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnActionEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ActionEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3053,9 +2953,8 @@ void KGradientSelector_SuperDragEnterEvent(KGradientSelector* self, QDragEnterEv
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragEnterEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3082,9 +2981,8 @@ void KGradientSelector_SuperDragMoveEvent(KGradientSelector* self, QDragMoveEven
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragMoveEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3111,9 +3009,8 @@ void KGradientSelector_SuperDragLeaveEvent(KGradientSelector* self, QDragLeaveEv
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDragLeaveEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3140,9 +3037,8 @@ void KGradientSelector_SuperDropEvent(KGradientSelector* self, QDropEvent* event
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDropEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DropEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3169,9 +3065,8 @@ void KGradientSelector_SuperShowEvent(KGradientSelector* self, QShowEvent* event
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnShowEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ShowEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3198,9 +3093,8 @@ void KGradientSelector_SuperHideEvent(KGradientSelector* self, QHideEvent* event
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnHideEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_HideEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3229,9 +3123,8 @@ bool KGradientSelector_SuperNativeEvent(KGradientSelector* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnNativeEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_NativeEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3258,9 +3151,8 @@ int KGradientSelector_SuperMetric(const KGradientSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnMetric(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Metric_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3287,9 +3179,8 @@ void KGradientSelector_SuperInitPainter(const KGradientSelector* self, QPainter*
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnInitPainter(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_InitPainter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3316,9 +3207,8 @@ QPaintDevice* KGradientSelector_SuperRedirected(const KGradientSelector* self, Q
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnRedirected(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Redirected_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3345,9 +3235,8 @@ QPainter* KGradientSelector_SuperSharedPainter(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSharedPainter(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SharedPainter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3374,9 +3263,8 @@ void KGradientSelector_SuperInputMethodEvent(KGradientSelector* self, QInputMeth
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnInputMethodEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3403,9 +3291,8 @@ QVariant* KGradientSelector_SuperInputMethodQuery(const KGradientSelector* self,
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnInputMethodQuery(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3432,9 +3319,8 @@ bool KGradientSelector_SuperFocusNextPrevChild(KGradientSelector* self, bool nex
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusNextPrevChild(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3461,9 +3347,8 @@ bool KGradientSelector_SuperEventFilter(KGradientSelector* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnEventFilter(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_EventFilter_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3490,9 +3375,8 @@ void KGradientSelector_SuperChildEvent(KGradientSelector* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnChildEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ChildEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3519,9 +3403,8 @@ void KGradientSelector_SuperCustomEvent(KGradientSelector* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnCustomEvent(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_CustomEvent_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3548,9 +3431,8 @@ void KGradientSelector_SuperConnectNotify(KGradientSelector* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnConnectNotify(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3577,9 +3459,8 @@ void KGradientSelector_SuperDisconnectNotify(KGradientSelector* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDisconnectNotify(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3606,9 +3487,8 @@ void KGradientSelector_SuperSetRepeatAction(KGradientSelector* self, int action)
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSetRepeatAction(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SetRepeatAction_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3635,9 +3515,8 @@ int KGradientSelector_SuperRepeatAction(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnRepeatAction(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_RepeatAction_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3664,9 +3543,8 @@ void KGradientSelector_SuperUpdateMicroFocus(KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnUpdateMicroFocus(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3693,9 +3571,8 @@ void KGradientSelector_SuperCreate(KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnCreate(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Create_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3722,9 +3599,8 @@ void KGradientSelector_SuperDestroy(KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnDestroy(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Destroy_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3751,9 +3627,8 @@ bool KGradientSelector_SuperFocusNextChild(KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusNextChild(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3780,9 +3655,8 @@ bool KGradientSelector_SuperFocusPreviousChild(KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnFocusPreviousChild(KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3809,9 +3683,8 @@ QObject* KGradientSelector_SuperSender(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSender(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Sender_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3838,9 +3711,8 @@ int KGradientSelector_SuperSenderSignalIndex(const KGradientSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnSenderSignalIndex(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3867,9 +3739,8 @@ int KGradientSelector_SuperReceivers(const KGradientSelector* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnReceivers(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_Receivers_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3896,9 +3767,8 @@ bool KGradientSelector_SuperIsSignalConnected(const KGradientSelector* self, con
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnIsSignalConnected(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3925,9 +3795,8 @@ double KGradientSelector_SuperGetDecodedMetricF(const KGradientSelector* self, i
 // Auxiliary method to allow providing re-implementation
 void KGradientSelector_OnGetDecodedMetricF(const KGradientSelector* self, intptr_t slot) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector)
         vkgradientselector->setKGradientSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KGradientSelector_Delete(KGradientSelector* self) {

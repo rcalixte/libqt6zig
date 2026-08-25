@@ -7092,7 +7092,7 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/codecompletionmodel.html#public-types)
 pub const enums = struct {
-    pub const Columns = enum(i32) {
+    pub const Columns = enum {
         pub const Prefix: i32 = 0;
         pub const Icon: i32 = 1;
         pub const Scope: i32 = 2;
@@ -7101,7 +7101,7 @@ pub const enums = struct {
         pub const Postfix: i32 = 5;
     };
 
-    pub const CompletionProperty = enum(i32) {
+    pub const CompletionProperty = enum {
         pub const NoProperty: i32 = 0;
         pub const FirstProperty: i32 = 1;
         pub const Public: i32 = 1;
@@ -7130,13 +7130,13 @@ pub const enums = struct {
         pub const LastProperty: i32 = 4194304;
     };
 
-    pub const HighlightMethod = enum(i32) {
+    pub const HighlightMethod = enum {
         pub const NoHighlighting: i32 = 0;
         pub const InternalHighlighting: i32 = 1;
         pub const CustomHighlighting: i32 = 2;
     };
 
-    pub const ExtraItemDataRoles = enum(i32) {
+    pub const ExtraItemDataRoles = enum {
         pub const CompletionRole: i32 = 256;
         pub const ScopeIndex: i32 = 257;
         pub const MatchQuality: i32 = 258;
@@ -7157,7 +7157,7 @@ pub const enums = struct {
         pub const LastExtraItemDataRole: i32 = 273;
     };
 
-    pub const InvocationType = enum(i32) {
+    pub const InvocationType = enum {
         pub const AutomaticInvocation: i32 = 0;
         pub const UserInvocation: i32 = 1;
         pub const ManualInvocation: i32 = 2;

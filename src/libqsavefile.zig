@@ -4,6 +4,7 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QDateTime = @import("libqt6").QDateTime;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -747,6 +748,18 @@ pub const QSaveFile = extern struct {
     ///
     pub fn map3(self: QSaveFile, offset: i64, _size: i64, flags: i32) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size), @bitCast(flags)));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSaveFile `
+    ///
+    pub fn asQIODeviceBase(self: QSaveFile) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead

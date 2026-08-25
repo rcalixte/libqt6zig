@@ -2198,7 +2198,7 @@ pub const QEventLoopLocker = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventloop.html#public-types)
 pub const enums = struct {
-    pub const ProcessEventsFlag = enum(i32) {
+    pub const ProcessEventsFlag = enum {
         pub const AllEvents: i32 = 0;
         pub const ExcludeUserInputEvents: i32 = 1;
         pub const ExcludeSocketNotifiers: i32 = 2;

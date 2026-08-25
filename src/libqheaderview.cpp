@@ -699,9 +699,8 @@ QMetaObject* QHeaderView_SuperMetaObject(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetaObject(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MetaObject_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -718,9 +717,8 @@ void* QHeaderView_SuperMetacast(QHeaderView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetacast(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Metacast_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -737,9 +735,8 @@ int QHeaderView_SuperMetacall(QHeaderView* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetacall(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Metacall_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -756,9 +753,8 @@ void QHeaderView_SuperSetModel(QHeaderView* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetModel(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -775,9 +771,8 @@ QSize* QHeaderView_SuperSizeHint(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSizeHint(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -794,9 +789,8 @@ void QHeaderView_SuperSetVisible(QHeaderView* self, bool v) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetVisible(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetVisible_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -813,9 +807,8 @@ void QHeaderView_SuperDoItemsLayout(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDoItemsLayout(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DoItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -832,9 +825,8 @@ void QHeaderView_SuperReset(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnReset(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Reset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -851,9 +843,8 @@ void QHeaderView_SuperCurrentChanged(QHeaderView* self, const QModelIndex* curre
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCurrentChanged(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_CurrentChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -870,9 +861,8 @@ bool QHeaderView_SuperEvent(QHeaderView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Event_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -889,9 +879,8 @@ void QHeaderView_SuperPaintEvent(QHeaderView* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnPaintEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_PaintEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -908,9 +897,8 @@ void QHeaderView_SuperMousePressEvent(QHeaderView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMousePressEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MousePressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -927,9 +915,8 @@ void QHeaderView_SuperMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseMoveEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -946,9 +933,8 @@ void QHeaderView_SuperMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseReleaseEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -965,9 +951,8 @@ void QHeaderView_SuperMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseDoubleClickEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -984,9 +969,8 @@ bool QHeaderView_SuperViewportEvent(QHeaderView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnViewportEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ViewportEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1003,9 +987,8 @@ void QHeaderView_SuperPaintSection(const QHeaderView* self, QPainter* painter, c
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnPaintSection(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_PaintSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintSection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1021,9 +1004,8 @@ QSize* QHeaderView_SuperSectionSizeFromContents(const QHeaderView* self, int log
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSectionSizeFromContents(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SectionSizeFromContents_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionSizeFromContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1040,9 +1022,8 @@ int QHeaderView_SuperHorizontalOffset(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHorizontalOffset(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HorizontalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1059,9 +1040,8 @@ int QHeaderView_SuperVerticalOffset(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVerticalOffset(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_VerticalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1078,9 +1058,8 @@ void QHeaderView_SuperUpdateGeometries(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateGeometries(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_UpdateGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1097,9 +1076,8 @@ void QHeaderView_SuperScrollContentsBy(QHeaderView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScrollContentsBy(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1122,9 +1100,8 @@ void QHeaderView_SuperDataChanged(QHeaderView* self, const QModelIndex* topLeft,
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDataChanged(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DataChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DataChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1141,9 +1118,8 @@ void QHeaderView_SuperRowsInserted(QHeaderView* self, const QModelIndex* parent,
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnRowsInserted(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_RowsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1159,9 +1135,8 @@ QRect* QHeaderView_SuperVisualRect(const QHeaderView* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVisualRect(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_VisualRect_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1178,9 +1153,8 @@ void QHeaderView_SuperScrollTo(QHeaderView* self, const QModelIndex* index, int 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScrollTo(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ScrollTo_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1196,9 +1170,8 @@ QModelIndex* QHeaderView_SuperIndexAt(const QHeaderView* self, const QPoint* p) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnIndexAt(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_IndexAt_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IndexAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1215,9 +1188,8 @@ bool QHeaderView_SuperIsIndexHidden(const QHeaderView* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnIsIndexHidden(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_IsIndexHidden_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1233,9 +1205,8 @@ QModelIndex* QHeaderView_SuperMoveCursor(QHeaderView* self, int param1, int para
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMoveCursor(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MoveCursor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1252,9 +1223,8 @@ void QHeaderView_SuperSetSelection(QHeaderView* self, const QRect* rect, int fla
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetSelection(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1270,9 +1240,8 @@ QRegion* QHeaderView_SuperVisualRegionForSelection(const QHeaderView* self, cons
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVisualRegionForSelection(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1289,9 +1258,8 @@ void QHeaderView_SuperInitStyleOptionForIndex(const QHeaderView* self, QStyleOpt
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitStyleOptionForIndex(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitStyleOptionForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOptionForIndex_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1308,9 +1276,8 @@ void QHeaderView_SuperInitStyleOption(const QHeaderView* self, QStyleOptionHeade
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitStyleOption(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitStyleOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1304,8 @@ void QHeaderView_SuperSetSelectionModel(QHeaderView* self, QItemSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetSelectionModel(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetSelectionModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1334,8 @@ void QHeaderView_SuperKeyboardSearch(QHeaderView* self, const libqt_string searc
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyboardSearch(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_KeyboardSearch_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1362,8 @@ int QHeaderView_SuperSizeHintForRow(const QHeaderView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSizeHintForRow(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SizeHintForRow_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1390,8 @@ int QHeaderView_SuperSizeHintForColumn(const QHeaderView* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSizeHintForColumn(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1418,8 @@ QAbstractItemDelegate* QHeaderView_SuperItemDelegateForIndex(const QHeaderView* 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnItemDelegateForIndex(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1446,8 @@ QVariant* QHeaderView_SuperInputMethodQuery(const QHeaderView* self, int query) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInputMethodQuery(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InputMethodQuery_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1474,8 @@ void QHeaderView_SuperSetRootIndex(QHeaderView* self, const QModelIndex* index) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetRootIndex(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetRootIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1502,8 @@ void QHeaderView_SuperSelectAll(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectAll(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SelectAll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1530,8 @@ void QHeaderView_SuperRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnRowsAboutToBeRemoved(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1558,8 @@ void QHeaderView_SuperSelectionChanged(QHeaderView* self, const QItemSelection* 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectionChanged(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SelectionChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1586,8 @@ void QHeaderView_SuperUpdateEditorData(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateEditorData(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_UpdateEditorData_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1614,8 @@ void QHeaderView_SuperUpdateEditorGeometries(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateEditorGeometries(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1642,8 @@ void QHeaderView_SuperVerticalScrollbarAction(QHeaderView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVerticalScrollbarAction(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1670,8 @@ void QHeaderView_SuperHorizontalScrollbarAction(QHeaderView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHorizontalScrollbarAction(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1698,8 @@ void QHeaderView_SuperVerticalScrollbarValueChanged(QHeaderView* self, int value
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVerticalScrollbarValueChanged(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1726,8 @@ void QHeaderView_SuperHorizontalScrollbarValueChanged(QHeaderView* self, int val
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHorizontalScrollbarValueChanged(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1754,8 @@ void QHeaderView_SuperCloseEditor(QHeaderView* self, QWidget* editor, int hint) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCloseEditor(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_CloseEditor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1782,8 @@ void QHeaderView_SuperCommitData(QHeaderView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCommitData(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_CommitData_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1810,8 @@ void QHeaderView_SuperEditorDestroyed(QHeaderView* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEditorDestroyed(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_EditorDestroyed_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1874,8 @@ libqt_list /* of QModelIndex* */ QHeaderView_SuperSelectedIndexes(const QHeaderV
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectedIndexes(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SelectedIndexes_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1902,8 @@ bool QHeaderView_SuperEdit2(QHeaderView* self, const QModelIndex* index, int tri
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEdit2(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Edit2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1930,8 @@ int QHeaderView_SuperSelectionCommand(const QHeaderView* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectionCommand(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SelectionCommand_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1958,8 @@ void QHeaderView_SuperStartDrag(QHeaderView* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnStartDrag(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_StartDrag_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1986,8 @@ void QHeaderView_SuperInitViewItemOption(const QHeaderView* self, QStyleOptionVi
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitViewItemOption(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitViewItemOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2071,9 +2014,8 @@ bool QHeaderView_SuperFocusNextPrevChild(QHeaderView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusNextPrevChild(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2100,9 +2042,8 @@ void QHeaderView_SuperDragEnterEvent(QHeaderView* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragEnterEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DragEnterEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2129,9 +2070,8 @@ void QHeaderView_SuperDragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragMoveEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DragMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2158,9 +2098,8 @@ void QHeaderView_SuperDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragLeaveEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2187,9 +2126,8 @@ void QHeaderView_SuperDropEvent(QHeaderView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDropEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DropEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2216,9 +2154,8 @@ void QHeaderView_SuperFocusInEvent(QHeaderView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusInEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_FocusInEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2245,9 +2182,8 @@ void QHeaderView_SuperFocusOutEvent(QHeaderView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusOutEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_FocusOutEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2274,9 +2210,8 @@ void QHeaderView_SuperKeyPressEvent(QHeaderView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyPressEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_KeyPressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2303,9 +2238,8 @@ void QHeaderView_SuperResizeEvent(QHeaderView* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnResizeEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ResizeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2332,9 +2266,8 @@ void QHeaderView_SuperTimerEvent(QHeaderView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnTimerEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_TimerEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2361,9 +2294,8 @@ void QHeaderView_SuperInputMethodEvent(QHeaderView* self, QInputMethodEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInputMethodEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InputMethodEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2390,9 +2322,8 @@ bool QHeaderView_SuperEventFilter(QHeaderView* self, QObject* object, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEventFilter(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_EventFilter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2417,9 +2348,8 @@ QSize* QHeaderView_SuperViewportSizeHint(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnViewportSizeHint(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2446,9 +2376,8 @@ QSize* QHeaderView_SuperMinimumSizeHint(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMinimumSizeHint(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2475,9 +2404,8 @@ void QHeaderView_SuperSetupViewport(QHeaderView* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetupViewport(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetupViewport_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2504,9 +2432,8 @@ void QHeaderView_SuperWheelEvent(QHeaderView* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnWheelEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_WheelEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2533,9 +2460,8 @@ void QHeaderView_SuperContextMenuEvent(QHeaderView* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnContextMenuEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2562,9 +2488,8 @@ void QHeaderView_SuperChangeEvent(QHeaderView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnChangeEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ChangeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2591,9 +2516,8 @@ int QHeaderView_SuperDevType(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDevType(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DevType_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2620,9 +2544,8 @@ int QHeaderView_SuperHeightForWidth(const QHeaderView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHeightForWidth(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HeightForWidth_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2649,9 +2572,8 @@ bool QHeaderView_SuperHasHeightForWidth(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHasHeightForWidth(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2678,9 +2600,8 @@ QPaintEngine* QHeaderView_SuperPaintEngine(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnPaintEngine(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_PaintEngine_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2707,9 +2628,8 @@ void QHeaderView_SuperKeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyReleaseEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2736,9 +2656,8 @@ void QHeaderView_SuperEnterEvent(QHeaderView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEnterEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_EnterEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2765,9 +2684,8 @@ void QHeaderView_SuperLeaveEvent(QHeaderView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnLeaveEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_LeaveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2794,9 +2712,8 @@ void QHeaderView_SuperMoveEvent(QHeaderView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMoveEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_MoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2823,9 +2740,8 @@ void QHeaderView_SuperCloseEvent(QHeaderView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCloseEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_CloseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2852,9 +2768,8 @@ void QHeaderView_SuperTabletEvent(QHeaderView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnTabletEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_TabletEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2881,9 +2796,8 @@ void QHeaderView_SuperActionEvent(QHeaderView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnActionEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ActionEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2910,9 +2824,8 @@ void QHeaderView_SuperShowEvent(QHeaderView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnShowEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ShowEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2939,9 +2852,8 @@ void QHeaderView_SuperHideEvent(QHeaderView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHideEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_HideEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2970,9 +2882,8 @@ bool QHeaderView_SuperNativeEvent(QHeaderView* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnNativeEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_NativeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2999,9 +2910,8 @@ int QHeaderView_SuperMetric(const QHeaderView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetric(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Metric_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3028,9 +2938,8 @@ void QHeaderView_SuperInitPainter(const QHeaderView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitPainter(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitPainter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3057,9 +2966,8 @@ QPaintDevice* QHeaderView_SuperRedirected(const QHeaderView* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnRedirected(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Redirected_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3086,9 +2994,8 @@ QPainter* QHeaderView_SuperSharedPainter(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSharedPainter(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SharedPainter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3115,9 +3022,8 @@ void QHeaderView_SuperChildEvent(QHeaderView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnChildEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ChildEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3144,9 +3050,8 @@ void QHeaderView_SuperCustomEvent(QHeaderView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCustomEvent(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_CustomEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3173,9 +3078,8 @@ void QHeaderView_SuperConnectNotify(QHeaderView* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnConnectNotify(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ConnectNotify_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3202,9 +3106,8 @@ void QHeaderView_SuperDisconnectNotify(QHeaderView* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDisconnectNotify(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DisconnectNotify_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3231,9 +3134,8 @@ void QHeaderView_SuperUpdateSection(QHeaderView* self, int logicalIndex) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateSection(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_UpdateSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3260,9 +3162,8 @@ void QHeaderView_SuperResizeSections2(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnResizeSections2(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ResizeSections2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ResizeSections2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3289,9 +3190,8 @@ void QHeaderView_SuperSectionsInserted(QHeaderView* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSectionsInserted(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SectionsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionsInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3318,9 +3218,8 @@ void QHeaderView_SuperSectionsAboutToBeRemoved(QHeaderView* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSectionsAboutToBeRemoved(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SectionsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3347,9 +3246,8 @@ void QHeaderView_SuperInitialize(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitialize(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Initialize_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Initialize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3376,9 +3274,8 @@ void QHeaderView_SuperInitializeSections(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitializeSections(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitializeSections_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitializeSections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3405,9 +3302,8 @@ void QHeaderView_SuperInitializeSections2(QHeaderView* self, int start, int end)
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInitializeSections2(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_InitializeSections2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitializeSections2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3434,9 +3330,8 @@ int QHeaderView_SuperState(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnState(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_State_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3463,9 +3358,8 @@ void QHeaderView_SuperSetState(QHeaderView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetState(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetState_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3492,9 +3386,8 @@ void QHeaderView_SuperScheduleDelayedItemsLayout(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScheduleDelayedItemsLayout(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3521,9 +3414,8 @@ void QHeaderView_SuperExecuteDelayedItemsLayout(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnExecuteDelayedItemsLayout(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3550,9 +3442,8 @@ void QHeaderView_SuperSetDirtyRegion(QHeaderView* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetDirtyRegion(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3579,9 +3470,8 @@ void QHeaderView_SuperScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScrollDirtyRegion(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3606,9 +3496,8 @@ QPoint* QHeaderView_SuperDirtyRegionOffset(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDirtyRegionOffset(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3635,9 +3524,8 @@ void QHeaderView_SuperStartAutoScroll(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnStartAutoScroll(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_StartAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3664,9 +3552,8 @@ void QHeaderView_SuperStopAutoScroll(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnStopAutoScroll(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_StopAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3693,9 +3580,8 @@ void QHeaderView_SuperDoAutoScroll(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDoAutoScroll(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DoAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3722,9 +3608,8 @@ int QHeaderView_SuperDropIndicatorPosition(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDropIndicatorPosition(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3751,9 +3636,8 @@ void QHeaderView_SuperSetViewportMargins(QHeaderView* self, int left, int top, i
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetViewportMargins(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SetViewportMargins_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3778,9 +3662,8 @@ QMargins* QHeaderView_SuperViewportMargins(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnViewportMargins(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_ViewportMargins_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3807,9 +3690,8 @@ void QHeaderView_SuperDrawFrame(QHeaderView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDrawFrame(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_DrawFrame_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3836,9 +3718,8 @@ void QHeaderView_SuperUpdateMicroFocus(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateMicroFocus(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3865,9 +3746,8 @@ void QHeaderView_SuperCreate(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCreate(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Create_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3894,9 +3774,8 @@ void QHeaderView_SuperDestroy(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDestroy(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Destroy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3923,9 +3802,8 @@ bool QHeaderView_SuperFocusNextChild(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusNextChild(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_FocusNextChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3952,9 +3830,8 @@ bool QHeaderView_SuperFocusPreviousChild(QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusPreviousChild(QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3981,9 +3858,8 @@ QObject* QHeaderView_SuperSender(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSender(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Sender_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4010,9 +3886,8 @@ int QHeaderView_SuperSenderSignalIndex(const QHeaderView* self) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSenderSignalIndex(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4039,9 +3914,8 @@ int QHeaderView_SuperReceivers(const QHeaderView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnReceivers(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_Receivers_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4068,9 +3942,8 @@ bool QHeaderView_SuperIsSignalConnected(const QHeaderView* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnIsSignalConnected(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_IsSignalConnected_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4097,9 +3970,8 @@ double QHeaderView_SuperGetDecodedMetricF(const QHeaderView* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnGetDecodedMetricF(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
         vqheaderview->setQHeaderView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QHeaderView_Delete(QHeaderView* self) {

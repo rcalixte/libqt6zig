@@ -3928,7 +3928,7 @@ pub const QXYSeries = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const PointConfiguration = enum(i32) {
+    pub const PointConfiguration = enum {
         pub const Color: i32 = 0;
         pub const Size: i32 = 1;
         pub const Visibility: i32 = 2;

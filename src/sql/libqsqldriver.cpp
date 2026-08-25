@@ -284,9 +284,8 @@ QMetaObject* QSqlDriver_SuperMetaObject(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnMetaObject(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_MetaObject_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -303,9 +302,8 @@ void* QSqlDriver_SuperMetacast(QSqlDriver* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnMetacast(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Metacast_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -322,9 +320,8 @@ int QSqlDriver_SuperMetacall(QSqlDriver* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnMetacall(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Metacall_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -341,9 +338,8 @@ bool QSqlDriver_SuperIsOpen(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnIsOpen(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_IsOpen_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_IsOpen_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -360,9 +356,8 @@ bool QSqlDriver_SuperBeginTransaction(QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnBeginTransaction(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_BeginTransaction_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_BeginTransaction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -379,9 +374,8 @@ bool QSqlDriver_SuperCommitTransaction(QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnCommitTransaction(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_CommitTransaction_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_CommitTransaction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -398,9 +392,8 @@ bool QSqlDriver_SuperRollbackTransaction(QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnRollbackTransaction(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_RollbackTransaction_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_RollbackTransaction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -451,9 +444,8 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperTables(const QSqlDriver* self, 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnTables(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Tables_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Tables_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -471,9 +463,8 @@ QSqlIndex* QSqlDriver_SuperPrimaryIndex(const QSqlDriver* self, const libqt_stri
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnPrimaryIndex(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_PrimaryIndex_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_PrimaryIndex_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +482,8 @@ QSqlRecord* QSqlDriver_SuperRecord(const QSqlDriver* self, const libqt_string ta
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnRecord(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Record_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Record_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -526,9 +516,8 @@ libqt_string QSqlDriver_SuperFormatValue(const QSqlDriver* self, const QSqlField
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnFormatValue(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_FormatValue_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_FormatValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -562,9 +551,8 @@ libqt_string QSqlDriver_SuperEscapeIdentifier(const QSqlDriver* self, const libq
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnEscapeIdentifier(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_EscapeIdentifier_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_EscapeIdentifier_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -598,9 +586,8 @@ libqt_string QSqlDriver_SuperSqlStatement(const QSqlDriver* self, int typeVal, c
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSqlStatement(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SqlStatement_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SqlStatement_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -617,9 +604,8 @@ QVariant* QSqlDriver_SuperHandle(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnHandle(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Handle_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Handle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -636,9 +622,8 @@ bool QSqlDriver_SuperHasFeature(const QSqlDriver* self, int f) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnHasFeature(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_HasFeature_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_HasFeature_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -655,9 +640,8 @@ void QSqlDriver_SuperClose(QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnClose(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Close_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -674,9 +658,8 @@ QSqlResult* QSqlDriver_SuperCreateResult(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnCreateResult(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_CreateResult_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_CreateResult_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -698,9 +681,8 @@ bool QSqlDriver_SuperOpen(QSqlDriver* self, const libqt_string db, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnOpen(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Open_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -718,9 +700,8 @@ bool QSqlDriver_SuperSubscribeToNotification(QSqlDriver* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSubscribeToNotification(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SubscribeToNotification_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SubscribeToNotification_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -738,9 +719,8 @@ bool QSqlDriver_SuperUnsubscribeFromNotification(QSqlDriver* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnUnsubscribeFromNotification(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_UnsubscribeFromNotification_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_UnsubscribeFromNotification_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -791,9 +771,8 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperSubscribedToNotifications(const
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSubscribedToNotifications(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SubscribedToNotifications_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SubscribedToNotifications_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -811,9 +790,8 @@ bool QSqlDriver_SuperIsIdentifierEscaped(const QSqlDriver* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnIsIdentifierEscaped(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_IsIdentifierEscaped_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_IsIdentifierEscaped_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -847,9 +825,8 @@ libqt_string QSqlDriver_SuperStripDelimiters(const QSqlDriver* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnStripDelimiters(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_StripDelimiters_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_StripDelimiters_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -866,9 +843,8 @@ int QSqlDriver_SuperMaximumIdentifierLength(const QSqlDriver* self, int typeVal)
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnMaximumIdentifierLength(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_MaximumIdentifierLength_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_MaximumIdentifierLength_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -885,9 +861,8 @@ bool QSqlDriver_SuperCancelQuery(QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnCancelQuery(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_CancelQuery_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_CancelQuery_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -904,9 +879,8 @@ void QSqlDriver_SuperSetOpen(QSqlDriver* self, bool o) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSetOpen(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SetOpen_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SetOpen_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -923,9 +897,8 @@ void QSqlDriver_SuperSetOpenError(QSqlDriver* self, bool e) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSetOpenError(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SetOpenError_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SetOpenError_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -942,9 +915,8 @@ void QSqlDriver_SuperSetLastError(QSqlDriver* self, const QSqlError* e) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSetLastError(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SetLastError_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SetLastError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +943,8 @@ bool QSqlDriver_SuperEvent(QSqlDriver* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnEvent(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Event_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +971,8 @@ bool QSqlDriver_SuperEventFilter(QSqlDriver* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnEventFilter(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_EventFilter_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +999,8 @@ void QSqlDriver_SuperTimerEvent(QSqlDriver* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnTimerEvent(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_TimerEvent_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1027,8 @@ void QSqlDriver_SuperChildEvent(QSqlDriver* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnChildEvent(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_ChildEvent_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1055,8 @@ void QSqlDriver_SuperCustomEvent(QSqlDriver* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnCustomEvent(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_CustomEvent_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1083,8 @@ void QSqlDriver_SuperConnectNotify(QSqlDriver* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnConnectNotify(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_ConnectNotify_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1111,8 @@ void QSqlDriver_SuperDisconnectNotify(QSqlDriver* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnDisconnectNotify(QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_DisconnectNotify_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1139,8 @@ QObject* QSqlDriver_SuperSender(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSender(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Sender_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1167,8 @@ int QSqlDriver_SuperSenderSignalIndex(const QSqlDriver* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnSenderSignalIndex(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1195,8 @@ int QSqlDriver_SuperReceivers(const QSqlDriver* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnReceivers(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_Receivers_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1223,8 @@ bool QSqlDriver_SuperIsSignalConnected(const QSqlDriver* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSqlDriver_OnIsSignalConnected(const QSqlDriver* self, intptr_t slot) {
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver)
         vqsqldriver->setQSqlDriver_IsSignalConnected_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSqlDriver_Delete(QSqlDriver* self) {

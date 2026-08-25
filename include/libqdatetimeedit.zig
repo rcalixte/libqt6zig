@@ -2703,6 +2703,31 @@ pub const QDateTimeEdit = extern struct {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDateTimeEdit `
+    ///
+    pub fn asQPaintDevice(self: QDateTimeEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDateTimeEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDateTimeEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8687,7 +8712,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn paintingActive(self: QDateTimeEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8703,7 +8728,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn widthMM(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8719,7 +8744,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn heightMM(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8735,7 +8760,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn logicalDpiX(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8751,7 +8776,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn logicalDpiY(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8767,7 +8792,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn physicalDpiX(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8783,7 +8808,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn physicalDpiY(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8799,7 +8824,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn devicePixelRatio(self: QDateTimeEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8815,7 +8840,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn devicePixelRatioF(self: QDateTimeEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8831,7 +8856,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn colorCount(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8847,7 +8872,7 @@ pub const QDateTimeEdit = extern struct {
     /// ` self: QDateTimeEdit `
     ///
     pub fn depth(self: QDateTimeEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -13823,6 +13848,31 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn onEditingFinished(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTimeEdit `
+    ///
+    pub fn asQPaintDevice(self: QTimeEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QTimeEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QTimeEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -19809,7 +19859,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn paintingActive(self: QTimeEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -19825,7 +19875,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn widthMM(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -19841,7 +19891,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn heightMM(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -19857,7 +19907,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn logicalDpiX(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -19873,7 +19923,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn logicalDpiY(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -19889,7 +19939,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn physicalDpiX(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -19905,7 +19955,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn physicalDpiY(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -19921,7 +19971,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn devicePixelRatio(self: QTimeEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -19937,7 +19987,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn devicePixelRatioF(self: QTimeEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -19953,7 +20003,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn colorCount(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -19969,7 +20019,7 @@ pub const QTimeEdit = extern struct {
     /// ` self: QTimeEdit `
     ///
     pub fn depth(self: QTimeEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -25971,6 +26021,31 @@ pub const QDateEdit = extern struct {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDateEdit `
+    ///
+    pub fn asQPaintDevice(self: QDateEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDateEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDateEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -31955,7 +32030,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn paintingActive(self: QDateEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -31971,7 +32046,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn widthMM(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -31987,7 +32062,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn heightMM(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -32003,7 +32078,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn logicalDpiX(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -32019,7 +32094,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn logicalDpiY(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -32035,7 +32110,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn physicalDpiX(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -32051,7 +32126,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn physicalDpiY(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -32067,7 +32142,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn devicePixelRatio(self: QDateEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -32083,7 +32158,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn devicePixelRatioF(self: QDateEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -32099,7 +32174,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn colorCount(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -32115,7 +32190,7 @@ pub const QDateEdit = extern struct {
     /// ` self: QDateEdit `
     ///
     pub fn depth(self: QDateEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -36313,7 +36388,7 @@ pub const QDateEdit = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetimeedit.html#public-types)
 pub const enums = struct {
-    pub const Section = enum(i32) {
+    pub const Section = enum {
         pub const NoSection: i32 = 0;
         pub const AmPmSection: i32 = 1;
         pub const MSecSection: i32 = 2;

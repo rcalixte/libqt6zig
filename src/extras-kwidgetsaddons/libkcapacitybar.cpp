@@ -171,9 +171,8 @@ QMetaObject* KCapacityBar_SuperMetaObject(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MetaObject_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +189,8 @@ void* KCapacityBar_SuperMetacast(KCapacityBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Metacast_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +207,8 @@ int KCapacityBar_SuperMetacall(KCapacityBar* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetacall(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Metacall_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +225,8 @@ QSize* KCapacityBar_SuperMinimumSizeHint(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +243,8 @@ void KCapacityBar_SuperPaintEvent(KCapacityBar* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnPaintEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_PaintEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +261,8 @@ void KCapacityBar_SuperChangeEvent(KCapacityBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnChangeEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +289,8 @@ int KCapacityBar_SuperDevType(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDevType(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DevType_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +317,8 @@ void KCapacityBar_SuperSetVisible(KCapacityBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSetVisible(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_SetVisible_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +345,8 @@ QSize* KCapacityBar_SuperSizeHint(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSizeHint(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_SizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +373,8 @@ int KCapacityBar_SuperHeightForWidth(const KCapacityBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnHeightForWidth(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_HeightForWidth_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +401,8 @@ bool KCapacityBar_SuperHasHeightForWidth(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnHasHeightForWidth(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +429,8 @@ QPaintEngine* KCapacityBar_SuperPaintEngine(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnPaintEngine(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_PaintEngine_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +457,8 @@ bool KCapacityBar_SuperEvent(KCapacityBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Event_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +485,8 @@ void KCapacityBar_SuperMousePressEvent(KCapacityBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMousePressEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MousePressEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +513,8 @@ void KCapacityBar_SuperMouseReleaseEvent(KCapacityBar* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseReleaseEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +541,8 @@ void KCapacityBar_SuperMouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseDoubleClickEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +569,8 @@ void KCapacityBar_SuperMouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseMoveEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +597,8 @@ void KCapacityBar_SuperWheelEvent(KCapacityBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnWheelEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_WheelEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +625,8 @@ void KCapacityBar_SuperKeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnKeyPressEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +653,8 @@ void KCapacityBar_SuperKeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnKeyReleaseEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +681,8 @@ void KCapacityBar_SuperFocusInEvent(KCapacityBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusInEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_FocusInEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +709,8 @@ void KCapacityBar_SuperFocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusOutEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +737,8 @@ void KCapacityBar_SuperEnterEvent(KCapacityBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEnterEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_EnterEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +765,8 @@ void KCapacityBar_SuperLeaveEvent(KCapacityBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnLeaveEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_LeaveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +793,8 @@ void KCapacityBar_SuperMoveEvent(KCapacityBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMoveEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_MoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +821,8 @@ void KCapacityBar_SuperResizeEvent(KCapacityBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnResizeEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ResizeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +849,8 @@ void KCapacityBar_SuperCloseEvent(KCapacityBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnCloseEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_CloseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +877,8 @@ void KCapacityBar_SuperContextMenuEvent(KCapacityBar* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnContextMenuEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +905,8 @@ void KCapacityBar_SuperTabletEvent(KCapacityBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnTabletEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_TabletEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +933,8 @@ void KCapacityBar_SuperActionEvent(KCapacityBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnActionEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ActionEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +961,8 @@ void KCapacityBar_SuperDragEnterEvent(KCapacityBar* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragEnterEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +989,8 @@ void KCapacityBar_SuperDragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragMoveEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1017,8 @@ void KCapacityBar_SuperDragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragLeaveEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1045,8 @@ void KCapacityBar_SuperDropEvent(KCapacityBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDropEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DropEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1073,8 @@ void KCapacityBar_SuperShowEvent(KCapacityBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnShowEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ShowEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1101,8 @@ void KCapacityBar_SuperHideEvent(KCapacityBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnHideEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_HideEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1131,8 @@ bool KCapacityBar_SuperNativeEvent(KCapacityBar* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnNativeEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_NativeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1159,8 @@ int KCapacityBar_SuperMetric(const KCapacityBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetric(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Metric_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1187,8 @@ void KCapacityBar_SuperInitPainter(const KCapacityBar* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnInitPainter(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_InitPainter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1215,8 @@ QPaintDevice* KCapacityBar_SuperRedirected(const KCapacityBar* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnRedirected(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Redirected_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1243,8 @@ QPainter* KCapacityBar_SuperSharedPainter(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSharedPainter(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_SharedPainter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1271,8 @@ void KCapacityBar_SuperInputMethodEvent(KCapacityBar* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnInputMethodEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1299,8 @@ QVariant* KCapacityBar_SuperInputMethodQuery(const KCapacityBar* self, int param
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnInputMethodQuery(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1327,8 @@ bool KCapacityBar_SuperFocusNextPrevChild(KCapacityBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusNextPrevChild(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1399,9 +1355,8 @@ bool KCapacityBar_SuperEventFilter(KCapacityBar* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEventFilter(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_EventFilter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1428,9 +1383,8 @@ void KCapacityBar_SuperTimerEvent(KCapacityBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnTimerEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_TimerEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1411,8 @@ void KCapacityBar_SuperChildEvent(KCapacityBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnChildEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ChildEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1439,8 @@ void KCapacityBar_SuperCustomEvent(KCapacityBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnCustomEvent(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_CustomEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1467,8 @@ void KCapacityBar_SuperConnectNotify(KCapacityBar* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnConnectNotify(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_ConnectNotify_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1495,8 @@ void KCapacityBar_SuperDisconnectNotify(KCapacityBar* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDisconnectNotify(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1523,8 @@ void KCapacityBar_SuperUpdateMicroFocus(KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnUpdateMicroFocus(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1551,8 @@ void KCapacityBar_SuperCreate(KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnCreate(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Create_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1579,8 @@ void KCapacityBar_SuperDestroy(KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDestroy(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Destroy_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1607,8 @@ bool KCapacityBar_SuperFocusNextChild(KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusNextChild(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_FocusNextChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1635,8 @@ bool KCapacityBar_SuperFocusPreviousChild(KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusPreviousChild(KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1663,8 @@ QObject* KCapacityBar_SuperSender(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSender(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Sender_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1691,8 @@ int KCapacityBar_SuperSenderSignalIndex(const KCapacityBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSenderSignalIndex(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1719,8 @@ int KCapacityBar_SuperReceivers(const KCapacityBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnReceivers(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_Receivers_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1747,8 @@ bool KCapacityBar_SuperIsSignalConnected(const KCapacityBar* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnIsSignalConnected(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1775,8 @@ double KCapacityBar_SuperGetDecodedMetricF(const KCapacityBar* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnGetDecodedMetricF(const KCapacityBar* self, intptr_t slot) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
         vkcapacitybar->setKCapacityBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KCapacityBar_Delete(KCapacityBar* self) {

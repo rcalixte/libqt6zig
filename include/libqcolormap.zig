@@ -210,7 +210,7 @@ pub const QColormap = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum(i32) {
+    pub const Mode = enum {
         pub const Direct: i32 = 0;
         pub const Indexed: i32 = 1;
         pub const Gray: i32 = 2;

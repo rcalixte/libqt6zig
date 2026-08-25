@@ -38,6 +38,8 @@ typedef struct QUuid QUuid;
 
 QPdfWriter* QPdfWriter_new(const libqt_string filename);
 QPdfWriter* QPdfWriter_new2(QIODevice* device);
+QPagedPaintDevice* QPdfWriter_AsQPagedPaintDevice(QPdfWriter* self);
+QPdfWriter* QPdfWriter_FromQPagedPaintDevice(QPagedPaintDevice* _qpagedpaintdevice);
 QMetaObject* QPdfWriter_MetaObject(const QPdfWriter* self);
 void* QPdfWriter_Metacast(QPdfWriter* self, const char* param1);
 int QPdfWriter_Metacall(QPdfWriter* self, int param1, int param2, void** param3);

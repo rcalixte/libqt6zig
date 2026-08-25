@@ -267,9 +267,8 @@ QMetaObject* QBluetoothSocket_SuperMetaObject(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnMetaObject(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_MetaObject_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +285,8 @@ void* QBluetoothSocket_SuperMetacast(QBluetoothSocket* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnMetacast(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Metacast_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -305,9 +303,8 @@ int QBluetoothSocket_SuperMetacall(QBluetoothSocket* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnMetacall(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Metacall_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +321,8 @@ void QBluetoothSocket_SuperClose(QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnClose(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Close_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +339,8 @@ bool QBluetoothSocket_SuperIsSequential(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnIsSequential(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_IsSequential_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_IsSequential_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -362,9 +357,8 @@ long long QBluetoothSocket_SuperBytesAvailable(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnBytesAvailable(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_BytesAvailable_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -381,9 +375,8 @@ long long QBluetoothSocket_SuperBytesToWrite(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnBytesToWrite(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_BytesToWrite_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -400,9 +393,8 @@ bool QBluetoothSocket_SuperCanReadLine(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnCanReadLine(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_CanReadLine_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_CanReadLine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -419,9 +411,8 @@ long long QBluetoothSocket_SuperReadData(QBluetoothSocket* self, char* data, lon
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnReadData(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_ReadData_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -438,9 +429,8 @@ long long QBluetoothSocket_SuperWriteData(QBluetoothSocket* self, const char* da
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnWriteData(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_WriteData_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +457,8 @@ bool QBluetoothSocket_SuperOpen(QBluetoothSocket* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnOpen(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Open_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +485,8 @@ long long QBluetoothSocket_SuperPos(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnPos(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Pos_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +513,8 @@ long long QBluetoothSocket_SuperSize(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSize(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Size_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +541,8 @@ bool QBluetoothSocket_SuperSeek(QBluetoothSocket* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSeek(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Seek_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +569,8 @@ bool QBluetoothSocket_SuperAtEnd(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnAtEnd(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_AtEnd_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +597,8 @@ bool QBluetoothSocket_SuperReset(QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnReset(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Reset_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +625,8 @@ bool QBluetoothSocket_SuperWaitForReadyRead(QBluetoothSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnWaitForReadyRead(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_WaitForReadyRead_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +653,8 @@ bool QBluetoothSocket_SuperWaitForBytesWritten(QBluetoothSocket* self, int msecs
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnWaitForBytesWritten(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +681,8 @@ long long QBluetoothSocket_SuperReadLineData(QBluetoothSocket* self, char* data,
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnReadLineData(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_ReadLineData_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +709,8 @@ long long QBluetoothSocket_SuperSkipData(QBluetoothSocket* self, long long maxSi
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSkipData(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SkipData_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +737,8 @@ bool QBluetoothSocket_SuperEvent(QBluetoothSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnEvent(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Event_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +765,8 @@ bool QBluetoothSocket_SuperEventFilter(QBluetoothSocket* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnEventFilter(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_EventFilter_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +793,8 @@ void QBluetoothSocket_SuperTimerEvent(QBluetoothSocket* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnTimerEvent(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_TimerEvent_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +821,8 @@ void QBluetoothSocket_SuperChildEvent(QBluetoothSocket* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnChildEvent(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_ChildEvent_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +849,8 @@ void QBluetoothSocket_SuperCustomEvent(QBluetoothSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnCustomEvent(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_CustomEvent_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +877,8 @@ void QBluetoothSocket_SuperConnectNotify(QBluetoothSocket* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnConnectNotify(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +905,8 @@ void QBluetoothSocket_SuperDisconnectNotify(QBluetoothSocket* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnDisconnectNotify(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +933,8 @@ void QBluetoothSocket_SuperSetSocketState(QBluetoothSocket* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSetSocketState(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SetSocketState_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SetSocketState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +961,8 @@ void QBluetoothSocket_SuperSetSocketError(QBluetoothSocket* self, int errorVal) 
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSetSocketError(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SetSocketError_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SetSocketError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +989,8 @@ void QBluetoothSocket_SuperDoDeviceDiscovery(QBluetoothSocket* self, const QBlue
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnDoDeviceDiscovery(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_DoDeviceDiscovery_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_DoDeviceDiscovery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1017,8 @@ void QBluetoothSocket_SuperSetOpenMode(QBluetoothSocket* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSetOpenMode(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SetOpenMode_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1047,8 @@ void QBluetoothSocket_SuperSetErrorString(QBluetoothSocket* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSetErrorString(QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SetErrorString_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1075,8 @@ QObject* QBluetoothSocket_SuperSender(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSender(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Sender_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1103,8 @@ int QBluetoothSocket_SuperSenderSignalIndex(const QBluetoothSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnSenderSignalIndex(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1131,8 @@ int QBluetoothSocket_SuperReceivers(const QBluetoothSocket* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnReceivers(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_Receivers_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1159,8 @@ bool QBluetoothSocket_SuperIsSignalConnected(const QBluetoothSocket* self, const
 // Auxiliary method to allow providing re-implementation
 void QBluetoothSocket_OnIsSignalConnected(const QBluetoothSocket* self, intptr_t slot) {
     auto* vqbluetoothsocket = const_cast<VirtualQBluetoothSocket*>(dynamic_cast<const VirtualQBluetoothSocket*>(self));
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
+    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket)
         vqbluetoothsocket->setQBluetoothSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQBluetoothSocket::QBluetoothSocket_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBluetoothSocket_Delete(QBluetoothSocket* self) {

@@ -66,9 +66,8 @@ QMetaObject* KIO__KUriFilterSearchProviderActions_SuperMetaObject(const KIO__KUr
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -85,9 +84,8 @@ void* KIO__KUriFilterSearchProviderActions_SuperMetacast(KIO__KUriFilterSearchPr
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -104,9 +102,8 @@ int KIO__KUriFilterSearchProviderActions_SuperMetacall(KIO__KUriFilterSearchProv
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnMetacall(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacall_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -133,9 +130,8 @@ bool KIO__KUriFilterSearchProviderActions_SuperEvent(KIO__KUriFilterSearchProvid
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Event_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -162,9 +158,8 @@ bool KIO__KUriFilterSearchProviderActions_SuperEventFilter(KIO__KUriFilterSearch
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnEventFilter(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_EventFilter_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -191,9 +186,8 @@ void KIO__KUriFilterSearchProviderActions_SuperTimerEvent(KIO__KUriFilterSearchP
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnTimerEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_TimerEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -220,9 +214,8 @@ void KIO__KUriFilterSearchProviderActions_SuperChildEvent(KIO__KUriFilterSearchP
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnChildEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ChildEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +242,8 @@ void KIO__KUriFilterSearchProviderActions_SuperCustomEvent(KIO__KUriFilterSearch
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnCustomEvent(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_CustomEvent_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +270,8 @@ void KIO__KUriFilterSearchProviderActions_SuperConnectNotify(KIO__KUriFilterSear
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnConnectNotify(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ConnectNotify_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +298,8 @@ void KIO__KUriFilterSearchProviderActions_SuperDisconnectNotify(KIO__KUriFilterS
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +326,8 @@ QObject* KIO__KUriFilterSearchProviderActions_SuperSender(const KIO__KUriFilterS
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnSender(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Sender_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +354,8 @@ int KIO__KUriFilterSearchProviderActions_SuperSenderSignalIndex(const KIO__KUriF
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +382,8 @@ int KIO__KUriFilterSearchProviderActions_SuperReceivers(const KIO__KUriFilterSea
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnReceivers(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Receivers_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +410,8 @@ bool KIO__KUriFilterSearchProviderActions_SuperIsSignalConnected(const KIO__KUri
 // Auxiliary method to allow providing re-implementation
 void KIO__KUriFilterSearchProviderActions_OnIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
-    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions)
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__KUriFilterSearchProviderActions_Delete(KIO__KUriFilterSearchProviderActions* self) {

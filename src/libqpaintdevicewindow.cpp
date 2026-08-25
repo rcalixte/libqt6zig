@@ -15,6 +15,14 @@
 #include "libqpaintdevicewindow.h"
 #include "libqpaintdevicewindow.hxx"
 
+QPaintDevice* QPaintDeviceWindow_AsQPaintDevice(QPaintDeviceWindow* self) {
+    return static_cast<QPaintDevice*>(self);
+}
+
+QPaintDeviceWindow* QPaintDeviceWindow_FromQPaintDevice(QPaintDevice* _qpaintdevice) {
+    return dynamic_cast<QPaintDeviceWindow*>(static_cast<QPaintDevice*>(_qpaintdevice));
+}
+
 QMetaObject* QPaintDeviceWindow_MetaObject(const QPaintDeviceWindow* self) {
     return (QMetaObject*)self->metaObject();
 }

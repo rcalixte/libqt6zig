@@ -733,7 +733,7 @@ pub const QByteArray__FromBase64Result = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#public-types)
 pub const enums = struct {
-    pub const Base64Option = enum(i32) {
+    pub const Base64Option = enum {
         pub const Base64Encoding: i32 = 0;
         pub const Base64UrlEncoding: i32 = 1;
         pub const KeepTrailingEquals: i32 = 0;
@@ -742,7 +742,7 @@ pub const enums = struct {
         pub const AbortOnBase64DecodingErrors: i32 = 4;
     };
 
-    pub const Base64DecodingStatus = enum(i32) {
+    pub const Base64DecodingStatus = enum {
         pub const Ok: i32 = 0;
         pub const IllegalInputLength: i32 = 1;
         pub const IllegalCharacter: i32 = 2;

@@ -204,9 +204,8 @@ QMetaObject* QDialog_SuperMetaObject(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMetaObject(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MetaObject_Callback(reinterpret_cast<VirtualQDialog::QDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +222,8 @@ void* QDialog_SuperMetacast(QDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMetacast(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Metacast_Callback(reinterpret_cast<VirtualQDialog::QDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +240,8 @@ int QDialog_SuperMetacall(QDialog* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMetacall(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Metacall_Callback(reinterpret_cast<VirtualQDialog::QDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +258,8 @@ void QDialog_SuperSetVisible(QDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnSetVisible(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_SetVisible_Callback(reinterpret_cast<VirtualQDialog::QDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +276,8 @@ QSize* QDialog_SuperSizeHint(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnSizeHint(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_SizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +294,8 @@ QSize* QDialog_SuperMinimumSizeHint(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMinimumSizeHint(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDialog::QDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +312,8 @@ void QDialog_SuperOpen(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnOpen(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Open_Callback(reinterpret_cast<VirtualQDialog::QDialog_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +330,8 @@ int QDialog_SuperExec(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnExec(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Exec_Callback(reinterpret_cast<VirtualQDialog::QDialog_Exec_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +348,8 @@ void QDialog_SuperDone(QDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDone(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Done_Callback(reinterpret_cast<VirtualQDialog::QDialog_Done_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +366,8 @@ void QDialog_SuperAccept(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnAccept(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Accept_Callback(reinterpret_cast<VirtualQDialog::QDialog_Accept_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -394,9 +384,8 @@ void QDialog_SuperReject(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnReject(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Reject_Callback(reinterpret_cast<VirtualQDialog::QDialog_Reject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -413,9 +402,8 @@ void QDialog_SuperKeyPressEvent(QDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnKeyPressEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -432,9 +420,8 @@ void QDialog_SuperCloseEvent(QDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnCloseEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_CloseEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -451,9 +438,8 @@ void QDialog_SuperShowEvent(QDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnShowEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ShowEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -470,9 +456,8 @@ void QDialog_SuperResizeEvent(QDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnResizeEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -489,9 +474,8 @@ void QDialog_SuperContextMenuEvent(QDialog* self, QContextMenuEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnContextMenuEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -508,9 +492,8 @@ bool QDialog_SuperEventFilter(QDialog* self, QObject* param1, QEvent* param2) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnEventFilter(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_EventFilter_Callback(reinterpret_cast<VirtualQDialog::QDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +520,8 @@ int QDialog_SuperDevType(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDevType(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DevType_Callback(reinterpret_cast<VirtualQDialog::QDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +548,8 @@ int QDialog_SuperHeightForWidth(const QDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnHeightForWidth(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQDialog::QDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +576,8 @@ bool QDialog_SuperHasHeightForWidth(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnHasHeightForWidth(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDialog::QDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +604,8 @@ QPaintEngine* QDialog_SuperPaintEngine(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnPaintEngine(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_PaintEngine_Callback(reinterpret_cast<VirtualQDialog::QDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +632,8 @@ bool QDialog_SuperEvent(QDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Event_Callback(reinterpret_cast<VirtualQDialog::QDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +660,8 @@ void QDialog_SuperMousePressEvent(QDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMousePressEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +688,8 @@ void QDialog_SuperMouseReleaseEvent(QDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMouseReleaseEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +716,8 @@ void QDialog_SuperMouseDoubleClickEvent(QDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMouseDoubleClickEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +744,8 @@ void QDialog_SuperMouseMoveEvent(QDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMouseMoveEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +772,8 @@ void QDialog_SuperWheelEvent(QDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnWheelEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_WheelEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +800,8 @@ void QDialog_SuperKeyReleaseEvent(QDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnKeyReleaseEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +828,8 @@ void QDialog_SuperFocusInEvent(QDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnFocusInEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +856,8 @@ void QDialog_SuperFocusOutEvent(QDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnFocusOutEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +884,8 @@ void QDialog_SuperEnterEvent(QDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnEnterEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_EnterEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +912,8 @@ void QDialog_SuperLeaveEvent(QDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnLeaveEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +940,8 @@ void QDialog_SuperPaintEvent(QDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnPaintEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_PaintEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +968,8 @@ void QDialog_SuperMoveEvent(QDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMoveEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_MoveEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +996,8 @@ void QDialog_SuperTabletEvent(QDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnTabletEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_TabletEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1024,8 @@ void QDialog_SuperActionEvent(QDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnActionEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ActionEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1052,8 @@ void QDialog_SuperDragEnterEvent(QDialog* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDragEnterEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1080,8 @@ void QDialog_SuperDragMoveEvent(QDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDragMoveEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1108,8 @@ void QDialog_SuperDragLeaveEvent(QDialog* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDragLeaveEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1175,9 +1136,8 @@ void QDialog_SuperDropEvent(QDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDropEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DropEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1164,8 @@ void QDialog_SuperHideEvent(QDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnHideEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_HideEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1194,8 @@ bool QDialog_SuperNativeEvent(QDialog* self, const libqt_string eventType, void*
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnNativeEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_NativeEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1222,8 @@ void QDialog_SuperChangeEvent(QDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnChangeEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1250,8 @@ int QDialog_SuperMetric(const QDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnMetric(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Metric_Callback(reinterpret_cast<VirtualQDialog::QDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1278,8 @@ void QDialog_SuperInitPainter(const QDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnInitPainter(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_InitPainter_Callback(reinterpret_cast<VirtualQDialog::QDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1306,8 @@ QPaintDevice* QDialog_SuperRedirected(const QDialog* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnRedirected(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Redirected_Callback(reinterpret_cast<VirtualQDialog::QDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1334,8 @@ QPainter* QDialog_SuperSharedPainter(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnSharedPainter(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_SharedPainter_Callback(reinterpret_cast<VirtualQDialog::QDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1362,8 @@ void QDialog_SuperInputMethodEvent(QDialog* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnInputMethodEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1390,8 @@ QVariant* QDialog_SuperInputMethodQuery(const QDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnInputMethodQuery(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQDialog::QDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1418,8 @@ bool QDialog_SuperFocusNextPrevChild(QDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnFocusNextPrevChild(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDialog::QDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1446,8 @@ void QDialog_SuperTimerEvent(QDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnTimerEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_TimerEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1474,8 @@ void QDialog_SuperChildEvent(QDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnChildEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ChildEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1502,8 @@ void QDialog_SuperCustomEvent(QDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnCustomEvent(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_CustomEvent_Callback(reinterpret_cast<VirtualQDialog::QDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1530,8 @@ void QDialog_SuperConnectNotify(QDialog* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnConnectNotify(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQDialog::QDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1558,8 @@ void QDialog_SuperDisconnectNotify(QDialog* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDisconnectNotify(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQDialog::QDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1586,8 @@ void QDialog_SuperAdjustPosition(QDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnAdjustPosition(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQDialog::QDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1614,8 @@ void QDialog_SuperUpdateMicroFocus(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnUpdateMicroFocus(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDialog::QDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1642,8 @@ void QDialog_SuperCreate(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnCreate(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Create_Callback(reinterpret_cast<VirtualQDialog::QDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1670,8 @@ void QDialog_SuperDestroy(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnDestroy(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Destroy_Callback(reinterpret_cast<VirtualQDialog::QDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1698,8 @@ bool QDialog_SuperFocusNextChild(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnFocusNextChild(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQDialog::QDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1726,8 @@ bool QDialog_SuperFocusPreviousChild(QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnFocusPreviousChild(QDialog* self, intptr_t slot) {
     auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDialog::QDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1754,8 @@ QObject* QDialog_SuperSender(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnSender(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Sender_Callback(reinterpret_cast<VirtualQDialog::QDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1844,9 +1782,8 @@ int QDialog_SuperSenderSignalIndex(const QDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnSenderSignalIndex(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDialog::QDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1873,9 +1810,8 @@ int QDialog_SuperReceivers(const QDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnReceivers(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_Receivers_Callback(reinterpret_cast<VirtualQDialog::QDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1902,9 +1838,8 @@ bool QDialog_SuperIsSignalConnected(const QDialog* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnIsSignalConnected(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQDialog::QDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1931,9 +1866,8 @@ double QDialog_SuperGetDecodedMetricF(const QDialog* self, int metricA, int metr
 // Auxiliary method to allow providing re-implementation
 void QDialog_OnGetDecodedMetricF(const QDialog* self, intptr_t slot) {
     auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
-    if (vqdialog && vqdialog->isVirtualQDialog) {
+    if (vqdialog && vqdialog->isVirtualQDialog)
         vqdialog->setQDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDialog::QDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDialog_Delete(QDialog* self) {

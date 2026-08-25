@@ -2306,7 +2306,7 @@ pub const SignOn__AuthService__IdentityRegExp = extern struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Authservice.html)
 pub const enums = struct {
-    pub const ServiceError = enum(i32) {
+    pub const ServiceError = enum {
         pub const UnknownError: i32 = 1;
         pub const InternalServerError: i32 = 2;
         pub const InternalCommunicationError: i32 = 3;
@@ -2317,7 +2317,7 @@ pub const enums = struct {
         pub const InvalidQueryError: i32 = 103;
     };
 
-    pub const SignOn__AuthService = enum(i32) {
+    pub const SignOn__AuthService = enum {
         pub const AuthMethod: i32 = 0;
         pub const Username: i32 = 1;
         pub const Realm: i32 = 2;

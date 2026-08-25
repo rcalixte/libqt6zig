@@ -59,9 +59,8 @@ QMetaObject* KColorSchemeWatcher_SuperMetaObject(const KColorSchemeWatcher* self
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnMetaObject(const KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_MetaObject_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -78,9 +77,8 @@ void* KColorSchemeWatcher_SuperMetacast(KColorSchemeWatcher* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnMetacast(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_Metacast_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +95,8 @@ int KColorSchemeWatcher_SuperMetacall(KColorSchemeWatcher* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnMetacall(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -126,9 +123,8 @@ bool KColorSchemeWatcher_SuperEvent(KColorSchemeWatcher* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnEvent(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_Event_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -155,9 +151,8 @@ bool KColorSchemeWatcher_SuperEventFilter(KColorSchemeWatcher* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnEventFilter(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_EventFilter_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +179,8 @@ void KColorSchemeWatcher_SuperTimerEvent(KColorSchemeWatcher* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnTimerEvent(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_TimerEvent_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +207,8 @@ void KColorSchemeWatcher_SuperChildEvent(KColorSchemeWatcher* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnChildEvent(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_ChildEvent_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +235,8 @@ void KColorSchemeWatcher_SuperCustomEvent(KColorSchemeWatcher* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnCustomEvent(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_CustomEvent_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +263,8 @@ void KColorSchemeWatcher_SuperConnectNotify(KColorSchemeWatcher* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnConnectNotify(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +291,8 @@ void KColorSchemeWatcher_SuperDisconnectNotify(KColorSchemeWatcher* self, const 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnDisconnectNotify(KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +319,8 @@ QObject* KColorSchemeWatcher_SuperSender(const KColorSchemeWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnSender(const KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_Sender_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +347,8 @@ int KColorSchemeWatcher_SuperSenderSignalIndex(const KColorSchemeWatcher* self) 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnSenderSignalIndex(const KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +375,8 @@ int KColorSchemeWatcher_SuperReceivers(const KColorSchemeWatcher* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnReceivers(const KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_Receivers_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +403,8 @@ bool KColorSchemeWatcher_SuperIsSignalConnected(const KColorSchemeWatcher* self,
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeWatcher_OnIsSignalConnected(const KColorSchemeWatcher* self, intptr_t slot) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher)
         vkcolorschemewatcher->setKColorSchemeWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KColorSchemeWatcher_Delete(KColorSchemeWatcher* self) {

@@ -147,9 +147,8 @@ QMetaObject* QScreenCapture_SuperMetaObject(const QScreenCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnMetaObject(const QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_MetaObject_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +165,8 @@ void* QScreenCapture_SuperMetacast(QScreenCapture* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnMetacast(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_Metacast_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +183,8 @@ int QScreenCapture_SuperMetacall(QScreenCapture* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnMetacall(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_Metacall_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +211,8 @@ bool QScreenCapture_SuperEvent(QScreenCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnEvent(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_Event_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +239,8 @@ bool QScreenCapture_SuperEventFilter(QScreenCapture* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnEventFilter(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_EventFilter_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +267,8 @@ void QScreenCapture_SuperTimerEvent(QScreenCapture* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnTimerEvent(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_TimerEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +295,8 @@ void QScreenCapture_SuperChildEvent(QScreenCapture* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnChildEvent(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_ChildEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +323,8 @@ void QScreenCapture_SuperCustomEvent(QScreenCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnCustomEvent(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_CustomEvent_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +351,8 @@ void QScreenCapture_SuperConnectNotify(QScreenCapture* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnConnectNotify(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +379,8 @@ void QScreenCapture_SuperDisconnectNotify(QScreenCapture* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnDisconnectNotify(QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +407,8 @@ QObject* QScreenCapture_SuperSender(const QScreenCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnSender(const QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_Sender_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +435,8 @@ int QScreenCapture_SuperSenderSignalIndex(const QScreenCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnSenderSignalIndex(const QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +463,8 @@ int QScreenCapture_SuperReceivers(const QScreenCapture* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnReceivers(const QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_Receivers_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +491,8 @@ bool QScreenCapture_SuperIsSignalConnected(const QScreenCapture* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QScreenCapture_OnIsSignalConnected(const QScreenCapture* self, intptr_t slot) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture)
         vqscreencapture->setQScreenCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QScreenCapture_Delete(QScreenCapture* self) {

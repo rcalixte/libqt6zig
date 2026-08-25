@@ -4459,7 +4459,7 @@ pub const QsciLexerVerilog = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerVerilog = enum(i32) {
+    pub const QsciLexerVerilog = enum {
         pub const Default: i32 = 0;
         pub const InactiveDefault: i32 = 64;
         pub const Comment: i32 = 1;

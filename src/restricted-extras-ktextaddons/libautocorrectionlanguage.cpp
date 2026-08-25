@@ -97,9 +97,8 @@ QMetaObject* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMetaObject(c
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMetaObject(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MetaObject_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -126,9 +125,8 @@ void* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMetacast(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMetacast(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Metacast_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -155,9 +153,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMetacall(TextAutoCorr
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMetacall(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Metacall_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +181,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSetModel(TextAutoCor
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSetModel(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_SetModel_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +209,8 @@ QSize* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSizeHint(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSizeHint(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_SizeHint_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +237,8 @@ QSize* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMinimumSizeHint(co
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMinimumSizeHint(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +265,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperShowPopup(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnShowPopup(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ShowPopup_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +293,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperHidePopup(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHidePopup(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_HidePopup_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +321,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperEvent(TextAutoCorrec
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Event_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +349,8 @@ QVariant* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperInputMethodQuer
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnInputMethodQuery(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_InputMethodQuery_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +377,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusInEvent(TextAut
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusInEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusInEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +405,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusOutEvent(TextAu
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusOutEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusOutEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +433,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperChangeEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnChangeEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ChangeEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +461,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperResizeEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnResizeEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ResizeEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +489,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperPaintEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnPaintEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_PaintEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +517,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperShowEvent(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnShowEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ShowEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +545,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperHideEvent(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHideEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_HideEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +573,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMousePressEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMousePressEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MousePressEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +601,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMouseReleaseEvent(Te
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMouseReleaseEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +629,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperKeyPressEvent(TextAu
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnKeyPressEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_KeyPressEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +657,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperKeyReleaseEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnKeyReleaseEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +685,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperWheelEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnWheelEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_WheelEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +713,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperContextMenuEvent(Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnContextMenuEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +741,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperInputMethodEvent(Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnInputMethodEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_InputMethodEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +769,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperInitStyleOption(cons
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnInitStyleOption(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_InitStyleOption_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +797,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDevType(const TextAut
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDevType(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DevType_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +825,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSetVisible(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSetVisible(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_SetVisible_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +853,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperHeightForWidth(const 
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHeightForWidth(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_HeightForWidth_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +881,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperHasHeightForWidth(co
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnHasHeightForWidth(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +909,8 @@ QPaintEngine* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperPaintEngine
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnPaintEngine(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_PaintEngine_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +937,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMouseDoubleClickEven
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMouseDoubleClickEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +965,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMouseMoveEvent(TextA
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMouseMoveEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +993,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperEnterEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnEnterEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_EnterEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1021,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperLeaveEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnLeaveEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_LeaveEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1049,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMoveEvent(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMoveEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_MoveEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1077,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperCloseEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnCloseEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_CloseEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1105,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperTabletEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnTabletEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_TabletEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1133,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperActionEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnActionEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ActionEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1161,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDragEnterEvent(TextA
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDragEnterEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DragEnterEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1189,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDragMoveEvent(TextAu
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDragMoveEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DragMoveEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1217,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDragLeaveEvent(TextA
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDragLeaveEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1245,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDropEvent(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDropEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DropEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1275,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperNativeEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnNativeEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_NativeEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1303,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperMetric(const TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnMetric(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Metric_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1331,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperInitPainter(const Te
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnInitPainter(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_InitPainter_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1359,8 @@ QPaintDevice* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperRedirected(
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnRedirected(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Redirected_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1387,8 @@ QPainter* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSharedPainter(c
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSharedPainter(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_SharedPainter_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1415,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusNextPrevChild(T
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusNextPrevChild(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1443,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperEventFilter(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnEventFilter(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_EventFilter_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1471,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperTimerEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnTimerEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_TimerEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1499,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperChildEvent(TextAutoC
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnChildEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ChildEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1527,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperCustomEvent(TextAuto
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnCustomEvent(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_CustomEvent_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1555,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperConnectNotify(TextAu
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnConnectNotify(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_ConnectNotify_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1583,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDisconnectNotify(Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDisconnectNotify(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_DisconnectNotify_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1611,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperUpdateMicroFocus(Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnUpdateMicroFocus(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1639,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperCreate(TextAutoCorre
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnCreate(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Create_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1667,8 @@ void TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperDestroy(TextAutoCorr
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnDestroy(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Destroy_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1695,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusNextChild(TextA
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusNextChild(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusNextChild_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1723,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperFocusPreviousChild(T
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnFocusPreviousChild(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self);
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1751,8 @@ QObject* TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSender(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSender(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Sender_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1779,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperSenderSignalIndex(con
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnSenderSignalIndex(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1807,8 @@ int TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperReceivers(const TextA
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnReceivers(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_Receivers_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1835,8 @@ bool TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperIsSignalConnected(co
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnIsSignalConnected(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_IsSignalConnected_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1863,8 @@ double TextAutoCorrectionWidgets__AutoCorrectionLanguage_SuperGetDecodedMetricF(
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_OnGetDecodedMetricF(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, intptr_t slot) {
     auto* vtextautocorrectionwidgetsautocorrectionlanguage = const_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage*>(self));
-    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage) {
+    if (vtextautocorrectionwidgetsautocorrectionlanguage && vtextautocorrectionwidgetsautocorrectionlanguage->isVirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage)
         vtextautocorrectionwidgetsautocorrectionlanguage->setTextAutoCorrectionWidgets__AutoCorrectionLanguage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionLanguage::TextAutoCorrectionWidgets__AutoCorrectionLanguage_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextAutoCorrectionWidgets__AutoCorrectionLanguage_Delete(TextAutoCorrectionWidgets__AutoCorrectionLanguage* self) {

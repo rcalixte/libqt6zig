@@ -61,9 +61,8 @@ QMetaObject* KListOpenFilesJob_SuperMetaObject(const KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnMetaObject(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_MetaObject_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -80,9 +79,8 @@ void* KListOpenFilesJob_SuperMetacast(KListOpenFilesJob* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnMetacast(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Metacast_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +97,8 @@ int KListOpenFilesJob_SuperMetacall(KListOpenFilesJob* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnMetacall(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Metacall_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +115,8 @@ void KListOpenFilesJob_SuperStart(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnStart(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Start_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -147,9 +143,8 @@ bool KListOpenFilesJob_SuperDoKill(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoKill(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_DoKill_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -176,9 +171,8 @@ bool KListOpenFilesJob_SuperDoSuspend(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoSuspend(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_DoSuspend_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -205,9 +199,8 @@ bool KListOpenFilesJob_SuperDoResume(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDoResume(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_DoResume_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +259,8 @@ libqt_string KListOpenFilesJob_SuperErrorString(const KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnErrorString(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_ErrorString_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +287,8 @@ bool KListOpenFilesJob_SuperEvent(KListOpenFilesJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEvent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Event_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +315,8 @@ bool KListOpenFilesJob_SuperEventFilter(KListOpenFilesJob* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEventFilter(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_EventFilter_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +343,8 @@ void KListOpenFilesJob_SuperTimerEvent(KListOpenFilesJob* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnTimerEvent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_TimerEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +371,8 @@ void KListOpenFilesJob_SuperChildEvent(KListOpenFilesJob* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnChildEvent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_ChildEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +399,8 @@ void KListOpenFilesJob_SuperCustomEvent(KListOpenFilesJob* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnCustomEvent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_CustomEvent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +427,8 @@ void KListOpenFilesJob_SuperConnectNotify(KListOpenFilesJob* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnConnectNotify(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_ConnectNotify_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +455,8 @@ void KListOpenFilesJob_SuperDisconnectNotify(KListOpenFilesJob* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnDisconnectNotify(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +483,8 @@ void KListOpenFilesJob_SuperSetCapabilities(KListOpenFilesJob* self, int capabil
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetCapabilities(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetCapabilities_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +511,8 @@ bool KListOpenFilesJob_SuperIsFinished(const KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnIsFinished(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_IsFinished_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +539,8 @@ void KListOpenFilesJob_SuperSetError(KListOpenFilesJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetError(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetError_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +569,8 @@ void KListOpenFilesJob_SuperSetErrorText(KListOpenFilesJob* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetErrorText(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetErrorText_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +597,8 @@ void KListOpenFilesJob_SuperSetProcessedAmount(KListOpenFilesJob* self, int unit
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetProcessedAmount(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +625,8 @@ void KListOpenFilesJob_SuperSetTotalAmount(KListOpenFilesJob* self, int unit, un
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetTotalAmount(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +653,8 @@ void KListOpenFilesJob_SuperSetProgressUnit(KListOpenFilesJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetProgressUnit(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +681,8 @@ void KListOpenFilesJob_SuperSetPercent(KListOpenFilesJob* self, unsigned long pe
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSetPercent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SetPercent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +709,8 @@ void KListOpenFilesJob_SuperEmitResult(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEmitResult(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_EmitResult_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +737,8 @@ void KListOpenFilesJob_SuperEmitPercent(KListOpenFilesJob* self, unsigned long l
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEmitPercent(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_EmitPercent_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +765,8 @@ void KListOpenFilesJob_SuperEmitSpeed(KListOpenFilesJob* self, unsigned long spe
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnEmitSpeed(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_EmitSpeed_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +793,8 @@ void KListOpenFilesJob_SuperStartElapsedTimer(KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnStartElapsedTimer(KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +821,8 @@ QObject* KListOpenFilesJob_SuperSender(const KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSender(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Sender_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +849,8 @@ int KListOpenFilesJob_SuperSenderSignalIndex(const KListOpenFilesJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnSenderSignalIndex(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +877,8 @@ int KListOpenFilesJob_SuperReceivers(const KListOpenFilesJob* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnReceivers(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_Receivers_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +905,8 @@ bool KListOpenFilesJob_SuperIsSignalConnected(const KListOpenFilesJob* self, con
 // Auxiliary method to allow providing re-implementation
 void KListOpenFilesJob_OnIsSignalConnected(const KListOpenFilesJob* self, intptr_t slot) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob)
         vklistopenfilesjob->setKListOpenFilesJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KListOpenFilesJob_Delete(KListOpenFilesJob* self) {

@@ -2540,7 +2540,7 @@ pub const QColor = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#public-types)
 pub const enums = struct {
-    pub const Spec = enum(i32) {
+    pub const Spec = enum {
         pub const Invalid: i32 = 0;
         pub const Rgb: i32 = 1;
         pub const Hsv: i32 = 2;
@@ -2549,7 +2549,7 @@ pub const enums = struct {
         pub const ExtendedRgb: i32 = 5;
     };
 
-    pub const NameFormat = enum(i32) {
+    pub const NameFormat = enum {
         pub const HexRgb: i32 = 0;
         pub const HexArgb: i32 = 1;
     };

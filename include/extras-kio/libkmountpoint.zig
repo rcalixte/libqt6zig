@@ -286,13 +286,13 @@ pub const KMountPoint__List = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kmountpoint.html#public-types)
 pub const enums = struct {
-    pub const DetailsNeededFlag = enum(i32) {
+    pub const DetailsNeededFlag = enum {
         pub const BasicInfoNeeded: i32 = 0;
         pub const NeedMountOptions: i32 = 1;
         pub const NeedRealDeviceName: i32 = 2;
     };
 
-    pub const FileSystemFlag = enum(i32) {
+    pub const FileSystemFlag = enum {
         pub const SupportsChmod: i32 = 0;
         pub const SupportsChown: i32 = 1;
         pub const SupportsUTime: i32 = 2;

@@ -641,6 +641,31 @@ pub const KCommandBar = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCommandBar `
+    ///
+    pub fn asQPaintDevice(self: KCommandBar) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KCommandBar object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KCommandBar {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6609,7 +6634,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn paintingActive(self: KCommandBar) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6625,7 +6650,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn widthMM(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6641,7 +6666,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn heightMM(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6657,7 +6682,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn logicalDpiX(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6673,7 +6698,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn logicalDpiY(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6689,7 +6714,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn physicalDpiX(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6705,7 +6730,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn physicalDpiY(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6721,7 +6746,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn devicePixelRatio(self: KCommandBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6737,7 +6762,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn devicePixelRatioF(self: KCommandBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6753,7 +6778,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn colorCount(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6769,7 +6794,7 @@ pub const KCommandBar = extern struct {
     /// ` self: KCommandBar `
     ///
     pub fn depth(self: KCommandBar) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

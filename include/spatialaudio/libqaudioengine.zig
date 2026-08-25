@@ -2391,7 +2391,7 @@ pub const QAudioEngine = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioengine.html#public-types)
 pub const enums = struct {
-    pub const OutputMode = enum(i32) {
+    pub const OutputMode = enum {
         pub const Surround: i32 = 0;
         pub const Stereo: i32 = 1;
         pub const Headphone: i32 = 2;

@@ -191,9 +191,8 @@ QMetaObject* KTextEditor__Application_SuperMetaObject(const KTextEditor__Applica
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnMetaObject(const KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = const_cast<VirtualKTextEditorApplication*>(dynamic_cast<const VirtualKTextEditorApplication*>(self));
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -210,9 +209,8 @@ void* KTextEditor__Application_SuperMetacast(KTextEditor__Application* self, con
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnMetacast(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_Metacast_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +227,8 @@ int KTextEditor__Application_SuperMetacall(KTextEditor__Application* self, int p
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnMetacall(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_Metacall_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +255,8 @@ bool KTextEditor__Application_SuperEvent(KTextEditor__Application* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnEvent(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_Event_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +283,8 @@ bool KTextEditor__Application_SuperEventFilter(KTextEditor__Application* self, Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnEventFilter(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +311,8 @@ void KTextEditor__Application_SuperTimerEvent(KTextEditor__Application* self, QT
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnTimerEvent(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +339,8 @@ void KTextEditor__Application_SuperChildEvent(KTextEditor__Application* self, QC
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnChildEvent(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +367,8 @@ void KTextEditor__Application_SuperCustomEvent(KTextEditor__Application* self, Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnCustomEvent(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +395,8 @@ void KTextEditor__Application_SuperConnectNotify(KTextEditor__Application* self,
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnConnectNotify(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +423,8 @@ void KTextEditor__Application_SuperDisconnectNotify(KTextEditor__Application* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnDisconnectNotify(KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = dynamic_cast<VirtualKTextEditorApplication*>(self);
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +451,8 @@ QObject* KTextEditor__Application_SuperSender(const KTextEditor__Application* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnSender(const KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = const_cast<VirtualKTextEditorApplication*>(dynamic_cast<const VirtualKTextEditorApplication*>(self));
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_Sender_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +479,8 @@ int KTextEditor__Application_SuperSenderSignalIndex(const KTextEditor__Applicati
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnSenderSignalIndex(const KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = const_cast<VirtualKTextEditorApplication*>(dynamic_cast<const VirtualKTextEditorApplication*>(self));
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +507,8 @@ int KTextEditor__Application_SuperReceivers(const KTextEditor__Application* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnReceivers(const KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = const_cast<VirtualKTextEditorApplication*>(dynamic_cast<const VirtualKTextEditorApplication*>(self));
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_Receivers_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +535,8 @@ bool KTextEditor__Application_SuperIsSignalConnected(const KTextEditor__Applicat
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Application_OnIsSignalConnected(const KTextEditor__Application* self, intptr_t slot) {
     auto* vktexteditorapplication = const_cast<VirtualKTextEditorApplication*>(dynamic_cast<const VirtualKTextEditorApplication*>(self));
-    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication) {
+    if (vktexteditorapplication && vktexteditorapplication->isVirtualKTextEditorApplication)
         vktexteditorapplication->setKTextEditor__Application_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorApplication::KTextEditor__Application_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__Application_Delete(KTextEditor__Application* self) {

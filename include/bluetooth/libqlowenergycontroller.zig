@@ -2021,7 +2021,7 @@ pub const QLowEnergyController = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycontroller.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const UnknownError: i32 = 1;
         pub const UnknownRemoteDeviceError: i32 = 2;
@@ -2035,7 +2035,7 @@ pub const enums = struct {
         pub const RssiReadError: i32 = 10;
     };
 
-    pub const ControllerState = enum(i32) {
+    pub const ControllerState = enum {
         pub const UnconnectedState: i32 = 0;
         pub const ConnectingState: i32 = 1;
         pub const ConnectedState: i32 = 2;
@@ -2045,12 +2045,12 @@ pub const enums = struct {
         pub const AdvertisingState: i32 = 6;
     };
 
-    pub const RemoteAddressType = enum(i32) {
+    pub const RemoteAddressType = enum {
         pub const PublicAddress: i32 = 0;
         pub const RandomAddress: i32 = 1;
     };
 
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const CentralRole: i32 = 0;
         pub const PeripheralRole: i32 = 1;
     };

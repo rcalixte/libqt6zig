@@ -357,9 +357,8 @@ QMetaObject* KCompletion_SuperMetaObject(const KCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMetaObject(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_MetaObject_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +375,8 @@ void* KCompletion_SuperMetacast(KCompletion* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMetacast(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Metacast_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +393,8 @@ int KCompletion_SuperMetacall(KCompletion* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMetacall(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Metacall_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -430,9 +427,8 @@ libqt_string KCompletion_SuperLastMatch(const KCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnLastMatch(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_LastMatch_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_LastMatch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -449,9 +445,8 @@ void KCompletion_SuperSetCompletionMode(KCompletion* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetCompletionMode(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetCompletionMode_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -468,9 +463,8 @@ void KCompletion_SuperSetOrder(KCompletion* self, int order) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetOrder(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetOrder_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetOrder_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -487,9 +481,8 @@ void KCompletion_SuperSetIgnoreCase(KCompletion* self, bool ignoreCase) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetIgnoreCase(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetIgnoreCase_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetIgnoreCase_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -506,9 +499,8 @@ void KCompletion_SuperSetSoundsEnabled(KCompletion* self, bool enable) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetSoundsEnabled(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetSoundsEnabled_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetSoundsEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -542,9 +534,8 @@ libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_stri
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnMakeCompletion(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_MakeCompletion_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -568,9 +559,8 @@ void KCompletion_SuperSetItems(KCompletion* self, const libqt_list /* of libqt_s
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetItems(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetItems_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetItems_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -587,9 +577,8 @@ void KCompletion_SuperClear(KCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnClear(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Clear_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -613,9 +602,8 @@ void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* 
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnPostProcessMatches(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -632,9 +620,8 @@ void KCompletion_SuperPostProcessMatches2(const KCompletion* self, KCompletionMa
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnPostProcessMatches2(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +648,8 @@ bool KCompletion_SuperEvent(KCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnEvent(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Event_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +676,8 @@ bool KCompletion_SuperEventFilter(KCompletion* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnEventFilter(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_EventFilter_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +704,8 @@ void KCompletion_SuperTimerEvent(KCompletion* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnTimerEvent(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_TimerEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +732,8 @@ void KCompletion_SuperChildEvent(KCompletion* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnChildEvent(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_ChildEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +760,8 @@ void KCompletion_SuperCustomEvent(KCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnCustomEvent(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_CustomEvent_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +788,8 @@ void KCompletion_SuperConnectNotify(KCompletion* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnConnectNotify(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_ConnectNotify_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +816,8 @@ void KCompletion_SuperDisconnectNotify(KCompletion* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnDisconnectNotify(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +844,8 @@ void KCompletion_SuperSetShouldAutoSuggest(KCompletion* self, bool shouldAutosug
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSetShouldAutoSuggest(KCompletion* self, intptr_t slot) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SetShouldAutoSuggest_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SetShouldAutoSuggest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +872,8 @@ QObject* KCompletion_SuperSender(const KCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSender(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Sender_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +900,8 @@ int KCompletion_SuperSenderSignalIndex(const KCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnSenderSignalIndex(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +928,8 @@ int KCompletion_SuperReceivers(const KCompletion* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnReceivers(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_Receivers_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +956,8 @@ bool KCompletion_SuperIsSignalConnected(const KCompletion* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KCompletion_OnIsSignalConnected(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+    if (vkcompletion && vkcompletion->isVirtualKCompletion)
         vkcompletion->setKCompletion_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCompletion_Delete(KCompletion* self) {

@@ -52,9 +52,8 @@ void Konsole__Filter_SuperProcess(Konsole__Filter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnProcess(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Process_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Process_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -81,9 +80,8 @@ QMetaObject* Konsole__Filter_SuperMetaObject(const Konsole__Filter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnMetaObject(const Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -110,9 +108,8 @@ void* Konsole__Filter_SuperMetacast(Konsole__Filter* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnMetacast(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Metacast_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -139,9 +136,8 @@ int Konsole__Filter_SuperMetacall(Konsole__Filter* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnMetacall(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Metacall_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -168,9 +164,8 @@ bool Konsole__Filter_SuperEvent(Konsole__Filter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnEvent(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Event_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -197,9 +192,8 @@ bool Konsole__Filter_SuperEventFilter(Konsole__Filter* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnEventFilter(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_EventFilter_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +220,8 @@ void Konsole__Filter_SuperTimerEvent(Konsole__Filter* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnTimerEvent(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_TimerEvent_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +248,8 @@ void Konsole__Filter_SuperChildEvent(Konsole__Filter* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnChildEvent(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_ChildEvent_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ void Konsole__Filter_SuperCustomEvent(Konsole__Filter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnCustomEvent(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_CustomEvent_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ void Konsole__Filter_SuperConnectNotify(Konsole__Filter* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnConnectNotify(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_ConnectNotify_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +332,8 @@ void Konsole__Filter_SuperDisconnectNotify(Konsole__Filter* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnDisconnectNotify(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_DisconnectNotify_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +360,8 @@ void Konsole__Filter_SuperAddHotSpot(Konsole__Filter* self, Konsole__Filter__Hot
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnAddHotSpot(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_AddHotSpot_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_AddHotSpot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +420,8 @@ libqt_string Konsole__Filter_SuperBuffer(Konsole__Filter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnBuffer(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Buffer_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Buffer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +448,8 @@ void Konsole__Filter_SuperGetLineColumn(Konsole__Filter* self, int position, int
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnGetLineColumn(Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_GetLineColumn_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_GetLineColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +476,8 @@ QObject* Konsole__Filter_SuperSender(const Konsole__Filter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnSender(const Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Sender_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +504,8 @@ int Konsole__Filter_SuperSenderSignalIndex(const Konsole__Filter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnSenderSignalIndex(const Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +532,8 @@ int Konsole__Filter_SuperReceivers(const Konsole__Filter* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnReceivers(const Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_Receivers_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +560,8 @@ bool Konsole__Filter_SuperIsSignalConnected(const Konsole__Filter* self, const Q
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter_OnIsSignalConnected(const Konsole__Filter* self, intptr_t slot) {
     auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
-    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter)
         vkonsolefilter->setKonsole__Filter_IsSignalConnected_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Konsole__Filter_Delete(Konsole__Filter* self) {
@@ -624,9 +606,8 @@ void Konsole__RegExpFilter_SuperProcess(Konsole__RegExpFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnProcess(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Process_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Process_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -643,9 +624,8 @@ Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_SuperNewHotSpot(Konsole__R
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnNewHotSpot(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_NewHotSpot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +652,8 @@ QMetaObject* Konsole__RegExpFilter_SuperMetaObject(const Konsole__RegExpFilter* 
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnMetaObject(const Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +680,8 @@ void* Konsole__RegExpFilter_SuperMetacast(Konsole__RegExpFilter* self, const cha
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnMetacast(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacast_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +708,8 @@ int Konsole__RegExpFilter_SuperMetacall(Konsole__RegExpFilter* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnMetacall(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacall_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +736,8 @@ bool Konsole__RegExpFilter_SuperEvent(Konsole__RegExpFilter* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnEvent(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Event_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +764,8 @@ bool Konsole__RegExpFilter_SuperEventFilter(Konsole__RegExpFilter* self, QObject
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnEventFilter(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_EventFilter_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +792,8 @@ void Konsole__RegExpFilter_SuperTimerEvent(Konsole__RegExpFilter* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnTimerEvent(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_TimerEvent_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +820,8 @@ void Konsole__RegExpFilter_SuperChildEvent(Konsole__RegExpFilter* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnChildEvent(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_ChildEvent_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +848,8 @@ void Konsole__RegExpFilter_SuperCustomEvent(Konsole__RegExpFilter* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnCustomEvent(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_CustomEvent_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +876,8 @@ void Konsole__RegExpFilter_SuperConnectNotify(Konsole__RegExpFilter* self, const
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnConnectNotify(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_ConnectNotify_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +904,8 @@ void Konsole__RegExpFilter_SuperDisconnectNotify(Konsole__RegExpFilter* self, co
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnDisconnectNotify(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_DisconnectNotify_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +932,8 @@ void Konsole__RegExpFilter_SuperAddHotSpot(Konsole__RegExpFilter* self, Konsole_
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnAddHotSpot(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_AddHotSpot_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_AddHotSpot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +992,8 @@ libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole__RegExpFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnBuffer(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Buffer_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Buffer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1020,8 @@ void Konsole__RegExpFilter_SuperGetLineColumn(Konsole__RegExpFilter* self, int p
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnGetLineColumn(Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_GetLineColumn_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_GetLineColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1081,9 +1048,8 @@ QObject* Konsole__RegExpFilter_SuperSender(const Konsole__RegExpFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnSender(const Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Sender_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1110,9 +1076,8 @@ int Konsole__RegExpFilter_SuperSenderSignalIndex(const Konsole__RegExpFilter* se
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnSenderSignalIndex(const Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1139,9 +1104,8 @@ int Konsole__RegExpFilter_SuperReceivers(const Konsole__RegExpFilter* self, cons
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnReceivers(const Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Receivers_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1168,9 +1132,8 @@ bool Konsole__RegExpFilter_SuperIsSignalConnected(const Konsole__RegExpFilter* s
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter_OnIsSignalConnected(const Konsole__RegExpFilter* self, intptr_t slot) {
     auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
-    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter)
         vkonsoleregexpfilter->setKonsole__RegExpFilter_IsSignalConnected_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Konsole__RegExpFilter_Delete(Konsole__RegExpFilter* self) {
@@ -1230,9 +1193,8 @@ QMetaObject* Konsole__UrlFilter_SuperMetaObject(const Konsole__UrlFilter* self) 
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnMetaObject(const Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1249,9 +1211,8 @@ void* Konsole__UrlFilter_SuperMetacast(Konsole__UrlFilter* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnMetacast(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Metacast_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1268,9 +1229,8 @@ int Konsole__UrlFilter_SuperMetacall(Konsole__UrlFilter* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnMetacall(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Metacall_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1287,9 +1247,8 @@ Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_SuperNewHotSpot(Konsole__UrlF
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnNewHotSpot(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_NewHotSpot_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_NewHotSpot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1275,8 @@ void Konsole__UrlFilter_SuperProcess(Konsole__UrlFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnProcess(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Process_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Process_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1303,8 @@ bool Konsole__UrlFilter_SuperEvent(Konsole__UrlFilter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnEvent(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Event_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1331,8 @@ bool Konsole__UrlFilter_SuperEventFilter(Konsole__UrlFilter* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnEventFilter(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_EventFilter_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1359,8 @@ void Konsole__UrlFilter_SuperTimerEvent(Konsole__UrlFilter* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnTimerEvent(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_TimerEvent_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1387,8 @@ void Konsole__UrlFilter_SuperChildEvent(Konsole__UrlFilter* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnChildEvent(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_ChildEvent_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1415,8 @@ void Konsole__UrlFilter_SuperCustomEvent(Konsole__UrlFilter* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnCustomEvent(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_CustomEvent_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1443,8 @@ void Konsole__UrlFilter_SuperConnectNotify(Konsole__UrlFilter* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnConnectNotify(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_ConnectNotify_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1471,8 @@ void Konsole__UrlFilter_SuperDisconnectNotify(Konsole__UrlFilter* self, const QM
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnDisconnectNotify(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_DisconnectNotify_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1499,8 @@ void Konsole__UrlFilter_SuperAddHotSpot(Konsole__UrlFilter* self, Konsole__Filte
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnAddHotSpot(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_AddHotSpot_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_AddHotSpot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1559,8 @@ libqt_string Konsole__UrlFilter_SuperBuffer(Konsole__UrlFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnBuffer(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Buffer_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Buffer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1587,8 @@ void Konsole__UrlFilter_SuperGetLineColumn(Konsole__UrlFilter* self, int positio
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnGetLineColumn(Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_GetLineColumn_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_GetLineColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1615,8 @@ QObject* Konsole__UrlFilter_SuperSender(const Konsole__UrlFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnSender(const Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Sender_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1643,8 @@ int Konsole__UrlFilter_SuperSenderSignalIndex(const Konsole__UrlFilter* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnSenderSignalIndex(const Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1671,8 @@ int Konsole__UrlFilter_SuperReceivers(const Konsole__UrlFilter* self, const char
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnReceivers(const Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_Receivers_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1699,8 @@ bool Konsole__UrlFilter_SuperIsSignalConnected(const Konsole__UrlFilter* self, c
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter_OnIsSignalConnected(const Konsole__UrlFilter* self, intptr_t slot) {
     auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
-    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter)
         vkonsoleurlfilter->setKonsole__UrlFilter_IsSignalConnected_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Konsole__UrlFilter_Delete(Konsole__UrlFilter* self) {
@@ -1816,9 +1760,8 @@ QMetaObject* Konsole__FilterObject_SuperMetaObject(const Konsole__FilterObject* 
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnMetaObject(const Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_MetaObject_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1835,9 +1778,8 @@ void* Konsole__FilterObject_SuperMetacast(Konsole__FilterObject* self, const cha
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnMetacast(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_Metacast_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1854,9 +1796,8 @@ int Konsole__FilterObject_SuperMetacall(Konsole__FilterObject* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnMetacall(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_Metacall_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1883,9 +1824,8 @@ bool Konsole__FilterObject_SuperEvent(Konsole__FilterObject* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnEvent(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_Event_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1912,9 +1852,8 @@ bool Konsole__FilterObject_SuperEventFilter(Konsole__FilterObject* self, QObject
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnEventFilter(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_EventFilter_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1941,9 +1880,8 @@ void Konsole__FilterObject_SuperTimerEvent(Konsole__FilterObject* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnTimerEvent(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_TimerEvent_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1970,9 +1908,8 @@ void Konsole__FilterObject_SuperChildEvent(Konsole__FilterObject* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnChildEvent(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_ChildEvent_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1999,9 +1936,8 @@ void Konsole__FilterObject_SuperCustomEvent(Konsole__FilterObject* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnCustomEvent(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_CustomEvent_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2028,9 +1964,8 @@ void Konsole__FilterObject_SuperConnectNotify(Konsole__FilterObject* self, const
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnConnectNotify(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_ConnectNotify_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2057,9 +1992,8 @@ void Konsole__FilterObject_SuperDisconnectNotify(Konsole__FilterObject* self, co
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnDisconnectNotify(Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_DisconnectNotify_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2086,9 +2020,8 @@ QObject* Konsole__FilterObject_SuperSender(const Konsole__FilterObject* self) {
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnSender(const Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_Sender_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2115,9 +2048,8 @@ int Konsole__FilterObject_SuperSenderSignalIndex(const Konsole__FilterObject* se
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnSenderSignalIndex(const Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2144,9 +2076,8 @@ int Konsole__FilterObject_SuperReceivers(const Konsole__FilterObject* self, cons
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnReceivers(const Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_Receivers_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2173,9 +2104,8 @@ bool Konsole__FilterObject_SuperIsSignalConnected(const Konsole__FilterObject* s
 // Auxiliary method to allow providing re-implementation
 void Konsole__FilterObject_OnIsSignalConnected(const Konsole__FilterObject* self, intptr_t slot) {
     auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
-    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject)
         vkonsolefilterobject->setKonsole__FilterObject_IsSignalConnected_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Konsole__FilterObject_Delete(Konsole__FilterObject* self) {
@@ -2312,9 +2242,8 @@ void Konsole__Filter__HotSpot_SuperActivate(Konsole__Filter__HotSpot* self, cons
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter__HotSpot_OnActivate(Konsole__Filter__HotSpot* self, intptr_t slot) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot)
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Activate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2349,9 +2278,8 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_SuperActions(Konsole__Filt
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter__HotSpot_OnActions(Konsole__Filter__HotSpot* self, intptr_t slot) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot)
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_Actions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2378,9 +2306,8 @@ void Konsole__Filter__HotSpot_SuperSetType(Konsole__Filter__HotSpot* self, int t
 // Auxiliary method to allow providing re-implementation
 void Konsole__Filter__HotSpot_OnSetType(Konsole__Filter__HotSpot* self, intptr_t slot) {
     auto* vkonsolefilterhotspot = dynamic_cast<VirtualKonsoleFilterHotSpot*>(self);
-    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot) {
+    if (vkonsolefilterhotspot && vkonsolefilterhotspot->isVirtualKonsoleFilterHotSpot)
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_SetType_Callback(reinterpret_cast<VirtualKonsoleFilterHotSpot::Konsole__Filter__HotSpot_SetType_Callback>(slot));
-    }
 }
 
 void Konsole__Filter__HotSpot_Delete(Konsole__Filter__HotSpot* self) {
@@ -2447,9 +2374,8 @@ void Konsole__RegExpFilter__HotSpot_SuperActivate(Konsole__RegExpFilter__HotSpot
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter__HotSpot_OnActivate(Konsole__RegExpFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
-    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
+    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot)
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleRegExpFilterHotSpot::Konsole__RegExpFilter__HotSpot_Activate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2512,9 +2438,8 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_SuperActions(Konsole
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter__HotSpot_OnActions(Konsole__RegExpFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
-    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
+    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot)
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleRegExpFilterHotSpot::Konsole__RegExpFilter__HotSpot_Actions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2541,9 +2466,8 @@ void Konsole__RegExpFilter__HotSpot_SuperSetType(Konsole__RegExpFilter__HotSpot*
 // Auxiliary method to allow providing re-implementation
 void Konsole__RegExpFilter__HotSpot_OnSetType(Konsole__RegExpFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleregexpfilterhotspot = dynamic_cast<VirtualKonsoleRegExpFilterHotSpot*>(self);
-    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
+    if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot)
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_SetType_Callback(reinterpret_cast<VirtualKonsoleRegExpFilterHotSpot::Konsole__RegExpFilter__HotSpot_SetType_Callback>(slot));
-    }
 }
 
 void Konsole__RegExpFilter__HotSpot_Delete(Konsole__RegExpFilter__HotSpot* self) {
@@ -2608,9 +2532,8 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_SuperActions(Konsole__U
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter__HotSpot_OnActions(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot)
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Actions_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Actions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2628,9 +2551,8 @@ void Konsole__UrlFilter__HotSpot_SuperActivate(Konsole__UrlFilter__HotSpot* self
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter__HotSpot_OnActivate(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot)
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Activate_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_Activate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2657,9 +2579,8 @@ void Konsole__UrlFilter__HotSpot_SuperSetType(Konsole__UrlFilter__HotSpot* self,
 // Auxiliary method to allow providing re-implementation
 void Konsole__UrlFilter__HotSpot_OnSetType(Konsole__UrlFilter__HotSpot* self, intptr_t slot) {
     auto* vkonsoleurlfilterhotspot = dynamic_cast<VirtualKonsoleUrlFilterHotSpot*>(self);
-    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot) {
+    if (vkonsoleurlfilterhotspot && vkonsoleurlfilterhotspot->isVirtualKonsoleUrlFilterHotSpot)
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_SetType_Callback(reinterpret_cast<VirtualKonsoleUrlFilterHotSpot::Konsole__UrlFilter__HotSpot_SetType_Callback>(slot));
-    }
 }
 
 void Konsole__UrlFilter__HotSpot_Delete(Konsole__UrlFilter__HotSpot* self) {

@@ -114,9 +114,8 @@ int QPicture_SuperDevType(const QPicture* self) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnDevType(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_DevType_Callback(reinterpret_cast<VirtualQPicture::QPicture_DevType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +132,8 @@ void QPicture_SuperSetData(QPicture* self, const char* data, unsigned int size) 
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnSetData(QPicture* self, intptr_t slot) {
     auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_SetData_Callback(reinterpret_cast<VirtualQPicture::QPicture_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +150,8 @@ QPaintEngine* QPicture_SuperPaintEngine(const QPicture* self) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnPaintEngine(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_PaintEngine_Callback(reinterpret_cast<VirtualQPicture::QPicture_PaintEngine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +168,8 @@ int QPicture_SuperMetric(const QPicture* self, int m) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnMetric(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_Metric_Callback(reinterpret_cast<VirtualQPicture::QPicture_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +196,8 @@ void QPicture_SuperInitPainter(const QPicture* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnInitPainter(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_InitPainter_Callback(reinterpret_cast<VirtualQPicture::QPicture_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +224,8 @@ QPaintDevice* QPicture_SuperRedirected(const QPicture* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnRedirected(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_Redirected_Callback(reinterpret_cast<VirtualQPicture::QPicture_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +252,8 @@ QPainter* QPicture_SuperSharedPainter(const QPicture* self) {
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnSharedPainter(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_SharedPainter_Callback(reinterpret_cast<VirtualQPicture::QPicture_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +280,8 @@ double QPicture_SuperGetDecodedMetricF(const QPicture* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnGetDecodedMetricF(const QPicture* self, intptr_t slot) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture && vqpicture->isVirtualQPicture)
         vqpicture->setQPicture_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPicture::QPicture_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QPicture_Delete(QPicture* self) {

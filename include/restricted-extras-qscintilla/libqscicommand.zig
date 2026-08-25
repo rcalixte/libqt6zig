@@ -157,7 +157,7 @@ pub const QsciCommand = extern struct {
 };
 
 pub const enums = struct {
-    pub const Command = enum(i32) {
+    pub const Command = enum {
         pub const LineDown: i32 = 2300;
         pub const LineDownExtend: i32 = 2301;
         pub const LineDownRectExtend: i32 = 2426;

@@ -241,9 +241,8 @@ QMetaObject* QGroupBox_SuperMetaObject(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMetaObject(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MetaObject_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +259,8 @@ void* QGroupBox_SuperMetacast(QGroupBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMetacast(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Metacast_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +277,8 @@ int QGroupBox_SuperMetacall(QGroupBox* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMetacall(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Metacall_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +295,8 @@ QSize* QGroupBox_SuperMinimumSizeHint(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMinimumSizeHint(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +313,8 @@ bool QGroupBox_SuperEvent(QGroupBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Event_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +331,8 @@ void QGroupBox_SuperChildEvent(QGroupBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnChildEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ChildEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -355,9 +349,8 @@ void QGroupBox_SuperResizeEvent(QGroupBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnResizeEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ResizeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -374,9 +367,8 @@ void QGroupBox_SuperPaintEvent(QGroupBox* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnPaintEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_PaintEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -393,9 +385,8 @@ void QGroupBox_SuperFocusInEvent(QGroupBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnFocusInEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_FocusInEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -412,9 +403,8 @@ void QGroupBox_SuperChangeEvent(QGroupBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnChangeEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ChangeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -431,9 +421,8 @@ void QGroupBox_SuperMousePressEvent(QGroupBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMousePressEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MousePressEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -450,9 +439,8 @@ void QGroupBox_SuperMouseMoveEvent(QGroupBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMouseMoveEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -469,9 +457,8 @@ void QGroupBox_SuperMouseReleaseEvent(QGroupBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMouseReleaseEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -488,9 +475,8 @@ void QGroupBox_SuperInitStyleOption(const QGroupBox* self, QStyleOptionGroupBox*
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnInitStyleOption(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_InitStyleOption_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +503,8 @@ int QGroupBox_SuperDevType(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDevType(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DevType_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +531,8 @@ void QGroupBox_SuperSetVisible(QGroupBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnSetVisible(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_SetVisible_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +559,8 @@ QSize* QGroupBox_SuperSizeHint(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnSizeHint(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_SizeHint_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +587,8 @@ int QGroupBox_SuperHeightForWidth(const QGroupBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnHeightForWidth(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_HeightForWidth_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +615,8 @@ bool QGroupBox_SuperHasHeightForWidth(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnHasHeightForWidth(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +643,8 @@ QPaintEngine* QGroupBox_SuperPaintEngine(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnPaintEngine(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_PaintEngine_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +671,8 @@ void QGroupBox_SuperMouseDoubleClickEvent(QGroupBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMouseDoubleClickEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +699,8 @@ void QGroupBox_SuperWheelEvent(QGroupBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnWheelEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_WheelEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +727,8 @@ void QGroupBox_SuperKeyPressEvent(QGroupBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnKeyPressEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +755,8 @@ void QGroupBox_SuperKeyReleaseEvent(QGroupBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnKeyReleaseEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +783,8 @@ void QGroupBox_SuperFocusOutEvent(QGroupBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnFocusOutEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +811,8 @@ void QGroupBox_SuperEnterEvent(QGroupBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnEnterEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_EnterEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +839,8 @@ void QGroupBox_SuperLeaveEvent(QGroupBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnLeaveEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_LeaveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +867,8 @@ void QGroupBox_SuperMoveEvent(QGroupBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMoveEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_MoveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +895,8 @@ void QGroupBox_SuperCloseEvent(QGroupBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnCloseEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_CloseEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +923,8 @@ void QGroupBox_SuperContextMenuEvent(QGroupBox* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnContextMenuEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +951,8 @@ void QGroupBox_SuperTabletEvent(QGroupBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnTabletEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_TabletEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +979,8 @@ void QGroupBox_SuperActionEvent(QGroupBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnActionEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ActionEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1007,8 @@ void QGroupBox_SuperDragEnterEvent(QGroupBox* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDragEnterEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1035,8 @@ void QGroupBox_SuperDragMoveEvent(QGroupBox* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDragMoveEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1063,8 @@ void QGroupBox_SuperDragLeaveEvent(QGroupBox* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDragLeaveEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1091,8 @@ void QGroupBox_SuperDropEvent(QGroupBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDropEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DropEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1119,8 @@ void QGroupBox_SuperShowEvent(QGroupBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnShowEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ShowEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1147,8 @@ void QGroupBox_SuperHideEvent(QGroupBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnHideEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_HideEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1177,8 @@ bool QGroupBox_SuperNativeEvent(QGroupBox* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnNativeEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_NativeEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1205,8 @@ int QGroupBox_SuperMetric(const QGroupBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnMetric(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Metric_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1233,8 @@ void QGroupBox_SuperInitPainter(const QGroupBox* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnInitPainter(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_InitPainter_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1261,8 @@ QPaintDevice* QGroupBox_SuperRedirected(const QGroupBox* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnRedirected(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Redirected_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1289,8 @@ QPainter* QGroupBox_SuperSharedPainter(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnSharedPainter(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_SharedPainter_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1317,8 @@ void QGroupBox_SuperInputMethodEvent(QGroupBox* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnInputMethodEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1345,8 @@ QVariant* QGroupBox_SuperInputMethodQuery(const QGroupBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnInputMethodQuery(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1373,8 @@ bool QGroupBox_SuperFocusNextPrevChild(QGroupBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnFocusNextPrevChild(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1401,8 @@ bool QGroupBox_SuperEventFilter(QGroupBox* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnEventFilter(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_EventFilter_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1429,8 @@ void QGroupBox_SuperTimerEvent(QGroupBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnTimerEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_TimerEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1457,8 @@ void QGroupBox_SuperCustomEvent(QGroupBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnCustomEvent(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_CustomEvent_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1485,8 @@ void QGroupBox_SuperConnectNotify(QGroupBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnConnectNotify(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_ConnectNotify_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1513,8 @@ void QGroupBox_SuperDisconnectNotify(QGroupBox* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDisconnectNotify(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1541,8 @@ void QGroupBox_SuperUpdateMicroFocus(QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnUpdateMicroFocus(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1569,8 @@ void QGroupBox_SuperCreate(QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnCreate(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Create_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1597,8 @@ void QGroupBox_SuperDestroy(QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnDestroy(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Destroy_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1625,8 @@ bool QGroupBox_SuperFocusNextChild(QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnFocusNextChild(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_FocusNextChild_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1653,8 @@ bool QGroupBox_SuperFocusPreviousChild(QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnFocusPreviousChild(QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1681,8 @@ QObject* QGroupBox_SuperSender(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnSender(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Sender_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1709,8 @@ int QGroupBox_SuperSenderSignalIndex(const QGroupBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnSenderSignalIndex(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1737,8 @@ int QGroupBox_SuperReceivers(const QGroupBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnReceivers(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_Receivers_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1765,8 @@ bool QGroupBox_SuperIsSignalConnected(const QGroupBox* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnIsSignalConnected(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1793,8 @@ double QGroupBox_SuperGetDecodedMetricF(const QGroupBox* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QGroupBox_OnGetDecodedMetricF(const QGroupBox* self, intptr_t slot) {
     auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox)
         vqgroupbox->setQGroupBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QGroupBox_Delete(QGroupBox* self) {

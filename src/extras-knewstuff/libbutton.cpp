@@ -111,9 +111,8 @@ QMetaObject* KNSWidgets__Button_SuperMetaObject(const KNSWidgets__Button* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMetaObject(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +129,8 @@ void* KNSWidgets__Button_SuperMetacast(KNSWidgets__Button* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMetacast(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +147,8 @@ int KNSWidgets__Button_SuperMetacall(KNSWidgets__Button* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMetacall(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Metacall_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +175,8 @@ QSize* KNSWidgets__Button_SuperSizeHint(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnSizeHint(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_SizeHint_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +203,8 @@ QSize* KNSWidgets__Button_SuperMinimumSizeHint(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMinimumSizeHint(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +231,8 @@ bool KNSWidgets__Button_SuperEvent(KNSWidgets__Button* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Event_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +259,8 @@ void KNSWidgets__Button_SuperPaintEvent(KNSWidgets__Button* self, QPaintEvent* p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnPaintEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_PaintEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +287,8 @@ void KNSWidgets__Button_SuperKeyPressEvent(KNSWidgets__Button* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnKeyPressEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_KeyPressEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +315,8 @@ void KNSWidgets__Button_SuperFocusInEvent(KNSWidgets__Button* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnFocusInEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_FocusInEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +343,8 @@ void KNSWidgets__Button_SuperFocusOutEvent(KNSWidgets__Button* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnFocusOutEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_FocusOutEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +371,8 @@ void KNSWidgets__Button_SuperMouseMoveEvent(KNSWidgets__Button* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMouseMoveEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +399,8 @@ void KNSWidgets__Button_SuperInitStyleOption(const KNSWidgets__Button* self, QSt
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnInitStyleOption(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_InitStyleOption_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +427,8 @@ bool KNSWidgets__Button_SuperHitButton(const KNSWidgets__Button* self, const QPo
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnHitButton(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_HitButton_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ void KNSWidgets__Button_SuperCheckStateSet(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnCheckStateSet(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_CheckStateSet_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +483,8 @@ void KNSWidgets__Button_SuperNextCheckState(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnNextCheckState(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_NextCheckState_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +511,8 @@ void KNSWidgets__Button_SuperKeyReleaseEvent(KNSWidgets__Button* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnKeyReleaseEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +539,8 @@ void KNSWidgets__Button_SuperMousePressEvent(KNSWidgets__Button* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMousePressEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MousePressEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +567,8 @@ void KNSWidgets__Button_SuperMouseReleaseEvent(KNSWidgets__Button* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMouseReleaseEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +595,8 @@ void KNSWidgets__Button_SuperChangeEvent(KNSWidgets__Button* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnChangeEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ChangeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +623,8 @@ void KNSWidgets__Button_SuperTimerEvent(KNSWidgets__Button* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnTimerEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_TimerEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +651,8 @@ int KNSWidgets__Button_SuperDevType(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDevType(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DevType_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +679,8 @@ void KNSWidgets__Button_SuperSetVisible(KNSWidgets__Button* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnSetVisible(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_SetVisible_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ int KNSWidgets__Button_SuperHeightForWidth(const KNSWidgets__Button* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnHeightForWidth(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_HeightForWidth_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ bool KNSWidgets__Button_SuperHasHeightForWidth(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnHasHeightForWidth(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ QPaintEngine* KNSWidgets__Button_SuperPaintEngine(const KNSWidgets__Button* self
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnPaintEngine(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_PaintEngine_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ void KNSWidgets__Button_SuperMouseDoubleClickEvent(KNSWidgets__Button* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMouseDoubleClickEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ void KNSWidgets__Button_SuperWheelEvent(KNSWidgets__Button* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnWheelEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_WheelEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ void KNSWidgets__Button_SuperEnterEvent(KNSWidgets__Button* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnEnterEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_EnterEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ void KNSWidgets__Button_SuperLeaveEvent(KNSWidgets__Button* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnLeaveEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_LeaveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ void KNSWidgets__Button_SuperMoveEvent(KNSWidgets__Button* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMoveEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_MoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void KNSWidgets__Button_SuperResizeEvent(KNSWidgets__Button* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnResizeEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ResizeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ void KNSWidgets__Button_SuperCloseEvent(KNSWidgets__Button* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnCloseEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_CloseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void KNSWidgets__Button_SuperContextMenuEvent(KNSWidgets__Button* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnContextMenuEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ void KNSWidgets__Button_SuperTabletEvent(KNSWidgets__Button* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnTabletEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_TabletEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1043,8 @@ void KNSWidgets__Button_SuperActionEvent(KNSWidgets__Button* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnActionEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ActionEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1071,8 @@ void KNSWidgets__Button_SuperDragEnterEvent(KNSWidgets__Button* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDragEnterEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DragEnterEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1099,8 @@ void KNSWidgets__Button_SuperDragMoveEvent(KNSWidgets__Button* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDragMoveEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DragMoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1127,8 @@ void KNSWidgets__Button_SuperDragLeaveEvent(KNSWidgets__Button* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDragLeaveEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1155,8 @@ void KNSWidgets__Button_SuperDropEvent(KNSWidgets__Button* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDropEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DropEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1183,8 @@ void KNSWidgets__Button_SuperShowEvent(KNSWidgets__Button* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnShowEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ShowEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1211,8 @@ void KNSWidgets__Button_SuperHideEvent(KNSWidgets__Button* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnHideEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_HideEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1241,8 @@ bool KNSWidgets__Button_SuperNativeEvent(KNSWidgets__Button* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnNativeEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_NativeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1269,8 @@ int KNSWidgets__Button_SuperMetric(const KNSWidgets__Button* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnMetric(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Metric_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1297,8 @@ void KNSWidgets__Button_SuperInitPainter(const KNSWidgets__Button* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnInitPainter(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_InitPainter_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1325,8 @@ QPaintDevice* KNSWidgets__Button_SuperRedirected(const KNSWidgets__Button* self,
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnRedirected(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Redirected_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1353,8 @@ QPainter* KNSWidgets__Button_SuperSharedPainter(const KNSWidgets__Button* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnSharedPainter(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_SharedPainter_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1381,8 @@ void KNSWidgets__Button_SuperInputMethodEvent(KNSWidgets__Button* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnInputMethodEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_InputMethodEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1409,8 @@ QVariant* KNSWidgets__Button_SuperInputMethodQuery(const KNSWidgets__Button* sel
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnInputMethodQuery(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_InputMethodQuery_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1437,8 @@ bool KNSWidgets__Button_SuperFocusNextPrevChild(KNSWidgets__Button* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnFocusNextPrevChild(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1465,8 @@ bool KNSWidgets__Button_SuperEventFilter(KNSWidgets__Button* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnEventFilter(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_EventFilter_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1493,8 @@ void KNSWidgets__Button_SuperChildEvent(KNSWidgets__Button* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnChildEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ChildEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1521,8 @@ void KNSWidgets__Button_SuperCustomEvent(KNSWidgets__Button* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnCustomEvent(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_CustomEvent_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1549,8 @@ void KNSWidgets__Button_SuperConnectNotify(KNSWidgets__Button* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnConnectNotify(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_ConnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void KNSWidgets__Button_SuperDisconnectNotify(KNSWidgets__Button* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDisconnectNotify(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ void KNSWidgets__Button_SuperUpdateMicroFocus(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnUpdateMicroFocus(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ void KNSWidgets__Button_SuperCreate(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnCreate(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Create_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ void KNSWidgets__Button_SuperDestroy(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnDestroy(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Destroy_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ bool KNSWidgets__Button_SuperFocusNextChild(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnFocusNextChild(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_FocusNextChild_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ bool KNSWidgets__Button_SuperFocusPreviousChild(KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnFocusPreviousChild(KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ QObject* KNSWidgets__Button_SuperSender(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnSender(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Sender_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ int KNSWidgets__Button_SuperSenderSignalIndex(const KNSWidgets__Button* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnSenderSignalIndex(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1801,8 @@ int KNSWidgets__Button_SuperReceivers(const KNSWidgets__Button* self, const char
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnReceivers(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_Receivers_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1829,8 @@ bool KNSWidgets__Button_SuperIsSignalConnected(const KNSWidgets__Button* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnIsSignalConnected(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1857,8 @@ double KNSWidgets__Button_SuperGetDecodedMetricF(const KNSWidgets__Button* self,
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Button_OnGetDecodedMetricF(const KNSWidgets__Button* self, intptr_t slot) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
-    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
+    if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton)
         vknswidgetsbutton->setKNSWidgets__Button_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNSWidgetsButton::KNSWidgets__Button_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KNSWidgets__Button_Delete(KNSWidgets__Button* self) {

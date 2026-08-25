@@ -76,9 +76,8 @@ QMetaObject* KDragWidgetDecoratorBase_SuperMetaObject(const KDragWidgetDecorator
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnMetaObject(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_MetaObject_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -95,9 +94,8 @@ void* KDragWidgetDecoratorBase_SuperMetacast(KDragWidgetDecoratorBase* self, con
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnMetacast(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacast_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +112,8 @@ int KDragWidgetDecoratorBase_SuperMetacall(KDragWidgetDecoratorBase* self, int p
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnMetacall(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacall_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +130,8 @@ QDrag* KDragWidgetDecoratorBase_SuperDragObject(KDragWidgetDecoratorBase* self) 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnDragObject(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DragObject_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DragObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +148,8 @@ bool KDragWidgetDecoratorBase_SuperEventFilter(KDragWidgetDecoratorBase* self, Q
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnEventFilter(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_EventFilter_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +166,8 @@ void KDragWidgetDecoratorBase_SuperStartDrag(KDragWidgetDecoratorBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnStartDrag(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_StartDrag_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +194,8 @@ bool KDragWidgetDecoratorBase_SuperEvent(KDragWidgetDecoratorBase* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Event_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +222,8 @@ void KDragWidgetDecoratorBase_SuperTimerEvent(KDragWidgetDecoratorBase* self, QT
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnTimerEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_TimerEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +250,8 @@ void KDragWidgetDecoratorBase_SuperChildEvent(KDragWidgetDecoratorBase* self, QC
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnChildEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ChildEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +278,8 @@ void KDragWidgetDecoratorBase_SuperCustomEvent(KDragWidgetDecoratorBase* self, Q
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnCustomEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_CustomEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +306,8 @@ void KDragWidgetDecoratorBase_SuperConnectNotify(KDragWidgetDecoratorBase* self,
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnConnectNotify(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ConnectNotify_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +334,8 @@ void KDragWidgetDecoratorBase_SuperDisconnectNotify(KDragWidgetDecoratorBase* se
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnDisconnectNotify(KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +362,8 @@ QWidget* KDragWidgetDecoratorBase_SuperDecoratedWidget(const KDragWidgetDecorato
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnDecoratedWidget(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DecoratedWidget_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DecoratedWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +390,8 @@ QObject* KDragWidgetDecoratorBase_SuperSender(const KDragWidgetDecoratorBase* se
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnSender(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Sender_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +418,8 @@ int KDragWidgetDecoratorBase_SuperSenderSignalIndex(const KDragWidgetDecoratorBa
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnSenderSignalIndex(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +446,8 @@ int KDragWidgetDecoratorBase_SuperReceivers(const KDragWidgetDecoratorBase* self
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnReceivers(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Receivers_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +474,8 @@ bool KDragWidgetDecoratorBase_SuperIsSignalConnected(const KDragWidgetDecoratorB
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnIsSignalConnected(const KDragWidgetDecoratorBase* self, intptr_t slot) {
     auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
         vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDragWidgetDecoratorBase_Delete(KDragWidgetDecoratorBase* self) {

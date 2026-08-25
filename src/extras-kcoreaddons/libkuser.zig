@@ -908,12 +908,12 @@ pub const KUserGroup = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kuser.html#public-types)
 pub const enums = struct {
-    pub const UIDMode = enum(i32) {
+    pub const UIDMode = enum {
         pub const UseEffectiveUID: i32 = 0;
         pub const UseRealUserID: i32 = 1;
     };
 
-    pub const UserProperty = enum(i32) {
+    pub const UserProperty = enum {
         pub const FullName: i32 = 0;
         pub const RoomNumber: i32 = 1;
         pub const WorkPhone: i32 = 2;

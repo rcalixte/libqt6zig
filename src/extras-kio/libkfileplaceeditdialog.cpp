@@ -138,9 +138,8 @@ QMetaObject* KFilePlaceEditDialog_SuperMetaObject(const KFilePlaceEditDialog* se
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetaObject(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +156,8 @@ void* KFilePlaceEditDialog_SuperMetacast(KFilePlaceEditDialog* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetacast(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +174,8 @@ int KFilePlaceEditDialog_SuperMetacall(KFilePlaceEditDialog* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetacall(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacall_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -205,9 +202,8 @@ void KFilePlaceEditDialog_SuperSetVisible(KFilePlaceEditDialog* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSetVisible(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SetVisible_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -234,9 +230,8 @@ QSize* KFilePlaceEditDialog_SuperSizeHint(const KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSizeHint(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SizeHint_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +258,8 @@ QSize* KFilePlaceEditDialog_SuperMinimumSizeHint(const KFilePlaceEditDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMinimumSizeHint(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +286,8 @@ void KFilePlaceEditDialog_SuperOpen(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnOpen(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Open_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +314,8 @@ int KFilePlaceEditDialog_SuperExec(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnExec(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Exec_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +342,8 @@ void KFilePlaceEditDialog_SuperDone(KFilePlaceEditDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDone(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Done_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +370,8 @@ void KFilePlaceEditDialog_SuperAccept(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnAccept(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Accept_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +398,8 @@ void KFilePlaceEditDialog_SuperReject(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnReject(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Reject_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +426,8 @@ void KFilePlaceEditDialog_SuperKeyPressEvent(KFilePlaceEditDialog* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnKeyPressEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +454,8 @@ void KFilePlaceEditDialog_SuperCloseEvent(KFilePlaceEditDialog* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnCloseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +482,8 @@ void KFilePlaceEditDialog_SuperShowEvent(KFilePlaceEditDialog* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnShowEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +510,8 @@ void KFilePlaceEditDialog_SuperResizeEvent(KFilePlaceEditDialog* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnResizeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +538,8 @@ void KFilePlaceEditDialog_SuperContextMenuEvent(KFilePlaceEditDialog* self, QCon
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnContextMenuEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +566,8 @@ bool KFilePlaceEditDialog_SuperEventFilter(KFilePlaceEditDialog* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEventFilter(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_EventFilter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +594,8 @@ int KFilePlaceEditDialog_SuperDevType(const KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDevType(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DevType_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +622,8 @@ int KFilePlaceEditDialog_SuperHeightForWidth(const KFilePlaceEditDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnHeightForWidth(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +650,8 @@ bool KFilePlaceEditDialog_SuperHasHeightForWidth(const KFilePlaceEditDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnHasHeightForWidth(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +678,8 @@ QPaintEngine* KFilePlaceEditDialog_SuperPaintEngine(const KFilePlaceEditDialog* 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnPaintEngine(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +706,8 @@ bool KFilePlaceEditDialog_SuperEvent(KFilePlaceEditDialog* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Event_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +734,8 @@ void KFilePlaceEditDialog_SuperMousePressEvent(KFilePlaceEditDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMousePressEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +762,8 @@ void KFilePlaceEditDialog_SuperMouseReleaseEvent(KFilePlaceEditDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseReleaseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +790,8 @@ void KFilePlaceEditDialog_SuperMouseDoubleClickEvent(KFilePlaceEditDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseDoubleClickEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +818,8 @@ void KFilePlaceEditDialog_SuperMouseMoveEvent(KFilePlaceEditDialog* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +846,8 @@ void KFilePlaceEditDialog_SuperWheelEvent(KFilePlaceEditDialog* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnWheelEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +874,8 @@ void KFilePlaceEditDialog_SuperKeyReleaseEvent(KFilePlaceEditDialog* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnKeyReleaseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +902,8 @@ void KFilePlaceEditDialog_SuperFocusInEvent(KFilePlaceEditDialog* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusInEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +930,8 @@ void KFilePlaceEditDialog_SuperFocusOutEvent(KFilePlaceEditDialog* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusOutEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +958,8 @@ void KFilePlaceEditDialog_SuperEnterEvent(KFilePlaceEditDialog* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEnterEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +986,8 @@ void KFilePlaceEditDialog_SuperLeaveEvent(KFilePlaceEditDialog* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnLeaveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1014,8 @@ void KFilePlaceEditDialog_SuperPaintEvent(KFilePlaceEditDialog* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnPaintEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1042,8 @@ void KFilePlaceEditDialog_SuperMoveEvent(KFilePlaceEditDialog* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1070,8 @@ void KFilePlaceEditDialog_SuperTabletEvent(KFilePlaceEditDialog* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnTabletEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1098,8 @@ void KFilePlaceEditDialog_SuperActionEvent(KFilePlaceEditDialog* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnActionEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1126,8 @@ void KFilePlaceEditDialog_SuperDragEnterEvent(KFilePlaceEditDialog* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragEnterEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1154,8 @@ void KFilePlaceEditDialog_SuperDragMoveEvent(KFilePlaceEditDialog* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1182,8 @@ void KFilePlaceEditDialog_SuperDragLeaveEvent(KFilePlaceEditDialog* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragLeaveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1210,8 @@ void KFilePlaceEditDialog_SuperDropEvent(KFilePlaceEditDialog* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDropEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DropEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1238,8 @@ void KFilePlaceEditDialog_SuperHideEvent(KFilePlaceEditDialog* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnHideEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HideEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1268,8 @@ bool KFilePlaceEditDialog_SuperNativeEvent(KFilePlaceEditDialog* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnNativeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1296,8 @@ void KFilePlaceEditDialog_SuperChangeEvent(KFilePlaceEditDialog* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnChangeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1324,8 @@ int KFilePlaceEditDialog_SuperMetric(const KFilePlaceEditDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetric(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metric_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1352,8 @@ void KFilePlaceEditDialog_SuperInitPainter(const KFilePlaceEditDialog* self, QPa
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnInitPainter(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InitPainter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1380,8 @@ QPaintDevice* KFilePlaceEditDialog_SuperRedirected(const KFilePlaceEditDialog* s
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnRedirected(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Redirected_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1408,8 @@ QPainter* KFilePlaceEditDialog_SuperSharedPainter(const KFilePlaceEditDialog* se
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSharedPainter(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1436,8 @@ void KFilePlaceEditDialog_SuperInputMethodEvent(KFilePlaceEditDialog* self, QInp
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnInputMethodEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1464,8 @@ QVariant* KFilePlaceEditDialog_SuperInputMethodQuery(const KFilePlaceEditDialog*
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnInputMethodQuery(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1492,8 @@ bool KFilePlaceEditDialog_SuperFocusNextPrevChild(KFilePlaceEditDialog* self, bo
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusNextPrevChild(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1520,8 @@ void KFilePlaceEditDialog_SuperTimerEvent(KFilePlaceEditDialog* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnTimerEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1548,8 @@ void KFilePlaceEditDialog_SuperChildEvent(KFilePlaceEditDialog* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnChildEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1576,8 @@ void KFilePlaceEditDialog_SuperCustomEvent(KFilePlaceEditDialog* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnCustomEvent(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1604,8 @@ void KFilePlaceEditDialog_SuperConnectNotify(KFilePlaceEditDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnConnectNotify(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1632,8 @@ void KFilePlaceEditDialog_SuperDisconnectNotify(KFilePlaceEditDialog* self, cons
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDisconnectNotify(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1660,8 @@ void KFilePlaceEditDialog_SuperAdjustPosition(KFilePlaceEditDialog* self, QWidge
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnAdjustPosition(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1688,8 @@ void KFilePlaceEditDialog_SuperUpdateMicroFocus(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnUpdateMicroFocus(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1716,8 @@ void KFilePlaceEditDialog_SuperCreate(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnCreate(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Create_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1744,8 @@ void KFilePlaceEditDialog_SuperDestroy(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDestroy(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Destroy_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1772,8 @@ bool KFilePlaceEditDialog_SuperFocusNextChild(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusNextChild(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1800,8 @@ bool KFilePlaceEditDialog_SuperFocusPreviousChild(KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusPreviousChild(KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1828,8 @@ QObject* KFilePlaceEditDialog_SuperSender(const KFilePlaceEditDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSender(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Sender_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1856,8 @@ int KFilePlaceEditDialog_SuperSenderSignalIndex(const KFilePlaceEditDialog* self
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSenderSignalIndex(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1884,8 @@ int KFilePlaceEditDialog_SuperReceivers(const KFilePlaceEditDialog* self, const 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnReceivers(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Receivers_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1912,8 @@ bool KFilePlaceEditDialog_SuperIsSignalConnected(const KFilePlaceEditDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnIsSignalConnected(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2005,9 +1940,8 @@ double KFilePlaceEditDialog_SuperGetDecodedMetricF(const KFilePlaceEditDialog* s
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnGetDecodedMetricF(const KFilePlaceEditDialog* self, intptr_t slot) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
         vkfileplaceeditdialog->setKFilePlaceEditDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFilePlaceEditDialog_Delete(KFilePlaceEditDialog* self) {

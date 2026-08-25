@@ -1182,6 +1182,31 @@ pub const KNSWidgets__Button = extern struct {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNSWidgets__Button `
+    ///
+    pub fn asQPaintDevice(self: KNSWidgets__Button) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KNSWidgets__Button object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KNSWidgets__Button {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7166,7 +7191,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn paintingActive(self: KNSWidgets__Button) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7182,7 +7207,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn widthMM(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7198,7 +7223,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn heightMM(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7214,7 +7239,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn logicalDpiX(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7230,7 +7255,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn logicalDpiY(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7246,7 +7271,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn physicalDpiX(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7262,7 +7287,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn physicalDpiY(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7278,7 +7303,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn devicePixelRatio(self: KNSWidgets__Button) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7294,7 +7319,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn devicePixelRatioF(self: KNSWidgets__Button) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7310,7 +7335,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn colorCount(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7326,7 +7351,7 @@ pub const KNSWidgets__Button = extern struct {
     /// ` self: KNSWidgets__Button `
     ///
     pub fn depth(self: KNSWidgets__Button) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

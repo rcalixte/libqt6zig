@@ -200,7 +200,7 @@ pub const QPlaceSearchResult = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchresult.html#public-types)
 pub const enums = struct {
-    pub const SearchResultType = enum(i32) {
+    pub const SearchResultType = enum {
         pub const UnknownSearchResult: i32 = 0;
         pub const PlaceResult: i32 = 1;
         pub const ProposedSearchResult: i32 = 2;

@@ -60,9 +60,8 @@ QMetaObject* QPieLegendMarker_SuperMetaObject(const QPieLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnMetaObject(const QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -79,9 +78,8 @@ void* QPieLegendMarker_SuperMetacast(QPieLegendMarker* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnMetacast(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +96,8 @@ int QPieLegendMarker_SuperMetacall(QPieLegendMarker* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnMetacall(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +114,8 @@ int QPieLegendMarker_SuperType(QPieLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Type_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +132,8 @@ QPieSeries* QPieLegendMarker_SuperSeries(QPieLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnSeries(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Series_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +160,8 @@ bool QPieLegendMarker_SuperEvent(QPieLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnEvent(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Event_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +188,8 @@ bool QPieLegendMarker_SuperEventFilter(QPieLegendMarker* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnEventFilter(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +216,8 @@ void QPieLegendMarker_SuperTimerEvent(QPieLegendMarker* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnTimerEvent(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +244,8 @@ void QPieLegendMarker_SuperChildEvent(QPieLegendMarker* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnChildEvent(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +272,8 @@ void QPieLegendMarker_SuperCustomEvent(QPieLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnCustomEvent(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +300,8 @@ void QPieLegendMarker_SuperConnectNotify(QPieLegendMarker* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnConnectNotify(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +328,8 @@ void QPieLegendMarker_SuperDisconnectNotify(QPieLegendMarker* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnDisconnectNotify(QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ QObject* QPieLegendMarker_SuperSender(const QPieLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnSender(const QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Sender_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ int QPieLegendMarker_SuperSenderSignalIndex(const QPieLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnSenderSignalIndex(const QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ int QPieLegendMarker_SuperReceivers(const QPieLegendMarker* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnReceivers(const QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +440,8 @@ bool QPieLegendMarker_SuperIsSignalConnected(const QPieLegendMarker* self, const
 // Auxiliary method to allow providing re-implementation
 void QPieLegendMarker_OnIsSignalConnected(const QPieLegendMarker* self, intptr_t slot) {
     auto* vqpielegendmarker = const_cast<VirtualQPieLegendMarker*>(dynamic_cast<const VirtualQPieLegendMarker*>(self));
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
+    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker)
         vqpielegendmarker->setQPieLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieLegendMarker::QPieLegendMarker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPieLegendMarker_Delete(QPieLegendMarker* self) {

@@ -167,9 +167,8 @@ QMetaObject* KNumberModel_SuperMetaObject(const KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMetaObject(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MetaObject_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +185,8 @@ void* KNumberModel_SuperMetacast(KNumberModel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMetacast(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Metacast_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -205,9 +203,8 @@ int KNumberModel_SuperMetacall(KNumberModel* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMetacall(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Metacall_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +221,8 @@ int KNumberModel_SuperRowCount(const KNumberModel* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnRowCount(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_RowCount_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -243,9 +239,8 @@ QVariant* KNumberModel_SuperData(const KNumberModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Data_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -300,9 +295,8 @@ libqt_map /* of int to libqt_string */ KNumberModel_SuperRoleNames(const KNumber
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnRoleNames(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_RoleNames_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +323,8 @@ QModelIndex* KNumberModel_SuperIndex(const KNumberModel* self, int row, int colu
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnIndex(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Index_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +351,8 @@ QModelIndex* KNumberModel_SuperSibling(const KNumberModel* self, int row, int co
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSibling(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Sibling_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +379,8 @@ bool KNumberModel_SuperDropMimeData(KNumberModel* self, const QMimeData* data, i
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnDropMimeData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_DropMimeData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ int KNumberModel_SuperFlags(const KNumberModel* self, const QModelIndex* index) 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnFlags(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Flags_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ bool KNumberModel_SuperSetData(KNumberModel* self, const QModelIndex* index, con
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSetData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SetData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ QVariant* KNumberModel_SuperHeaderData(const KNumberModel* self, int section, in
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnHeaderData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_HeaderData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ bool KNumberModel_SuperSetHeaderData(KNumberModel* self, int section, int orient
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSetHeaderData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SetHeaderData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -588,9 +575,8 @@ libqt_map /* of int to QVariant* */ KNumberModel_SuperItemData(const KNumberMode
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnItemData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ItemData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +615,8 @@ bool KNumberModel_SuperSetItemData(KNumberModel* self, const QModelIndex* index,
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSetItemData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SetItemData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +643,8 @@ bool KNumberModel_SuperClearItemData(KNumberModel* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnClearItemData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ClearItemData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +739,8 @@ libqt_list /* of libqt_string */ KNumberModel_SuperMimeTypes(const KNumberModel*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMimeTypes(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MimeTypes_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +779,8 @@ QMimeData* KNumberModel_SuperMimeData(const KNumberModel* self, const libqt_list
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMimeData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MimeData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +807,8 @@ bool KNumberModel_SuperCanDropMimeData(const KNumberModel* self, const QMimeData
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnCanDropMimeData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +835,8 @@ int KNumberModel_SuperSupportedDropActions(const KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSupportedDropActions(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +863,8 @@ int KNumberModel_SuperSupportedDragActions(const KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSupportedDragActions(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +891,8 @@ bool KNumberModel_SuperInsertRows(KNumberModel* self, int row, int count, const 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnInsertRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_InsertRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +919,8 @@ bool KNumberModel_SuperInsertColumns(KNumberModel* self, int column, int count, 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnInsertColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_InsertColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +947,8 @@ bool KNumberModel_SuperRemoveRows(KNumberModel* self, int row, int count, const 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnRemoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_RemoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +975,8 @@ bool KNumberModel_SuperRemoveColumns(KNumberModel* self, int column, int count, 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnRemoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_RemoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +1003,8 @@ bool KNumberModel_SuperMoveRows(KNumberModel* self, const QModelIndex* sourcePar
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1031,8 @@ bool KNumberModel_SuperMoveColumns(KNumberModel* self, const QModelIndex* source
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1059,8 @@ void KNumberModel_SuperFetchMore(KNumberModel* self, const QModelIndex* parent) 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnFetchMore(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_FetchMore_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1087,8 @@ bool KNumberModel_SuperCanFetchMore(const KNumberModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnCanFetchMore(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_CanFetchMore_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1115,8 @@ void KNumberModel_SuperSort(KNumberModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSort(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Sort_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1143,8 @@ QModelIndex* KNumberModel_SuperBuddy(const KNumberModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBuddy(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Buddy_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1207,8 @@ libqt_list /* of QModelIndex* */ KNumberModel_SuperMatch(const KNumberModel* sel
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMatch(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Match_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1235,8 @@ QSize* KNumberModel_SuperSpan(const KNumberModel* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSpan(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Span_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1263,8 @@ void KNumberModel_SuperMultiData(const KNumberModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnMultiData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_MultiData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1291,8 @@ bool KNumberModel_SuperSubmit(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSubmit(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Submit_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1319,8 @@ void KNumberModel_SuperRevert(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnRevert(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Revert_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1347,8 @@ void KNumberModel_SuperResetInternalData(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnResetInternalData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ResetInternalData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1375,8 @@ bool KNumberModel_SuperEvent(KNumberModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEvent(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Event_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1403,8 @@ bool KNumberModel_SuperEventFilter(KNumberModel* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEventFilter(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EventFilter_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1431,8 @@ void KNumberModel_SuperTimerEvent(KNumberModel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnTimerEvent(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_TimerEvent_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1459,8 @@ void KNumberModel_SuperChildEvent(KNumberModel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnChildEvent(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ChildEvent_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1487,8 @@ void KNumberModel_SuperCustomEvent(KNumberModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnCustomEvent(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_CustomEvent_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1515,8 @@ void KNumberModel_SuperConnectNotify(KNumberModel* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnConnectNotify(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ConnectNotify_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1543,8 @@ void KNumberModel_SuperDisconnectNotify(KNumberModel* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnDisconnectNotify(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1613,9 +1569,8 @@ QModelIndex* KNumberModel_SuperCreateIndex(const KNumberModel* self, int row, in
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnCreateIndex(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_CreateIndex_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1609,8 @@ void KNumberModel_SuperEncodeData(const KNumberModel* self, const libqt_list /* 
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEncodeData(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EncodeData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1637,8 @@ bool KNumberModel_SuperDecodeData(KNumberModel* self, int row, int column, const
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnDecodeData(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_DecodeData_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1665,8 @@ void KNumberModel_SuperBeginInsertRows(KNumberModel* self, const QModelIndex* pa
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginInsertRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1693,8 @@ void KNumberModel_SuperEndInsertRows(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndInsertRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndInsertRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1721,8 @@ void KNumberModel_SuperBeginRemoveRows(KNumberModel* self, const QModelIndex* pa
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginRemoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1749,8 @@ void KNumberModel_SuperEndRemoveRows(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndRemoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1777,8 @@ bool KNumberModel_SuperBeginMoveRows(KNumberModel* self, const QModelIndex* sour
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginMoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1805,8 @@ void KNumberModel_SuperEndMoveRows(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndMoveRows(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndMoveRows_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1833,8 @@ void KNumberModel_SuperBeginInsertColumns(KNumberModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginInsertColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1861,8 @@ void KNumberModel_SuperEndInsertColumns(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndInsertColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1944,9 +1889,8 @@ void KNumberModel_SuperBeginRemoveColumns(KNumberModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginRemoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1973,9 +1917,8 @@ void KNumberModel_SuperEndRemoveColumns(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndRemoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2002,9 +1945,8 @@ bool KNumberModel_SuperBeginMoveColumns(KNumberModel* self, const QModelIndex* s
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginMoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2031,9 +1973,8 @@ void KNumberModel_SuperEndMoveColumns(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndMoveColumns(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2060,9 +2001,8 @@ void KNumberModel_SuperBeginResetModel(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnBeginResetModel(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_BeginResetModel_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2089,9 +2029,8 @@ void KNumberModel_SuperEndResetModel(KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnEndResetModel(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_EndResetModel_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2118,9 +2057,8 @@ void KNumberModel_SuperChangePersistentIndex(KNumberModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnChangePersistentIndex(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2171,9 +2109,8 @@ void KNumberModel_SuperChangePersistentIndexList(KNumberModel* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnChangePersistentIndexList(KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2236,9 +2173,8 @@ libqt_list /* of QModelIndex* */ KNumberModel_SuperPersistentIndexList(const KNu
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnPersistentIndexList(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2265,9 +2201,8 @@ QObject* KNumberModel_SuperSender(const KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSender(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Sender_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2294,9 +2229,8 @@ int KNumberModel_SuperSenderSignalIndex(const KNumberModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnSenderSignalIndex(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2323,9 +2257,8 @@ int KNumberModel_SuperReceivers(const KNumberModel* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnReceivers(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_Receivers_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2352,9 +2285,8 @@ bool KNumberModel_SuperIsSignalConnected(const KNumberModel* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KNumberModel_OnIsSignalConnected(const KNumberModel* self, intptr_t slot) {
     auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel)
         vknumbermodel->setKNumberModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNumberModel_Delete(KNumberModel* self) {

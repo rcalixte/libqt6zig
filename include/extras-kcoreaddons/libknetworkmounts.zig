@@ -1496,7 +1496,7 @@ pub const KNetworkMounts = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knetworkmounts.html#public-types)
 pub const enums = struct {
-    pub const KNetworkMountOption = enum(i32) {
+    pub const KNetworkMountOption = enum {
         pub const LowSideEffectsOptimizations: i32 = 0;
         pub const MediumSideEffectsOptimizations: i32 = 1;
         pub const StrongSideEffectsOptimizations: i32 = 2;
@@ -1504,7 +1504,7 @@ pub const enums = struct {
         pub const SymlinkPathsUseCache: i32 = 4;
     };
 
-    pub const KNetworkMountsType = enum(i32) {
+    pub const KNetworkMountsType = enum {
         pub const NfsPaths: i32 = 0;
         pub const SmbPaths: i32 = 1;
         pub const SymlinkDirectory: i32 = 2;

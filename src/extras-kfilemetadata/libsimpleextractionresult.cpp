@@ -115,9 +115,8 @@ void KFileMetaData__SimpleExtractionResult_SuperAdd(KFileMetaData__SimpleExtract
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__SimpleExtractionResult_OnAdd(KFileMetaData__SimpleExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
+    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult)
         vkfilemetadatasimpleextractionresult->setKFileMetaData__SimpleExtractionResult_Add_Callback(reinterpret_cast<VirtualKFileMetaDataSimpleExtractionResult::KFileMetaData__SimpleExtractionResult_Add_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +133,8 @@ void KFileMetaData__SimpleExtractionResult_SuperAddType(KFileMetaData__SimpleExt
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__SimpleExtractionResult_OnAddType(KFileMetaData__SimpleExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
+    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult)
         vkfilemetadatasimpleextractionresult->setKFileMetaData__SimpleExtractionResult_AddType_Callback(reinterpret_cast<VirtualKFileMetaDataSimpleExtractionResult::KFileMetaData__SimpleExtractionResult_AddType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ void KFileMetaData__SimpleExtractionResult_SuperAppend(KFileMetaData__SimpleExtr
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__SimpleExtractionResult_OnAppend(KFileMetaData__SimpleExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadatasimpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
+    if (vkfilemetadatasimpleextractionresult && vkfilemetadatasimpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult)
         vkfilemetadatasimpleextractionresult->setKFileMetaData__SimpleExtractionResult_Append_Callback(reinterpret_cast<VirtualKFileMetaDataSimpleExtractionResult::KFileMetaData__SimpleExtractionResult_Append_Callback>(slot));
-    }
 }
 
 void KFileMetaData__SimpleExtractionResult_Delete(KFileMetaData__SimpleExtractionResult* self) {

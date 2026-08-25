@@ -1508,6 +1508,31 @@ pub const QSpinBox = extern struct {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSpinBox `
+    ///
+    pub fn asQPaintDevice(self: QSpinBox) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QSpinBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QSpinBox {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7492,7 +7517,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn paintingActive(self: QSpinBox) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7508,7 +7533,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn widthMM(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7524,7 +7549,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn heightMM(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7540,7 +7565,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn logicalDpiX(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7556,7 +7581,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn logicalDpiY(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7572,7 +7597,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn physicalDpiX(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7588,7 +7613,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn physicalDpiY(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7604,7 +7629,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn devicePixelRatio(self: QSpinBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7620,7 +7645,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn devicePixelRatioF(self: QSpinBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7636,7 +7661,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn colorCount(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7652,7 +7677,7 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox `
     ///
     pub fn depth(self: QSpinBox) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -12876,6 +12901,31 @@ pub const QDoubleSpinBox = extern struct {
     ///
     pub fn onEditingFinished(self: QDoubleSpinBox, callback: *const fn (QDoubleSpinBox) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDoubleSpinBox `
+    ///
+    pub fn asQPaintDevice(self: QDoubleSpinBox) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDoubleSpinBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDoubleSpinBox {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -18862,7 +18912,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn paintingActive(self: QDoubleSpinBox) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -18878,7 +18928,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn widthMM(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -18894,7 +18944,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn heightMM(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -18910,7 +18960,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn logicalDpiX(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -18926,7 +18976,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn logicalDpiY(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -18942,7 +18992,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn physicalDpiX(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -18958,7 +19008,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn physicalDpiY(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -18974,7 +19024,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn devicePixelRatio(self: QDoubleSpinBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -18990,7 +19040,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn devicePixelRatioF(self: QDoubleSpinBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -19006,7 +19056,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn colorCount(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -19022,7 +19072,7 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox `
     ///
     pub fn depth(self: QDoubleSpinBox) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

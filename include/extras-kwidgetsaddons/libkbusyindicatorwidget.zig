@@ -717,6 +717,31 @@ pub const KBusyIndicatorWidget = extern struct {
         qtc.KBusyIndicatorWidget_SetRunning1(@ptrCast(self.ptr), enable);
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBusyIndicatorWidget `
+    ///
+    pub fn asQPaintDevice(self: KBusyIndicatorWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KBusyIndicatorWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KBusyIndicatorWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6701,7 +6726,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn paintingActive(self: KBusyIndicatorWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6717,7 +6742,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn widthMM(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6733,7 +6758,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn heightMM(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6749,7 +6774,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn logicalDpiX(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6765,7 +6790,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn logicalDpiY(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6781,7 +6806,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn physicalDpiX(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6797,7 +6822,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn physicalDpiY(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6813,7 +6838,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn devicePixelRatio(self: KBusyIndicatorWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6829,7 +6854,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn devicePixelRatioF(self: KBusyIndicatorWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6845,7 +6870,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn colorCount(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6861,7 +6886,7 @@ pub const KBusyIndicatorWidget = extern struct {
     /// ` self: KBusyIndicatorWidget `
     ///
     pub fn depth(self: KBusyIndicatorWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

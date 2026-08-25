@@ -68,9 +68,8 @@ QMetaObject* KIO__SpecialJob_SuperMetaObject(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnMetaObject(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_MetaObject_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -87,9 +86,8 @@ void* KIO__SpecialJob_SuperMetacast(KIO__SpecialJob* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnMetacast(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Metacast_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -106,9 +104,8 @@ int KIO__SpecialJob_SuperMetacall(KIO__SpecialJob* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnMetacall(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Metacall_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -135,9 +132,8 @@ bool KIO__SpecialJob_SuperDoResume(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoResume(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_DoResume_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -164,9 +160,8 @@ void KIO__SpecialJob_SuperSlotRedirection(KIO__SpecialJob* self, const QUrl* url
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotRedirection(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotRedirection_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotRedirection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -193,9 +188,8 @@ void KIO__SpecialJob_SuperSlotFinished(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotFinished(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotFinished_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +218,8 @@ void KIO__SpecialJob_SuperSlotData(KIO__SpecialJob* self, const libqt_string dat
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotData(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotData_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +246,8 @@ void KIO__SpecialJob_SuperSlotDataReq(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotDataReq(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotDataReq_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotDataReq_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ void KIO__SpecialJob_SuperSlotMimetype(KIO__SpecialJob* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotMimetype(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotMimetype_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMimetype_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ bool KIO__SpecialJob_SuperDoSuspend(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoSuspend(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +332,8 @@ bool KIO__SpecialJob_SuperDoKill(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDoKill(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_DoKill_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +360,8 @@ void KIO__SpecialJob_SuperPutOnHold(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnPutOnHold(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_PutOnHold_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_PutOnHold_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +390,8 @@ void KIO__SpecialJob_SuperSlotWarning(KIO__SpecialJob* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotWarning(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotWarning_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotWarning_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +418,8 @@ void KIO__SpecialJob_SuperSlotMetaData(KIO__SpecialJob* self, const KIO__MetaDat
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotMetaData(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotMetaData_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotMetaData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +446,8 @@ void KIO__SpecialJob_SuperStart(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnStart(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Start_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +506,8 @@ libqt_string KIO__SpecialJob_SuperErrorString(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnErrorString(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_ErrorString_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +534,8 @@ bool KIO__SpecialJob_SuperAddSubjob(KIO__SpecialJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnAddSubjob(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +562,8 @@ bool KIO__SpecialJob_SuperRemoveSubjob(KIO__SpecialJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnRemoveSubjob(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +590,8 @@ void KIO__SpecialJob_SuperSlotResult(KIO__SpecialJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotResult(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotResult_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +620,8 @@ void KIO__SpecialJob_SuperSlotInfoMessage(KIO__SpecialJob* self, KJob* job, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSlotInfoMessage(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +648,8 @@ bool KIO__SpecialJob_SuperEvent(KIO__SpecialJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEvent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Event_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +676,8 @@ bool KIO__SpecialJob_SuperEventFilter(KIO__SpecialJob* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEventFilter(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_EventFilter_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +704,8 @@ void KIO__SpecialJob_SuperTimerEvent(KIO__SpecialJob* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnTimerEvent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +732,8 @@ void KIO__SpecialJob_SuperChildEvent(KIO__SpecialJob* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnChildEvent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -784,9 +760,8 @@ void KIO__SpecialJob_SuperCustomEvent(KIO__SpecialJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnCustomEvent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +788,8 @@ void KIO__SpecialJob_SuperConnectNotify(KIO__SpecialJob* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnConnectNotify(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +816,8 @@ void KIO__SpecialJob_SuperDisconnectNotify(KIO__SpecialJob* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnDisconnectNotify(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +844,8 @@ bool KIO__SpecialJob_SuperHasSubjobs(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnHasSubjobs(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -936,9 +908,8 @@ libqt_list /* of KJob* */ KIO__SpecialJob_SuperSubjobs(const KIO__SpecialJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSubjobs(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Subjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -965,9 +936,8 @@ void KIO__SpecialJob_SuperClearSubjobs(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnClearSubjobs(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -994,9 +964,8 @@ void KIO__SpecialJob_SuperSetCapabilities(KIO__SpecialJob* self, int capabilitie
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetCapabilities(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +992,8 @@ bool KIO__SpecialJob_SuperIsFinished(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnIsFinished(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_IsFinished_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1020,8 @@ void KIO__SpecialJob_SuperSetError(KIO__SpecialJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetError(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetError_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1050,8 @@ void KIO__SpecialJob_SuperSetErrorText(KIO__SpecialJob* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetErrorText(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1078,8 @@ void KIO__SpecialJob_SuperSetProcessedAmount(KIO__SpecialJob* self, int unit, un
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetProcessedAmount(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1106,8 @@ void KIO__SpecialJob_SuperSetTotalAmount(KIO__SpecialJob* self, int unit, unsign
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetTotalAmount(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1134,8 @@ void KIO__SpecialJob_SuperSetProgressUnit(KIO__SpecialJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetProgressUnit(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1162,8 @@ void KIO__SpecialJob_SuperSetPercent(KIO__SpecialJob* self, unsigned long percen
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSetPercent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SetPercent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1190,8 @@ void KIO__SpecialJob_SuperEmitResult(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEmitResult(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_EmitResult_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1218,8 @@ void KIO__SpecialJob_SuperEmitPercent(KIO__SpecialJob* self, unsigned long long 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEmitPercent(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1246,8 @@ void KIO__SpecialJob_SuperEmitSpeed(KIO__SpecialJob* self, unsigned long speed) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnEmitSpeed(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1315,9 +1274,8 @@ void KIO__SpecialJob_SuperStartElapsedTimer(KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnStartElapsedTimer(KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1302,8 @@ QObject* KIO__SpecialJob_SuperSender(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSender(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Sender_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1330,8 @@ int KIO__SpecialJob_SuperSenderSignalIndex(const KIO__SpecialJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnSenderSignalIndex(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1358,8 @@ int KIO__SpecialJob_SuperReceivers(const KIO__SpecialJob* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnReceivers(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_Receivers_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1386,8 @@ bool KIO__SpecialJob_SuperIsSignalConnected(const KIO__SpecialJob* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KIO__SpecialJob_OnIsSignalConnected(const KIO__SpecialJob* self, intptr_t slot) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
-    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob)
         vkiospecialjob->setKIO__SpecialJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__SpecialJob_Delete(KIO__SpecialJob* self) {

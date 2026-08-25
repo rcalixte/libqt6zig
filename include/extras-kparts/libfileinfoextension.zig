@@ -2115,7 +2115,7 @@ pub const KParts__FileInfoExtension = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#public-types)
 pub const enums = struct {
-    pub const QueryMode = enum(i32) {
+    pub const QueryMode = enum {
         pub const None: i32 = 0;
         pub const AllItems: i32 = 1;
         pub const SelectedItems: i32 = 2;

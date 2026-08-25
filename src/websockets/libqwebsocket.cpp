@@ -672,9 +672,8 @@ QMetaObject* QWebSocket_SuperMetaObject(const QWebSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnMetaObject(const QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_MetaObject_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -691,9 +690,8 @@ void* QWebSocket_SuperMetacast(QWebSocket* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnMetacast(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_Metacast_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -710,9 +708,8 @@ int QWebSocket_SuperMetacall(QWebSocket* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnMetacall(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_Metacall_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +736,8 @@ bool QWebSocket_SuperEvent(QWebSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnEvent(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_Event_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +764,8 @@ bool QWebSocket_SuperEventFilter(QWebSocket* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnEventFilter(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_EventFilter_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +792,8 @@ void QWebSocket_SuperTimerEvent(QWebSocket* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnTimerEvent(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_TimerEvent_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +820,8 @@ void QWebSocket_SuperChildEvent(QWebSocket* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnChildEvent(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_ChildEvent_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +848,8 @@ void QWebSocket_SuperCustomEvent(QWebSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnCustomEvent(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_CustomEvent_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +876,8 @@ void QWebSocket_SuperConnectNotify(QWebSocket* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnConnectNotify(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +904,8 @@ void QWebSocket_SuperDisconnectNotify(QWebSocket* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnDisconnectNotify(QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +932,8 @@ QObject* QWebSocket_SuperSender(const QWebSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnSender(const QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_Sender_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +960,8 @@ int QWebSocket_SuperSenderSignalIndex(const QWebSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnSenderSignalIndex(const QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +988,8 @@ int QWebSocket_SuperReceivers(const QWebSocket* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnReceivers(const QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_Receivers_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +1016,8 @@ bool QWebSocket_SuperIsSignalConnected(const QWebSocket* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QWebSocket_OnIsSignalConnected(const QWebSocket* self, intptr_t slot) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
+    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket)
         vqwebsocket->setQWebSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebSocket::QWebSocket_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWebSocket_Delete(QWebSocket* self) {

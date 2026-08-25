@@ -86,9 +86,8 @@ QMetaObject* QKeyEventTransition_SuperMetaObject(const QKeyEventTransition* self
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnMetaObject(const QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_MetaObject_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +104,8 @@ void* QKeyEventTransition_SuperMetacast(QKeyEventTransition* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnMetacast(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_Metacast_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +122,8 @@ int QKeyEventTransition_SuperMetacall(QKeyEventTransition* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnMetacall(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_Metacall_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +140,8 @@ void QKeyEventTransition_SuperOnTransition(QKeyEventTransition* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnOnTransition(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_OnTransition_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_OnTransition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +158,8 @@ bool QKeyEventTransition_SuperEventTest(QKeyEventTransition* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEventTest(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_EventTest_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventTest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -191,9 +186,8 @@ bool QKeyEventTransition_SuperEvent(QKeyEventTransition* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEvent(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_Event_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -220,9 +214,8 @@ bool QKeyEventTransition_SuperEventFilter(QKeyEventTransition* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEventFilter(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_EventFilter_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +242,8 @@ void QKeyEventTransition_SuperTimerEvent(QKeyEventTransition* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnTimerEvent(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_TimerEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +270,8 @@ void QKeyEventTransition_SuperChildEvent(QKeyEventTransition* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnChildEvent(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_ChildEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +298,8 @@ void QKeyEventTransition_SuperCustomEvent(QKeyEventTransition* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnCustomEvent(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_CustomEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +326,8 @@ void QKeyEventTransition_SuperConnectNotify(QKeyEventTransition* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnConnectNotify(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +354,8 @@ void QKeyEventTransition_SuperDisconnectNotify(QKeyEventTransition* self, const 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnDisconnectNotify(QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +382,8 @@ QObject* QKeyEventTransition_SuperSender(const QKeyEventTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnSender(const QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_Sender_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +410,8 @@ int QKeyEventTransition_SuperSenderSignalIndex(const QKeyEventTransition* self) 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnSenderSignalIndex(const QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +438,8 @@ int QKeyEventTransition_SuperReceivers(const QKeyEventTransition* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnReceivers(const QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_Receivers_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +466,8 @@ bool QKeyEventTransition_SuperIsSignalConnected(const QKeyEventTransition* self,
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnIsSignalConnected(const QKeyEventTransition* self, intptr_t slot) {
     auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
         vqkeyeventtransition->setQKeyEventTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QKeyEventTransition_Delete(QKeyEventTransition* self) {

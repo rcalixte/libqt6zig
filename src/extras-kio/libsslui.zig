@@ -25,7 +25,7 @@ pub const KIO__SslUi = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-sslui.html#public-types)
 pub const enums = struct {
-    pub const RulesStorage = enum(i32) {
+    pub const RulesStorage = enum {
         pub const RecallRules: i32 = 1;
         pub const StoreRules: i32 = 2;
         pub const RecallAndStoreRules: i32 = 3;

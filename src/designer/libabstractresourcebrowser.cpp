@@ -130,9 +130,8 @@ QMetaObject* QDesignerResourceBrowserInterface_SuperMetaObject(const QDesignerRe
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMetaObject(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +148,8 @@ void* QDesignerResourceBrowserInterface_SuperMetacast(QDesignerResourceBrowserIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMetacast(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +166,8 @@ int QDesignerResourceBrowserInterface_SuperMetacall(QDesignerResourceBrowserInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMetacall(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +185,8 @@ void QDesignerResourceBrowserInterface_SuperSetCurrentPath(QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSetCurrentPath(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SetCurrentPath_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_SetCurrentPath_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +219,8 @@ libqt_string QDesignerResourceBrowserInterface_SuperCurrentPath(const QDesignerR
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnCurrentPath(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CurrentPath_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_CurrentPath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +247,8 @@ int QDesignerResourceBrowserInterface_SuperDevType(const QDesignerResourceBrowse
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDevType(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +275,8 @@ void QDesignerResourceBrowserInterface_SuperSetVisible(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSetVisible(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +303,8 @@ QSize* QDesignerResourceBrowserInterface_SuperSizeHint(const QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSizeHint(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +331,8 @@ QSize* QDesignerResourceBrowserInterface_SuperMinimumSizeHint(const QDesignerRes
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMinimumSizeHint(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +359,8 @@ int QDesignerResourceBrowserInterface_SuperHeightForWidth(const QDesignerResourc
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnHeightForWidth(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +387,8 @@ bool QDesignerResourceBrowserInterface_SuperHasHeightForWidth(const QDesignerRes
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnHasHeightForWidth(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +415,8 @@ QPaintEngine* QDesignerResourceBrowserInterface_SuperPaintEngine(const QDesigner
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnPaintEngine(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ bool QDesignerResourceBrowserInterface_SuperEvent(QDesignerResourceBrowserInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Event_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ void QDesignerResourceBrowserInterface_SuperMousePressEvent(QDesignerResourceBro
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMousePressEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +499,8 @@ void QDesignerResourceBrowserInterface_SuperMouseReleaseEvent(QDesignerResourceB
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMouseReleaseEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +527,8 @@ void QDesignerResourceBrowserInterface_SuperMouseDoubleClickEvent(QDesignerResou
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMouseDoubleClickEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +555,8 @@ void QDesignerResourceBrowserInterface_SuperMouseMoveEvent(QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMouseMoveEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +583,8 @@ void QDesignerResourceBrowserInterface_SuperWheelEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnWheelEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +611,8 @@ void QDesignerResourceBrowserInterface_SuperKeyPressEvent(QDesignerResourceBrows
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnKeyPressEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +639,8 @@ void QDesignerResourceBrowserInterface_SuperKeyReleaseEvent(QDesignerResourceBro
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnKeyReleaseEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +667,8 @@ void QDesignerResourceBrowserInterface_SuperFocusInEvent(QDesignerResourceBrowse
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnFocusInEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -716,9 +695,8 @@ void QDesignerResourceBrowserInterface_SuperFocusOutEvent(QDesignerResourceBrows
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnFocusOutEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -745,9 +723,8 @@ void QDesignerResourceBrowserInterface_SuperEnterEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnEnterEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -774,9 +751,8 @@ void QDesignerResourceBrowserInterface_SuperLeaveEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnLeaveEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +779,8 @@ void QDesignerResourceBrowserInterface_SuperPaintEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnPaintEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +807,8 @@ void QDesignerResourceBrowserInterface_SuperMoveEvent(QDesignerResourceBrowserIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMoveEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +835,8 @@ void QDesignerResourceBrowserInterface_SuperResizeEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnResizeEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +863,8 @@ void QDesignerResourceBrowserInterface_SuperCloseEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnCloseEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +891,8 @@ void QDesignerResourceBrowserInterface_SuperContextMenuEvent(QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnContextMenuEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +919,8 @@ void QDesignerResourceBrowserInterface_SuperTabletEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnTabletEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +947,8 @@ void QDesignerResourceBrowserInterface_SuperActionEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnActionEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +975,8 @@ void QDesignerResourceBrowserInterface_SuperDragEnterEvent(QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDragEnterEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1003,8 @@ void QDesignerResourceBrowserInterface_SuperDragMoveEvent(QDesignerResourceBrows
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDragMoveEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1031,8 @@ void QDesignerResourceBrowserInterface_SuperDragLeaveEvent(QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDragLeaveEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1059,8 @@ void QDesignerResourceBrowserInterface_SuperDropEvent(QDesignerResourceBrowserIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDropEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1087,8 @@ void QDesignerResourceBrowserInterface_SuperShowEvent(QDesignerResourceBrowserIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnShowEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1115,8 @@ void QDesignerResourceBrowserInterface_SuperHideEvent(QDesignerResourceBrowserIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnHideEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1145,8 @@ bool QDesignerResourceBrowserInterface_SuperNativeEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnNativeEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1173,8 @@ void QDesignerResourceBrowserInterface_SuperChangeEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnChangeEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1201,8 @@ int QDesignerResourceBrowserInterface_SuperMetric(const QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnMetric(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1229,8 @@ void QDesignerResourceBrowserInterface_SuperInitPainter(const QDesignerResourceB
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnInitPainter(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1298,9 +1257,8 @@ QPaintDevice* QDesignerResourceBrowserInterface_SuperRedirected(const QDesignerR
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnRedirected(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1327,9 +1285,8 @@ QPainter* QDesignerResourceBrowserInterface_SuperSharedPainter(const QDesignerRe
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSharedPainter(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1313,8 @@ void QDesignerResourceBrowserInterface_SuperInputMethodEvent(QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnInputMethodEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1341,8 @@ QVariant* QDesignerResourceBrowserInterface_SuperInputMethodQuery(const QDesigne
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnInputMethodQuery(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1369,8 @@ bool QDesignerResourceBrowserInterface_SuperFocusNextPrevChild(QDesignerResource
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnFocusNextPrevChild(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1397,8 @@ bool QDesignerResourceBrowserInterface_SuperEventFilter(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnEventFilter(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1425,8 @@ void QDesignerResourceBrowserInterface_SuperTimerEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnTimerEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1453,8 @@ void QDesignerResourceBrowserInterface_SuperChildEvent(QDesignerResourceBrowserI
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnChildEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1481,8 @@ void QDesignerResourceBrowserInterface_SuperCustomEvent(QDesignerResourceBrowser
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnCustomEvent(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1559,9 +1509,8 @@ void QDesignerResourceBrowserInterface_SuperConnectNotify(QDesignerResourceBrows
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnConnectNotify(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1588,9 +1537,8 @@ void QDesignerResourceBrowserInterface_SuperDisconnectNotify(QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDisconnectNotify(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1617,9 +1565,8 @@ void QDesignerResourceBrowserInterface_SuperUpdateMicroFocus(QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnUpdateMicroFocus(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1646,9 +1593,8 @@ void QDesignerResourceBrowserInterface_SuperCreate(QDesignerResourceBrowserInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnCreate(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Create_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1675,9 +1621,8 @@ void QDesignerResourceBrowserInterface_SuperDestroy(QDesignerResourceBrowserInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnDestroy(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1704,9 +1649,8 @@ bool QDesignerResourceBrowserInterface_SuperFocusNextChild(QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnFocusNextChild(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1733,9 +1677,8 @@ bool QDesignerResourceBrowserInterface_SuperFocusPreviousChild(QDesignerResource
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnFocusPreviousChild(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1762,9 +1705,8 @@ QObject* QDesignerResourceBrowserInterface_SuperSender(const QDesignerResourceBr
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSender(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1791,9 +1733,8 @@ int QDesignerResourceBrowserInterface_SuperSenderSignalIndex(const QDesignerReso
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnSenderSignalIndex(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1820,9 +1761,8 @@ int QDesignerResourceBrowserInterface_SuperReceivers(const QDesignerResourceBrow
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnReceivers(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1849,9 +1789,8 @@ bool QDesignerResourceBrowserInterface_SuperIsSignalConnected(const QDesignerRes
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnIsSignalConnected(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1878,9 +1817,8 @@ double QDesignerResourceBrowserInterface_SuperGetDecodedMetricF(const QDesignerR
 // Auxiliary method to allow providing re-implementation
 void QDesignerResourceBrowserInterface_OnGetDecodedMetricF(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface)
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDesignerResourceBrowserInterface_Delete(QDesignerResourceBrowserInterface* self) {

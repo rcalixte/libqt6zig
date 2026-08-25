@@ -123,9 +123,8 @@ void KIO__CommandLauncherJob_SuperStart(KIO__CommandLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnStart(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Start_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -152,9 +151,8 @@ QMetaObject* KIO__CommandLauncherJob_SuperMetaObject(const KIO__CommandLauncherJ
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnMetaObject(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +179,8 @@ void* KIO__CommandLauncherJob_SuperMetacast(KIO__CommandLauncherJob* self, const
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnMetacast(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +207,8 @@ int KIO__CommandLauncherJob_SuperMetacall(KIO__CommandLauncherJob* self, int par
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnMetacall(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +235,8 @@ bool KIO__CommandLauncherJob_SuperDoKill(KIO__CommandLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoKill(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +263,8 @@ bool KIO__CommandLauncherJob_SuperDoSuspend(KIO__CommandLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoSuspend(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +291,8 @@ bool KIO__CommandLauncherJob_SuperDoResume(KIO__CommandLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDoResume(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +351,8 @@ libqt_string KIO__CommandLauncherJob_SuperErrorString(const KIO__CommandLauncher
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnErrorString(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +379,8 @@ bool KIO__CommandLauncherJob_SuperEvent(KIO__CommandLauncherJob* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Event_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ bool KIO__CommandLauncherJob_SuperEventFilter(KIO__CommandLauncherJob* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEventFilter(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ void KIO__CommandLauncherJob_SuperTimerEvent(KIO__CommandLauncherJob* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnTimerEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ void KIO__CommandLauncherJob_SuperChildEvent(KIO__CommandLauncherJob* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnChildEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ void KIO__CommandLauncherJob_SuperCustomEvent(KIO__CommandLauncherJob* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnCustomEvent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +519,8 @@ void KIO__CommandLauncherJob_SuperConnectNotify(KIO__CommandLauncherJob* self, c
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnConnectNotify(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +547,8 @@ void KIO__CommandLauncherJob_SuperDisconnectNotify(KIO__CommandLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnDisconnectNotify(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +575,8 @@ void KIO__CommandLauncherJob_SuperSetCapabilities(KIO__CommandLauncherJob* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetCapabilities(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +603,8 @@ bool KIO__CommandLauncherJob_SuperIsFinished(const KIO__CommandLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnIsFinished(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +631,8 @@ void KIO__CommandLauncherJob_SuperSetError(KIO__CommandLauncherJob* self, int er
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetError(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetError_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +661,8 @@ void KIO__CommandLauncherJob_SuperSetErrorText(KIO__CommandLauncherJob* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetErrorText(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +689,8 @@ void KIO__CommandLauncherJob_SuperSetProcessedAmount(KIO__CommandLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetProcessedAmount(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +717,8 @@ void KIO__CommandLauncherJob_SuperSetTotalAmount(KIO__CommandLauncherJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetTotalAmount(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +745,8 @@ void KIO__CommandLauncherJob_SuperSetProgressUnit(KIO__CommandLauncherJob* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetProgressUnit(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +773,8 @@ void KIO__CommandLauncherJob_SuperSetPercent(KIO__CommandLauncherJob* self, unsi
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSetPercent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +801,8 @@ void KIO__CommandLauncherJob_SuperEmitResult(KIO__CommandLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEmitResult(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +829,8 @@ void KIO__CommandLauncherJob_SuperEmitPercent(KIO__CommandLauncherJob* self, uns
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEmitPercent(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +857,8 @@ void KIO__CommandLauncherJob_SuperEmitSpeed(KIO__CommandLauncherJob* self, unsig
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnEmitSpeed(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +885,8 @@ void KIO__CommandLauncherJob_SuperStartElapsedTimer(KIO__CommandLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnStartElapsedTimer(KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +913,8 @@ QObject* KIO__CommandLauncherJob_SuperSender(const KIO__CommandLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSender(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Sender_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +941,8 @@ int KIO__CommandLauncherJob_SuperSenderSignalIndex(const KIO__CommandLauncherJob
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnSenderSignalIndex(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +969,8 @@ int KIO__CommandLauncherJob_SuperReceivers(const KIO__CommandLauncherJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnReceivers(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +997,8 @@ bool KIO__CommandLauncherJob_SuperIsSignalConnected(const KIO__CommandLauncherJo
 // Auxiliary method to allow providing re-implementation
 void KIO__CommandLauncherJob_OnIsSignalConnected(const KIO__CommandLauncherJob* self, intptr_t slot) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
-    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob)
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__CommandLauncherJob_Delete(KIO__CommandLauncherJob* self) {

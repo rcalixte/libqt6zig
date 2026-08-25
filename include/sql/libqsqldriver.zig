@@ -3623,7 +3623,7 @@ pub const QSqlDriver = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#public-types)
 pub const enums = struct {
-    pub const DriverFeature = enum(i32) {
+    pub const DriverFeature = enum {
         pub const Transactions: i32 = 0;
         pub const QuerySize: i32 = 1;
         pub const BLOB: i32 = 2;
@@ -3641,7 +3641,7 @@ pub const enums = struct {
         pub const CancelQuery: i32 = 14;
     };
 
-    pub const StatementType = enum(i32) {
+    pub const StatementType = enum {
         pub const WhereStatement: i32 = 0;
         pub const SelectStatement: i32 = 1;
         pub const UpdateStatement: i32 = 2;
@@ -3649,18 +3649,18 @@ pub const enums = struct {
         pub const DeleteStatement: i32 = 4;
     };
 
-    pub const IdentifierType = enum(i32) {
+    pub const IdentifierType = enum {
         pub const FieldName: i32 = 0;
         pub const TableName: i32 = 1;
     };
 
-    pub const NotificationSource = enum(i32) {
+    pub const NotificationSource = enum {
         pub const UnknownSource: i32 = 0;
         pub const SelfSource: i32 = 1;
         pub const OtherSource: i32 = 2;
     };
 
-    pub const DbmsType = enum(i32) {
+    pub const DbmsType = enum {
         pub const UnknownDbms: i32 = 0;
         pub const MSSqlServer: i32 = 1;
         pub const MySqlServer: i32 = 2;

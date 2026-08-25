@@ -118,9 +118,8 @@ QMetaObject* TextCustomEditor__PlainTextEditFindBar_SuperMetaObject(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMetaObject(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +136,8 @@ void* TextCustomEditor__PlainTextEditFindBar_SuperMetacast(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMetacast(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +154,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperMetacall(TextCustomEditor__Plain
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMetacall(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +172,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperViewIsReadOnly(const TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnViewIsReadOnly(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ViewIsReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ViewIsReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +190,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperDocumentIsEmpty(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDocumentIsEmpty(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DocumentIsEmpty_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DocumentIsEmpty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +209,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperSearchInDocument(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSearchInDocument(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SearchInDocument_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SearchInDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +227,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperSearchInDocument2(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSearchInDocument2(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SearchInDocument2_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SearchInDocument2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +245,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperAutoSearchMoveCursor(TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnAutoSearchMoveCursor(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_AutoSearchMoveCursor_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_AutoSearchMoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +263,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperSlotSearchText(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSlotSearchText(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SlotSearchText_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SlotSearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +291,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Event_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +319,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperDevType(const TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDevType(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +347,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperSetVisible(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSetVisible(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +375,8 @@ QSize* TextCustomEditor__PlainTextEditFindBar_SuperSizeHint(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSizeHint(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +403,8 @@ QSize* TextCustomEditor__PlainTextEditFindBar_SuperMinimumSizeHint(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMinimumSizeHint(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +431,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperHeightForWidth(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnHeightForWidth(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +459,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperHasHeightForWidth(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnHasHeightForWidth(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +487,8 @@ QPaintEngine* TextCustomEditor__PlainTextEditFindBar_SuperPaintEngine(const Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnPaintEngine(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +515,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMousePressEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMousePressEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +543,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMouseReleaseEvent(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMouseReleaseEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +571,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMouseDoubleClickEvent(TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMouseDoubleClickEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +599,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMouseMoveEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMouseMoveEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +627,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperWheelEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnWheelEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +655,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperKeyPressEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnKeyPressEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +683,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperKeyReleaseEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnKeyReleaseEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +711,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperFocusInEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnFocusInEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +739,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperFocusOutEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnFocusOutEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +767,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperEnterEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnEnterEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +795,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperLeaveEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnLeaveEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +823,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperPaintEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnPaintEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +851,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMoveEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMoveEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +879,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperResizeEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnResizeEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +907,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperCloseEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnCloseEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +935,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperContextMenuEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnContextMenuEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +963,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperTabletEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnTabletEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +991,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperActionEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnActionEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1019,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDragEnterEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDragEnterEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1047,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDragMoveEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDragMoveEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1075,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDragLeaveEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDragLeaveEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1103,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDropEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDropEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1131,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperShowEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnShowEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1159,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperHideEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnHideEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1189,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperNativeEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnNativeEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1217,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperChangeEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnChangeEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1245,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperMetric(const TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMetric(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1273,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperInitPainter(const TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnInitPainter(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1301,8 @@ QPaintDevice* TextCustomEditor__PlainTextEditFindBar_SuperRedirected(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnRedirected(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1329,8 @@ QPainter* TextCustomEditor__PlainTextEditFindBar_SuperSharedPainter(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSharedPainter(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1357,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperInputMethodEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnInputMethodEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1385,8 @@ QVariant* TextCustomEditor__PlainTextEditFindBar_SuperInputMethodQuery(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnInputMethodQuery(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1413,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperFocusNextPrevChild(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnFocusNextPrevChild(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1441,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperEventFilter(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnEventFilter(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1469,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperTimerEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnTimerEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1497,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperChildEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnChildEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1525,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperCustomEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnCustomEvent(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1553,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperConnectNotify(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnConnectNotify(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1581,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDisconnectNotify(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDisconnectNotify(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1609,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperClearSelections(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnClearSelections(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_ClearSelections_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_ClearSelections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1637,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperSearchText(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSearchText(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SearchText_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1665,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperSetFoundMatch(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSetFoundMatch(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SetFoundMatch_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SetFoundMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1693,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperMessageInfo(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnMessageInfo(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_MessageInfo_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_MessageInfo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1721,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperUpdateMicroFocus(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnUpdateMicroFocus(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1749,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperCreate(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnCreate(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Create_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1777,8 @@ void TextCustomEditor__PlainTextEditFindBar_SuperDestroy(TextCustomEditor__Plain
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnDestroy(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1805,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperFocusNextChild(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnFocusNextChild(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1833,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperFocusPreviousChild(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnFocusPreviousChild(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = dynamic_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(self);
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1861,8 @@ QObject* TextCustomEditor__PlainTextEditFindBar_SuperSender(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSender(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1889,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperSenderSignalIndex(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnSenderSignalIndex(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1917,8 @@ int TextCustomEditor__PlainTextEditFindBar_SuperReceivers(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnReceivers(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1945,8 @@ bool TextCustomEditor__PlainTextEditFindBar_SuperIsSignalConnected(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnIsSignalConnected(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1973,8 @@ double TextCustomEditor__PlainTextEditFindBar_SuperGetDecodedMetricF(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditFindBar_OnGetDecodedMetricF(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditfindbar = const_cast<VirtualTextCustomEditorPlainTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditFindBar*>(self));
-    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar) {
+    if (vtextcustomeditorplaintexteditfindbar && vtextcustomeditorplaintexteditfindbar->isVirtualTextCustomEditorPlainTextEditFindBar)
         vtextcustomeditorplaintexteditfindbar->setTextCustomEditor__PlainTextEditFindBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditFindBar::TextCustomEditor__PlainTextEditFindBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__PlainTextEditFindBar_Delete(TextCustomEditor__PlainTextEditFindBar* self) {

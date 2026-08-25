@@ -223,9 +223,8 @@ QMetaObject* QSqlRelationalTableModel_SuperMetaObject(const QSqlRelationalTableM
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMetaObject(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MetaObject_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +241,8 @@ void* QSqlRelationalTableModel_SuperMetacast(QSqlRelationalTableModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMetacast(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacast_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +259,8 @@ int QSqlRelationalTableModel_SuperMetacall(QSqlRelationalTableModel* self, int p
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMetacall(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacall_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +277,8 @@ QVariant* QSqlRelationalTableModel_SuperData(const QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +295,8 @@ bool QSqlRelationalTableModel_SuperSetData(QSqlRelationalTableModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +313,8 @@ bool QSqlRelationalTableModel_SuperRemoveColumns(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRemoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +331,8 @@ void QSqlRelationalTableModel_SuperClear(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnClear(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +349,8 @@ bool QSqlRelationalTableModel_SuperSelect(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSelect(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Select_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +368,8 @@ void QSqlRelationalTableModel_SuperSetTable(QSqlRelationalTableModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetTable(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetTable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +386,8 @@ void QSqlRelationalTableModel_SuperSetRelation(QSqlRelationalTableModel* self, i
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetRelation(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetRelation_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -414,9 +404,8 @@ QSqlTableModel* QSqlRelationalTableModel_SuperRelationModel(const QSqlRelational
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRelationModel(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RelationModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -433,9 +422,8 @@ void QSqlRelationalTableModel_SuperRevertRow(QSqlRelationalTableModel* self, int
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRevertRow(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RevertRow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -468,9 +456,8 @@ libqt_string QSqlRelationalTableModel_SuperSelectStatement(const QSqlRelationalT
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSelectStatement(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SelectStatement_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -487,9 +474,8 @@ bool QSqlRelationalTableModel_SuperUpdateRowInTable(QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnUpdateRowInTable(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_UpdateRowInTable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -506,9 +492,8 @@ bool QSqlRelationalTableModel_SuperInsertRowIntoTable(QSqlRelationalTableModel* 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnInsertRowIntoTable(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_InsertRowIntoTable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -541,9 +526,8 @@ libqt_string QSqlRelationalTableModel_SuperOrderByClause(const QSqlRelationalTab
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnOrderByClause(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_OrderByClause_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +554,8 @@ int QSqlRelationalTableModel_SuperFlags(const QSqlRelationalTableModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnFlags(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Flags_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +582,8 @@ bool QSqlRelationalTableModel_SuperClearItemData(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnClearItemData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ClearItemData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +610,8 @@ QVariant* QSqlRelationalTableModel_SuperHeaderData(const QSqlRelationalTableMode
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnHeaderData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +638,8 @@ void QSqlRelationalTableModel_SuperSetEditStrategy(QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetEditStrategy(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetEditStrategy_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetEditStrategy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +666,8 @@ void QSqlRelationalTableModel_SuperSort(QSqlRelationalTableModel* self, int colu
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSort(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sort_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +694,8 @@ void QSqlRelationalTableModel_SuperSetSort(QSqlRelationalTableModel* self, int c
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetSort(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetSort_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetSort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +724,8 @@ void QSqlRelationalTableModel_SuperSetFilter(QSqlRelationalTableModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetFilter(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetFilter_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +752,8 @@ int QSqlRelationalTableModel_SuperRowCount(const QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRowCount(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RowCount_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +780,8 @@ bool QSqlRelationalTableModel_SuperRemoveRows(QSqlRelationalTableModel* self, in
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRemoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +808,8 @@ bool QSqlRelationalTableModel_SuperInsertRows(QSqlRelationalTableModel* self, in
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnInsertRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +836,8 @@ bool QSqlRelationalTableModel_SuperSelectRow(QSqlRelationalTableModel* self, int
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSelectRow(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectRow_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SelectRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +864,8 @@ bool QSqlRelationalTableModel_SuperSubmit(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSubmit(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Submit_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +892,8 @@ void QSqlRelationalTableModel_SuperRevert(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRevert(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Revert_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +920,8 @@ bool QSqlRelationalTableModel_SuperDeleteRowFromTable(QSqlRelationalTableModel* 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnDeleteRowFromTable(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DeleteRowFromTable_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_DeleteRowFromTable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +946,8 @@ QModelIndex* QSqlRelationalTableModel_SuperIndexInQuery(const QSqlRelationalTabl
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnIndexInQuery(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_IndexInQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +974,8 @@ int QSqlRelationalTableModel_SuperColumnCount(const QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnColumnCount(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ColumnCount_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1002,8 @@ bool QSqlRelationalTableModel_SuperSetHeaderData(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetHeaderData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetHeaderData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1030,8 @@ bool QSqlRelationalTableModel_SuperInsertColumns(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnInsertColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1058,8 @@ void QSqlRelationalTableModel_SuperFetchMore(QSqlRelationalTableModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnFetchMore(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_FetchMore_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1086,8 @@ bool QSqlRelationalTableModel_SuperCanFetchMore(const QSqlRelationalTableModel* 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnCanFetchMore(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CanFetchMore_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1190,8 @@ libqt_map /* of int to libqt_string */ QSqlRelationalTableModel_SuperRoleNames(c
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnRoleNames(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RoleNames_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1218,8 @@ void QSqlRelationalTableModel_SuperQueryChange(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnQueryChange(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_QueryChange_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_QueryChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1246,8 @@ QModelIndex* QSqlRelationalTableModel_SuperIndex(const QSqlRelationalTableModel*
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnIndex(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Index_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1274,8 @@ QModelIndex* QSqlRelationalTableModel_SuperSibling(const QSqlRelationalTableMode
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSibling(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sibling_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1302,8 @@ bool QSqlRelationalTableModel_SuperDropMimeData(QSqlRelationalTableModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnDropMimeData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DropMimeData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1386,8 @@ libqt_map /* of int to QVariant* */ QSqlRelationalTableModel_SuperItemData(const
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnItemData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ItemData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1426,8 @@ bool QSqlRelationalTableModel_SuperSetItemData(QSqlRelationalTableModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetItemData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetItemData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1565,9 +1522,8 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_SuperMimeTypes(const Q
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMimeTypes(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MimeTypes_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1562,8 @@ QMimeData* QSqlRelationalTableModel_SuperMimeData(const QSqlRelationalTableModel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMimeData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MimeData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1590,8 @@ bool QSqlRelationalTableModel_SuperCanDropMimeData(const QSqlRelationalTableMode
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnCanDropMimeData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1618,8 @@ int QSqlRelationalTableModel_SuperSupportedDropActions(const QSqlRelationalTable
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSupportedDropActions(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1693,9 +1646,8 @@ int QSqlRelationalTableModel_SuperSupportedDragActions(const QSqlRelationalTable
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSupportedDragActions(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1722,9 +1674,8 @@ bool QSqlRelationalTableModel_SuperMoveRows(QSqlRelationalTableModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1751,9 +1702,8 @@ bool QSqlRelationalTableModel_SuperMoveColumns(QSqlRelationalTableModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1780,9 +1730,8 @@ QModelIndex* QSqlRelationalTableModel_SuperBuddy(const QSqlRelationalTableModel*
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBuddy(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Buddy_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1845,9 +1794,8 @@ libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_SuperMatch(const QSqlR
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMatch(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Match_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1874,9 +1822,8 @@ QSize* QSqlRelationalTableModel_SuperSpan(const QSqlRelationalTableModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSpan(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Span_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1903,9 +1850,8 @@ void QSqlRelationalTableModel_SuperMultiData(const QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnMultiData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MultiData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1932,9 +1878,8 @@ void QSqlRelationalTableModel_SuperResetInternalData(QSqlRelationalTableModel* s
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnResetInternalData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ResetInternalData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1961,9 +1906,8 @@ bool QSqlRelationalTableModel_SuperEvent(QSqlRelationalTableModel* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEvent(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Event_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1990,9 +1934,8 @@ bool QSqlRelationalTableModel_SuperEventFilter(QSqlRelationalTableModel* self, Q
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEventFilter(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EventFilter_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2019,9 +1962,8 @@ void QSqlRelationalTableModel_SuperTimerEvent(QSqlRelationalTableModel* self, QT
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnTimerEvent(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_TimerEvent_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2048,9 +1990,8 @@ void QSqlRelationalTableModel_SuperChildEvent(QSqlRelationalTableModel* self, QC
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnChildEvent(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ChildEvent_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2077,9 +2018,8 @@ void QSqlRelationalTableModel_SuperCustomEvent(QSqlRelationalTableModel* self, Q
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnCustomEvent(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CustomEvent_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2106,9 +2046,8 @@ void QSqlRelationalTableModel_SuperConnectNotify(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnConnectNotify(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ConnectNotify_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2135,9 +2074,8 @@ void QSqlRelationalTableModel_SuperDisconnectNotify(QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnDisconnectNotify(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2164,9 +2102,8 @@ void QSqlRelationalTableModel_SuperSetPrimaryKey(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetPrimaryKey(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetPrimaryKey_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetPrimaryKey_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2191,9 +2128,8 @@ QSqlRecord* QSqlRelationalTableModel_SuperPrimaryValues(const QSqlRelationalTabl
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnPrimaryValues(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_PrimaryValues_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_PrimaryValues_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2220,9 +2156,8 @@ void QSqlRelationalTableModel_SuperBeginInsertRows(QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginInsertRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2249,9 +2184,8 @@ void QSqlRelationalTableModel_SuperEndInsertRows(QSqlRelationalTableModel* self)
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndInsertRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndInsertRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2278,9 +2212,8 @@ void QSqlRelationalTableModel_SuperBeginRemoveRows(QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginRemoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2307,9 +2240,8 @@ void QSqlRelationalTableModel_SuperEndRemoveRows(QSqlRelationalTableModel* self)
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndRemoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2336,9 +2268,8 @@ void QSqlRelationalTableModel_SuperBeginInsertColumns(QSqlRelationalTableModel* 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginInsertColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2365,9 +2296,8 @@ void QSqlRelationalTableModel_SuperEndInsertColumns(QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndInsertColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2394,9 +2324,8 @@ void QSqlRelationalTableModel_SuperBeginRemoveColumns(QSqlRelationalTableModel* 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginRemoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2423,9 +2352,8 @@ void QSqlRelationalTableModel_SuperEndRemoveColumns(QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndRemoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2452,9 +2380,8 @@ void QSqlRelationalTableModel_SuperBeginResetModel(QSqlRelationalTableModel* sel
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginResetModel(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginResetModel_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2481,9 +2408,8 @@ void QSqlRelationalTableModel_SuperEndResetModel(QSqlRelationalTableModel* self)
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndResetModel(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndResetModel_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2510,9 +2436,8 @@ void QSqlRelationalTableModel_SuperSetLastError(QSqlRelationalTableModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSetLastError(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetLastError_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SetLastError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2537,9 +2462,8 @@ QModelIndex* QSqlRelationalTableModel_SuperCreateIndex(const QSqlRelationalTable
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnCreateIndex(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CreateIndex_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2578,9 +2502,8 @@ void QSqlRelationalTableModel_SuperEncodeData(const QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEncodeData(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EncodeData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2607,9 +2530,8 @@ bool QSqlRelationalTableModel_SuperDecodeData(QSqlRelationalTableModel* self, in
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnDecodeData(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DecodeData_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2636,9 +2558,8 @@ bool QSqlRelationalTableModel_SuperBeginMoveRows(QSqlRelationalTableModel* self,
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginMoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2665,9 +2586,8 @@ void QSqlRelationalTableModel_SuperEndMoveRows(QSqlRelationalTableModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndMoveRows(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndMoveRows_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2694,9 +2614,8 @@ bool QSqlRelationalTableModel_SuperBeginMoveColumns(QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnBeginMoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2723,9 +2642,8 @@ void QSqlRelationalTableModel_SuperEndMoveColumns(QSqlRelationalTableModel* self
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnEndMoveColumns(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2752,9 +2670,8 @@ void QSqlRelationalTableModel_SuperChangePersistentIndex(QSqlRelationalTableMode
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnChangePersistentIndex(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2805,9 +2722,8 @@ void QSqlRelationalTableModel_SuperChangePersistentIndexList(QSqlRelationalTable
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnChangePersistentIndexList(QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2870,9 +2786,8 @@ libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_SuperPersistentIndexLi
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnPersistentIndexList(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2899,9 +2814,8 @@ QObject* QSqlRelationalTableModel_SuperSender(const QSqlRelationalTableModel* se
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSender(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sender_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2928,9 +2842,8 @@ int QSqlRelationalTableModel_SuperSenderSignalIndex(const QSqlRelationalTableMod
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnSenderSignalIndex(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2957,9 +2870,8 @@ int QSqlRelationalTableModel_SuperReceivers(const QSqlRelationalTableModel* self
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnReceivers(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Receivers_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2986,9 +2898,8 @@ bool QSqlRelationalTableModel_SuperIsSignalConnected(const QSqlRelationalTableMo
 // Auxiliary method to allow providing re-implementation
 void QSqlRelationalTableModel_OnIsSignalConnected(const QSqlRelationalTableModel* self, intptr_t slot) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel)
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSqlRelationalTableModel_Delete(QSqlRelationalTableModel* self) {

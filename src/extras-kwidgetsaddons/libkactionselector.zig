@@ -939,6 +939,31 @@ pub const KActionSelector = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KActionSelector `
+    ///
+    pub fn asQPaintDevice(self: KActionSelector) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KActionSelector object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KActionSelector {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6923,7 +6948,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn paintingActive(self: KActionSelector) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6939,7 +6964,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn widthMM(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6955,7 +6980,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn heightMM(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6971,7 +6996,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn logicalDpiX(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6987,7 +7012,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn logicalDpiY(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7003,7 +7028,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn physicalDpiX(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7019,7 +7044,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn physicalDpiY(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7035,7 +7060,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn devicePixelRatio(self: KActionSelector) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7051,7 +7076,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn devicePixelRatioF(self: KActionSelector) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7067,7 +7092,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn colorCount(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7083,7 +7108,7 @@ pub const KActionSelector = extern struct {
     /// ` self: KActionSelector `
     ///
     pub fn depth(self: KActionSelector) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10499,14 +10524,14 @@ pub const KActionSelector = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kactionselector.html#public-types)
 pub const enums = struct {
-    pub const MoveButton = enum(i32) {
+    pub const MoveButton = enum {
         pub const ButtonAdd: i32 = 0;
         pub const ButtonRemove: i32 = 1;
         pub const ButtonUp: i32 = 2;
         pub const ButtonDown: i32 = 3;
     };
 
-    pub const InsertionPolicy = enum(i32) {
+    pub const InsertionPolicy = enum {
         pub const BelowCurrent: i32 = 0;
         pub const Sorted: i32 = 1;
         pub const AtTop: i32 = 2;

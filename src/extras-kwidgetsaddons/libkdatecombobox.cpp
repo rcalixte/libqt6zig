@@ -311,9 +311,8 @@ QMetaObject* KDateComboBox_SuperMetaObject(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMetaObject(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MetaObject_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +329,8 @@ void* KDateComboBox_SuperMetacast(KDateComboBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMetacast(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Metacast_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +347,8 @@ int KDateComboBox_SuperMetacall(KDateComboBox* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMetacall(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Metacall_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +365,8 @@ bool KDateComboBox_SuperEventFilter(KDateComboBox* self, QObject* object, QEvent
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnEventFilter(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_EventFilter_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +383,8 @@ void KDateComboBox_SuperShowPopup(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnShowPopup(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ShowPopup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +401,8 @@ void KDateComboBox_SuperHidePopup(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnHidePopup(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_HidePopup_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_HidePopup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +419,8 @@ void KDateComboBox_SuperMousePressEvent(KDateComboBox* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMousePressEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -444,9 +437,8 @@ void KDateComboBox_SuperWheelEvent(KDateComboBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnWheelEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +455,8 @@ void KDateComboBox_SuperKeyPressEvent(KDateComboBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnKeyPressEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -482,9 +473,8 @@ void KDateComboBox_SuperFocusInEvent(KDateComboBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnFocusInEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +491,8 @@ void KDateComboBox_SuperFocusOutEvent(KDateComboBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnFocusOutEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +509,8 @@ void KDateComboBox_SuperResizeEvent(KDateComboBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnResizeEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -539,9 +527,8 @@ void KDateComboBox_SuperAssignDate(KDateComboBox* self, const QDate* date) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnAssignDate(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_AssignDate_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_AssignDate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +555,8 @@ void KDateComboBox_SuperSetModel(KDateComboBox* self, QAbstractItemModel* model)
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSetModel(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_SetModel_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +583,8 @@ QSize* KDateComboBox_SuperSizeHint(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSizeHint(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_SizeHint_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +611,8 @@ QSize* KDateComboBox_SuperMinimumSizeHint(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMinimumSizeHint(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +639,8 @@ bool KDateComboBox_SuperEvent(KDateComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Event_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +667,8 @@ QVariant* KDateComboBox_SuperInputMethodQuery(const KDateComboBox* self, int par
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnInputMethodQuery(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +695,8 @@ void KDateComboBox_SuperChangeEvent(KDateComboBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnChangeEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +723,8 @@ void KDateComboBox_SuperPaintEvent(KDateComboBox* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnPaintEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +751,8 @@ void KDateComboBox_SuperShowEvent(KDateComboBox* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnShowEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +779,8 @@ void KDateComboBox_SuperHideEvent(KDateComboBox* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnHideEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_HideEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +807,8 @@ void KDateComboBox_SuperMouseReleaseEvent(KDateComboBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMouseReleaseEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +835,8 @@ void KDateComboBox_SuperKeyReleaseEvent(KDateComboBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnKeyReleaseEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +863,8 @@ void KDateComboBox_SuperContextMenuEvent(KDateComboBox* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnContextMenuEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +891,8 @@ void KDateComboBox_SuperInputMethodEvent(KDateComboBox* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnInputMethodEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +919,8 @@ void KDateComboBox_SuperInitStyleOption(const KDateComboBox* self, QStyleOptionC
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnInitStyleOption(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +947,8 @@ int KDateComboBox_SuperDevType(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDevType(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DevType_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +975,8 @@ void KDateComboBox_SuperSetVisible(KDateComboBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSetVisible(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_SetVisible_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1003,8 @@ int KDateComboBox_SuperHeightForWidth(const KDateComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnHeightForWidth(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1031,8 @@ bool KDateComboBox_SuperHasHeightForWidth(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnHasHeightForWidth(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1059,8 @@ QPaintEngine* KDateComboBox_SuperPaintEngine(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnPaintEngine(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1087,8 @@ void KDateComboBox_SuperMouseDoubleClickEvent(KDateComboBox* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMouseDoubleClickEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1115,8 @@ void KDateComboBox_SuperMouseMoveEvent(KDateComboBox* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMouseMoveEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1143,8 @@ void KDateComboBox_SuperEnterEvent(KDateComboBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnEnterEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1171,8 @@ void KDateComboBox_SuperLeaveEvent(KDateComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnLeaveEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1199,8 @@ void KDateComboBox_SuperMoveEvent(KDateComboBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMoveEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1227,8 @@ void KDateComboBox_SuperCloseEvent(KDateComboBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnCloseEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1255,8 @@ void KDateComboBox_SuperTabletEvent(KDateComboBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnTabletEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1283,8 @@ void KDateComboBox_SuperActionEvent(KDateComboBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnActionEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1311,8 @@ void KDateComboBox_SuperDragEnterEvent(KDateComboBox* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDragEnterEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1339,8 @@ void KDateComboBox_SuperDragMoveEvent(KDateComboBox* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDragMoveEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1367,8 @@ void KDateComboBox_SuperDragLeaveEvent(KDateComboBox* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDragLeaveEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1395,8 @@ void KDateComboBox_SuperDropEvent(KDateComboBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDropEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DropEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1425,8 @@ bool KDateComboBox_SuperNativeEvent(KDateComboBox* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnNativeEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1453,8 @@ int KDateComboBox_SuperMetric(const KDateComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnMetric(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Metric_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1481,8 @@ void KDateComboBox_SuperInitPainter(const KDateComboBox* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnInitPainter(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_InitPainter_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1509,8 @@ QPaintDevice* KDateComboBox_SuperRedirected(const KDateComboBox* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnRedirected(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Redirected_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1537,8 @@ QPainter* KDateComboBox_SuperSharedPainter(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSharedPainter(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1565,8 @@ bool KDateComboBox_SuperFocusNextPrevChild(KDateComboBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnFocusNextPrevChild(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1593,8 @@ void KDateComboBox_SuperTimerEvent(KDateComboBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnTimerEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1621,8 @@ void KDateComboBox_SuperChildEvent(KDateComboBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnChildEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1649,8 @@ void KDateComboBox_SuperCustomEvent(KDateComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnCustomEvent(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1677,8 @@ void KDateComboBox_SuperConnectNotify(KDateComboBox* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnConnectNotify(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1705,8 @@ void KDateComboBox_SuperDisconnectNotify(KDateComboBox* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDisconnectNotify(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1733,8 @@ void KDateComboBox_SuperUpdateMicroFocus(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnUpdateMicroFocus(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1761,8 @@ void KDateComboBox_SuperCreate(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnCreate(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Create_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1789,8 @@ void KDateComboBox_SuperDestroy(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnDestroy(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Destroy_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1817,8 @@ bool KDateComboBox_SuperFocusNextChild(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnFocusNextChild(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1845,8 @@ bool KDateComboBox_SuperFocusPreviousChild(KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnFocusPreviousChild(KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1873,8 @@ QObject* KDateComboBox_SuperSender(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSender(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Sender_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1901,8 @@ int KDateComboBox_SuperSenderSignalIndex(const KDateComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnSenderSignalIndex(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1929,8 @@ int KDateComboBox_SuperReceivers(const KDateComboBox* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnReceivers(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_Receivers_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1957,8 @@ bool KDateComboBox_SuperIsSignalConnected(const KDateComboBox* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnIsSignalConnected(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1985,8 @@ double KDateComboBox_SuperGetDecodedMetricF(const KDateComboBox* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KDateComboBox_OnGetDecodedMetricF(const KDateComboBox* self, intptr_t slot) {
     auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox)
         vkdatecombobox->setKDateComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KDateComboBox_Delete(KDateComboBox* self) {

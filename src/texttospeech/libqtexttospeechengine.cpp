@@ -241,9 +241,8 @@ QMetaObject* QTextToSpeechEngine_SuperMetaObject(const QTextToSpeechEngine* self
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnMetaObject(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_MetaObject_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +259,8 @@ void* QTextToSpeechEngine_SuperMetacast(QTextToSpeechEngine* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnMetacast(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Metacast_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +277,8 @@ int QTextToSpeechEngine_SuperMetacall(QTextToSpeechEngine* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnMetacall(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Metacall_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +295,8 @@ int QTextToSpeechEngine_SuperCapabilities(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnCapabilities(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Capabilities_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Capabilities_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +331,8 @@ libqt_list /* of QLocale* */ QTextToSpeechEngine_SuperAvailableLocales(const QTe
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnAvailableLocales(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_AvailableLocales_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_AvailableLocales_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -372,9 +367,8 @@ libqt_list /* of QVoice* */ QTextToSpeechEngine_SuperAvailableVoices(const QText
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnAvailableVoices(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_AvailableVoices_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_AvailableVoices_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +386,8 @@ void QTextToSpeechEngine_SuperSay(QTextToSpeechEngine* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSay(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Say_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Say_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -412,9 +405,8 @@ void QTextToSpeechEngine_SuperSynthesize(QTextToSpeechEngine* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSynthesize(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Synthesize_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Synthesize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -431,9 +423,8 @@ void QTextToSpeechEngine_SuperStop(QTextToSpeechEngine* self, int boundaryHint) 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnStop(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Stop_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Stop_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -450,9 +441,8 @@ void QTextToSpeechEngine_SuperPause(QTextToSpeechEngine* self, int boundaryHint)
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnPause(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Pause_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Pause_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -469,9 +459,8 @@ void QTextToSpeechEngine_SuperResume(QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnResume(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Resume_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Resume_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -488,9 +477,8 @@ double QTextToSpeechEngine_SuperRate(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnRate(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Rate_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Rate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -507,9 +495,8 @@ bool QTextToSpeechEngine_SuperSetRate(QTextToSpeechEngine* self, double rate) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSetRate(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SetRate_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SetRate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -526,9 +513,8 @@ double QTextToSpeechEngine_SuperPitch(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnPitch(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Pitch_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Pitch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -545,9 +531,8 @@ bool QTextToSpeechEngine_SuperSetPitch(QTextToSpeechEngine* self, double pitch) 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSetPitch(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SetPitch_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SetPitch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -564,9 +549,8 @@ QLocale* QTextToSpeechEngine_SuperLocale(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnLocale(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Locale_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Locale_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -583,9 +567,8 @@ bool QTextToSpeechEngine_SuperSetLocale(QTextToSpeechEngine* self, const QLocale
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSetLocale(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SetLocale_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SetLocale_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -602,9 +585,8 @@ double QTextToSpeechEngine_SuperVolume(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnVolume(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Volume_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Volume_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -621,9 +603,8 @@ bool QTextToSpeechEngine_SuperSetVolume(QTextToSpeechEngine* self, double volume
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSetVolume(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SetVolume_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SetVolume_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -640,9 +621,8 @@ QVoice* QTextToSpeechEngine_SuperVoice(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnVoice(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Voice_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Voice_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -659,9 +639,8 @@ bool QTextToSpeechEngine_SuperSetVoice(QTextToSpeechEngine* self, const QVoice* 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSetVoice(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SetVoice_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SetVoice_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -678,9 +657,8 @@ int QTextToSpeechEngine_SuperState(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnState(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_State_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_State_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -697,9 +675,8 @@ int QTextToSpeechEngine_SuperErrorReason(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnErrorReason(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_ErrorReason_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_ErrorReason_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -732,9 +709,8 @@ libqt_string QTextToSpeechEngine_SuperErrorString(const QTextToSpeechEngine* sel
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnErrorString(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_ErrorString_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +737,8 @@ bool QTextToSpeechEngine_SuperEvent(QTextToSpeechEngine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnEvent(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Event_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +765,8 @@ bool QTextToSpeechEngine_SuperEventFilter(QTextToSpeechEngine* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnEventFilter(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_EventFilter_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +793,8 @@ void QTextToSpeechEngine_SuperTimerEvent(QTextToSpeechEngine* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnTimerEvent(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_TimerEvent_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +821,8 @@ void QTextToSpeechEngine_SuperChildEvent(QTextToSpeechEngine* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnChildEvent(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_ChildEvent_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +849,8 @@ void QTextToSpeechEngine_SuperCustomEvent(QTextToSpeechEngine* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnCustomEvent(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_CustomEvent_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +877,8 @@ void QTextToSpeechEngine_SuperConnectNotify(QTextToSpeechEngine* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnConnectNotify(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +905,8 @@ void QTextToSpeechEngine_SuperDisconnectNotify(QTextToSpeechEngine* self, const 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnDisconnectNotify(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +933,8 @@ QVoice* QTextToSpeechEngine_SuperCreateVoice(QTextToSpeechEngine* self, const li
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnCreateVoice(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_CreateVoice_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_CreateVoice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +959,8 @@ QVariant* QTextToSpeechEngine_SuperVoiceData(QTextToSpeechEngine* self, const QV
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnVoiceData(QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_VoiceData_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_VoiceData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +987,8 @@ QObject* QTextToSpeechEngine_SuperSender(const QTextToSpeechEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSender(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Sender_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1015,8 @@ int QTextToSpeechEngine_SuperSenderSignalIndex(const QTextToSpeechEngine* self) 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnSenderSignalIndex(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1043,8 @@ int QTextToSpeechEngine_SuperReceivers(const QTextToSpeechEngine* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnReceivers(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_Receivers_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1071,8 @@ bool QTextToSpeechEngine_SuperIsSignalConnected(const QTextToSpeechEngine* self,
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeechEngine_OnIsSignalConnected(const QTextToSpeechEngine* self, intptr_t slot) {
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
+    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine)
         vqtexttospeechengine->setQTextToSpeechEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextToSpeechEngine::QTextToSpeechEngine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTextToSpeechEngine_Delete(QTextToSpeechEngine* self) {

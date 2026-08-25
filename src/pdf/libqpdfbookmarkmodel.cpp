@@ -119,9 +119,8 @@ QMetaObject* QPdfBookmarkModel_SuperMetaObject(const QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMetaObject(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +137,8 @@ void* QPdfBookmarkModel_SuperMetacast(QPdfBookmarkModel* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMetacast(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacast_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +155,8 @@ int QPdfBookmarkModel_SuperMetacall(QPdfBookmarkModel* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMetacall(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacall_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +173,8 @@ QVariant* QPdfBookmarkModel_SuperData(const QPdfBookmarkModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Data_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +191,8 @@ QModelIndex* QPdfBookmarkModel_SuperIndex(const QPdfBookmarkModel* self, int row
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnIndex(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Index_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +209,8 @@ QModelIndex* QPdfBookmarkModel_SuperParent(const QPdfBookmarkModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnParent(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Parent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +227,8 @@ int QPdfBookmarkModel_SuperRowCount(const QPdfBookmarkModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnRowCount(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +245,8 @@ int QPdfBookmarkModel_SuperColumnCount(const QPdfBookmarkModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnColumnCount(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ColumnCount_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +301,8 @@ libqt_map /* of int to libqt_string */ QPdfBookmarkModel_SuperRoleNames(const QP
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnRoleNames(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +329,8 @@ QModelIndex* QPdfBookmarkModel_SuperSibling(const QPdfBookmarkModel* self, int r
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSibling(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Sibling_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +357,8 @@ bool QPdfBookmarkModel_SuperHasChildren(const QPdfBookmarkModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnHasChildren(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_HasChildren_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +385,8 @@ bool QPdfBookmarkModel_SuperSetData(QPdfBookmarkModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSetData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SetData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +413,8 @@ QVariant* QPdfBookmarkModel_SuperHeaderData(const QPdfBookmarkModel* self, int s
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnHeaderData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_HeaderData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +441,8 @@ bool QPdfBookmarkModel_SuperSetHeaderData(QPdfBookmarkModel* self, int section, 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSetHeaderData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SetHeaderData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +525,8 @@ libqt_map /* of int to QVariant* */ QPdfBookmarkModel_SuperItemData(const QPdfBo
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnItemData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ItemData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +565,8 @@ bool QPdfBookmarkModel_SuperSetItemData(QPdfBookmarkModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSetItemData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SetItemData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +593,8 @@ bool QPdfBookmarkModel_SuperClearItemData(QPdfBookmarkModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnClearItemData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ClearItemData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +689,8 @@ libqt_list /* of libqt_string */ QPdfBookmarkModel_SuperMimeTypes(const QPdfBook
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMimeTypes(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MimeTypes_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +729,8 @@ QMimeData* QPdfBookmarkModel_SuperMimeData(const QPdfBookmarkModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMimeData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MimeData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +757,8 @@ bool QPdfBookmarkModel_SuperCanDropMimeData(const QPdfBookmarkModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnCanDropMimeData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +785,8 @@ bool QPdfBookmarkModel_SuperDropMimeData(QPdfBookmarkModel* self, const QMimeDat
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnDropMimeData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_DropMimeData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +813,8 @@ int QPdfBookmarkModel_SuperSupportedDropActions(const QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSupportedDropActions(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +841,8 @@ int QPdfBookmarkModel_SuperSupportedDragActions(const QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSupportedDragActions(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +869,8 @@ bool QPdfBookmarkModel_SuperInsertRows(QPdfBookmarkModel* self, int row, int cou
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnInsertRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_InsertRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +897,8 @@ bool QPdfBookmarkModel_SuperInsertColumns(QPdfBookmarkModel* self, int column, i
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnInsertColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_InsertColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +925,8 @@ bool QPdfBookmarkModel_SuperRemoveRows(QPdfBookmarkModel* self, int row, int cou
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnRemoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_RemoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +953,8 @@ bool QPdfBookmarkModel_SuperRemoveColumns(QPdfBookmarkModel* self, int column, i
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnRemoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_RemoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +981,8 @@ bool QPdfBookmarkModel_SuperMoveRows(QPdfBookmarkModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1009,8 @@ bool QPdfBookmarkModel_SuperMoveColumns(QPdfBookmarkModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1037,8 @@ void QPdfBookmarkModel_SuperFetchMore(QPdfBookmarkModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnFetchMore(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_FetchMore_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1065,8 @@ bool QPdfBookmarkModel_SuperCanFetchMore(const QPdfBookmarkModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnCanFetchMore(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_CanFetchMore_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1093,8 @@ int QPdfBookmarkModel_SuperFlags(const QPdfBookmarkModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnFlags(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Flags_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1121,8 @@ void QPdfBookmarkModel_SuperSort(QPdfBookmarkModel* self, int column, int order)
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSort(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Sort_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1149,8 @@ QModelIndex* QPdfBookmarkModel_SuperBuddy(const QPdfBookmarkModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBuddy(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Buddy_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1247,9 +1213,8 @@ libqt_list /* of QModelIndex* */ QPdfBookmarkModel_SuperMatch(const QPdfBookmark
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMatch(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Match_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1276,9 +1241,8 @@ QSize* QPdfBookmarkModel_SuperSpan(const QPdfBookmarkModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSpan(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Span_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1305,9 +1269,8 @@ void QPdfBookmarkModel_SuperMultiData(const QPdfBookmarkModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnMultiData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_MultiData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1334,9 +1297,8 @@ bool QPdfBookmarkModel_SuperSubmit(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSubmit(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Submit_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1363,9 +1325,8 @@ void QPdfBookmarkModel_SuperRevert(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnRevert(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Revert_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1353,8 @@ void QPdfBookmarkModel_SuperResetInternalData(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnResetInternalData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ResetInternalData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1381,8 @@ bool QPdfBookmarkModel_SuperEvent(QPdfBookmarkModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEvent(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Event_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1450,9 +1409,8 @@ bool QPdfBookmarkModel_SuperEventFilter(QPdfBookmarkModel* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEventFilter(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EventFilter_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1479,9 +1437,8 @@ void QPdfBookmarkModel_SuperTimerEvent(QPdfBookmarkModel* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnTimerEvent(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_TimerEvent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1465,8 @@ void QPdfBookmarkModel_SuperChildEvent(QPdfBookmarkModel* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnChildEvent(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ChildEvent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1537,9 +1493,8 @@ void QPdfBookmarkModel_SuperCustomEvent(QPdfBookmarkModel* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnCustomEvent(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_CustomEvent_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1566,9 +1521,8 @@ void QPdfBookmarkModel_SuperConnectNotify(QPdfBookmarkModel* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnConnectNotify(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1595,9 +1549,8 @@ void QPdfBookmarkModel_SuperDisconnectNotify(QPdfBookmarkModel* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnDisconnectNotify(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1622,9 +1575,8 @@ QModelIndex* QPdfBookmarkModel_SuperCreateIndex(const QPdfBookmarkModel* self, i
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnCreateIndex(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_CreateIndex_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1663,9 +1615,8 @@ void QPdfBookmarkModel_SuperEncodeData(const QPdfBookmarkModel* self, const libq
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEncodeData(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EncodeData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1692,9 +1643,8 @@ bool QPdfBookmarkModel_SuperDecodeData(QPdfBookmarkModel* self, int row, int col
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnDecodeData(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_DecodeData_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1721,9 +1671,8 @@ void QPdfBookmarkModel_SuperBeginInsertRows(QPdfBookmarkModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginInsertRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1750,9 +1699,8 @@ void QPdfBookmarkModel_SuperEndInsertRows(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndInsertRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndInsertRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1779,9 +1727,8 @@ void QPdfBookmarkModel_SuperBeginRemoveRows(QPdfBookmarkModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginRemoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1808,9 +1755,8 @@ void QPdfBookmarkModel_SuperEndRemoveRows(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndRemoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1783,8 @@ bool QPdfBookmarkModel_SuperBeginMoveRows(QPdfBookmarkModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginMoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1866,9 +1811,8 @@ void QPdfBookmarkModel_SuperEndMoveRows(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndMoveRows(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndMoveRows_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1895,9 +1839,8 @@ void QPdfBookmarkModel_SuperBeginInsertColumns(QPdfBookmarkModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginInsertColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1924,9 +1867,8 @@ void QPdfBookmarkModel_SuperEndInsertColumns(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndInsertColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1953,9 +1895,8 @@ void QPdfBookmarkModel_SuperBeginRemoveColumns(QPdfBookmarkModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginRemoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1982,9 +1923,8 @@ void QPdfBookmarkModel_SuperEndRemoveColumns(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndRemoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2011,9 +1951,8 @@ bool QPdfBookmarkModel_SuperBeginMoveColumns(QPdfBookmarkModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginMoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2040,9 +1979,8 @@ void QPdfBookmarkModel_SuperEndMoveColumns(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndMoveColumns(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2069,9 +2007,8 @@ void QPdfBookmarkModel_SuperBeginResetModel(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnBeginResetModel(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_BeginResetModel_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2098,9 +2035,8 @@ void QPdfBookmarkModel_SuperEndResetModel(QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnEndResetModel(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_EndResetModel_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2127,9 +2063,8 @@ void QPdfBookmarkModel_SuperChangePersistentIndex(QPdfBookmarkModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnChangePersistentIndex(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2180,9 +2115,8 @@ void QPdfBookmarkModel_SuperChangePersistentIndexList(QPdfBookmarkModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnChangePersistentIndexList(QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2245,9 +2179,8 @@ libqt_list /* of QModelIndex* */ QPdfBookmarkModel_SuperPersistentIndexList(cons
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnPersistentIndexList(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2274,9 +2207,8 @@ QObject* QPdfBookmarkModel_SuperSender(const QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSender(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Sender_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2303,9 +2235,8 @@ int QPdfBookmarkModel_SuperSenderSignalIndex(const QPdfBookmarkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnSenderSignalIndex(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2332,9 +2263,8 @@ int QPdfBookmarkModel_SuperReceivers(const QPdfBookmarkModel* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnReceivers(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_Receivers_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2361,9 +2291,8 @@ bool QPdfBookmarkModel_SuperIsSignalConnected(const QPdfBookmarkModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QPdfBookmarkModel_OnIsSignalConnected(const QPdfBookmarkModel* self, intptr_t slot) {
     auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
-    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel)
         vqpdfbookmarkmodel->setQPdfBookmarkModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPdfBookmarkModel_Delete(QPdfBookmarkModel* self) {

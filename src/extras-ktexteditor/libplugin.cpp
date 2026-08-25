@@ -55,9 +55,8 @@ QMetaObject* KTextEditor__Plugin_SuperMetaObject(const KTextEditor__Plugin* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnMetaObject(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -74,9 +73,8 @@ void* KTextEditor__Plugin_SuperMetacast(KTextEditor__Plugin* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnMetacast(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_Metacast_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +91,8 @@ int KTextEditor__Plugin_SuperMetacall(KTextEditor__Plugin* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnMetacall(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_Metacall_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +109,8 @@ QObject* KTextEditor__Plugin_SuperCreateView(KTextEditor__Plugin* self, KTextEdi
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnCreateView(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_CreateView_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_CreateView_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -131,9 +127,8 @@ int KTextEditor__Plugin_SuperConfigPages(const KTextEditor__Plugin* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnConfigPages(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_ConfigPages_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_ConfigPages_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +145,8 @@ KTextEditor__ConfigPage* KTextEditor__Plugin_SuperConfigPage(KTextEditor__Plugin
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnConfigPage(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_ConfigPage_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_ConfigPage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -179,9 +173,8 @@ bool KTextEditor__Plugin_SuperEvent(KTextEditor__Plugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnEvent(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_Event_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -208,9 +201,8 @@ bool KTextEditor__Plugin_SuperEventFilter(KTextEditor__Plugin* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnEventFilter(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +229,8 @@ void KTextEditor__Plugin_SuperTimerEvent(KTextEditor__Plugin* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnTimerEvent(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +257,8 @@ void KTextEditor__Plugin_SuperChildEvent(KTextEditor__Plugin* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnChildEvent(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +285,8 @@ void KTextEditor__Plugin_SuperCustomEvent(KTextEditor__Plugin* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnCustomEvent(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +313,8 @@ void KTextEditor__Plugin_SuperConnectNotify(KTextEditor__Plugin* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnConnectNotify(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +341,8 @@ void KTextEditor__Plugin_SuperDisconnectNotify(KTextEditor__Plugin* self, const 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnDisconnectNotify(KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +369,8 @@ QObject* KTextEditor__Plugin_SuperSender(const KTextEditor__Plugin* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnSender(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_Sender_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +397,8 @@ int KTextEditor__Plugin_SuperSenderSignalIndex(const KTextEditor__Plugin* self) 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnSenderSignalIndex(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +425,8 @@ int KTextEditor__Plugin_SuperReceivers(const KTextEditor__Plugin* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnReceivers(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_Receivers_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +453,8 @@ bool KTextEditor__Plugin_SuperIsSignalConnected(const KTextEditor__Plugin* self,
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Plugin_OnIsSignalConnected(const KTextEditor__Plugin* self, intptr_t slot) {
     auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
-    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin)
         vktexteditorplugin->setKTextEditor__Plugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__Plugin_Delete(KTextEditor__Plugin* self) {

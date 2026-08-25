@@ -71,9 +71,8 @@ QMetaObject* QPlaceSearchSuggestionReply_SuperMetaObject(const QPlaceSearchSugge
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnMetaObject(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_MetaObject_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +89,8 @@ void* QPlaceSearchSuggestionReply_SuperMetacast(QPlaceSearchSuggestionReply* sel
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnMetacast(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Metacast_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +107,8 @@ int QPlaceSearchSuggestionReply_SuperMetacall(QPlaceSearchSuggestionReply* self,
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnMetacall(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Metacall_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +125,8 @@ int QPlaceSearchSuggestionReply_SuperType(const QPlaceSearchSuggestionReply* sel
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnType(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Type_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -157,9 +153,8 @@ void QPlaceSearchSuggestionReply_SuperAbort(QPlaceSearchSuggestionReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnAbort(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Abort_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Abort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +181,8 @@ bool QPlaceSearchSuggestionReply_SuperEvent(QPlaceSearchSuggestionReply* self, Q
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnEvent(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Event_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +209,8 @@ bool QPlaceSearchSuggestionReply_SuperEventFilter(QPlaceSearchSuggestionReply* s
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnEventFilter(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_EventFilter_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +237,8 @@ void QPlaceSearchSuggestionReply_SuperTimerEvent(QPlaceSearchSuggestionReply* se
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnTimerEvent(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_TimerEvent_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +265,8 @@ void QPlaceSearchSuggestionReply_SuperChildEvent(QPlaceSearchSuggestionReply* se
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnChildEvent(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_ChildEvent_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +293,8 @@ void QPlaceSearchSuggestionReply_SuperCustomEvent(QPlaceSearchSuggestionReply* s
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnCustomEvent(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_CustomEvent_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +321,8 @@ void QPlaceSearchSuggestionReply_SuperConnectNotify(QPlaceSearchSuggestionReply*
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnConnectNotify(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_ConnectNotify_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +349,8 @@ void QPlaceSearchSuggestionReply_SuperDisconnectNotify(QPlaceSearchSuggestionRep
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnDisconnectNotify(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +391,8 @@ void QPlaceSearchSuggestionReply_SuperSetSuggestions(QPlaceSearchSuggestionReply
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnSetSuggestions(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SetSuggestions_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_SetSuggestions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +419,8 @@ void QPlaceSearchSuggestionReply_SuperSetFinished(QPlaceSearchSuggestionReply* s
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnSetFinished(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SetFinished_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_SetFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +449,8 @@ void QPlaceSearchSuggestionReply_SuperSetError(QPlaceSearchSuggestionReply* self
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnSetError(QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SetError_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +477,8 @@ QObject* QPlaceSearchSuggestionReply_SuperSender(const QPlaceSearchSuggestionRep
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnSender(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Sender_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +505,8 @@ int QPlaceSearchSuggestionReply_SuperSenderSignalIndex(const QPlaceSearchSuggest
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnSenderSignalIndex(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +533,8 @@ int QPlaceSearchSuggestionReply_SuperReceivers(const QPlaceSearchSuggestionReply
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnReceivers(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_Receivers_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +561,8 @@ bool QPlaceSearchSuggestionReply_SuperIsSignalConnected(const QPlaceSearchSugges
 // Auxiliary method to allow providing re-implementation
 void QPlaceSearchSuggestionReply_OnIsSignalConnected(const QPlaceSearchSuggestionReply* self, intptr_t slot) {
     auto* vqplacesearchsuggestionreply = const_cast<VirtualQPlaceSearchSuggestionReply*>(dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self));
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
+    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply)
         vqplacesearchsuggestionreply->setQPlaceSearchSuggestionReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQPlaceSearchSuggestionReply::QPlaceSearchSuggestionReply_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPlaceSearchSuggestionReply_Delete(QPlaceSearchSuggestionReply* self) {

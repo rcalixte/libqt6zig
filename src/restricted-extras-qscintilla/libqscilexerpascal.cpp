@@ -173,9 +173,8 @@ QMetaObject* QsciLexerPascal_SuperMetaObject(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnMetaObject(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +191,8 @@ void* QsciLexerPascal_SuperMetacast(QsciLexerPascal* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnMetacast(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +209,8 @@ int QsciLexerPascal_SuperMetacall(QsciLexerPascal* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnMetacall(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -230,9 +227,8 @@ void QsciLexerPascal_SuperSetFoldComments(QsciLexerPascal* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetFoldComments(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -249,9 +245,8 @@ void QsciLexerPascal_SuperSetFoldCompact(QsciLexerPascal* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetFoldCompact(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldCompact_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +263,8 @@ void QsciLexerPascal_SuperSetFoldPreprocessor(QsciLexerPascal* self, bool fold) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetFoldPreprocessor(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFoldPreprocessor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +291,8 @@ int QsciLexerPascal_SuperLexerId(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnLexerId(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_LexerId_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +319,8 @@ const char* QsciLexerPascal_SuperAutoCompletionFillups(const QsciLexerPascal* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnAutoCompletionFillups(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +347,8 @@ int QsciLexerPascal_SuperBlockLookback(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnBlockLookback(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +375,8 @@ bool QsciLexerPascal_SuperCaseSensitive(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnCaseSensitive(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +403,8 @@ QColor* QsciLexerPascal_SuperColor(const QsciLexerPascal* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnColor(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Color_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +431,8 @@ bool QsciLexerPascal_SuperEolFill(const QsciLexerPascal* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnEolFill(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_EolFill_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +459,8 @@ QFont* QsciLexerPascal_SuperFont(const QsciLexerPascal* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnFont(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Font_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +487,8 @@ int QsciLexerPascal_SuperIndentationGuideView(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnIndentationGuideView(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +515,8 @@ int QsciLexerPascal_SuperDefaultStyle(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnDefaultStyle(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +543,8 @@ QColor* QsciLexerPascal_SuperPaper(const QsciLexerPascal* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnPaper(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Paper_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +571,8 @@ QColor* QsciLexerPascal_SuperDefaultColor2(const QsciLexerPascal* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnDefaultColor2(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +599,8 @@ QFont* QsciLexerPascal_SuperDefaultFont2(const QsciLexerPascal* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnDefaultFont2(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +627,8 @@ QColor* QsciLexerPascal_SuperDefaultPaper2(const QsciLexerPascal* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnDefaultPaper2(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +655,8 @@ void QsciLexerPascal_SuperSetEditor(QsciLexerPascal* self, QsciScintilla* editor
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetEditor(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +683,8 @@ int QsciLexerPascal_SuperStyleBitsNeeded(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnStyleBitsNeeded(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +711,8 @@ const char* QsciLexerPascal_SuperWordCharacters(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnWordCharacters(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +739,8 @@ void QsciLexerPascal_SuperSetAutoIndentStyle(QsciLexerPascal* self, int autoinde
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetAutoIndentStyle(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +767,8 @@ void QsciLexerPascal_SuperSetColor(QsciLexerPascal* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetColor(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetColor_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +795,8 @@ void QsciLexerPascal_SuperSetEolFill(QsciLexerPascal* self, bool eoffill, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetEolFill(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +823,8 @@ void QsciLexerPascal_SuperSetFont(QsciLexerPascal* self, const QFont* f, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetFont(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetFont_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +851,8 @@ void QsciLexerPascal_SuperSetPaper(QsciLexerPascal* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSetPaper(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +881,8 @@ bool QsciLexerPascal_SuperReadProperties(QsciLexerPascal* self, QSettings* qs, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnReadProperties(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -939,9 +911,8 @@ bool QsciLexerPascal_SuperWriteProperties(const QsciLexerPascal* self, QSettings
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnWriteProperties(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -968,9 +939,8 @@ bool QsciLexerPascal_SuperEvent(QsciLexerPascal* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnEvent(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Event_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -997,9 +967,8 @@ bool QsciLexerPascal_SuperEventFilter(QsciLexerPascal* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnEventFilter(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1026,9 +995,8 @@ void QsciLexerPascal_SuperTimerEvent(QsciLexerPascal* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnTimerEvent(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1055,9 +1023,8 @@ void QsciLexerPascal_SuperChildEvent(QsciLexerPascal* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnChildEvent(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1051,8 @@ void QsciLexerPascal_SuperCustomEvent(QsciLexerPascal* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnCustomEvent(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1079,8 @@ void QsciLexerPascal_SuperConnectNotify(QsciLexerPascal* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnConnectNotify(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1107,8 @@ void QsciLexerPascal_SuperDisconnectNotify(QsciLexerPascal* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnDisconnectNotify(QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1157,8 @@ libqt_string QsciLexerPascal_SuperTextAsBytes(const QsciLexerPascal* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnTextAsBytes(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1217,8 @@ libqt_string QsciLexerPascal_SuperBytesAsText(const QsciLexerPascal* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnBytesAsText(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1245,8 @@ QObject* QsciLexerPascal_SuperSender(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSender(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Sender_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1273,8 @@ int QsciLexerPascal_SuperSenderSignalIndex(const QsciLexerPascal* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnSenderSignalIndex(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1301,8 @@ int QsciLexerPascal_SuperReceivers(const QsciLexerPascal* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnReceivers(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_Receivers_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1329,8 @@ bool QsciLexerPascal_SuperIsSignalConnected(const QsciLexerPascal* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPascal_OnIsSignalConnected(const QsciLexerPascal* self, intptr_t slot) {
     auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal)
         vqscilexerpascal->setQsciLexerPascal_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerPascal_Delete(QsciLexerPascal* self) {

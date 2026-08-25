@@ -177,9 +177,8 @@ QMetaObject* QSystemTrayIcon_SuperMetaObject(const QSystemTrayIcon* self) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnMetaObject(const QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_MetaObject_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +195,8 @@ void* QSystemTrayIcon_SuperMetacast(QSystemTrayIcon* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnMetacast(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_Metacast_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +213,8 @@ int QSystemTrayIcon_SuperMetacall(QSystemTrayIcon* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnMetacall(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_Metacall_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +231,8 @@ bool QSystemTrayIcon_SuperEvent(QSystemTrayIcon* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnEvent(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_Event_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +259,8 @@ bool QSystemTrayIcon_SuperEventFilter(QSystemTrayIcon* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnEventFilter(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_EventFilter_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +287,8 @@ void QSystemTrayIcon_SuperTimerEvent(QSystemTrayIcon* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnTimerEvent(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_TimerEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +315,8 @@ void QSystemTrayIcon_SuperChildEvent(QSystemTrayIcon* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnChildEvent(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_ChildEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +343,8 @@ void QSystemTrayIcon_SuperCustomEvent(QSystemTrayIcon* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnCustomEvent(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_CustomEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +371,8 @@ void QSystemTrayIcon_SuperConnectNotify(QSystemTrayIcon* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnConnectNotify(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_ConnectNotify_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +399,8 @@ void QSystemTrayIcon_SuperDisconnectNotify(QSystemTrayIcon* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnDisconnectNotify(QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_DisconnectNotify_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +427,8 @@ QObject* QSystemTrayIcon_SuperSender(const QSystemTrayIcon* self) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnSender(const QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_Sender_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +455,8 @@ int QSystemTrayIcon_SuperSenderSignalIndex(const QSystemTrayIcon* self) {
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnSenderSignalIndex(const QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +483,8 @@ int QSystemTrayIcon_SuperReceivers(const QSystemTrayIcon* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnReceivers(const QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_Receivers_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +511,8 @@ bool QSystemTrayIcon_SuperIsSignalConnected(const QSystemTrayIcon* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnIsSignalConnected(const QSystemTrayIcon* self, intptr_t slot) {
     auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
         vqsystemtrayicon->setQSystemTrayIcon_IsSignalConnected_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSystemTrayIcon_Delete(QSystemTrayIcon* self) {

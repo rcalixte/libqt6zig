@@ -28,6 +28,8 @@ typedef struct QTimerEvent QTimerEvent;
 
 QExtensionFactory* QExtensionFactory_new();
 QExtensionFactory* QExtensionFactory_new2(QExtensionManager* parent);
+QAbstractExtensionFactory* QExtensionFactory_AsQAbstractExtensionFactory(QExtensionFactory* self);
+QExtensionFactory* QExtensionFactory_FromQAbstractExtensionFactory(QAbstractExtensionFactory* _qabstractextensionfactory);
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self);
 void* QExtensionFactory_Metacast(QExtensionFactory* self, const char* param1);
 int QExtensionFactory_Metacall(QExtensionFactory* self, int param1, int param2, void** param3);

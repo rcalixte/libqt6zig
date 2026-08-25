@@ -101,9 +101,8 @@ QMetaObject* QErrorMessage_SuperMetaObject(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMetaObject(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MetaObject_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +119,8 @@ void* QErrorMessage_SuperMetacast(QErrorMessage* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMetacast(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Metacast_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +137,8 @@ int QErrorMessage_SuperMetacall(QErrorMessage* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMetacall(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Metacall_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +155,8 @@ void QErrorMessage_SuperDone(QErrorMessage* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDone(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Done_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Done_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +173,8 @@ void QErrorMessage_SuperChangeEvent(QErrorMessage* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnChangeEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ChangeEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +201,8 @@ void QErrorMessage_SuperSetVisible(QErrorMessage* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnSetVisible(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_SetVisible_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +229,8 @@ QSize* QErrorMessage_SuperSizeHint(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnSizeHint(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_SizeHint_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +257,8 @@ QSize* QErrorMessage_SuperMinimumSizeHint(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMinimumSizeHint(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MinimumSizeHint_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +285,8 @@ void QErrorMessage_SuperOpen(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnOpen(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Open_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +313,8 @@ int QErrorMessage_SuperExec(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnExec(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Exec_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ void QErrorMessage_SuperAccept(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnAccept(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Accept_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ void QErrorMessage_SuperReject(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnReject(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Reject_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ void QErrorMessage_SuperKeyPressEvent(QErrorMessage* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnKeyPressEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_KeyPressEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ void QErrorMessage_SuperCloseEvent(QErrorMessage* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnCloseEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_CloseEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ void QErrorMessage_SuperShowEvent(QErrorMessage* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnShowEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ShowEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ void QErrorMessage_SuperResizeEvent(QErrorMessage* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnResizeEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ResizeEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +509,8 @@ void QErrorMessage_SuperContextMenuEvent(QErrorMessage* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnContextMenuEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ContextMenuEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +537,8 @@ bool QErrorMessage_SuperEventFilter(QErrorMessage* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnEventFilter(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_EventFilter_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +565,8 @@ int QErrorMessage_SuperDevType(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDevType(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DevType_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +593,8 @@ int QErrorMessage_SuperHeightForWidth(const QErrorMessage* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnHeightForWidth(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_HeightForWidth_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +621,8 @@ bool QErrorMessage_SuperHasHeightForWidth(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnHasHeightForWidth(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_HasHeightForWidth_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +649,8 @@ QPaintEngine* QErrorMessage_SuperPaintEngine(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnPaintEngine(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_PaintEngine_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +677,8 @@ bool QErrorMessage_SuperEvent(QErrorMessage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Event_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +705,8 @@ void QErrorMessage_SuperMousePressEvent(QErrorMessage* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMousePressEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MousePressEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +733,8 @@ void QErrorMessage_SuperMouseReleaseEvent(QErrorMessage* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMouseReleaseEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +761,8 @@ void QErrorMessage_SuperMouseDoubleClickEvent(QErrorMessage* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMouseDoubleClickEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +789,8 @@ void QErrorMessage_SuperMouseMoveEvent(QErrorMessage* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMouseMoveEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MouseMoveEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +817,8 @@ void QErrorMessage_SuperWheelEvent(QErrorMessage* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnWheelEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_WheelEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +845,8 @@ void QErrorMessage_SuperKeyReleaseEvent(QErrorMessage* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnKeyReleaseEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +873,8 @@ void QErrorMessage_SuperFocusInEvent(QErrorMessage* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnFocusInEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_FocusInEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +901,8 @@ void QErrorMessage_SuperFocusOutEvent(QErrorMessage* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnFocusOutEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_FocusOutEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +929,8 @@ void QErrorMessage_SuperEnterEvent(QErrorMessage* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnEnterEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_EnterEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +957,8 @@ void QErrorMessage_SuperLeaveEvent(QErrorMessage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnLeaveEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_LeaveEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +985,8 @@ void QErrorMessage_SuperPaintEvent(QErrorMessage* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnPaintEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_PaintEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1013,8 @@ void QErrorMessage_SuperMoveEvent(QErrorMessage* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMoveEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_MoveEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1041,8 @@ void QErrorMessage_SuperTabletEvent(QErrorMessage* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnTabletEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_TabletEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1069,8 @@ void QErrorMessage_SuperActionEvent(QErrorMessage* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnActionEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ActionEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1097,8 @@ void QErrorMessage_SuperDragEnterEvent(QErrorMessage* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDragEnterEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DragEnterEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1125,8 @@ void QErrorMessage_SuperDragMoveEvent(QErrorMessage* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDragMoveEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DragMoveEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1153,8 @@ void QErrorMessage_SuperDragLeaveEvent(QErrorMessage* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDragLeaveEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DragLeaveEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1181,8 @@ void QErrorMessage_SuperDropEvent(QErrorMessage* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDropEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DropEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1209,8 @@ void QErrorMessage_SuperHideEvent(QErrorMessage* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnHideEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_HideEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1239,8 @@ bool QErrorMessage_SuperNativeEvent(QErrorMessage* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnNativeEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_NativeEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1267,8 @@ int QErrorMessage_SuperMetric(const QErrorMessage* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnMetric(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Metric_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1295,8 @@ void QErrorMessage_SuperInitPainter(const QErrorMessage* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnInitPainter(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_InitPainter_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1323,8 @@ QPaintDevice* QErrorMessage_SuperRedirected(const QErrorMessage* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnRedirected(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Redirected_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1351,8 @@ QPainter* QErrorMessage_SuperSharedPainter(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnSharedPainter(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_SharedPainter_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1379,8 @@ void QErrorMessage_SuperInputMethodEvent(QErrorMessage* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnInputMethodEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_InputMethodEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1407,8 @@ QVariant* QErrorMessage_SuperInputMethodQuery(const QErrorMessage* self, int par
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnInputMethodQuery(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_InputMethodQuery_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1435,8 @@ bool QErrorMessage_SuperFocusNextPrevChild(QErrorMessage* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnFocusNextPrevChild(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1463,8 @@ void QErrorMessage_SuperTimerEvent(QErrorMessage* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnTimerEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_TimerEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1491,8 @@ void QErrorMessage_SuperChildEvent(QErrorMessage* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnChildEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ChildEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1519,8 @@ void QErrorMessage_SuperCustomEvent(QErrorMessage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnCustomEvent(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_CustomEvent_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1547,8 @@ void QErrorMessage_SuperConnectNotify(QErrorMessage* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnConnectNotify(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_ConnectNotify_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1575,8 @@ void QErrorMessage_SuperDisconnectNotify(QErrorMessage* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDisconnectNotify(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_DisconnectNotify_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1603,8 @@ void QErrorMessage_SuperAdjustPosition(QErrorMessage* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnAdjustPosition(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_AdjustPosition_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1631,8 @@ void QErrorMessage_SuperUpdateMicroFocus(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnUpdateMicroFocus(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1659,8 @@ void QErrorMessage_SuperCreate(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnCreate(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Create_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1687,8 @@ void QErrorMessage_SuperDestroy(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnDestroy(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Destroy_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1715,8 @@ bool QErrorMessage_SuperFocusNextChild(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnFocusNextChild(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_FocusNextChild_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1743,8 @@ bool QErrorMessage_SuperFocusPreviousChild(QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnFocusPreviousChild(QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_FocusPreviousChild_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1771,8 @@ QObject* QErrorMessage_SuperSender(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnSender(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Sender_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1799,8 @@ int QErrorMessage_SuperSenderSignalIndex(const QErrorMessage* self) {
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnSenderSignalIndex(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_SenderSignalIndex_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1827,8 @@ int QErrorMessage_SuperReceivers(const QErrorMessage* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnReceivers(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_Receivers_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1855,8 @@ bool QErrorMessage_SuperIsSignalConnected(const QErrorMessage* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnIsSignalConnected(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_IsSignalConnected_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1883,8 @@ double QErrorMessage_SuperGetDecodedMetricF(const QErrorMessage* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QErrorMessage_OnGetDecodedMetricF(const QErrorMessage* self, intptr_t slot) {
     auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage)
         vqerrormessage->setQErrorMessage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QErrorMessage_Delete(QErrorMessage* self) {

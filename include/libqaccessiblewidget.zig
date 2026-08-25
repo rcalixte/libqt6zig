@@ -89,6 +89,27 @@ pub const QAccessibleWidget = extern struct {
         return .{ .ptr = qtc.QAccessibleWidget_new3(@ptrCast(o.ptr), @bitCast(r), name_str) };
     }
 
+    /// Upcasts to a QAccessibleActionInterface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleWidget `
+    ///
+    pub fn asQAccessibleActionInterface(self: QAccessibleWidget) QAccessibleActionInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_AsQAccessibleActionInterface(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QAccessibleWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qaccessibleactioninterface: QAccessibleActionInterface `
+    ///
+    pub fn fromQAccessibleActionInterface(_qaccessibleactioninterface: anytype) QAccessibleWidget {
+        comptime _ = @TypeOf(_qaccessibleactioninterface)._is_QAccessibleActionInterface;
+        return .{ .ptr = @ptrCast(qtc.QAccessibleWidget_FromQAccessibleActionInterface(@ptrCast(_qaccessibleactioninterface.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `isValid` instead
     ///
     pub const IsValid = isValid;

@@ -153,9 +153,8 @@ QMetaObject* KIconButton_SuperMetaObject(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetaObject(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MetaObject_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +171,8 @@ void* KIconButton_SuperMetacast(KIconButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetacast(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Metacast_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +189,8 @@ int KIconButton_SuperMetacall(KIconButton* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetacall(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Metacall_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -220,9 +217,8 @@ QSize* KIconButton_SuperSizeHint(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSizeHint(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_SizeHint_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +245,8 @@ QSize* KIconButton_SuperMinimumSizeHint(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMinimumSizeHint(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +273,8 @@ bool KIconButton_SuperEvent(KIconButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Event_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +301,8 @@ void KIconButton_SuperPaintEvent(KIconButton* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnPaintEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_PaintEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +329,8 @@ void KIconButton_SuperKeyPressEvent(KIconButton* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnKeyPressEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +357,8 @@ void KIconButton_SuperFocusInEvent(KIconButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusInEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_FocusInEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +385,8 @@ void KIconButton_SuperFocusOutEvent(KIconButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusOutEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +413,8 @@ void KIconButton_SuperMouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseMoveEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +441,8 @@ void KIconButton_SuperInitStyleOption(const KIconButton* self, QStyleOptionButto
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnInitStyleOption(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_InitStyleOption_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +469,8 @@ bool KIconButton_SuperHitButton(const KIconButton* self, const QPoint* pos) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnHitButton(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_HitButton_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +497,8 @@ void KIconButton_SuperCheckStateSet(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCheckStateSet(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_CheckStateSet_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +525,8 @@ void KIconButton_SuperNextCheckState(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnNextCheckState(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_NextCheckState_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +553,8 @@ void KIconButton_SuperKeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnKeyReleaseEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +581,8 @@ void KIconButton_SuperMousePressEvent(KIconButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMousePressEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MousePressEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +609,8 @@ void KIconButton_SuperMouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseReleaseEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +637,8 @@ void KIconButton_SuperChangeEvent(KIconButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnChangeEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ChangeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +665,8 @@ void KIconButton_SuperTimerEvent(KIconButton* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnTimerEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_TimerEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +693,8 @@ int KIconButton_SuperDevType(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDevType(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DevType_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +721,8 @@ void KIconButton_SuperSetVisible(KIconButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSetVisible(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_SetVisible_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +749,8 @@ int KIconButton_SuperHeightForWidth(const KIconButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnHeightForWidth(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_HeightForWidth_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +777,8 @@ bool KIconButton_SuperHasHeightForWidth(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnHasHeightForWidth(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +805,8 @@ QPaintEngine* KIconButton_SuperPaintEngine(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnPaintEngine(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_PaintEngine_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +833,8 @@ void KIconButton_SuperMouseDoubleClickEvent(KIconButton* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseDoubleClickEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +861,8 @@ void KIconButton_SuperWheelEvent(KIconButton* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnWheelEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_WheelEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +889,8 @@ void KIconButton_SuperEnterEvent(KIconButton* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEnterEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_EnterEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +917,8 @@ void KIconButton_SuperLeaveEvent(KIconButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnLeaveEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_LeaveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +945,8 @@ void KIconButton_SuperMoveEvent(KIconButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMoveEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_MoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +973,8 @@ void KIconButton_SuperResizeEvent(KIconButton* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnResizeEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ResizeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1001,8 @@ void KIconButton_SuperCloseEvent(KIconButton* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCloseEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_CloseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1029,8 @@ void KIconButton_SuperContextMenuEvent(KIconButton* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnContextMenuEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1057,8 @@ void KIconButton_SuperTabletEvent(KIconButton* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnTabletEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_TabletEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1085,8 @@ void KIconButton_SuperActionEvent(KIconButton* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnActionEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ActionEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1113,8 @@ void KIconButton_SuperDragEnterEvent(KIconButton* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragEnterEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1141,8 @@ void KIconButton_SuperDragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragMoveEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1169,8 @@ void KIconButton_SuperDragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragLeaveEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1197,8 @@ void KIconButton_SuperDropEvent(KIconButton* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDropEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DropEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1225,8 @@ void KIconButton_SuperShowEvent(KIconButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnShowEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ShowEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1253,8 @@ void KIconButton_SuperHideEvent(KIconButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnHideEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_HideEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1283,8 @@ bool KIconButton_SuperNativeEvent(KIconButton* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnNativeEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_NativeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1311,8 @@ int KIconButton_SuperMetric(const KIconButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetric(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Metric_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1339,8 @@ void KIconButton_SuperInitPainter(const KIconButton* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnInitPainter(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_InitPainter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1367,8 @@ QPaintDevice* KIconButton_SuperRedirected(const KIconButton* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnRedirected(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Redirected_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1395,8 @@ QPainter* KIconButton_SuperSharedPainter(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSharedPainter(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_SharedPainter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1423,8 @@ void KIconButton_SuperInputMethodEvent(KIconButton* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnInputMethodEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1451,8 @@ QVariant* KIconButton_SuperInputMethodQuery(const KIconButton* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnInputMethodQuery(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1479,8 @@ bool KIconButton_SuperFocusNextPrevChild(KIconButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusNextPrevChild(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1507,8 @@ bool KIconButton_SuperEventFilter(KIconButton* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEventFilter(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_EventFilter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1535,8 @@ void KIconButton_SuperChildEvent(KIconButton* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnChildEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ChildEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1563,8 @@ void KIconButton_SuperCustomEvent(KIconButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCustomEvent(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_CustomEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1591,8 @@ void KIconButton_SuperConnectNotify(KIconButton* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnConnectNotify(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_ConnectNotify_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1619,8 @@ void KIconButton_SuperDisconnectNotify(KIconButton* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDisconnectNotify(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1647,8 @@ void KIconButton_SuperUpdateMicroFocus(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnUpdateMicroFocus(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1675,8 @@ void KIconButton_SuperCreate(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCreate(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Create_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1703,8 @@ void KIconButton_SuperDestroy(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDestroy(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Destroy_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1731,8 @@ bool KIconButton_SuperFocusNextChild(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusNextChild(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_FocusNextChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1759,8 @@ bool KIconButton_SuperFocusPreviousChild(KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusPreviousChild(KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1787,8 @@ QObject* KIconButton_SuperSender(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSender(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Sender_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1815,8 @@ int KIconButton_SuperSenderSignalIndex(const KIconButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSenderSignalIndex(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1843,8 @@ int KIconButton_SuperReceivers(const KIconButton* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnReceivers(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_Receivers_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1871,8 @@ bool KIconButton_SuperIsSignalConnected(const KIconButton* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnIsSignalConnected(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1899,8 @@ double KIconButton_SuperGetDecodedMetricF(const KIconButton* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnGetDecodedMetricF(const KIconButton* self, intptr_t slot) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
         vkiconbutton->setKIconButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KIconButton_Delete(KIconButton* self) {

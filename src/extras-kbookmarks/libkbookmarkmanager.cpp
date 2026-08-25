@@ -150,9 +150,8 @@ QMetaObject* KBookmarkManager_SuperMetaObject(const KBookmarkManager* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnMetaObject(const KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +168,8 @@ void* KBookmarkManager_SuperMetacast(KBookmarkManager* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnMetacast(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_Metacast_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +186,8 @@ int KBookmarkManager_SuperMetacall(KBookmarkManager* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnMetacall(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_Metacall_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +214,8 @@ bool KBookmarkManager_SuperEvent(KBookmarkManager* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnEvent(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_Event_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +242,8 @@ bool KBookmarkManager_SuperEventFilter(KBookmarkManager* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnEventFilter(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_EventFilter_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +270,8 @@ void KBookmarkManager_SuperTimerEvent(KBookmarkManager* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnTimerEvent(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_TimerEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +298,8 @@ void KBookmarkManager_SuperChildEvent(KBookmarkManager* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnChildEvent(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_ChildEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +326,8 @@ void KBookmarkManager_SuperCustomEvent(KBookmarkManager* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnCustomEvent(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_CustomEvent_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +354,8 @@ void KBookmarkManager_SuperConnectNotify(KBookmarkManager* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnConnectNotify(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_ConnectNotify_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +382,8 @@ void KBookmarkManager_SuperDisconnectNotify(KBookmarkManager* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnDisconnectNotify(KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_DisconnectNotify_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +410,8 @@ QObject* KBookmarkManager_SuperSender(const KBookmarkManager* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnSender(const KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_Sender_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +438,8 @@ int KBookmarkManager_SuperSenderSignalIndex(const KBookmarkManager* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnSenderSignalIndex(const KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +466,8 @@ int KBookmarkManager_SuperReceivers(const KBookmarkManager* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnReceivers(const KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_Receivers_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +494,8 @@ bool KBookmarkManager_SuperIsSignalConnected(const KBookmarkManager* self, const
 // Auxiliary method to allow providing re-implementation
 void KBookmarkManager_OnIsSignalConnected(const KBookmarkManager* self, intptr_t slot) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager)
         vkbookmarkmanager->setKBookmarkManager_IsSignalConnected_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KBookmarkManager_Delete(KBookmarkManager* self) {

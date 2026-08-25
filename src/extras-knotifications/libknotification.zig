@@ -5787,7 +5787,7 @@ pub const KNotification = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knotification.html#public-types)
 pub const enums = struct {
-    pub const NotificationFlag = enum(i32) {
+    pub const NotificationFlag = enum {
         pub const CloseOnTimeout: i32 = 0;
         pub const Persistent: i32 = 2;
         pub const LoopSound: i32 = 8;
@@ -5796,14 +5796,14 @@ pub const enums = struct {
         pub const DefaultEvent: i32 = 61440;
     };
 
-    pub const StandardEvent = enum(i32) {
+    pub const StandardEvent = enum {
         pub const Notification: i32 = 0;
         pub const Warning: i32 = 1;
         pub const Error: i32 = 2;
         pub const Catastrophe: i32 = 3;
     };
 
-    pub const Urgency = enum(i32) {
+    pub const Urgency = enum {
         pub const DefaultUrgency: i32 = -1;
         pub const LowUrgency: i32 = 10;
         pub const NormalUrgency: i32 = 50;

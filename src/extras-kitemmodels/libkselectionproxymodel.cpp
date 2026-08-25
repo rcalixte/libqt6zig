@@ -183,9 +183,8 @@ QMetaObject* KSelectionProxyModel_SuperMetaObject(const KSelectionProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMetaObject(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +201,8 @@ void* KSelectionProxyModel_SuperMetacast(KSelectionProxyModel* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMetacast(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Metacast_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +219,8 @@ int KSelectionProxyModel_SuperMetacall(KSelectionProxyModel* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMetacall(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Metacall_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +237,8 @@ void KSelectionProxyModel_SuperSetSourceModel(KSelectionProxyModel* self, QAbstr
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSetSourceModel(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +255,8 @@ QModelIndex* KSelectionProxyModel_SuperMapFromSource(const KSelectionProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMapFromSource(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +273,8 @@ QModelIndex* KSelectionProxyModel_SuperMapToSource(const KSelectionProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMapToSource(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -297,9 +291,8 @@ QItemSelection* KSelectionProxyModel_SuperMapSelectionFromSource(const KSelectio
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMapSelectionFromSource(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -316,9 +309,8 @@ QItemSelection* KSelectionProxyModel_SuperMapSelectionToSource(const KSelectionP
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMapSelectionToSource(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +327,8 @@ int KSelectionProxyModel_SuperFlags(const KSelectionProxyModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnFlags(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Flags_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -354,9 +345,8 @@ QVariant* KSelectionProxyModel_SuperData(const KSelectionProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Data_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +363,8 @@ int KSelectionProxyModel_SuperRowCount(const KSelectionProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnRowCount(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_RowCount_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +381,8 @@ QVariant* KSelectionProxyModel_SuperHeaderData(const KSelectionProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnHeaderData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -417,9 +405,8 @@ QMimeData* KSelectionProxyModel_SuperMimeData(const KSelectionProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMimeData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MimeData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -470,9 +457,8 @@ libqt_list /* of libqt_string */ KSelectionProxyModel_SuperMimeTypes(const KSele
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMimeTypes(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -489,9 +475,8 @@ int KSelectionProxyModel_SuperSupportedDropActions(const KSelectionProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSupportedDropActions(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -508,9 +493,8 @@ bool KSelectionProxyModel_SuperDropMimeData(KSelectionProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnDropMimeData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -527,9 +511,8 @@ bool KSelectionProxyModel_SuperHasChildren(const KSelectionProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnHasChildren(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -546,9 +529,8 @@ QModelIndex* KSelectionProxyModel_SuperIndex(const KSelectionProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnIndex(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Index_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -565,9 +547,8 @@ QModelIndex* KSelectionProxyModel_SuperParent(const KSelectionProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnParent(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Parent_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -584,9 +565,8 @@ int KSelectionProxyModel_SuperColumnCount(const KSelectionProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnColumnCount(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -621,9 +601,8 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_SuperMatch(const KSelectio
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMatch(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Match_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +629,8 @@ bool KSelectionProxyModel_SuperSubmit(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSubmit(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Submit_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +657,8 @@ void KSelectionProxyModel_SuperRevert(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnRevert(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Revert_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +741,8 @@ libqt_map /* of int to QVariant* */ KSelectionProxyModel_SuperItemData(const KSe
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnItemData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ItemData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +769,8 @@ bool KSelectionProxyModel_SuperSetData(KSelectionProxyModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSetData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SetData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +809,8 @@ bool KSelectionProxyModel_SuperSetItemData(KSelectionProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSetItemData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +837,8 @@ bool KSelectionProxyModel_SuperSetHeaderData(KSelectionProxyModel* self, int sec
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSetHeaderData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +865,8 @@ bool KSelectionProxyModel_SuperClearItemData(KSelectionProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnClearItemData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +893,8 @@ QModelIndex* KSelectionProxyModel_SuperBuddy(const KSelectionProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBuddy(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Buddy_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +921,8 @@ bool KSelectionProxyModel_SuperCanFetchMore(const KSelectionProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnCanFetchMore(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +949,8 @@ void KSelectionProxyModel_SuperFetchMore(KSelectionProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnFetchMore(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +977,8 @@ void KSelectionProxyModel_SuperSort(KSelectionProxyModel* self, int column, int 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSort(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Sort_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1005,8 @@ QSize* KSelectionProxyModel_SuperSpan(const KSelectionProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSpan(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Span_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1033,8 @@ QModelIndex* KSelectionProxyModel_SuperSibling(const KSelectionProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSibling(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Sibling_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1061,8 @@ bool KSelectionProxyModel_SuperCanDropMimeData(const KSelectionProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnCanDropMimeData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1089,8 @@ int KSelectionProxyModel_SuperSupportedDragActions(const KSelectionProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSupportedDragActions(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1229,9 +1193,8 @@ libqt_map /* of int to libqt_string */ KSelectionProxyModel_SuperRoleNames(const
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnRoleNames(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1258,9 +1221,8 @@ bool KSelectionProxyModel_SuperInsertRows(KSelectionProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnInsertRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1287,9 +1249,8 @@ bool KSelectionProxyModel_SuperInsertColumns(KSelectionProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnInsertColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1277,8 @@ bool KSelectionProxyModel_SuperRemoveRows(KSelectionProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnRemoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1305,8 @@ bool KSelectionProxyModel_SuperRemoveColumns(KSelectionProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnRemoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1333,8 @@ bool KSelectionProxyModel_SuperMoveRows(KSelectionProxyModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1361,8 @@ bool KSelectionProxyModel_SuperMoveColumns(KSelectionProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1389,8 @@ void KSelectionProxyModel_SuperMultiData(const KSelectionProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnMultiData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_MultiData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1417,8 @@ void KSelectionProxyModel_SuperResetInternalData(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnResetInternalData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1445,8 @@ bool KSelectionProxyModel_SuperEvent(KSelectionProxyModel* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEvent(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Event_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1473,8 @@ bool KSelectionProxyModel_SuperEventFilter(KSelectionProxyModel* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEventFilter(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1501,8 @@ void KSelectionProxyModel_SuperTimerEvent(KSelectionProxyModel* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnTimerEvent(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1577,9 +1529,8 @@ void KSelectionProxyModel_SuperChildEvent(KSelectionProxyModel* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnChildEvent(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1557,8 @@ void KSelectionProxyModel_SuperCustomEvent(KSelectionProxyModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnCustomEvent(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1585,8 @@ void KSelectionProxyModel_SuperConnectNotify(KSelectionProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnConnectNotify(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1613,8 @@ void KSelectionProxyModel_SuperDisconnectNotify(KSelectionProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnDisconnectNotify(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1729,9 +1677,8 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SuperSourceRootI
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSourceRootIndexes(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SourceRootIndexes_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SourceRootIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1703,8 @@ QModelIndex* KSelectionProxyModel_SuperCreateSourceIndex(const KSelectionProxyMo
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnCreateSourceIndex(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1729,8 @@ QModelIndex* KSelectionProxyModel_SuperCreateIndex(const KSelectionProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnCreateIndex(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1769,8 @@ void KSelectionProxyModel_SuperEncodeData(const KSelectionProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEncodeData(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1797,8 @@ bool KSelectionProxyModel_SuperDecodeData(KSelectionProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnDecodeData(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1882,9 +1825,8 @@ void KSelectionProxyModel_SuperBeginInsertRows(KSelectionProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginInsertRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1911,9 +1853,8 @@ void KSelectionProxyModel_SuperEndInsertRows(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndInsertRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1940,9 +1881,8 @@ void KSelectionProxyModel_SuperBeginRemoveRows(KSelectionProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginRemoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1969,9 +1909,8 @@ void KSelectionProxyModel_SuperEndRemoveRows(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndRemoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1998,9 +1937,8 @@ bool KSelectionProxyModel_SuperBeginMoveRows(KSelectionProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginMoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2027,9 +1965,8 @@ void KSelectionProxyModel_SuperEndMoveRows(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndMoveRows(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2056,9 +1993,8 @@ void KSelectionProxyModel_SuperBeginInsertColumns(KSelectionProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginInsertColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2085,9 +2021,8 @@ void KSelectionProxyModel_SuperEndInsertColumns(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndInsertColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2114,9 +2049,8 @@ void KSelectionProxyModel_SuperBeginRemoveColumns(KSelectionProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginRemoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2143,9 +2077,8 @@ void KSelectionProxyModel_SuperEndRemoveColumns(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndRemoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2172,9 +2105,8 @@ bool KSelectionProxyModel_SuperBeginMoveColumns(KSelectionProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginMoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2201,9 +2133,8 @@ void KSelectionProxyModel_SuperEndMoveColumns(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndMoveColumns(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2230,9 +2161,8 @@ void KSelectionProxyModel_SuperBeginResetModel(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnBeginResetModel(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2259,9 +2189,8 @@ void KSelectionProxyModel_SuperEndResetModel(KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnEndResetModel(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2288,9 +2217,8 @@ void KSelectionProxyModel_SuperChangePersistentIndex(KSelectionProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnChangePersistentIndex(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2341,9 +2269,8 @@ void KSelectionProxyModel_SuperChangePersistentIndexList(KSelectionProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnChangePersistentIndexList(KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2406,9 +2333,8 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_SuperPersistentIndexList(c
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnPersistentIndexList(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2435,9 +2361,8 @@ QObject* KSelectionProxyModel_SuperSender(const KSelectionProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSender(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Sender_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2464,9 +2389,8 @@ int KSelectionProxyModel_SuperSenderSignalIndex(const KSelectionProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnSenderSignalIndex(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2493,9 +2417,8 @@ int KSelectionProxyModel_SuperReceivers(const KSelectionProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnReceivers(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_Receivers_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2522,9 +2445,8 @@ bool KSelectionProxyModel_SuperIsSignalConnected(const KSelectionProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KSelectionProxyModel_OnIsSignalConnected(const KSelectionProxyModel* self, intptr_t slot) {
     auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel)
         vkselectionproxymodel->setKSelectionProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSelectionProxyModel_Connect_RootIndexAboutToBeRemoved(KSelectionProxyModel* self, intptr_t slot) {

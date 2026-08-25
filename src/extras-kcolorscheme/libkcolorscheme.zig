@@ -427,7 +427,7 @@ pub const KColorScheme = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#public-types)
 pub const enums = struct {
-    pub const ColorSet = enum(i32) {
+    pub const ColorSet = enum {
         pub const View: i32 = 0;
         pub const Window: i32 = 1;
         pub const Button: i32 = 2;
@@ -438,7 +438,7 @@ pub const enums = struct {
         pub const NColorSets: i32 = 7;
     };
 
-    pub const BackgroundRole = enum(i32) {
+    pub const BackgroundRole = enum {
         pub const NormalBackground: i32 = 0;
         pub const AlternateBackground: i32 = 1;
         pub const ActiveBackground: i32 = 2;
@@ -450,7 +450,7 @@ pub const enums = struct {
         pub const NBackgroundRoles: i32 = 8;
     };
 
-    pub const ForegroundRole = enum(i32) {
+    pub const ForegroundRole = enum {
         pub const NormalText: i32 = 0;
         pub const InactiveText: i32 = 1;
         pub const ActiveText: i32 = 2;
@@ -462,13 +462,13 @@ pub const enums = struct {
         pub const NForegroundRoles: i32 = 8;
     };
 
-    pub const DecorationRole = enum(i32) {
+    pub const DecorationRole = enum {
         pub const FocusColor: i32 = 0;
         pub const HoverColor: i32 = 1;
         pub const NDecorationRoles: i32 = 2;
     };
 
-    pub const ShadeRole = enum(i32) {
+    pub const ShadeRole = enum {
         pub const LightShade: i32 = 0;
         pub const MidlightShade: i32 = 1;
         pub const MidShade: i32 = 2;

@@ -319,9 +319,8 @@ QMetaObject* KSelectAction_SuperMetaObject(const KSelectAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnMetaObject(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_MetaObject_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +337,8 @@ void* KSelectAction_SuperMetacast(KSelectAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnMetacast(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_Metacast_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +355,8 @@ int KSelectAction_SuperMetacall(KSelectAction* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnMetacall(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_Metacall_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +373,8 @@ QAction* KSelectAction_SuperRemoveAction(KSelectAction* self, QAction* action) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnRemoveAction(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_RemoveAction_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_RemoveAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +391,8 @@ void KSelectAction_SuperInsertAction(KSelectAction* self, QAction* before, QActi
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnInsertAction(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_InsertAction_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_InsertAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -414,9 +409,8 @@ void KSelectAction_SuperSlotActionTriggered(KSelectAction* self, QAction* action
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnSlotActionTriggered(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -433,9 +427,8 @@ QWidget* KSelectAction_SuperCreateWidget(KSelectAction* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnCreateWidget(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_CreateWidget_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -452,9 +445,8 @@ void KSelectAction_SuperDeleteWidget(KSelectAction* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnDeleteWidget(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_DeleteWidget_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -471,9 +463,8 @@ bool KSelectAction_SuperEvent(KSelectAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnEvent(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_Event_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -490,9 +481,8 @@ bool KSelectAction_SuperEventFilter(KSelectAction* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnEventFilter(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_EventFilter_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +509,8 @@ void KSelectAction_SuperTimerEvent(KSelectAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnTimerEvent(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_TimerEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +537,8 @@ void KSelectAction_SuperChildEvent(KSelectAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnChildEvent(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_ChildEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +565,8 @@ void KSelectAction_SuperCustomEvent(KSelectAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnCustomEvent(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_CustomEvent_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +593,8 @@ void KSelectAction_SuperConnectNotify(KSelectAction* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnConnectNotify(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_ConnectNotify_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +621,8 @@ void KSelectAction_SuperDisconnectNotify(KSelectAction* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnDisconnectNotify(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +649,8 @@ void KSelectAction_SuperSlotToggled(KSelectAction* self, bool param1) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnSlotToggled(KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_SlotToggled_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +713,8 @@ libqt_list /* of QWidget* */ KSelectAction_SuperCreatedWidgets(const KSelectActi
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnCreatedWidgets(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +741,8 @@ QObject* KSelectAction_SuperSender(const KSelectAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnSender(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_Sender_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +769,8 @@ int KSelectAction_SuperSenderSignalIndex(const KSelectAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnSenderSignalIndex(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +797,8 @@ int KSelectAction_SuperReceivers(const KSelectAction* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnReceivers(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_Receivers_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +825,8 @@ bool KSelectAction_SuperIsSignalConnected(const KSelectAction* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KSelectAction_OnIsSignalConnected(const KSelectAction* self, intptr_t slot) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction)
         vkselectaction->setKSelectAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSelectAction_Delete(KSelectAction* self) {

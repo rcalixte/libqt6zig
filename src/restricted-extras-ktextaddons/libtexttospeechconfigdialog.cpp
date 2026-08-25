@@ -72,9 +72,8 @@ QMetaObject* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetaObject(cons
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetaObject(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetacast(TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetacast(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetacall(TextEditTextToS
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetacall(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -139,9 +136,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSetVisible(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnSetVisible(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -168,9 +164,8 @@ QSize* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSizeHint(const TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnSizeHint(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -197,9 +192,8 @@ QSize* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMinimumSizeHint(const
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMinimumSizeHint(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +220,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperOpen(TextEditTextToSpee
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnOpen(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +248,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperExec(TextEditTextToSpeec
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnExec(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDone(TextEditTextToSpee
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDone(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Done_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperAccept(TextEditTextToSp
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnAccept(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +332,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperReject(TextEditTextToSp
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnReject(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +360,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperKeyPressEvent(TextEditT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnKeyPressEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +388,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCloseEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnCloseEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +416,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperShowEvent(TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnShowEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +444,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperResizeEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnResizeEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +472,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperContextMenuEvent(TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnContextMenuEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +500,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEventFilter(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnEventFilter(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +528,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDevType(const TextEditTe
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDevType(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +556,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperHeightForWidth(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnHeightForWidth(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +584,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperHasHeightForWidth(const
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnHasHeightForWidth(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +612,8 @@ QPaintEngine* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperPaintEngine(co
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnPaintEngine(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +640,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEvent(TextEditTextToSpe
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Event_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +668,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMousePressEvent(TextEdi
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMousePressEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +696,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseReleaseEvent(TextE
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMouseReleaseEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +724,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseDoubleClickEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMouseDoubleClickEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +752,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseMoveEvent(TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMouseMoveEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +780,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperWheelEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnWheelEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +808,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperKeyReleaseEvent(TextEdi
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnKeyReleaseEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +836,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusInEvent(TextEditTe
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnFocusInEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +864,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusOutEvent(TextEditT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnFocusOutEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +892,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEnterEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnEnterEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +920,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperLeaveEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnLeaveEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +948,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperPaintEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnPaintEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +976,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMoveEvent(TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMoveEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1004,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperTabletEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnTabletEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1032,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperActionEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnActionEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1060,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragEnterEvent(TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDragEnterEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1088,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragMoveEvent(TextEditT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDragMoveEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1116,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragLeaveEvent(TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDragLeaveEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1144,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDropEvent(TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDropEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1172,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperHideEvent(TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnHideEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1202,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperNativeEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnNativeEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1230,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperChangeEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnChangeEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1258,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetric(const TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetric(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Metric_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1286,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperInitPainter(const TextE
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnInitPainter(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1314,8 @@ QPaintDevice* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperRedirected(con
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnRedirected(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1342,8 @@ QPainter* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSharedPainter(cons
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnSharedPainter(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1370,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperInputMethodEvent(TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnInputMethodEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1398,8 @@ QVariant* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperInputMethodQuery(c
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnInputMethodQuery(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1426,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusNextPrevChild(Text
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnFocusNextPrevChild(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1454,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperTimerEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnTimerEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1482,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperChildEvent(TextEditText
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnChildEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1510,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCustomEvent(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnCustomEvent(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1538,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperConnectNotify(TextEditT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnConnectNotify(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1566,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDisconnectNotify(TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDisconnectNotify(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1594,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperAdjustPosition(TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnAdjustPosition(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1622,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperUpdateMicroFocus(TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnUpdateMicroFocus(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1650,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCreate(TextEditTextToSp
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnCreate(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1678,8 @@ void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDestroy(TextEditTextToS
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnDestroy(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1706,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusNextChild(TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnFocusNextChild(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1734,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusPreviousChild(Text
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnFocusPreviousChild(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1762,8 @@ QObject* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSender(const TextEd
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnSender(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1790,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSenderSignalIndex(const 
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1818,8 @@ int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperReceivers(const TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnReceivers(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1846,8 @@ bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperIsSignalConnected(const
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnIsSignalConnected(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1874,8 @@ double TextEditTextToSpeech__TextToSpeechConfigDialog_SuperGetDecodedMetricF(con
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnGetDecodedMetricF(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechconfigdialog = const_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self));
-    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
+    if (vtextedittexttospeechtexttospeechconfigdialog && vtextedittexttospeechtexttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog)
         vtextedittexttospeechtexttospeechconfigdialog->setTextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog::TextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextEditTextToSpeech__TextToSpeechConfigDialog_Delete(TextEditTextToSpeech__TextToSpeechConfigDialog* self) {

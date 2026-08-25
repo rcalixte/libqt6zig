@@ -71,9 +71,8 @@ QMetaObject* KTwoFingerTap_SuperMetaObject(const KTwoFingerTap* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnMetaObject(const KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_MetaObject_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +89,8 @@ void* KTwoFingerTap_SuperMetacast(KTwoFingerTap* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnMetacast(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_Metacast_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +107,8 @@ int KTwoFingerTap_SuperMetacall(KTwoFingerTap* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnMetacall(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_Metacall_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -138,9 +135,8 @@ bool KTwoFingerTap_SuperEvent(KTwoFingerTap* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnEvent(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_Event_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +163,8 @@ bool KTwoFingerTap_SuperEventFilter(KTwoFingerTap* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnEventFilter(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_EventFilter_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +191,8 @@ void KTwoFingerTap_SuperTimerEvent(KTwoFingerTap* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnTimerEvent(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_TimerEvent_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +219,8 @@ void KTwoFingerTap_SuperChildEvent(KTwoFingerTap* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnChildEvent(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_ChildEvent_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +247,8 @@ void KTwoFingerTap_SuperCustomEvent(KTwoFingerTap* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnCustomEvent(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_CustomEvent_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +275,8 @@ void KTwoFingerTap_SuperConnectNotify(KTwoFingerTap* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnConnectNotify(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_ConnectNotify_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +303,8 @@ void KTwoFingerTap_SuperDisconnectNotify(KTwoFingerTap* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnDisconnectNotify(KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_DisconnectNotify_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +331,8 @@ QObject* KTwoFingerTap_SuperSender(const KTwoFingerTap* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnSender(const KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_Sender_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +359,8 @@ int KTwoFingerTap_SuperSenderSignalIndex(const KTwoFingerTap* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnSenderSignalIndex(const KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +387,8 @@ int KTwoFingerTap_SuperReceivers(const KTwoFingerTap* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnReceivers(const KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_Receivers_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ bool KTwoFingerTap_SuperIsSignalConnected(const KTwoFingerTap* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTap_OnIsSignalConnected(const KTwoFingerTap* self, intptr_t slot) {
     auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap)
         vktwofingertap->setKTwoFingerTap_IsSignalConnected_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTwoFingerTap_Delete(KTwoFingerTap* self) {
@@ -471,9 +457,8 @@ QGesture* KTwoFingerTapRecognizer_SuperCreate(KTwoFingerTapRecognizer* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTapRecognizer_OnCreate(KTwoFingerTapRecognizer* self, intptr_t slot) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer)
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Create_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -490,9 +475,8 @@ int KTwoFingerTapRecognizer_SuperRecognize(KTwoFingerTapRecognizer* self, QGestu
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTapRecognizer_OnRecognize(KTwoFingerTapRecognizer* self, intptr_t slot) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer)
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Recognize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +503,8 @@ void KTwoFingerTapRecognizer_SuperReset(KTwoFingerTapRecognizer* self, QGesture*
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerTapRecognizer_OnReset(KTwoFingerTapRecognizer* self, intptr_t slot) {
     auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
+    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer)
         vktwofingertaprecognizer->setKTwoFingerTapRecognizer_Reset_Callback(reinterpret_cast<VirtualKTwoFingerTapRecognizer::KTwoFingerTapRecognizer_Reset_Callback>(slot));
-    }
 }
 
 void KTwoFingerTapRecognizer_Delete(KTwoFingerTapRecognizer* self) {

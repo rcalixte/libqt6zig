@@ -583,7 +583,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const UnknownError: i32 = 1;
         pub const NotSupported: i32 = 2;
@@ -593,7 +593,7 @@ pub const enums = struct {
         pub const NameToolong: i32 = 6;
     };
 
-    pub const Attribute = enum(u32) {
+    pub const Attribute = enum {
         pub const None: u32 = 0;
         pub const Any: u32 = 0;
         pub const Tags: u32 = 1;

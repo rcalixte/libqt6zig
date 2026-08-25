@@ -107,9 +107,8 @@ libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnCurrentTitle(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_CurrentTitle_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_CurrentTitle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +125,8 @@ QUrl* KBookmarkOwner_SuperCurrentUrl(const KBookmarkOwner* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnCurrentUrl(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_CurrentUrl_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_CurrentUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -161,9 +159,8 @@ libqt_string KBookmarkOwner_SuperCurrentIcon(const KBookmarkOwner* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnCurrentIcon(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_CurrentIcon_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_CurrentIcon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +177,8 @@ bool KBookmarkOwner_SuperSupportsTabs(const KBookmarkOwner* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnSupportsTabs(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_SupportsTabs_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_SupportsTabs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +213,8 @@ libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_SuperCurrentB
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnCurrentBookmarkList(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_CurrentBookmarkList_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_CurrentBookmarkList_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +231,8 @@ bool KBookmarkOwner_SuperEnableOption(const KBookmarkOwner* self, int option) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnEnableOption(const KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_EnableOption_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_EnableOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -255,9 +249,8 @@ void KBookmarkOwner_SuperOpenBookmark(KBookmarkOwner* self, const KBookmark* bm,
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnOpenBookmark(KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_OpenBookmark_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_OpenBookmark_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -274,9 +267,8 @@ void KBookmarkOwner_SuperOpenFolderinTabs(KBookmarkOwner* self, const KBookmarkG
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnOpenFolderinTabs(KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_OpenFolderinTabs_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_OpenFolderinTabs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -293,9 +285,8 @@ void KBookmarkOwner_SuperOpenInNewTab(KBookmarkOwner* self, const KBookmark* bm)
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnOpenInNewTab(KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_OpenInNewTab_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_OpenInNewTab_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -312,9 +303,8 @@ void KBookmarkOwner_SuperOpenInNewWindow(KBookmarkOwner* self, const KBookmark* 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkOwner_OnOpenInNewWindow(KBookmarkOwner* self, intptr_t slot) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
+    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner)
         vkbookmarkowner->setKBookmarkOwner_OpenInNewWindow_Callback(reinterpret_cast<VirtualKBookmarkOwner::KBookmarkOwner_OpenInNewWindow_Callback>(slot));
-    }
 }
 
 void KBookmarkOwner_Delete(KBookmarkOwner* self) {

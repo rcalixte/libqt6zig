@@ -155,13 +155,13 @@ pub const QOcspResponse = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#public-types)
 pub const enums = struct {
-    pub const QOcspCertificateStatus = enum(i32) {
+    pub const QOcspCertificateStatus = enum {
         pub const Good: i32 = 0;
         pub const Revoked: i32 = 1;
         pub const Unknown: i32 = 2;
     };
 
-    pub const QOcspRevocationReason = enum(i32) {
+    pub const QOcspRevocationReason = enum {
         pub const None: i32 = -1;
         pub const Unspecified: i32 = 0;
         pub const KeyCompromise: i32 = 1;

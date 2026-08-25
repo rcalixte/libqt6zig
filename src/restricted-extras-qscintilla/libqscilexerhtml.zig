@@ -4626,7 +4626,7 @@ pub const QsciLexerHTML = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerHTML = enum(i32) {
+    pub const QsciLexerHTML = enum {
         pub const Default: i32 = 0;
         pub const Tag: i32 = 1;
         pub const UnknownTag: i32 = 2;

@@ -201,9 +201,8 @@ QMetaObject* QColorDialog_SuperMetaObject(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetaObject(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MetaObject_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +219,8 @@ void* QColorDialog_SuperMetacast(QColorDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetacast(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Metacast_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +237,8 @@ int QColorDialog_SuperMetacall(QColorDialog* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetacall(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Metacall_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +255,8 @@ void QColorDialog_SuperSetVisible(QColorDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSetVisible(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_SetVisible_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +273,8 @@ void QColorDialog_SuperChangeEvent(QColorDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnChangeEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +291,8 @@ void QColorDialog_SuperDone(QColorDialog* self, int result) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDone(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Done_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +319,8 @@ QSize* QColorDialog_SuperSizeHint(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSizeHint(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_SizeHint_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +347,8 @@ QSize* QColorDialog_SuperMinimumSizeHint(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMinimumSizeHint(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +375,8 @@ void QColorDialog_SuperOpen(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnOpen(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Open_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +403,8 @@ int QColorDialog_SuperExec(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnExec(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Exec_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +431,8 @@ void QColorDialog_SuperAccept(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnAccept(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Accept_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +459,8 @@ void QColorDialog_SuperReject(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnReject(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Reject_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +487,8 @@ void QColorDialog_SuperKeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnKeyPressEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +515,8 @@ void QColorDialog_SuperCloseEvent(QColorDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnCloseEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_CloseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +543,8 @@ void QColorDialog_SuperShowEvent(QColorDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnShowEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ShowEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +571,8 @@ void QColorDialog_SuperResizeEvent(QColorDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnResizeEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +599,8 @@ void QColorDialog_SuperContextMenuEvent(QColorDialog* self, QContextMenuEvent* p
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnContextMenuEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +627,8 @@ bool QColorDialog_SuperEventFilter(QColorDialog* self, QObject* param1, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEventFilter(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_EventFilter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +655,8 @@ int QColorDialog_SuperDevType(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDevType(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DevType_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +683,8 @@ int QColorDialog_SuperHeightForWidth(const QColorDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnHeightForWidth(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +711,8 @@ bool QColorDialog_SuperHasHeightForWidth(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnHasHeightForWidth(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +739,8 @@ QPaintEngine* QColorDialog_SuperPaintEngine(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnPaintEngine(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_PaintEngine_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +767,8 @@ bool QColorDialog_SuperEvent(QColorDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Event_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +795,8 @@ void QColorDialog_SuperMousePressEvent(QColorDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMousePressEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +823,8 @@ void QColorDialog_SuperMouseReleaseEvent(QColorDialog* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseReleaseEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +851,8 @@ void QColorDialog_SuperMouseDoubleClickEvent(QColorDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseDoubleClickEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +879,8 @@ void QColorDialog_SuperMouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseMoveEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +907,8 @@ void QColorDialog_SuperWheelEvent(QColorDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnWheelEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_WheelEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +935,8 @@ void QColorDialog_SuperKeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnKeyReleaseEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +963,8 @@ void QColorDialog_SuperFocusInEvent(QColorDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusInEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1021,9 +991,8 @@ void QColorDialog_SuperFocusOutEvent(QColorDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusOutEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1019,8 @@ void QColorDialog_SuperEnterEvent(QColorDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEnterEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_EnterEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1047,8 @@ void QColorDialog_SuperLeaveEvent(QColorDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnLeaveEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1075,8 @@ void QColorDialog_SuperPaintEvent(QColorDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnPaintEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_PaintEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1103,8 @@ void QColorDialog_SuperMoveEvent(QColorDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMoveEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_MoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1131,8 @@ void QColorDialog_SuperTabletEvent(QColorDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnTabletEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_TabletEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1159,8 @@ void QColorDialog_SuperActionEvent(QColorDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnActionEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ActionEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1224,9 +1187,8 @@ void QColorDialog_SuperDragEnterEvent(QColorDialog* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragEnterEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1253,9 +1215,8 @@ void QColorDialog_SuperDragMoveEvent(QColorDialog* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragMoveEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1243,8 @@ void QColorDialog_SuperDragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragLeaveEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1271,8 @@ void QColorDialog_SuperDropEvent(QColorDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDropEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DropEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1299,8 @@ void QColorDialog_SuperHideEvent(QColorDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnHideEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_HideEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1329,8 @@ bool QColorDialog_SuperNativeEvent(QColorDialog* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnNativeEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_NativeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1357,8 @@ int QColorDialog_SuperMetric(const QColorDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetric(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Metric_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1385,8 @@ void QColorDialog_SuperInitPainter(const QColorDialog* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnInitPainter(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_InitPainter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1413,8 @@ QPaintDevice* QColorDialog_SuperRedirected(const QColorDialog* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnRedirected(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Redirected_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1441,8 @@ QPainter* QColorDialog_SuperSharedPainter(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSharedPainter(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_SharedPainter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1469,8 @@ void QColorDialog_SuperInputMethodEvent(QColorDialog* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnInputMethodEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1497,8 @@ QVariant* QColorDialog_SuperInputMethodQuery(const QColorDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnInputMethodQuery(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1525,8 @@ bool QColorDialog_SuperFocusNextPrevChild(QColorDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusNextPrevChild(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1553,8 @@ void QColorDialog_SuperTimerEvent(QColorDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnTimerEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_TimerEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1581,8 @@ void QColorDialog_SuperChildEvent(QColorDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnChildEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ChildEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1609,8 @@ void QColorDialog_SuperCustomEvent(QColorDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnCustomEvent(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_CustomEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1637,8 @@ void QColorDialog_SuperConnectNotify(QColorDialog* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnConnectNotify(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1665,8 @@ void QColorDialog_SuperDisconnectNotify(QColorDialog* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDisconnectNotify(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1693,8 @@ void QColorDialog_SuperAdjustPosition(QColorDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnAdjustPosition(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1721,8 @@ void QColorDialog_SuperUpdateMicroFocus(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnUpdateMicroFocus(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1749,8 @@ void QColorDialog_SuperCreate(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnCreate(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Create_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1777,8 @@ void QColorDialog_SuperDestroy(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDestroy(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Destroy_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1805,8 @@ bool QColorDialog_SuperFocusNextChild(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusNextChild(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1893,9 +1833,8 @@ bool QColorDialog_SuperFocusPreviousChild(QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusPreviousChild(QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1922,9 +1861,8 @@ QObject* QColorDialog_SuperSender(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSender(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Sender_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1951,9 +1889,8 @@ int QColorDialog_SuperSenderSignalIndex(const QColorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSenderSignalIndex(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1980,9 +1917,8 @@ int QColorDialog_SuperReceivers(const QColorDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnReceivers(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_Receivers_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2009,9 +1945,8 @@ bool QColorDialog_SuperIsSignalConnected(const QColorDialog* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnIsSignalConnected(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2038,9 +1973,8 @@ double QColorDialog_SuperGetDecodedMetricF(const QColorDialog* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnGetDecodedMetricF(const QColorDialog* self, intptr_t slot) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
         vqcolordialog->setQColorDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QColorDialog_Delete(QColorDialog* self) {

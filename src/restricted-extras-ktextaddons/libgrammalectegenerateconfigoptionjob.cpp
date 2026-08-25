@@ -127,9 +127,8 @@ QMetaObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetaObjec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetaObject(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetacast(TextGra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetacast(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetacall(TextGramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetacall(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +191,8 @@ bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperEvent(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +219,8 @@ bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperEventFilter(TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnEventFilter(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +247,8 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperTimerEvent(TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnTimerEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +275,8 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperChildEvent(TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnChildEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +303,8 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperCustomEvent(TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnCustomEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +331,8 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperConnectNotify(Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnConnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +359,8 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperDisconnectNotify(
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +387,8 @@ QObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperSender(const 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnSender(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +415,8 @@ int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperSenderSignalIndex(
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperReceivers(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnReceivers(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperIsSignalConnected
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Delete(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {

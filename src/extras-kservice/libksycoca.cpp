@@ -126,9 +126,8 @@ QMetaObject* KSycoca_SuperMetaObject(const KSycoca* self) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnMetaObject(const KSycoca* self, intptr_t slot) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_MetaObject_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +144,8 @@ void* KSycoca_SuperMetacast(KSycoca* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnMetacast(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_Metacast_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +162,8 @@ int KSycoca_SuperMetacall(KSycoca* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnMetacall(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_Metacall_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +180,8 @@ bool KSycoca_SuperIsBuilding(KSycoca* self) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnIsBuilding(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_IsBuilding_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_IsBuilding_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +198,8 @@ void KSycoca_SuperConnectNotify(KSycoca* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnConnectNotify(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_ConnectNotify_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +226,8 @@ bool KSycoca_SuperEvent(KSycoca* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnEvent(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_Event_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +254,8 @@ bool KSycoca_SuperEventFilter(KSycoca* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnEventFilter(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_EventFilter_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +282,8 @@ void KSycoca_SuperTimerEvent(KSycoca* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnTimerEvent(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_TimerEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +310,8 @@ void KSycoca_SuperChildEvent(KSycoca* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnChildEvent(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_ChildEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +338,8 @@ void KSycoca_SuperCustomEvent(KSycoca* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnCustomEvent(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_CustomEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +366,8 @@ void KSycoca_SuperDisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnDisconnectNotify(KSycoca* self, intptr_t slot) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_DisconnectNotify_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +394,8 @@ QObject* KSycoca_SuperSender(const KSycoca* self) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnSender(const KSycoca* self, intptr_t slot) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_Sender_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +422,8 @@ int KSycoca_SuperSenderSignalIndex(const KSycoca* self) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnSenderSignalIndex(const KSycoca* self, intptr_t slot) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +450,8 @@ int KSycoca_SuperReceivers(const KSycoca* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnReceivers(const KSycoca* self, intptr_t slot) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_Receivers_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +478,8 @@ bool KSycoca_SuperIsSignalConnected(const KSycoca* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnIsSignalConnected(const KSycoca* self, intptr_t slot) {
     auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca && vksycoca->isVirtualKSycoca)
         vksycoca->setKSycoca_IsSignalConnected_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSycoca_Delete(KSycoca* self) {

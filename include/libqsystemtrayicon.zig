@@ -2380,7 +2380,7 @@ pub const QSystemTrayIcon = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#public-types)
 pub const enums = struct {
-    pub const ActivationReason = enum(i32) {
+    pub const ActivationReason = enum {
         pub const Unknown: i32 = 0;
         pub const Context: i32 = 1;
         pub const DoubleClick: i32 = 2;
@@ -2388,7 +2388,7 @@ pub const enums = struct {
         pub const MiddleClick: i32 = 4;
     };
 
-    pub const MessageIcon = enum(i32) {
+    pub const MessageIcon = enum {
         pub const NoIcon: i32 = 0;
         pub const Information: i32 = 1;
         pub const Warning: i32 = 2;

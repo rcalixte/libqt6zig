@@ -449,9 +449,8 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SuperQueryProxy(QNetwork
 // Auxiliary method to allow providing re-implementation
 void QNetworkProxyFactory_OnQueryProxy(QNetworkProxyFactory* self, intptr_t slot) {
     auto* vqnetworkproxyfactory = dynamic_cast<VirtualQNetworkProxyFactory*>(self);
-    if (vqnetworkproxyfactory && vqnetworkproxyfactory->isVirtualQNetworkProxyFactory) {
+    if (vqnetworkproxyfactory && vqnetworkproxyfactory->isVirtualQNetworkProxyFactory)
         vqnetworkproxyfactory->setQNetworkProxyFactory_QueryProxy_Callback(reinterpret_cast<VirtualQNetworkProxyFactory::QNetworkProxyFactory_QueryProxy_Callback>(slot));
-    }
 }
 
 void QNetworkProxyFactory_Delete(QNetworkProxyFactory* self) {

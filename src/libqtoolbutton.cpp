@@ -240,9 +240,8 @@ QMetaObject* QToolButton_SuperMetaObject(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetaObject(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MetaObject_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +258,8 @@ void* QToolButton_SuperMetacast(QToolButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetacast(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Metacast_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +276,8 @@ int QToolButton_SuperMetacall(QToolButton* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetacall(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Metacall_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -297,9 +294,8 @@ QSize* QToolButton_SuperSizeHint(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSizeHint(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_SizeHint_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -316,9 +312,8 @@ QSize* QToolButton_SuperMinimumSizeHint(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMinimumSizeHint(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +330,8 @@ bool QToolButton_SuperEvent(QToolButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Event_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -354,9 +348,8 @@ void QToolButton_SuperMousePressEvent(QToolButton* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMousePressEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MousePressEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +366,8 @@ void QToolButton_SuperMouseReleaseEvent(QToolButton* self, QMouseEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseReleaseEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +384,8 @@ void QToolButton_SuperPaintEvent(QToolButton* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnPaintEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_PaintEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -411,9 +402,8 @@ void QToolButton_SuperActionEvent(QToolButton* self, QActionEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnActionEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ActionEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -430,9 +420,8 @@ void QToolButton_SuperEnterEvent(QToolButton* self, QEnterEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEnterEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_EnterEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -449,9 +438,8 @@ void QToolButton_SuperLeaveEvent(QToolButton* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnLeaveEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_LeaveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -468,9 +456,8 @@ void QToolButton_SuperTimerEvent(QToolButton* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnTimerEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_TimerEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -487,9 +474,8 @@ void QToolButton_SuperChangeEvent(QToolButton* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnChangeEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ChangeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -506,9 +492,8 @@ bool QToolButton_SuperHitButton(const QToolButton* self, const QPoint* pos) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnHitButton(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_HitButton_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HitButton_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -525,9 +510,8 @@ void QToolButton_SuperCheckStateSet(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCheckStateSet(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_CheckStateSet_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -544,9 +528,8 @@ void QToolButton_SuperNextCheckState(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnNextCheckState(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_NextCheckState_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -563,9 +546,8 @@ void QToolButton_SuperInitStyleOption(const QToolButton* self, QStyleOptionToolB
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnInitStyleOption(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_InitStyleOption_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +574,8 @@ void QToolButton_SuperKeyPressEvent(QToolButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnKeyPressEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_KeyPressEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +602,8 @@ void QToolButton_SuperKeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnKeyReleaseEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +630,8 @@ void QToolButton_SuperMouseMoveEvent(QToolButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseMoveEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +658,8 @@ void QToolButton_SuperFocusInEvent(QToolButton* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusInEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_FocusInEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +686,8 @@ void QToolButton_SuperFocusOutEvent(QToolButton* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusOutEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_FocusOutEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +714,8 @@ int QToolButton_SuperDevType(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDevType(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DevType_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +742,8 @@ void QToolButton_SuperSetVisible(QToolButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSetVisible(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_SetVisible_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +770,8 @@ int QToolButton_SuperHeightForWidth(const QToolButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnHeightForWidth(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_HeightForWidth_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +798,8 @@ bool QToolButton_SuperHasHeightForWidth(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnHasHeightForWidth(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +826,8 @@ QPaintEngine* QToolButton_SuperPaintEngine(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnPaintEngine(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_PaintEngine_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +854,8 @@ void QToolButton_SuperMouseDoubleClickEvent(QToolButton* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseDoubleClickEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +882,8 @@ void QToolButton_SuperWheelEvent(QToolButton* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnWheelEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_WheelEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +910,8 @@ void QToolButton_SuperMoveEvent(QToolButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMoveEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_MoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +938,8 @@ void QToolButton_SuperResizeEvent(QToolButton* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnResizeEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ResizeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +966,8 @@ void QToolButton_SuperCloseEvent(QToolButton* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCloseEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_CloseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +994,8 @@ void QToolButton_SuperContextMenuEvent(QToolButton* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnContextMenuEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1022,8 @@ void QToolButton_SuperTabletEvent(QToolButton* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnTabletEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_TabletEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1050,8 @@ void QToolButton_SuperDragEnterEvent(QToolButton* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragEnterEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DragEnterEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1078,8 @@ void QToolButton_SuperDragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragMoveEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DragMoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1106,8 @@ void QToolButton_SuperDragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragLeaveEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1134,8 @@ void QToolButton_SuperDropEvent(QToolButton* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDropEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DropEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1162,8 @@ void QToolButton_SuperShowEvent(QToolButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnShowEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ShowEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1190,8 @@ void QToolButton_SuperHideEvent(QToolButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnHideEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_HideEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1220,8 @@ bool QToolButton_SuperNativeEvent(QToolButton* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnNativeEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_NativeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1248,8 @@ int QToolButton_SuperMetric(const QToolButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetric(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Metric_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1276,8 @@ void QToolButton_SuperInitPainter(const QToolButton* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnInitPainter(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_InitPainter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1304,8 @@ QPaintDevice* QToolButton_SuperRedirected(const QToolButton* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnRedirected(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Redirected_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1332,8 @@ QPainter* QToolButton_SuperSharedPainter(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSharedPainter(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_SharedPainter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1360,8 @@ void QToolButton_SuperInputMethodEvent(QToolButton* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnInputMethodEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_InputMethodEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1388,8 @@ QVariant* QToolButton_SuperInputMethodQuery(const QToolButton* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnInputMethodQuery(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_InputMethodQuery_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1416,8 @@ bool QToolButton_SuperFocusNextPrevChild(QToolButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusNextPrevChild(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1444,8 @@ bool QToolButton_SuperEventFilter(QToolButton* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEventFilter(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_EventFilter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1472,8 @@ void QToolButton_SuperChildEvent(QToolButton* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnChildEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ChildEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1500,8 @@ void QToolButton_SuperCustomEvent(QToolButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCustomEvent(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_CustomEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1528,8 @@ void QToolButton_SuperConnectNotify(QToolButton* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnConnectNotify(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_ConnectNotify_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1556,8 @@ void QToolButton_SuperDisconnectNotify(QToolButton* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDisconnectNotify(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_DisconnectNotify_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1584,8 @@ void QToolButton_SuperUpdateMicroFocus(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnUpdateMicroFocus(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1612,8 @@ void QToolButton_SuperCreate(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCreate(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Create_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1640,8 @@ void QToolButton_SuperDestroy(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDestroy(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Destroy_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1668,8 @@ bool QToolButton_SuperFocusNextChild(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusNextChild(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_FocusNextChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1696,8 @@ bool QToolButton_SuperFocusPreviousChild(QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusPreviousChild(QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1724,8 @@ QObject* QToolButton_SuperSender(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSender(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Sender_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1752,8 @@ int QToolButton_SuperSenderSignalIndex(const QToolButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSenderSignalIndex(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1780,8 @@ int QToolButton_SuperReceivers(const QToolButton* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnReceivers(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_Receivers_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1808,8 @@ bool QToolButton_SuperIsSignalConnected(const QToolButton* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnIsSignalConnected(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_IsSignalConnected_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1899,9 +1836,8 @@ double QToolButton_SuperGetDecodedMetricF(const QToolButton* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnGetDecodedMetricF(const QToolButton* self, intptr_t slot) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
         vqtoolbutton->setQToolButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QToolButton_Delete(QToolButton* self) {

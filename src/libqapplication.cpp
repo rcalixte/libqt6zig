@@ -302,9 +302,8 @@ QMetaObject* QApplication_SuperMetaObject(const QApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnMetaObject(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_MetaObject_Callback(reinterpret_cast<VirtualQApplication::QApplication_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -321,9 +320,8 @@ void* QApplication_SuperMetacast(QApplication* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnMetacast(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Metacast_Callback(reinterpret_cast<VirtualQApplication::QApplication_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -340,9 +338,8 @@ int QApplication_SuperMetacall(QApplication* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnMetacall(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Metacall_Callback(reinterpret_cast<VirtualQApplication::QApplication_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -359,9 +356,8 @@ bool QApplication_SuperNotify(QApplication* self, QObject* param1, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnNotify(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Notify_Callback(reinterpret_cast<VirtualQApplication::QApplication_Notify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +374,8 @@ bool QApplication_SuperEvent(QApplication* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnEvent(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Event_Callback(reinterpret_cast<VirtualQApplication::QApplication_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +402,8 @@ bool QApplication_SuperEventFilter(QApplication* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnEventFilter(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_EventFilter_Callback(reinterpret_cast<VirtualQApplication::QApplication_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +430,8 @@ void QApplication_SuperTimerEvent(QApplication* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnTimerEvent(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_TimerEvent_Callback(reinterpret_cast<VirtualQApplication::QApplication_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +458,8 @@ void QApplication_SuperChildEvent(QApplication* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnChildEvent(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_ChildEvent_Callback(reinterpret_cast<VirtualQApplication::QApplication_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +486,8 @@ void QApplication_SuperCustomEvent(QApplication* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnCustomEvent(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_CustomEvent_Callback(reinterpret_cast<VirtualQApplication::QApplication_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +514,8 @@ void QApplication_SuperConnectNotify(QApplication* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnConnectNotify(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_ConnectNotify_Callback(reinterpret_cast<VirtualQApplication::QApplication_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +542,8 @@ void QApplication_SuperDisconnectNotify(QApplication* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnDisconnectNotify(QApplication* self, intptr_t slot) {
     auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_DisconnectNotify_Callback(reinterpret_cast<VirtualQApplication::QApplication_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -581,9 +570,8 @@ void* QApplication_SuperResolveInterface(const QApplication* self, const char* n
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnResolveInterface(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_ResolveInterface_Callback(reinterpret_cast<VirtualQApplication::QApplication_ResolveInterface_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -610,9 +598,8 @@ QObject* QApplication_SuperSender(const QApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnSender(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Sender_Callback(reinterpret_cast<VirtualQApplication::QApplication_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +626,8 @@ int QApplication_SuperSenderSignalIndex(const QApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnSenderSignalIndex(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_SenderSignalIndex_Callback(reinterpret_cast<VirtualQApplication::QApplication_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +654,8 @@ int QApplication_SuperReceivers(const QApplication* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnReceivers(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_Receivers_Callback(reinterpret_cast<VirtualQApplication::QApplication_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +682,8 @@ bool QApplication_SuperIsSignalConnected(const QApplication* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QApplication_OnIsSignalConnected(const QApplication* self, intptr_t slot) {
     auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
-    if (vqapplication && vqapplication->isVirtualQApplication) {
+    if (vqapplication && vqapplication->isVirtualQApplication)
         vqapplication->setQApplication_IsSignalConnected_Callback(reinterpret_cast<VirtualQApplication::QApplication_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QApplication_Delete(QApplication* self) {

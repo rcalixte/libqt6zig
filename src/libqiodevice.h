@@ -27,6 +27,7 @@ typedef struct QTimerEvent QTimerEvent;
 
 QIODevice* QIODevice_new();
 QIODevice* QIODevice_new2(QObject* parent);
+QIODeviceBase* QIODevice_AsQIODeviceBase(QIODevice* self);
 QMetaObject* QIODevice_MetaObject(const QIODevice* self);
 void* QIODevice_Metacast(QIODevice* self, const char* param1);
 int QIODevice_Metacall(QIODevice* self, int param1, int param2, void** param3);

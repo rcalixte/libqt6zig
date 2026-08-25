@@ -3223,7 +3223,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-workerbase.html#public-types)
 pub const enums = struct {
-    pub const MessageBoxType = enum(i32) {
+    pub const MessageBoxType = enum {
         pub const QuestionTwoActions: i32 = 1;
         pub const WarningTwoActions: i32 = 2;
         pub const WarningContinueCancel: i32 = 3;
@@ -3232,7 +3232,7 @@ pub const enums = struct {
         pub const WarningContinueCancelDetailed: i32 = 10;
     };
 
-    pub const ButtonCode = enum(i32) {
+    pub const ButtonCode = enum {
         pub const Ok: i32 = 1;
         pub const Cancel: i32 = 2;
         pub const PrimaryAction: i32 = 3;

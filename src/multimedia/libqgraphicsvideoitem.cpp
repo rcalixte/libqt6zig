@@ -136,9 +136,8 @@ QMetaObject* QGraphicsVideoItem_SuperMetaObject(const QGraphicsVideoItem* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +154,8 @@ void* QGraphicsVideoItem_SuperMetacast(QGraphicsVideoItem* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +172,8 @@ int QGraphicsVideoItem_SuperMetacall(QGraphicsVideoItem* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +190,8 @@ QRectF* QGraphicsVideoItem_SuperBoundingRect(const QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_BoundingRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +208,8 @@ void QGraphicsVideoItem_SuperPaint(QGraphicsVideoItem* self, QPainter* painter, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnPaint(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +226,8 @@ int QGraphicsVideoItem_SuperType(const QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnType(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Type_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -250,9 +244,8 @@ void QGraphicsVideoItem_SuperTimerEvent(QGraphicsVideoItem* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnTimerEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +261,8 @@ QVariant* QGraphicsVideoItem_SuperItemChange(QGraphicsVideoItem* self, int chang
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnItemChange(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ItemChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +289,8 @@ bool QGraphicsVideoItem_SuperEvent(QGraphicsVideoItem* self, QEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Event_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +317,8 @@ bool QGraphicsVideoItem_SuperEventFilter(QGraphicsVideoItem* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnEventFilter(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +345,8 @@ void QGraphicsVideoItem_SuperChildEvent(QGraphicsVideoItem* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnChildEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +373,8 @@ void QGraphicsVideoItem_SuperCustomEvent(QGraphicsVideoItem* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnCustomEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +401,8 @@ void QGraphicsVideoItem_SuperConnectNotify(QGraphicsVideoItem* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnConnectNotify(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +429,8 @@ void QGraphicsVideoItem_SuperDisconnectNotify(QGraphicsVideoItem* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDisconnectNotify(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +457,8 @@ void QGraphicsVideoItem_SuperAdvance(QGraphicsVideoItem* self, int phase) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnAdvance(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Advance_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Advance_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +485,8 @@ QPainterPath* QGraphicsVideoItem_SuperShape(const QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnShape(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Shape_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +513,8 @@ bool QGraphicsVideoItem_SuperContains(const QGraphicsVideoItem* self, const QPoi
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnContains(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Contains_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +541,8 @@ bool QGraphicsVideoItem_SuperCollidesWithItem(const QGraphicsVideoItem* self, co
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnCollidesWithItem(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithItem_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +569,8 @@ bool QGraphicsVideoItem_SuperCollidesWithPath(const QGraphicsVideoItem* self, co
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnCollidesWithPath(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithPath_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithPath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +597,8 @@ bool QGraphicsVideoItem_SuperIsObscuredBy(const QGraphicsVideoItem* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnIsObscuredBy(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_IsObscuredBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +625,8 @@ QPainterPath* QGraphicsVideoItem_SuperOpaqueArea(const QGraphicsVideoItem* self)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnOpaqueArea(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_OpaqueArea_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +653,8 @@ bool QGraphicsVideoItem_SuperSceneEventFilter(QGraphicsVideoItem* self, QGraphic
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSceneEventFilter(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEventFilter_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +681,8 @@ bool QGraphicsVideoItem_SuperSceneEvent(QGraphicsVideoItem* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSceneEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +709,8 @@ void QGraphicsVideoItem_SuperContextMenuEvent(QGraphicsVideoItem* self, QGraphic
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnContextMenuEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +737,8 @@ void QGraphicsVideoItem_SuperDragEnterEvent(QGraphicsVideoItem* self, QGraphicsS
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragEnterEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +765,8 @@ void QGraphicsVideoItem_SuperDragLeaveEvent(QGraphicsVideoItem* self, QGraphicsS
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragLeaveEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +793,8 @@ void QGraphicsVideoItem_SuperDragMoveEvent(QGraphicsVideoItem* self, QGraphicsSc
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +821,8 @@ void QGraphicsVideoItem_SuperDropEvent(QGraphicsVideoItem* self, QGraphicsSceneD
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDropEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +849,8 @@ void QGraphicsVideoItem_SuperFocusInEvent(QGraphicsVideoItem* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnFocusInEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +877,8 @@ void QGraphicsVideoItem_SuperFocusOutEvent(QGraphicsVideoItem* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnFocusOutEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +905,8 @@ void QGraphicsVideoItem_SuperHoverEnterEvent(QGraphicsVideoItem* self, QGraphics
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverEnterEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +933,8 @@ void QGraphicsVideoItem_SuperHoverMoveEvent(QGraphicsVideoItem* self, QGraphicsS
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -993,9 +961,8 @@ void QGraphicsVideoItem_SuperHoverLeaveEvent(QGraphicsVideoItem* self, QGraphics
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverLeaveEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1022,9 +989,8 @@ void QGraphicsVideoItem_SuperKeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnKeyPressEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1051,9 +1017,8 @@ void QGraphicsVideoItem_SuperKeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnKeyReleaseEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1045,8 @@ void QGraphicsVideoItem_SuperMousePressEvent(QGraphicsVideoItem* self, QGraphics
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMousePressEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1073,8 @@ void QGraphicsVideoItem_SuperMouseMoveEvent(QGraphicsVideoItem* self, QGraphicsS
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1101,8 @@ void QGraphicsVideoItem_SuperMouseReleaseEvent(QGraphicsVideoItem* self, QGraphi
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseReleaseEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1129,8 @@ void QGraphicsVideoItem_SuperMouseDoubleClickEvent(QGraphicsVideoItem* self, QGr
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseDoubleClickEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1157,8 @@ void QGraphicsVideoItem_SuperWheelEvent(QGraphicsVideoItem* self, QGraphicsScene
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnWheelEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1185,8 @@ void QGraphicsVideoItem_SuperInputMethodEvent(QGraphicsVideoItem* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnInputMethodEvent(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1211,8 @@ QVariant* QGraphicsVideoItem_SuperInputMethodQuery(const QGraphicsVideoItem* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnInputMethodQuery(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1239,8 @@ bool QGraphicsVideoItem_SuperSupportsExtension(const QGraphicsVideoItem* self, i
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSupportsExtension(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SupportsExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1267,8 @@ void QGraphicsVideoItem_SuperSetExtension(QGraphicsVideoItem* self, int extensio
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSetExtension(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SetExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1293,8 @@ QVariant* QGraphicsVideoItem_SuperExtension(const QGraphicsVideoItem* self, cons
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnExtension(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Extension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1321,8 @@ void QGraphicsVideoItem_SuperUpdateMicroFocus(QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnUpdateMicroFocus(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1349,8 @@ QObject* QGraphicsVideoItem_SuperSender(const QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSender(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Sender_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1377,8 @@ int QGraphicsVideoItem_SuperSenderSignalIndex(const QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSenderSignalIndex(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1405,8 @@ int QGraphicsVideoItem_SuperReceivers(const QGraphicsVideoItem* self, const char
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnReceivers(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_Receivers_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1433,8 @@ bool QGraphicsVideoItem_SuperIsSignalConnected(const QGraphicsVideoItem* self, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnIsSignalConnected(const QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1461,8 @@ void QGraphicsVideoItem_SuperAddToIndex(QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnAddToIndex(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_AddToIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_AddToIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1489,8 @@ void QGraphicsVideoItem_SuperRemoveFromIndex(QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnRemoveFromIndex(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_RemoveFromIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_RemoveFromIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1569,9 +1517,8 @@ void QGraphicsVideoItem_SuperPrepareGeometryChange(QGraphicsVideoItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnPrepareGeometryChange(QGraphicsVideoItem* self, intptr_t slot) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
         vqgraphicsvideoitem->setQGraphicsVideoItem_PrepareGeometryChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_PrepareGeometryChange_Callback>(slot));
-    }
 }
 
 void QGraphicsVideoItem_Delete(QGraphicsVideoItem* self) {

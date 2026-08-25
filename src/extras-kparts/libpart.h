@@ -54,6 +54,8 @@ typedef struct QWidget QWidget;
 KParts__Part* KParts__Part_new();
 KParts__Part* KParts__Part_new2(QObject* parent);
 KParts__Part* KParts__Part_new3(QObject* parent, const KPluginMetaData* data);
+KParts__PartBase* KParts__Part_AsKParts__PartBase(KParts__Part* self);
+KParts__Part* KParts__Part_FromKParts__PartBase(KParts__PartBase* _kparts__partbase);
 QMetaObject* KParts__Part_MetaObject(const KParts__Part* self);
 void* KParts__Part_Metacast(KParts__Part* self, const char* param1);
 int KParts__Part_Metacall(KParts__Part* self, int param1, int param2, void** param3);

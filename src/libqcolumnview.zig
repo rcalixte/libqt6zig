@@ -3398,6 +3398,31 @@ pub const QColumnView = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColumnView `
+    ///
+    pub fn asQPaintDevice(self: QColumnView) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QColumnView object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QColumnView {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -9366,7 +9391,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn paintingActive(self: QColumnView) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9382,7 +9407,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn widthMM(self: QColumnView) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -9398,7 +9423,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn heightMM(self: QColumnView) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9414,7 +9439,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn logicalDpiX(self: QColumnView) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9430,7 +9455,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn logicalDpiY(self: QColumnView) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9446,7 +9471,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn physicalDpiX(self: QColumnView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9462,7 +9487,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn physicalDpiY(self: QColumnView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9478,7 +9503,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn devicePixelRatio(self: QColumnView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9494,7 +9519,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn devicePixelRatioF(self: QColumnView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9510,7 +9535,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn colorCount(self: QColumnView) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9526,7 +9551,7 @@ pub const QColumnView = extern struct {
     /// ` self: QColumnView `
     ///
     pub fn depth(self: QColumnView) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

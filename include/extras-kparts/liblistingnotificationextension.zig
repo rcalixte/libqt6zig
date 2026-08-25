@@ -2048,7 +2048,7 @@ pub const KParts__ListingNotificationExtension = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-listingnotificationextension.html#public-types)
 pub const enums = struct {
-    pub const NotificationEventType = enum(i32) {
+    pub const NotificationEventType = enum {
         pub const None: i32 = 0;
         pub const ItemsAdded: i32 = 1;
         pub const ItemsDeleted: i32 = 2;

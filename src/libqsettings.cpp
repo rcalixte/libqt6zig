@@ -335,9 +335,8 @@ QMetaObject* QSettings_SuperMetaObject(const QSettings* self) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnMetaObject(const QSettings* self, intptr_t slot) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_MetaObject_Callback(reinterpret_cast<VirtualQSettings::QSettings_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -354,9 +353,8 @@ void* QSettings_SuperMetacast(QSettings* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnMetacast(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_Metacast_Callback(reinterpret_cast<VirtualQSettings::QSettings_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +371,8 @@ int QSettings_SuperMetacall(QSettings* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnMetacall(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_Metacall_Callback(reinterpret_cast<VirtualQSettings::QSettings_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +389,8 @@ bool QSettings_SuperEvent(QSettings* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnEvent(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_Event_Callback(reinterpret_cast<VirtualQSettings::QSettings_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +417,8 @@ bool QSettings_SuperEventFilter(QSettings* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnEventFilter(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_EventFilter_Callback(reinterpret_cast<VirtualQSettings::QSettings_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +445,8 @@ void QSettings_SuperTimerEvent(QSettings* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnTimerEvent(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_TimerEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +473,8 @@ void QSettings_SuperChildEvent(QSettings* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnChildEvent(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_ChildEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +501,8 @@ void QSettings_SuperCustomEvent(QSettings* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnCustomEvent(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_CustomEvent_Callback(reinterpret_cast<VirtualQSettings::QSettings_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +529,8 @@ void QSettings_SuperConnectNotify(QSettings* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnConnectNotify(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_ConnectNotify_Callback(reinterpret_cast<VirtualQSettings::QSettings_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +557,8 @@ void QSettings_SuperDisconnectNotify(QSettings* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnDisconnectNotify(QSettings* self, intptr_t slot) {
     auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_DisconnectNotify_Callback(reinterpret_cast<VirtualQSettings::QSettings_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +585,8 @@ QObject* QSettings_SuperSender(const QSettings* self) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnSender(const QSettings* self, intptr_t slot) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_Sender_Callback(reinterpret_cast<VirtualQSettings::QSettings_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +613,8 @@ int QSettings_SuperSenderSignalIndex(const QSettings* self) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnSenderSignalIndex(const QSettings* self, intptr_t slot) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSettings::QSettings_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +641,8 @@ int QSettings_SuperReceivers(const QSettings* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnReceivers(const QSettings* self, intptr_t slot) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_Receivers_Callback(reinterpret_cast<VirtualQSettings::QSettings_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +669,8 @@ bool QSettings_SuperIsSignalConnected(const QSettings* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QSettings_OnIsSignalConnected(const QSettings* self, intptr_t slot) {
     auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
-    if (vqsettings && vqsettings->isVirtualQSettings) {
+    if (vqsettings && vqsettings->isVirtualQSettings)
         vqsettings->setQSettings_IsSignalConnected_Callback(reinterpret_cast<VirtualQSettings::QSettings_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSettings_Delete(QSettings* self) {

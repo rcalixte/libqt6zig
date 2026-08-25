@@ -3541,7 +3541,7 @@ pub const PackageKit__Transaction = extern struct {
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const enums = struct {
-    pub const InternalError = enum(i32) {
+    pub const InternalError = enum {
         pub const InternalErrorNone: i32 = 0;
         pub const InternalErrorUnkown: i32 = 1;
         pub const InternalErrorFailed: i32 = 2;
@@ -3556,7 +3556,7 @@ pub const enums = struct {
         pub const InternalErrorDaemonUnreachable: i32 = 11;
     };
 
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const RoleUnknown: i32 = 0;
         pub const RoleCancel: i32 = 1;
         pub const RoleDependsOn: i32 = 2;
@@ -3593,7 +3593,7 @@ pub const enums = struct {
         pub const RoleUpgradeSystem: i32 = 33;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const ErrorUnknown: i32 = 0;
         pub const ErrorOom: i32 = 1;
         pub const ErrorNoNetwork: i32 = 2;
@@ -3664,7 +3664,7 @@ pub const enums = struct {
         pub const ErrorLockRequired: i32 = 67;
     };
 
-    pub const Exit = enum(i32) {
+    pub const Exit = enum {
         pub const ExitUnknown: i32 = 0;
         pub const ExitSuccess: i32 = 1;
         pub const ExitFailed: i32 = 2;
@@ -3678,7 +3678,7 @@ pub const enums = struct {
         pub const ExitRepairRequired: i32 = 10;
     };
 
-    pub const Filter = enum(i32) {
+    pub const Filter = enum {
         pub const FilterUnknown: i32 = 1;
         pub const FilterNone: i32 = 2;
         pub const FilterInstalled: i32 = 4;
@@ -3710,7 +3710,7 @@ pub const enums = struct {
         pub const FilterLast: i32 = 268435456;
     };
 
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const StatusUnknown: i32 = 0;
         pub const StatusWait: i32 = 1;
         pub const StatusSetup: i32 = 2;
@@ -3750,27 +3750,27 @@ pub const enums = struct {
         pub const StatusRunHook: i32 = 36;
     };
 
-    pub const MediaType = enum(i32) {
+    pub const MediaType = enum {
         pub const MediaTypeUnknown: i32 = 0;
         pub const MediaTypeCd: i32 = 1;
         pub const MediaTypeDvd: i32 = 2;
         pub const MediaTypeDisc: i32 = 3;
     };
 
-    pub const DistroUpgrade = enum(i32) {
+    pub const DistroUpgrade = enum {
         pub const DistroUpgradeUnknown: i32 = 0;
         pub const DistroUpgradeStable: i32 = 1;
         pub const DistroUpgradeUnstable: i32 = 2;
     };
 
-    pub const UpgradeKind = enum(i32) {
+    pub const UpgradeKind = enum {
         pub const UpgradeKindUnknown: i32 = 0;
         pub const UpgradeKindMinimal: i32 = 1;
         pub const UpgradeKindDefault: i32 = 2;
         pub const UpgradeKindComplete: i32 = 3;
     };
 
-    pub const TransactionFlag = enum(i32) {
+    pub const TransactionFlag = enum {
         pub const TransactionFlagNone: i32 = 1;
         pub const TransactionFlagOnlyTrusted: i32 = 2;
         pub const TransactionFlagSimulate: i32 = 4;
@@ -3780,7 +3780,7 @@ pub const enums = struct {
         pub const TransactionFlagAllowDowngrade: i32 = 64;
     };
 
-    pub const Restart = enum(i32) {
+    pub const Restart = enum {
         pub const RestartUnknown: i32 = 0;
         pub const RestartNone: i32 = 1;
         pub const RestartApplication: i32 = 2;
@@ -3790,14 +3790,14 @@ pub const enums = struct {
         pub const RestartSecuritySystem: i32 = 6;
     };
 
-    pub const UpdateState = enum(i32) {
+    pub const UpdateState = enum {
         pub const UpdateStateUnknown: i32 = 0;
         pub const UpdateStateStable: i32 = 1;
         pub const UpdateStateUnstable: i32 = 2;
         pub const UpdateStateTesting: i32 = 3;
     };
 
-    pub const Group = enum(i32) {
+    pub const Group = enum {
         pub const GroupUnknown: i32 = 0;
         pub const GroupAccessibility: i32 = 1;
         pub const GroupAccessories: i32 = 2;
@@ -3835,7 +3835,7 @@ pub const enums = struct {
         pub const GroupNewest: i32 = 34;
     };
 
-    pub const Info = enum(i32) {
+    pub const Info = enum {
         pub const InfoUnknown: i32 = 0;
         pub const InfoInstalled: i32 = 1;
         pub const InfoAvailable: i32 = 2;
@@ -3869,7 +3869,7 @@ pub const enums = struct {
         pub const InfoDowngrade: i32 = 30;
     };
 
-    pub const SigType = enum(i32) {
+    pub const SigType = enum {
         pub const SigTypeUnknown: i32 = 0;
         pub const SigTypeGpg: i32 = 1;
     };

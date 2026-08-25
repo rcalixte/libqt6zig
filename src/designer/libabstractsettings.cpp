@@ -53,9 +53,8 @@ void QDesignerSettingsInterface_SuperBeginGroup(QDesignerSettingsInterface* self
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnBeginGroup(QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_BeginGroup_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_BeginGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -72,9 +71,8 @@ void QDesignerSettingsInterface_SuperEndGroup(QDesignerSettingsInterface* self) 
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnEndGroup(QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_EndGroup_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_EndGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -92,9 +90,8 @@ bool QDesignerSettingsInterface_SuperContains(const QDesignerSettingsInterface* 
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnContains(const QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = const_cast<VirtualQDesignerSettingsInterface*>(dynamic_cast<const VirtualQDesignerSettingsInterface*>(self));
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_Contains_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_Contains_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +109,8 @@ void QDesignerSettingsInterface_SuperSetValue(QDesignerSettingsInterface* self, 
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnSetValue(QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_SetValue_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_SetValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +128,8 @@ QVariant* QDesignerSettingsInterface_SuperValue(const QDesignerSettingsInterface
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnValue(const QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = const_cast<VirtualQDesignerSettingsInterface*>(dynamic_cast<const VirtualQDesignerSettingsInterface*>(self));
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_Value_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_Value_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +147,8 @@ void QDesignerSettingsInterface_SuperRemove(QDesignerSettingsInterface* self, co
 // Auxiliary method to allow providing re-implementation
 void QDesignerSettingsInterface_OnRemove(QDesignerSettingsInterface* self, intptr_t slot) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
+    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface)
         vqdesignersettingsinterface->setQDesignerSettingsInterface_Remove_Callback(reinterpret_cast<VirtualQDesignerSettingsInterface::QDesignerSettingsInterface_Remove_Callback>(slot));
-    }
 }
 
 void QDesignerSettingsInterface_Delete(QDesignerSettingsInterface* self) {

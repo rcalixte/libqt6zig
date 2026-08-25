@@ -138,9 +138,8 @@ QMetaObject* KIO__ThumbnailCreator_SuperMetaObject(const KIO__ThumbnailCreator* 
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +156,8 @@ void* KIO__ThumbnailCreator_SuperMetacast(KIO__ThumbnailCreator* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +174,8 @@ int KIO__ThumbnailCreator_SuperMetacall(KIO__ThumbnailCreator* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnMetacall(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacall_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +192,8 @@ KIO__ThumbnailResult* KIO__ThumbnailCreator_SuperCreate(KIO__ThumbnailCreator* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnCreate(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Create_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +220,8 @@ bool KIO__ThumbnailCreator_SuperEvent(KIO__ThumbnailCreator* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Event_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +248,8 @@ bool KIO__ThumbnailCreator_SuperEventFilter(KIO__ThumbnailCreator* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnEventFilter(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_EventFilter_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +276,8 @@ void KIO__ThumbnailCreator_SuperTimerEvent(KIO__ThumbnailCreator* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnTimerEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_TimerEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +304,8 @@ void KIO__ThumbnailCreator_SuperChildEvent(KIO__ThumbnailCreator* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnChildEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_ChildEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +332,8 @@ void KIO__ThumbnailCreator_SuperCustomEvent(KIO__ThumbnailCreator* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnCustomEvent(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_CustomEvent_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +360,8 @@ void KIO__ThumbnailCreator_SuperConnectNotify(KIO__ThumbnailCreator* self, const
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnConnectNotify(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_ConnectNotify_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +388,8 @@ void KIO__ThumbnailCreator_SuperDisconnectNotify(KIO__ThumbnailCreator* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnDisconnectNotify(KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +416,8 @@ QObject* KIO__ThumbnailCreator_SuperSender(const KIO__ThumbnailCreator* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnSender(const KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Sender_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +444,8 @@ int KIO__ThumbnailCreator_SuperSenderSignalIndex(const KIO__ThumbnailCreator* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnSenderSignalIndex(const KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +472,8 @@ int KIO__ThumbnailCreator_SuperReceivers(const KIO__ThumbnailCreator* self, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnReceivers(const KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_Receivers_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +500,8 @@ bool KIO__ThumbnailCreator_SuperIsSignalConnected(const KIO__ThumbnailCreator* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ThumbnailCreator_OnIsSignalConnected(const KIO__ThumbnailCreator* self, intptr_t slot) {
     auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
-    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator)
         vkiothumbnailcreator->setKIO__ThumbnailCreator_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__ThumbnailCreator_Delete(KIO__ThumbnailCreator* self) {

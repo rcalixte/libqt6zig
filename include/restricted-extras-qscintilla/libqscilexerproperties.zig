@@ -4492,7 +4492,7 @@ pub const QsciLexerProperties = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerProperties = enum(i32) {
+    pub const QsciLexerProperties = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Section: i32 = 2;

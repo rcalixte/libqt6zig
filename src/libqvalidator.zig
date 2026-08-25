@@ -9169,13 +9169,13 @@ pub const QRegularExpressionValidator = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#public-types)
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Invalid: i32 = 0;
         pub const Intermediate: i32 = 1;
         pub const Acceptable: i32 = 2;
     };
 
-    pub const Notation = enum(i32) {
+    pub const Notation = enum {
         pub const StandardNotation: i32 = 0;
         pub const ScientificNotation: i32 = 1;
     };

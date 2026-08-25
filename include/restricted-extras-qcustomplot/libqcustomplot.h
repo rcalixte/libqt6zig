@@ -5139,6 +5139,8 @@ void QCPErrorBarsData_SetErrorPlus(QCPErrorBarsData* self, double errorPlus);
 void QCPErrorBarsData_Delete(QCPErrorBarsData* self);
 
 QCPErrorBars* QCPErrorBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis);
+QCPPlottableInterface1D* QCPErrorBars_AsQCPPlottableInterface1D(QCPErrorBars* self);
+QCPErrorBars* QCPErrorBars_FromQCPPlottableInterface1D(QCPPlottableInterface1D* _qcpplottableinterface1d);
 QMetaObject* QCPErrorBars_MetaObject(const QCPErrorBars* self);
 void* QCPErrorBars_Metacast(QCPErrorBars* self, const char* param1);
 int QCPErrorBars_Metacall(QCPErrorBars* self, int param1, int param2, void** param3);

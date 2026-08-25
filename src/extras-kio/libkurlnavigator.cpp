@@ -481,9 +481,8 @@ QMetaObject* KUrlNavigator_SuperMetaObject(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetaObject(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MetaObject_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -500,9 +499,8 @@ void* KUrlNavigator_SuperMetacast(KUrlNavigator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetacast(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Metacast_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -519,9 +517,8 @@ int KUrlNavigator_SuperMetacall(KUrlNavigator* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetacall(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Metacall_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -538,9 +535,8 @@ void KUrlNavigator_SuperKeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnKeyPressEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -557,9 +553,8 @@ void KUrlNavigator_SuperKeyReleaseEvent(KUrlNavigator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnKeyReleaseEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -576,9 +571,8 @@ void KUrlNavigator_SuperMouseReleaseEvent(KUrlNavigator* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseReleaseEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -595,9 +589,8 @@ void KUrlNavigator_SuperMousePressEvent(KUrlNavigator* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMousePressEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -614,9 +607,8 @@ void KUrlNavigator_SuperResizeEvent(KUrlNavigator* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnResizeEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -633,9 +625,8 @@ void KUrlNavigator_SuperWheelEvent(KUrlNavigator* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnWheelEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_WheelEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -652,9 +643,8 @@ void KUrlNavigator_SuperShowEvent(KUrlNavigator* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnShowEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ShowEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -671,9 +661,8 @@ bool KUrlNavigator_SuperEventFilter(KUrlNavigator* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEventFilter(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_EventFilter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -690,9 +679,8 @@ void KUrlNavigator_SuperPaintEvent(KUrlNavigator* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnPaintEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_PaintEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +707,8 @@ int KUrlNavigator_SuperDevType(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDevType(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DevType_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +735,8 @@ void KUrlNavigator_SuperSetVisible(KUrlNavigator* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSetVisible(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_SetVisible_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +763,8 @@ QSize* KUrlNavigator_SuperSizeHint(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSizeHint(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_SizeHint_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +791,8 @@ QSize* KUrlNavigator_SuperMinimumSizeHint(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMinimumSizeHint(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +819,8 @@ int KUrlNavigator_SuperHeightForWidth(const KUrlNavigator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnHeightForWidth(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +847,8 @@ bool KUrlNavigator_SuperHasHeightForWidth(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnHasHeightForWidth(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +875,8 @@ QPaintEngine* KUrlNavigator_SuperPaintEngine(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnPaintEngine(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_PaintEngine_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +903,8 @@ bool KUrlNavigator_SuperEvent(KUrlNavigator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Event_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +931,8 @@ void KUrlNavigator_SuperMouseDoubleClickEvent(KUrlNavigator* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseDoubleClickEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +959,8 @@ void KUrlNavigator_SuperMouseMoveEvent(KUrlNavigator* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMouseMoveEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +987,8 @@ void KUrlNavigator_SuperFocusInEvent(KUrlNavigator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusInEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1015,8 @@ void KUrlNavigator_SuperFocusOutEvent(KUrlNavigator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusOutEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1043,8 @@ void KUrlNavigator_SuperEnterEvent(KUrlNavigator* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnEnterEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_EnterEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1071,8 @@ void KUrlNavigator_SuperLeaveEvent(KUrlNavigator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnLeaveEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1099,8 @@ void KUrlNavigator_SuperMoveEvent(KUrlNavigator* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMoveEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_MoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1127,8 @@ void KUrlNavigator_SuperCloseEvent(KUrlNavigator* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnCloseEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_CloseEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1155,8 @@ void KUrlNavigator_SuperContextMenuEvent(KUrlNavigator* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnContextMenuEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1183,8 @@ void KUrlNavigator_SuperTabletEvent(KUrlNavigator* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnTabletEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_TabletEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1211,8 @@ void KUrlNavigator_SuperActionEvent(KUrlNavigator* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnActionEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ActionEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1239,8 @@ void KUrlNavigator_SuperDragEnterEvent(KUrlNavigator* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragEnterEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1267,8 @@ void KUrlNavigator_SuperDragMoveEvent(KUrlNavigator* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragMoveEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1295,8 @@ void KUrlNavigator_SuperDragLeaveEvent(KUrlNavigator* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDragLeaveEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1323,8 @@ void KUrlNavigator_SuperDropEvent(KUrlNavigator* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDropEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DropEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1351,8 @@ void KUrlNavigator_SuperHideEvent(KUrlNavigator* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnHideEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_HideEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1381,8 @@ bool KUrlNavigator_SuperNativeEvent(KUrlNavigator* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnNativeEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_NativeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1409,8 @@ void KUrlNavigator_SuperChangeEvent(KUrlNavigator* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnChangeEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1437,8 @@ int KUrlNavigator_SuperMetric(const KUrlNavigator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnMetric(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Metric_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1465,8 @@ void KUrlNavigator_SuperInitPainter(const KUrlNavigator* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnInitPainter(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_InitPainter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1493,8 @@ QPaintDevice* KUrlNavigator_SuperRedirected(const KUrlNavigator* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnRedirected(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Redirected_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1521,8 @@ QPainter* KUrlNavigator_SuperSharedPainter(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSharedPainter(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_SharedPainter_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1549,8 @@ void KUrlNavigator_SuperInputMethodEvent(KUrlNavigator* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnInputMethodEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1577,8 @@ QVariant* KUrlNavigator_SuperInputMethodQuery(const KUrlNavigator* self, int par
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnInputMethodQuery(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1605,8 @@ bool KUrlNavigator_SuperFocusNextPrevChild(KUrlNavigator* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusNextPrevChild(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1633,8 @@ void KUrlNavigator_SuperTimerEvent(KUrlNavigator* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnTimerEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_TimerEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1661,8 @@ void KUrlNavigator_SuperChildEvent(KUrlNavigator* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnChildEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ChildEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1689,8 @@ void KUrlNavigator_SuperCustomEvent(KUrlNavigator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnCustomEvent(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_CustomEvent_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1717,8 @@ void KUrlNavigator_SuperConnectNotify(KUrlNavigator* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnConnectNotify(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1745,8 @@ void KUrlNavigator_SuperDisconnectNotify(KUrlNavigator* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDisconnectNotify(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1773,8 @@ void KUrlNavigator_SuperUpdateMicroFocus(KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnUpdateMicroFocus(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1801,8 @@ void KUrlNavigator_SuperCreate(KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnCreate(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Create_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1829,8 @@ void KUrlNavigator_SuperDestroy(KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnDestroy(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Destroy_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1857,8 @@ bool KUrlNavigator_SuperFocusNextChild(KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusNextChild(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1885,8 @@ bool KUrlNavigator_SuperFocusPreviousChild(KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnFocusPreviousChild(KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1913,8 @@ QObject* KUrlNavigator_SuperSender(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSender(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Sender_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1941,8 @@ int KUrlNavigator_SuperSenderSignalIndex(const KUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnSenderSignalIndex(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1969,8 @@ int KUrlNavigator_SuperReceivers(const KUrlNavigator* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnReceivers(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_Receivers_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2055,9 +1997,8 @@ bool KUrlNavigator_SuperIsSignalConnected(const KUrlNavigator* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnIsSignalConnected(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2084,9 +2025,8 @@ double KUrlNavigator_SuperGetDecodedMetricF(const KUrlNavigator* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KUrlNavigator_OnGetDecodedMetricF(const KUrlNavigator* self, intptr_t slot) {
     auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator)
         vkurlnavigator->setKUrlNavigator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KUrlNavigator_Delete(KUrlNavigator* self) {

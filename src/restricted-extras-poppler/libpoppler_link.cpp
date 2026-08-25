@@ -143,9 +143,8 @@ int Poppler__Link_SuperLinkType(const Poppler__Link* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__Link_OnLinkType(const Poppler__Link* self, intptr_t slot) {
     auto* vpopplerlink = const_cast<VirtualPopplerLink*>(dynamic_cast<const VirtualPopplerLink*>(self));
-    if (vpopplerlink && vpopplerlink->isVirtualPopplerLink) {
+    if (vpopplerlink && vpopplerlink->isVirtualPopplerLink)
         vpopplerlink->setPoppler__Link_LinkType_Callback(reinterpret_cast<VirtualPopplerLink::Poppler__Link_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__Link_Delete(Poppler__Link* self) {
@@ -195,9 +194,8 @@ int Poppler__LinkGoto_SuperLinkType(const Poppler__LinkGoto* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkGoto_OnLinkType(const Poppler__LinkGoto* self, intptr_t slot) {
     auto* vpopplerlinkgoto = const_cast<VirtualPopplerLinkGoto*>(dynamic_cast<const VirtualPopplerLinkGoto*>(self));
-    if (vpopplerlinkgoto && vpopplerlinkgoto->isVirtualPopplerLinkGoto) {
+    if (vpopplerlinkgoto && vpopplerlinkgoto->isVirtualPopplerLinkGoto)
         vpopplerlinkgoto->setPoppler__LinkGoto_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkGoto::Poppler__LinkGoto_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkGoto_Delete(Poppler__LinkGoto* self) {
@@ -252,9 +250,8 @@ int Poppler__LinkExecute_SuperLinkType(const Poppler__LinkExecute* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkExecute_OnLinkType(const Poppler__LinkExecute* self, intptr_t slot) {
     auto* vpopplerlinkexecute = const_cast<VirtualPopplerLinkExecute*>(dynamic_cast<const VirtualPopplerLinkExecute*>(self));
-    if (vpopplerlinkexecute && vpopplerlinkexecute->isVirtualPopplerLinkExecute) {
+    if (vpopplerlinkexecute && vpopplerlinkexecute->isVirtualPopplerLinkExecute)
         vpopplerlinkexecute->setPoppler__LinkExecute_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkExecute::Poppler__LinkExecute_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkExecute_Delete(Poppler__LinkExecute* self) {
@@ -296,9 +293,8 @@ int Poppler__LinkBrowse_SuperLinkType(const Poppler__LinkBrowse* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkBrowse_OnLinkType(const Poppler__LinkBrowse* self, intptr_t slot) {
     auto* vpopplerlinkbrowse = const_cast<VirtualPopplerLinkBrowse*>(dynamic_cast<const VirtualPopplerLinkBrowse*>(self));
-    if (vpopplerlinkbrowse && vpopplerlinkbrowse->isVirtualPopplerLinkBrowse) {
+    if (vpopplerlinkbrowse && vpopplerlinkbrowse->isVirtualPopplerLinkBrowse)
         vpopplerlinkbrowse->setPoppler__LinkBrowse_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkBrowse::Poppler__LinkBrowse_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkBrowse_Delete(Poppler__LinkBrowse* self) {
@@ -331,9 +327,8 @@ int Poppler__LinkAction_SuperLinkType(const Poppler__LinkAction* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkAction_OnLinkType(const Poppler__LinkAction* self, intptr_t slot) {
     auto* vpopplerlinkaction = const_cast<VirtualPopplerLinkAction*>(dynamic_cast<const VirtualPopplerLinkAction*>(self));
-    if (vpopplerlinkaction && vpopplerlinkaction->isVirtualPopplerLinkAction) {
+    if (vpopplerlinkaction && vpopplerlinkaction->isVirtualPopplerLinkAction)
         vpopplerlinkaction->setPoppler__LinkAction_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkAction::Poppler__LinkAction_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkAction_Delete(Poppler__LinkAction* self) {
@@ -382,9 +377,8 @@ int Poppler__LinkSound_SuperLinkType(const Poppler__LinkSound* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkSound_OnLinkType(const Poppler__LinkSound* self, intptr_t slot) {
     auto* vpopplerlinksound = const_cast<VirtualPopplerLinkSound*>(dynamic_cast<const VirtualPopplerLinkSound*>(self));
-    if (vpopplerlinksound && vpopplerlinksound->isVirtualPopplerLinkSound) {
+    if (vpopplerlinksound && vpopplerlinksound->isVirtualPopplerLinkSound)
         vpopplerlinksound->setPoppler__LinkSound_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkSound::Poppler__LinkSound_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkSound_Delete(Poppler__LinkSound* self) {
@@ -458,9 +452,8 @@ int Poppler__LinkJavaScript_SuperLinkType(const Poppler__LinkJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LinkJavaScript_OnLinkType(const Poppler__LinkJavaScript* self, intptr_t slot) {
     auto* vpopplerlinkjavascript = const_cast<VirtualPopplerLinkJavaScript*>(dynamic_cast<const VirtualPopplerLinkJavaScript*>(self));
-    if (vpopplerlinkjavascript && vpopplerlinkjavascript->isVirtualPopplerLinkJavaScript) {
+    if (vpopplerlinkjavascript && vpopplerlinkjavascript->isVirtualPopplerLinkJavaScript)
         vpopplerlinkjavascript->setPoppler__LinkJavaScript_LinkType_Callback(reinterpret_cast<VirtualPopplerLinkJavaScript::Poppler__LinkJavaScript_LinkType_Callback>(slot));
-    }
 }
 
 void Poppler__LinkJavaScript_Delete(Poppler__LinkJavaScript* self) {

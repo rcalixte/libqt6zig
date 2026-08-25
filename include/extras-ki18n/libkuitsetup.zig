@@ -146,14 +146,14 @@ pub const KuitSetup = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kuitsetup.html#public-types)
 pub const enums = struct {
-    pub const VisualFormat = enum(i32) {
+    pub const VisualFormat = enum {
         pub const UndefinedFormat: i32 = 0;
         pub const PlainText: i32 = 10;
         pub const RichText: i32 = 20;
         pub const TermText: i32 = 30;
     };
 
-    pub const TagClass = enum(i32) {
+    pub const TagClass = enum {
         pub const PhraseTag: i32 = 0;
         pub const StructTag: i32 = 1;
     };

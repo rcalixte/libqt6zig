@@ -33,6 +33,8 @@ typedef struct QUrl QUrl;
 typedef struct QWidget QWidget;
 #endif
 
+KIO__JobUiDelegateExtension* KIO__JobUiDelegate_AsKIO__JobUiDelegateExtension(KIO__JobUiDelegate* self);
+KIO__JobUiDelegate* KIO__JobUiDelegate_FromKIO__JobUiDelegateExtension(KIO__JobUiDelegateExtension* _kio__jobuidelegateextension);
 QMetaObject* KIO__JobUiDelegate_MetaObject(const KIO__JobUiDelegate* self);
 void* KIO__JobUiDelegate_Metacast(KIO__JobUiDelegate* self, const char* param1);
 int KIO__JobUiDelegate_Metacall(KIO__JobUiDelegate* self, int param1, int param2, void** param3);

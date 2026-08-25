@@ -4565,7 +4565,7 @@ pub const QWebEngineHistory = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehistory.html#public-types)
 pub const enums = struct {
-    pub const Roles = enum(i32) {
+    pub const Roles = enum {
         pub const UrlRole: i32 = 256;
         pub const TitleRole: i32 = 257;
         pub const OffsetRole: i32 = 258;

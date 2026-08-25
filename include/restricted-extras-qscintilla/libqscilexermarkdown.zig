@@ -4541,7 +4541,7 @@ pub const QsciLexerMarkdown = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerMarkdown = enum(i32) {
+    pub const QsciLexerMarkdown = enum {
         pub const Default: i32 = 0;
         pub const Special: i32 = 1;
         pub const StrongEmphasisAsterisks: i32 = 2;

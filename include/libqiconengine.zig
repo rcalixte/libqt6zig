@@ -1132,7 +1132,7 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#public-types)
 pub const enums = struct {
-    pub const IconEngineHook = enum(i32) {
+    pub const IconEngineHook = enum {
         pub const IsNullHook: i32 = 3;
         pub const ScaledPixmapHook: i32 = 4;
     };

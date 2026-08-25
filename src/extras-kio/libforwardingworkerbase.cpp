@@ -23,6 +23,14 @@ KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_new(const libqt_string prot
     return new VirtualKIOForwardingWorkerBase(protocol_QByteArray, poolSocket_QByteArray, appSocket_QByteArray);
 }
 
+KIO__WorkerBase* KIO__ForwardingWorkerBase_AsKIO__WorkerBase(KIO__ForwardingWorkerBase* self) {
+    return static_cast<KIO::WorkerBase*>(self);
+}
+
+KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_FromKIO__WorkerBase(KIO::WorkerBase* _kio__workerbase) {
+    return dynamic_cast<KIO::ForwardingWorkerBase*>(static_cast<KIO::WorkerBase*>(_kio__workerbase));
+}
+
 QMetaObject* KIO__ForwardingWorkerBase_MetaObject(const KIO__ForwardingWorkerBase* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -113,9 +121,8 @@ QMetaObject* KIO__ForwardingWorkerBase_SuperMetaObject(const KIO__ForwardingWork
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnMetaObject(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_MetaObject_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +139,8 @@ void* KIO__ForwardingWorkerBase_SuperMetacast(KIO__ForwardingWorkerBase* self, c
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnMetacast(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacast_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +157,8 @@ int KIO__ForwardingWorkerBase_SuperMetacall(KIO__ForwardingWorkerBase* self, int
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnMetacall(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacall_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +175,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperGet(KIO__ForwardingWorkerBase*
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnGet(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Get_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Get_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +193,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperPut(KIO__ForwardingWorkerBase*
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnPut(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Put_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Put_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +211,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperStat(KIO__ForwardingWorkerBase
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnStat(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Stat_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Stat_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +229,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperMimetype(KIO__ForwardingWorker
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnMimetype(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Mimetype_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Mimetype_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +247,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperListDir(KIO__ForwardingWorkerB
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnListDir(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ListDir_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_ListDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -265,9 +265,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperMkdir(KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnMkdir(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Mkdir_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Mkdir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -284,9 +283,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperRename(KIO__ForwardingWorkerBa
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnRename(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Rename_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Rename_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +302,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSymlink(KIO__ForwardingWorkerB
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSymlink(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Symlink_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Symlink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -323,9 +320,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperChmod(KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnChmod(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Chmod_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Chmod_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -342,9 +338,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSetModificationTime(KIO__Forwa
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSetModificationTime(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_SetModificationTime_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_SetModificationTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -361,9 +356,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperCopy(KIO__ForwardingWorkerBase
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnCopy(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Copy_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Copy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -380,9 +374,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperDel(KIO__ForwardingWorkerBase*
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnDel(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Del_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Del_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -399,9 +392,8 @@ bool KIO__ForwardingWorkerBase_SuperRewriteUrl(KIO__ForwardingWorkerBase* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnRewriteUrl(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_RewriteUrl_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_RewriteUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -418,9 +410,8 @@ void KIO__ForwardingWorkerBase_SuperAdjustUDSEntry(const KIO__ForwardingWorkerBa
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnAdjustUDSEntry(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_AdjustUDSEntry_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_AdjustUDSEntry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +438,8 @@ bool KIO__ForwardingWorkerBase_SuperEvent(KIO__ForwardingWorkerBase* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnEvent(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Event_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +466,8 @@ bool KIO__ForwardingWorkerBase_SuperEventFilter(KIO__ForwardingWorkerBase* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnEventFilter(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_EventFilter_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +494,8 @@ void KIO__ForwardingWorkerBase_SuperTimerEvent(KIO__ForwardingWorkerBase* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnTimerEvent(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_TimerEvent_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +522,8 @@ void KIO__ForwardingWorkerBase_SuperChildEvent(KIO__ForwardingWorkerBase* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnChildEvent(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ChildEvent_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +550,8 @@ void KIO__ForwardingWorkerBase_SuperCustomEvent(KIO__ForwardingWorkerBase* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnCustomEvent(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_CustomEvent_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +578,8 @@ void KIO__ForwardingWorkerBase_SuperConnectNotify(KIO__ForwardingWorkerBase* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnConnectNotify(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ConnectNotify_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +606,8 @@ void KIO__ForwardingWorkerBase_SuperDisconnectNotify(KIO__ForwardingWorkerBase* 
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnDisconnectNotify(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +634,8 @@ void KIO__ForwardingWorkerBase_SuperAppConnectionMade(KIO__ForwardingWorkerBase*
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnAppConnectionMade(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_AppConnectionMade_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_AppConnectionMade_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +668,8 @@ void KIO__ForwardingWorkerBase_SuperSetHost(KIO__ForwardingWorkerBase* self, con
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSetHost(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_SetHost_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_SetHost_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +696,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperOpenConnection(KIO__Forwarding
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnOpenConnection(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_OpenConnection_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_OpenConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +724,8 @@ void KIO__ForwardingWorkerBase_SuperCloseConnection(KIO__ForwardingWorkerBase* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnCloseConnection(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_CloseConnection_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_CloseConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +752,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperOpen(KIO__ForwardingWorkerBase
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnOpen(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Open_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +780,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperRead(KIO__ForwardingWorkerBase
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnRead(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Read_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Read_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +810,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperWrite(KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnWrite(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Write_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Write_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +838,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSeek(KIO__ForwardingWorkerBase
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSeek(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Seek_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +866,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperTruncate(KIO__ForwardingWorker
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnTruncate(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Truncate_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Truncate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +894,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperClose(KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnClose(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Close_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +926,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperChown(KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnChown(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Chown_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Chown_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +956,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSpecial(KIO__ForwardingWorkerB
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSpecial(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Special_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Special_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +984,8 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperFileSystemFreeSpace(KIO__Forwa
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnFileSystemFreeSpace(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_FileSystemFreeSpace_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_FileSystemFreeSpace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1012,8 @@ void KIO__ForwardingWorkerBase_SuperWorkerStatus2(KIO__ForwardingWorkerBase* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnWorkerStatus2(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_WorkerStatus2_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_WorkerStatus2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1040,8 @@ void KIO__ForwardingWorkerBase_SuperReparseConfiguration(KIO__ForwardingWorkerBa
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnReparseConfiguration(KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ReparseConfiguration_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_ReparseConfiguration_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1066,8 @@ QUrl* KIO__ForwardingWorkerBase_SuperProcessedUrl(const KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnProcessedUrl(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ProcessedUrl_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_ProcessedUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1092,8 @@ QUrl* KIO__ForwardingWorkerBase_SuperRequestedUrl(const KIO__ForwardingWorkerBas
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnRequestedUrl(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_RequestedUrl_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_RequestedUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1120,8 @@ QObject* KIO__ForwardingWorkerBase_SuperSender(const KIO__ForwardingWorkerBase* 
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSender(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Sender_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1148,8 @@ int KIO__ForwardingWorkerBase_SuperSenderSignalIndex(const KIO__ForwardingWorker
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnSenderSignalIndex(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1176,8 @@ int KIO__ForwardingWorkerBase_SuperReceivers(const KIO__ForwardingWorkerBase* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnReceivers(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Receivers_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1204,8 @@ bool KIO__ForwardingWorkerBase_SuperIsSignalConnected(const KIO__ForwardingWorke
 // Auxiliary method to allow providing re-implementation
 void KIO__ForwardingWorkerBase_OnIsSignalConnected(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
-    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase)
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__ForwardingWorkerBase_Delete(KIO__ForwardingWorkerBase* self) {

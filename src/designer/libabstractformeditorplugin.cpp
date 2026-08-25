@@ -39,9 +39,8 @@ bool QDesignerFormEditorPluginInterface_SuperIsInitialized(const QDesignerFormEd
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorPluginInterface_OnIsInitialized(const QDesignerFormEditorPluginInterface* self, intptr_t slot) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
+    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface)
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_IsInitialized_Callback(reinterpret_cast<VirtualQDesignerFormEditorPluginInterface::QDesignerFormEditorPluginInterface_IsInitialized_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -58,9 +57,8 @@ void QDesignerFormEditorPluginInterface_SuperInitialize(QDesignerFormEditorPlugi
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorPluginInterface_OnInitialize(QDesignerFormEditorPluginInterface* self, intptr_t slot) {
     auto* vqdesignerformeditorplugininterface = dynamic_cast<VirtualQDesignerFormEditorPluginInterface*>(self);
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
+    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface)
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Initialize_Callback(reinterpret_cast<VirtualQDesignerFormEditorPluginInterface::QDesignerFormEditorPluginInterface_Initialize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -77,9 +75,8 @@ QAction* QDesignerFormEditorPluginInterface_SuperAction(const QDesignerFormEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorPluginInterface_OnAction(const QDesignerFormEditorPluginInterface* self, intptr_t slot) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
+    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface)
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Action_Callback(reinterpret_cast<VirtualQDesignerFormEditorPluginInterface::QDesignerFormEditorPluginInterface_Action_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -96,9 +93,8 @@ QDesignerFormEditorInterface* QDesignerFormEditorPluginInterface_SuperCore(const
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorPluginInterface_OnCore(const QDesignerFormEditorPluginInterface* self, intptr_t slot) {
     auto* vqdesignerformeditorplugininterface = const_cast<VirtualQDesignerFormEditorPluginInterface*>(dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self));
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
+    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface)
         vqdesignerformeditorplugininterface->setQDesignerFormEditorPluginInterface_Core_Callback(reinterpret_cast<VirtualQDesignerFormEditorPluginInterface::QDesignerFormEditorPluginInterface_Core_Callback>(slot));
-    }
 }
 
 void QDesignerFormEditorPluginInterface_Delete(QDesignerFormEditorPluginInterface* self) {

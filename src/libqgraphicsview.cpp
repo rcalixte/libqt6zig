@@ -743,9 +743,8 @@ QMetaObject* QGraphicsView_SuperMetaObject(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetaObject(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -762,9 +761,8 @@ void* QGraphicsView_SuperMetacast(QGraphicsView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetacast(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Metacast_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -781,9 +779,8 @@ int QGraphicsView_SuperMetacall(QGraphicsView* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetacall(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Metacall_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -800,9 +797,8 @@ QSize* QGraphicsView_SuperSizeHint(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSizeHint(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -819,9 +815,8 @@ QVariant* QGraphicsView_SuperInputMethodQuery(const QGraphicsView* self, int que
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnInputMethodQuery(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -838,9 +833,8 @@ void QGraphicsView_SuperSetupViewport(QGraphicsView* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSetupViewport(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SetupViewport_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -857,9 +851,8 @@ bool QGraphicsView_SuperEvent(QGraphicsView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Event_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -876,9 +869,8 @@ bool QGraphicsView_SuperViewportEvent(QGraphicsView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnViewportEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ViewportEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -895,9 +887,8 @@ void QGraphicsView_SuperContextMenuEvent(QGraphicsView* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnContextMenuEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -914,9 +905,8 @@ void QGraphicsView_SuperDragEnterEvent(QGraphicsView* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragEnterEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -933,9 +923,8 @@ void QGraphicsView_SuperDragLeaveEvent(QGraphicsView* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragLeaveEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -952,9 +941,8 @@ void QGraphicsView_SuperDragMoveEvent(QGraphicsView* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragMoveEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -971,9 +959,8 @@ void QGraphicsView_SuperDropEvent(QGraphicsView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDropEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -990,9 +977,8 @@ void QGraphicsView_SuperFocusInEvent(QGraphicsView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusInEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1009,9 +995,8 @@ bool QGraphicsView_SuperFocusNextPrevChild(QGraphicsView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusNextPrevChild(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1028,9 +1013,8 @@ void QGraphicsView_SuperFocusOutEvent(QGraphicsView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusOutEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1047,9 +1031,8 @@ void QGraphicsView_SuperKeyPressEvent(QGraphicsView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnKeyPressEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1066,9 +1049,8 @@ void QGraphicsView_SuperKeyReleaseEvent(QGraphicsView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnKeyReleaseEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1085,9 +1067,8 @@ void QGraphicsView_SuperMouseDoubleClickEvent(QGraphicsView* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseDoubleClickEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1104,9 +1085,8 @@ void QGraphicsView_SuperMousePressEvent(QGraphicsView* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMousePressEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1123,9 +1103,8 @@ void QGraphicsView_SuperMouseMoveEvent(QGraphicsView* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseMoveEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1142,9 +1121,8 @@ void QGraphicsView_SuperMouseReleaseEvent(QGraphicsView* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseReleaseEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1161,9 +1139,8 @@ void QGraphicsView_SuperWheelEvent(QGraphicsView* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnWheelEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1180,9 +1157,8 @@ void QGraphicsView_SuperPaintEvent(QGraphicsView* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnPaintEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_PaintEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1199,9 +1175,8 @@ void QGraphicsView_SuperResizeEvent(QGraphicsView* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnResizeEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ResizeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1218,9 +1193,8 @@ void QGraphicsView_SuperScrollContentsBy(QGraphicsView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnScrollContentsBy(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1237,9 +1211,8 @@ void QGraphicsView_SuperShowEvent(QGraphicsView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnShowEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ShowEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1256,9 +1229,8 @@ void QGraphicsView_SuperInputMethodEvent(QGraphicsView* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnInputMethodEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1275,9 +1247,8 @@ void QGraphicsView_SuperDrawBackground(QGraphicsView* self, QPainter* painter, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawBackground(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DrawBackground_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawBackground_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1294,9 +1265,8 @@ void QGraphicsView_SuperDrawForeground(QGraphicsView* self, QPainter* painter, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawForeground(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawForeground_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1313,9 +1283,8 @@ void QGraphicsView_SuperDrawItems(QGraphicsView* self, QPainter* painter, int nu
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawItems(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DrawItems_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1311,8 @@ QSize* QGraphicsView_SuperMinimumSizeHint(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMinimumSizeHint(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1339,8 @@ bool QGraphicsView_SuperEventFilter(QGraphicsView* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEventFilter(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1365,8 @@ QSize* QGraphicsView_SuperViewportSizeHint(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnViewportSizeHint(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1393,8 @@ void QGraphicsView_SuperChangeEvent(QGraphicsView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnChangeEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ChangeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1421,8 @@ void QGraphicsView_SuperInitStyleOption(const QGraphicsView* self, QStyleOptionF
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnInitStyleOption(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_InitStyleOption_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1449,8 @@ int QGraphicsView_SuperDevType(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDevType(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DevType_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1477,8 @@ void QGraphicsView_SuperSetVisible(QGraphicsView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSetVisible(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SetVisible_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1505,8 @@ int QGraphicsView_SuperHeightForWidth(const QGraphicsView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnHeightForWidth(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_HeightForWidth_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1533,8 @@ bool QGraphicsView_SuperHasHeightForWidth(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnHasHeightForWidth(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1561,8 @@ QPaintEngine* QGraphicsView_SuperPaintEngine(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnPaintEngine(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_PaintEngine_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1589,8 @@ void QGraphicsView_SuperEnterEvent(QGraphicsView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEnterEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_EnterEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1617,8 @@ void QGraphicsView_SuperLeaveEvent(QGraphicsView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnLeaveEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_LeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1645,8 @@ void QGraphicsView_SuperMoveEvent(QGraphicsView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMoveEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_MoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1673,8 @@ void QGraphicsView_SuperCloseEvent(QGraphicsView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnCloseEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_CloseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1701,8 @@ void QGraphicsView_SuperTabletEvent(QGraphicsView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnTabletEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_TabletEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1729,8 @@ void QGraphicsView_SuperActionEvent(QGraphicsView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnActionEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ActionEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1757,8 @@ void QGraphicsView_SuperHideEvent(QGraphicsView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnHideEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_HideEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1787,8 @@ bool QGraphicsView_SuperNativeEvent(QGraphicsView* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnNativeEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_NativeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1815,8 @@ int QGraphicsView_SuperMetric(const QGraphicsView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetric(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Metric_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1893,9 +1843,8 @@ void QGraphicsView_SuperInitPainter(const QGraphicsView* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnInitPainter(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_InitPainter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1922,9 +1871,8 @@ QPaintDevice* QGraphicsView_SuperRedirected(const QGraphicsView* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnRedirected(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Redirected_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1951,9 +1899,8 @@ QPainter* QGraphicsView_SuperSharedPainter(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSharedPainter(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SharedPainter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1980,9 +1927,8 @@ void QGraphicsView_SuperTimerEvent(QGraphicsView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnTimerEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2009,9 +1955,8 @@ void QGraphicsView_SuperChildEvent(QGraphicsView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnChildEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2038,9 +1983,8 @@ void QGraphicsView_SuperCustomEvent(QGraphicsView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnCustomEvent(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2067,9 +2011,8 @@ void QGraphicsView_SuperConnectNotify(QGraphicsView* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnConnectNotify(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2096,9 +2039,8 @@ void QGraphicsView_SuperDisconnectNotify(QGraphicsView* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDisconnectNotify(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2125,9 +2067,8 @@ void QGraphicsView_SuperSetViewportMargins(QGraphicsView* self, int left, int to
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSetViewportMargins(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SetViewportMargins_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2152,9 +2093,8 @@ QMargins* QGraphicsView_SuperViewportMargins(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnViewportMargins(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_ViewportMargins_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2181,9 +2121,8 @@ void QGraphicsView_SuperDrawFrame(QGraphicsView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawFrame(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_DrawFrame_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2210,9 +2149,8 @@ void QGraphicsView_SuperUpdateMicroFocus(QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnUpdateMicroFocus(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2239,9 +2177,8 @@ void QGraphicsView_SuperCreate(QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnCreate(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Create_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2268,9 +2205,8 @@ void QGraphicsView_SuperDestroy(QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDestroy(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Destroy_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2297,9 +2233,8 @@ bool QGraphicsView_SuperFocusNextChild(QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusNextChild(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_FocusNextChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2326,9 +2261,8 @@ bool QGraphicsView_SuperFocusPreviousChild(QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusPreviousChild(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2355,9 +2289,8 @@ QObject* QGraphicsView_SuperSender(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSender(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Sender_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2384,9 +2317,8 @@ int QGraphicsView_SuperSenderSignalIndex(const QGraphicsView* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSenderSignalIndex(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2413,9 +2345,8 @@ int QGraphicsView_SuperReceivers(const QGraphicsView* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnReceivers(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_Receivers_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2442,9 +2373,8 @@ bool QGraphicsView_SuperIsSignalConnected(const QGraphicsView* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnIsSignalConnected(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2471,9 +2401,8 @@ double QGraphicsView_SuperGetDecodedMetricF(const QGraphicsView* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnGetDecodedMetricF(const QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
         vqgraphicsview->setQGraphicsView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QGraphicsView_Delete(QGraphicsView* self) {

@@ -728,12 +728,12 @@ pub const QCommandLineParser = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#public-types)
 pub const enums = struct {
-    pub const SingleDashWordOptionMode = enum(i32) {
+    pub const SingleDashWordOptionMode = enum {
         pub const ParseAsCompactedShortOptions: i32 = 0;
         pub const ParseAsLongOptions: i32 = 1;
     };
 
-    pub const OptionsAfterPositionalArgumentsMode = enum(i32) {
+    pub const OptionsAfterPositionalArgumentsMode = enum {
         pub const ParseAsOptions: i32 = 0;
         pub const ParseAsPositionalArguments: i32 = 1;
     };

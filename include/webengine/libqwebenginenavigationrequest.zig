@@ -1306,7 +1306,7 @@ pub const QWebEngineNavigationRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginenavigationrequest.html#public-types)
 pub const enums = struct {
-    pub const NavigationType = enum(i32) {
+    pub const NavigationType = enum {
         pub const LinkClickedNavigation: i32 = 0;
         pub const TypedNavigation: i32 = 1;
         pub const FormSubmittedNavigation: i32 = 2;
@@ -1316,7 +1316,7 @@ pub const enums = struct {
         pub const RedirectNavigation: i32 = 6;
     };
 
-    pub const NavigationRequestAction = enum(i32) {
+    pub const NavigationRequestAction = enum {
         pub const AcceptRequest: i32 = 0;
         pub const IgnoreRequest: i32 = 255;
     };

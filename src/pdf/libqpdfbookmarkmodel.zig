@@ -6881,7 +6881,7 @@ pub const QPdfBookmarkModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfbookmarkmodel.html#public-types)
 pub const enums = struct {
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const Title: i32 = 256;
         pub const Level: i32 = 257;
         pub const Page: i32 = 258;

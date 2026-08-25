@@ -396,9 +396,8 @@ QMetaObject* QLabel_SuperMetaObject(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetaObject(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MetaObject_Callback(reinterpret_cast<VirtualQLabel::QLabel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -415,9 +414,8 @@ void* QLabel_SuperMetacast(QLabel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetacast(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Metacast_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +432,8 @@ int QLabel_SuperMetacall(QLabel* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetacall(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Metacall_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +450,8 @@ QSize* QLabel_SuperSizeHint(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSizeHint(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_SizeHint_Callback(reinterpret_cast<VirtualQLabel::QLabel_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +468,8 @@ QSize* QLabel_SuperMinimumSizeHint(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMinimumSizeHint(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualQLabel::QLabel_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +486,8 @@ int QLabel_SuperHeightForWidth(const QLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnHeightForWidth(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_HeightForWidth_Callback(reinterpret_cast<VirtualQLabel::QLabel_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +504,8 @@ bool QLabel_SuperEvent(QLabel* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Event_Callback(reinterpret_cast<VirtualQLabel::QLabel_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +522,8 @@ void QLabel_SuperKeyPressEvent(QLabel* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnKeyPressEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +540,8 @@ void QLabel_SuperPaintEvent(QLabel* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnPaintEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_PaintEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +558,8 @@ void QLabel_SuperChangeEvent(QLabel* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnChangeEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ChangeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -586,9 +576,8 @@ void QLabel_SuperMousePressEvent(QLabel* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMousePressEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MousePressEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -605,9 +594,8 @@ void QLabel_SuperMouseMoveEvent(QLabel* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseMoveEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -624,9 +612,8 @@ void QLabel_SuperMouseReleaseEvent(QLabel* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseReleaseEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -643,9 +630,8 @@ void QLabel_SuperContextMenuEvent(QLabel* self, QContextMenuEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnContextMenuEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -662,9 +648,8 @@ void QLabel_SuperFocusInEvent(QLabel* self, QFocusEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusInEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_FocusInEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -681,9 +666,8 @@ void QLabel_SuperFocusOutEvent(QLabel* self, QFocusEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusOutEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -700,9 +684,8 @@ bool QLabel_SuperFocusNextPrevChild(QLabel* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusNextPrevChild(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +712,8 @@ void QLabel_SuperInitStyleOption(const QLabel* self, QStyleOptionFrame* option) 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnInitStyleOption(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_InitStyleOption_Callback(reinterpret_cast<VirtualQLabel::QLabel_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +740,8 @@ int QLabel_SuperDevType(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDevType(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DevType_Callback(reinterpret_cast<VirtualQLabel::QLabel_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +768,8 @@ void QLabel_SuperSetVisible(QLabel* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSetVisible(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_SetVisible_Callback(reinterpret_cast<VirtualQLabel::QLabel_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +796,8 @@ bool QLabel_SuperHasHeightForWidth(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnHasHeightForWidth(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualQLabel::QLabel_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +824,8 @@ QPaintEngine* QLabel_SuperPaintEngine(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnPaintEngine(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_PaintEngine_Callback(reinterpret_cast<VirtualQLabel::QLabel_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +852,8 @@ void QLabel_SuperMouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseDoubleClickEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +880,8 @@ void QLabel_SuperWheelEvent(QLabel* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnWheelEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_WheelEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +908,8 @@ void QLabel_SuperKeyReleaseEvent(QLabel* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnKeyReleaseEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +936,8 @@ void QLabel_SuperEnterEvent(QLabel* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEnterEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_EnterEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +964,8 @@ void QLabel_SuperLeaveEvent(QLabel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnLeaveEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_LeaveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +992,8 @@ void QLabel_SuperMoveEvent(QLabel* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMoveEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_MoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1020,8 @@ void QLabel_SuperResizeEvent(QLabel* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnResizeEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ResizeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1048,8 @@ void QLabel_SuperCloseEvent(QLabel* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnCloseEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_CloseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1076,8 @@ void QLabel_SuperTabletEvent(QLabel* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnTabletEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_TabletEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1104,8 @@ void QLabel_SuperActionEvent(QLabel* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnActionEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ActionEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1132,8 @@ void QLabel_SuperDragEnterEvent(QLabel* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragEnterEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1160,8 @@ void QLabel_SuperDragMoveEvent(QLabel* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragMoveEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1188,8 @@ void QLabel_SuperDragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragLeaveEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1216,8 @@ void QLabel_SuperDropEvent(QLabel* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDropEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DropEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1244,8 @@ void QLabel_SuperShowEvent(QLabel* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnShowEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ShowEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1272,8 @@ void QLabel_SuperHideEvent(QLabel* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnHideEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_HideEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1302,8 @@ bool QLabel_SuperNativeEvent(QLabel* self, const libqt_string eventType, void* m
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnNativeEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_NativeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1330,8 @@ int QLabel_SuperMetric(const QLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetric(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Metric_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1358,8 @@ void QLabel_SuperInitPainter(const QLabel* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnInitPainter(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_InitPainter_Callback(reinterpret_cast<VirtualQLabel::QLabel_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1386,8 @@ QPaintDevice* QLabel_SuperRedirected(const QLabel* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnRedirected(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Redirected_Callback(reinterpret_cast<VirtualQLabel::QLabel_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1414,8 @@ QPainter* QLabel_SuperSharedPainter(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSharedPainter(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_SharedPainter_Callback(reinterpret_cast<VirtualQLabel::QLabel_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1442,8 @@ void QLabel_SuperInputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnInputMethodEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1470,8 @@ QVariant* QLabel_SuperInputMethodQuery(const QLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnInputMethodQuery(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualQLabel::QLabel_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1498,8 @@ bool QLabel_SuperEventFilter(QLabel* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEventFilter(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_EventFilter_Callback(reinterpret_cast<VirtualQLabel::QLabel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1526,8 @@ void QLabel_SuperTimerEvent(QLabel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnTimerEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_TimerEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1554,8 @@ void QLabel_SuperChildEvent(QLabel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnChildEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ChildEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1582,8 @@ void QLabel_SuperCustomEvent(QLabel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnCustomEvent(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_CustomEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1610,8 @@ void QLabel_SuperConnectNotify(QLabel* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnConnectNotify(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_ConnectNotify_Callback(reinterpret_cast<VirtualQLabel::QLabel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1638,8 @@ void QLabel_SuperDisconnectNotify(QLabel* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDisconnectNotify(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualQLabel::QLabel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1666,8 @@ void QLabel_SuperDrawFrame(QLabel* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDrawFrame(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_DrawFrame_Callback(reinterpret_cast<VirtualQLabel::QLabel_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1694,8 @@ void QLabel_SuperUpdateMicroFocus(QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnUpdateMicroFocus(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQLabel::QLabel_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1722,8 @@ void QLabel_SuperCreate(QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnCreate(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Create_Callback(reinterpret_cast<VirtualQLabel::QLabel_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1750,8 @@ void QLabel_SuperDestroy(QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDestroy(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Destroy_Callback(reinterpret_cast<VirtualQLabel::QLabel_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1778,8 @@ bool QLabel_SuperFocusNextChild(QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusNextChild(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_FocusNextChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1806,8 @@ bool QLabel_SuperFocusPreviousChild(QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusPreviousChild(QLabel* self, intptr_t slot) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1834,8 @@ QObject* QLabel_SuperSender(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSender(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Sender_Callback(reinterpret_cast<VirtualQLabel::QLabel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1862,8 @@ int QLabel_SuperSenderSignalIndex(const QLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSenderSignalIndex(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLabel::QLabel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1949,9 +1890,8 @@ int QLabel_SuperReceivers(const QLabel* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnReceivers(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_Receivers_Callback(reinterpret_cast<VirtualQLabel::QLabel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1978,9 +1918,8 @@ bool QLabel_SuperIsSignalConnected(const QLabel* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnIsSignalConnected(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualQLabel::QLabel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2007,9 +1946,8 @@ double QLabel_SuperGetDecodedMetricF(const QLabel* self, int metricA, int metric
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnGetDecodedMetricF(const QLabel* self, intptr_t slot) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel && vqlabel->isVirtualQLabel)
         vqlabel->setQLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLabel::QLabel_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QLabel_Delete(QLabel* self) {

@@ -1388,7 +1388,7 @@ pub const PackageKit__Offline = extern struct {
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const enums = struct {
-    pub const Action = enum(i32) {
+    pub const Action = enum {
         pub const ActionUnset: i32 = 0;
         pub const ActionPowerOff: i32 = 1;
         pub const ActionReboot: i32 = 2;

@@ -299,9 +299,8 @@ QMetaObject* KUrlLabel_SuperMetaObject(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetaObject(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MetaObject_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +317,8 @@ void* KUrlLabel_SuperMetacast(KUrlLabel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetacast(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Metacast_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +335,8 @@ int KUrlLabel_SuperMetacall(KUrlLabel* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetacall(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Metacall_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +353,8 @@ void KUrlLabel_SuperSetFont(KUrlLabel* self, const QFont* font) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSetFont(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_SetFont_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetFont_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +371,8 @@ void KUrlLabel_SuperMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseReleaseEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -394,9 +389,8 @@ void KUrlLabel_SuperEnterEvent(KUrlLabel* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEnterEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_EnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -413,9 +407,8 @@ void KUrlLabel_SuperLeaveEvent(KUrlLabel* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnLeaveEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -432,9 +425,8 @@ bool KUrlLabel_SuperEvent(KUrlLabel* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Event_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +453,8 @@ QSize* KUrlLabel_SuperSizeHint(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSizeHint(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_SizeHint_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +481,8 @@ QSize* KUrlLabel_SuperMinimumSizeHint(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMinimumSizeHint(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +509,8 @@ int KUrlLabel_SuperHeightForWidth(const KUrlLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnHeightForWidth(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +537,8 @@ void KUrlLabel_SuperKeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnKeyPressEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +565,8 @@ void KUrlLabel_SuperPaintEvent(KUrlLabel* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnPaintEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_PaintEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +593,8 @@ void KUrlLabel_SuperChangeEvent(KUrlLabel* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnChangeEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +621,8 @@ void KUrlLabel_SuperMousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMousePressEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +649,8 @@ void KUrlLabel_SuperMouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseMoveEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -693,9 +677,8 @@ void KUrlLabel_SuperContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnContextMenuEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +705,8 @@ void KUrlLabel_SuperFocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusInEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -751,9 +733,8 @@ void KUrlLabel_SuperFocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusOutEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +761,8 @@ bool KUrlLabel_SuperFocusNextPrevChild(KUrlLabel* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusNextPrevChild(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +789,8 @@ void KUrlLabel_SuperInitStyleOption(const KUrlLabel* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnInitStyleOption(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_InitStyleOption_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +817,8 @@ int KUrlLabel_SuperDevType(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDevType(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DevType_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +845,8 @@ void KUrlLabel_SuperSetVisible(KUrlLabel* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSetVisible(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_SetVisible_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +873,8 @@ bool KUrlLabel_SuperHasHeightForWidth(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnHasHeightForWidth(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +901,8 @@ QPaintEngine* KUrlLabel_SuperPaintEngine(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnPaintEngine(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_PaintEngine_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +929,8 @@ void KUrlLabel_SuperMouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseDoubleClickEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +957,8 @@ void KUrlLabel_SuperWheelEvent(KUrlLabel* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnWheelEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_WheelEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +985,8 @@ void KUrlLabel_SuperKeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnKeyReleaseEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1013,8 @@ void KUrlLabel_SuperMoveEvent(KUrlLabel* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMoveEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_MoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1041,8 @@ void KUrlLabel_SuperResizeEvent(KUrlLabel* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnResizeEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1069,8 @@ void KUrlLabel_SuperCloseEvent(KUrlLabel* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnCloseEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_CloseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1097,8 @@ void KUrlLabel_SuperTabletEvent(KUrlLabel* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnTabletEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_TabletEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1125,8 @@ void KUrlLabel_SuperActionEvent(KUrlLabel* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnActionEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ActionEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1153,8 @@ void KUrlLabel_SuperDragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragEnterEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1181,8 @@ void KUrlLabel_SuperDragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragMoveEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1209,8 @@ void KUrlLabel_SuperDragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragLeaveEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1237,8 @@ void KUrlLabel_SuperDropEvent(KUrlLabel* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDropEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DropEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1265,8 @@ void KUrlLabel_SuperShowEvent(KUrlLabel* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnShowEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ShowEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1293,8 @@ void KUrlLabel_SuperHideEvent(KUrlLabel* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnHideEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_HideEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1362,9 +1323,8 @@ bool KUrlLabel_SuperNativeEvent(KUrlLabel* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnNativeEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_NativeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1391,9 +1351,8 @@ int KUrlLabel_SuperMetric(const KUrlLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetric(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Metric_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1420,9 +1379,8 @@ void KUrlLabel_SuperInitPainter(const KUrlLabel* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnInitPainter(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_InitPainter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1449,9 +1407,8 @@ QPaintDevice* KUrlLabel_SuperRedirected(const KUrlLabel* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnRedirected(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Redirected_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1478,9 +1435,8 @@ QPainter* KUrlLabel_SuperSharedPainter(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSharedPainter(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_SharedPainter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1507,9 +1463,8 @@ void KUrlLabel_SuperInputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnInputMethodEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1536,9 +1491,8 @@ QVariant* KUrlLabel_SuperInputMethodQuery(const KUrlLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnInputMethodQuery(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1565,9 +1519,8 @@ bool KUrlLabel_SuperEventFilter(KUrlLabel* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEventFilter(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_EventFilter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1594,9 +1547,8 @@ void KUrlLabel_SuperTimerEvent(KUrlLabel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnTimerEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_TimerEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1575,8 @@ void KUrlLabel_SuperChildEvent(KUrlLabel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnChildEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ChildEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1603,8 @@ void KUrlLabel_SuperCustomEvent(KUrlLabel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnCustomEvent(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_CustomEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1631,8 @@ void KUrlLabel_SuperConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnConnectNotify(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1659,8 @@ void KUrlLabel_SuperDisconnectNotify(KUrlLabel* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDisconnectNotify(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1687,8 @@ void KUrlLabel_SuperDrawFrame(KUrlLabel* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDrawFrame(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_DrawFrame_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1715,8 @@ void KUrlLabel_SuperUpdateMicroFocus(KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnUpdateMicroFocus(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1743,8 @@ void KUrlLabel_SuperCreate(KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnCreate(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Create_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1771,8 @@ void KUrlLabel_SuperDestroy(KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDestroy(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Destroy_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1799,8 @@ bool KUrlLabel_SuperFocusNextChild(KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusNextChild(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1827,8 @@ bool KUrlLabel_SuperFocusPreviousChild(KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusPreviousChild(KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1855,8 @@ QObject* KUrlLabel_SuperSender(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSender(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Sender_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1883,8 @@ int KUrlLabel_SuperSenderSignalIndex(const KUrlLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSenderSignalIndex(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1911,8 @@ int KUrlLabel_SuperReceivers(const KUrlLabel* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnReceivers(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_Receivers_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2000,9 +1939,8 @@ bool KUrlLabel_SuperIsSignalConnected(const KUrlLabel* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnIsSignalConnected(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2029,9 +1967,8 @@ double KUrlLabel_SuperGetDecodedMetricF(const KUrlLabel* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnGetDecodedMetricF(const KUrlLabel* self, intptr_t slot) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
         vkurllabel->setKUrlLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KUrlLabel_Delete(KUrlLabel* self) {

@@ -1074,7 +1074,7 @@ pub const QDirListing__const_iterator = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdirlisting.html#public-types)
 pub const enums = struct {
-    pub const IteratorFlag = enum(i32) {
+    pub const IteratorFlag = enum {
         pub const Default: i32 = 0;
         pub const ExcludeFiles: i32 = 4;
         pub const ExcludeDirs: i32 = 8;

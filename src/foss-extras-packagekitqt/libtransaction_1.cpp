@@ -991,9 +991,8 @@ QMetaObject* PackageKit__Transaction_SuperMetaObject(const PackageKit__Transacti
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_MetaObject_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1010,9 +1009,8 @@ void* PackageKit__Transaction_SuperMetacast(PackageKit__Transaction* self, const
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_Metacast_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1029,9 +1027,8 @@ int PackageKit__Transaction_SuperMetacall(PackageKit__Transaction* self, int par
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnMetacall(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_Metacall_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1048,9 +1045,8 @@ void PackageKit__Transaction_SuperConnectNotify(PackageKit__Transaction* self, c
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnConnectNotify(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_ConnectNotify_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1067,9 +1063,8 @@ void PackageKit__Transaction_SuperDisconnectNotify(PackageKit__Transaction* self
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnDisconnectNotify(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_DisconnectNotify_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1091,8 @@ bool PackageKit__Transaction_SuperEvent(PackageKit__Transaction* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnEvent(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_Event_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1119,8 @@ bool PackageKit__Transaction_SuperEventFilter(PackageKit__Transaction* self, QOb
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnEventFilter(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_EventFilter_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1147,8 @@ void PackageKit__Transaction_SuperTimerEvent(PackageKit__Transaction* self, QTim
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnTimerEvent(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_TimerEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1175,8 @@ void PackageKit__Transaction_SuperChildEvent(PackageKit__Transaction* self, QChi
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnChildEvent(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_ChildEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1203,8 @@ void PackageKit__Transaction_SuperCustomEvent(PackageKit__Transaction* self, QEv
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnCustomEvent(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_CustomEvent_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1233,8 @@ int PackageKit__Transaction_SuperParseError(PackageKit__Transaction* self, const
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnParseError(PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_ParseError_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_ParseError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1261,8 @@ QObject* PackageKit__Transaction_SuperSender(const PackageKit__Transaction* self
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnSender(const PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_Sender_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1289,8 @@ int PackageKit__Transaction_SuperSenderSignalIndex(const PackageKit__Transaction
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnSenderSignalIndex(const PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_SenderSignalIndex_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1317,8 @@ int PackageKit__Transaction_SuperReceivers(const PackageKit__Transaction* self, 
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnReceivers(const PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_Receivers_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1345,8 @@ bool PackageKit__Transaction_SuperIsSignalConnected(const PackageKit__Transactio
 // Auxiliary method to allow providing re-implementation
 void PackageKit__Transaction_OnIsSignalConnected(const PackageKit__Transaction* self, intptr_t slot) {
     auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
-    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction)
         vpackagekittransaction->setPackageKit__Transaction_IsSignalConnected_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void PackageKit__Transaction_Delete(PackageKit__Transaction* self) {

@@ -100,9 +100,8 @@ QMetaObject* KPixmapSequenceWidget_SuperMetaObject(const KPixmapSequenceWidget* 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetaObject(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ void* KPixmapSequenceWidget_SuperMetacast(KPixmapSequenceWidget* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetacast(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +136,8 @@ int KPixmapSequenceWidget_SuperMetacall(KPixmapSequenceWidget* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetacall(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +154,8 @@ QSize* KPixmapSequenceWidget_SuperSizeHint(const KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSizeHint(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SizeHint_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +182,8 @@ int KPixmapSequenceWidget_SuperDevType(const KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDevType(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DevType_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +210,8 @@ void KPixmapSequenceWidget_SuperSetVisible(KPixmapSequenceWidget* self, bool vis
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSetVisible(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SetVisible_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +238,8 @@ QSize* KPixmapSequenceWidget_SuperMinimumSizeHint(const KPixmapSequenceWidget* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMinimumSizeHint(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +266,8 @@ int KPixmapSequenceWidget_SuperHeightForWidth(const KPixmapSequenceWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnHeightForWidth(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +294,8 @@ bool KPixmapSequenceWidget_SuperHasHeightForWidth(const KPixmapSequenceWidget* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnHasHeightForWidth(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +322,8 @@ QPaintEngine* KPixmapSequenceWidget_SuperPaintEngine(const KPixmapSequenceWidget
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnPaintEngine(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEngine_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +350,8 @@ bool KPixmapSequenceWidget_SuperEvent(KPixmapSequenceWidget* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Event_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +378,8 @@ void KPixmapSequenceWidget_SuperMousePressEvent(KPixmapSequenceWidget* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMousePressEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +406,8 @@ void KPixmapSequenceWidget_SuperMouseReleaseEvent(KPixmapSequenceWidget* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseReleaseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +434,8 @@ void KPixmapSequenceWidget_SuperMouseDoubleClickEvent(KPixmapSequenceWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseDoubleClickEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +462,8 @@ void KPixmapSequenceWidget_SuperMouseMoveEvent(KPixmapSequenceWidget* self, QMou
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMouseMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +490,8 @@ void KPixmapSequenceWidget_SuperWheelEvent(KPixmapSequenceWidget* self, QWheelEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnWheelEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_WheelEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +518,8 @@ void KPixmapSequenceWidget_SuperKeyPressEvent(KPixmapSequenceWidget* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnKeyPressEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +546,8 @@ void KPixmapSequenceWidget_SuperKeyReleaseEvent(KPixmapSequenceWidget* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnKeyReleaseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +574,8 @@ void KPixmapSequenceWidget_SuperFocusInEvent(KPixmapSequenceWidget* self, QFocus
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusInEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +602,8 @@ void KPixmapSequenceWidget_SuperFocusOutEvent(KPixmapSequenceWidget* self, QFocu
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusOutEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +630,8 @@ void KPixmapSequenceWidget_SuperEnterEvent(KPixmapSequenceWidget* self, QEnterEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEnterEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_EnterEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +658,8 @@ void KPixmapSequenceWidget_SuperLeaveEvent(KPixmapSequenceWidget* self, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnLeaveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +686,8 @@ void KPixmapSequenceWidget_SuperPaintEvent(KPixmapSequenceWidget* self, QPaintEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnPaintEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +714,8 @@ void KPixmapSequenceWidget_SuperMoveEvent(KPixmapSequenceWidget* self, QMoveEven
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +742,8 @@ void KPixmapSequenceWidget_SuperResizeEvent(KPixmapSequenceWidget* self, QResize
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnResizeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +770,8 @@ void KPixmapSequenceWidget_SuperCloseEvent(KPixmapSequenceWidget* self, QCloseEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnCloseEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_CloseEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +798,8 @@ void KPixmapSequenceWidget_SuperContextMenuEvent(KPixmapSequenceWidget* self, QC
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnContextMenuEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +826,8 @@ void KPixmapSequenceWidget_SuperTabletEvent(KPixmapSequenceWidget* self, QTablet
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnTabletEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_TabletEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +854,8 @@ void KPixmapSequenceWidget_SuperActionEvent(KPixmapSequenceWidget* self, QAction
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnActionEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ActionEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +882,8 @@ void KPixmapSequenceWidget_SuperDragEnterEvent(KPixmapSequenceWidget* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragEnterEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +910,8 @@ void KPixmapSequenceWidget_SuperDragMoveEvent(KPixmapSequenceWidget* self, QDrag
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragMoveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +938,8 @@ void KPixmapSequenceWidget_SuperDragLeaveEvent(KPixmapSequenceWidget* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDragLeaveEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +966,8 @@ void KPixmapSequenceWidget_SuperDropEvent(KPixmapSequenceWidget* self, QDropEven
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDropEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DropEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +994,8 @@ void KPixmapSequenceWidget_SuperShowEvent(KPixmapSequenceWidget* self, QShowEven
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnShowEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ShowEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1022,8 @@ void KPixmapSequenceWidget_SuperHideEvent(KPixmapSequenceWidget* self, QHideEven
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnHideEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HideEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1052,8 @@ bool KPixmapSequenceWidget_SuperNativeEvent(KPixmapSequenceWidget* self, const l
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnNativeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_NativeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1080,8 @@ void KPixmapSequenceWidget_SuperChangeEvent(KPixmapSequenceWidget* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnChangeEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1108,8 @@ int KPixmapSequenceWidget_SuperMetric(const KPixmapSequenceWidget* self, int par
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnMetric(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metric_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1136,8 @@ void KPixmapSequenceWidget_SuperInitPainter(const KPixmapSequenceWidget* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnInitPainter(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InitPainter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1164,8 @@ QPaintDevice* KPixmapSequenceWidget_SuperRedirected(const KPixmapSequenceWidget*
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnRedirected(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Redirected_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1192,8 @@ QPainter* KPixmapSequenceWidget_SuperSharedPainter(const KPixmapSequenceWidget* 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSharedPainter(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SharedPainter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1220,8 @@ void KPixmapSequenceWidget_SuperInputMethodEvent(KPixmapSequenceWidget* self, QI
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnInputMethodEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1248,8 @@ QVariant* KPixmapSequenceWidget_SuperInputMethodQuery(const KPixmapSequenceWidge
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnInputMethodQuery(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1276,8 @@ bool KPixmapSequenceWidget_SuperFocusNextPrevChild(KPixmapSequenceWidget* self, 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusNextPrevChild(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1304,8 @@ bool KPixmapSequenceWidget_SuperEventFilter(KPixmapSequenceWidget* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnEventFilter(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1332,8 @@ void KPixmapSequenceWidget_SuperTimerEvent(KPixmapSequenceWidget* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnTimerEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1360,8 @@ void KPixmapSequenceWidget_SuperChildEvent(KPixmapSequenceWidget* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnChildEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1388,8 @@ void KPixmapSequenceWidget_SuperCustomEvent(KPixmapSequenceWidget* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnCustomEvent(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1416,8 @@ void KPixmapSequenceWidget_SuperConnectNotify(KPixmapSequenceWidget* self, const
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnConnectNotify(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1444,8 @@ void KPixmapSequenceWidget_SuperDisconnectNotify(KPixmapSequenceWidget* self, co
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDisconnectNotify(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1472,8 @@ void KPixmapSequenceWidget_SuperUpdateMicroFocus(KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnUpdateMicroFocus(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1500,8 @@ void KPixmapSequenceWidget_SuperCreate(KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnCreate(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Create_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1528,8 @@ void KPixmapSequenceWidget_SuperDestroy(KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnDestroy(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Destroy_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1556,8 @@ bool KPixmapSequenceWidget_SuperFocusNextChild(KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusNextChild(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1584,8 @@ bool KPixmapSequenceWidget_SuperFocusPreviousChild(KPixmapSequenceWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnFocusPreviousChild(KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1612,8 @@ QObject* KPixmapSequenceWidget_SuperSender(const KPixmapSequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSender(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Sender_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1640,8 @@ int KPixmapSequenceWidget_SuperSenderSignalIndex(const KPixmapSequenceWidget* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnSenderSignalIndex(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1668,8 @@ int KPixmapSequenceWidget_SuperReceivers(const KPixmapSequenceWidget* self, cons
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnReceivers(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Receivers_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1696,8 @@ bool KPixmapSequenceWidget_SuperIsSignalConnected(const KPixmapSequenceWidget* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnIsSignalConnected(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1724,8 @@ double KPixmapSequenceWidget_SuperGetDecodedMetricF(const KPixmapSequenceWidget*
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceWidget_OnGetDecodedMetricF(const KPixmapSequenceWidget* self, intptr_t slot) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget)
         vkpixmapsequencewidget->setKPixmapSequenceWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPixmapSequenceWidget_Delete(KPixmapSequenceWidget* self) {

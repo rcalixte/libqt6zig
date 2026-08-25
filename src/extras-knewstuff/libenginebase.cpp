@@ -408,9 +408,8 @@ QMetaObject* KNSCore__EngineBase_SuperMetaObject(const KNSCore__EngineBase* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnMetaObject(const KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -427,9 +426,8 @@ void* KNSCore__EngineBase_SuperMetacast(KNSCore__EngineBase* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnMetacast(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Metacast_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -446,9 +444,8 @@ int KNSCore__EngineBase_SuperMetacall(KNSCore__EngineBase* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnMetacall(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Metacall_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -466,9 +463,8 @@ bool KNSCore__EngineBase_SuperInit(KNSCore__EngineBase* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnInit(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Init_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Init_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -485,9 +481,8 @@ void KNSCore__EngineBase_SuperUpdateStatus(KNSCore__EngineBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnUpdateStatus(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_UpdateStatus_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_UpdateStatus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +509,8 @@ bool KNSCore__EngineBase_SuperEvent(KNSCore__EngineBase* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnEvent(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Event_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +537,8 @@ bool KNSCore__EngineBase_SuperEventFilter(KNSCore__EngineBase* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnEventFilter(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_EventFilter_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +565,8 @@ void KNSCore__EngineBase_SuperTimerEvent(KNSCore__EngineBase* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnTimerEvent(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_TimerEvent_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +593,8 @@ void KNSCore__EngineBase_SuperChildEvent(KNSCore__EngineBase* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnChildEvent(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_ChildEvent_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +621,8 @@ void KNSCore__EngineBase_SuperCustomEvent(KNSCore__EngineBase* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnCustomEvent(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_CustomEvent_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +649,8 @@ void KNSCore__EngineBase_SuperConnectNotify(KNSCore__EngineBase* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnConnectNotify(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_ConnectNotify_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +677,8 @@ void KNSCore__EngineBase_SuperDisconnectNotify(KNSCore__EngineBase* self, const 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnDisconnectNotify(KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +705,8 @@ QObject* KNSCore__EngineBase_SuperSender(const KNSCore__EngineBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnSender(const KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Sender_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +733,8 @@ int KNSCore__EngineBase_SuperSenderSignalIndex(const KNSCore__EngineBase* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnSenderSignalIndex(const KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +761,8 @@ int KNSCore__EngineBase_SuperReceivers(const KNSCore__EngineBase* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnReceivers(const KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_Receivers_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +789,8 @@ bool KNSCore__EngineBase_SuperIsSignalConnected(const KNSCore__EngineBase* self,
 // Auxiliary method to allow providing re-implementation
 void KNSCore__EngineBase_OnIsSignalConnected(const KNSCore__EngineBase* self, intptr_t slot) {
     auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
-    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase)
         vknscoreenginebase->setKNSCore__EngineBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNSCore__EngineBase_Delete(KNSCore__EngineBase* self) {

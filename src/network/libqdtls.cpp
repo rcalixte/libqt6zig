@@ -92,9 +92,8 @@ QMetaObject* QDtlsClientVerifier_SuperMetaObject(const QDtlsClientVerifier* self
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnMetaObject(const QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -111,9 +110,8 @@ void* QDtlsClientVerifier_SuperMetacast(QDtlsClientVerifier* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnMetacast(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +128,8 @@ int QDtlsClientVerifier_SuperMetacall(QDtlsClientVerifier* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnMetacall(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -159,9 +156,8 @@ bool QDtlsClientVerifier_SuperEvent(QDtlsClientVerifier* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnEvent(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_Event_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +184,8 @@ bool QDtlsClientVerifier_SuperEventFilter(QDtlsClientVerifier* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnEventFilter(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_EventFilter_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +212,8 @@ void QDtlsClientVerifier_SuperTimerEvent(QDtlsClientVerifier* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnTimerEvent(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_TimerEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +240,8 @@ void QDtlsClientVerifier_SuperChildEvent(QDtlsClientVerifier* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnChildEvent(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_ChildEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ void QDtlsClientVerifier_SuperCustomEvent(QDtlsClientVerifier* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnCustomEvent(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_CustomEvent_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ void QDtlsClientVerifier_SuperConnectNotify(QDtlsClientVerifier* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnConnectNotify(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_ConnectNotify_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ void QDtlsClientVerifier_SuperDisconnectNotify(QDtlsClientVerifier* self, const 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnDisconnectNotify(QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_DisconnectNotify_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ QObject* QDtlsClientVerifier_SuperSender(const QDtlsClientVerifier* self) {
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnSender(const QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_Sender_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ int QDtlsClientVerifier_SuperSenderSignalIndex(const QDtlsClientVerifier* self) 
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnSenderSignalIndex(const QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ int QDtlsClientVerifier_SuperReceivers(const QDtlsClientVerifier* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnReceivers(const QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_Receivers_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ bool QDtlsClientVerifier_SuperIsSignalConnected(const QDtlsClientVerifier* self,
 // Auxiliary method to allow providing re-implementation
 void QDtlsClientVerifier_OnIsSignalConnected(const QDtlsClientVerifier* self, intptr_t slot) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier)
         vqdtlsclientverifier->setQDtlsClientVerifier_IsSignalConnected_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDtlsClientVerifier_Delete(QDtlsClientVerifier* self) {
@@ -672,9 +658,8 @@ QMetaObject* QDtls_SuperMetaObject(const QDtls* self) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnMetaObject(const QDtls* self, intptr_t slot) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_MetaObject_Callback(reinterpret_cast<VirtualQDtls::QDtls_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -691,9 +676,8 @@ void* QDtls_SuperMetacast(QDtls* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnMetacast(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_Metacast_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -710,9 +694,8 @@ int QDtls_SuperMetacall(QDtls* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnMetacall(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_Metacall_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +722,8 @@ bool QDtls_SuperEvent(QDtls* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnEvent(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_Event_Callback(reinterpret_cast<VirtualQDtls::QDtls_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +750,8 @@ bool QDtls_SuperEventFilter(QDtls* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnEventFilter(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_EventFilter_Callback(reinterpret_cast<VirtualQDtls::QDtls_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +778,8 @@ void QDtls_SuperTimerEvent(QDtls* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnTimerEvent(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_TimerEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +806,8 @@ void QDtls_SuperChildEvent(QDtls* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnChildEvent(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_ChildEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +834,8 @@ void QDtls_SuperCustomEvent(QDtls* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnCustomEvent(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_CustomEvent_Callback(reinterpret_cast<VirtualQDtls::QDtls_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +862,8 @@ void QDtls_SuperConnectNotify(QDtls* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnConnectNotify(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_ConnectNotify_Callback(reinterpret_cast<VirtualQDtls::QDtls_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +890,8 @@ void QDtls_SuperDisconnectNotify(QDtls* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnDisconnectNotify(QDtls* self, intptr_t slot) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_DisconnectNotify_Callback(reinterpret_cast<VirtualQDtls::QDtls_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +918,8 @@ QObject* QDtls_SuperSender(const QDtls* self) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnSender(const QDtls* self, intptr_t slot) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_Sender_Callback(reinterpret_cast<VirtualQDtls::QDtls_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +946,8 @@ int QDtls_SuperSenderSignalIndex(const QDtls* self) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnSenderSignalIndex(const QDtls* self, intptr_t slot) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDtls::QDtls_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +974,8 @@ int QDtls_SuperReceivers(const QDtls* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnReceivers(const QDtls* self, intptr_t slot) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_Receivers_Callback(reinterpret_cast<VirtualQDtls::QDtls_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +1002,8 @@ bool QDtls_SuperIsSignalConnected(const QDtls* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QDtls_OnIsSignalConnected(const QDtls* self, intptr_t slot) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
-    if (vqdtls && vqdtls->isVirtualQDtls) {
+    if (vqdtls && vqdtls->isVirtualQDtls)
         vqdtls->setQDtls_IsSignalConnected_Callback(reinterpret_cast<VirtualQDtls::QDtls_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDtls_Delete(QDtls* self) {

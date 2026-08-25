@@ -129,9 +129,8 @@ QMetaObject* KContextualHelpButton_SuperMetaObject(const KContextualHelpButton* 
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMetaObject(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MetaObject_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -148,9 +147,8 @@ void* KContextualHelpButton_SuperMetacast(KContextualHelpButton* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMetacast(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Metacast_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +165,8 @@ int KContextualHelpButton_SuperMetacall(KContextualHelpButton* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Metacall_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +183,8 @@ QSize* KContextualHelpButton_SuperSizeHint(const KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_SizeHint_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +211,8 @@ QSize* KContextualHelpButton_SuperMinimumSizeHint(const KContextualHelpButton* s
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMinimumSizeHint(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +239,8 @@ bool KContextualHelpButton_SuperEvent(KContextualHelpButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Event_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +267,8 @@ void KContextualHelpButton_SuperMousePressEvent(KContextualHelpButton* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMousePressEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MousePressEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +295,8 @@ void KContextualHelpButton_SuperMouseReleaseEvent(KContextualHelpButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMouseReleaseEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +323,8 @@ void KContextualHelpButton_SuperPaintEvent(KContextualHelpButton* self, QPaintEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnPaintEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_PaintEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +351,8 @@ void KContextualHelpButton_SuperActionEvent(KContextualHelpButton* self, QAction
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnActionEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ActionEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +379,8 @@ void KContextualHelpButton_SuperEnterEvent(KContextualHelpButton* self, QEnterEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnEnterEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_EnterEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +407,8 @@ void KContextualHelpButton_SuperLeaveEvent(KContextualHelpButton* self, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnLeaveEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_LeaveEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +435,8 @@ void KContextualHelpButton_SuperTimerEvent(KContextualHelpButton* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnTimerEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_TimerEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +463,8 @@ void KContextualHelpButton_SuperChangeEvent(KContextualHelpButton* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnChangeEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ChangeEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +491,8 @@ bool KContextualHelpButton_SuperHitButton(const KContextualHelpButton* self, con
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnHitButton(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_HitButton_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +519,8 @@ void KContextualHelpButton_SuperCheckStateSet(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnCheckStateSet(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_CheckStateSet_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +547,8 @@ void KContextualHelpButton_SuperNextCheckState(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnNextCheckState(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_NextCheckState_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +575,8 @@ void KContextualHelpButton_SuperInitStyleOption(const KContextualHelpButton* sel
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnInitStyleOption(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_InitStyleOption_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +603,8 @@ void KContextualHelpButton_SuperKeyPressEvent(KContextualHelpButton* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnKeyPressEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +631,8 @@ void KContextualHelpButton_SuperKeyReleaseEvent(KContextualHelpButton* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnKeyReleaseEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +659,8 @@ void KContextualHelpButton_SuperMouseMoveEvent(KContextualHelpButton* self, QMou
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMouseMoveEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +687,8 @@ void KContextualHelpButton_SuperFocusInEvent(KContextualHelpButton* self, QFocus
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnFocusInEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_FocusInEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +715,8 @@ void KContextualHelpButton_SuperFocusOutEvent(KContextualHelpButton* self, QFocu
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnFocusOutEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +743,8 @@ int KContextualHelpButton_SuperDevType(const KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDevType(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DevType_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +771,8 @@ void KContextualHelpButton_SuperSetVisible(KContextualHelpButton* self, bool vis
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnSetVisible(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_SetVisible_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +799,8 @@ int KContextualHelpButton_SuperHeightForWidth(const KContextualHelpButton* self,
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnHeightForWidth(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_HeightForWidth_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +827,8 @@ bool KContextualHelpButton_SuperHasHeightForWidth(const KContextualHelpButton* s
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnHasHeightForWidth(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +855,8 @@ QPaintEngine* KContextualHelpButton_SuperPaintEngine(const KContextualHelpButton
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnPaintEngine(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_PaintEngine_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +883,8 @@ void KContextualHelpButton_SuperMouseDoubleClickEvent(KContextualHelpButton* sel
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMouseDoubleClickEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +911,8 @@ void KContextualHelpButton_SuperWheelEvent(KContextualHelpButton* self, QWheelEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnWheelEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_WheelEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +939,8 @@ void KContextualHelpButton_SuperMoveEvent(KContextualHelpButton* self, QMoveEven
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMoveEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_MoveEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +967,8 @@ void KContextualHelpButton_SuperResizeEvent(KContextualHelpButton* self, QResize
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnResizeEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ResizeEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +995,8 @@ void KContextualHelpButton_SuperCloseEvent(KContextualHelpButton* self, QCloseEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnCloseEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_CloseEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1023,8 @@ void KContextualHelpButton_SuperContextMenuEvent(KContextualHelpButton* self, QC
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnContextMenuEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1051,8 @@ void KContextualHelpButton_SuperTabletEvent(KContextualHelpButton* self, QTablet
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnTabletEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_TabletEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1079,8 @@ void KContextualHelpButton_SuperDragEnterEvent(KContextualHelpButton* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDragEnterEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1107,8 @@ void KContextualHelpButton_SuperDragMoveEvent(KContextualHelpButton* self, QDrag
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDragMoveEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1135,8 @@ void KContextualHelpButton_SuperDragLeaveEvent(KContextualHelpButton* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDragLeaveEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1163,8 @@ void KContextualHelpButton_SuperDropEvent(KContextualHelpButton* self, QDropEven
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDropEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DropEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1191,8 @@ void KContextualHelpButton_SuperShowEvent(KContextualHelpButton* self, QShowEven
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnShowEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ShowEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1219,8 @@ void KContextualHelpButton_SuperHideEvent(KContextualHelpButton* self, QHideEven
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnHideEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_HideEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1249,8 @@ bool KContextualHelpButton_SuperNativeEvent(KContextualHelpButton* self, const l
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnNativeEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_NativeEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1277,8 @@ int KContextualHelpButton_SuperMetric(const KContextualHelpButton* self, int par
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnMetric(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Metric_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1305,8 @@ void KContextualHelpButton_SuperInitPainter(const KContextualHelpButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnInitPainter(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_InitPainter_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1333,8 @@ QPaintDevice* KContextualHelpButton_SuperRedirected(const KContextualHelpButton*
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnRedirected(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Redirected_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1361,8 @@ QPainter* KContextualHelpButton_SuperSharedPainter(const KContextualHelpButton* 
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnSharedPainter(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_SharedPainter_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1389,8 @@ void KContextualHelpButton_SuperInputMethodEvent(KContextualHelpButton* self, QI
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnInputMethodEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1417,8 @@ QVariant* KContextualHelpButton_SuperInputMethodQuery(const KContextualHelpButto
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnInputMethodQuery(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1445,8 @@ bool KContextualHelpButton_SuperFocusNextPrevChild(KContextualHelpButton* self, 
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnFocusNextPrevChild(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1473,8 @@ bool KContextualHelpButton_SuperEventFilter(KContextualHelpButton* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnEventFilter(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_EventFilter_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1501,8 @@ void KContextualHelpButton_SuperChildEvent(KContextualHelpButton* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnChildEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ChildEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1529,8 @@ void KContextualHelpButton_SuperCustomEvent(KContextualHelpButton* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnCustomEvent(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_CustomEvent_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1557,8 @@ void KContextualHelpButton_SuperConnectNotify(KContextualHelpButton* self, const
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnConnectNotify(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_ConnectNotify_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1585,8 @@ void KContextualHelpButton_SuperDisconnectNotify(KContextualHelpButton* self, co
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDisconnectNotify(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1613,8 @@ void KContextualHelpButton_SuperUpdateMicroFocus(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnUpdateMicroFocus(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1641,8 @@ void KContextualHelpButton_SuperCreate(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnCreate(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Create_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1669,8 @@ void KContextualHelpButton_SuperDestroy(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnDestroy(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Destroy_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1697,8 @@ bool KContextualHelpButton_SuperFocusNextChild(KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnFocusNextChild(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_FocusNextChild_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1725,8 @@ bool KContextualHelpButton_SuperFocusPreviousChild(KContextualHelpButton* self) 
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnFocusPreviousChild(KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1753,8 @@ QObject* KContextualHelpButton_SuperSender(const KContextualHelpButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnSender(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Sender_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1781,8 @@ int KContextualHelpButton_SuperSenderSignalIndex(const KContextualHelpButton* se
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnSenderSignalIndex(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1809,8 @@ int KContextualHelpButton_SuperReceivers(const KContextualHelpButton* self, cons
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnReceivers(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_Receivers_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1899,9 +1837,8 @@ bool KContextualHelpButton_SuperIsSignalConnected(const KContextualHelpButton* s
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnIsSignalConnected(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1928,9 +1865,8 @@ double KContextualHelpButton_SuperGetDecodedMetricF(const KContextualHelpButton*
 // Auxiliary method to allow providing re-implementation
 void KContextualHelpButton_OnGetDecodedMetricF(const KContextualHelpButton* self, intptr_t slot) {
     auto* vkcontextualhelpbutton = const_cast<VirtualKContextualHelpButton*>(dynamic_cast<const VirtualKContextualHelpButton*>(self));
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
+    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton)
         vkcontextualhelpbutton->setKContextualHelpButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKContextualHelpButton::KContextualHelpButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KContextualHelpButton_Delete(KContextualHelpButton* self) {

@@ -101,9 +101,8 @@ QMetaObject* KHamburgerMenu_SuperMetaObject(const KHamburgerMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnMetaObject(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_MetaObject_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +119,8 @@ void* KHamburgerMenu_SuperMetacast(KHamburgerMenu* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnMetacast(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_Metacast_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +137,8 @@ int KHamburgerMenu_SuperMetacall(KHamburgerMenu* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnMetacall(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_Metacall_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +155,8 @@ QWidget* KHamburgerMenu_SuperCreateWidget(KHamburgerMenu* self, QWidget* parent)
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnCreateWidget(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_CreateWidget_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -187,9 +183,8 @@ bool KHamburgerMenu_SuperEvent(KHamburgerMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnEvent(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_Event_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -216,9 +211,8 @@ bool KHamburgerMenu_SuperEventFilter(KHamburgerMenu* self, QObject* param1, QEve
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnEventFilter(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_EventFilter_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -245,9 +239,8 @@ void KHamburgerMenu_SuperDeleteWidget(KHamburgerMenu* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnDeleteWidget(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_DeleteWidget_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +267,8 @@ void KHamburgerMenu_SuperTimerEvent(KHamburgerMenu* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnTimerEvent(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_TimerEvent_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -303,9 +295,8 @@ void KHamburgerMenu_SuperChildEvent(KHamburgerMenu* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnChildEvent(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_ChildEvent_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +323,8 @@ void KHamburgerMenu_SuperCustomEvent(KHamburgerMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnCustomEvent(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_CustomEvent_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +351,8 @@ void KHamburgerMenu_SuperConnectNotify(KHamburgerMenu* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnConnectNotify(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +379,8 @@ void KHamburgerMenu_SuperDisconnectNotify(KHamburgerMenu* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnDisconnectNotify(KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ libqt_list /* of QWidget* */ KHamburgerMenu_SuperCreatedWidgets(const KHamburger
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnCreatedWidgets(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_CreatedWidgets_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ QObject* KHamburgerMenu_SuperSender(const KHamburgerMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnSender(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_Sender_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +499,8 @@ int KHamburgerMenu_SuperSenderSignalIndex(const KHamburgerMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnSenderSignalIndex(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +527,8 @@ int KHamburgerMenu_SuperReceivers(const KHamburgerMenu* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnReceivers(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_Receivers_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +555,8 @@ bool KHamburgerMenu_SuperIsSignalConnected(const KHamburgerMenu* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KHamburgerMenu_OnIsSignalConnected(const KHamburgerMenu* self, intptr_t slot) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu)
         vkhamburgermenu->setKHamburgerMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KHamburgerMenu_Delete(KHamburgerMenu* self) {

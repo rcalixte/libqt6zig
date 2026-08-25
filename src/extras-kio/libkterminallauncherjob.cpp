@@ -67,9 +67,8 @@ QMetaObject* KTerminalLauncherJob_SuperMetaObject(const KTerminalLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnMetaObject(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -86,9 +85,8 @@ void* KTerminalLauncherJob_SuperMetacast(KTerminalLauncherJob* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnMetacast(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +103,8 @@ int KTerminalLauncherJob_SuperMetacall(KTerminalLauncherJob* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnMetacall(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +121,8 @@ void KTerminalLauncherJob_SuperStart(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnStart(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Start_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -153,9 +149,8 @@ bool KTerminalLauncherJob_SuperDoKill(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnDoKill(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +177,8 @@ bool KTerminalLauncherJob_SuperDoSuspend(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnDoSuspend(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +205,8 @@ bool KTerminalLauncherJob_SuperDoResume(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnDoResume(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +265,8 @@ libqt_string KTerminalLauncherJob_SuperErrorString(const KTerminalLauncherJob* s
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnErrorString(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +293,8 @@ bool KTerminalLauncherJob_SuperEvent(KTerminalLauncherJob* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnEvent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Event_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +321,8 @@ bool KTerminalLauncherJob_SuperEventFilter(KTerminalLauncherJob* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnEventFilter(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +349,8 @@ void KTerminalLauncherJob_SuperTimerEvent(KTerminalLauncherJob* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnTimerEvent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +377,8 @@ void KTerminalLauncherJob_SuperChildEvent(KTerminalLauncherJob* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnChildEvent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +405,8 @@ void KTerminalLauncherJob_SuperCustomEvent(KTerminalLauncherJob* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnCustomEvent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +433,8 @@ void KTerminalLauncherJob_SuperConnectNotify(KTerminalLauncherJob* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnConnectNotify(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +461,8 @@ void KTerminalLauncherJob_SuperDisconnectNotify(KTerminalLauncherJob* self, cons
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnDisconnectNotify(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +489,8 @@ void KTerminalLauncherJob_SuperSetCapabilities(KTerminalLauncherJob* self, int c
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetCapabilities(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +517,8 @@ bool KTerminalLauncherJob_SuperIsFinished(const KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnIsFinished(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +545,8 @@ void KTerminalLauncherJob_SuperSetError(KTerminalLauncherJob* self, int errorCod
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetError(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetError_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +575,8 @@ void KTerminalLauncherJob_SuperSetErrorText(KTerminalLauncherJob* self, const li
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetErrorText(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +603,8 @@ void KTerminalLauncherJob_SuperSetProcessedAmount(KTerminalLauncherJob* self, in
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetProcessedAmount(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +631,8 @@ void KTerminalLauncherJob_SuperSetTotalAmount(KTerminalLauncherJob* self, int un
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetTotalAmount(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +659,8 @@ void KTerminalLauncherJob_SuperSetProgressUnit(KTerminalLauncherJob* self, int u
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetProgressUnit(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -709,9 +687,8 @@ void KTerminalLauncherJob_SuperSetPercent(KTerminalLauncherJob* self, unsigned l
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSetPercent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -738,9 +715,8 @@ void KTerminalLauncherJob_SuperEmitResult(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnEmitResult(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -767,9 +743,8 @@ void KTerminalLauncherJob_SuperEmitPercent(KTerminalLauncherJob* self, unsigned 
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnEmitPercent(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +771,8 @@ void KTerminalLauncherJob_SuperEmitSpeed(KTerminalLauncherJob* self, unsigned lo
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnEmitSpeed(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +799,8 @@ void KTerminalLauncherJob_SuperStartElapsedTimer(KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnStartElapsedTimer(KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +827,8 @@ QObject* KTerminalLauncherJob_SuperSender(const KTerminalLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSender(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Sender_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +855,8 @@ int KTerminalLauncherJob_SuperSenderSignalIndex(const KTerminalLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnSenderSignalIndex(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +883,8 @@ int KTerminalLauncherJob_SuperReceivers(const KTerminalLauncherJob* self, const 
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnReceivers(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +911,8 @@ bool KTerminalLauncherJob_SuperIsSignalConnected(const KTerminalLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KTerminalLauncherJob_OnIsSignalConnected(const KTerminalLauncherJob* self, intptr_t slot) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob)
         vkterminallauncherjob->setKTerminalLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTerminalLauncherJob_Delete(KTerminalLauncherJob* self) {

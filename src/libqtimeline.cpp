@@ -164,9 +164,8 @@ QMetaObject* QTimeLine_SuperMetaObject(const QTimeLine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnMetaObject(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_MetaObject_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +182,8 @@ void* QTimeLine_SuperMetacast(QTimeLine* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnMetacast(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_Metacast_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +200,8 @@ int QTimeLine_SuperMetacall(QTimeLine* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnMetacall(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_Metacall_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +218,8 @@ double QTimeLine_SuperValueForTime(const QTimeLine* self, int msec) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnValueForTime(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_ValueForTime_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_ValueForTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +236,8 @@ void QTimeLine_SuperTimerEvent(QTimeLine* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnTimerEvent(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_TimerEvent_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +264,8 @@ bool QTimeLine_SuperEvent(QTimeLine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnEvent(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_Event_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +292,8 @@ bool QTimeLine_SuperEventFilter(QTimeLine* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnEventFilter(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_EventFilter_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +320,8 @@ void QTimeLine_SuperChildEvent(QTimeLine* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnChildEvent(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_ChildEvent_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +348,8 @@ void QTimeLine_SuperCustomEvent(QTimeLine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnCustomEvent(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_CustomEvent_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +376,8 @@ void QTimeLine_SuperConnectNotify(QTimeLine* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnConnectNotify(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_ConnectNotify_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +404,8 @@ void QTimeLine_SuperDisconnectNotify(QTimeLine* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnDisconnectNotify(QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_DisconnectNotify_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +432,8 @@ QObject* QTimeLine_SuperSender(const QTimeLine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnSender(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_Sender_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +460,8 @@ int QTimeLine_SuperSenderSignalIndex(const QTimeLine* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnSenderSignalIndex(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +488,8 @@ int QTimeLine_SuperReceivers(const QTimeLine* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnReceivers(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_Receivers_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +516,8 @@ bool QTimeLine_SuperIsSignalConnected(const QTimeLine* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QTimeLine_OnIsSignalConnected(const QTimeLine* self, intptr_t slot) {
     auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine)
         vqtimeline->setQTimeLine_IsSignalConnected_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTimeLine_Connect_ValueChanged(QTimeLine* self, intptr_t slot) {

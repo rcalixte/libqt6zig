@@ -736,7 +736,7 @@ pub const QNetworkRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#public-types)
 pub const enums = struct {
-    pub const KnownHeaders = enum(i32) {
+    pub const KnownHeaders = enum {
         pub const ContentTypeHeader: i32 = 0;
         pub const ContentLengthHeader: i32 = 1;
         pub const LocationHeader: i32 = 2;
@@ -753,7 +753,7 @@ pub const enums = struct {
         pub const NumKnownHeaders: i32 = 13;
     };
 
-    pub const Attribute = enum(i32) {
+    pub const Attribute = enum {
         pub const HttpStatusCodeAttribute: i32 = 0;
         pub const HttpReasonPhraseAttribute: i32 = 1;
         pub const RedirectionTargetAttribute: i32 = 2;
@@ -788,32 +788,32 @@ pub const enums = struct {
         pub const UserMax: i32 = 32767;
     };
 
-    pub const CacheLoadControl = enum(i32) {
+    pub const CacheLoadControl = enum {
         pub const AlwaysNetwork: i32 = 0;
         pub const PreferNetwork: i32 = 1;
         pub const PreferCache: i32 = 2;
         pub const AlwaysCache: i32 = 3;
     };
 
-    pub const LoadControl = enum(i32) {
+    pub const LoadControl = enum {
         pub const Automatic: i32 = 0;
         pub const Manual: i32 = 1;
     };
 
-    pub const Priority = enum(i32) {
+    pub const Priority = enum {
         pub const HighPriority: i32 = 1;
         pub const NormalPriority: i32 = 3;
         pub const LowPriority: i32 = 5;
     };
 
-    pub const RedirectPolicy = enum(i32) {
+    pub const RedirectPolicy = enum {
         pub const ManualRedirectPolicy: i32 = 0;
         pub const NoLessSafeRedirectPolicy: i32 = 1;
         pub const SameOriginRedirectPolicy: i32 = 2;
         pub const UserVerifiedRedirectPolicy: i32 = 3;
     };
 
-    pub const TransferTimeoutConstant = enum(i32) {
+    pub const TransferTimeoutConstant = enum {
         pub const DefaultTransferTimeoutConstant: i32 = 30000;
     };
 };

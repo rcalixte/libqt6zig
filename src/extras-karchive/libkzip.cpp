@@ -128,9 +128,8 @@ bool KZip_SuperDoWriteSymLink(KZip* self, const libqt_string name, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteSymLink(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_DoWriteSymLink_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteSymLink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ bool KZip_SuperDoPrepareWriting(KZip* self, const libqt_string name, const libqt
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoPrepareWriting(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_DoPrepareWriting_Callback(reinterpret_cast<VirtualKZip::KZip_DoPrepareWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ bool KZip_SuperDoFinishWriting(KZip* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoFinishWriting(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_DoFinishWriting_Callback(reinterpret_cast<VirtualKZip::KZip_DoFinishWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +185,8 @@ bool KZip_SuperDoWriteData(KZip* self, const char* data, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteData(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_DoWriteData_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +203,8 @@ bool KZip_SuperOpenArchive(KZip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnOpenArchive(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_OpenArchive_Callback(reinterpret_cast<VirtualKZip::KZip_OpenArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +221,8 @@ bool KZip_SuperCloseArchive(KZip* self) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnCloseArchive(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_CloseArchive_Callback(reinterpret_cast<VirtualKZip::KZip_CloseArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +242,8 @@ bool KZip_SuperDoWriteDir(KZip* self, const libqt_string name, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KZip_OnDoWriteDir(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_DoWriteDir_Callback(reinterpret_cast<VirtualKZip::KZip_DoWriteDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +260,8 @@ void KZip_SuperVirtualHook(KZip* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnVirtualHook(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_VirtualHook_Callback(reinterpret_cast<VirtualKZip::KZip_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +288,8 @@ bool KZip_SuperOpen(KZip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnOpen(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_Open_Callback(reinterpret_cast<VirtualKZip::KZip_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +316,8 @@ bool KZip_SuperClose(KZip* self) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnClose(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_Close_Callback(reinterpret_cast<VirtualKZip::KZip_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +344,8 @@ KArchiveDirectory* KZip_SuperRootDir(KZip* self) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnRootDir(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_RootDir_Callback(reinterpret_cast<VirtualKZip::KZip_RootDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +372,8 @@ bool KZip_SuperCreateDevice(KZip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnCreateDevice(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_CreateDevice_Callback(reinterpret_cast<VirtualKZip::KZip_CreateDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +402,8 @@ void KZip_SuperSetErrorString(KZip* self, const libqt_string errorStr) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnSetErrorString(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_SetErrorString_Callback(reinterpret_cast<VirtualKZip::KZip_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +432,8 @@ KArchiveDirectory* KZip_SuperFindOrCreate(KZip* self, const libqt_string path) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnFindOrCreate(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_FindOrCreate_Callback(reinterpret_cast<VirtualKZip::KZip_FindOrCreate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +460,8 @@ void KZip_SuperSetDevice(KZip* self, QIODevice* dev) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnSetDevice(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_SetDevice_Callback(reinterpret_cast<VirtualKZip::KZip_SetDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +488,8 @@ void KZip_SuperSetRootDir(KZip* self, KArchiveDirectory* rootDir) {
 // Auxiliary method to allow providing re-implementation
 void KZip_OnSetRootDir(KZip* self, intptr_t slot) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
-    if (vkzip && vkzip->isVirtualKZip) {
+    if (vkzip && vkzip->isVirtualKZip)
         vkzip->setKZip_SetRootDir_Callback(reinterpret_cast<VirtualKZip::KZip_SetRootDir_Callback>(slot));
-    }
 }
 
 void KZip_Delete(KZip* self) {

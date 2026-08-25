@@ -578,9 +578,8 @@ QMetaObject* QWebEngineView_SuperMetaObject(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMetaObject(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -597,9 +596,8 @@ void* QWebEngineView_SuperMetacast(QWebEngineView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMetacast(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Metacast_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -616,9 +614,8 @@ int QWebEngineView_SuperMetacall(QWebEngineView* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMetacall(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Metacall_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -635,9 +632,8 @@ QSize* QWebEngineView_SuperSizeHint(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnSizeHint(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_SizeHint_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -654,9 +650,8 @@ QWebEngineView* QWebEngineView_SuperCreateWindow(QWebEngineView* self, int typeV
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnCreateWindow(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_CreateWindow_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_CreateWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -673,9 +668,8 @@ void QWebEngineView_SuperContextMenuEvent(QWebEngineView* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnContextMenuEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -692,9 +686,8 @@ bool QWebEngineView_SuperEvent(QWebEngineView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Event_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -711,9 +704,8 @@ void QWebEngineView_SuperShowEvent(QWebEngineView* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnShowEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ShowEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -730,9 +722,8 @@ void QWebEngineView_SuperHideEvent(QWebEngineView* self, QHideEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnHideEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_HideEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -749,9 +740,8 @@ void QWebEngineView_SuperCloseEvent(QWebEngineView* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnCloseEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_CloseEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -768,9 +758,8 @@ void QWebEngineView_SuperDragEnterEvent(QWebEngineView* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDragEnterEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DragEnterEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -787,9 +776,8 @@ void QWebEngineView_SuperDragLeaveEvent(QWebEngineView* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDragLeaveEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -806,9 +794,8 @@ void QWebEngineView_SuperDragMoveEvent(QWebEngineView* self, QDragMoveEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDragMoveEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DragMoveEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -825,9 +812,8 @@ void QWebEngineView_SuperDropEvent(QWebEngineView* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDropEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DropEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +840,8 @@ int QWebEngineView_SuperDevType(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDevType(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DevType_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +868,8 @@ void QWebEngineView_SuperSetVisible(QWebEngineView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnSetVisible(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_SetVisible_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +896,8 @@ QSize* QWebEngineView_SuperMinimumSizeHint(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMinimumSizeHint(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +924,8 @@ int QWebEngineView_SuperHeightForWidth(const QWebEngineView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnHeightForWidth(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_HeightForWidth_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +952,8 @@ bool QWebEngineView_SuperHasHeightForWidth(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnHasHeightForWidth(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +980,8 @@ QPaintEngine* QWebEngineView_SuperPaintEngine(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnPaintEngine(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_PaintEngine_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +1008,8 @@ void QWebEngineView_SuperMousePressEvent(QWebEngineView* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMousePressEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MousePressEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1036,8 @@ void QWebEngineView_SuperMouseReleaseEvent(QWebEngineView* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMouseReleaseEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1064,8 @@ void QWebEngineView_SuperMouseDoubleClickEvent(QWebEngineView* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMouseDoubleClickEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1092,8 @@ void QWebEngineView_SuperMouseMoveEvent(QWebEngineView* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMouseMoveEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1120,8 @@ void QWebEngineView_SuperWheelEvent(QWebEngineView* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnWheelEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_WheelEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1148,8 @@ void QWebEngineView_SuperKeyPressEvent(QWebEngineView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnKeyPressEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_KeyPressEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1176,8 @@ void QWebEngineView_SuperKeyReleaseEvent(QWebEngineView* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnKeyReleaseEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1204,8 @@ void QWebEngineView_SuperFocusInEvent(QWebEngineView* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnFocusInEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_FocusInEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1232,8 @@ void QWebEngineView_SuperFocusOutEvent(QWebEngineView* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnFocusOutEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_FocusOutEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1289,9 +1260,8 @@ void QWebEngineView_SuperEnterEvent(QWebEngineView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnEnterEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_EnterEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1318,9 +1288,8 @@ void QWebEngineView_SuperLeaveEvent(QWebEngineView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnLeaveEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_LeaveEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1347,9 +1316,8 @@ void QWebEngineView_SuperPaintEvent(QWebEngineView* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnPaintEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_PaintEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1376,9 +1344,8 @@ void QWebEngineView_SuperMoveEvent(QWebEngineView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMoveEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_MoveEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1405,9 +1372,8 @@ void QWebEngineView_SuperResizeEvent(QWebEngineView* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnResizeEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ResizeEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1434,9 +1400,8 @@ void QWebEngineView_SuperTabletEvent(QWebEngineView* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnTabletEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_TabletEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1463,9 +1428,8 @@ void QWebEngineView_SuperActionEvent(QWebEngineView* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnActionEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ActionEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1458,8 @@ bool QWebEngineView_SuperNativeEvent(QWebEngineView* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnNativeEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_NativeEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1486,8 @@ void QWebEngineView_SuperChangeEvent(QWebEngineView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnChangeEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ChangeEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1514,8 @@ int QWebEngineView_SuperMetric(const QWebEngineView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnMetric(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Metric_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1581,9 +1542,8 @@ void QWebEngineView_SuperInitPainter(const QWebEngineView* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnInitPainter(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_InitPainter_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1610,9 +1570,8 @@ QPaintDevice* QWebEngineView_SuperRedirected(const QWebEngineView* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnRedirected(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Redirected_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1639,9 +1598,8 @@ QPainter* QWebEngineView_SuperSharedPainter(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnSharedPainter(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_SharedPainter_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1668,9 +1626,8 @@ void QWebEngineView_SuperInputMethodEvent(QWebEngineView* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnInputMethodEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_InputMethodEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1654,8 @@ QVariant* QWebEngineView_SuperInputMethodQuery(const QWebEngineView* self, int p
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnInputMethodQuery(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_InputMethodQuery_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1682,8 @@ bool QWebEngineView_SuperFocusNextPrevChild(QWebEngineView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnFocusNextPrevChild(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1710,8 @@ bool QWebEngineView_SuperEventFilter(QWebEngineView* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnEventFilter(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_EventFilter_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1738,8 @@ void QWebEngineView_SuperTimerEvent(QWebEngineView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnTimerEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_TimerEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1766,8 @@ void QWebEngineView_SuperChildEvent(QWebEngineView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnChildEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ChildEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1794,8 @@ void QWebEngineView_SuperCustomEvent(QWebEngineView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnCustomEvent(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_CustomEvent_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1822,8 @@ void QWebEngineView_SuperConnectNotify(QWebEngineView* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnConnectNotify(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_ConnectNotify_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1850,8 @@ void QWebEngineView_SuperDisconnectNotify(QWebEngineView* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDisconnectNotify(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1878,8 @@ void QWebEngineView_SuperUpdateMicroFocus(QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnUpdateMicroFocus(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1906,8 @@ void QWebEngineView_SuperCreate(QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnCreate(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Create_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1934,8 @@ void QWebEngineView_SuperDestroy(QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnDestroy(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Destroy_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2016,9 +1962,8 @@ bool QWebEngineView_SuperFocusNextChild(QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnFocusNextChild(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_FocusNextChild_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2045,9 +1990,8 @@ bool QWebEngineView_SuperFocusPreviousChild(QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnFocusPreviousChild(QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2074,9 +2018,8 @@ QObject* QWebEngineView_SuperSender(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnSender(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Sender_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2103,9 +2046,8 @@ int QWebEngineView_SuperSenderSignalIndex(const QWebEngineView* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnSenderSignalIndex(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2132,9 +2074,8 @@ int QWebEngineView_SuperReceivers(const QWebEngineView* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnReceivers(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_Receivers_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2161,9 +2102,8 @@ bool QWebEngineView_SuperIsSignalConnected(const QWebEngineView* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnIsSignalConnected(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2190,9 +2130,8 @@ double QWebEngineView_SuperGetDecodedMetricF(const QWebEngineView* self, int met
 // Auxiliary method to allow providing re-implementation
 void QWebEngineView_OnGetDecodedMetricF(const QWebEngineView* self, intptr_t slot) {
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView)
         vqwebengineview->setQWebEngineView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QWebEngineView_Delete(QWebEngineView* self) {

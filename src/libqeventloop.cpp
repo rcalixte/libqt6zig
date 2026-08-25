@@ -95,9 +95,8 @@ QMetaObject* QEventLoop_SuperMetaObject(const QEventLoop* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnMetaObject(const QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_MetaObject_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +113,8 @@ void* QEventLoop_SuperMetacast(QEventLoop* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnMetacast(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_Metacast_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +131,8 @@ int QEventLoop_SuperMetacall(QEventLoop* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnMetacall(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_Metacall_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +149,8 @@ bool QEventLoop_SuperEvent(QEventLoop* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnEvent(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_Event_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +177,8 @@ bool QEventLoop_SuperEventFilter(QEventLoop* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnEventFilter(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_EventFilter_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +205,8 @@ void QEventLoop_SuperTimerEvent(QEventLoop* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnTimerEvent(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_TimerEvent_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +233,8 @@ void QEventLoop_SuperChildEvent(QEventLoop* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnChildEvent(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_ChildEvent_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +261,8 @@ void QEventLoop_SuperCustomEvent(QEventLoop* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnCustomEvent(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_CustomEvent_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +289,8 @@ void QEventLoop_SuperConnectNotify(QEventLoop* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnConnectNotify(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_ConnectNotify_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +317,8 @@ void QEventLoop_SuperDisconnectNotify(QEventLoop* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnDisconnectNotify(QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_DisconnectNotify_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +345,8 @@ QObject* QEventLoop_SuperSender(const QEventLoop* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnSender(const QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_Sender_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +373,8 @@ int QEventLoop_SuperSenderSignalIndex(const QEventLoop* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnSenderSignalIndex(const QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_SenderSignalIndex_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +401,8 @@ int QEventLoop_SuperReceivers(const QEventLoop* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnReceivers(const QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_Receivers_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +429,8 @@ bool QEventLoop_SuperIsSignalConnected(const QEventLoop* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QEventLoop_OnIsSignalConnected(const QEventLoop* self, intptr_t slot) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop)
         vqeventloop->setQEventLoop_IsSignalConnected_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QEventLoop_Delete(QEventLoop* self) {

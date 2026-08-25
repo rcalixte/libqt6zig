@@ -198,9 +198,8 @@ QMetaObject* QSharedMemory_SuperMetaObject(const QSharedMemory* self) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnMetaObject(const QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_MetaObject_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +216,8 @@ void* QSharedMemory_SuperMetacast(QSharedMemory* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnMetacast(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_Metacast_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +234,8 @@ int QSharedMemory_SuperMetacall(QSharedMemory* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnMetacall(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_Metacall_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +262,8 @@ bool QSharedMemory_SuperEvent(QSharedMemory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnEvent(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_Event_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +290,8 @@ bool QSharedMemory_SuperEventFilter(QSharedMemory* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnEventFilter(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_EventFilter_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +318,8 @@ void QSharedMemory_SuperTimerEvent(QSharedMemory* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnTimerEvent(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_TimerEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +346,8 @@ void QSharedMemory_SuperChildEvent(QSharedMemory* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnChildEvent(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_ChildEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +374,8 @@ void QSharedMemory_SuperCustomEvent(QSharedMemory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnCustomEvent(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_CustomEvent_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +402,8 @@ void QSharedMemory_SuperConnectNotify(QSharedMemory* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnConnectNotify(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_ConnectNotify_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +430,8 @@ void QSharedMemory_SuperDisconnectNotify(QSharedMemory* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnDisconnectNotify(QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_DisconnectNotify_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +458,8 @@ QObject* QSharedMemory_SuperSender(const QSharedMemory* self) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnSender(const QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_Sender_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +486,8 @@ int QSharedMemory_SuperSenderSignalIndex(const QSharedMemory* self) {
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnSenderSignalIndex(const QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +514,8 @@ int QSharedMemory_SuperReceivers(const QSharedMemory* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnReceivers(const QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_Receivers_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +542,8 @@ bool QSharedMemory_SuperIsSignalConnected(const QSharedMemory* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QSharedMemory_OnIsSignalConnected(const QSharedMemory* self, intptr_t slot) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory)
         vqsharedmemory->setQSharedMemory_IsSignalConnected_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSharedMemory_Delete(QSharedMemory* self) {

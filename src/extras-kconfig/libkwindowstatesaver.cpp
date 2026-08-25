@@ -46,9 +46,8 @@ QMetaObject* KWindowStateSaver_SuperMetaObject(const KWindowStateSaver* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_MetaObject_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -65,9 +64,8 @@ void* KWindowStateSaver_SuperMetacast(KWindowStateSaver* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_Metacast_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -84,9 +82,8 @@ int KWindowStateSaver_SuperMetacall(KWindowStateSaver* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnMetacall(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_Metacall_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -113,9 +110,8 @@ bool KWindowStateSaver_SuperEvent(KWindowStateSaver* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnEvent(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_Event_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -142,9 +138,8 @@ void KWindowStateSaver_SuperChildEvent(KWindowStateSaver* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnChildEvent(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_ChildEvent_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -171,9 +166,8 @@ void KWindowStateSaver_SuperCustomEvent(KWindowStateSaver* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnCustomEvent(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_CustomEvent_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +194,8 @@ void KWindowStateSaver_SuperConnectNotify(KWindowStateSaver* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnConnectNotify(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_ConnectNotify_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +222,8 @@ void KWindowStateSaver_SuperDisconnectNotify(KWindowStateSaver* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnDisconnectNotify(KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_DisconnectNotify_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +250,8 @@ QObject* KWindowStateSaver_SuperSender(const KWindowStateSaver* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnSender(const KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_Sender_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +278,8 @@ int KWindowStateSaver_SuperSenderSignalIndex(const KWindowStateSaver* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnSenderSignalIndex(const KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +306,8 @@ int KWindowStateSaver_SuperReceivers(const KWindowStateSaver* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnReceivers(const KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_Receivers_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +334,8 @@ bool KWindowStateSaver_SuperIsSignalConnected(const KWindowStateSaver* self, con
 // Auxiliary method to allow providing re-implementation
 void KWindowStateSaver_OnIsSignalConnected(const KWindowStateSaver* self, intptr_t slot) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver)
         vkwindowstatesaver->setKWindowStateSaver_IsSignalConnected_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KWindowStateSaver_Delete(KWindowStateSaver* self) {

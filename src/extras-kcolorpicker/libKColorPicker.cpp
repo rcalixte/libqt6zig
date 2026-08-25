@@ -117,9 +117,8 @@ QMetaObject* kColorPicker__KColorPicker_SuperMetaObject(const kColorPicker__KCol
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetaObject(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +135,8 @@ void* kColorPicker__KColorPicker_SuperMetacast(kColorPicker__KColorPicker* self,
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetacast(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +153,8 @@ int kColorPicker__KColorPicker_SuperMetacall(kColorPicker__KColorPicker* self, i
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetacall(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacall_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +181,8 @@ QSize* kColorPicker__KColorPicker_SuperSizeHint(const kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSizeHint(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SizeHint_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +209,8 @@ QSize* kColorPicker__KColorPicker_SuperMinimumSizeHint(const kColorPicker__KColo
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMinimumSizeHint(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MinimumSizeHint_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +237,8 @@ bool kColorPicker__KColorPicker_SuperEvent(kColorPicker__KColorPicker* self, QEv
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Event_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +265,8 @@ void kColorPicker__KColorPicker_SuperMousePressEvent(kColorPicker__KColorPicker*
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMousePressEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MousePressEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +293,8 @@ void kColorPicker__KColorPicker_SuperMouseReleaseEvent(kColorPicker__KColorPicke
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseReleaseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseReleaseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +321,8 @@ void kColorPicker__KColorPicker_SuperPaintEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnPaintEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +349,8 @@ void kColorPicker__KColorPicker_SuperActionEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnActionEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ActionEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +377,8 @@ void kColorPicker__KColorPicker_SuperEnterEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEnterEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EnterEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +405,8 @@ void kColorPicker__KColorPicker_SuperLeaveEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnLeaveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_LeaveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +433,8 @@ void kColorPicker__KColorPicker_SuperTimerEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnTimerEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TimerEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +461,8 @@ void kColorPicker__KColorPicker_SuperChangeEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnChangeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChangeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +489,8 @@ bool kColorPicker__KColorPicker_SuperHitButton(const kColorPicker__KColorPicker*
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnHitButton(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HitButton_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +517,8 @@ void kColorPicker__KColorPicker_SuperCheckStateSet(kColorPicker__KColorPicker* s
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCheckStateSet(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CheckStateSet_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +545,8 @@ void kColorPicker__KColorPicker_SuperNextCheckState(kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnNextCheckState(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NextCheckState_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +573,8 @@ void kColorPicker__KColorPicker_SuperInitStyleOption(const kColorPicker__KColorP
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnInitStyleOption(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitStyleOption_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +601,8 @@ void kColorPicker__KColorPicker_SuperKeyPressEvent(kColorPicker__KColorPicker* s
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnKeyPressEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyPressEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +629,8 @@ void kColorPicker__KColorPicker_SuperKeyReleaseEvent(kColorPicker__KColorPicker*
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnKeyReleaseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyReleaseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +657,8 @@ void kColorPicker__KColorPicker_SuperMouseMoveEvent(kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseMoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +685,8 @@ void kColorPicker__KColorPicker_SuperFocusInEvent(kColorPicker__KColorPicker* se
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusInEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusInEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +713,8 @@ void kColorPicker__KColorPicker_SuperFocusOutEvent(kColorPicker__KColorPicker* s
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusOutEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusOutEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +741,8 @@ int kColorPicker__KColorPicker_SuperDevType(const kColorPicker__KColorPicker* se
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDevType(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DevType_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +769,8 @@ void kColorPicker__KColorPicker_SuperSetVisible(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSetVisible(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SetVisible_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +797,8 @@ int kColorPicker__KColorPicker_SuperHeightForWidth(const kColorPicker__KColorPic
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnHeightForWidth(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HeightForWidth_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +825,8 @@ bool kColorPicker__KColorPicker_SuperHasHeightForWidth(const kColorPicker__KColo
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnHasHeightForWidth(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HasHeightForWidth_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +853,8 @@ QPaintEngine* kColorPicker__KColorPicker_SuperPaintEngine(const kColorPicker__KC
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnPaintEngine(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEngine_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +881,8 @@ void kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(kColorPicker__KColorP
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseDoubleClickEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +909,8 @@ void kColorPicker__KColorPicker_SuperWheelEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnWheelEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_WheelEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +937,8 @@ void kColorPicker__KColorPicker_SuperMoveEvent(kColorPicker__KColorPicker* self,
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +965,8 @@ void kColorPicker__KColorPicker_SuperResizeEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnResizeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ResizeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +993,8 @@ void kColorPicker__KColorPicker_SuperCloseEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCloseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CloseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1021,8 @@ void kColorPicker__KColorPicker_SuperContextMenuEvent(kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnContextMenuEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ContextMenuEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1049,8 @@ void kColorPicker__KColorPicker_SuperTabletEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnTabletEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TabletEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1077,8 @@ void kColorPicker__KColorPicker_SuperDragEnterEvent(kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragEnterEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragEnterEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1105,8 @@ void kColorPicker__KColorPicker_SuperDragMoveEvent(kColorPicker__KColorPicker* s
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragMoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1133,8 @@ void kColorPicker__KColorPicker_SuperDragLeaveEvent(kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragLeaveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragLeaveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1161,8 @@ void kColorPicker__KColorPicker_SuperDropEvent(kColorPicker__KColorPicker* self,
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDropEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DropEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1189,8 @@ void kColorPicker__KColorPicker_SuperShowEvent(kColorPicker__KColorPicker* self,
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnShowEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ShowEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1217,8 @@ void kColorPicker__KColorPicker_SuperHideEvent(kColorPicker__KColorPicker* self,
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnHideEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HideEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1247,8 @@ bool kColorPicker__KColorPicker_SuperNativeEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnNativeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NativeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1275,8 @@ int kColorPicker__KColorPicker_SuperMetric(const kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetric(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metric_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1303,8 @@ void kColorPicker__KColorPicker_SuperInitPainter(const kColorPicker__KColorPicke
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnInitPainter(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitPainter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1331,8 @@ QPaintDevice* kColorPicker__KColorPicker_SuperRedirected(const kColorPicker__KCo
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnRedirected(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Redirected_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1359,8 @@ QPainter* kColorPicker__KColorPicker_SuperSharedPainter(const kColorPicker__KCol
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSharedPainter(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SharedPainter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1387,8 @@ void kColorPicker__KColorPicker_SuperInputMethodEvent(kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnInputMethodEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1415,8 @@ QVariant* kColorPicker__KColorPicker_SuperInputMethodQuery(const kColorPicker__K
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnInputMethodQuery(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodQuery_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1443,8 @@ bool kColorPicker__KColorPicker_SuperFocusNextPrevChild(kColorPicker__KColorPick
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusNextPrevChild(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextPrevChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1471,8 @@ bool kColorPicker__KColorPicker_SuperEventFilter(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEventFilter(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EventFilter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1499,8 @@ void kColorPicker__KColorPicker_SuperChildEvent(kColorPicker__KColorPicker* self
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnChildEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChildEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1527,8 @@ void kColorPicker__KColorPicker_SuperCustomEvent(kColorPicker__KColorPicker* sel
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCustomEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CustomEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1555,8 @@ void kColorPicker__KColorPicker_SuperConnectNotify(kColorPicker__KColorPicker* s
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnConnectNotify(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ConnectNotify_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1583,8 @@ void kColorPicker__KColorPicker_SuperDisconnectNotify(kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDisconnectNotify(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DisconnectNotify_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1611,8 @@ void kColorPicker__KColorPicker_SuperUpdateMicroFocus(kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnUpdateMicroFocus(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_UpdateMicroFocus_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1639,8 @@ void kColorPicker__KColorPicker_SuperCreate(kColorPicker__KColorPicker* self) {
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCreate(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Create_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1667,8 @@ void kColorPicker__KColorPicker_SuperDestroy(kColorPicker__KColorPicker* self) {
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDestroy(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Destroy_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1695,8 @@ bool kColorPicker__KColorPicker_SuperFocusNextChild(kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusNextChild(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1723,8 @@ bool kColorPicker__KColorPicker_SuperFocusPreviousChild(kColorPicker__KColorPick
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusPreviousChild(kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusPreviousChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1751,8 @@ QObject* kColorPicker__KColorPicker_SuperSender(const kColorPicker__KColorPicker
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSender(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Sender_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1779,8 @@ int kColorPicker__KColorPicker_SuperSenderSignalIndex(const kColorPicker__KColor
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSenderSignalIndex(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SenderSignalIndex_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1807,8 @@ int kColorPicker__KColorPicker_SuperReceivers(const kColorPicker__KColorPicker* 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnReceivers(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Receivers_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1835,8 @@ bool kColorPicker__KColorPicker_SuperIsSignalConnected(const kColorPicker__KColo
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnIsSignalConnected(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_IsSignalConnected_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1863,8 @@ double kColorPicker__KColorPicker_SuperGetDecodedMetricF(const kColorPicker__KCo
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnGetDecodedMetricF(const kColorPicker__KColorPicker* self, intptr_t slot) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
         vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_GetDecodedMetricF_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void kColorPicker__KColorPicker_Delete(kColorPicker__KColorPicker* self) {

@@ -81,9 +81,8 @@ QMetaObject* KFontAction_SuperMetaObject(const KFontAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnMetaObject(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_MetaObject_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* KFontAction_SuperMetacast(KFontAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnMetacast(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_Metacast_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int KFontAction_SuperMetacall(KFontAction* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnMetacall(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_Metacall_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +135,8 @@ QWidget* KFontAction_SuperCreateWidget(KFontAction* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnCreateWidget(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_CreateWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +163,8 @@ QAction* KFontAction_SuperRemoveAction(KFontAction* self, QAction* action) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnRemoveAction(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_RemoveAction_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_RemoveAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +191,8 @@ void KFontAction_SuperInsertAction(KFontAction* self, QAction* before, QAction* 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnInsertAction(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_InsertAction_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_InsertAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +219,8 @@ void KFontAction_SuperSlotActionTriggered(KFontAction* self, QAction* action) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnSlotActionTriggered(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +247,8 @@ void KFontAction_SuperDeleteWidget(KFontAction* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnDeleteWidget(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_DeleteWidget_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +275,8 @@ bool KFontAction_SuperEvent(KFontAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnEvent(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_Event_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +303,8 @@ bool KFontAction_SuperEventFilter(KFontAction* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnEventFilter(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_EventFilter_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +331,8 @@ void KFontAction_SuperTimerEvent(KFontAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnTimerEvent(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_TimerEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +359,8 @@ void KFontAction_SuperChildEvent(KFontAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnChildEvent(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_ChildEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +387,8 @@ void KFontAction_SuperCustomEvent(KFontAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnCustomEvent(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_CustomEvent_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ void KFontAction_SuperConnectNotify(KFontAction* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnConnectNotify(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_ConnectNotify_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +443,8 @@ void KFontAction_SuperDisconnectNotify(KFontAction* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnDisconnectNotify(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +471,8 @@ void KFontAction_SuperSlotToggled(KFontAction* self, bool param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnSlotToggled(KFontAction* self, intptr_t slot) {
     auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_SlotToggled_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +535,8 @@ libqt_list /* of QWidget* */ KFontAction_SuperCreatedWidgets(const KFontAction* 
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnCreatedWidgets(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +563,8 @@ QObject* KFontAction_SuperSender(const KFontAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnSender(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_Sender_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +591,8 @@ int KFontAction_SuperSenderSignalIndex(const KFontAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnSenderSignalIndex(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +619,8 @@ int KFontAction_SuperReceivers(const KFontAction* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnReceivers(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_Receivers_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +647,8 @@ bool KFontAction_SuperIsSignalConnected(const KFontAction* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFontAction_OnIsSignalConnected(const KFontAction* self, intptr_t slot) {
     auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+    if (vkfontaction && vkfontaction->isVirtualKFontAction)
         vkfontaction->setKFontAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFontAction_Delete(KFontAction* self) {

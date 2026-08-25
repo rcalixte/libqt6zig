@@ -15,6 +15,10 @@ KModifierKeyInfoProvider* KModifierKeyInfoProvider_new() {
     return new VirtualKModifierKeyInfoProvider();
 }
 
+QSharedData* KModifierKeyInfoProvider_AsQSharedData(KModifierKeyInfoProvider* self) {
+    return static_cast<QSharedData*>(self);
+}
+
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -158,9 +162,8 @@ QMetaObject* KModifierKeyInfoProvider_SuperMetaObject(const KModifierKeyInfoProv
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnMetaObject(const KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_MetaObject_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +180,8 @@ void* KModifierKeyInfoProvider_SuperMetacast(KModifierKeyInfoProvider* self, con
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnMetacast(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacast_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +198,8 @@ int KModifierKeyInfoProvider_SuperMetacall(KModifierKeyInfoProvider* self, int p
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnMetacall(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacall_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +216,8 @@ bool KModifierKeyInfoProvider_SuperSetKeyLatched(KModifierKeyInfoProvider* self,
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnSetKeyLatched(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLatched_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLatched_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +234,8 @@ bool KModifierKeyInfoProvider_SuperSetKeyLocked(KModifierKeyInfoProvider* self, 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnSetKeyLocked(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SetKeyLocked_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SetKeyLocked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +262,8 @@ bool KModifierKeyInfoProvider_SuperEvent(KModifierKeyInfoProvider* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnEvent(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Event_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +290,8 @@ bool KModifierKeyInfoProvider_SuperEventFilter(KModifierKeyInfoProvider* self, Q
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnEventFilter(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_EventFilter_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +318,8 @@ void KModifierKeyInfoProvider_SuperTimerEvent(KModifierKeyInfoProvider* self, QT
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnTimerEvent(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_TimerEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +346,8 @@ void KModifierKeyInfoProvider_SuperChildEvent(KModifierKeyInfoProvider* self, QC
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnChildEvent(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_ChildEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +374,8 @@ void KModifierKeyInfoProvider_SuperCustomEvent(KModifierKeyInfoProvider* self, Q
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnCustomEvent(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_CustomEvent_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +402,8 @@ void KModifierKeyInfoProvider_SuperConnectNotify(KModifierKeyInfoProvider* self,
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnConnectNotify(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_ConnectNotify_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +430,8 @@ void KModifierKeyInfoProvider_SuperDisconnectNotify(KModifierKeyInfoProvider* se
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnDisconnectNotify(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_DisconnectNotify_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +458,8 @@ void KModifierKeyInfoProvider_SuperStateUpdated(KModifierKeyInfoProvider* self, 
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnStateUpdated(KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_StateUpdated_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_StateUpdated_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +486,8 @@ QObject* KModifierKeyInfoProvider_SuperSender(const KModifierKeyInfoProvider* se
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnSender(const KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Sender_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +514,8 @@ int KModifierKeyInfoProvider_SuperSenderSignalIndex(const KModifierKeyInfoProvid
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnSenderSignalIndex(const KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_SenderSignalIndex_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +542,8 @@ int KModifierKeyInfoProvider_SuperReceivers(const KModifierKeyInfoProvider* self
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnReceivers(const KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Receivers_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +570,8 @@ bool KModifierKeyInfoProvider_SuperIsSignalConnected(const KModifierKeyInfoProvi
 // Auxiliary method to allow providing re-implementation
 void KModifierKeyInfoProvider_OnIsSignalConnected(const KModifierKeyInfoProvider* self, intptr_t slot) {
     auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider)
         vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_IsSignalConnected_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KModifierKeyInfoProvider_Delete(KModifierKeyInfoProvider* self) {

@@ -95,9 +95,8 @@ QMetaObject* QSctpSocket_SuperMetaObject(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnMetaObject(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_MetaObject_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +113,8 @@ void* QSctpSocket_SuperMetacast(QSctpSocket* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnMetacast(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Metacast_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +131,8 @@ int QSctpSocket_SuperMetacall(QSctpSocket* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnMetacall(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Metacall_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +149,8 @@ void QSctpSocket_SuperClose(QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnClose(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Close_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +167,8 @@ void QSctpSocket_SuperDisconnectFromHost(QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnDisconnectFromHost(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_DisconnectFromHost_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_DisconnectFromHost_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +185,8 @@ long long QSctpSocket_SuperReadData(QSctpSocket* self, char* data, long long max
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnReadData(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_ReadData_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +203,8 @@ long long QSctpSocket_SuperReadLineData(QSctpSocket* self, char* data, long long
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnReadLineData(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_ReadLineData_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +231,8 @@ void QSctpSocket_SuperResume(QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnResume(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Resume_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Resume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +259,8 @@ bool QSctpSocket_SuperBind(QSctpSocket* self, const QHostAddress* address, uint1
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnBind(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Bind_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Bind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +289,8 @@ void QSctpSocket_SuperConnectToHost(QSctpSocket* self, const libqt_string hostNa
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnConnectToHost(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_ConnectToHost_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_ConnectToHost_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +317,8 @@ long long QSctpSocket_SuperBytesAvailable(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnBytesAvailable(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_BytesAvailable_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +345,8 @@ long long QSctpSocket_SuperBytesToWrite(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnBytesToWrite(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_BytesToWrite_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +373,8 @@ void QSctpSocket_SuperSetReadBufferSize(QSctpSocket* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetReadBufferSize(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetReadBufferSize_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetReadBufferSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +405,8 @@ intptr_t QSctpSocket_SuperSocketDescriptor(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSocketDescriptor(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SocketDescriptor_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SocketDescriptor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +433,8 @@ bool QSctpSocket_SuperSetSocketDescriptor(QSctpSocket* self, intptr_t socketDesc
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetSocketDescriptor(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetSocketDescriptor_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetSocketDescriptor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +461,8 @@ void QSctpSocket_SuperSetSocketOption(QSctpSocket* self, int option, const QVari
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetSocketOption(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetSocketOption_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetSocketOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +489,8 @@ QVariant* QSctpSocket_SuperSocketOption(QSctpSocket* self, int option) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSocketOption(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SocketOption_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SocketOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +517,8 @@ bool QSctpSocket_SuperIsSequential(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnIsSequential(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_IsSequential_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +545,8 @@ bool QSctpSocket_SuperWaitForConnected(QSctpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnWaitForConnected(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_WaitForConnected_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_WaitForConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +573,8 @@ bool QSctpSocket_SuperWaitForReadyRead(QSctpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnWaitForReadyRead(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_WaitForReadyRead_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +601,8 @@ bool QSctpSocket_SuperWaitForBytesWritten(QSctpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnWaitForBytesWritten(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +629,8 @@ bool QSctpSocket_SuperWaitForDisconnected(QSctpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnWaitForDisconnected(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_WaitForDisconnected_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_WaitForDisconnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +657,8 @@ long long QSctpSocket_SuperSkipData(QSctpSocket* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSkipData(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SkipData_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +685,8 @@ long long QSctpSocket_SuperWriteData(QSctpSocket* self, const char* data, long l
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnWriteData(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_WriteData_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +713,8 @@ bool QSctpSocket_SuperOpen(QSctpSocket* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnOpen(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Open_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +741,8 @@ long long QSctpSocket_SuperPos(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnPos(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Pos_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +769,8 @@ long long QSctpSocket_SuperSize(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSize(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Size_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +797,8 @@ bool QSctpSocket_SuperSeek(QSctpSocket* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSeek(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Seek_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +825,8 @@ bool QSctpSocket_SuperAtEnd(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnAtEnd(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_AtEnd_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +853,8 @@ bool QSctpSocket_SuperReset(QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnReset(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Reset_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +881,8 @@ bool QSctpSocket_SuperCanReadLine(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnCanReadLine(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_CanReadLine_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +909,8 @@ bool QSctpSocket_SuperEvent(QSctpSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnEvent(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Event_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +937,8 @@ bool QSctpSocket_SuperEventFilter(QSctpSocket* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnEventFilter(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_EventFilter_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +965,8 @@ void QSctpSocket_SuperTimerEvent(QSctpSocket* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnTimerEvent(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_TimerEvent_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +993,8 @@ void QSctpSocket_SuperChildEvent(QSctpSocket* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnChildEvent(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_ChildEvent_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1021,8 @@ void QSctpSocket_SuperCustomEvent(QSctpSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnCustomEvent(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_CustomEvent_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1049,8 @@ void QSctpSocket_SuperConnectNotify(QSctpSocket* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnConnectNotify(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1077,8 @@ void QSctpSocket_SuperDisconnectNotify(QSctpSocket* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnDisconnectNotify(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1105,8 @@ void QSctpSocket_SuperSetSocketState(QSctpSocket* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetSocketState(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetSocketState_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetSocketState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1133,8 @@ void QSctpSocket_SuperSetSocketError(QSctpSocket* self, int socketError) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetSocketError(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetSocketError_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetSocketError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1161,8 @@ void QSctpSocket_SuperSetLocalPort(QSctpSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetLocalPort(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetLocalPort_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetLocalPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1189,8 @@ void QSctpSocket_SuperSetLocalAddress(QSctpSocket* self, const QHostAddress* add
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetLocalAddress(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetLocalAddress_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetLocalAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1217,8 @@ void QSctpSocket_SuperSetPeerPort(QSctpSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetPeerPort(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetPeerPort_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetPeerPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1245,8 @@ void QSctpSocket_SuperSetPeerAddress(QSctpSocket* self, const QHostAddress* addr
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetPeerAddress(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetPeerAddress_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetPeerAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1275,8 @@ void QSctpSocket_SuperSetPeerName(QSctpSocket* self, const libqt_string name) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetPeerName(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetPeerName_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetPeerName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1303,8 @@ void QSctpSocket_SuperSetOpenMode(QSctpSocket* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetOpenMode(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetOpenMode_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1333,8 @@ void QSctpSocket_SuperSetErrorString(QSctpSocket* self, const libqt_string error
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSetErrorString(QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SetErrorString_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1361,8 @@ QObject* QSctpSocket_SuperSender(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSender(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Sender_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1389,8 @@ int QSctpSocket_SuperSenderSignalIndex(const QSctpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnSenderSignalIndex(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1417,8 @@ int QSctpSocket_SuperReceivers(const QSctpSocket* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnReceivers(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_Receivers_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1445,8 @@ bool QSctpSocket_SuperIsSignalConnected(const QSctpSocket* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QSctpSocket_OnIsSignalConnected(const QSctpSocket* self, intptr_t slot) {
     auto* vqsctpsocket = const_cast<VirtualQSctpSocket*>(dynamic_cast<const VirtualQSctpSocket*>(self));
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
+    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket)
         vqsctpsocket->setQSctpSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQSctpSocket::QSctpSocket_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSctpSocket_Delete(QSctpSocket* self) {

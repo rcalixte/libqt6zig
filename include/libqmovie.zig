@@ -2819,13 +2819,13 @@ pub const QMovie = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmovie.html#public-types)
 pub const enums = struct {
-    pub const MovieState = enum(i32) {
+    pub const MovieState = enum {
         pub const NotRunning: i32 = 0;
         pub const Paused: i32 = 1;
         pub const Running: i32 = 2;
     };
 
-    pub const CacheMode = enum(i32) {
+    pub const CacheMode = enum {
         pub const CacheNone: i32 = 0;
         pub const CacheAll: i32 = 1;
     };

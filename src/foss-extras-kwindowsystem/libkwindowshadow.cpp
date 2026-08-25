@@ -100,9 +100,8 @@ QMetaObject* KWindowShadow_SuperMetaObject(const KWindowShadow* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnMetaObject(const KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_MetaObject_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ void* KWindowShadow_SuperMetacast(KWindowShadow* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnMetacast(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_Metacast_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +136,8 @@ int KWindowShadow_SuperMetacall(KWindowShadow* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnMetacall(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_Metacall_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +164,8 @@ bool KWindowShadow_SuperEvent(KWindowShadow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnEvent(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_Event_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +192,8 @@ bool KWindowShadow_SuperEventFilter(KWindowShadow* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnEventFilter(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_EventFilter_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +220,8 @@ void KWindowShadow_SuperTimerEvent(KWindowShadow* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnTimerEvent(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_TimerEvent_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +248,8 @@ void KWindowShadow_SuperChildEvent(KWindowShadow* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnChildEvent(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_ChildEvent_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +276,8 @@ void KWindowShadow_SuperCustomEvent(KWindowShadow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnCustomEvent(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_CustomEvent_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +304,8 @@ void KWindowShadow_SuperConnectNotify(KWindowShadow* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnConnectNotify(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_ConnectNotify_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +332,8 @@ void KWindowShadow_SuperDisconnectNotify(KWindowShadow* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnDisconnectNotify(KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_DisconnectNotify_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +360,8 @@ QObject* KWindowShadow_SuperSender(const KWindowShadow* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnSender(const KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_Sender_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +388,8 @@ int KWindowShadow_SuperSenderSignalIndex(const KWindowShadow* self) {
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnSenderSignalIndex(const KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +416,8 @@ int KWindowShadow_SuperReceivers(const KWindowShadow* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnReceivers(const KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_Receivers_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +444,8 @@ bool KWindowShadow_SuperIsSignalConnected(const KWindowShadow* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KWindowShadow_OnIsSignalConnected(const KWindowShadow* self, intptr_t slot) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow)
         vkwindowshadow->setKWindowShadow_IsSignalConnected_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KWindowShadow_Delete(KWindowShadow* self) {

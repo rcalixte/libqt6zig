@@ -1269,7 +1269,7 @@ pub const KAuthorized = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kauthorized.html#public-types)
 pub const enums = struct {
-    pub const GenericRestriction = enum(i32) {
+    pub const GenericRestriction = enum {
         pub const SHELL_ACCESS: i32 = 1;
         pub const GHNS: i32 = 2;
         pub const LINEEDIT_REVEAL_PASSWORD: i32 = 3;
@@ -1278,7 +1278,7 @@ pub const enums = struct {
         pub const RUN_DESKTOP_FILES: i32 = 6;
     };
 
-    pub const GenericAction = enum(i32) {
+    pub const GenericAction = enum {
         pub const OPEN_WITH: i32 = 1;
         pub const EDITFILETYPE: i32 = 2;
         pub const OPTIONS_SHOW_TOOLBAR: i32 = 3;

@@ -2212,7 +2212,7 @@ pub const KHelpMenu = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/khelpmenu.html#public-types)
 pub const enums = struct {
-    pub const MenuId = enum(i32) {
+    pub const MenuId = enum {
         pub const MenuHelpContents: i32 = 0;
         pub const MenuWhatsThis: i32 = 1;
         pub const MenuAboutApp: i32 = 2;

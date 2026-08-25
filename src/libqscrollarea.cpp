@@ -173,9 +173,8 @@ QMetaObject* QScrollArea_SuperMetaObject(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMetaObject(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MetaObject_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +191,8 @@ void* QScrollArea_SuperMetacast(QScrollArea* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMetacast(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Metacast_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +209,8 @@ int QScrollArea_SuperMetacall(QScrollArea* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMetacall(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Metacall_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -230,9 +227,8 @@ QSize* QScrollArea_SuperSizeHint(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSizeHint(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SizeHint_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -249,9 +245,8 @@ bool QScrollArea_SuperFocusNextPrevChild(QScrollArea* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnFocusNextPrevChild(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +263,8 @@ bool QScrollArea_SuperEvent(QScrollArea* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Event_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -287,9 +281,8 @@ bool QScrollArea_SuperEventFilter(QScrollArea* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnEventFilter(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_EventFilter_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -306,9 +299,8 @@ void QScrollArea_SuperResizeEvent(QScrollArea* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnResizeEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ResizeEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -325,9 +317,8 @@ void QScrollArea_SuperScrollContentsBy(QScrollArea* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnScrollContentsBy(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +334,8 @@ QSize* QScrollArea_SuperViewportSizeHint(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnViewportSizeHint(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ViewportSizeHint_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +362,8 @@ QSize* QScrollArea_SuperMinimumSizeHint(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMinimumSizeHint(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +390,8 @@ void QScrollArea_SuperSetupViewport(QScrollArea* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSetupViewport(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SetupViewport_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +418,8 @@ bool QScrollArea_SuperViewportEvent(QScrollArea* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnViewportEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ViewportEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +446,8 @@ void QScrollArea_SuperPaintEvent(QScrollArea* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnPaintEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_PaintEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +474,8 @@ void QScrollArea_SuperMousePressEvent(QScrollArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMousePressEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MousePressEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +502,8 @@ void QScrollArea_SuperMouseReleaseEvent(QScrollArea* self, QMouseEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMouseReleaseEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +530,8 @@ void QScrollArea_SuperMouseDoubleClickEvent(QScrollArea* self, QMouseEvent* para
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMouseDoubleClickEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +558,8 @@ void QScrollArea_SuperMouseMoveEvent(QScrollArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMouseMoveEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MouseMoveEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +586,8 @@ void QScrollArea_SuperWheelEvent(QScrollArea* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnWheelEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_WheelEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +614,8 @@ void QScrollArea_SuperContextMenuEvent(QScrollArea* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnContextMenuEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ContextMenuEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +642,8 @@ void QScrollArea_SuperDragEnterEvent(QScrollArea* self, QDragEnterEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDragEnterEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DragEnterEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +670,8 @@ void QScrollArea_SuperDragMoveEvent(QScrollArea* self, QDragMoveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDragMoveEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DragMoveEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +698,8 @@ void QScrollArea_SuperDragLeaveEvent(QScrollArea* self, QDragLeaveEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDragLeaveEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DragLeaveEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +726,8 @@ void QScrollArea_SuperDropEvent(QScrollArea* self, QDropEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDropEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DropEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +754,8 @@ void QScrollArea_SuperKeyPressEvent(QScrollArea* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnKeyPressEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_KeyPressEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +782,8 @@ void QScrollArea_SuperChangeEvent(QScrollArea* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnChangeEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ChangeEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +810,8 @@ void QScrollArea_SuperInitStyleOption(const QScrollArea* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnInitStyleOption(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_InitStyleOption_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +838,8 @@ int QScrollArea_SuperDevType(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDevType(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DevType_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +866,8 @@ void QScrollArea_SuperSetVisible(QScrollArea* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSetVisible(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SetVisible_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +894,8 @@ int QScrollArea_SuperHeightForWidth(const QScrollArea* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnHeightForWidth(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_HeightForWidth_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +922,8 @@ bool QScrollArea_SuperHasHeightForWidth(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnHasHeightForWidth(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_HasHeightForWidth_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +950,8 @@ QPaintEngine* QScrollArea_SuperPaintEngine(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnPaintEngine(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_PaintEngine_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +978,8 @@ void QScrollArea_SuperKeyReleaseEvent(QScrollArea* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnKeyReleaseEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1006,8 @@ void QScrollArea_SuperFocusInEvent(QScrollArea* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnFocusInEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_FocusInEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1034,8 @@ void QScrollArea_SuperFocusOutEvent(QScrollArea* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnFocusOutEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_FocusOutEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1062,8 @@ void QScrollArea_SuperEnterEvent(QScrollArea* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnEnterEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_EnterEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1090,8 @@ void QScrollArea_SuperLeaveEvent(QScrollArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnLeaveEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_LeaveEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1118,8 @@ void QScrollArea_SuperMoveEvent(QScrollArea* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMoveEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_MoveEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1146,8 @@ void QScrollArea_SuperCloseEvent(QScrollArea* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnCloseEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_CloseEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1174,8 @@ void QScrollArea_SuperTabletEvent(QScrollArea* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnTabletEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_TabletEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1202,8 @@ void QScrollArea_SuperActionEvent(QScrollArea* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnActionEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ActionEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1230,8 @@ void QScrollArea_SuperShowEvent(QScrollArea* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnShowEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ShowEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1258,8 @@ void QScrollArea_SuperHideEvent(QScrollArea* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnHideEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_HideEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1288,8 @@ bool QScrollArea_SuperNativeEvent(QScrollArea* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnNativeEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_NativeEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1316,8 @@ int QScrollArea_SuperMetric(const QScrollArea* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnMetric(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Metric_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1344,8 @@ void QScrollArea_SuperInitPainter(const QScrollArea* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnInitPainter(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_InitPainter_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1372,8 @@ QPaintDevice* QScrollArea_SuperRedirected(const QScrollArea* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnRedirected(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Redirected_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1400,8 @@ QPainter* QScrollArea_SuperSharedPainter(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSharedPainter(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SharedPainter_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1428,8 @@ void QScrollArea_SuperInputMethodEvent(QScrollArea* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnInputMethodEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_InputMethodEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1456,8 @@ QVariant* QScrollArea_SuperInputMethodQuery(const QScrollArea* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnInputMethodQuery(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_InputMethodQuery_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1484,8 @@ void QScrollArea_SuperTimerEvent(QScrollArea* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnTimerEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_TimerEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1512,8 @@ void QScrollArea_SuperChildEvent(QScrollArea* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnChildEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ChildEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1540,8 @@ void QScrollArea_SuperCustomEvent(QScrollArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnCustomEvent(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_CustomEvent_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1568,8 @@ void QScrollArea_SuperConnectNotify(QScrollArea* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnConnectNotify(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ConnectNotify_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1596,8 @@ void QScrollArea_SuperDisconnectNotify(QScrollArea* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDisconnectNotify(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DisconnectNotify_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1624,8 @@ void QScrollArea_SuperSetViewportMargins(QScrollArea* self, int left, int top, i
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSetViewportMargins(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SetViewportMargins_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1650,8 @@ QMargins* QScrollArea_SuperViewportMargins(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnViewportMargins(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_ViewportMargins_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1678,8 @@ void QScrollArea_SuperDrawFrame(QScrollArea* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDrawFrame(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_DrawFrame_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1706,8 @@ void QScrollArea_SuperUpdateMicroFocus(QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnUpdateMicroFocus(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1734,8 @@ void QScrollArea_SuperCreate(QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnCreate(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Create_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1762,8 @@ void QScrollArea_SuperDestroy(QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnDestroy(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Destroy_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1790,8 @@ bool QScrollArea_SuperFocusNextChild(QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnFocusNextChild(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_FocusNextChild_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1880,9 +1818,8 @@ bool QScrollArea_SuperFocusPreviousChild(QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnFocusPreviousChild(QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_FocusPreviousChild_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1909,9 +1846,8 @@ QObject* QScrollArea_SuperSender(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSender(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Sender_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1938,9 +1874,8 @@ int QScrollArea_SuperSenderSignalIndex(const QScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnSenderSignalIndex(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_SenderSignalIndex_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1967,9 +1902,8 @@ int QScrollArea_SuperReceivers(const QScrollArea* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnReceivers(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_Receivers_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1996,9 +1930,8 @@ bool QScrollArea_SuperIsSignalConnected(const QScrollArea* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnIsSignalConnected(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_IsSignalConnected_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2025,9 +1958,8 @@ double QScrollArea_SuperGetDecodedMetricF(const QScrollArea* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QScrollArea_OnGetDecodedMetricF(const QScrollArea* self, intptr_t slot) {
     auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea)
         vqscrollarea->setQScrollArea_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QScrollArea_Delete(QScrollArea* self) {

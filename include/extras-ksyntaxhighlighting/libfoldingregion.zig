@@ -193,7 +193,7 @@ pub const KSyntaxHighlighting__FoldingRegion = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const None: i32 = 0;
         pub const Begin: i32 = 1;
         pub const End: i32 = 2;

@@ -146,9 +146,8 @@ QMetaObject* QGeoRouteReply_SuperMetaObject(const QGeoRouteReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnMetaObject(const QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_MetaObject_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +164,8 @@ void* QGeoRouteReply_SuperMetacast(QGeoRouteReply* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnMetacast(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Metacast_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +182,8 @@ int QGeoRouteReply_SuperMetacall(QGeoRouteReply* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnMetacall(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Metacall_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +200,8 @@ void QGeoRouteReply_SuperAbort(QGeoRouteReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnAbort(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Abort_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Abort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +228,8 @@ bool QGeoRouteReply_SuperEvent(QGeoRouteReply* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnEvent(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Event_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +256,8 @@ bool QGeoRouteReply_SuperEventFilter(QGeoRouteReply* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnEventFilter(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_EventFilter_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +284,8 @@ void QGeoRouteReply_SuperTimerEvent(QGeoRouteReply* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnTimerEvent(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_TimerEvent_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +312,8 @@ void QGeoRouteReply_SuperChildEvent(QGeoRouteReply* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnChildEvent(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_ChildEvent_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +340,8 @@ void QGeoRouteReply_SuperCustomEvent(QGeoRouteReply* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnCustomEvent(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_CustomEvent_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +368,8 @@ void QGeoRouteReply_SuperConnectNotify(QGeoRouteReply* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnConnectNotify(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +396,8 @@ void QGeoRouteReply_SuperDisconnectNotify(QGeoRouteReply* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnDisconnectNotify(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +426,8 @@ void QGeoRouteReply_SuperSetError(QGeoRouteReply* self, int errorVal, const libq
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnSetError(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_SetError_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +454,8 @@ void QGeoRouteReply_SuperSetFinished(QGeoRouteReply* self, bool finished) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnSetFinished(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_SetFinished_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_SetFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +494,8 @@ void QGeoRouteReply_SuperSetRoutes(QGeoRouteReply* self, const libqt_list /* of 
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnSetRoutes(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_SetRoutes_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_SetRoutes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +534,8 @@ void QGeoRouteReply_SuperAddRoutes(QGeoRouteReply* self, const libqt_list /* of 
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnAddRoutes(QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_AddRoutes_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_AddRoutes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +562,8 @@ QObject* QGeoRouteReply_SuperSender(const QGeoRouteReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnSender(const QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Sender_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +590,8 @@ int QGeoRouteReply_SuperSenderSignalIndex(const QGeoRouteReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnSenderSignalIndex(const QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +618,8 @@ int QGeoRouteReply_SuperReceivers(const QGeoRouteReply* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnReceivers(const QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_Receivers_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +646,8 @@ bool QGeoRouteReply_SuperIsSignalConnected(const QGeoRouteReply* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QGeoRouteReply_OnIsSignalConnected(const QGeoRouteReply* self, intptr_t slot) {
     auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply)
         vqgeoroutereply->setQGeoRouteReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoRouteReply_Delete(QGeoRouteReply* self) {

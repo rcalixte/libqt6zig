@@ -738,9 +738,8 @@ QMetaObject* QMessageBox_SuperMetaObject(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetaObject(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MetaObject_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -757,9 +756,8 @@ void* QMessageBox_SuperMetacast(QMessageBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetacast(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Metacast_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -776,9 +774,8 @@ int QMessageBox_SuperMetacall(QMessageBox* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetacall(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Metacall_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -795,9 +792,8 @@ bool QMessageBox_SuperEvent(QMessageBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Event_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -814,9 +810,8 @@ void QMessageBox_SuperResizeEvent(QMessageBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnResizeEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ResizeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -833,9 +828,8 @@ void QMessageBox_SuperShowEvent(QMessageBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnShowEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ShowEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -852,9 +846,8 @@ void QMessageBox_SuperCloseEvent(QMessageBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnCloseEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_CloseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -871,9 +864,8 @@ void QMessageBox_SuperKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnKeyPressEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -890,9 +882,8 @@ void QMessageBox_SuperChangeEvent(QMessageBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnChangeEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ChangeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +910,8 @@ void QMessageBox_SuperSetVisible(QMessageBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSetVisible(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_SetVisible_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +938,8 @@ QSize* QMessageBox_SuperSizeHint(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSizeHint(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_SizeHint_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +966,8 @@ QSize* QMessageBox_SuperMinimumSizeHint(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMinimumSizeHint(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +994,8 @@ void QMessageBox_SuperOpen(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnOpen(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Open_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1022,8 @@ int QMessageBox_SuperExec(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnExec(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Exec_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1050,8 @@ void QMessageBox_SuperDone(QMessageBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDone(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Done_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1078,8 @@ void QMessageBox_SuperAccept(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnAccept(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Accept_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1106,8 @@ void QMessageBox_SuperReject(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnReject(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Reject_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1134,8 @@ void QMessageBox_SuperContextMenuEvent(QMessageBox* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnContextMenuEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1162,8 @@ bool QMessageBox_SuperEventFilter(QMessageBox* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEventFilter(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_EventFilter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1190,8 @@ int QMessageBox_SuperDevType(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDevType(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DevType_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1218,8 @@ int QMessageBox_SuperHeightForWidth(const QMessageBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnHeightForWidth(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_HeightForWidth_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1246,8 @@ bool QMessageBox_SuperHasHeightForWidth(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnHasHeightForWidth(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1274,8 @@ QPaintEngine* QMessageBox_SuperPaintEngine(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnPaintEngine(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_PaintEngine_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1302,8 @@ void QMessageBox_SuperMousePressEvent(QMessageBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMousePressEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MousePressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1330,8 @@ void QMessageBox_SuperMouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseReleaseEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1358,8 @@ void QMessageBox_SuperMouseDoubleClickEvent(QMessageBox* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseDoubleClickEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1386,8 @@ void QMessageBox_SuperMouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseMoveEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1414,8 @@ void QMessageBox_SuperWheelEvent(QMessageBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnWheelEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_WheelEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1442,8 @@ void QMessageBox_SuperKeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnKeyReleaseEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1470,8 @@ void QMessageBox_SuperFocusInEvent(QMessageBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusInEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_FocusInEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1498,8 @@ void QMessageBox_SuperFocusOutEvent(QMessageBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusOutEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1526,8 @@ void QMessageBox_SuperEnterEvent(QMessageBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEnterEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_EnterEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1554,8 @@ void QMessageBox_SuperLeaveEvent(QMessageBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnLeaveEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_LeaveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1582,8 @@ void QMessageBox_SuperPaintEvent(QMessageBox* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnPaintEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_PaintEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1610,8 @@ void QMessageBox_SuperMoveEvent(QMessageBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMoveEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_MoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1638,8 @@ void QMessageBox_SuperTabletEvent(QMessageBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnTabletEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_TabletEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1666,8 @@ void QMessageBox_SuperActionEvent(QMessageBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnActionEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ActionEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1694,8 @@ void QMessageBox_SuperDragEnterEvent(QMessageBox* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragEnterEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1722,8 @@ void QMessageBox_SuperDragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragMoveEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1750,8 @@ void QMessageBox_SuperDragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragLeaveEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1778,8 @@ void QMessageBox_SuperDropEvent(QMessageBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDropEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DropEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1806,8 @@ void QMessageBox_SuperHideEvent(QMessageBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnHideEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_HideEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1878,9 +1836,8 @@ bool QMessageBox_SuperNativeEvent(QMessageBox* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnNativeEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_NativeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1907,9 +1864,8 @@ int QMessageBox_SuperMetric(const QMessageBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetric(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Metric_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1936,9 +1892,8 @@ void QMessageBox_SuperInitPainter(const QMessageBox* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnInitPainter(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_InitPainter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1965,9 +1920,8 @@ QPaintDevice* QMessageBox_SuperRedirected(const QMessageBox* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnRedirected(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Redirected_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1994,9 +1948,8 @@ QPainter* QMessageBox_SuperSharedPainter(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSharedPainter(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_SharedPainter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2023,9 +1976,8 @@ void QMessageBox_SuperInputMethodEvent(QMessageBox* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnInputMethodEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2052,9 +2004,8 @@ QVariant* QMessageBox_SuperInputMethodQuery(const QMessageBox* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnInputMethodQuery(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2081,9 +2032,8 @@ bool QMessageBox_SuperFocusNextPrevChild(QMessageBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusNextPrevChild(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2110,9 +2060,8 @@ void QMessageBox_SuperTimerEvent(QMessageBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnTimerEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_TimerEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2139,9 +2088,8 @@ void QMessageBox_SuperChildEvent(QMessageBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnChildEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ChildEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2168,9 +2116,8 @@ void QMessageBox_SuperCustomEvent(QMessageBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnCustomEvent(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_CustomEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2197,9 +2144,8 @@ void QMessageBox_SuperConnectNotify(QMessageBox* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnConnectNotify(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_ConnectNotify_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2226,9 +2172,8 @@ void QMessageBox_SuperDisconnectNotify(QMessageBox* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDisconnectNotify(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2255,9 +2200,8 @@ void QMessageBox_SuperAdjustPosition(QMessageBox* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnAdjustPosition(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_AdjustPosition_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2284,9 +2228,8 @@ void QMessageBox_SuperUpdateMicroFocus(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnUpdateMicroFocus(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2313,9 +2256,8 @@ void QMessageBox_SuperCreate(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnCreate(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Create_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2342,9 +2284,8 @@ void QMessageBox_SuperDestroy(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDestroy(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Destroy_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2371,9 +2312,8 @@ bool QMessageBox_SuperFocusNextChild(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusNextChild(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_FocusNextChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2400,9 +2340,8 @@ bool QMessageBox_SuperFocusPreviousChild(QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusPreviousChild(QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2429,9 +2368,8 @@ QObject* QMessageBox_SuperSender(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSender(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Sender_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2458,9 +2396,8 @@ int QMessageBox_SuperSenderSignalIndex(const QMessageBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSenderSignalIndex(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2487,9 +2424,8 @@ int QMessageBox_SuperReceivers(const QMessageBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnReceivers(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_Receivers_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2516,9 +2452,8 @@ bool QMessageBox_SuperIsSignalConnected(const QMessageBox* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnIsSignalConnected(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2545,9 +2480,8 @@ double QMessageBox_SuperGetDecodedMetricF(const QMessageBox* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnGetDecodedMetricF(const QMessageBox* self, intptr_t slot) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
         vqmessagebox->setQMessageBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QMessageBox_Delete(QMessageBox* self) {

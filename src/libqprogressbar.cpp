@@ -219,9 +219,8 @@ QMetaObject* QProgressBar_SuperMetaObject(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMetaObject(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MetaObject_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +237,8 @@ void* QProgressBar_SuperMetacast(QProgressBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMetacast(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Metacast_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +255,8 @@ int QProgressBar_SuperMetacall(QProgressBar* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMetacall(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Metacall_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +289,8 @@ libqt_string QProgressBar_SuperText(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnText(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Text_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Text_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +307,8 @@ QSize* QProgressBar_SuperSizeHint(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnSizeHint(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_SizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +325,8 @@ QSize* QProgressBar_SuperMinimumSizeHint(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMinimumSizeHint(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +343,8 @@ bool QProgressBar_SuperEvent(QProgressBar* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Event_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +361,8 @@ void QProgressBar_SuperPaintEvent(QProgressBar* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnPaintEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_PaintEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +379,8 @@ void QProgressBar_SuperInitStyleOption(const QProgressBar* self, QStyleOptionPro
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnInitStyleOption(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_InitStyleOption_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ int QProgressBar_SuperDevType(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDevType(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DevType_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ void QProgressBar_SuperSetVisible(QProgressBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnSetVisible(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_SetVisible_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ int QProgressBar_SuperHeightForWidth(const QProgressBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnHeightForWidth(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_HeightForWidth_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ bool QProgressBar_SuperHasHeightForWidth(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnHasHeightForWidth(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +519,8 @@ QPaintEngine* QProgressBar_SuperPaintEngine(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnPaintEngine(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_PaintEngine_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +547,8 @@ void QProgressBar_SuperMousePressEvent(QProgressBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMousePressEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MousePressEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +575,8 @@ void QProgressBar_SuperMouseReleaseEvent(QProgressBar* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMouseReleaseEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +603,8 @@ void QProgressBar_SuperMouseDoubleClickEvent(QProgressBar* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMouseDoubleClickEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +631,8 @@ void QProgressBar_SuperMouseMoveEvent(QProgressBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMouseMoveEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +659,8 @@ void QProgressBar_SuperWheelEvent(QProgressBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnWheelEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_WheelEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +687,8 @@ void QProgressBar_SuperKeyPressEvent(QProgressBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnKeyPressEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +715,8 @@ void QProgressBar_SuperKeyReleaseEvent(QProgressBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnKeyReleaseEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +743,8 @@ void QProgressBar_SuperFocusInEvent(QProgressBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnFocusInEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_FocusInEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +771,8 @@ void QProgressBar_SuperFocusOutEvent(QProgressBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnFocusOutEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +799,8 @@ void QProgressBar_SuperEnterEvent(QProgressBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnEnterEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_EnterEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +827,8 @@ void QProgressBar_SuperLeaveEvent(QProgressBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnLeaveEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_LeaveEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +855,8 @@ void QProgressBar_SuperMoveEvent(QProgressBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMoveEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_MoveEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +883,8 @@ void QProgressBar_SuperResizeEvent(QProgressBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnResizeEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ResizeEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +911,8 @@ void QProgressBar_SuperCloseEvent(QProgressBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnCloseEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_CloseEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +939,8 @@ void QProgressBar_SuperContextMenuEvent(QProgressBar* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnContextMenuEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +967,8 @@ void QProgressBar_SuperTabletEvent(QProgressBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnTabletEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_TabletEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +995,8 @@ void QProgressBar_SuperActionEvent(QProgressBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnActionEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ActionEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1023,8 @@ void QProgressBar_SuperDragEnterEvent(QProgressBar* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDragEnterEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1051,8 @@ void QProgressBar_SuperDragMoveEvent(QProgressBar* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDragMoveEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1079,8 @@ void QProgressBar_SuperDragLeaveEvent(QProgressBar* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDragLeaveEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1107,8 @@ void QProgressBar_SuperDropEvent(QProgressBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDropEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DropEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1135,8 @@ void QProgressBar_SuperShowEvent(QProgressBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnShowEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ShowEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1163,8 @@ void QProgressBar_SuperHideEvent(QProgressBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnHideEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_HideEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1193,8 @@ bool QProgressBar_SuperNativeEvent(QProgressBar* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnNativeEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_NativeEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1221,8 @@ void QProgressBar_SuperChangeEvent(QProgressBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnChangeEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ChangeEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1249,8 @@ int QProgressBar_SuperMetric(const QProgressBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnMetric(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Metric_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1277,8 @@ void QProgressBar_SuperInitPainter(const QProgressBar* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnInitPainter(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_InitPainter_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1305,8 @@ QPaintDevice* QProgressBar_SuperRedirected(const QProgressBar* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnRedirected(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Redirected_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1333,8 @@ QPainter* QProgressBar_SuperSharedPainter(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnSharedPainter(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_SharedPainter_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1361,8 @@ void QProgressBar_SuperInputMethodEvent(QProgressBar* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnInputMethodEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1389,8 @@ QVariant* QProgressBar_SuperInputMethodQuery(const QProgressBar* self, int param
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnInputMethodQuery(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1417,8 @@ bool QProgressBar_SuperFocusNextPrevChild(QProgressBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnFocusNextPrevChild(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1445,8 @@ bool QProgressBar_SuperEventFilter(QProgressBar* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnEventFilter(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_EventFilter_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1473,8 @@ void QProgressBar_SuperTimerEvent(QProgressBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnTimerEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_TimerEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1501,8 @@ void QProgressBar_SuperChildEvent(QProgressBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnChildEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ChildEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1529,8 @@ void QProgressBar_SuperCustomEvent(QProgressBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnCustomEvent(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_CustomEvent_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1557,8 @@ void QProgressBar_SuperConnectNotify(QProgressBar* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnConnectNotify(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_ConnectNotify_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1585,8 @@ void QProgressBar_SuperDisconnectNotify(QProgressBar* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDisconnectNotify(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1613,8 @@ void QProgressBar_SuperUpdateMicroFocus(QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnUpdateMicroFocus(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1641,8 @@ void QProgressBar_SuperCreate(QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnCreate(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Create_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1669,8 @@ void QProgressBar_SuperDestroy(QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnDestroy(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Destroy_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1697,8 @@ bool QProgressBar_SuperFocusNextChild(QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnFocusNextChild(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_FocusNextChild_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1725,8 @@ bool QProgressBar_SuperFocusPreviousChild(QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnFocusPreviousChild(QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1753,8 @@ QObject* QProgressBar_SuperSender(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnSender(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Sender_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1781,8 @@ int QProgressBar_SuperSenderSignalIndex(const QProgressBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnSenderSignalIndex(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1809,8 @@ int QProgressBar_SuperReceivers(const QProgressBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnReceivers(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_Receivers_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1837,8 @@ bool QProgressBar_SuperIsSignalConnected(const QProgressBar* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnIsSignalConnected(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1865,8 @@ double QProgressBar_SuperGetDecodedMetricF(const QProgressBar* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void QProgressBar_OnGetDecodedMetricF(const QProgressBar* self, intptr_t slot) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar)
         vqprogressbar->setQProgressBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QProgressBar_Delete(QProgressBar* self) {

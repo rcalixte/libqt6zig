@@ -33,9 +33,8 @@ void KMessageBoxNotifyInterface_SuperSendNotification(KMessageBoxNotifyInterface
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxNotifyInterface_OnSendNotification(KMessageBoxNotifyInterface* self, intptr_t slot) {
     auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
-    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {
+    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface)
         vkmessageboxnotifyinterface->setKMessageBoxNotifyInterface_SendNotification_Callback(reinterpret_cast<VirtualKMessageBoxNotifyInterface::KMessageBoxNotifyInterface_SendNotification_Callback>(slot));
-    }
 }
 
 void KMessageBoxNotifyInterface_Delete(KMessageBoxNotifyInterface* self) {

@@ -1208,11 +1208,11 @@ pub const QCalendar__SystemId = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#public-types)
 pub const enums = struct {
-    pub const QCalendar = enum(i32) {
+    pub const QCalendar = enum {
         pub const Unspecified: i32 = -2147483648;
     };
 
-    pub const System = enum(i32) {
+    pub const System = enum {
         pub const Gregorian: i32 = 0;
         pub const Julian: i32 = 8;
         pub const Milankovic: i32 = 9;

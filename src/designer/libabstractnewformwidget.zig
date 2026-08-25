@@ -286,6 +286,31 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
         return .{ .ptr = qtc.QDesignerNewFormWidgetInterface_CreateNewFormWidget2(@ptrCast(core.ptr), @ptrCast(_parent.ptr)) };
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerNewFormWidgetInterface `
+    ///
+    pub fn asQPaintDevice(self: QDesignerNewFormWidgetInterface) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDesignerNewFormWidgetInterface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDesignerNewFormWidgetInterface {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `devType` instead
     ///
     pub const DevType = devType;
@@ -6426,7 +6451,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn paintingActive(self: QDesignerNewFormWidgetInterface) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6442,7 +6467,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn widthMM(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6458,7 +6483,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn heightMM(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6474,7 +6499,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn logicalDpiX(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6490,7 +6515,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn logicalDpiY(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6506,7 +6531,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn physicalDpiX(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6522,7 +6547,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn physicalDpiY(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6538,7 +6563,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn devicePixelRatio(self: QDesignerNewFormWidgetInterface) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6554,7 +6579,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn devicePixelRatioF(self: QDesignerNewFormWidgetInterface) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6570,7 +6595,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn colorCount(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6586,7 +6611,7 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
     /// ` self: QDesignerNewFormWidgetInterface `
     ///
     pub fn depth(self: QDesignerNewFormWidgetInterface) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

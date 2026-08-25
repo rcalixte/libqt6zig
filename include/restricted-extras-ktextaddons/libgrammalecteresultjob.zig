@@ -2228,7 +2228,7 @@ pub const TextGrammarCheck__GrammalecteResultJob = extern struct {
 };
 
 pub const enums = struct {
-    pub const ErrorType = enum(i32) {
+    pub const ErrorType = enum {
         pub const NoError: i32 = 0;
         pub const TextIsEmpty: i32 = 1;
         pub const PythonPathMissing: i32 = 2;

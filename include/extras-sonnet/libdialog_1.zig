@@ -968,6 +968,31 @@ pub const Sonnet__Dialog = extern struct {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Sonnet__Dialog `
+    ///
+    pub fn asQPaintDevice(self: Sonnet__Dialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a Sonnet__Dialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) Sonnet__Dialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6936,7 +6961,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn paintingActive(self: Sonnet__Dialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6952,7 +6977,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn widthMM(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6968,7 +6993,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn heightMM(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6984,7 +7009,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn logicalDpiX(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7000,7 +7025,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn logicalDpiY(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7016,7 +7041,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn physicalDpiX(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7032,7 +7057,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn physicalDpiY(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7048,7 +7073,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn devicePixelRatio(self: Sonnet__Dialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7064,7 +7089,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn devicePixelRatioF(self: Sonnet__Dialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7080,7 +7105,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn colorCount(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7096,7 +7121,7 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog `
     ///
     pub fn depth(self: Sonnet__Dialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

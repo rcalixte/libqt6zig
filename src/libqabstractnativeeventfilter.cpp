@@ -28,9 +28,8 @@ bool QAbstractNativeEventFilter_SuperNativeEventFilter(QAbstractNativeEventFilte
 // Auxiliary method to allow providing re-implementation
 void QAbstractNativeEventFilter_OnNativeEventFilter(QAbstractNativeEventFilter* self, intptr_t slot) {
     auto* vqabstractnativeeventfilter = dynamic_cast<VirtualQAbstractNativeEventFilter*>(self);
-    if (vqabstractnativeeventfilter && vqabstractnativeeventfilter->isVirtualQAbstractNativeEventFilter) {
+    if (vqabstractnativeeventfilter && vqabstractnativeeventfilter->isVirtualQAbstractNativeEventFilter)
         vqabstractnativeeventfilter->setQAbstractNativeEventFilter_NativeEventFilter_Callback(reinterpret_cast<VirtualQAbstractNativeEventFilter::QAbstractNativeEventFilter_NativeEventFilter_Callback>(slot));
-    }
 }
 
 void QAbstractNativeEventFilter_Delete(QAbstractNativeEventFilter* self) {

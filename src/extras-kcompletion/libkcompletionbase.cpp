@@ -128,9 +128,8 @@ void KCompletionBase_SuperSetCompletionObject(KCompletionBase* self, KCompletion
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetCompletionObject(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetCompletionObject_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetCompletionObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -147,9 +146,8 @@ void KCompletionBase_SuperSetHandleSignals(KCompletionBase* self, bool handle) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetHandleSignals(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetHandleSignals_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetHandleSignals_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +164,8 @@ void KCompletionBase_SuperSetCompletionMode(KCompletionBase* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetCompletionMode(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetCompletionMode_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +183,8 @@ void KCompletionBase_SuperSetCompletedText(KCompletionBase* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetCompletedText(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetCompletedText_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetCompletedText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +208,8 @@ void KCompletionBase_SuperSetCompletedItems(KCompletionBase* self, const libqt_l
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetCompletedItems(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetCompletedItems_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetCompletedItems_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +226,8 @@ void KCompletionBase_SuperVirtualHook(KCompletionBase* self, int id, void* data)
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnVirtualHook(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_VirtualHook_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +346,8 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_SuperKeyBi
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnKeyBindingMap(const KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_KeyBindingMap_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_KeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +398,8 @@ void KCompletionBase_SuperSetKeyBindingMap(KCompletionBase* self, libqt_map /* o
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetKeyBindingMap(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetKeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +426,8 @@ void KCompletionBase_SuperSetDelegate(KCompletionBase* self, KCompletionBase* de
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnSetDelegate(KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_SetDelegate_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_SetDelegate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +454,8 @@ KCompletionBase* KCompletionBase_SuperDelegate(const KCompletionBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBase_OnDelegate(const KCompletionBase* self, intptr_t slot) {
     auto* vkcompletionbase = const_cast<VirtualKCompletionBase*>(dynamic_cast<const VirtualKCompletionBase*>(self));
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
+    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase)
         vkcompletionbase->setKCompletionBase_Delegate_Callback(reinterpret_cast<VirtualKCompletionBase::KCompletionBase_Delegate_Callback>(slot));
-    }
 }
 
 void KCompletionBase_Delete(KCompletionBase* self) {

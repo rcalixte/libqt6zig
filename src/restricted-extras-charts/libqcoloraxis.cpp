@@ -189,9 +189,8 @@ QMetaObject* QColorAxis_SuperMetaObject(const QColorAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnMetaObject(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_MetaObject_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +207,8 @@ void* QColorAxis_SuperMetacast(QColorAxis* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnMetacast(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Metacast_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +225,8 @@ int QColorAxis_SuperMetacall(QColorAxis* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnMetacall(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Metacall_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +243,8 @@ int QColorAxis_SuperType(const QColorAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnType(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Type_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +271,8 @@ bool QColorAxis_SuperEvent(QColorAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnEvent(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Event_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +299,8 @@ bool QColorAxis_SuperEventFilter(QColorAxis* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnEventFilter(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_EventFilter_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +327,8 @@ void QColorAxis_SuperTimerEvent(QColorAxis* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnTimerEvent(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_TimerEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +355,8 @@ void QColorAxis_SuperChildEvent(QColorAxis* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnChildEvent(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_ChildEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +383,8 @@ void QColorAxis_SuperCustomEvent(QColorAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnCustomEvent(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_CustomEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +411,8 @@ void QColorAxis_SuperConnectNotify(QColorAxis* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnConnectNotify(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +439,8 @@ void QColorAxis_SuperDisconnectNotify(QColorAxis* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnDisconnectNotify(QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +467,8 @@ QObject* QColorAxis_SuperSender(const QColorAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnSender(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Sender_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +495,8 @@ int QColorAxis_SuperSenderSignalIndex(const QColorAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnSenderSignalIndex(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +523,8 @@ int QColorAxis_SuperReceivers(const QColorAxis* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnReceivers(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_Receivers_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +551,8 @@ bool QColorAxis_SuperIsSignalConnected(const QColorAxis* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnIsSignalConnected(const QColorAxis* self, intptr_t slot) {
     auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
         vqcoloraxis->setQColorAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QColorAxis_Delete(QColorAxis* self) {

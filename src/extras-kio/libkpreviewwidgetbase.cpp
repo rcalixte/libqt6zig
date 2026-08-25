@@ -98,9 +98,8 @@ QMetaObject* KPreviewWidgetBase_SuperMetaObject(const KPreviewWidgetBase* self) 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetaObject(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +116,8 @@ void* KPreviewWidgetBase_SuperMetacast(KPreviewWidgetBase* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetacast(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +134,8 @@ int KPreviewWidgetBase_SuperMetacall(KPreviewWidgetBase* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetacall(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metacall_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +152,8 @@ void KPreviewWidgetBase_SuperShowPreview(KPreviewWidgetBase* self, const QUrl* u
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnShowPreview(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ShowPreview_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowPreview_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +170,8 @@ void KPreviewWidgetBase_SuperClearPreview(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnClearPreview(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ClearPreview_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ClearPreview_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +198,8 @@ int KPreviewWidgetBase_SuperDevType(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDevType(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DevType_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ void KPreviewWidgetBase_SuperSetVisible(KPreviewWidgetBase* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSetVisible(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_SetVisible_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ QSize* KPreviewWidgetBase_SuperSizeHint(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSizeHint(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_SizeHint_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +282,8 @@ QSize* KPreviewWidgetBase_SuperMinimumSizeHint(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMinimumSizeHint(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +310,8 @@ int KPreviewWidgetBase_SuperHeightForWidth(const KPreviewWidgetBase* self, int p
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnHeightForWidth(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_HeightForWidth_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +338,8 @@ bool KPreviewWidgetBase_SuperHasHeightForWidth(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnHasHeightForWidth(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +366,8 @@ QPaintEngine* KPreviewWidgetBase_SuperPaintEngine(const KPreviewWidgetBase* self
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnPaintEngine(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEngine_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +394,8 @@ bool KPreviewWidgetBase_SuperEvent(KPreviewWidgetBase* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Event_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +422,8 @@ void KPreviewWidgetBase_SuperMousePressEvent(KPreviewWidgetBase* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMousePressEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MousePressEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +450,8 @@ void KPreviewWidgetBase_SuperMouseReleaseEvent(KPreviewWidgetBase* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseReleaseEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +478,8 @@ void KPreviewWidgetBase_SuperMouseDoubleClickEvent(KPreviewWidgetBase* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseDoubleClickEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +506,8 @@ void KPreviewWidgetBase_SuperMouseMoveEvent(KPreviewWidgetBase* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMouseMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +534,8 @@ void KPreviewWidgetBase_SuperWheelEvent(KPreviewWidgetBase* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnWheelEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_WheelEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +562,8 @@ void KPreviewWidgetBase_SuperKeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnKeyPressEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_KeyPressEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +590,8 @@ void KPreviewWidgetBase_SuperKeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnKeyReleaseEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +618,8 @@ void KPreviewWidgetBase_SuperFocusInEvent(KPreviewWidgetBase* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusInEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusInEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +646,8 @@ void KPreviewWidgetBase_SuperFocusOutEvent(KPreviewWidgetBase* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusOutEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusOutEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +674,8 @@ void KPreviewWidgetBase_SuperEnterEvent(KPreviewWidgetBase* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEnterEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_EnterEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +702,8 @@ void KPreviewWidgetBase_SuperLeaveEvent(KPreviewWidgetBase* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnLeaveEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_LeaveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +730,8 @@ void KPreviewWidgetBase_SuperPaintEvent(KPreviewWidgetBase* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnPaintEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +758,8 @@ void KPreviewWidgetBase_SuperMoveEvent(KPreviewWidgetBase* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_MoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +786,8 @@ void KPreviewWidgetBase_SuperResizeEvent(KPreviewWidgetBase* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnResizeEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ResizeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +814,8 @@ void KPreviewWidgetBase_SuperCloseEvent(KPreviewWidgetBase* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnCloseEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_CloseEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +842,8 @@ void KPreviewWidgetBase_SuperContextMenuEvent(KPreviewWidgetBase* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnContextMenuEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +870,8 @@ void KPreviewWidgetBase_SuperTabletEvent(KPreviewWidgetBase* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnTabletEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_TabletEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +898,8 @@ void KPreviewWidgetBase_SuperActionEvent(KPreviewWidgetBase* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnActionEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ActionEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -957,9 +926,8 @@ void KPreviewWidgetBase_SuperDragEnterEvent(KPreviewWidgetBase* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragEnterEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragEnterEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +954,8 @@ void KPreviewWidgetBase_SuperDragMoveEvent(KPreviewWidgetBase* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragMoveEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragMoveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +982,8 @@ void KPreviewWidgetBase_SuperDragLeaveEvent(KPreviewWidgetBase* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDragLeaveEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1044,9 +1010,8 @@ void KPreviewWidgetBase_SuperDropEvent(KPreviewWidgetBase* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDropEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DropEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1073,9 +1038,8 @@ void KPreviewWidgetBase_SuperShowEvent(KPreviewWidgetBase* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnShowEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ShowEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1102,9 +1066,8 @@ void KPreviewWidgetBase_SuperHideEvent(KPreviewWidgetBase* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnHideEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_HideEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1096,8 @@ bool KPreviewWidgetBase_SuperNativeEvent(KPreviewWidgetBase* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnNativeEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_NativeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1124,8 @@ void KPreviewWidgetBase_SuperChangeEvent(KPreviewWidgetBase* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnChangeEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ChangeEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1152,8 @@ int KPreviewWidgetBase_SuperMetric(const KPreviewWidgetBase* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnMetric(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metric_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1180,8 @@ void KPreviewWidgetBase_SuperInitPainter(const KPreviewWidgetBase* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnInitPainter(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_InitPainter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1208,8 @@ QPaintDevice* KPreviewWidgetBase_SuperRedirected(const KPreviewWidgetBase* self,
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnRedirected(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Redirected_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1236,8 @@ QPainter* KPreviewWidgetBase_SuperSharedPainter(const KPreviewWidgetBase* self) 
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSharedPainter(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_SharedPainter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1264,8 @@ void KPreviewWidgetBase_SuperInputMethodEvent(KPreviewWidgetBase* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnInputMethodEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1292,8 @@ QVariant* KPreviewWidgetBase_SuperInputMethodQuery(const KPreviewWidgetBase* sel
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnInputMethodQuery(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodQuery_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1320,8 @@ bool KPreviewWidgetBase_SuperFocusNextPrevChild(KPreviewWidgetBase* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusNextPrevChild(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1348,8 @@ bool KPreviewWidgetBase_SuperEventFilter(KPreviewWidgetBase* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnEventFilter(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_EventFilter_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1376,8 @@ void KPreviewWidgetBase_SuperTimerEvent(KPreviewWidgetBase* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnTimerEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_TimerEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1404,8 @@ void KPreviewWidgetBase_SuperChildEvent(KPreviewWidgetBase* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnChildEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ChildEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1432,8 @@ void KPreviewWidgetBase_SuperCustomEvent(KPreviewWidgetBase* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnCustomEvent(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_CustomEvent_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1460,8 @@ void KPreviewWidgetBase_SuperConnectNotify(KPreviewWidgetBase* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnConnectNotify(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_ConnectNotify_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1539,9 +1488,8 @@ void KPreviewWidgetBase_SuperDisconnectNotify(KPreviewWidgetBase* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDisconnectNotify(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1530,8 @@ void KPreviewWidgetBase_SuperSetSupportedMimeTypes(KPreviewWidgetBase* self, con
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSetSupportedMimeTypes(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_SetSupportedMimeTypes_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SetSupportedMimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1558,8 @@ void KPreviewWidgetBase_SuperUpdateMicroFocus(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnUpdateMicroFocus(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1586,8 @@ void KPreviewWidgetBase_SuperCreate(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnCreate(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Create_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1614,8 @@ void KPreviewWidgetBase_SuperDestroy(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnDestroy(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Destroy_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1642,8 @@ bool KPreviewWidgetBase_SuperFocusNextChild(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusNextChild(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1670,8 @@ bool KPreviewWidgetBase_SuperFocusPreviousChild(KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnFocusPreviousChild(KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1698,8 @@ QObject* KPreviewWidgetBase_SuperSender(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSender(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Sender_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1726,8 @@ int KPreviewWidgetBase_SuperSenderSignalIndex(const KPreviewWidgetBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnSenderSignalIndex(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1754,8 @@ int KPreviewWidgetBase_SuperReceivers(const KPreviewWidgetBase* self, const char
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnReceivers(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_Receivers_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1782,8 @@ bool KPreviewWidgetBase_SuperIsSignalConnected(const KPreviewWidgetBase* self, c
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnIsSignalConnected(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1810,8 @@ double KPreviewWidgetBase_SuperGetDecodedMetricF(const KPreviewWidgetBase* self,
 // Auxiliary method to allow providing re-implementation
 void KPreviewWidgetBase_OnGetDecodedMetricF(const KPreviewWidgetBase* self, intptr_t slot) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase)
         vkpreviewwidgetbase->setKPreviewWidgetBase_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPreviewWidgetBase_Delete(KPreviewWidgetBase* self) {

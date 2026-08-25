@@ -2301,7 +2301,7 @@ pub const QAbstractTransition = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#public-types)
 pub const enums = struct {
-    pub const TransitionType = enum(i32) {
+    pub const TransitionType = enum {
         pub const ExternalTransition: i32 = 0;
         pub const InternalTransition: i32 = 1;
     };

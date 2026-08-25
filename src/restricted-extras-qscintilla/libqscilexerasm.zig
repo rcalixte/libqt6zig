@@ -4747,7 +4747,7 @@ pub const QsciLexerAsm = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerAsm = enum(i32) {
+    pub const QsciLexerAsm = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Number: i32 = 2;

@@ -50,9 +50,8 @@ QMetaObject* QGenericPlugin_SuperMetaObject(const QGenericPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnMetaObject(const QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_MetaObject_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QGenericPlugin_SuperMetacast(QGenericPlugin* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnMetacast(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Metacast_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QGenericPlugin_SuperMetacall(QGenericPlugin* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnMetacall(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Metacall_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +106,8 @@ QObject* QGenericPlugin_SuperCreate(QGenericPlugin* self, const libqt_string nam
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnCreate(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Create_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -138,9 +134,8 @@ bool QGenericPlugin_SuperEvent(QGenericPlugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnEvent(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Event_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +162,8 @@ bool QGenericPlugin_SuperEventFilter(QGenericPlugin* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnEventFilter(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_EventFilter_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +190,8 @@ void QGenericPlugin_SuperTimerEvent(QGenericPlugin* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnTimerEvent(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_TimerEvent_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +218,8 @@ void QGenericPlugin_SuperChildEvent(QGenericPlugin* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnChildEvent(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_ChildEvent_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +246,8 @@ void QGenericPlugin_SuperCustomEvent(QGenericPlugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnCustomEvent(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_CustomEvent_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +274,8 @@ void QGenericPlugin_SuperConnectNotify(QGenericPlugin* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnConnectNotify(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +302,8 @@ void QGenericPlugin_SuperDisconnectNotify(QGenericPlugin* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnDisconnectNotify(QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +330,8 @@ QObject* QGenericPlugin_SuperSender(const QGenericPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnSender(const QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Sender_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +358,8 @@ int QGenericPlugin_SuperSenderSignalIndex(const QGenericPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnSenderSignalIndex(const QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +386,8 @@ int QGenericPlugin_SuperReceivers(const QGenericPlugin* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnReceivers(const QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_Receivers_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +414,8 @@ bool QGenericPlugin_SuperIsSignalConnected(const QGenericPlugin* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QGenericPlugin_OnIsSignalConnected(const QGenericPlugin* self, intptr_t slot) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin)
         vqgenericplugin->setQGenericPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGenericPlugin_Delete(QGenericPlugin* self) {

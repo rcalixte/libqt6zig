@@ -145,9 +145,8 @@ QMetaObject* QStackedWidget_SuperMetaObject(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMetaObject(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MetaObject_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +163,8 @@ void* QStackedWidget_SuperMetacast(QStackedWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMetacast(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Metacast_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +181,8 @@ int QStackedWidget_SuperMetacall(QStackedWidget* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMetacall(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Metacall_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +199,8 @@ bool QStackedWidget_SuperEvent(QStackedWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Event_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +227,8 @@ QSize* QStackedWidget_SuperSizeHint(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnSizeHint(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_SizeHint_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +255,8 @@ void QStackedWidget_SuperPaintEvent(QStackedWidget* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnPaintEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_PaintEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +283,8 @@ void QStackedWidget_SuperChangeEvent(QStackedWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnChangeEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +311,8 @@ void QStackedWidget_SuperInitStyleOption(const QStackedWidget* self, QStyleOptio
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnInitStyleOption(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +339,8 @@ int QStackedWidget_SuperDevType(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDevType(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DevType_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +367,8 @@ void QStackedWidget_SuperSetVisible(QStackedWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnSetVisible(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_SetVisible_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +395,8 @@ QSize* QStackedWidget_SuperMinimumSizeHint(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMinimumSizeHint(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +423,8 @@ int QStackedWidget_SuperHeightForWidth(const QStackedWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnHeightForWidth(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +451,8 @@ bool QStackedWidget_SuperHasHeightForWidth(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnHasHeightForWidth(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +479,8 @@ QPaintEngine* QStackedWidget_SuperPaintEngine(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnPaintEngine(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_PaintEngine_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +507,8 @@ void QStackedWidget_SuperMousePressEvent(QStackedWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMousePressEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +535,8 @@ void QStackedWidget_SuperMouseReleaseEvent(QStackedWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMouseReleaseEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +563,8 @@ void QStackedWidget_SuperMouseDoubleClickEvent(QStackedWidget* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMouseDoubleClickEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +591,8 @@ void QStackedWidget_SuperMouseMoveEvent(QStackedWidget* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMouseMoveEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -637,9 +619,8 @@ void QStackedWidget_SuperWheelEvent(QStackedWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnWheelEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_WheelEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -666,9 +647,8 @@ void QStackedWidget_SuperKeyPressEvent(QStackedWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnKeyPressEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -695,9 +675,8 @@ void QStackedWidget_SuperKeyReleaseEvent(QStackedWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnKeyReleaseEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -724,9 +703,8 @@ void QStackedWidget_SuperFocusInEvent(QStackedWidget* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnFocusInEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -753,9 +731,8 @@ void QStackedWidget_SuperFocusOutEvent(QStackedWidget* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnFocusOutEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +759,8 @@ void QStackedWidget_SuperEnterEvent(QStackedWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnEnterEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_EnterEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -811,9 +787,8 @@ void QStackedWidget_SuperLeaveEvent(QStackedWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnLeaveEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -840,9 +815,8 @@ void QStackedWidget_SuperMoveEvent(QStackedWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMoveEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_MoveEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -869,9 +843,8 @@ void QStackedWidget_SuperResizeEvent(QStackedWidget* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnResizeEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -898,9 +871,8 @@ void QStackedWidget_SuperCloseEvent(QStackedWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnCloseEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_CloseEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -927,9 +899,8 @@ void QStackedWidget_SuperContextMenuEvent(QStackedWidget* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnContextMenuEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -956,9 +927,8 @@ void QStackedWidget_SuperTabletEvent(QStackedWidget* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnTabletEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_TabletEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -985,9 +955,8 @@ void QStackedWidget_SuperActionEvent(QStackedWidget* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnActionEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ActionEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1014,9 +983,8 @@ void QStackedWidget_SuperDragEnterEvent(QStackedWidget* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDragEnterEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1043,9 +1011,8 @@ void QStackedWidget_SuperDragMoveEvent(QStackedWidget* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDragMoveEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1072,9 +1039,8 @@ void QStackedWidget_SuperDragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDragLeaveEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1101,9 +1067,8 @@ void QStackedWidget_SuperDropEvent(QStackedWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDropEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DropEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1130,9 +1095,8 @@ void QStackedWidget_SuperShowEvent(QStackedWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnShowEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ShowEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1123,8 @@ void QStackedWidget_SuperHideEvent(QStackedWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnHideEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_HideEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1190,9 +1153,8 @@ bool QStackedWidget_SuperNativeEvent(QStackedWidget* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnNativeEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_NativeEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1219,9 +1181,8 @@ int QStackedWidget_SuperMetric(const QStackedWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnMetric(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Metric_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1209,8 @@ void QStackedWidget_SuperInitPainter(const QStackedWidget* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnInitPainter(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_InitPainter_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1277,9 +1237,8 @@ QPaintDevice* QStackedWidget_SuperRedirected(const QStackedWidget* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnRedirected(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Redirected_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1306,9 +1265,8 @@ QPainter* QStackedWidget_SuperSharedPainter(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnSharedPainter(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_SharedPainter_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1335,9 +1293,8 @@ void QStackedWidget_SuperInputMethodEvent(QStackedWidget* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnInputMethodEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1364,9 +1321,8 @@ QVariant* QStackedWidget_SuperInputMethodQuery(const QStackedWidget* self, int p
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnInputMethodQuery(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1393,9 +1349,8 @@ bool QStackedWidget_SuperFocusNextPrevChild(QStackedWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnFocusNextPrevChild(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1377,8 @@ bool QStackedWidget_SuperEventFilter(QStackedWidget* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnEventFilter(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_EventFilter_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1405,8 @@ void QStackedWidget_SuperTimerEvent(QStackedWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnTimerEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_TimerEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1433,8 @@ void QStackedWidget_SuperChildEvent(QStackedWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnChildEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ChildEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1461,8 @@ void QStackedWidget_SuperCustomEvent(QStackedWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnCustomEvent(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_CustomEvent_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1538,9 +1489,8 @@ void QStackedWidget_SuperConnectNotify(QStackedWidget* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnConnectNotify(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1517,8 @@ void QStackedWidget_SuperDisconnectNotify(QStackedWidget* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDisconnectNotify(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1545,8 @@ void QStackedWidget_SuperDrawFrame(QStackedWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDrawFrame(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_DrawFrame_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1573,8 @@ void QStackedWidget_SuperUpdateMicroFocus(QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnUpdateMicroFocus(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1601,8 @@ void QStackedWidget_SuperCreate(QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnCreate(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Create_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1629,8 @@ void QStackedWidget_SuperDestroy(QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnDestroy(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Destroy_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1657,8 @@ bool QStackedWidget_SuperFocusNextChild(QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnFocusNextChild(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1685,8 @@ bool QStackedWidget_SuperFocusPreviousChild(QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnFocusPreviousChild(QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1713,8 @@ QObject* QStackedWidget_SuperSender(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnSender(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Sender_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1741,8 @@ int QStackedWidget_SuperSenderSignalIndex(const QStackedWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnSenderSignalIndex(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1769,8 @@ int QStackedWidget_SuperReceivers(const QStackedWidget* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnReceivers(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_Receivers_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1797,8 @@ bool QStackedWidget_SuperIsSignalConnected(const QStackedWidget* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnIsSignalConnected(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1825,8 @@ double QStackedWidget_SuperGetDecodedMetricF(const QStackedWidget* self, int met
 // Auxiliary method to allow providing re-implementation
 void QStackedWidget_OnGetDecodedMetricF(const QStackedWidget* self, intptr_t slot) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget)
         vqstackedwidget->setQStackedWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QStackedWidget_Delete(QStackedWidget* self) {

@@ -33,9 +33,8 @@ void QRunnable_SuperRun(QRunnable* self) {
 // Auxiliary method to allow providing re-implementation
 void QRunnable_OnRun(QRunnable* self, intptr_t slot) {
     auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
-    if (vqrunnable && vqrunnable->isVirtualQRunnable) {
+    if (vqrunnable && vqrunnable->isVirtualQRunnable)
         vqrunnable->setQRunnable_Run_Callback(reinterpret_cast<VirtualQRunnable::QRunnable_Run_Callback>(slot));
-    }
 }
 
 void QRunnable_Delete(QRunnable* self) {

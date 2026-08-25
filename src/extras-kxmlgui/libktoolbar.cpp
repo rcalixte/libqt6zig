@@ -242,9 +242,8 @@ QMetaObject* KToolBar_SuperMetaObject(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetaObject(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MetaObject_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +260,8 @@ void* KToolBar_SuperMetacast(KToolBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetacast(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Metacast_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +278,8 @@ int KToolBar_SuperMetacall(KToolBar* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetacall(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Metacall_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +296,8 @@ bool KToolBar_SuperEventFilter(KToolBar* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEventFilter(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_EventFilter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +314,8 @@ void KToolBar_SuperSlotMovableChanged(KToolBar* self, bool movable) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSlotMovableChanged(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_SlotMovableChanged_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SlotMovableChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +332,8 @@ void KToolBar_SuperContextMenuEvent(KToolBar* self, QContextMenuEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnContextMenuEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +350,8 @@ void KToolBar_SuperActionEvent(KToolBar* self, QActionEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnActionEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ActionEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +368,8 @@ void KToolBar_SuperDragEnterEvent(KToolBar* self, QDragEnterEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragEnterEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -394,9 +386,8 @@ void KToolBar_SuperDragMoveEvent(KToolBar* self, QDragMoveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragMoveEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -413,9 +404,8 @@ void KToolBar_SuperDragLeaveEvent(KToolBar* self, QDragLeaveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragLeaveEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -432,9 +422,8 @@ void KToolBar_SuperDropEvent(KToolBar* self, QDropEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDropEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DropEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -451,9 +440,8 @@ void KToolBar_SuperMousePressEvent(KToolBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMousePressEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MousePressEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -470,9 +458,8 @@ void KToolBar_SuperMouseMoveEvent(KToolBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseMoveEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -489,9 +476,8 @@ void KToolBar_SuperMouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseReleaseEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +504,8 @@ void KToolBar_SuperChangeEvent(KToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnChangeEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +532,8 @@ void KToolBar_SuperPaintEvent(KToolBar* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnPaintEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_PaintEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +560,8 @@ bool KToolBar_SuperEvent(KToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Event_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +588,8 @@ void KToolBar_SuperInitStyleOption(const KToolBar* self, QStyleOptionToolBar* op
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnInitStyleOption(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_InitStyleOption_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +616,8 @@ int KToolBar_SuperDevType(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDevType(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DevType_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +644,8 @@ void KToolBar_SuperSetVisible(KToolBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSetVisible(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_SetVisible_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +672,8 @@ QSize* KToolBar_SuperSizeHint(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSizeHint(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_SizeHint_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +700,8 @@ QSize* KToolBar_SuperMinimumSizeHint(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMinimumSizeHint(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +728,8 @@ int KToolBar_SuperHeightForWidth(const KToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnHeightForWidth(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_HeightForWidth_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +756,8 @@ bool KToolBar_SuperHasHeightForWidth(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnHasHeightForWidth(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +784,8 @@ QPaintEngine* KToolBar_SuperPaintEngine(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnPaintEngine(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_PaintEngine_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -837,9 +812,8 @@ void KToolBar_SuperMouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseDoubleClickEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -866,9 +840,8 @@ void KToolBar_SuperWheelEvent(KToolBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnWheelEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_WheelEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -895,9 +868,8 @@ void KToolBar_SuperKeyPressEvent(KToolBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnKeyPressEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -924,9 +896,8 @@ void KToolBar_SuperKeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnKeyReleaseEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -953,9 +924,8 @@ void KToolBar_SuperFocusInEvent(KToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusInEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_FocusInEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -982,9 +952,8 @@ void KToolBar_SuperFocusOutEvent(KToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusOutEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1011,9 +980,8 @@ void KToolBar_SuperEnterEvent(KToolBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEnterEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_EnterEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1008,8 @@ void KToolBar_SuperLeaveEvent(KToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnLeaveEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_LeaveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1036,8 @@ void KToolBar_SuperMoveEvent(KToolBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMoveEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_MoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1064,8 @@ void KToolBar_SuperResizeEvent(KToolBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnResizeEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ResizeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1092,8 @@ void KToolBar_SuperCloseEvent(KToolBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnCloseEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_CloseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1120,8 @@ void KToolBar_SuperTabletEvent(KToolBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnTabletEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_TabletEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1148,8 @@ void KToolBar_SuperShowEvent(KToolBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnShowEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ShowEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1214,9 +1176,8 @@ void KToolBar_SuperHideEvent(KToolBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnHideEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_HideEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1245,9 +1206,8 @@ bool KToolBar_SuperNativeEvent(KToolBar* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnNativeEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_NativeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1274,9 +1234,8 @@ int KToolBar_SuperMetric(const KToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetric(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Metric_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1303,9 +1262,8 @@ void KToolBar_SuperInitPainter(const KToolBar* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnInitPainter(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_InitPainter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1332,9 +1290,8 @@ QPaintDevice* KToolBar_SuperRedirected(const KToolBar* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnRedirected(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Redirected_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1361,9 +1318,8 @@ QPainter* KToolBar_SuperSharedPainter(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSharedPainter(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_SharedPainter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1390,9 +1346,8 @@ void KToolBar_SuperInputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnInputMethodEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1419,9 +1374,8 @@ QVariant* KToolBar_SuperInputMethodQuery(const KToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnInputMethodQuery(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1448,9 +1402,8 @@ bool KToolBar_SuperFocusNextPrevChild(KToolBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusNextPrevChild(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1477,9 +1430,8 @@ void KToolBar_SuperTimerEvent(KToolBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnTimerEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_TimerEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1506,9 +1458,8 @@ void KToolBar_SuperChildEvent(KToolBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnChildEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ChildEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1535,9 +1486,8 @@ void KToolBar_SuperCustomEvent(KToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnCustomEvent(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_CustomEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1564,9 +1514,8 @@ void KToolBar_SuperConnectNotify(KToolBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnConnectNotify(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_ConnectNotify_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1593,9 +1542,8 @@ void KToolBar_SuperDisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDisconnectNotify(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1622,9 +1570,8 @@ void KToolBar_SuperUpdateMicroFocus(KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnUpdateMicroFocus(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1651,9 +1598,8 @@ void KToolBar_SuperCreate(KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnCreate(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Create_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1680,9 +1626,8 @@ void KToolBar_SuperDestroy(KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDestroy(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Destroy_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1709,9 +1654,8 @@ bool KToolBar_SuperFocusNextChild(KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusNextChild(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_FocusNextChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1738,9 +1682,8 @@ bool KToolBar_SuperFocusPreviousChild(KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusPreviousChild(KToolBar* self, intptr_t slot) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1767,9 +1710,8 @@ QObject* KToolBar_SuperSender(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSender(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Sender_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1796,9 +1738,8 @@ int KToolBar_SuperSenderSignalIndex(const KToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSenderSignalIndex(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1825,9 +1766,8 @@ int KToolBar_SuperReceivers(const KToolBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnReceivers(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_Receivers_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1854,9 +1794,8 @@ bool KToolBar_SuperIsSignalConnected(const KToolBar* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnIsSignalConnected(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1883,9 +1822,8 @@ double KToolBar_SuperGetDecodedMetricF(const KToolBar* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnGetDecodedMetricF(const KToolBar* self, intptr_t slot) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar && vktoolbar->isVirtualKToolBar)
         vktoolbar->setKToolBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KToolBar_Delete(KToolBar* self) {

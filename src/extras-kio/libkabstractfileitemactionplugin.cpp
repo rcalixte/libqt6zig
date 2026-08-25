@@ -78,9 +78,8 @@ QMetaObject* KAbstractFileItemActionPlugin_SuperMetaObject(const KAbstractFileIt
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnMetaObject(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_MetaObject_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +96,8 @@ void* KAbstractFileItemActionPlugin_SuperMetacast(KAbstractFileItemActionPlugin*
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnMetacast(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacast_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +114,8 @@ int KAbstractFileItemActionPlugin_SuperMetacall(KAbstractFileItemActionPlugin* s
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnMetacall(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacall_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +150,8 @@ libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_SuperActions(KAbstrac
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnActions(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Actions_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Actions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +178,8 @@ bool KAbstractFileItemActionPlugin_SuperEvent(KAbstractFileItemActionPlugin* sel
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnEvent(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Event_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +206,8 @@ bool KAbstractFileItemActionPlugin_SuperEventFilter(KAbstractFileItemActionPlugi
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnEventFilter(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_EventFilter_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +234,8 @@ void KAbstractFileItemActionPlugin_SuperTimerEvent(KAbstractFileItemActionPlugin
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnTimerEvent(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +262,8 @@ void KAbstractFileItemActionPlugin_SuperChildEvent(KAbstractFileItemActionPlugin
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnChildEvent(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +290,8 @@ void KAbstractFileItemActionPlugin_SuperCustomEvent(KAbstractFileItemActionPlugi
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnCustomEvent(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +318,8 @@ void KAbstractFileItemActionPlugin_SuperConnectNotify(KAbstractFileItemActionPlu
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnConnectNotify(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +346,8 @@ void KAbstractFileItemActionPlugin_SuperDisconnectNotify(KAbstractFileItemAction
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnDisconnectNotify(KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +374,8 @@ QObject* KAbstractFileItemActionPlugin_SuperSender(const KAbstractFileItemAction
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnSender(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Sender_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +402,8 @@ int KAbstractFileItemActionPlugin_SuperSenderSignalIndex(const KAbstractFileItem
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnSenderSignalIndex(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +430,8 @@ int KAbstractFileItemActionPlugin_SuperReceivers(const KAbstractFileItemActionPl
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnReceivers(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Receivers_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +458,8 @@ bool KAbstractFileItemActionPlugin_SuperIsSignalConnected(const KAbstractFileIte
 // Auxiliary method to allow providing re-implementation
 void KAbstractFileItemActionPlugin_OnIsSignalConnected(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
-    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin)
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KAbstractFileItemActionPlugin_Delete(KAbstractFileItemActionPlugin* self) {

@@ -137,9 +137,8 @@ QMetaObject* QTimer_SuperMetaObject(const QTimer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnMetaObject(const QTimer* self, intptr_t slot) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_MetaObject_Callback(reinterpret_cast<VirtualQTimer::QTimer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +155,8 @@ void* QTimer_SuperMetacast(QTimer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnMetacast(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_Metacast_Callback(reinterpret_cast<VirtualQTimer::QTimer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +173,8 @@ int QTimer_SuperMetacall(QTimer* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnMetacall(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_Metacall_Callback(reinterpret_cast<VirtualQTimer::QTimer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +191,8 @@ void QTimer_SuperTimerEvent(QTimer* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnTimerEvent(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_TimerEvent_Callback(reinterpret_cast<VirtualQTimer::QTimer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +219,8 @@ bool QTimer_SuperEvent(QTimer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnEvent(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_Event_Callback(reinterpret_cast<VirtualQTimer::QTimer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +247,8 @@ bool QTimer_SuperEventFilter(QTimer* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnEventFilter(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_EventFilter_Callback(reinterpret_cast<VirtualQTimer::QTimer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +275,8 @@ void QTimer_SuperChildEvent(QTimer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnChildEvent(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_ChildEvent_Callback(reinterpret_cast<VirtualQTimer::QTimer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +303,8 @@ void QTimer_SuperCustomEvent(QTimer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnCustomEvent(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_CustomEvent_Callback(reinterpret_cast<VirtualQTimer::QTimer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +331,8 @@ void QTimer_SuperConnectNotify(QTimer* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnConnectNotify(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_ConnectNotify_Callback(reinterpret_cast<VirtualQTimer::QTimer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +359,8 @@ void QTimer_SuperDisconnectNotify(QTimer* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnDisconnectNotify(QTimer* self, intptr_t slot) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_DisconnectNotify_Callback(reinterpret_cast<VirtualQTimer::QTimer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +387,8 @@ QObject* QTimer_SuperSender(const QTimer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnSender(const QTimer* self, intptr_t slot) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_Sender_Callback(reinterpret_cast<VirtualQTimer::QTimer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +415,8 @@ int QTimer_SuperSenderSignalIndex(const QTimer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnSenderSignalIndex(const QTimer* self, intptr_t slot) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTimer::QTimer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ int QTimer_SuperReceivers(const QTimer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnReceivers(const QTimer* self, intptr_t slot) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_Receivers_Callback(reinterpret_cast<VirtualQTimer::QTimer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ bool QTimer_SuperIsSignalConnected(const QTimer* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QTimer_OnIsSignalConnected(const QTimer* self, intptr_t slot) {
     auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
-    if (vqtimer && vqtimer->isVirtualQTimer) {
+    if (vqtimer && vqtimer->isVirtualQTimer)
         vqtimer->setQTimer_IsSignalConnected_Callback(reinterpret_cast<VirtualQTimer::QTimer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTimer_Connect_Timeout(QTimer* self, intptr_t slot) {

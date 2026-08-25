@@ -424,9 +424,8 @@ QMetaObject* QPlaceManagerEngine_SuperMetaObject(const QPlaceManagerEngine* self
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMetaObject(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +442,8 @@ void* QPlaceManagerEngine_SuperMetacast(QPlaceManagerEngine* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMetacast(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +460,8 @@ int QPlaceManagerEngine_SuperMetacall(QPlaceManagerEngine* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMetacall(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Metacall_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -482,9 +479,8 @@ QPlaceDetailsReply* QPlaceManagerEngine_SuperGetPlaceDetails(QPlaceManagerEngine
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnGetPlaceDetails(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceDetails_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceDetails_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +497,8 @@ QPlaceContentReply* QPlaceManagerEngine_SuperGetPlaceContent(QPlaceManagerEngine
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnGetPlaceContent(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceContent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceContent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +515,8 @@ QPlaceSearchReply* QPlaceManagerEngine_SuperSearch(QPlaceManagerEngine* self, co
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSearch(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Search_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Search_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -539,9 +533,8 @@ QPlaceSearchSuggestionReply* QPlaceManagerEngine_SuperSearchSuggestions(QPlaceMa
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSearchSuggestions(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_SearchSuggestions_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SearchSuggestions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -558,9 +551,8 @@ QPlaceIdReply* QPlaceManagerEngine_SuperSavePlace(QPlaceManagerEngine* self, con
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSavePlace(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_SavePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SavePlace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -578,9 +570,8 @@ QPlaceIdReply* QPlaceManagerEngine_SuperRemovePlace(QPlaceManagerEngine* self, c
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnRemovePlace(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_RemovePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemovePlace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -598,9 +589,8 @@ QPlaceIdReply* QPlaceManagerEngine_SuperSaveCategory(QPlaceManagerEngine* self, 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSaveCategory(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_SaveCategory_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SaveCategory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -618,9 +608,8 @@ QPlaceIdReply* QPlaceManagerEngine_SuperRemoveCategory(QPlaceManagerEngine* self
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnRemoveCategory(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_RemoveCategory_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemoveCategory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -637,9 +626,8 @@ QPlaceReply* QPlaceManagerEngine_SuperInitializeCategories(QPlaceManagerEngine* 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnInitializeCategories(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_InitializeCategories_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_InitializeCategories_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -673,9 +661,8 @@ libqt_string QPlaceManagerEngine_SuperParentCategoryId(const QPlaceManagerEngine
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnParentCategoryId(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ParentCategoryId_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ParentCategoryId_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -727,9 +714,8 @@ libqt_list /* of libqt_string */ QPlaceManagerEngine_SuperChildCategoryIds(const
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnChildCategoryIds(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ChildCategoryIds_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategoryIds_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -747,9 +733,8 @@ QPlaceCategory* QPlaceManagerEngine_SuperCategory(const QPlaceManagerEngine* sel
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnCategory(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Category_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Category_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -785,9 +770,8 @@ libqt_list /* of QPlaceCategory* */ QPlaceManagerEngine_SuperChildCategories(con
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnChildCategories(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ChildCategories_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategories_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -822,9 +806,8 @@ libqt_list /* of QLocale* */ QPlaceManagerEngine_SuperLocales(const QPlaceManage
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnLocales(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Locales_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Locales_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -847,9 +830,8 @@ void QPlaceManagerEngine_SuperSetLocales(QPlaceManagerEngine* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSetLocales(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_SetLocales_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SetLocales_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -866,9 +848,8 @@ QUrl* QPlaceManagerEngine_SuperConstructIconUrl(const QPlaceManagerEngine* self,
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnConstructIconUrl(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ConstructIconUrl_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConstructIconUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -885,9 +866,8 @@ QPlace* QPlaceManagerEngine_SuperCompatiblePlace(const QPlaceManagerEngine* self
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnCompatiblePlace(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_CompatiblePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CompatiblePlace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -904,9 +884,8 @@ QPlaceMatchReply* QPlaceManagerEngine_SuperMatchingPlaces(QPlaceManagerEngine* s
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMatchingPlaces(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_MatchingPlaces_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MatchingPlaces_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +912,8 @@ bool QPlaceManagerEngine_SuperEvent(QPlaceManagerEngine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnEvent(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Event_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +940,8 @@ bool QPlaceManagerEngine_SuperEventFilter(QPlaceManagerEngine* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnEventFilter(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_EventFilter_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +968,8 @@ void QPlaceManagerEngine_SuperTimerEvent(QPlaceManagerEngine* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnTimerEvent(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_TimerEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +996,8 @@ void QPlaceManagerEngine_SuperChildEvent(QPlaceManagerEngine* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnChildEvent(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ChildEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1024,8 @@ void QPlaceManagerEngine_SuperCustomEvent(QPlaceManagerEngine* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnCustomEvent(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_CustomEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1052,8 @@ void QPlaceManagerEngine_SuperConnectNotify(QPlaceManagerEngine* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnConnectNotify(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1080,8 @@ void QPlaceManagerEngine_SuperDisconnectNotify(QPlaceManagerEngine* self, const 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnDisconnectNotify(QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1108,8 @@ QPlaceManager* QPlaceManagerEngine_SuperManager(const QPlaceManagerEngine* self)
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnManager(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Manager_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Manager_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1136,8 @@ QObject* QPlaceManagerEngine_SuperSender(const QPlaceManagerEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSender(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Sender_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1164,8 @@ int QPlaceManagerEngine_SuperSenderSignalIndex(const QPlaceManagerEngine* self) 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSenderSignalIndex(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1223,9 +1192,8 @@ int QPlaceManagerEngine_SuperReceivers(const QPlaceManagerEngine* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnReceivers(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_Receivers_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1220,8 @@ bool QPlaceManagerEngine_SuperIsSignalConnected(const QPlaceManagerEngine* self,
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnIsSignalConnected(const QPlaceManagerEngine* self, intptr_t slot) {
     auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
         vqplacemanagerengine->setQPlaceManagerEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPlaceManagerEngine_Delete(QPlaceManagerEngine* self) {

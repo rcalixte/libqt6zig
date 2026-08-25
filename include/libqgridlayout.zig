@@ -1689,6 +1689,31 @@ pub const QGridLayout = extern struct {
         qtc.QGridLayout_AddItem6(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGridLayout `
+    ///
+    pub fn asQLayoutItem(self: QGridLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QGridLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QGridLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -3185,7 +3210,7 @@ pub const QGridLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QGridLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `geometry` instead

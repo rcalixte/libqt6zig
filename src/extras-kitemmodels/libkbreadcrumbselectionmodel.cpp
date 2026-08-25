@@ -79,9 +79,8 @@ QMetaObject* KBreadcrumbSelectionModel_SuperMetaObject(const KBreadcrumbSelectio
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnMetaObject(const KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_MetaObject_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +97,8 @@ void* KBreadcrumbSelectionModel_SuperMetacast(KBreadcrumbSelectionModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnMetacast(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacast_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +115,8 @@ int KBreadcrumbSelectionModel_SuperMetacall(KBreadcrumbSelectionModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnMetacall(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacall_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +133,8 @@ void KBreadcrumbSelectionModel_SuperSelect(KBreadcrumbSelectionModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnSelect(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Select_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Select_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +151,8 @@ void KBreadcrumbSelectionModel_SuperSelect2(KBreadcrumbSelectionModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnSelect2(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Select2_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Select2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +179,8 @@ void KBreadcrumbSelectionModel_SuperSetCurrentIndex(KBreadcrumbSelectionModel* s
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnSetCurrentIndex(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_SetCurrentIndex_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_SetCurrentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +207,8 @@ void KBreadcrumbSelectionModel_SuperClear(KBreadcrumbSelectionModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnClear(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Clear_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +235,8 @@ void KBreadcrumbSelectionModel_SuperReset(KBreadcrumbSelectionModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnReset(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Reset_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +263,8 @@ void KBreadcrumbSelectionModel_SuperClearCurrentIndex(KBreadcrumbSelectionModel*
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnClearCurrentIndex(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ClearCurrentIndex_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_ClearCurrentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +291,8 @@ bool KBreadcrumbSelectionModel_SuperEvent(KBreadcrumbSelectionModel* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnEvent(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Event_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +319,8 @@ bool KBreadcrumbSelectionModel_SuperEventFilter(KBreadcrumbSelectionModel* self,
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnEventFilter(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_EventFilter_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +347,8 @@ void KBreadcrumbSelectionModel_SuperTimerEvent(KBreadcrumbSelectionModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnTimerEvent(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_TimerEvent_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +375,8 @@ void KBreadcrumbSelectionModel_SuperChildEvent(KBreadcrumbSelectionModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnChildEvent(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ChildEvent_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +403,8 @@ void KBreadcrumbSelectionModel_SuperCustomEvent(KBreadcrumbSelectionModel* self,
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnCustomEvent(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_CustomEvent_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +431,8 @@ void KBreadcrumbSelectionModel_SuperConnectNotify(KBreadcrumbSelectionModel* sel
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnConnectNotify(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_ConnectNotify_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +459,8 @@ void KBreadcrumbSelectionModel_SuperDisconnectNotify(KBreadcrumbSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnDisconnectNotify(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +487,8 @@ void KBreadcrumbSelectionModel_SuperEmitSelectionChanged(KBreadcrumbSelectionMod
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnEmitSelectionChanged(KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_EmitSelectionChanged_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_EmitSelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +515,8 @@ QObject* KBreadcrumbSelectionModel_SuperSender(const KBreadcrumbSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnSender(const KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Sender_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +543,8 @@ int KBreadcrumbSelectionModel_SuperSenderSignalIndex(const KBreadcrumbSelectionM
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnSenderSignalIndex(const KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +571,8 @@ int KBreadcrumbSelectionModel_SuperReceivers(const KBreadcrumbSelectionModel* se
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnReceivers(const KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Receivers_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +599,8 @@ bool KBreadcrumbSelectionModel_SuperIsSignalConnected(const KBreadcrumbSelection
 // Auxiliary method to allow providing re-implementation
 void KBreadcrumbSelectionModel_OnIsSignalConnected(const KBreadcrumbSelectionModel* self, intptr_t slot) {
     auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel)
         vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KBreadcrumbSelectionModel_Delete(KBreadcrumbSelectionModel* self) {

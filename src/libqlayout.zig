@@ -59,6 +59,27 @@ pub const QLayout = extern struct {
         return .{ .ptr = qtc.QLayout_new2() };
     }
 
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLayout `
+    ///
+    pub fn asQLayoutItem(self: QLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -2947,7 +2968,7 @@ pub const QLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead
@@ -3949,7 +3970,7 @@ pub const QLayout = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#public-types)
 pub const enums = struct {
-    pub const SizeConstraint = enum(i32) {
+    pub const SizeConstraint = enum {
         pub const SetDefaultConstraint: i32 = 0;
         pub const SetNoConstraint: i32 = 1;
         pub const SetMinimumSize: i32 = 2;

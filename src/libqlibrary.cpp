@@ -161,9 +161,8 @@ QMetaObject* QLibrary_SuperMetaObject(const QLibrary* self) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_MetaObject_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QLibrary_SuperMetacast(QLibrary* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnMetacast(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_Metacast_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QLibrary_SuperMetacall(QLibrary* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnMetacall(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_Metacall_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QLibrary_SuperEvent(QLibrary* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnEvent(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_Event_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QLibrary_SuperEventFilter(QLibrary* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnEventFilter(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_EventFilter_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QLibrary_SuperTimerEvent(QLibrary* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnTimerEvent(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_TimerEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QLibrary_SuperChildEvent(QLibrary* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnChildEvent(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_ChildEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QLibrary_SuperCustomEvent(QLibrary* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnCustomEvent(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_CustomEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QLibrary_SuperConnectNotify(QLibrary* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnConnectNotify(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_ConnectNotify_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnDisconnectNotify(QLibrary* self, intptr_t slot) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_DisconnectNotify_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ QObject* QLibrary_SuperSender(const QLibrary* self) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnSender(const QLibrary* self, intptr_t slot) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_Sender_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ int QLibrary_SuperSenderSignalIndex(const QLibrary* self) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnSenderSignalIndex(const QLibrary* self, intptr_t slot) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QLibrary_SuperReceivers(const QLibrary* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnReceivers(const QLibrary* self, intptr_t slot) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_Receivers_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnIsSignalConnected(const QLibrary* self, intptr_t slot) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary && vqlibrary->isVirtualQLibrary)
         vqlibrary->setQLibrary_IsSignalConnected_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QLibrary_Delete(QLibrary* self) {

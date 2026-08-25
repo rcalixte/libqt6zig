@@ -2450,14 +2450,14 @@ pub const KTextEditor__Message = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/message.html#public-types)
 pub const enums = struct {
-    pub const MessageType = enum(i32) {
+    pub const MessageType = enum {
         pub const Positive: i32 = 0;
         pub const Information: i32 = 1;
         pub const Warning: i32 = 2;
         pub const Error: i32 = 3;
     };
 
-    pub const MessagePosition = enum(i32) {
+    pub const MessagePosition = enum {
         pub const AboveView: i32 = 0;
         pub const BelowView: i32 = 1;
         pub const TopInView: i32 = 2;
@@ -2465,7 +2465,7 @@ pub const enums = struct {
         pub const CenterInView: i32 = 4;
     };
 
-    pub const AutoHideMode = enum(i32) {
+    pub const AutoHideMode = enum {
         pub const Immediate: i32 = 0;
         pub const AfterUserInteraction: i32 = 1;
     };

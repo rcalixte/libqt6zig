@@ -56,9 +56,8 @@ QAbstractItemModel* KAbstractViewAdapter_SuperModel(const KAbstractViewAdapter* 
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnModel(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Model_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Model_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -75,9 +74,8 @@ QSize* KAbstractViewAdapter_SuperIconSize(const KAbstractViewAdapter* self) {
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnIconSize(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_IconSize_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_IconSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -94,9 +92,8 @@ QPalette* KAbstractViewAdapter_SuperPalette(const KAbstractViewAdapter* self) {
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnPalette(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Palette_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Palette_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -113,9 +110,8 @@ QRect* KAbstractViewAdapter_SuperVisibleArea(const KAbstractViewAdapter* self) {
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnVisibleArea(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_VisibleArea_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_VisibleArea_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +128,8 @@ QRect* KAbstractViewAdapter_SuperVisualRect(const KAbstractViewAdapter* self, co
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnVisualRect(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_VisualRect_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +146,8 @@ void KAbstractViewAdapter_SuperConnect(KAbstractViewAdapter* self, int signal, Q
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnConnect(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Connect_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Connect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +174,8 @@ QMetaObject* KAbstractViewAdapter_SuperMetaObject(const KAbstractViewAdapter* se
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnMetaObject(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_MetaObject_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -209,9 +202,8 @@ void* KAbstractViewAdapter_SuperMetacast(KAbstractViewAdapter* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnMetacast(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Metacast_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +230,8 @@ int KAbstractViewAdapter_SuperMetacall(KAbstractViewAdapter* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnMetacall(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Metacall_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +258,8 @@ bool KAbstractViewAdapter_SuperEvent(KAbstractViewAdapter* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnEvent(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Event_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +286,8 @@ bool KAbstractViewAdapter_SuperEventFilter(KAbstractViewAdapter* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnEventFilter(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_EventFilter_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +314,8 @@ void KAbstractViewAdapter_SuperTimerEvent(KAbstractViewAdapter* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnTimerEvent(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_TimerEvent_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +342,8 @@ void KAbstractViewAdapter_SuperChildEvent(KAbstractViewAdapter* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnChildEvent(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_ChildEvent_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +370,8 @@ void KAbstractViewAdapter_SuperCustomEvent(KAbstractViewAdapter* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnCustomEvent(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_CustomEvent_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +398,8 @@ void KAbstractViewAdapter_SuperConnectNotify(KAbstractViewAdapter* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnConnectNotify(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_ConnectNotify_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +426,8 @@ void KAbstractViewAdapter_SuperDisconnectNotify(KAbstractViewAdapter* self, cons
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnDisconnectNotify(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_DisconnectNotify_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +454,8 @@ QObject* KAbstractViewAdapter_SuperSender(const KAbstractViewAdapter* self) {
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnSender(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Sender_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +482,8 @@ int KAbstractViewAdapter_SuperSenderSignalIndex(const KAbstractViewAdapter* self
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnSenderSignalIndex(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +510,8 @@ int KAbstractViewAdapter_SuperReceivers(const KAbstractViewAdapter* self, const 
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnReceivers(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_Receivers_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +538,8 @@ bool KAbstractViewAdapter_SuperIsSignalConnected(const KAbstractViewAdapter* sel
 // Auxiliary method to allow providing re-implementation
 void KAbstractViewAdapter_OnIsSignalConnected(const KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter)
         vkabstractviewadapter->setKAbstractViewAdapter_IsSignalConnected_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KAbstractViewAdapter_Delete(KAbstractViewAdapter* self) {

@@ -875,6 +875,31 @@ pub const QPrintPreviewWidget = extern struct {
         qtc.QPrintPreviewWidget_ZoomOut1(@ptrCast(self.ptr), @bitCast(zoom));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPrintPreviewWidget `
+    ///
+    pub fn asQPaintDevice(self: QPrintPreviewWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QPrintPreviewWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QPrintPreviewWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6859,7 +6884,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn paintingActive(self: QPrintPreviewWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6875,7 +6900,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn widthMM(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6891,7 +6916,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn heightMM(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6907,7 +6932,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn logicalDpiX(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6923,7 +6948,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn logicalDpiY(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6939,7 +6964,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn physicalDpiX(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6955,7 +6980,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn physicalDpiY(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6971,7 +6996,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn devicePixelRatio(self: QPrintPreviewWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6987,7 +7012,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn devicePixelRatioF(self: QPrintPreviewWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7003,7 +7028,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn colorCount(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7019,7 +7044,7 @@ pub const QPrintPreviewWidget = extern struct {
     /// ` self: QPrintPreviewWidget `
     ///
     pub fn depth(self: QPrintPreviewWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10505,13 +10530,13 @@ pub const QPrintPreviewWidget = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintpreviewwidget.html#public-types)
 pub const enums = struct {
-    pub const ViewMode = enum(i32) {
+    pub const ViewMode = enum {
         pub const SinglePageView: i32 = 0;
         pub const FacingPagesView: i32 = 1;
         pub const AllPagesView: i32 = 2;
     };
 
-    pub const ZoomMode = enum(i32) {
+    pub const ZoomMode = enum {
         pub const CustomZoom: i32 = 0;
         pub const FitToWidth: i32 = 1;
         pub const FitInView: i32 = 2;

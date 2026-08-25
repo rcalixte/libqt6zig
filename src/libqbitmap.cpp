@@ -111,9 +111,8 @@ int QBitmap_SuperDevType(const QBitmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnDevType(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_DevType_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -140,9 +139,8 @@ QPaintEngine* QBitmap_SuperPaintEngine(const QBitmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnPaintEngine(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_PaintEngine_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +167,8 @@ int QBitmap_SuperMetric(const QBitmap* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnMetric(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_Metric_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +195,8 @@ void QBitmap_SuperInitPainter(const QBitmap* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnInitPainter(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_InitPainter_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +223,8 @@ QPaintDevice* QBitmap_SuperRedirected(const QBitmap* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnRedirected(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_Redirected_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +251,8 @@ QPainter* QBitmap_SuperSharedPainter(const QBitmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnSharedPainter(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_SharedPainter_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +277,8 @@ QPixmap* QBitmap_SuperFromImageInPlace(QBitmap* self, QImage* image) {
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnFromImageInPlace(QBitmap* self, intptr_t slot) {
     auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_FromImageInPlace_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_FromImageInPlace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +305,8 @@ double QBitmap_SuperGetDecodedMetricF(const QBitmap* self, int metricA, int metr
 // Auxiliary method to allow providing re-implementation
 void QBitmap_OnGetDecodedMetricF(const QBitmap* self, intptr_t slot) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
-    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+    if (vqbitmap && vqbitmap->isVirtualQBitmap)
         vqbitmap->setQBitmap_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QBitmap_Delete(QBitmap* self) {

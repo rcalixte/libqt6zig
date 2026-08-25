@@ -394,14 +394,14 @@ pub const QOpenGLBuffer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglbuffer.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const VertexBuffer: i32 = 34962;
         pub const IndexBuffer: i32 = 34963;
         pub const PixelPackBuffer: i32 = 35051;
         pub const PixelUnpackBuffer: i32 = 35052;
     };
 
-    pub const UsagePattern = enum(i32) {
+    pub const UsagePattern = enum {
         pub const StreamDraw: i32 = 35040;
         pub const StreamRead: i32 = 35041;
         pub const StreamCopy: i32 = 35042;
@@ -413,13 +413,13 @@ pub const enums = struct {
         pub const DynamicCopy: i32 = 35050;
     };
 
-    pub const Access = enum(i32) {
+    pub const Access = enum {
         pub const ReadOnly: i32 = 35000;
         pub const WriteOnly: i32 = 35001;
         pub const ReadWrite: i32 = 35002;
     };
 
-    pub const RangeAccessFlag = enum(i32) {
+    pub const RangeAccessFlag = enum {
         pub const RangeRead: i32 = 1;
         pub const RangeWrite: i32 = 2;
         pub const RangeInvalidate: i32 = 4;

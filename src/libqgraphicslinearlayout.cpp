@@ -139,9 +139,8 @@ void QGraphicsLinearLayout_SuperRemoveAt(QGraphicsLinearLayout* self, int index)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnRemoveAt(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_RemoveAt_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_RemoveAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +157,8 @@ void QGraphicsLinearLayout_SuperSetGeometry(QGraphicsLinearLayout* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnSetGeometry(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetGeometry_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_SetGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +175,8 @@ int QGraphicsLinearLayout_SuperCount(const QGraphicsLinearLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnCount(const QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_Count_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_Count_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +193,8 @@ QGraphicsLayoutItem* QGraphicsLinearLayout_SuperItemAt(const QGraphicsLinearLayo
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnItemAt(const QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_ItemAt_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_ItemAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +211,8 @@ void QGraphicsLinearLayout_SuperInvalidate(QGraphicsLinearLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnInvalidate(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_Invalidate_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_Invalidate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +229,8 @@ QSizeF* QGraphicsLinearLayout_SuperSizeHint(const QGraphicsLinearLayout* self, i
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnSizeHint(const QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +257,8 @@ void QGraphicsLinearLayout_SuperGetContentsMargins(const QGraphicsLinearLayout* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnGetContentsMargins(const QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_GetContentsMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +285,8 @@ void QGraphicsLinearLayout_SuperUpdateGeometry(QGraphicsLinearLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnUpdateGeometry(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_UpdateGeometry_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_UpdateGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +313,8 @@ void QGraphicsLinearLayout_SuperWidgetEvent(QGraphicsLinearLayout* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnWidgetEvent(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_WidgetEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +341,8 @@ bool QGraphicsLinearLayout_SuperIsEmpty(const QGraphicsLinearLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnIsEmpty(const QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_IsEmpty_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +369,8 @@ void QGraphicsLinearLayout_SuperAddChildLayoutItem(QGraphicsLinearLayout* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnAddChildLayoutItem(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_AddChildLayoutItem_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_AddChildLayoutItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +397,8 @@ void QGraphicsLinearLayout_SuperSetGraphicsItem(QGraphicsLinearLayout* self, QGr
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnSetGraphicsItem(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetGraphicsItem_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_SetGraphicsItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +425,8 @@ void QGraphicsLinearLayout_SuperSetOwnedByLayout(QGraphicsLinearLayout* self, bo
 // Auxiliary method to allow providing re-implementation
 void QGraphicsLinearLayout_OnSetOwnedByLayout(QGraphicsLinearLayout* self, intptr_t slot) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
+    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout)
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQGraphicsLinearLayout::QGraphicsLinearLayout_SetOwnedByLayout_Callback>(slot));
-    }
 }
 
 void QGraphicsLinearLayout_Delete(QGraphicsLinearLayout* self) {

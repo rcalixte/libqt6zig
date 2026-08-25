@@ -828,6 +828,31 @@ pub const KMultiTabBar = extern struct {
         return qtc.KMultiTabBar_AppendTab3(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id), text_str);
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBar `
+    ///
+    pub fn asQPaintDevice(self: KMultiTabBar) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KMultiTabBar object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KMultiTabBar {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6793,7 +6818,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn paintingActive(self: KMultiTabBar) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6809,7 +6834,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn widthMM(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6825,7 +6850,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn heightMM(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6841,7 +6866,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn logicalDpiX(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6857,7 +6882,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn logicalDpiY(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6873,7 +6898,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn physicalDpiX(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6889,7 +6914,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn physicalDpiY(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6905,7 +6930,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn devicePixelRatio(self: KMultiTabBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6921,7 +6946,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn devicePixelRatioF(self: KMultiTabBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6937,7 +6962,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn colorCount(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6953,7 +6978,7 @@ pub const KMultiTabBar = extern struct {
     /// ` self: KMultiTabBar `
     ///
     pub fn depth(self: KMultiTabBar) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -11386,6 +11411,31 @@ pub const KMultiTabBarButton = extern struct {
     ///
     pub fn onClicked1(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    pub fn asQPaintDevice(self: KMultiTabBarButton) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KMultiTabBarButton object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KMultiTabBarButton {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `devType` instead
@@ -17496,7 +17546,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn paintingActive(self: KMultiTabBarButton) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -17512,7 +17562,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn widthMM(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -17528,7 +17578,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn heightMM(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -17544,7 +17594,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn logicalDpiX(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -17560,7 +17610,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn logicalDpiY(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -17576,7 +17626,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn physicalDpiX(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -17592,7 +17642,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn physicalDpiY(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -17608,7 +17658,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn devicePixelRatio(self: KMultiTabBarButton) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -17624,7 +17674,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn devicePixelRatioF(self: KMultiTabBarButton) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -17640,7 +17690,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn colorCount(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -17656,7 +17706,7 @@ pub const KMultiTabBarButton = extern struct {
     /// ` self: KMultiTabBarButton `
     ///
     pub fn depth(self: KMultiTabBarButton) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -18730,6 +18780,31 @@ pub const KMultiTabBarTab = extern struct {
     ///
     pub fn onClicked1(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    pub fn asQPaintDevice(self: KMultiTabBarTab) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KMultiTabBarTab object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KMultiTabBarTab {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `devType` instead
@@ -24821,7 +24896,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn paintingActive(self: KMultiTabBarTab) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -24837,7 +24912,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn widthMM(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -24853,7 +24928,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn heightMM(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -24869,7 +24944,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn logicalDpiX(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -24885,7 +24960,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn logicalDpiY(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -24901,7 +24976,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn physicalDpiX(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -24917,7 +24992,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn physicalDpiY(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -24933,7 +25008,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn devicePixelRatio(self: KMultiTabBarTab) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -24949,7 +25024,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn devicePixelRatioF(self: KMultiTabBarTab) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -24965,7 +25040,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn colorCount(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -24981,7 +25056,7 @@ pub const KMultiTabBarTab = extern struct {
     /// ` self: KMultiTabBarTab `
     ///
     pub fn depth(self: KMultiTabBarTab) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -25053,14 +25128,14 @@ pub const KMultiTabBarTab = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#public-types)
 pub const enums = struct {
-    pub const KMultiTabBarPosition = enum(i32) {
+    pub const KMultiTabBarPosition = enum {
         pub const Left: i32 = 0;
         pub const Right: i32 = 1;
         pub const Top: i32 = 2;
         pub const Bottom: i32 = 3;
     };
 
-    pub const KMultiTabBarStyle = enum(i32) {
+    pub const KMultiTabBarStyle = enum {
         pub const VSNET: i32 = 0;
         pub const KDEV3ICON: i32 = 2;
         pub const STYLELAST: i32 = 65535;

@@ -747,7 +747,7 @@ pub const QBluetoothServiceInfo__Alternative = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothserviceinfo.html#public-types)
 pub const enums = struct {
-    pub const AttributeId = enum(i32) {
+    pub const AttributeId = enum {
         pub const ServiceRecordHandle: i32 = 0;
         pub const ServiceClassIds: i32 = 1;
         pub const ServiceRecordState: i32 = 2;
@@ -768,7 +768,7 @@ pub const enums = struct {
         pub const ServiceProvider: i32 = 258;
     };
 
-    pub const Protocol = enum(i32) {
+    pub const Protocol = enum {
         pub const UnknownProtocol: i32 = 0;
         pub const L2capProtocol: i32 = 1;
         pub const RfcommProtocol: i32 = 2;

@@ -131,9 +131,8 @@ QMetaObject* Sonnet__ConfigDialog_SuperMetaObject(const Sonnet__ConfigDialog* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMetaObject(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ void* Sonnet__ConfigDialog_SuperMetacast(Sonnet__ConfigDialog* self, const char*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMetacast(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Metacast_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ int Sonnet__ConfigDialog_SuperMetacall(Sonnet__ConfigDialog* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMetacall(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Metacall_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +185,8 @@ void Sonnet__ConfigDialog_SuperSlotOk(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSlotOk(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SlotOk_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SlotOk_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +203,8 @@ void Sonnet__ConfigDialog_SuperSlotApply(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSlotApply(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SlotApply_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SlotApply_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +231,8 @@ void Sonnet__ConfigDialog_SuperSetVisible(Sonnet__ConfigDialog* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSetVisible(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SetVisible_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +259,8 @@ QSize* Sonnet__ConfigDialog_SuperSizeHint(const Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSizeHint(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SizeHint_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +287,8 @@ QSize* Sonnet__ConfigDialog_SuperMinimumSizeHint(const Sonnet__ConfigDialog* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMinimumSizeHint(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +315,8 @@ void Sonnet__ConfigDialog_SuperOpen(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnOpen(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Open_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +343,8 @@ int Sonnet__ConfigDialog_SuperExec(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnExec(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Exec_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +371,8 @@ void Sonnet__ConfigDialog_SuperDone(Sonnet__ConfigDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDone(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Done_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +399,8 @@ void Sonnet__ConfigDialog_SuperAccept(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnAccept(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Accept_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +427,8 @@ void Sonnet__ConfigDialog_SuperReject(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnReject(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Reject_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ void Sonnet__ConfigDialog_SuperKeyPressEvent(Sonnet__ConfigDialog* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnKeyPressEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +483,8 @@ void Sonnet__ConfigDialog_SuperCloseEvent(Sonnet__ConfigDialog* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnCloseEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_CloseEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +511,8 @@ void Sonnet__ConfigDialog_SuperShowEvent(Sonnet__ConfigDialog* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnShowEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ShowEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +539,8 @@ void Sonnet__ConfigDialog_SuperResizeEvent(Sonnet__ConfigDialog* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnResizeEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ResizeEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +567,8 @@ void Sonnet__ConfigDialog_SuperContextMenuEvent(Sonnet__ConfigDialog* self, QCon
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnContextMenuEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +595,8 @@ bool Sonnet__ConfigDialog_SuperEventFilter(Sonnet__ConfigDialog* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnEventFilter(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_EventFilter_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +623,8 @@ int Sonnet__ConfigDialog_SuperDevType(const Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDevType(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DevType_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +651,8 @@ int Sonnet__ConfigDialog_SuperHeightForWidth(const Sonnet__ConfigDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnHeightForWidth(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_HeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +679,8 @@ bool Sonnet__ConfigDialog_SuperHasHeightForWidth(const Sonnet__ConfigDialog* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnHasHeightForWidth(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ QPaintEngine* Sonnet__ConfigDialog_SuperPaintEngine(const Sonnet__ConfigDialog* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnPaintEngine(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_PaintEngine_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ bool Sonnet__ConfigDialog_SuperEvent(Sonnet__ConfigDialog* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Event_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ void Sonnet__ConfigDialog_SuperMousePressEvent(Sonnet__ConfigDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMousePressEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MousePressEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ void Sonnet__ConfigDialog_SuperMouseReleaseEvent(Sonnet__ConfigDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMouseReleaseEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ void Sonnet__ConfigDialog_SuperMouseDoubleClickEvent(Sonnet__ConfigDialog* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMouseDoubleClickEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ void Sonnet__ConfigDialog_SuperMouseMoveEvent(Sonnet__ConfigDialog* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMouseMoveEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ void Sonnet__ConfigDialog_SuperWheelEvent(Sonnet__ConfigDialog* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnWheelEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_WheelEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ void Sonnet__ConfigDialog_SuperKeyReleaseEvent(Sonnet__ConfigDialog* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnKeyReleaseEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void Sonnet__ConfigDialog_SuperFocusInEvent(Sonnet__ConfigDialog* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnFocusInEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_FocusInEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ void Sonnet__ConfigDialog_SuperFocusOutEvent(Sonnet__ConfigDialog* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnFocusOutEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void Sonnet__ConfigDialog_SuperEnterEvent(Sonnet__ConfigDialog* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnEnterEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_EnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ void Sonnet__ConfigDialog_SuperLeaveEvent(Sonnet__ConfigDialog* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnLeaveEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_LeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1043,8 @@ void Sonnet__ConfigDialog_SuperPaintEvent(Sonnet__ConfigDialog* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnPaintEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_PaintEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1071,8 @@ void Sonnet__ConfigDialog_SuperMoveEvent(Sonnet__ConfigDialog* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMoveEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_MoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1099,8 @@ void Sonnet__ConfigDialog_SuperTabletEvent(Sonnet__ConfigDialog* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnTabletEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_TabletEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1127,8 @@ void Sonnet__ConfigDialog_SuperActionEvent(Sonnet__ConfigDialog* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnActionEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ActionEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1155,8 @@ void Sonnet__ConfigDialog_SuperDragEnterEvent(Sonnet__ConfigDialog* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDragEnterEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1183,8 @@ void Sonnet__ConfigDialog_SuperDragMoveEvent(Sonnet__ConfigDialog* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDragMoveEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1211,8 @@ void Sonnet__ConfigDialog_SuperDragLeaveEvent(Sonnet__ConfigDialog* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDragLeaveEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1239,8 @@ void Sonnet__ConfigDialog_SuperDropEvent(Sonnet__ConfigDialog* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDropEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DropEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1267,8 @@ void Sonnet__ConfigDialog_SuperHideEvent(Sonnet__ConfigDialog* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnHideEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_HideEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1297,8 @@ bool Sonnet__ConfigDialog_SuperNativeEvent(Sonnet__ConfigDialog* self, const lib
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnNativeEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_NativeEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1325,8 @@ void Sonnet__ConfigDialog_SuperChangeEvent(Sonnet__ConfigDialog* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnChangeEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ChangeEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1353,8 @@ int Sonnet__ConfigDialog_SuperMetric(const Sonnet__ConfigDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnMetric(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Metric_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1381,8 @@ void Sonnet__ConfigDialog_SuperInitPainter(const Sonnet__ConfigDialog* self, QPa
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnInitPainter(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_InitPainter_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1409,8 @@ QPaintDevice* Sonnet__ConfigDialog_SuperRedirected(const Sonnet__ConfigDialog* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnRedirected(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Redirected_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1437,8 @@ QPainter* Sonnet__ConfigDialog_SuperSharedPainter(const Sonnet__ConfigDialog* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSharedPainter(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SharedPainter_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1465,8 @@ void Sonnet__ConfigDialog_SuperInputMethodEvent(Sonnet__ConfigDialog* self, QInp
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnInputMethodEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1493,8 @@ QVariant* Sonnet__ConfigDialog_SuperInputMethodQuery(const Sonnet__ConfigDialog*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnInputMethodQuery(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1521,8 @@ bool Sonnet__ConfigDialog_SuperFocusNextPrevChild(Sonnet__ConfigDialog* self, bo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnFocusNextPrevChild(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1549,8 @@ void Sonnet__ConfigDialog_SuperTimerEvent(Sonnet__ConfigDialog* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnTimerEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_TimerEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void Sonnet__ConfigDialog_SuperChildEvent(Sonnet__ConfigDialog* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnChildEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ChildEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ void Sonnet__ConfigDialog_SuperCustomEvent(Sonnet__ConfigDialog* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnCustomEvent(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_CustomEvent_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ void Sonnet__ConfigDialog_SuperConnectNotify(Sonnet__ConfigDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnConnectNotify(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ void Sonnet__ConfigDialog_SuperDisconnectNotify(Sonnet__ConfigDialog* self, cons
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDisconnectNotify(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ void Sonnet__ConfigDialog_SuperAdjustPosition(Sonnet__ConfigDialog* self, QWidge
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnAdjustPosition(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_AdjustPosition_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ void Sonnet__ConfigDialog_SuperUpdateMicroFocus(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnUpdateMicroFocus(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ void Sonnet__ConfigDialog_SuperCreate(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnCreate(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Create_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ void Sonnet__ConfigDialog_SuperDestroy(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnDestroy(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Destroy_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1801,8 @@ bool Sonnet__ConfigDialog_SuperFocusNextChild(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnFocusNextChild(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_FocusNextChild_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1829,8 @@ bool Sonnet__ConfigDialog_SuperFocusPreviousChild(Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnFocusPreviousChild(Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1857,8 @@ QObject* Sonnet__ConfigDialog_SuperSender(const Sonnet__ConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSender(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Sender_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1949,9 +1885,8 @@ int Sonnet__ConfigDialog_SuperSenderSignalIndex(const Sonnet__ConfigDialog* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnSenderSignalIndex(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1978,9 +1913,8 @@ int Sonnet__ConfigDialog_SuperReceivers(const Sonnet__ConfigDialog* self, const 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnReceivers(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_Receivers_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2007,9 +1941,8 @@ bool Sonnet__ConfigDialog_SuperIsSignalConnected(const Sonnet__ConfigDialog* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnIsSignalConnected(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2036,9 +1969,8 @@ double Sonnet__ConfigDialog_SuperGetDecodedMetricF(const Sonnet__ConfigDialog* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigDialog_OnGetDecodedMetricF(const Sonnet__ConfigDialog* self, intptr_t slot) {
     auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
-    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog)
         vsonnetconfigdialog->setSonnet__ConfigDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void Sonnet__ConfigDialog_Delete(Sonnet__ConfigDialog* self) {

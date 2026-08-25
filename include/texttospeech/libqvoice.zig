@@ -221,13 +221,13 @@ pub const QVoice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvoice.html#public-types)
 pub const enums = struct {
-    pub const Gender = enum(i32) {
+    pub const Gender = enum {
         pub const Male: i32 = 0;
         pub const Female: i32 = 1;
         pub const Unknown: i32 = 2;
     };
 
-    pub const Age = enum(i32) {
+    pub const Age = enum {
         pub const Child: i32 = 0;
         pub const Teenager: i32 = 1;
         pub const Adult: i32 = 2;

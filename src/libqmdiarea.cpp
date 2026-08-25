@@ -321,9 +321,8 @@ QMetaObject* QMdiArea_SuperMetaObject(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetaObject(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MetaObject_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -340,9 +339,8 @@ void* QMdiArea_SuperMetacast(QMdiArea* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetacast(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Metacast_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -359,9 +357,8 @@ int QMdiArea_SuperMetacall(QMdiArea* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetacall(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Metacall_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +375,8 @@ QSize* QMdiArea_SuperSizeHint(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSizeHint(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +393,8 @@ QSize* QMdiArea_SuperMinimumSizeHint(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMinimumSizeHint(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -416,9 +411,8 @@ void QMdiArea_SuperSetupViewport(QMdiArea* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSetupViewport(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SetupViewport_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetupViewport_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -435,9 +429,8 @@ bool QMdiArea_SuperEvent(QMdiArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Event_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -454,9 +447,8 @@ bool QMdiArea_SuperEventFilter(QMdiArea* self, QObject* object, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEventFilter(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_EventFilter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -473,9 +465,8 @@ void QMdiArea_SuperPaintEvent(QMdiArea* self, QPaintEvent* paintEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnPaintEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_PaintEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -492,9 +483,8 @@ void QMdiArea_SuperChildEvent(QMdiArea* self, QChildEvent* childEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnChildEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ChildEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChildEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -511,9 +501,8 @@ void QMdiArea_SuperResizeEvent(QMdiArea* self, QResizeEvent* resizeEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnResizeEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -530,9 +519,8 @@ void QMdiArea_SuperTimerEvent(QMdiArea* self, QTimerEvent* timerEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnTimerEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_TimerEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -549,9 +537,8 @@ void QMdiArea_SuperShowEvent(QMdiArea* self, QShowEvent* showEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnShowEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ShowEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -568,9 +555,8 @@ bool QMdiArea_SuperViewportEvent(QMdiArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnViewportEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ViewportEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -587,9 +573,8 @@ void QMdiArea_SuperScrollContentsBy(QMdiArea* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnScrollContentsBy(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +601,8 @@ void QMdiArea_SuperMousePressEvent(QMdiArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMousePressEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MousePressEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +629,8 @@ void QMdiArea_SuperMouseReleaseEvent(QMdiArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseReleaseEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +657,8 @@ void QMdiArea_SuperMouseDoubleClickEvent(QMdiArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseDoubleClickEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +685,8 @@ void QMdiArea_SuperMouseMoveEvent(QMdiArea* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMouseMoveEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +713,8 @@ void QMdiArea_SuperWheelEvent(QMdiArea* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnWheelEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_WheelEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +741,8 @@ void QMdiArea_SuperContextMenuEvent(QMdiArea* self, QContextMenuEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnContextMenuEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +769,8 @@ void QMdiArea_SuperDragEnterEvent(QMdiArea* self, QDragEnterEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragEnterEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DragEnterEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +797,8 @@ void QMdiArea_SuperDragMoveEvent(QMdiArea* self, QDragMoveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragMoveEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DragMoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +825,8 @@ void QMdiArea_SuperDragLeaveEvent(QMdiArea* self, QDragLeaveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDragLeaveEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +853,8 @@ void QMdiArea_SuperDropEvent(QMdiArea* self, QDropEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDropEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DropEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +881,8 @@ void QMdiArea_SuperKeyPressEvent(QMdiArea* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnKeyPressEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_KeyPressEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +907,8 @@ QSize* QMdiArea_SuperViewportSizeHint(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnViewportSizeHint(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ViewportSizeHint_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +935,8 @@ void QMdiArea_SuperChangeEvent(QMdiArea* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnChangeEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ChangeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +963,8 @@ void QMdiArea_SuperInitStyleOption(const QMdiArea* self, QStyleOptionFrame* opti
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnInitStyleOption(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_InitStyleOption_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +991,8 @@ int QMdiArea_SuperDevType(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDevType(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DevType_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1019,8 @@ void QMdiArea_SuperSetVisible(QMdiArea* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSetVisible(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SetVisible_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1047,8 @@ int QMdiArea_SuperHeightForWidth(const QMdiArea* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnHeightForWidth(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_HeightForWidth_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1075,8 @@ bool QMdiArea_SuperHasHeightForWidth(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnHasHeightForWidth(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1103,8 @@ QPaintEngine* QMdiArea_SuperPaintEngine(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnPaintEngine(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_PaintEngine_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1131,8 @@ void QMdiArea_SuperKeyReleaseEvent(QMdiArea* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnKeyReleaseEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1159,8 @@ void QMdiArea_SuperFocusInEvent(QMdiArea* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusInEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_FocusInEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1223,9 +1187,8 @@ void QMdiArea_SuperFocusOutEvent(QMdiArea* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusOutEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_FocusOutEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1215,8 @@ void QMdiArea_SuperEnterEvent(QMdiArea* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnEnterEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_EnterEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1243,8 @@ void QMdiArea_SuperLeaveEvent(QMdiArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnLeaveEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_LeaveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1271,8 @@ void QMdiArea_SuperMoveEvent(QMdiArea* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMoveEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_MoveEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1299,8 @@ void QMdiArea_SuperCloseEvent(QMdiArea* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnCloseEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_CloseEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1327,8 @@ void QMdiArea_SuperTabletEvent(QMdiArea* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnTabletEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_TabletEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1355,8 @@ void QMdiArea_SuperActionEvent(QMdiArea* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnActionEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ActionEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1383,8 @@ void QMdiArea_SuperHideEvent(QMdiArea* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnHideEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_HideEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1413,8 @@ bool QMdiArea_SuperNativeEvent(QMdiArea* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnNativeEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_NativeEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1441,8 @@ int QMdiArea_SuperMetric(const QMdiArea* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnMetric(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Metric_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1469,8 @@ void QMdiArea_SuperInitPainter(const QMdiArea* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnInitPainter(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_InitPainter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1497,8 @@ QPaintDevice* QMdiArea_SuperRedirected(const QMdiArea* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnRedirected(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Redirected_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1525,8 @@ QPainter* QMdiArea_SuperSharedPainter(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSharedPainter(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SharedPainter_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1553,8 @@ void QMdiArea_SuperInputMethodEvent(QMdiArea* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnInputMethodEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_InputMethodEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1581,8 @@ QVariant* QMdiArea_SuperInputMethodQuery(const QMdiArea* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnInputMethodQuery(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_InputMethodQuery_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1609,8 @@ bool QMdiArea_SuperFocusNextPrevChild(QMdiArea* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusNextPrevChild(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1637,8 @@ void QMdiArea_SuperCustomEvent(QMdiArea* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnCustomEvent(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_CustomEvent_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1665,8 @@ void QMdiArea_SuperConnectNotify(QMdiArea* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnConnectNotify(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ConnectNotify_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1693,8 @@ void QMdiArea_SuperDisconnectNotify(QMdiArea* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDisconnectNotify(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DisconnectNotify_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1721,8 @@ void QMdiArea_SuperSetViewportMargins(QMdiArea* self, int left, int top, int rig
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSetViewportMargins(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SetViewportMargins_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1747,8 @@ QMargins* QMdiArea_SuperViewportMargins(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnViewportMargins(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_ViewportMargins_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1775,8 @@ void QMdiArea_SuperDrawFrame(QMdiArea* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDrawFrame(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_DrawFrame_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1803,8 @@ void QMdiArea_SuperUpdateMicroFocus(QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnUpdateMicroFocus(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1831,8 @@ void QMdiArea_SuperCreate(QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnCreate(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Create_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1859,8 @@ void QMdiArea_SuperDestroy(QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnDestroy(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Destroy_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1887,8 @@ bool QMdiArea_SuperFocusNextChild(QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusNextChild(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_FocusNextChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1977,9 +1915,8 @@ bool QMdiArea_SuperFocusPreviousChild(QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnFocusPreviousChild(QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2006,9 +1943,8 @@ QObject* QMdiArea_SuperSender(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSender(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Sender_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2035,9 +1971,8 @@ int QMdiArea_SuperSenderSignalIndex(const QMdiArea* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnSenderSignalIndex(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2064,9 +1999,8 @@ int QMdiArea_SuperReceivers(const QMdiArea* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnReceivers(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_Receivers_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2093,9 +2027,8 @@ bool QMdiArea_SuperIsSignalConnected(const QMdiArea* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnIsSignalConnected(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_IsSignalConnected_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2122,9 +2055,8 @@ double QMdiArea_SuperGetDecodedMetricF(const QMdiArea* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QMdiArea_OnGetDecodedMetricF(const QMdiArea* self, intptr_t slot) {
     auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea)
         vqmdiarea->setQMdiArea_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QMdiArea_Delete(QMdiArea* self) {

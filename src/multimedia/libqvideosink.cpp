@@ -121,9 +121,8 @@ QMetaObject* QVideoSink_SuperMetaObject(const QVideoSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnMetaObject(const QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_MetaObject_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +139,8 @@ void* QVideoSink_SuperMetacast(QVideoSink* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnMetacast(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_Metacast_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +157,8 @@ int QVideoSink_SuperMetacall(QVideoSink* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnMetacall(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_Metacall_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +185,8 @@ bool QVideoSink_SuperEvent(QVideoSink* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnEvent(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_Event_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +213,8 @@ bool QVideoSink_SuperEventFilter(QVideoSink* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnEventFilter(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_EventFilter_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +241,8 @@ void QVideoSink_SuperTimerEvent(QVideoSink* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnTimerEvent(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_TimerEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +269,8 @@ void QVideoSink_SuperChildEvent(QVideoSink* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnChildEvent(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_ChildEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +297,8 @@ void QVideoSink_SuperCustomEvent(QVideoSink* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnCustomEvent(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_CustomEvent_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +325,8 @@ void QVideoSink_SuperConnectNotify(QVideoSink* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnConnectNotify(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_ConnectNotify_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +353,8 @@ void QVideoSink_SuperDisconnectNotify(QVideoSink* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnDisconnectNotify(QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_DisconnectNotify_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +381,8 @@ QObject* QVideoSink_SuperSender(const QVideoSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnSender(const QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_Sender_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +409,8 @@ int QVideoSink_SuperSenderSignalIndex(const QVideoSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnSenderSignalIndex(const QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +437,8 @@ int QVideoSink_SuperReceivers(const QVideoSink* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnReceivers(const QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_Receivers_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +465,8 @@ bool QVideoSink_SuperIsSignalConnected(const QVideoSink* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QVideoSink_OnIsSignalConnected(const QVideoSink* self, intptr_t slot) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink)
         vqvideosink->setQVideoSink_IsSignalConnected_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVideoSink_Delete(QVideoSink* self) {

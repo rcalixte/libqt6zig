@@ -108,9 +108,8 @@ QMetaObject* QNmeaPositionInfoSource_SuperMetaObject(const QNmeaPositionInfoSour
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnMetaObject(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +126,8 @@ void* QNmeaPositionInfoSource_SuperMetacast(QNmeaPositionInfoSource* self, const
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnMetacast(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Metacast_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +144,8 @@ int QNmeaPositionInfoSource_SuperMetacall(QNmeaPositionInfoSource* self, int par
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnMetacall(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Metacall_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +162,8 @@ void QNmeaPositionInfoSource_SuperSetUpdateInterval(QNmeaPositionInfoSource* sel
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSetUpdateInterval(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetUpdateInterval_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SetUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +180,8 @@ QGeoPositionInfo* QNmeaPositionInfoSource_SuperLastKnownPosition(const QNmeaPosi
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnLastKnownPosition(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_LastKnownPosition_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_LastKnownPosition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +198,8 @@ int QNmeaPositionInfoSource_SuperSupportedPositioningMethods(const QNmeaPosition
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSupportedPositioningMethods(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SupportedPositioningMethods_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SupportedPositioningMethods_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +216,8 @@ int QNmeaPositionInfoSource_SuperMinimumUpdateInterval(const QNmeaPositionInfoSo
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnMinimumUpdateInterval(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_MinimumUpdateInterval_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_MinimumUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +234,8 @@ int QNmeaPositionInfoSource_SuperError(const QNmeaPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnError(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Error_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Error_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +252,8 @@ void QNmeaPositionInfoSource_SuperStartUpdates(QNmeaPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnStartUpdates(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_StartUpdates_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_StartUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +270,8 @@ void QNmeaPositionInfoSource_SuperStopUpdates(QNmeaPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnStopUpdates(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_StopUpdates_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_StopUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +288,8 @@ void QNmeaPositionInfoSource_SuperRequestUpdate(QNmeaPositionInfoSource* self, i
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnRequestUpdate(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_RequestUpdate_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_RequestUpdate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +306,8 @@ bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData(QNmeaPositionInfoSour
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ParsePosInfoFromNmeaData_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_ParsePosInfoFromNmeaData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -346,9 +334,8 @@ void QNmeaPositionInfoSource_SuperSetPreferredPositioningMethods(QNmeaPositionIn
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSetPreferredPositioningMethods(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetPreferredPositioningMethods_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SetPreferredPositioningMethods_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +364,8 @@ bool QNmeaPositionInfoSource_SuperSetBackendProperty(QNmeaPositionInfoSource* se
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSetBackendProperty(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetBackendProperty_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SetBackendProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +394,8 @@ QVariant* QNmeaPositionInfoSource_SuperBackendProperty(const QNmeaPositionInfoSo
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnBackendProperty(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_BackendProperty_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_BackendProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +422,8 @@ bool QNmeaPositionInfoSource_SuperEvent(QNmeaPositionInfoSource* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnEvent(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Event_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +450,8 @@ bool QNmeaPositionInfoSource_SuperEventFilter(QNmeaPositionInfoSource* self, QOb
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnEventFilter(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_EventFilter_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +478,8 @@ void QNmeaPositionInfoSource_SuperTimerEvent(QNmeaPositionInfoSource* self, QTim
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnTimerEvent(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_TimerEvent_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +506,8 @@ void QNmeaPositionInfoSource_SuperChildEvent(QNmeaPositionInfoSource* self, QChi
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnChildEvent(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ChildEvent_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +534,8 @@ void QNmeaPositionInfoSource_SuperCustomEvent(QNmeaPositionInfoSource* self, QEv
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnCustomEvent(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_CustomEvent_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +562,8 @@ void QNmeaPositionInfoSource_SuperConnectNotify(QNmeaPositionInfoSource* self, c
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnConnectNotify(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ConnectNotify_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +590,8 @@ void QNmeaPositionInfoSource_SuperDisconnectNotify(QNmeaPositionInfoSource* self
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnDisconnectNotify(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +620,8 @@ bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(QNmeaPositionInfoSou
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ParsePosInfoFromNmeaData2_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +648,8 @@ void QNmeaPositionInfoSource_SuperSetError(QNmeaPositionInfoSource* self, int po
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSetError(QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetError_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +676,8 @@ QObject* QNmeaPositionInfoSource_SuperSender(const QNmeaPositionInfoSource* self
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSender(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Sender_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +704,8 @@ int QNmeaPositionInfoSource_SuperSenderSignalIndex(const QNmeaPositionInfoSource
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnSenderSignalIndex(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +732,8 @@ int QNmeaPositionInfoSource_SuperReceivers(const QNmeaPositionInfoSource* self, 
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnReceivers(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Receivers_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +760,8 @@ bool QNmeaPositionInfoSource_SuperIsSignalConnected(const QNmeaPositionInfoSourc
 // Auxiliary method to allow providing re-implementation
 void QNmeaPositionInfoSource_OnIsSignalConnected(const QNmeaPositionInfoSource* self, intptr_t slot) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
+    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource)
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQNmeaPositionInfoSource::QNmeaPositionInfoSource_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QNmeaPositionInfoSource_Delete(QNmeaPositionInfoSource* self) {

@@ -72,9 +72,8 @@ QMetaObject* TextGrammarCheck__LanguageToolConfigDialog_SuperMetaObject(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetaObject(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* TextGrammarCheck__LanguageToolConfigDialog_SuperMetacast(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetacast(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperMetacall(TextGrammarCheck__L
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetacall(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -139,9 +136,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperSetVisible(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnSetVisible(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -168,9 +164,8 @@ QSize* TextGrammarCheck__LanguageToolConfigDialog_SuperSizeHint(const TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnSizeHint(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -197,9 +192,8 @@ QSize* TextGrammarCheck__LanguageToolConfigDialog_SuperMinimumSizeHint(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMinimumSizeHint(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +220,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperOpen(TextGrammarCheck__Lang
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnOpen(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Open_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +248,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperExec(TextGrammarCheck__Langu
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnExec(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Exec_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDone(TextGrammarCheck__Lang
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDone(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Done_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperAccept(TextGrammarCheck__La
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnAccept(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Accept_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +332,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperReject(TextGrammarCheck__La
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnReject(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Reject_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +360,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperKeyPressEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnKeyPressEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +388,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperCloseEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnCloseEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +416,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperShowEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnShowEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +444,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperResizeEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnResizeEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +472,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperContextMenuEvent(TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnContextMenuEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +500,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperEventFilter(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnEventFilter(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +528,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperDevType(const TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDevType(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +556,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperHeightForWidth(const TextGra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnHeightForWidth(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +584,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperHasHeightForWidth(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnHasHeightForWidth(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +612,8 @@ QPaintEngine* TextGrammarCheck__LanguageToolConfigDialog_SuperPaintEngine(const 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnPaintEngine(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +640,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperEvent(TextGrammarCheck__Lan
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +668,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperMousePressEvent(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMousePressEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +696,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperMouseReleaseEvent(TextGramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMouseReleaseEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +724,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperMouseDoubleClickEvent(TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMouseDoubleClickEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +752,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperMouseMoveEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMouseMoveEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +780,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperWheelEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnWheelEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +808,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperKeyReleaseEvent(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnKeyReleaseEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +836,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperFocusInEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnFocusInEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +864,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperFocusOutEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnFocusOutEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +892,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperEnterEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnEnterEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +920,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperLeaveEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnLeaveEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +948,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperPaintEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnPaintEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +976,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperMoveEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMoveEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1004,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperTabletEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnTabletEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1032,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperActionEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnActionEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1060,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDragEnterEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDragEnterEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1088,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDragMoveEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDragMoveEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1116,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDragLeaveEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDragLeaveEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1144,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDropEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDropEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1172,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperHideEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnHideEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1202,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperNativeEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnNativeEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1230,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperChangeEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnChangeEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1258,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperMetric(const TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetric(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1286,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperInitPainter(const TextGramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnInitPainter(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1314,8 @@ QPaintDevice* TextGrammarCheck__LanguageToolConfigDialog_SuperRedirected(const T
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnRedirected(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1342,8 @@ QPainter* TextGrammarCheck__LanguageToolConfigDialog_SuperSharedPainter(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnSharedPainter(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1370,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperInputMethodEvent(TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnInputMethodEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1398,8 @@ QVariant* TextGrammarCheck__LanguageToolConfigDialog_SuperInputMethodQuery(const
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnInputMethodQuery(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1426,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperFocusNextPrevChild(TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnFocusNextPrevChild(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1454,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperTimerEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnTimerEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1482,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperChildEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnChildEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1510,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperCustomEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnCustomEvent(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1538,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperConnectNotify(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnConnectNotify(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1566,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDisconnectNotify(TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDisconnectNotify(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1594,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperAdjustPosition(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnAdjustPosition(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_AdjustPosition_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1622,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperUpdateMicroFocus(TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnUpdateMicroFocus(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1650,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperCreate(TextGrammarCheck__La
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnCreate(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1678,8 @@ void TextGrammarCheck__LanguageToolConfigDialog_SuperDestroy(TextGrammarCheck__L
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnDestroy(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1706,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperFocusNextChild(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnFocusNextChild(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1734,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperFocusPreviousChild(TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnFocusPreviousChild(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1762,8 @@ QObject* TextGrammarCheck__LanguageToolConfigDialog_SuperSender(const TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnSender(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1790,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperSenderSignalIndex(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnSenderSignalIndex(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1818,8 @@ int TextGrammarCheck__LanguageToolConfigDialog_SuperReceivers(const TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnReceivers(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1846,8 @@ bool TextGrammarCheck__LanguageToolConfigDialog_SuperIsSignalConnected(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnIsSignalConnected(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1874,8 @@ double TextGrammarCheck__LanguageToolConfigDialog_SuperGetDecodedMetricF(const T
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolConfigDialog_OnGetDecodedMetricF(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot) {
     auto* vtextgrammarchecklanguagetoolconfigdialog = const_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self));
-    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
+    if (vtextgrammarchecklanguagetoolconfigdialog && vtextgrammarchecklanguagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog)
         vtextgrammarchecklanguagetoolconfigdialog->setTextGrammarCheck__LanguageToolConfigDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolConfigDialog::TextGrammarCheck__LanguageToolConfigDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__LanguageToolConfigDialog_Delete(TextGrammarCheck__LanguageToolConfigDialog* self) {

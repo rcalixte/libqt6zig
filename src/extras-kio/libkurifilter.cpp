@@ -118,9 +118,8 @@ libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvid
 // Auxiliary method to allow providing re-implementation
 void KUriFilterSearchProvider_OnIconName(const KUriFilterSearchProvider* self, intptr_t slot) {
     auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self));
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
+    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
         vkurifiltersearchprovider->setKUriFilterSearchProvider_IconName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_IconName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -149,9 +148,8 @@ void KUriFilterSearchProvider_SuperSetDesktopEntryName(KUriFilterSearchProvider*
 // Auxiliary method to allow providing re-implementation
 void KUriFilterSearchProvider_OnSetDesktopEntryName(KUriFilterSearchProvider* self, intptr_t slot) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
+    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
         vkurifiltersearchprovider->setKUriFilterSearchProvider_SetDesktopEntryName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetDesktopEntryName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +178,8 @@ void KUriFilterSearchProvider_SuperSetIconName(KUriFilterSearchProvider* self, c
 // Auxiliary method to allow providing re-implementation
 void KUriFilterSearchProvider_OnSetIconName(KUriFilterSearchProvider* self, intptr_t slot) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
+    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
         vkurifiltersearchprovider->setKUriFilterSearchProvider_SetIconName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetIconName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +220,8 @@ void KUriFilterSearchProvider_SuperSetKeys(KUriFilterSearchProvider* self, const
 // Auxiliary method to allow providing re-implementation
 void KUriFilterSearchProvider_OnSetKeys(KUriFilterSearchProvider* self, intptr_t slot) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
+    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
         vkurifiltersearchprovider->setKUriFilterSearchProvider_SetKeys_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetKeys_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +250,8 @@ void KUriFilterSearchProvider_SuperSetName(KUriFilterSearchProvider* self, const
 // Auxiliary method to allow providing re-implementation
 void KUriFilterSearchProvider_OnSetName(KUriFilterSearchProvider* self, intptr_t slot) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
-    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
+    if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider)
         vkurifiltersearchprovider->setKUriFilterSearchProvider_SetName_Callback(reinterpret_cast<VirtualKUriFilterSearchProvider::KUriFilterSearchProvider_SetName_Callback>(slot));
-    }
 }
 
 void KUriFilterSearchProvider_Delete(KUriFilterSearchProvider* self) {

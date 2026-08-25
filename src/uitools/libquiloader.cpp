@@ -189,9 +189,8 @@ QMetaObject* QUiLoader_SuperMetaObject(const QUiLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnMetaObject(const QUiLoader* self, intptr_t slot) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_MetaObject_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +207,8 @@ void* QUiLoader_SuperMetacast(QUiLoader* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnMetacast(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_Metacast_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +225,8 @@ int QUiLoader_SuperMetacall(QUiLoader* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnMetacall(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_Metacall_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +245,8 @@ QWidget* QUiLoader_SuperCreateWidget(QUiLoader* self, const libqt_string classNa
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateWidget(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_CreateWidget_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -269,9 +265,8 @@ QLayout* QUiLoader_SuperCreateLayout(QUiLoader* self, const libqt_string classNa
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateLayout(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_CreateLayout_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -289,9 +284,8 @@ QActionGroup* QUiLoader_SuperCreateActionGroup(QUiLoader* self, QObject* parent,
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateActionGroup(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_CreateActionGroup_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateActionGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +303,8 @@ QAction* QUiLoader_SuperCreateAction(QUiLoader* self, QObject* parent, const lib
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateAction(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_CreateAction_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +331,8 @@ bool QUiLoader_SuperEvent(QUiLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnEvent(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_Event_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +359,8 @@ bool QUiLoader_SuperEventFilter(QUiLoader* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnEventFilter(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_EventFilter_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +387,8 @@ void QUiLoader_SuperTimerEvent(QUiLoader* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnTimerEvent(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_TimerEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +415,8 @@ void QUiLoader_SuperChildEvent(QUiLoader* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnChildEvent(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_ChildEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +443,8 @@ void QUiLoader_SuperCustomEvent(QUiLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCustomEvent(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_CustomEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +471,8 @@ void QUiLoader_SuperConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnConnectNotify(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_ConnectNotify_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +499,8 @@ void QUiLoader_SuperDisconnectNotify(QUiLoader* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnDisconnectNotify(QUiLoader* self, intptr_t slot) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +527,8 @@ QObject* QUiLoader_SuperSender(const QUiLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnSender(const QUiLoader* self, intptr_t slot) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_Sender_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +555,8 @@ int QUiLoader_SuperSenderSignalIndex(const QUiLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnSenderSignalIndex(const QUiLoader* self, intptr_t slot) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +583,8 @@ int QUiLoader_SuperReceivers(const QUiLoader* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnReceivers(const QUiLoader* self, intptr_t slot) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_Receivers_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +611,8 @@ bool QUiLoader_SuperIsSignalConnected(const QUiLoader* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnIsSignalConnected(const QUiLoader* self, intptr_t slot) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader && vquiloader->isVirtualQUiLoader)
         vquiloader->setQUiLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QUiLoader_Delete(QUiLoader* self) {

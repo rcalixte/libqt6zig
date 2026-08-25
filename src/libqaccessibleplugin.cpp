@@ -50,9 +50,8 @@ QMetaObject* QAccessiblePlugin_SuperMetaObject(const QAccessiblePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnMetaObject(const QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_MetaObject_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QAccessiblePlugin_SuperMetacast(QAccessiblePlugin* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnMetacast(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Metacast_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QAccessiblePlugin_SuperMetacall(QAccessiblePlugin* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Metacall_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -108,9 +105,8 @@ QAccessibleInterface* QAccessiblePlugin_SuperCreate(QAccessiblePlugin* self, con
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnCreate(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Create_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -137,9 +133,8 @@ bool QAccessiblePlugin_SuperEvent(QAccessiblePlugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnEvent(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Event_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -166,9 +161,8 @@ bool QAccessiblePlugin_SuperEventFilter(QAccessiblePlugin* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnEventFilter(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_EventFilter_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -195,9 +189,8 @@ void QAccessiblePlugin_SuperTimerEvent(QAccessiblePlugin* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnTimerEvent(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_TimerEvent_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +217,8 @@ void QAccessiblePlugin_SuperChildEvent(QAccessiblePlugin* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnChildEvent(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_ChildEvent_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +245,8 @@ void QAccessiblePlugin_SuperCustomEvent(QAccessiblePlugin* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnCustomEvent(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_CustomEvent_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +273,8 @@ void QAccessiblePlugin_SuperConnectNotify(QAccessiblePlugin* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnConnectNotify(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +301,8 @@ void QAccessiblePlugin_SuperDisconnectNotify(QAccessiblePlugin* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnDisconnectNotify(QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +329,8 @@ QObject* QAccessiblePlugin_SuperSender(const QAccessiblePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnSender(const QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Sender_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +357,8 @@ int QAccessiblePlugin_SuperSenderSignalIndex(const QAccessiblePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnSenderSignalIndex(const QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +385,8 @@ int QAccessiblePlugin_SuperReceivers(const QAccessiblePlugin* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnReceivers(const QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_Receivers_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +413,8 @@ bool QAccessiblePlugin_SuperIsSignalConnected(const QAccessiblePlugin* self, con
 // Auxiliary method to allow providing re-implementation
 void QAccessiblePlugin_OnIsSignalConnected(const QAccessiblePlugin* self, intptr_t slot) {
     auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin)
         vqaccessibleplugin->setQAccessiblePlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAccessiblePlugin_Delete(QAccessiblePlugin* self) {

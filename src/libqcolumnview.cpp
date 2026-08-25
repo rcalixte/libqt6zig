@@ -253,9 +253,8 @@ QMetaObject* QColumnView_SuperMetaObject(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMetaObject(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MetaObject_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -272,9 +271,8 @@ void* QColumnView_SuperMetacast(QColumnView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMetacast(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Metacast_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +289,8 @@ int QColumnView_SuperMetacall(QColumnView* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMetacall(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Metacall_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +307,8 @@ QModelIndex* QColumnView_SuperIndexAt(const QColumnView* self, const QPoint* poi
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnIndexAt(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_IndexAt_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_IndexAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -329,9 +325,8 @@ void QColumnView_SuperScrollTo(QColumnView* self, const QModelIndex* index, int 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnScrollTo(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ScrollTo_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -348,9 +343,8 @@ QSize* QColumnView_SuperSizeHint(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSizeHint(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SizeHint_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -367,9 +361,8 @@ QRect* QColumnView_SuperVisualRect(const QColumnView* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnVisualRect(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_VisualRect_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -386,9 +379,8 @@ void QColumnView_SuperSetModel(QColumnView* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetModel(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetModel_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -405,9 +397,8 @@ void QColumnView_SuperSetSelectionModel(QColumnView* self, QItemSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetSelectionModel(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetSelectionModel_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -424,9 +415,8 @@ void QColumnView_SuperSetRootIndex(QColumnView* self, const QModelIndex* index) 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetRootIndex(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetRootIndex_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +433,8 @@ void QColumnView_SuperSelectAll(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSelectAll(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SelectAll_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SelectAll_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +451,8 @@ bool QColumnView_SuperIsIndexHidden(const QColumnView* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnIsIndexHidden(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_IsIndexHidden_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -480,9 +468,8 @@ QModelIndex* QColumnView_SuperMoveCursor(QColumnView* self, int cursorAction, in
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMoveCursor(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MoveCursor_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -499,9 +486,8 @@ void QColumnView_SuperResizeEvent(QColumnView* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnResizeEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ResizeEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -518,9 +504,8 @@ void QColumnView_SuperSetSelection(QColumnView* self, const QRect* rect, int com
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetSelection(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetSelection_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -536,9 +521,8 @@ QRegion* QColumnView_SuperVisualRegionForSelection(const QColumnView* self, cons
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnVisualRegionForSelection(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -555,9 +539,8 @@ int QColumnView_SuperHorizontalOffset(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHorizontalOffset(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HorizontalOffset_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -574,9 +557,8 @@ int QColumnView_SuperVerticalOffset(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnVerticalOffset(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_VerticalOffset_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -593,9 +575,8 @@ void QColumnView_SuperRowsInserted(QColumnView* self, const QModelIndex* parent,
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnRowsInserted(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_RowsInserted_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -612,9 +593,8 @@ void QColumnView_SuperCurrentChanged(QColumnView* self, const QModelIndex* curre
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCurrentChanged(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CurrentChanged_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -631,9 +611,8 @@ void QColumnView_SuperScrollContentsBy(QColumnView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnScrollContentsBy(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -650,9 +629,8 @@ QAbstractItemView* QColumnView_SuperCreateColumn(QColumnView* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCreateColumn(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CreateColumn_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CreateColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +659,8 @@ void QColumnView_SuperKeyboardSearch(QColumnView* self, const libqt_string searc
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnKeyboardSearch(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_KeyboardSearch_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +687,8 @@ int QColumnView_SuperSizeHintForRow(const QColumnView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSizeHintForRow(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SizeHintForRow_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +715,8 @@ int QColumnView_SuperSizeHintForColumn(const QColumnView* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSizeHintForColumn(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +743,8 @@ QAbstractItemDelegate* QColumnView_SuperItemDelegateForIndex(const QColumnView* 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnItemDelegateForIndex(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +771,8 @@ QVariant* QColumnView_SuperInputMethodQuery(const QColumnView* self, int query) 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInputMethodQuery(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InputMethodQuery_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +799,8 @@ void QColumnView_SuperReset(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnReset(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Reset_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +827,8 @@ void QColumnView_SuperDoItemsLayout(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDoItemsLayout(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DoItemsLayout_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +867,8 @@ void QColumnView_SuperDataChanged(QColumnView* self, const QModelIndex* topLeft,
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDataChanged(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DataChanged_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +895,8 @@ void QColumnView_SuperRowsAboutToBeRemoved(QColumnView* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnRowsAboutToBeRemoved(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +923,8 @@ void QColumnView_SuperSelectionChanged(QColumnView* self, const QItemSelection* 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSelectionChanged(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SelectionChanged_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +951,8 @@ void QColumnView_SuperUpdateEditorData(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnUpdateEditorData(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_UpdateEditorData_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +979,8 @@ void QColumnView_SuperUpdateEditorGeometries(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnUpdateEditorGeometries(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1007,8 @@ void QColumnView_SuperUpdateGeometries(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnUpdateGeometries(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_UpdateGeometries_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1035,8 @@ void QColumnView_SuperVerticalScrollbarAction(QColumnView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnVerticalScrollbarAction(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1063,8 @@ void QColumnView_SuperHorizontalScrollbarAction(QColumnView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHorizontalScrollbarAction(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1091,8 @@ void QColumnView_SuperVerticalScrollbarValueChanged(QColumnView* self, int value
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnVerticalScrollbarValueChanged(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1119,8 @@ void QColumnView_SuperHorizontalScrollbarValueChanged(QColumnView* self, int val
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHorizontalScrollbarValueChanged(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1147,8 @@ void QColumnView_SuperCloseEditor(QColumnView* self, QWidget* editor, int hint) 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCloseEditor(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CloseEditor_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1175,8 @@ void QColumnView_SuperCommitData(QColumnView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCommitData(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CommitData_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1203,8 @@ void QColumnView_SuperEditorDestroyed(QColumnView* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnEditorDestroyed(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_EditorDestroyed_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1267,8 @@ libqt_list /* of QModelIndex* */ QColumnView_SuperSelectedIndexes(const QColumnV
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSelectedIndexes(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SelectedIndexes_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1295,8 @@ bool QColumnView_SuperEdit2(QColumnView* self, const QModelIndex* index, int tri
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnEdit2(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Edit2_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1323,8 @@ int QColumnView_SuperSelectionCommand(const QColumnView* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSelectionCommand(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SelectionCommand_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1351,8 @@ void QColumnView_SuperStartDrag(QColumnView* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnStartDrag(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_StartDrag_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1379,8 @@ void QColumnView_SuperInitViewItemOption(const QColumnView* self, QStyleOptionVi
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInitViewItemOption(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InitViewItemOption_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1407,8 @@ bool QColumnView_SuperFocusNextPrevChild(QColumnView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnFocusNextPrevChild(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1435,8 @@ bool QColumnView_SuperEvent(QColumnView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Event_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1463,8 @@ bool QColumnView_SuperViewportEvent(QColumnView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnViewportEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ViewportEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1491,8 @@ void QColumnView_SuperMousePressEvent(QColumnView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMousePressEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MousePressEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1519,8 @@ void QColumnView_SuperMouseMoveEvent(QColumnView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMouseMoveEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1547,8 @@ void QColumnView_SuperMouseReleaseEvent(QColumnView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMouseReleaseEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1575,8 @@ void QColumnView_SuperMouseDoubleClickEvent(QColumnView* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMouseDoubleClickEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1603,8 @@ void QColumnView_SuperDragEnterEvent(QColumnView* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDragEnterEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DragEnterEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1631,8 @@ void QColumnView_SuperDragMoveEvent(QColumnView* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDragMoveEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DragMoveEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1659,8 @@ void QColumnView_SuperDragLeaveEvent(QColumnView* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDragLeaveEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1687,8 @@ void QColumnView_SuperDropEvent(QColumnView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDropEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DropEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1715,8 @@ void QColumnView_SuperFocusInEvent(QColumnView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnFocusInEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_FocusInEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1743,8 @@ void QColumnView_SuperFocusOutEvent(QColumnView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnFocusOutEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_FocusOutEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1771,8 @@ void QColumnView_SuperKeyPressEvent(QColumnView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnKeyPressEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_KeyPressEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1799,8 @@ void QColumnView_SuperTimerEvent(QColumnView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnTimerEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_TimerEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1827,8 @@ void QColumnView_SuperInputMethodEvent(QColumnView* self, QInputMethodEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInputMethodEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InputMethodEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1855,8 @@ bool QColumnView_SuperEventFilter(QColumnView* self, QObject* object, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnEventFilter(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_EventFilter_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1945,9 +1881,8 @@ QSize* QColumnView_SuperViewportSizeHint(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnViewportSizeHint(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1974,9 +1909,8 @@ QSize* QColumnView_SuperMinimumSizeHint(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMinimumSizeHint(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2003,9 +1937,8 @@ void QColumnView_SuperSetupViewport(QColumnView* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetupViewport(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetupViewport_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2032,9 +1965,8 @@ void QColumnView_SuperPaintEvent(QColumnView* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnPaintEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_PaintEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2061,9 +1993,8 @@ void QColumnView_SuperWheelEvent(QColumnView* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnWheelEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_WheelEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2090,9 +2021,8 @@ void QColumnView_SuperContextMenuEvent(QColumnView* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnContextMenuEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2119,9 +2049,8 @@ void QColumnView_SuperChangeEvent(QColumnView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnChangeEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ChangeEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2148,9 +2077,8 @@ void QColumnView_SuperInitStyleOption(const QColumnView* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInitStyleOption(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InitStyleOption_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2177,9 +2105,8 @@ int QColumnView_SuperDevType(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDevType(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DevType_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2206,9 +2133,8 @@ void QColumnView_SuperSetVisible(QColumnView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetVisible(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetVisible_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2235,9 +2161,8 @@ int QColumnView_SuperHeightForWidth(const QColumnView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHeightForWidth(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HeightForWidth_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2264,9 +2189,8 @@ bool QColumnView_SuperHasHeightForWidth(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHasHeightForWidth(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2293,9 +2217,8 @@ QPaintEngine* QColumnView_SuperPaintEngine(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnPaintEngine(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_PaintEngine_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2322,9 +2245,8 @@ void QColumnView_SuperKeyReleaseEvent(QColumnView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnKeyReleaseEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2351,9 +2273,8 @@ void QColumnView_SuperEnterEvent(QColumnView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnEnterEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_EnterEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2380,9 +2301,8 @@ void QColumnView_SuperLeaveEvent(QColumnView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnLeaveEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_LeaveEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2409,9 +2329,8 @@ void QColumnView_SuperMoveEvent(QColumnView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMoveEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_MoveEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2438,9 +2357,8 @@ void QColumnView_SuperCloseEvent(QColumnView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCloseEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CloseEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2467,9 +2385,8 @@ void QColumnView_SuperTabletEvent(QColumnView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnTabletEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_TabletEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2496,9 +2413,8 @@ void QColumnView_SuperActionEvent(QColumnView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnActionEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ActionEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2525,9 +2441,8 @@ void QColumnView_SuperShowEvent(QColumnView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnShowEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ShowEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2554,9 +2469,8 @@ void QColumnView_SuperHideEvent(QColumnView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnHideEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_HideEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2585,9 +2499,8 @@ bool QColumnView_SuperNativeEvent(QColumnView* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnNativeEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_NativeEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2614,9 +2527,8 @@ int QColumnView_SuperMetric(const QColumnView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnMetric(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Metric_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2643,9 +2555,8 @@ void QColumnView_SuperInitPainter(const QColumnView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInitPainter(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InitPainter_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2672,9 +2583,8 @@ QPaintDevice* QColumnView_SuperRedirected(const QColumnView* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnRedirected(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Redirected_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2701,9 +2611,8 @@ QPainter* QColumnView_SuperSharedPainter(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSharedPainter(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SharedPainter_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2730,9 +2639,8 @@ void QColumnView_SuperChildEvent(QColumnView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnChildEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ChildEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2759,9 +2667,8 @@ void QColumnView_SuperCustomEvent(QColumnView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCustomEvent(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_CustomEvent_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2788,9 +2695,8 @@ void QColumnView_SuperConnectNotify(QColumnView* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnConnectNotify(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ConnectNotify_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2817,9 +2723,8 @@ void QColumnView_SuperDisconnectNotify(QColumnView* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDisconnectNotify(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DisconnectNotify_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2846,9 +2751,8 @@ void QColumnView_SuperInitializeColumn(const QColumnView* self, QAbstractItemVie
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnInitializeColumn(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_InitializeColumn_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_InitializeColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2875,9 +2779,8 @@ int QColumnView_SuperState(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnState(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_State_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2904,9 +2807,8 @@ void QColumnView_SuperSetState(QColumnView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetState(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetState_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2933,9 +2835,8 @@ void QColumnView_SuperScheduleDelayedItemsLayout(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnScheduleDelayedItemsLayout(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2962,9 +2863,8 @@ void QColumnView_SuperExecuteDelayedItemsLayout(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnExecuteDelayedItemsLayout(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2991,9 +2891,8 @@ void QColumnView_SuperSetDirtyRegion(QColumnView* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetDirtyRegion(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3020,9 +2919,8 @@ void QColumnView_SuperScrollDirtyRegion(QColumnView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnScrollDirtyRegion(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3047,9 +2945,8 @@ QPoint* QColumnView_SuperDirtyRegionOffset(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDirtyRegionOffset(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3076,9 +2973,8 @@ void QColumnView_SuperStartAutoScroll(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnStartAutoScroll(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_StartAutoScroll_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3105,9 +3001,8 @@ void QColumnView_SuperStopAutoScroll(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnStopAutoScroll(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_StopAutoScroll_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3134,9 +3029,8 @@ void QColumnView_SuperDoAutoScroll(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDoAutoScroll(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DoAutoScroll_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3163,9 +3057,8 @@ int QColumnView_SuperDropIndicatorPosition(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDropIndicatorPosition(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3192,9 +3085,8 @@ void QColumnView_SuperSetViewportMargins(QColumnView* self, int left, int top, i
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSetViewportMargins(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SetViewportMargins_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3219,9 +3111,8 @@ QMargins* QColumnView_SuperViewportMargins(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnViewportMargins(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_ViewportMargins_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3248,9 +3139,8 @@ void QColumnView_SuperDrawFrame(QColumnView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDrawFrame(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_DrawFrame_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3277,9 +3167,8 @@ void QColumnView_SuperUpdateMicroFocus(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnUpdateMicroFocus(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3306,9 +3195,8 @@ void QColumnView_SuperCreate(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnCreate(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Create_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3335,9 +3223,8 @@ void QColumnView_SuperDestroy(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnDestroy(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Destroy_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3364,9 +3251,8 @@ bool QColumnView_SuperFocusNextChild(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnFocusNextChild(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_FocusNextChild_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3393,9 +3279,8 @@ bool QColumnView_SuperFocusPreviousChild(QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnFocusPreviousChild(QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3422,9 +3307,8 @@ QObject* QColumnView_SuperSender(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSender(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Sender_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3451,9 +3335,8 @@ int QColumnView_SuperSenderSignalIndex(const QColumnView* self) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnSenderSignalIndex(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3480,9 +3363,8 @@ int QColumnView_SuperReceivers(const QColumnView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnReceivers(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_Receivers_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3509,9 +3391,8 @@ bool QColumnView_SuperIsSignalConnected(const QColumnView* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnIsSignalConnected(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_IsSignalConnected_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3538,9 +3419,8 @@ double QColumnView_SuperGetDecodedMetricF(const QColumnView* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QColumnView_OnGetDecodedMetricF(const QColumnView* self, intptr_t slot) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView)
         vqcolumnview->setQColumnView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QColumnView_Delete(QColumnView* self) {

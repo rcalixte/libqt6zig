@@ -46,7 +46,7 @@ pub const KTextToHTML = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ktexttohtml.html#public-types)
 pub const enums = struct {
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const PreserveSpaces: i32 = 2;
         pub const ReplaceSmileys: i32 = 4;
         pub const IgnoreUrls: i32 = 8;

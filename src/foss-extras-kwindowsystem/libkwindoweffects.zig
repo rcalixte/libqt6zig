@@ -96,13 +96,13 @@ pub const KWindowEffects = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#public-types)
 pub const enums = struct {
-    pub const Effect = enum(i32) {
+    pub const Effect = enum {
         pub const Slide: i32 = 1;
         pub const BlurBehind: i32 = 7;
         pub const BackgroundContrast: i32 = 9;
     };
 
-    pub const SlideFromLocation = enum(i32) {
+    pub const SlideFromLocation = enum {
         pub const NoEdge: i32 = 0;
         pub const TopEdge: i32 = 1;
         pub const RightEdge: i32 = 2;

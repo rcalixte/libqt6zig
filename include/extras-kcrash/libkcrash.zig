@@ -271,7 +271,7 @@ pub const KCrash = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcrash.html#public-types)
 pub const enums = struct {
-    pub const CrashFlag = enum(i32) {
+    pub const CrashFlag = enum {
         pub const KeepFDs: i32 = 1;
         pub const SaferDialog: i32 = 2;
         pub const AlwaysDirectly: i32 = 4;

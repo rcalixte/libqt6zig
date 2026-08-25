@@ -2173,7 +2173,7 @@ pub const Solid__Battery = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-battery.html#public-types)
 pub const enums = struct {
-    pub const BatteryType = enum(i32) {
+    pub const BatteryType = enum {
         pub const UnknownBattery: i32 = 0;
         pub const PdaBattery: i32 = 1;
         pub const UpsBattery: i32 = 2;
@@ -2192,14 +2192,14 @@ pub const enums = struct {
         pub const TouchpadBattery: i32 = 15;
     };
 
-    pub const ChargeState = enum(i32) {
+    pub const ChargeState = enum {
         pub const NoCharge: i32 = 0;
         pub const Charging: i32 = 1;
         pub const Discharging: i32 = 2;
         pub const FullyCharged: i32 = 3;
     };
 
-    pub const Technology = enum(i32) {
+    pub const Technology = enum {
         pub const UnknownTechnology: i32 = 0;
         pub const LithiumIon: i32 = 1;
         pub const LithiumPolymer: i32 = 2;

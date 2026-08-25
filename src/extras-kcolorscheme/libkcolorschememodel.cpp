@@ -64,9 +64,8 @@ QMetaObject* KColorSchemeModel_SuperMetaObject(const KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMetaObject(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MetaObject_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -83,9 +82,8 @@ void* KColorSchemeModel_SuperMetacast(KColorSchemeModel* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMetacast(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Metacast_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +100,8 @@ int KColorSchemeModel_SuperMetacall(KColorSchemeModel* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMetacall(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Metacall_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +118,8 @@ QVariant* KColorSchemeModel_SuperData(const KColorSchemeModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Data_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +136,8 @@ int KColorSchemeModel_SuperRowCount(const KColorSchemeModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnRowCount(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_RowCount_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +164,8 @@ QModelIndex* KColorSchemeModel_SuperIndex(const KColorSchemeModel* self, int row
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnIndex(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Index_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +192,8 @@ QModelIndex* KColorSchemeModel_SuperSibling(const KColorSchemeModel* self, int r
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSibling(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Sibling_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +220,8 @@ bool KColorSchemeModel_SuperDropMimeData(KColorSchemeModel* self, const QMimeDat
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnDropMimeData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_DropMimeData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +248,8 @@ int KColorSchemeModel_SuperFlags(const KColorSchemeModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnFlags(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Flags_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +276,8 @@ bool KColorSchemeModel_SuperSetData(KColorSchemeModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSetData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SetData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +304,8 @@ QVariant* KColorSchemeModel_SuperHeaderData(const KColorSchemeModel* self, int s
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnHeaderData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_HeaderData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +332,8 @@ bool KColorSchemeModel_SuperSetHeaderData(KColorSchemeModel* self, int section, 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSetHeaderData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SetHeaderData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +416,8 @@ libqt_map /* of int to QVariant* */ KColorSchemeModel_SuperItemData(const KColor
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnItemData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ItemData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +456,8 @@ bool KColorSchemeModel_SuperSetItemData(KColorSchemeModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSetItemData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SetItemData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +484,8 @@ bool KColorSchemeModel_SuperClearItemData(KColorSchemeModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnClearItemData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ClearItemData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +580,8 @@ libqt_list /* of libqt_string */ KColorSchemeModel_SuperMimeTypes(const KColorSc
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMimeTypes(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MimeTypes_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +620,8 @@ QMimeData* KColorSchemeModel_SuperMimeData(const KColorSchemeModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMimeData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MimeData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +648,8 @@ bool KColorSchemeModel_SuperCanDropMimeData(const KColorSchemeModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnCanDropMimeData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +676,8 @@ int KColorSchemeModel_SuperSupportedDropActions(const KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSupportedDropActions(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +704,8 @@ int KColorSchemeModel_SuperSupportedDragActions(const KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSupportedDragActions(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +732,8 @@ bool KColorSchemeModel_SuperInsertRows(KColorSchemeModel* self, int row, int cou
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnInsertRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_InsertRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +760,8 @@ bool KColorSchemeModel_SuperInsertColumns(KColorSchemeModel* self, int column, i
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnInsertColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_InsertColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +788,8 @@ bool KColorSchemeModel_SuperRemoveRows(KColorSchemeModel* self, int row, int cou
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnRemoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_RemoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +816,8 @@ bool KColorSchemeModel_SuperRemoveColumns(KColorSchemeModel* self, int column, i
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnRemoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_RemoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +844,8 @@ bool KColorSchemeModel_SuperMoveRows(KColorSchemeModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +872,8 @@ bool KColorSchemeModel_SuperMoveColumns(KColorSchemeModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +900,8 @@ void KColorSchemeModel_SuperFetchMore(KColorSchemeModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnFetchMore(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_FetchMore_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +928,8 @@ bool KColorSchemeModel_SuperCanFetchMore(const KColorSchemeModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnCanFetchMore(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_CanFetchMore_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +956,8 @@ void KColorSchemeModel_SuperSort(KColorSchemeModel* self, int column, int order)
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSort(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Sort_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1013,9 +984,8 @@ QModelIndex* KColorSchemeModel_SuperBuddy(const KColorSchemeModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBuddy(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Buddy_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1048,8 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_SuperMatch(const KColorScheme
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMatch(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Match_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1076,8 @@ QSize* KColorSchemeModel_SuperSpan(const KColorSchemeModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSpan(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Span_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1180,8 @@ libqt_map /* of int to libqt_string */ KColorSchemeModel_SuperRoleNames(const KC
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnRoleNames(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_RoleNames_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1208,8 @@ void KColorSchemeModel_SuperMultiData(const KColorSchemeModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnMultiData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_MultiData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1236,8 @@ bool KColorSchemeModel_SuperSubmit(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSubmit(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Submit_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1264,8 @@ void KColorSchemeModel_SuperRevert(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnRevert(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Revert_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1292,8 @@ void KColorSchemeModel_SuperResetInternalData(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnResetInternalData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ResetInternalData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1320,8 @@ bool KColorSchemeModel_SuperEvent(KColorSchemeModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEvent(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Event_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1348,8 @@ bool KColorSchemeModel_SuperEventFilter(KColorSchemeModel* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEventFilter(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EventFilter_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1376,8 @@ void KColorSchemeModel_SuperTimerEvent(KColorSchemeModel* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnTimerEvent(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_TimerEvent_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1404,8 @@ void KColorSchemeModel_SuperChildEvent(KColorSchemeModel* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnChildEvent(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ChildEvent_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1432,8 @@ void KColorSchemeModel_SuperCustomEvent(KColorSchemeModel* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnCustomEvent(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_CustomEvent_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1460,8 @@ void KColorSchemeModel_SuperConnectNotify(KColorSchemeModel* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnConnectNotify(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ConnectNotify_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1488,8 @@ void KColorSchemeModel_SuperDisconnectNotify(KColorSchemeModel* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnDisconnectNotify(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1558,9 +1514,8 @@ QModelIndex* KColorSchemeModel_SuperCreateIndex(const KColorSchemeModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnCreateIndex(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_CreateIndex_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1554,8 @@ void KColorSchemeModel_SuperEncodeData(const KColorSchemeModel* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEncodeData(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EncodeData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1582,8 @@ bool KColorSchemeModel_SuperDecodeData(KColorSchemeModel* self, int row, int col
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnDecodeData(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_DecodeData_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1610,8 @@ void KColorSchemeModel_SuperBeginInsertRows(KColorSchemeModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginInsertRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1638,8 @@ void KColorSchemeModel_SuperEndInsertRows(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndInsertRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndInsertRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1666,8 @@ void KColorSchemeModel_SuperBeginRemoveRows(KColorSchemeModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginRemoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1694,8 @@ void KColorSchemeModel_SuperEndRemoveRows(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndRemoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1722,8 @@ bool KColorSchemeModel_SuperBeginMoveRows(KColorSchemeModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginMoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1750,8 @@ void KColorSchemeModel_SuperEndMoveRows(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndMoveRows(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndMoveRows_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1778,8 @@ void KColorSchemeModel_SuperBeginInsertColumns(KColorSchemeModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginInsertColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1806,8 @@ void KColorSchemeModel_SuperEndInsertColumns(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndInsertColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1834,8 @@ void KColorSchemeModel_SuperBeginRemoveColumns(KColorSchemeModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginRemoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1862,8 @@ void KColorSchemeModel_SuperEndRemoveColumns(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndRemoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1890,8 @@ bool KColorSchemeModel_SuperBeginMoveColumns(KColorSchemeModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginMoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1918,8 @@ void KColorSchemeModel_SuperEndMoveColumns(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndMoveColumns(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2005,9 +1946,8 @@ void KColorSchemeModel_SuperBeginResetModel(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnBeginResetModel(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_BeginResetModel_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2034,9 +1974,8 @@ void KColorSchemeModel_SuperEndResetModel(KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnEndResetModel(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_EndResetModel_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2063,9 +2002,8 @@ void KColorSchemeModel_SuperChangePersistentIndex(KColorSchemeModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnChangePersistentIndex(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2054,8 @@ void KColorSchemeModel_SuperChangePersistentIndexList(KColorSchemeModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnChangePersistentIndexList(KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2181,9 +2118,8 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_SuperPersistentIndexList(cons
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnPersistentIndexList(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2210,9 +2146,8 @@ QObject* KColorSchemeModel_SuperSender(const KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSender(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Sender_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2239,9 +2174,8 @@ int KColorSchemeModel_SuperSenderSignalIndex(const KColorSchemeModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnSenderSignalIndex(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2268,9 +2202,8 @@ int KColorSchemeModel_SuperReceivers(const KColorSchemeModel* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnReceivers(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_Receivers_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2297,9 +2230,8 @@ bool KColorSchemeModel_SuperIsSignalConnected(const KColorSchemeModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KColorSchemeModel_OnIsSignalConnected(const KColorSchemeModel* self, intptr_t slot) {
     auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel)
         vkcolorschememodel->setKColorSchemeModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KColorSchemeModel_Delete(KColorSchemeModel* self) {

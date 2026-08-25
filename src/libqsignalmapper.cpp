@@ -127,9 +127,8 @@ QMetaObject* QSignalMapper_SuperMetaObject(const QSignalMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnMetaObject(const QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_MetaObject_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* QSignalMapper_SuperMetacast(QSignalMapper* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnMetacast(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_Metacast_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int QSignalMapper_SuperMetacall(QSignalMapper* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnMetacall(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_Metacall_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +191,8 @@ bool QSignalMapper_SuperEvent(QSignalMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnEvent(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_Event_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +219,8 @@ bool QSignalMapper_SuperEventFilter(QSignalMapper* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnEventFilter(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_EventFilter_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +247,8 @@ void QSignalMapper_SuperTimerEvent(QSignalMapper* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnTimerEvent(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_TimerEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +275,8 @@ void QSignalMapper_SuperChildEvent(QSignalMapper* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnChildEvent(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_ChildEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +303,8 @@ void QSignalMapper_SuperCustomEvent(QSignalMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnCustomEvent(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_CustomEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +331,8 @@ void QSignalMapper_SuperConnectNotify(QSignalMapper* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnConnectNotify(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +359,8 @@ void QSignalMapper_SuperDisconnectNotify(QSignalMapper* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnDisconnectNotify(QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +387,8 @@ QObject* QSignalMapper_SuperSender(const QSignalMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnSender(const QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_Sender_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +415,8 @@ int QSignalMapper_SuperSenderSignalIndex(const QSignalMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnSenderSignalIndex(const QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ int QSignalMapper_SuperReceivers(const QSignalMapper* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnReceivers(const QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_Receivers_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ bool QSignalMapper_SuperIsSignalConnected(const QSignalMapper* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnIsSignalConnected(const QSignalMapper* self, intptr_t slot) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
         vqsignalmapper->setQSignalMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSignalMapper_Delete(QSignalMapper* self) {

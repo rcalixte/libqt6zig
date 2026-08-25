@@ -1778,12 +1778,12 @@ pub const NET = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/netwm-def.html#public-types)
 pub const enums = struct {
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const Client: i32 = 0;
         pub const WindowManager: i32 = 1;
     };
 
-    pub const WindowType = enum(i32) {
+    pub const WindowType = enum {
         pub const Unknown: i32 = -1;
         pub const Normal: i32 = 0;
         pub const Desktop: i32 = 1;
@@ -1806,7 +1806,7 @@ pub const enums = struct {
         pub const AppletPopup: i32 = 18;
     };
 
-    pub const WindowTypeMask = enum(i32) {
+    pub const WindowTypeMask = enum {
         pub const NormalMask: i32 = 1;
         pub const DesktopMask: i32 = 2;
         pub const DockMask: i32 = 4;
@@ -1829,7 +1829,7 @@ pub const enums = struct {
         pub const AllTypesMask: i32 = -1;
     };
 
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Modal: i32 = 1;
         pub const Sticky: i32 = 2;
         pub const MaxVert: i32 = 4;
@@ -1847,7 +1847,7 @@ pub const enums = struct {
         pub const Focused: i32 = 8192;
     };
 
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const TopLeft: i32 = 0;
         pub const Top: i32 = 1;
         pub const TopRight: i32 = 2;
@@ -1862,13 +1862,13 @@ pub const enums = struct {
         pub const MoveResizeCancel: i32 = 11;
     };
 
-    pub const MappingState = enum(i32) {
+    pub const MappingState = enum {
         pub const Visible: i32 = 1;
         pub const Withdrawn: i32 = 0;
         pub const Iconic: i32 = 3;
     };
 
-    pub const Action = enum(i32) {
+    pub const Action = enum {
         pub const ActionMove: i32 = 1;
         pub const ActionResize: i32 = 2;
         pub const ActionMinimize: i32 = 4;
@@ -1882,7 +1882,7 @@ pub const enums = struct {
         pub const ActionClose: i32 = 512;
     };
 
-    pub const Property = enum(i32) {
+    pub const Property = enum {
         pub const Supported: i32 = 1;
         pub const ClientList: i32 = 2;
         pub const ClientListStacking: i32 = 4;
@@ -1916,7 +1916,7 @@ pub const enums = struct {
         pub const WMAllProperties: i32 = -1;
     };
 
-    pub const Property2 = enum(i32) {
+    pub const Property2 = enum {
         pub const WM2UserTime: i32 = 1;
         pub const WM2StartupId: i32 = 2;
         pub const WM2TransientFor: i32 = 4;
@@ -1953,29 +1953,29 @@ pub const enums = struct {
         pub const WM2AllProperties: i32 = -1;
     };
 
-    pub const NET = enum(i32) {
+    pub const NET = enum {
         pub const OnAllDesktops: i32 = -1;
     };
 
-    pub const RequestSource = enum(i32) {
+    pub const RequestSource = enum {
         pub const FromUnknown: i32 = 0;
         pub const FromApplication: i32 = 1;
         pub const FromTool: i32 = 2;
     };
 
-    pub const Orientation = enum(i32) {
+    pub const Orientation = enum {
         pub const OrientationHorizontal: i32 = 0;
         pub const OrientationVertical: i32 = 1;
     };
 
-    pub const DesktopLayoutCorner = enum(i32) {
+    pub const DesktopLayoutCorner = enum {
         pub const DesktopLayoutCornerTopLeft: i32 = 0;
         pub const DesktopLayoutCornerTopRight: i32 = 1;
         pub const DesktopLayoutCornerBottomLeft: i32 = 2;
         pub const DesktopLayoutCornerBottomRight: i32 = 3;
     };
 
-    pub const Protocol = enum(i32) {
+    pub const Protocol = enum {
         pub const NoProtocol: i32 = 0;
         pub const TakeFocusProtocol: i32 = 1;
         pub const DeleteWindowProtocol: i32 = 2;

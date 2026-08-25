@@ -4515,7 +4515,7 @@ pub const QsciLexerTeX = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerTeX = enum(i32) {
+    pub const QsciLexerTeX = enum {
         pub const Default: i32 = 0;
         pub const Special: i32 = 1;
         pub const Group: i32 = 2;

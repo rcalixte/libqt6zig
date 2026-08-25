@@ -10448,7 +10448,7 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
 
 /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const NotSpecified: i32 = 0;
         pub const Link: i32 = 1;
         pub const Marker: i32 = 2;

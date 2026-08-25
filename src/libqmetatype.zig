@@ -1166,7 +1166,7 @@ pub const QMetaType = extern struct {
 pub const enums = struct {
     pub const QCborSimpleType = enum(u8) { _ };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Bool: i32 = 1;
         pub const Int: i32 = 2;
         pub const UInt: i32 = 3;
@@ -1261,7 +1261,7 @@ pub const enums = struct {
         pub const User: i32 = 65536;
     };
 
-    pub const TypeFlag = enum(i32) {
+    pub const TypeFlag = enum {
         pub const NeedsConstruction: i32 = 1;
         pub const NeedsDestruction: i32 = 2;
         pub const RelocatableType: i32 = 4;

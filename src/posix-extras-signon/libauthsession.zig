@@ -1561,7 +1561,7 @@ pub const SignOn__AuthSession = extern struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Authsession.html)
 pub const enums = struct {
-    pub const AuthSessionError = enum(i32) {
+    pub const AuthSessionError = enum {
         pub const UnknownError: i32 = 1;
         pub const InternalServerError: i32 = 2;
         pub const InternalCommunicationError: i32 = 3;
@@ -1581,7 +1581,7 @@ pub const enums = struct {
         pub const UserInteractionError: i32 = 312;
     };
 
-    pub const AuthSessionState = enum(i32) {
+    pub const AuthSessionState = enum {
         pub const SessionNotStarted: i32 = 0;
         pub const HostResolving: i32 = 1;
         pub const ServerConnecting: i32 = 2;

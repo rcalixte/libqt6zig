@@ -4615,7 +4615,7 @@ pub const QsciLexerPO = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerPO = enum(i32) {
+    pub const QsciLexerPO = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const MessageId: i32 = 2;

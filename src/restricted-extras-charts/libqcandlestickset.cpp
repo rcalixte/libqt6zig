@@ -251,9 +251,8 @@ QMetaObject* QCandlestickSet_SuperMetaObject(const QCandlestickSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnMetaObject(const QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_MetaObject_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -270,9 +269,8 @@ void* QCandlestickSet_SuperMetacast(QCandlestickSet* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnMetacast(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_Metacast_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -289,9 +287,8 @@ int QCandlestickSet_SuperMetacall(QCandlestickSet* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnMetacall(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_Metacall_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +315,8 @@ bool QCandlestickSet_SuperEvent(QCandlestickSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnEvent(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_Event_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +343,8 @@ bool QCandlestickSet_SuperEventFilter(QCandlestickSet* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnEventFilter(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_EventFilter_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +371,8 @@ void QCandlestickSet_SuperTimerEvent(QCandlestickSet* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnTimerEvent(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_TimerEvent_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +399,8 @@ void QCandlestickSet_SuperChildEvent(QCandlestickSet* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnChildEvent(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_ChildEvent_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +427,8 @@ void QCandlestickSet_SuperCustomEvent(QCandlestickSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnCustomEvent(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_CustomEvent_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +455,8 @@ void QCandlestickSet_SuperConnectNotify(QCandlestickSet* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnConnectNotify(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_ConnectNotify_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +483,8 @@ void QCandlestickSet_SuperDisconnectNotify(QCandlestickSet* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnDisconnectNotify(QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_DisconnectNotify_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +511,8 @@ QObject* QCandlestickSet_SuperSender(const QCandlestickSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnSender(const QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_Sender_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +539,8 @@ int QCandlestickSet_SuperSenderSignalIndex(const QCandlestickSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnSenderSignalIndex(const QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +567,8 @@ int QCandlestickSet_SuperReceivers(const QCandlestickSet* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnReceivers(const QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_Receivers_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +595,8 @@ bool QCandlestickSet_SuperIsSignalConnected(const QCandlestickSet* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QCandlestickSet_OnIsSignalConnected(const QCandlestickSet* self, intptr_t slot) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
+    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet)
         vqcandlestickset->setQCandlestickSet_IsSignalConnected_Callback(reinterpret_cast<VirtualQCandlestickSet::QCandlestickSet_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QCandlestickSet_Delete(QCandlestickSet* self) {

@@ -45,7 +45,7 @@ pub const QSqlResult = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlresult.html#public-types)
 pub const enums = struct {
-    pub const BindingSyntax = enum(i32) {
+    pub const BindingSyntax = enum {
         pub const PositionalBinding: i32 = 0;
         pub const NamedBinding: i32 = 1;
     };

@@ -1862,7 +1862,7 @@ pub const QSignalBlocker = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#public-types)
 pub const enums = struct {
-    pub const QObjectData = enum(i32) {
+    pub const QObjectData = enum {
         pub const CheckForParentChildLoopsWarnDepth: i32 = 4096;
     };
 };

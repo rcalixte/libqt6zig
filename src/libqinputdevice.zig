@@ -2282,7 +2282,7 @@ pub const QInputDevice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdevice.html#public-types)
 pub const enums = struct {
-    pub const DeviceType = enum(i32) {
+    pub const DeviceType = enum {
         pub const Unknown: i32 = 0;
         pub const Mouse: i32 = 1;
         pub const TouchScreen: i32 = 2;
@@ -2294,7 +2294,7 @@ pub const enums = struct {
         pub const AllDevices: i32 = 2147483647;
     };
 
-    pub const Capability = enum(i32) {
+    pub const Capability = enum {
         pub const None: i32 = 0;
         pub const Position: i32 = 1;
         pub const Area: i32 = 2;

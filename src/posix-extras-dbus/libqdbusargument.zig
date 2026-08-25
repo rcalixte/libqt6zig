@@ -1009,7 +1009,7 @@ pub const QDBusArgument = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusargument.html#public-types)
 pub const enums = struct {
-    pub const ElementType = enum(i32) {
+    pub const ElementType = enum {
         pub const BasicType: i32 = 0;
         pub const VariantType: i32 = 1;
         pub const ArrayType: i32 = 2;

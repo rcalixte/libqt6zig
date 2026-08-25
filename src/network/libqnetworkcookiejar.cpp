@@ -90,9 +90,8 @@ QMetaObject* QNetworkCookieJar_SuperMetaObject(const QNetworkCookieJar* self) {
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnMetaObject(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_MetaObject_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +108,8 @@ void* QNetworkCookieJar_SuperMetacast(QNetworkCookieJar* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnMetacast(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_Metacast_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +126,8 @@ int QNetworkCookieJar_SuperMetacall(QNetworkCookieJar* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnMetacall(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_Metacall_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +162,8 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_SuperCookiesForUrl(const Q
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnCookiesForUrl(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_CookiesForUrl_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_CookiesForUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +186,8 @@ bool QNetworkCookieJar_SuperSetCookiesFromUrl(QNetworkCookieJar* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnSetCookiesFromUrl(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_SetCookiesFromUrl_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_SetCookiesFromUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +204,8 @@ bool QNetworkCookieJar_SuperInsertCookie(QNetworkCookieJar* self, const QNetwork
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnInsertCookie(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_InsertCookie_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_InsertCookie_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +222,8 @@ bool QNetworkCookieJar_SuperUpdateCookie(QNetworkCookieJar* self, const QNetwork
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnUpdateCookie(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_UpdateCookie_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_UpdateCookie_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +240,8 @@ bool QNetworkCookieJar_SuperDeleteCookie(QNetworkCookieJar* self, const QNetwork
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnDeleteCookie(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_DeleteCookie_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_DeleteCookie_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +258,8 @@ bool QNetworkCookieJar_SuperValidateCookie(const QNetworkCookieJar* self, const 
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnValidateCookie(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_ValidateCookie_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_ValidateCookie_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +286,8 @@ bool QNetworkCookieJar_SuperEvent(QNetworkCookieJar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnEvent(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_Event_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +314,8 @@ bool QNetworkCookieJar_SuperEventFilter(QNetworkCookieJar* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnEventFilter(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_EventFilter_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +342,8 @@ void QNetworkCookieJar_SuperTimerEvent(QNetworkCookieJar* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnTimerEvent(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_TimerEvent_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +370,8 @@ void QNetworkCookieJar_SuperChildEvent(QNetworkCookieJar* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnChildEvent(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_ChildEvent_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +398,8 @@ void QNetworkCookieJar_SuperCustomEvent(QNetworkCookieJar* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnCustomEvent(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_CustomEvent_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +426,8 @@ void QNetworkCookieJar_SuperConnectNotify(QNetworkCookieJar* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnConnectNotify(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_ConnectNotify_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +454,8 @@ void QNetworkCookieJar_SuperDisconnectNotify(QNetworkCookieJar* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnDisconnectNotify(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_DisconnectNotify_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +518,8 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_SuperAllCookies(const QNet
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnAllCookies(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_AllCookies_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_AllCookies_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +558,8 @@ void QNetworkCookieJar_SuperSetAllCookies(QNetworkCookieJar* self, const libqt_l
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnSetAllCookies(QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_SetAllCookies_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_SetAllCookies_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +586,8 @@ QObject* QNetworkCookieJar_SuperSender(const QNetworkCookieJar* self) {
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnSender(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_Sender_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +614,8 @@ int QNetworkCookieJar_SuperSenderSignalIndex(const QNetworkCookieJar* self) {
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnSenderSignalIndex(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +642,8 @@ int QNetworkCookieJar_SuperReceivers(const QNetworkCookieJar* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnReceivers(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_Receivers_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +670,8 @@ bool QNetworkCookieJar_SuperIsSignalConnected(const QNetworkCookieJar* self, con
 // Auxiliary method to allow providing re-implementation
 void QNetworkCookieJar_OnIsSignalConnected(const QNetworkCookieJar* self, intptr_t slot) {
     auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar)
         vqnetworkcookiejar->setQNetworkCookieJar_IsSignalConnected_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QNetworkCookieJar_Delete(QNetworkCookieJar* self) {

@@ -194,9 +194,8 @@ void KIO__FileUndoManager__UiInterface_SuperJobError(KIO__FileUndoManager__UiInt
 // Auxiliary method to allow providing re-implementation
 void KIO__FileUndoManager__UiInterface_OnJobError(KIO__FileUndoManager__UiInterface* self, intptr_t slot) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
+    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface)
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_JobError_Callback(reinterpret_cast<VirtualKIOFileUndoManagerUiInterface::KIO__FileUndoManager__UiInterface_JobError_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +212,8 @@ bool KIO__FileUndoManager__UiInterface_SuperCopiedFileWasModified(KIO__FileUndoM
 // Auxiliary method to allow providing re-implementation
 void KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, intptr_t slot) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
+    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface)
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_CopiedFileWasModified_Callback(reinterpret_cast<VirtualKIOFileUndoManagerUiInterface::KIO__FileUndoManager__UiInterface_CopiedFileWasModified_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +230,8 @@ void KIO__FileUndoManager__UiInterface_SuperVirtualHook(KIO__FileUndoManager__Ui
 // Auxiliary method to allow providing re-implementation
 void KIO__FileUndoManager__UiInterface_OnVirtualHook(KIO__FileUndoManager__UiInterface* self, intptr_t slot) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
+    if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface)
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_VirtualHook_Callback(reinterpret_cast<VirtualKIOFileUndoManagerUiInterface::KIO__FileUndoManager__UiInterface_VirtualHook_Callback>(slot));
-    }
 }
 
 void KIO__FileUndoManager__UiInterface_Delete(KIO__FileUndoManager__UiInterface* self) {

@@ -2337,7 +2337,7 @@ pub const QBluetoothServiceDiscoveryAgent = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothservicediscoveryagent.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const InputOutputError: i32 = 1;
         pub const PoweredOffError: i32 = 2;
@@ -2346,7 +2346,7 @@ pub const enums = struct {
         pub const UnknownError: i32 = 100;
     };
 
-    pub const DiscoveryMode = enum(i32) {
+    pub const DiscoveryMode = enum {
         pub const MinimalDiscovery: i32 = 0;
         pub const FullDiscovery: i32 = 1;
     };

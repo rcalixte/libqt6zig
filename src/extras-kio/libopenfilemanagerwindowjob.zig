@@ -3791,7 +3791,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-openfilemanagerwindowjob.html#public-types)
 pub const enums = struct {
-    pub const Errors = enum(i32) {
+    pub const Errors = enum {
         pub const NoValidUrlsError: i32 = 100;
         pub const LaunchFailedError: i32 = 101;
     };

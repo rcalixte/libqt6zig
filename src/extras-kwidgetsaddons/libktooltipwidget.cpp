@@ -132,9 +132,8 @@ QMetaObject* KToolTipWidget_SuperMetaObject(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMetaObject(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MetaObject_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +150,8 @@ void* KToolTipWidget_SuperMetacast(KToolTipWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMetacast(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Metacast_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +168,8 @@ int KToolTipWidget_SuperMetacall(KToolTipWidget* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMetacall(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Metacall_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +186,8 @@ void KToolTipWidget_SuperEnterEvent(KToolTipWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnEnterEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_EnterEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +204,8 @@ void KToolTipWidget_SuperHideEvent(KToolTipWidget* self, QHideEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnHideEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_HideEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +222,8 @@ void KToolTipWidget_SuperLeaveEvent(KToolTipWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnLeaveEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +240,8 @@ void KToolTipWidget_SuperPaintEvent(KToolTipWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnPaintEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_PaintEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ int KToolTipWidget_SuperDevType(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDevType(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DevType_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ void KToolTipWidget_SuperSetVisible(KToolTipWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnSetVisible(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_SetVisible_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ QSize* KToolTipWidget_SuperSizeHint(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnSizeHint(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_SizeHint_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ QSize* KToolTipWidget_SuperMinimumSizeHint(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMinimumSizeHint(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ int KToolTipWidget_SuperHeightForWidth(const KToolTipWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnHeightForWidth(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ bool KToolTipWidget_SuperHasHeightForWidth(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnHasHeightForWidth(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ QPaintEngine* KToolTipWidget_SuperPaintEngine(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnPaintEngine(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_PaintEngine_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ bool KToolTipWidget_SuperEvent(KToolTipWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Event_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ void KToolTipWidget_SuperMousePressEvent(KToolTipWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMousePressEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ void KToolTipWidget_SuperMouseReleaseEvent(KToolTipWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMouseReleaseEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ void KToolTipWidget_SuperMouseDoubleClickEvent(KToolTipWidget* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMouseDoubleClickEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ void KToolTipWidget_SuperMouseMoveEvent(KToolTipWidget* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMouseMoveEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ void KToolTipWidget_SuperWheelEvent(KToolTipWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnWheelEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_WheelEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ void KToolTipWidget_SuperKeyPressEvent(KToolTipWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnKeyPressEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ void KToolTipWidget_SuperKeyReleaseEvent(KToolTipWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnKeyReleaseEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ void KToolTipWidget_SuperFocusInEvent(KToolTipWidget* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnFocusInEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ void KToolTipWidget_SuperFocusOutEvent(KToolTipWidget* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnFocusOutEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ void KToolTipWidget_SuperMoveEvent(KToolTipWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMoveEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_MoveEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +772,8 @@ void KToolTipWidget_SuperResizeEvent(KToolTipWidget* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnResizeEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +800,8 @@ void KToolTipWidget_SuperCloseEvent(KToolTipWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnCloseEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_CloseEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +828,8 @@ void KToolTipWidget_SuperContextMenuEvent(KToolTipWidget* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnContextMenuEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +856,8 @@ void KToolTipWidget_SuperTabletEvent(KToolTipWidget* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnTabletEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_TabletEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +884,8 @@ void KToolTipWidget_SuperActionEvent(KToolTipWidget* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnActionEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ActionEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ void KToolTipWidget_SuperDragEnterEvent(KToolTipWidget* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDragEnterEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ void KToolTipWidget_SuperDragMoveEvent(KToolTipWidget* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDragMoveEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ void KToolTipWidget_SuperDragLeaveEvent(KToolTipWidget* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDragLeaveEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +996,8 @@ void KToolTipWidget_SuperDropEvent(KToolTipWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDropEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DropEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1024,8 @@ void KToolTipWidget_SuperShowEvent(KToolTipWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnShowEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ShowEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1054,8 @@ bool KToolTipWidget_SuperNativeEvent(KToolTipWidget* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnNativeEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_NativeEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1082,8 @@ void KToolTipWidget_SuperChangeEvent(KToolTipWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnChangeEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1110,8 @@ int KToolTipWidget_SuperMetric(const KToolTipWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnMetric(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Metric_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1138,8 @@ void KToolTipWidget_SuperInitPainter(const KToolTipWidget* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnInitPainter(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_InitPainter_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1166,8 @@ QPaintDevice* KToolTipWidget_SuperRedirected(const KToolTipWidget* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnRedirected(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Redirected_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1194,8 @@ QPainter* KToolTipWidget_SuperSharedPainter(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnSharedPainter(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_SharedPainter_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1222,8 @@ void KToolTipWidget_SuperInputMethodEvent(KToolTipWidget* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnInputMethodEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1250,8 @@ QVariant* KToolTipWidget_SuperInputMethodQuery(const KToolTipWidget* self, int p
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnInputMethodQuery(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1278,8 @@ bool KToolTipWidget_SuperFocusNextPrevChild(KToolTipWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnFocusNextPrevChild(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1306,8 @@ bool KToolTipWidget_SuperEventFilter(KToolTipWidget* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnEventFilter(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_EventFilter_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1334,8 @@ void KToolTipWidget_SuperTimerEvent(KToolTipWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnTimerEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_TimerEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1362,8 @@ void KToolTipWidget_SuperChildEvent(KToolTipWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnChildEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ChildEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1390,8 @@ void KToolTipWidget_SuperCustomEvent(KToolTipWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnCustomEvent(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_CustomEvent_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1418,8 @@ void KToolTipWidget_SuperConnectNotify(KToolTipWidget* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnConnectNotify(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1446,8 @@ void KToolTipWidget_SuperDisconnectNotify(KToolTipWidget* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDisconnectNotify(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1474,8 @@ void KToolTipWidget_SuperUpdateMicroFocus(KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnUpdateMicroFocus(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1502,8 @@ void KToolTipWidget_SuperCreate(KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnCreate(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Create_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1530,8 @@ void KToolTipWidget_SuperDestroy(KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnDestroy(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Destroy_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1558,8 @@ bool KToolTipWidget_SuperFocusNextChild(KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnFocusNextChild(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1586,8 @@ bool KToolTipWidget_SuperFocusPreviousChild(KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnFocusPreviousChild(KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1614,8 @@ QObject* KToolTipWidget_SuperSender(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnSender(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Sender_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1642,8 @@ int KToolTipWidget_SuperSenderSignalIndex(const KToolTipWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnSenderSignalIndex(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1670,8 @@ int KToolTipWidget_SuperReceivers(const KToolTipWidget* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnReceivers(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_Receivers_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1698,8 @@ bool KToolTipWidget_SuperIsSignalConnected(const KToolTipWidget* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnIsSignalConnected(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1726,8 @@ double KToolTipWidget_SuperGetDecodedMetricF(const KToolTipWidget* self, int met
 // Auxiliary method to allow providing re-implementation
 void KToolTipWidget_OnGetDecodedMetricF(const KToolTipWidget* self, intptr_t slot) {
     auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget)
         vktooltipwidget->setKToolTipWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KToolTipWidget_Delete(KToolTipWidget* self) {

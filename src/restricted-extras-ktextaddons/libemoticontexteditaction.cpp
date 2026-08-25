@@ -74,9 +74,8 @@ QMetaObject* TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetaObject(const 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetaObject(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_MetaObject_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +92,8 @@ void* TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetacast(TextEmoticonsWi
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetacast(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_Metacast_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +110,8 @@ int TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetacall(TextEmoticonsWidg
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetacall(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_Metacall_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -141,9 +138,8 @@ QWidget* TextEmoticonsWidgets__EmoticonTextEditAction_SuperCreateWidget(TextEmot
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnCreateWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_CreateWidget_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -170,9 +166,8 @@ bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperEvent(TextEmoticonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_Event_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -199,9 +194,8 @@ bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperEventFilter(TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnEventFilter(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_EventFilter_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +222,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperDeleteWidget(TextEmoticon
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnDeleteWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_DeleteWidget_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +250,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperTimerEvent(TextEmoticonsW
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnTimerEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_TimerEvent_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +278,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperChildEvent(TextEmoticonsW
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnChildEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_ChildEvent_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +306,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperCustomEvent(TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnCustomEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_CustomEvent_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +334,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperConnectNotify(TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnConnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_ConnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +362,8 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_SuperDisconnectNotify(TextEmot
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnDisconnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +426,8 @@ libqt_list /* of QWidget* */ TextEmoticonsWidgets__EmoticonTextEditAction_SuperC
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnCreatedWidgets(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_CreatedWidgets_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +454,8 @@ QObject* TextEmoticonsWidgets__EmoticonTextEditAction_SuperSender(const TextEmot
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnSender(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_Sender_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +482,8 @@ int TextEmoticonsWidgets__EmoticonTextEditAction_SuperSenderSignalIndex(const Te
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnSenderSignalIndex(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +510,8 @@ int TextEmoticonsWidgets__EmoticonTextEditAction_SuperReceivers(const TextEmotic
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnReceivers(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_Receivers_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +538,8 @@ bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperIsSignalConnected(const T
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsWidgets__EmoticonTextEditAction_OnIsSignalConnected(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     auto* vtextemoticonswidgetsemoticontexteditaction = const_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self));
-    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
+    if (vtextemoticonswidgetsemoticontexteditaction && vtextemoticonswidgetsemoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction)
         vtextemoticonswidgetsemoticontexteditaction->setTextEmoticonsWidgets__EmoticonTextEditAction_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction::TextEmoticonsWidgets__EmoticonTextEditAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextEmoticonsWidgets__EmoticonTextEditAction_Delete(TextEmoticonsWidgets__EmoticonTextEditAction* self) {

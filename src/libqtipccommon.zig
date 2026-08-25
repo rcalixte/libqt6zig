@@ -299,7 +299,7 @@ pub const QNativeIpcKey = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtipccommon.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(u16) {
+    pub const Type = enum {
         pub const SystemV: u16 = 81;
         pub const PosixRealtime: u16 = 256;
         pub const Windows: u16 = 257;

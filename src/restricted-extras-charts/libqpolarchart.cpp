@@ -125,9 +125,8 @@ QMetaObject* QPolarChart_SuperMetaObject(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMetaObject(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MetaObject_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +143,8 @@ void* QPolarChart_SuperMetacast(QPolarChart* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMetacast(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Metacast_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +161,8 @@ int QPolarChart_SuperMetacall(QPolarChart* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMetacall(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Metacall_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -192,9 +189,8 @@ void QPolarChart_SuperSetGeometry(QPolarChart* self, const QRectF* rect) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetGeometry(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SetGeometry_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -221,9 +217,8 @@ void QPolarChart_SuperGetContentsMargins(const QPolarChart* self, double* left, 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnGetContentsMargins(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_GetContentsMargins_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GetContentsMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -250,9 +245,8 @@ int QPolarChart_SuperType(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnType(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Type_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -279,9 +273,8 @@ void QPolarChart_SuperPaint(QPolarChart* self, QPainter* painter, const QStyleOp
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPaint(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Paint_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Paint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +301,8 @@ void QPolarChart_SuperPaintWindowFrame(QPolarChart* self, QPainter* painter, con
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPaintWindowFrame(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_PaintWindowFrame_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PaintWindowFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +329,8 @@ QRectF* QPolarChart_SuperBoundingRect(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnBoundingRect(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_BoundingRect_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_BoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +357,8 @@ QPainterPath* QPolarChart_SuperShape(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnShape(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Shape_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Shape_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +385,8 @@ void QPolarChart_SuperInitStyleOption(const QPolarChart* self, QStyleOption* opt
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnInitStyleOption(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_InitStyleOption_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +411,8 @@ QSizeF* QPolarChart_SuperSizeHint(const QPolarChart* self, int which, const QSiz
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSizeHint(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SizeHint_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +439,8 @@ void QPolarChart_SuperUpdateGeometry(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUpdateGeometry(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_UpdateGeometry_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UpdateGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +465,8 @@ QVariant* QPolarChart_SuperItemChange(QPolarChart* self, int change, const QVari
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnItemChange(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ItemChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ItemChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +493,8 @@ QVariant* QPolarChart_SuperPropertyChange(QPolarChart* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPropertyChange(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_PropertyChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PropertyChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +521,8 @@ bool QPolarChart_SuperSceneEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSceneEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SceneEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +549,8 @@ bool QPolarChart_SuperWindowFrameEvent(QPolarChart* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnWindowFrameEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_WindowFrameEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +577,8 @@ int QPolarChart_SuperWindowFrameSectionAt(const QPolarChart* self, const QPointF
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnWindowFrameSectionAt(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_WindowFrameSectionAt_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WindowFrameSectionAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +605,8 @@ bool QPolarChart_SuperEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Event_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +633,8 @@ void QPolarChart_SuperChangeEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnChangeEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ChangeEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +661,8 @@ void QPolarChart_SuperCloseEvent(QPolarChart* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCloseEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_CloseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +689,8 @@ void QPolarChart_SuperFocusInEvent(QPolarChart* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusInEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_FocusInEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +717,8 @@ bool QPolarChart_SuperFocusNextPrevChild(QPolarChart* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusNextPrevChild(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +745,8 @@ void QPolarChart_SuperFocusOutEvent(QPolarChart* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnFocusOutEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_FocusOutEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +773,8 @@ void QPolarChart_SuperHideEvent(QPolarChart* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHideEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_HideEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +801,8 @@ void QPolarChart_SuperMoveEvent(QPolarChart* self, QGraphicsSceneMoveEvent* even
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMoveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +829,8 @@ void QPolarChart_SuperPolishEvent(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPolishEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_PolishEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PolishEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +857,8 @@ void QPolarChart_SuperResizeEvent(QPolarChart* self, QGraphicsSceneResizeEvent* 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnResizeEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ResizeEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +885,8 @@ void QPolarChart_SuperShowEvent(QPolarChart* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnShowEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ShowEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +913,8 @@ void QPolarChart_SuperHoverMoveEvent(QPolarChart* self, QGraphicsSceneHoverEvent
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverMoveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_HoverMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +941,8 @@ void QPolarChart_SuperHoverLeaveEvent(QPolarChart* self, QGraphicsSceneHoverEven
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverLeaveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +969,8 @@ void QPolarChart_SuperGrabMouseEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnGrabMouseEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_GrabMouseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabMouseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +997,8 @@ void QPolarChart_SuperUngrabMouseEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUngrabMouseEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_UngrabMouseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabMouseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1025,8 @@ void QPolarChart_SuperGrabKeyboardEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnGrabKeyboardEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_GrabKeyboardEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_GrabKeyboardEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1053,8 @@ void QPolarChart_SuperUngrabKeyboardEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUngrabKeyboardEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_UngrabKeyboardEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UngrabKeyboardEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1081,8 @@ bool QPolarChart_SuperEventFilter(QPolarChart* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnEventFilter(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_EventFilter_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1109,8 @@ void QPolarChart_SuperTimerEvent(QPolarChart* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnTimerEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_TimerEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1137,8 @@ void QPolarChart_SuperChildEvent(QPolarChart* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnChildEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ChildEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1165,8 @@ void QPolarChart_SuperCustomEvent(QPolarChart* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCustomEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_CustomEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1193,8 @@ void QPolarChart_SuperConnectNotify(QPolarChart* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnConnectNotify(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ConnectNotify_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1221,8 @@ void QPolarChart_SuperDisconnectNotify(QPolarChart* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDisconnectNotify(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_DisconnectNotify_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1249,8 @@ void QPolarChart_SuperAdvance(QPolarChart* self, int phase) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnAdvance(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Advance_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Advance_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1277,8 @@ bool QPolarChart_SuperContains(const QPolarChart* self, const QPointF* point) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnContains(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Contains_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Contains_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1305,8 @@ bool QPolarChart_SuperCollidesWithItem(const QPolarChart* self, const QGraphicsI
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCollidesWithItem(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_CollidesWithItem_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1333,8 @@ bool QPolarChart_SuperCollidesWithPath(const QPolarChart* self, const QPainterPa
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnCollidesWithPath(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_CollidesWithPath_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_CollidesWithPath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1361,8 @@ bool QPolarChart_SuperIsObscuredBy(const QPolarChart* self, const QGraphicsItem*
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnIsObscuredBy(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_IsObscuredBy_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsObscuredBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1389,8 @@ QPainterPath* QPolarChart_SuperOpaqueArea(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnOpaqueArea(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_OpaqueArea_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_OpaqueArea_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1417,8 @@ bool QPolarChart_SuperSceneEventFilter(QPolarChart* self, QGraphicsItem* watched
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSceneEventFilter(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SceneEventFilter_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SceneEventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1445,8 @@ void QPolarChart_SuperContextMenuEvent(QPolarChart* self, QGraphicsSceneContextM
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnContextMenuEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1473,8 @@ void QPolarChart_SuperDragEnterEvent(QPolarChart* self, QGraphicsSceneDragDropEv
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragEnterEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_DragEnterEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1501,8 @@ void QPolarChart_SuperDragLeaveEvent(QPolarChart* self, QGraphicsSceneDragDropEv
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragLeaveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1529,8 @@ void QPolarChart_SuperDragMoveEvent(QPolarChart* self, QGraphicsSceneDragDropEve
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDragMoveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_DragMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1557,8 @@ void QPolarChart_SuperDropEvent(QPolarChart* self, QGraphicsSceneDragDropEvent* 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnDropEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_DropEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1585,8 @@ void QPolarChart_SuperHoverEnterEvent(QPolarChart* self, QGraphicsSceneHoverEven
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnHoverEnterEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_HoverEnterEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_HoverEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1613,8 @@ void QPolarChart_SuperKeyPressEvent(QPolarChart* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnKeyPressEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_KeyPressEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1641,8 @@ void QPolarChart_SuperKeyReleaseEvent(QPolarChart* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnKeyReleaseEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1669,8 @@ void QPolarChart_SuperMousePressEvent(QPolarChart* self, QGraphicsSceneMouseEven
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMousePressEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MousePressEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1697,8 @@ void QPolarChart_SuperMouseMoveEvent(QPolarChart* self, QGraphicsSceneMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseMoveEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1725,8 @@ void QPolarChart_SuperMouseReleaseEvent(QPolarChart* self, QGraphicsSceneMouseEv
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseReleaseEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1753,8 @@ void QPolarChart_SuperMouseDoubleClickEvent(QPolarChart* self, QGraphicsSceneMou
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnMouseDoubleClickEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1781,8 @@ void QPolarChart_SuperWheelEvent(QPolarChart* self, QGraphicsSceneWheelEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnWheelEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_WheelEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1809,8 @@ void QPolarChart_SuperInputMethodEvent(QPolarChart* self, QInputMethodEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnInputMethodEvent(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_InputMethodEvent_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1835,8 @@ QVariant* QPolarChart_SuperInputMethodQuery(const QPolarChart* self, int query) 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnInputMethodQuery(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_InputMethodQuery_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1863,8 @@ bool QPolarChart_SuperSupportsExtension(const QPolarChart* self, int extension) 
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSupportsExtension(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SupportsExtension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SupportsExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1891,8 @@ void QPolarChart_SuperSetExtension(QPolarChart* self, int extension, const QVari
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetExtension(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SetExtension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1982,9 +1917,8 @@ QVariant* QPolarChart_SuperExtension(const QPolarChart* self, const QVariant* va
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnExtension(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Extension_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Extension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2011,9 +1945,8 @@ bool QPolarChart_SuperIsEmpty(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnIsEmpty(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_IsEmpty_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2040,9 +1973,8 @@ void QPolarChart_SuperUpdateMicroFocus(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnUpdateMicroFocus(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2069,9 +2001,8 @@ QObject* QPolarChart_SuperSender(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSender(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Sender_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2098,9 +2029,8 @@ int QPolarChart_SuperSenderSignalIndex(const QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSenderSignalIndex(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2127,9 +2057,8 @@ int QPolarChart_SuperReceivers(const QPolarChart* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnReceivers(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_Receivers_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2156,9 +2085,8 @@ bool QPolarChart_SuperIsSignalConnected(const QPolarChart* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnIsSignalConnected(const QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_IsSignalConnected_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2185,9 +2113,8 @@ void QPolarChart_SuperAddToIndex(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnAddToIndex(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_AddToIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_AddToIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2214,9 +2141,8 @@ void QPolarChart_SuperRemoveFromIndex(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnRemoveFromIndex(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_RemoveFromIndex_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_RemoveFromIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2243,9 +2169,8 @@ void QPolarChart_SuperPrepareGeometryChange(QPolarChart* self) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnPrepareGeometryChange(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_PrepareGeometryChange_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_PrepareGeometryChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2272,9 +2197,8 @@ void QPolarChart_SuperSetGraphicsItem(QPolarChart* self, QGraphicsItem* item) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetGraphicsItem(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SetGraphicsItem_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetGraphicsItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2301,9 +2225,8 @@ void QPolarChart_SuperSetOwnedByLayout(QPolarChart* self, bool ownedByLayout) {
 // Auxiliary method to allow providing re-implementation
 void QPolarChart_OnSetOwnedByLayout(QPolarChart* self, intptr_t slot) {
     auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart)
         vqpolarchart->setQPolarChart_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_SetOwnedByLayout_Callback>(slot));
-    }
 }
 
 void QPolarChart_Delete(QPolarChart* self) {

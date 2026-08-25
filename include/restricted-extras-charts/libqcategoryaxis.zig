@@ -5166,7 +5166,7 @@ pub const QCategoryAxis = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const AxisLabelsPosition = enum(i32) {
+    pub const AxisLabelsPosition = enum {
         pub const AxisLabelsPositionCenter: i32 = 0;
         pub const AxisLabelsPositionOnValue: i32 = 1;
     };

@@ -883,7 +883,7 @@ pub const QString = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#public-types)
 pub const enums = struct {
-    pub const SectionFlag = enum(i32) {
+    pub const SectionFlag = enum {
         pub const SectionDefault: i32 = 0;
         pub const SectionSkipEmpty: i32 = 1;
         pub const SectionIncludeLeadingSep: i32 = 2;
@@ -891,14 +891,14 @@ pub const enums = struct {
         pub const SectionCaseInsensitiveSeps: i32 = 8;
     };
 
-    pub const NormalizationForm = enum(i32) {
+    pub const NormalizationForm = enum {
         pub const NormalizationForm_D: i32 = 0;
         pub const NormalizationForm_C: i32 = 1;
         pub const NormalizationForm_KD: i32 = 2;
         pub const NormalizationForm_KC: i32 = 3;
     };
 
-    pub const Tag = enum(u8) {
+    pub const Tag = enum {
         pub const L1: u8 = 0;
         pub const U8: u8 = 1;
         pub const U16: u8 = 2;

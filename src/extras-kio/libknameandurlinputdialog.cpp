@@ -108,9 +108,8 @@ QMetaObject* KNameAndUrlInputDialog_SuperMetaObject(const KNameAndUrlInputDialog
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMetaObject(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MetaObject_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +126,8 @@ void* KNameAndUrlInputDialog_SuperMetacast(KNameAndUrlInputDialog* self, const c
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMetacast(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacast_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +144,8 @@ int KNameAndUrlInputDialog_SuperMetacall(KNameAndUrlInputDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMetacall(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacall_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -175,9 +172,8 @@ void KNameAndUrlInputDialog_SuperSetVisible(KNameAndUrlInputDialog* self, bool v
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnSetVisible(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SetVisible_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -204,9 +200,8 @@ QSize* KNameAndUrlInputDialog_SuperSizeHint(const KNameAndUrlInputDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnSizeHint(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SizeHint_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +228,8 @@ QSize* KNameAndUrlInputDialog_SuperMinimumSizeHint(const KNameAndUrlInputDialog*
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMinimumSizeHint(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +256,8 @@ void KNameAndUrlInputDialog_SuperOpen(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnOpen(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Open_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +284,8 @@ int KNameAndUrlInputDialog_SuperExec(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnExec(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Exec_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +312,8 @@ void KNameAndUrlInputDialog_SuperDone(KNameAndUrlInputDialog* self, int param1) 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDone(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Done_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +340,8 @@ void KNameAndUrlInputDialog_SuperAccept(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnAccept(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Accept_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +368,8 @@ void KNameAndUrlInputDialog_SuperReject(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnReject(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Reject_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +396,8 @@ void KNameAndUrlInputDialog_SuperKeyPressEvent(KNameAndUrlInputDialog* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnKeyPressEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +424,8 @@ void KNameAndUrlInputDialog_SuperCloseEvent(KNameAndUrlInputDialog* self, QClose
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnCloseEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_CloseEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +452,8 @@ void KNameAndUrlInputDialog_SuperShowEvent(KNameAndUrlInputDialog* self, QShowEv
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnShowEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ShowEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +480,8 @@ void KNameAndUrlInputDialog_SuperResizeEvent(KNameAndUrlInputDialog* self, QResi
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnResizeEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +508,8 @@ void KNameAndUrlInputDialog_SuperContextMenuEvent(KNameAndUrlInputDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnContextMenuEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +536,8 @@ bool KNameAndUrlInputDialog_SuperEventFilter(KNameAndUrlInputDialog* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnEventFilter(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_EventFilter_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -581,9 +564,8 @@ int KNameAndUrlInputDialog_SuperDevType(const KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDevType(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DevType_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -610,9 +592,8 @@ int KNameAndUrlInputDialog_SuperHeightForWidth(const KNameAndUrlInputDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnHeightForWidth(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +620,8 @@ bool KNameAndUrlInputDialog_SuperHasHeightForWidth(const KNameAndUrlInputDialog*
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnHasHeightForWidth(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +648,8 @@ QPaintEngine* KNameAndUrlInputDialog_SuperPaintEngine(const KNameAndUrlInputDial
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnPaintEngine(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_PaintEngine_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +676,8 @@ bool KNameAndUrlInputDialog_SuperEvent(KNameAndUrlInputDialog* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Event_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +704,8 @@ void KNameAndUrlInputDialog_SuperMousePressEvent(KNameAndUrlInputDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMousePressEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +732,8 @@ void KNameAndUrlInputDialog_SuperMouseReleaseEvent(KNameAndUrlInputDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMouseReleaseEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -784,9 +760,8 @@ void KNameAndUrlInputDialog_SuperMouseDoubleClickEvent(KNameAndUrlInputDialog* s
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMouseDoubleClickEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +788,8 @@ void KNameAndUrlInputDialog_SuperMouseMoveEvent(KNameAndUrlInputDialog* self, QM
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMouseMoveEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +816,8 @@ void KNameAndUrlInputDialog_SuperWheelEvent(KNameAndUrlInputDialog* self, QWheel
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnWheelEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_WheelEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +844,8 @@ void KNameAndUrlInputDialog_SuperKeyReleaseEvent(KNameAndUrlInputDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnKeyReleaseEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -900,9 +872,8 @@ void KNameAndUrlInputDialog_SuperFocusInEvent(KNameAndUrlInputDialog* self, QFoc
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnFocusInEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +900,8 @@ void KNameAndUrlInputDialog_SuperFocusOutEvent(KNameAndUrlInputDialog* self, QFo
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnFocusOutEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +928,8 @@ void KNameAndUrlInputDialog_SuperEnterEvent(KNameAndUrlInputDialog* self, QEnter
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnEnterEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_EnterEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +956,8 @@ void KNameAndUrlInputDialog_SuperLeaveEvent(KNameAndUrlInputDialog* self, QEvent
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnLeaveEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1016,9 +984,8 @@ void KNameAndUrlInputDialog_SuperPaintEvent(KNameAndUrlInputDialog* self, QPaint
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnPaintEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_PaintEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1045,9 +1012,8 @@ void KNameAndUrlInputDialog_SuperMoveEvent(KNameAndUrlInputDialog* self, QMoveEv
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMoveEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_MoveEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1074,9 +1040,8 @@ void KNameAndUrlInputDialog_SuperTabletEvent(KNameAndUrlInputDialog* self, QTabl
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnTabletEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_TabletEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1103,9 +1068,8 @@ void KNameAndUrlInputDialog_SuperActionEvent(KNameAndUrlInputDialog* self, QActi
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnActionEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ActionEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1132,9 +1096,8 @@ void KNameAndUrlInputDialog_SuperDragEnterEvent(KNameAndUrlInputDialog* self, QD
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDragEnterEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1161,9 +1124,8 @@ void KNameAndUrlInputDialog_SuperDragMoveEvent(KNameAndUrlInputDialog* self, QDr
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDragMoveEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1190,9 +1152,8 @@ void KNameAndUrlInputDialog_SuperDragLeaveEvent(KNameAndUrlInputDialog* self, QD
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDragLeaveEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1219,9 +1180,8 @@ void KNameAndUrlInputDialog_SuperDropEvent(KNameAndUrlInputDialog* self, QDropEv
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDropEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DropEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1208,8 @@ void KNameAndUrlInputDialog_SuperHideEvent(KNameAndUrlInputDialog* self, QHideEv
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnHideEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_HideEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1238,8 @@ bool KNameAndUrlInputDialog_SuperNativeEvent(KNameAndUrlInputDialog* self, const
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnNativeEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_NativeEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1266,8 @@ void KNameAndUrlInputDialog_SuperChangeEvent(KNameAndUrlInputDialog* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnChangeEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1294,8 @@ int KNameAndUrlInputDialog_SuperMetric(const KNameAndUrlInputDialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnMetric(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Metric_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1322,8 @@ void KNameAndUrlInputDialog_SuperInitPainter(const KNameAndUrlInputDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnInitPainter(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InitPainter_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1350,8 @@ QPaintDevice* KNameAndUrlInputDialog_SuperRedirected(const KNameAndUrlInputDialo
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnRedirected(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Redirected_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1378,8 @@ QPainter* KNameAndUrlInputDialog_SuperSharedPainter(const KNameAndUrlInputDialog
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnSharedPainter(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SharedPainter_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1406,8 @@ void KNameAndUrlInputDialog_SuperInputMethodEvent(KNameAndUrlInputDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnInputMethodEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1434,8 @@ QVariant* KNameAndUrlInputDialog_SuperInputMethodQuery(const KNameAndUrlInputDia
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnInputMethodQuery(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1462,8 @@ bool KNameAndUrlInputDialog_SuperFocusNextPrevChild(KNameAndUrlInputDialog* self
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnFocusNextPrevChild(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1490,8 @@ void KNameAndUrlInputDialog_SuperTimerEvent(KNameAndUrlInputDialog* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnTimerEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_TimerEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1569,9 +1518,8 @@ void KNameAndUrlInputDialog_SuperChildEvent(KNameAndUrlInputDialog* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnChildEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ChildEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1598,9 +1546,8 @@ void KNameAndUrlInputDialog_SuperCustomEvent(KNameAndUrlInputDialog* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnCustomEvent(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_CustomEvent_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1627,9 +1574,8 @@ void KNameAndUrlInputDialog_SuperConnectNotify(KNameAndUrlInputDialog* self, con
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnConnectNotify(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1656,9 +1602,8 @@ void KNameAndUrlInputDialog_SuperDisconnectNotify(KNameAndUrlInputDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDisconnectNotify(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1685,9 +1630,8 @@ void KNameAndUrlInputDialog_SuperAdjustPosition(KNameAndUrlInputDialog* self, QW
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnAdjustPosition(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1714,9 +1658,8 @@ void KNameAndUrlInputDialog_SuperUpdateMicroFocus(KNameAndUrlInputDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnUpdateMicroFocus(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1743,9 +1686,8 @@ void KNameAndUrlInputDialog_SuperCreate(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnCreate(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Create_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1772,9 +1714,8 @@ void KNameAndUrlInputDialog_SuperDestroy(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnDestroy(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Destroy_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1801,9 +1742,8 @@ bool KNameAndUrlInputDialog_SuperFocusNextChild(KNameAndUrlInputDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnFocusNextChild(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1830,9 +1770,8 @@ bool KNameAndUrlInputDialog_SuperFocusPreviousChild(KNameAndUrlInputDialog* self
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnFocusPreviousChild(KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1859,9 +1798,8 @@ QObject* KNameAndUrlInputDialog_SuperSender(const KNameAndUrlInputDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnSender(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Sender_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1888,9 +1826,8 @@ int KNameAndUrlInputDialog_SuperSenderSignalIndex(const KNameAndUrlInputDialog* 
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnSenderSignalIndex(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1917,9 +1854,8 @@ int KNameAndUrlInputDialog_SuperReceivers(const KNameAndUrlInputDialog* self, co
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnReceivers(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_Receivers_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1946,9 +1882,8 @@ bool KNameAndUrlInputDialog_SuperIsSignalConnected(const KNameAndUrlInputDialog*
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnIsSignalConnected(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1975,9 +1910,8 @@ double KNameAndUrlInputDialog_SuperGetDecodedMetricF(const KNameAndUrlInputDialo
 // Auxiliary method to allow providing re-implementation
 void KNameAndUrlInputDialog_OnGetDecodedMetricF(const KNameAndUrlInputDialog* self, intptr_t slot) {
     auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog)
         vknameandurlinputdialog->setKNameAndUrlInputDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KNameAndUrlInputDialog_Delete(KNameAndUrlInputDialog* self) {

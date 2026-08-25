@@ -2602,7 +2602,7 @@ pub const Accounts__Manager = extern struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Manager.html)
 pub const enums = struct {
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const DisableNotifications: i32 = 1;
     };
 };

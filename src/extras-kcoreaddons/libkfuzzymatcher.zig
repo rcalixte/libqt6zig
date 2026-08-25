@@ -363,7 +363,7 @@ pub const KFuzzyMatcher = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#public-types)
 pub const enums = struct {
-    pub const RangeType = enum(u8) {
+    pub const RangeType = enum {
         pub const FullyMatched: u8 = 0;
         pub const All: u8 = 1;
     };

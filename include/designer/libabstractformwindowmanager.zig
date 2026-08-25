@@ -3117,7 +3117,7 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/abstractformwindowmanager.html#public-types)
 pub const enums = struct {
-    pub const Action = enum(i32) {
+    pub const Action = enum {
         pub const CutAction: i32 = 100;
         pub const CopyAction: i32 = 101;
         pub const PasteAction: i32 = 102;
@@ -3140,7 +3140,7 @@ pub const enums = struct {
         pub const FormWindowSettingsDialogAction: i32 = 600;
     };
 
-    pub const ActionGroup = enum(i32) {
+    pub const ActionGroup = enum {
         pub const StyledPreviewActionGroup: i32 = 100;
     };
 };

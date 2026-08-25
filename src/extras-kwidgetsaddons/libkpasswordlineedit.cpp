@@ -175,9 +175,8 @@ QMetaObject* KPasswordLineEdit_SuperMetaObject(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetaObject(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MetaObject_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +193,8 @@ void* KPasswordLineEdit_SuperMetacast(KPasswordLineEdit* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetacast(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Metacast_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +211,8 @@ int KPasswordLineEdit_SuperMetacall(KPasswordLineEdit* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetacall(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Metacall_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +239,8 @@ int KPasswordLineEdit_SuperDevType(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDevType(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DevType_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +267,8 @@ void KPasswordLineEdit_SuperSetVisible(KPasswordLineEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSetVisible(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_SetVisible_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +295,8 @@ QSize* KPasswordLineEdit_SuperSizeHint(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSizeHint(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_SizeHint_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +323,8 @@ QSize* KPasswordLineEdit_SuperMinimumSizeHint(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMinimumSizeHint(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +351,8 @@ int KPasswordLineEdit_SuperHeightForWidth(const KPasswordLineEdit* self, int par
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnHeightForWidth(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +379,8 @@ bool KPasswordLineEdit_SuperHasHeightForWidth(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnHasHeightForWidth(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ QPaintEngine* KPasswordLineEdit_SuperPaintEngine(const KPasswordLineEdit* self) 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnPaintEngine(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_PaintEngine_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ bool KPasswordLineEdit_SuperEvent(KPasswordLineEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Event_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ void KPasswordLineEdit_SuperMousePressEvent(KPasswordLineEdit* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMousePressEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ void KPasswordLineEdit_SuperMouseReleaseEvent(KPasswordLineEdit* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseReleaseEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +519,8 @@ void KPasswordLineEdit_SuperMouseDoubleClickEvent(KPasswordLineEdit* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseDoubleClickEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +547,8 @@ void KPasswordLineEdit_SuperMouseMoveEvent(KPasswordLineEdit* self, QMouseEvent*
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMouseMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +575,8 @@ void KPasswordLineEdit_SuperWheelEvent(KPasswordLineEdit* self, QWheelEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnWheelEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_WheelEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +603,8 @@ void KPasswordLineEdit_SuperKeyPressEvent(KPasswordLineEdit* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnKeyPressEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +631,8 @@ void KPasswordLineEdit_SuperKeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnKeyReleaseEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +659,8 @@ void KPasswordLineEdit_SuperFocusInEvent(KPasswordLineEdit* self, QFocusEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusInEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +687,8 @@ void KPasswordLineEdit_SuperFocusOutEvent(KPasswordLineEdit* self, QFocusEvent* 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusOutEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +715,8 @@ void KPasswordLineEdit_SuperEnterEvent(KPasswordLineEdit* self, QEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEnterEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_EnterEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +743,8 @@ void KPasswordLineEdit_SuperLeaveEvent(KPasswordLineEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnLeaveEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +771,8 @@ void KPasswordLineEdit_SuperPaintEvent(KPasswordLineEdit* self, QPaintEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnPaintEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +799,8 @@ void KPasswordLineEdit_SuperMoveEvent(KPasswordLineEdit* self, QMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_MoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +827,8 @@ void KPasswordLineEdit_SuperResizeEvent(KPasswordLineEdit* self, QResizeEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnResizeEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +855,8 @@ void KPasswordLineEdit_SuperCloseEvent(KPasswordLineEdit* self, QCloseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnCloseEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_CloseEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +883,8 @@ void KPasswordLineEdit_SuperContextMenuEvent(KPasswordLineEdit* self, QContextMe
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnContextMenuEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +911,8 @@ void KPasswordLineEdit_SuperTabletEvent(KPasswordLineEdit* self, QTabletEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnTabletEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_TabletEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +939,8 @@ void KPasswordLineEdit_SuperActionEvent(KPasswordLineEdit* self, QActionEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnActionEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ActionEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +967,8 @@ void KPasswordLineEdit_SuperDragEnterEvent(KPasswordLineEdit* self, QDragEnterEv
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragEnterEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +995,8 @@ void KPasswordLineEdit_SuperDragMoveEvent(KPasswordLineEdit* self, QDragMoveEven
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragMoveEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1023,8 @@ void KPasswordLineEdit_SuperDragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEv
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDragLeaveEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1051,8 @@ void KPasswordLineEdit_SuperDropEvent(KPasswordLineEdit* self, QDropEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDropEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DropEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1079,8 @@ void KPasswordLineEdit_SuperShowEvent(KPasswordLineEdit* self, QShowEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnShowEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ShowEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1107,8 @@ void KPasswordLineEdit_SuperHideEvent(KPasswordLineEdit* self, QHideEvent* event
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnHideEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_HideEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1137,8 @@ bool KPasswordLineEdit_SuperNativeEvent(KPasswordLineEdit* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnNativeEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_NativeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1165,8 @@ void KPasswordLineEdit_SuperChangeEvent(KPasswordLineEdit* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnChangeEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1193,8 @@ int KPasswordLineEdit_SuperMetric(const KPasswordLineEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnMetric(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Metric_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1221,8 @@ void KPasswordLineEdit_SuperInitPainter(const KPasswordLineEdit* self, QPainter*
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnInitPainter(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_InitPainter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1249,8 @@ QPaintDevice* KPasswordLineEdit_SuperRedirected(const KPasswordLineEdit* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnRedirected(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Redirected_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1277,8 @@ QPainter* KPasswordLineEdit_SuperSharedPainter(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSharedPainter(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_SharedPainter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1305,8 @@ void KPasswordLineEdit_SuperInputMethodEvent(KPasswordLineEdit* self, QInputMeth
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnInputMethodEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1333,8 @@ QVariant* KPasswordLineEdit_SuperInputMethodQuery(const KPasswordLineEdit* self,
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnInputMethodQuery(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1361,8 @@ bool KPasswordLineEdit_SuperFocusNextPrevChild(KPasswordLineEdit* self, bool nex
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusNextPrevChild(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1389,8 @@ bool KPasswordLineEdit_SuperEventFilter(KPasswordLineEdit* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnEventFilter(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_EventFilter_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1417,8 @@ void KPasswordLineEdit_SuperTimerEvent(KPasswordLineEdit* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnTimerEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1445,8 @@ void KPasswordLineEdit_SuperChildEvent(KPasswordLineEdit* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnChildEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ChildEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1473,8 @@ void KPasswordLineEdit_SuperCustomEvent(KPasswordLineEdit* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnCustomEvent(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_CustomEvent_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1501,8 @@ void KPasswordLineEdit_SuperConnectNotify(KPasswordLineEdit* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnConnectNotify(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1529,8 @@ void KPasswordLineEdit_SuperDisconnectNotify(KPasswordLineEdit* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDisconnectNotify(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1557,8 @@ void KPasswordLineEdit_SuperUpdateMicroFocus(KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnUpdateMicroFocus(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1585,8 @@ void KPasswordLineEdit_SuperCreate(KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnCreate(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Create_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1613,8 @@ void KPasswordLineEdit_SuperDestroy(KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnDestroy(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Destroy_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1641,8 @@ bool KPasswordLineEdit_SuperFocusNextChild(KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusNextChild(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1669,8 @@ bool KPasswordLineEdit_SuperFocusPreviousChild(KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnFocusPreviousChild(KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1697,8 @@ QObject* KPasswordLineEdit_SuperSender(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSender(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Sender_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1725,8 @@ int KPasswordLineEdit_SuperSenderSignalIndex(const KPasswordLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnSenderSignalIndex(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1753,8 @@ int KPasswordLineEdit_SuperReceivers(const KPasswordLineEdit* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnReceivers(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_Receivers_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1781,8 @@ bool KPasswordLineEdit_SuperIsSignalConnected(const KPasswordLineEdit* self, con
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnIsSignalConnected(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1809,8 @@ double KPasswordLineEdit_SuperGetDecodedMetricF(const KPasswordLineEdit* self, i
 // Auxiliary method to allow providing re-implementation
 void KPasswordLineEdit_OnGetDecodedMetricF(const KPasswordLineEdit* self, intptr_t slot) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
+    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit)
         vkpasswordlineedit->setKPasswordLineEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPasswordLineEdit::KPasswordLineEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPasswordLineEdit_Delete(KPasswordLineEdit* self) {

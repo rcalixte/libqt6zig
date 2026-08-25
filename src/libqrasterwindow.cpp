@@ -90,9 +90,8 @@ QMetaObject* QRasterWindow_SuperMetaObject(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMetaObject(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MetaObject_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +108,8 @@ void* QRasterWindow_SuperMetacast(QRasterWindow* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMetacast(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Metacast_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +126,8 @@ int QRasterWindow_SuperMetacall(QRasterWindow* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMetacall(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Metacall_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -147,9 +144,8 @@ int QRasterWindow_SuperMetric(const QRasterWindow* self, int metric) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMetric(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Metric_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Metric_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +162,8 @@ QPaintDevice* QRasterWindow_SuperRedirected(const QRasterWindow* self, QPoint* p
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnRedirected(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Redirected_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Redirected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +180,8 @@ void QRasterWindow_SuperResizeEvent(QRasterWindow* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnResizeEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +208,8 @@ void QRasterWindow_SuperExposeEvent(QRasterWindow* self, QExposeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnExposeEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ExposeEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ExposeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +236,8 @@ void QRasterWindow_SuperPaintEvent(QRasterWindow* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnPaintEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_PaintEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +264,8 @@ bool QRasterWindow_SuperEvent(QRasterWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Event_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +292,8 @@ int QRasterWindow_SuperSurfaceType(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnSurfaceType(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_SurfaceType_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_SurfaceType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +320,8 @@ QSurfaceFormat* QRasterWindow_SuperFormat(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnFormat(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Format_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Format_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +348,8 @@ QSize* QRasterWindow_SuperSize(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnSize(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Size_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +376,8 @@ QAccessibleInterface* QRasterWindow_SuperAccessibleRoot(const QRasterWindow* sel
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnAccessibleRoot(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_AccessibleRoot_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_AccessibleRoot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +404,8 @@ QObject* QRasterWindow_SuperFocusObject(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnFocusObject(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_FocusObject_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_FocusObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +432,8 @@ void QRasterWindow_SuperMoveEvent(QRasterWindow* self, QMoveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMoveEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MoveEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +460,8 @@ void QRasterWindow_SuperFocusInEvent(QRasterWindow* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnFocusInEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +488,8 @@ void QRasterWindow_SuperFocusOutEvent(QRasterWindow* self, QFocusEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnFocusOutEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +516,8 @@ void QRasterWindow_SuperShowEvent(QRasterWindow* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnShowEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ShowEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +544,8 @@ void QRasterWindow_SuperHideEvent(QRasterWindow* self, QHideEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnHideEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_HideEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +572,8 @@ void QRasterWindow_SuperCloseEvent(QRasterWindow* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnCloseEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_CloseEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +600,8 @@ void QRasterWindow_SuperKeyPressEvent(QRasterWindow* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnKeyPressEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +628,8 @@ void QRasterWindow_SuperKeyReleaseEvent(QRasterWindow* self, QKeyEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnKeyReleaseEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -678,9 +656,8 @@ void QRasterWindow_SuperMousePressEvent(QRasterWindow* self, QMouseEvent* param1
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMousePressEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -707,9 +684,8 @@ void QRasterWindow_SuperMouseReleaseEvent(QRasterWindow* self, QMouseEvent* para
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMouseReleaseEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +712,8 @@ void QRasterWindow_SuperMouseDoubleClickEvent(QRasterWindow* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMouseDoubleClickEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -765,9 +740,8 @@ void QRasterWindow_SuperMouseMoveEvent(QRasterWindow* self, QMouseEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnMouseMoveEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +768,8 @@ void QRasterWindow_SuperWheelEvent(QRasterWindow* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnWheelEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_WheelEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -823,9 +796,8 @@ void QRasterWindow_SuperTouchEvent(QRasterWindow* self, QTouchEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnTouchEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_TouchEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_TouchEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -852,9 +824,8 @@ void QRasterWindow_SuperTabletEvent(QRasterWindow* self, QTabletEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnTabletEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_TabletEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +854,8 @@ bool QRasterWindow_SuperNativeEvent(QRasterWindow* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnNativeEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_NativeEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +882,8 @@ bool QRasterWindow_SuperEventFilter(QRasterWindow* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnEventFilter(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_EventFilter_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +910,8 @@ void QRasterWindow_SuperTimerEvent(QRasterWindow* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnTimerEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_TimerEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +938,8 @@ void QRasterWindow_SuperChildEvent(QRasterWindow* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnChildEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ChildEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +966,8 @@ void QRasterWindow_SuperCustomEvent(QRasterWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnCustomEvent(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_CustomEvent_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +994,8 @@ void QRasterWindow_SuperConnectNotify(QRasterWindow* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnConnectNotify(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1022,8 @@ void QRasterWindow_SuperDisconnectNotify(QRasterWindow* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnDisconnectNotify(QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1050,8 @@ int QRasterWindow_SuperDevType(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnDevType(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_DevType_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1078,8 @@ void QRasterWindow_SuperInitPainter(const QRasterWindow* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnInitPainter(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_InitPainter_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1106,8 @@ QPainter* QRasterWindow_SuperSharedPainter(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnSharedPainter(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_SharedPainter_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1134,8 @@ void* QRasterWindow_SuperResolveInterface(const QRasterWindow* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnResolveInterface(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_ResolveInterface_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_ResolveInterface_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1162,8 @@ QObject* QRasterWindow_SuperSender(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnSender(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Sender_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1190,8 @@ int QRasterWindow_SuperSenderSignalIndex(const QRasterWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnSenderSignalIndex(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1218,8 @@ int QRasterWindow_SuperReceivers(const QRasterWindow* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnReceivers(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_Receivers_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1289,9 +1246,8 @@ bool QRasterWindow_SuperIsSignalConnected(const QRasterWindow* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnIsSignalConnected(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1318,9 +1274,8 @@ double QRasterWindow_SuperGetDecodedMetricF(const QRasterWindow* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QRasterWindow_OnGetDecodedMetricF(const QRasterWindow* self, intptr_t slot) {
     auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow)
         vqrasterwindow->setQRasterWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QRasterWindow_Delete(QRasterWindow* self) {

@@ -304,7 +304,7 @@ pub const KSyntaxHighlighting__Theme = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-theme.html#public-types)
 pub const enums = struct {
-    pub const TextStyle = enum(i32) {
+    pub const TextStyle = enum {
         pub const Normal: i32 = 0;
         pub const Keyword: i32 = 1;
         pub const Function: i32 = 2;
@@ -338,7 +338,7 @@ pub const enums = struct {
         pub const Others: i32 = 30;
     };
 
-    pub const EditorColorRole = enum(i32) {
+    pub const EditorColorRole = enum {
         pub const BackgroundColor: i32 = 0;
         pub const TextSelection: i32 = 1;
         pub const CurrentLine: i32 = 2;

@@ -139,9 +139,8 @@ QMetaObject* KFileItemActions_SuperMetaObject(const KFileItemActions* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnMetaObject(const KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_MetaObject_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +157,8 @@ void* KFileItemActions_SuperMetacast(KFileItemActions* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnMetacast(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_Metacast_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +175,8 @@ int KFileItemActions_SuperMetacall(KFileItemActions* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnMetacall(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_Metacall_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +203,8 @@ bool KFileItemActions_SuperEvent(KFileItemActions* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnEvent(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_Event_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +231,8 @@ bool KFileItemActions_SuperEventFilter(KFileItemActions* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnEventFilter(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_EventFilter_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +259,8 @@ void KFileItemActions_SuperTimerEvent(KFileItemActions* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnTimerEvent(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_TimerEvent_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +287,8 @@ void KFileItemActions_SuperChildEvent(KFileItemActions* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnChildEvent(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_ChildEvent_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +315,8 @@ void KFileItemActions_SuperCustomEvent(KFileItemActions* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnCustomEvent(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_CustomEvent_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +343,8 @@ void KFileItemActions_SuperConnectNotify(KFileItemActions* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnConnectNotify(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_ConnectNotify_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +371,8 @@ void KFileItemActions_SuperDisconnectNotify(KFileItemActions* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnDisconnectNotify(KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +399,8 @@ QObject* KFileItemActions_SuperSender(const KFileItemActions* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnSender(const KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_Sender_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +427,8 @@ int KFileItemActions_SuperSenderSignalIndex(const KFileItemActions* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnSenderSignalIndex(const KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +455,8 @@ int KFileItemActions_SuperReceivers(const KFileItemActions* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnReceivers(const KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_Receivers_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +483,8 @@ bool KFileItemActions_SuperIsSignalConnected(const KFileItemActions* self, const
 // Auxiliary method to allow providing re-implementation
 void KFileItemActions_OnIsSignalConnected(const KFileItemActions* self, intptr_t slot) {
     auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions)
         vkfileitemactions->setKFileItemActions_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFileItemActions_Delete(KFileItemActions* self) {

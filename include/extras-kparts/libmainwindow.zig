@@ -5,6 +5,7 @@ const KConfig = @import("libqt6").KConfig;
 const KConfigGroup = @import("libqt6").KConfigGroup;
 const KMainWindow = @import("libqt6").KMainWindow;
 const KParts__Part = @import("libqt6").KParts__Part;
+const KParts__PartBase = @import("libqt6").KParts__PartBase;
 const KToolBar = @import("libqt6").KToolBar;
 const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
 const KXMLGUIClient = @import("libqt6").KXMLGUIClient;
@@ -146,6 +147,27 @@ pub const KParts__MainWindow = extern struct {
     pub fn new3(_parent: anytype, f: i32) KParts__MainWindow {
         comptime _ = @TypeOf(_parent)._is_QWidget;
         return .{ .ptr = qtc.KParts__MainWindow_new3(@ptrCast(_parent.ptr), @bitCast(f)) };
+    }
+
+    /// Upcasts to a KParts::PartBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    pub fn asKParts__PartBase(self: KParts__MainWindow) KParts__PartBase {
+        return .{ .ptr = qtc.KParts__MainWindow_AsKParts__PartBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KParts__MainWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kparts__partbase: KParts__PartBase `
+    ///
+    pub fn fromKParts__PartBase(_kparts__partbase: anytype) KParts__MainWindow {
+        comptime _ = @TypeOf(_kparts__partbase)._is_KParts__PartBase;
+        return @bitCast(qtc.KParts__MainWindow_FromKParts__PartBase(@ptrCast(_kparts__partbase.ptr)));
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -681,6 +703,56 @@ pub const KParts__MainWindow = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__MainWindow.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// Upcasts to a KXMLGUIBuilder object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    pub fn asKXMLGUIBuilder(self: KParts__MainWindow) KXMLGUIBuilder {
+        return .{ .ptr = qtc.KXmlGuiWindow_AsKXMLGUIBuilder(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// Downcasts to a KParts__MainWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kxmlguibuilder: KXMLGUIBuilder `
+    ///
+    pub fn fromKXMLGUIBuilder(_kxmlguibuilder: anytype) KParts__MainWindow {
+        comptime _ = @TypeOf(_kxmlguibuilder)._is_KXMLGUIBuilder;
+        return @bitCast(qtc.KXmlGuiWindow_FromKXMLGUIBuilder(@ptrCast(_kxmlguibuilder.ptr)));
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// Upcasts to a KXMLGUIClient object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    pub fn asKXMLGUIClient(self: KParts__MainWindow) KXMLGUIClient {
+        return .{ .ptr = qtc.KXmlGuiWindow_AsKXMLGUIClient(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// Downcasts to a KParts__MainWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kxmlguiclient: KXMLGUIClient `
+    ///
+    pub fn fromKXMLGUIClient(_kxmlguiclient: anytype) KParts__MainWindow {
+        comptime _ = @TypeOf(_kxmlguiclient)._is_KXMLGUIClient;
+        return @bitCast(qtc.KXmlGuiWindow_FromKXMLGUIClient(@ptrCast(_kxmlguiclient.ptr)));
     }
 
     /// ### DEPRECATED: Use `setHelpMenuEnabled` instead
@@ -2796,6 +2868,31 @@ pub const KParts__MainWindow = extern struct {
             .data = state.ptr,
         };
         return qtc.QMainWindow_RestoreState2(@ptrCast(self.ptr), state_str, @bitCast(version));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    pub fn asQPaintDevice(self: KParts__MainWindow) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KParts__MainWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KParts__MainWindow {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -8782,7 +8879,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn paintingActive(self: KParts__MainWindow) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8798,7 +8895,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn widthMM(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8814,7 +8911,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn heightMM(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8830,7 +8927,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn logicalDpiX(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8846,7 +8943,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn logicalDpiY(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8862,7 +8959,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn physicalDpiX(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8878,7 +8975,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn physicalDpiY(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8894,7 +8991,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn devicePixelRatio(self: KParts__MainWindow) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8910,7 +9007,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn devicePixelRatioF(self: KParts__MainWindow) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8926,7 +9023,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn colorCount(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8942,7 +9039,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn depth(self: KParts__MainWindow) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -8988,7 +9085,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn builderClient(self: KParts__MainWindow) KXMLGUIClient {
-        return .{ .ptr = qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self.asKXMLGUIBuilder().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setBuilderClient` instead
@@ -9007,7 +9104,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn setBuilderClient(self: KParts__MainWindow, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.asKXMLGUIBuilder().ptr), @ptrCast(client.ptr));
     }
 
     /// ### DEPRECATED: Use `widget` instead
@@ -9023,7 +9120,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn widget(self: KParts__MainWindow) QWidget {
-        return .{ .ptr = qtc.KXMLGUIBuilder_Widget(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIBuilder_Widget(@ptrCast(self.asKXMLGUIBuilder().ptr)) };
     }
 
     /// ### DEPRECATED: Use `action` instead
@@ -9045,7 +9142,7 @@ pub const KParts__MainWindow = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
+        return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.asKXMLGUIClient().ptr), name_str) };
     }
 
     /// ### DEPRECATED: Use `setXMLGUIBuildDocument` instead
@@ -9064,7 +9161,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn setXMLGUIBuildDocument(self: KParts__MainWindow, doc: anytype) void {
         comptime _ = @TypeOf(doc)._is_QDomDocument;
-        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
+        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(doc.ptr));
     }
 
     /// ### DEPRECATED: Use `xmlguiBuildDocument` instead
@@ -9080,7 +9177,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn xmlguiBuildDocument(self: KParts__MainWindow) QDomDocument {
-        return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.asKXMLGUIClient().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setFactory` instead
@@ -9099,7 +9196,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn setFactory(self: KParts__MainWindow, _factory: anytype) void {
         comptime _ = @TypeOf(_factory)._is_KXMLGUIFactory;
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(_factory.ptr));
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(_factory.ptr));
     }
 
     /// ### DEPRECATED: Use `factory` instead
@@ -9115,7 +9212,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn factory(self: KParts__MainWindow) KXMLGUIFactory {
-        return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.asKXMLGUIClient().ptr)) };
     }
 
     /// ### DEPRECATED: Use `parentClient` instead
@@ -9131,7 +9228,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn parentClient(self: KParts__MainWindow) KXMLGUIClient {
-        return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.asKXMLGUIClient().ptr)) };
     }
 
     /// ### DEPRECATED: Use `insertChildClient` instead
@@ -9150,7 +9247,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn insertChildClient(self: KParts__MainWindow, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(child.ptr));
     }
 
     /// ### DEPRECATED: Use `removeChildClient` instead
@@ -9169,7 +9266,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn removeChildClient(self: KParts__MainWindow, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(child.ptr));
     }
 
     /// ### DEPRECATED: Use `childClients` instead
@@ -9187,7 +9284,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn childClients(self: KParts__MainWindow, allocator: std.mem.Allocator) []KXMLGUIClient {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
+        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.asKXMLGUIClient().ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KParts__MainWindow.childClients: Memory allocation failed");
         const _data_val: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
@@ -9212,7 +9309,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn setClientBuilder(self: KParts__MainWindow, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(builder.ptr));
     }
 
     /// ### DEPRECATED: Use `clientBuilder` instead
@@ -9228,7 +9325,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn clientBuilder(self: KParts__MainWindow) KXMLGUIBuilder {
-        return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.asKXMLGUIClient().ptr)) };
     }
 
     /// ### DEPRECATED: Use `reloadXML` instead
@@ -9244,7 +9341,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn reloadXML(self: KParts__MainWindow) void {
-        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
+        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.asKXMLGUIClient().ptr));
     }
 
     /// ### DEPRECATED: Use `plugActionList` instead
@@ -9272,7 +9369,7 @@ pub const KParts__MainWindow = extern struct {
             .len = actionList.len,
             .data = @ptrCast(actionList.ptr),
         };
-        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
+        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.asKXMLGUIClient().ptr), name_str, actionList_list);
     }
 
     /// ### DEPRECATED: Use `unplugActionList` instead
@@ -9294,7 +9391,7 @@ pub const KParts__MainWindow = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
+        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.asKXMLGUIClient().ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `findMostRecentXMLFile` instead
@@ -9361,7 +9458,7 @@ pub const KParts__MainWindow = extern struct {
             .len = _action.len,
             .data = _action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.asKXMLGUIClient().ptr), state_str, action_str);
     }
 
     /// ### DEPRECATED: Use `addStateActionDisabled` instead
@@ -9389,7 +9486,7 @@ pub const KParts__MainWindow = extern struct {
             .len = _action.len,
             .data = _action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.asKXMLGUIClient().ptr), state_str, action_str);
     }
 
     /// ### DEPRECATED: Use `getActionsToChangeForState` instead
@@ -9411,7 +9508,7 @@ pub const KParts__MainWindow = extern struct {
             .len = state.len,
             .data = state.ptr,
         };
-        return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
+        return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.asKXMLGUIClient().ptr), state_str) };
     }
 
     /// ### DEPRECATED: Use `beginXMLPlug` instead
@@ -9430,7 +9527,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn beginXMLPlug(self: KParts__MainWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `endXMLPlug` instead
@@ -9446,7 +9543,7 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow `
     ///
     pub fn endXMLPlug(self: KParts__MainWindow) void {
-        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
+        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.asKXMLGUIClient().ptr));
     }
 
     /// ### DEPRECATED: Use `prepareXMLUnplug` instead
@@ -9465,7 +9562,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn prepareXMLUnplug(self: KParts__MainWindow, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.asKXMLGUIClient().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `replaceXMLFile` instead
@@ -9493,7 +9590,7 @@ pub const KParts__MainWindow = extern struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
+        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.asKXMLGUIClient().ptr), xmlfile_str, localxmlfile_str);
     }
 
     /// ### DEPRECATED: Use `findVersionNumber` instead
@@ -9549,7 +9646,7 @@ pub const KParts__MainWindow = extern struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
+        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.asKXMLGUIClient().ptr), xmlfile_str, localxmlfile_str, merge);
     }
 
     /// ### DEPRECATED: Use `setPartObject` instead

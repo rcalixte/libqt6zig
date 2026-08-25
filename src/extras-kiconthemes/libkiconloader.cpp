@@ -529,9 +529,8 @@ QMetaObject* KIconLoader_SuperMetaObject(const KIconLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_MetaObject_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +547,8 @@ void* KIconLoader_SuperMetacast(KIconLoader* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_Metacast_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +565,8 @@ int KIconLoader_SuperMetacall(KIconLoader* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnMetacall(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_Metacall_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +593,8 @@ bool KIconLoader_SuperEvent(KIconLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnEvent(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_Event_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +621,8 @@ bool KIconLoader_SuperEventFilter(KIconLoader* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnEventFilter(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_EventFilter_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +649,8 @@ void KIconLoader_SuperTimerEvent(KIconLoader* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnTimerEvent(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_TimerEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +677,8 @@ void KIconLoader_SuperChildEvent(KIconLoader* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnChildEvent(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_ChildEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +705,8 @@ void KIconLoader_SuperCustomEvent(KIconLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnCustomEvent(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_CustomEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +733,8 @@ void KIconLoader_SuperConnectNotify(KIconLoader* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnConnectNotify(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_ConnectNotify_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +761,8 @@ void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnDisconnectNotify(KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +789,8 @@ QObject* KIconLoader_SuperSender(const KIconLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnSender(const KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_Sender_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +817,8 @@ int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnSenderSignalIndex(const KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +845,8 @@ int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnReceivers(const KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_Receivers_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +873,8 @@ bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnIsSignalConnected(const KIconLoader* self, intptr_t slot) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
         vkiconloader->setKIconLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIconLoader_Delete(KIconLoader* self) {

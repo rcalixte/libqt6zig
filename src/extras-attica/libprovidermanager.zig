@@ -2315,7 +2315,7 @@ pub const Attica__ProviderManager = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#public-types)
 pub const enums = struct {
-    pub const ProviderFlag = enum(i32) {
+    pub const ProviderFlag = enum {
         pub const NoFlags: i32 = 0;
         pub const DisablePlugins: i32 = 1;
     };

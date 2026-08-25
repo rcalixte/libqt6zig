@@ -3469,7 +3469,7 @@ pub const KJob = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kjob.html#public-types)
 pub const enums = struct {
-    pub const Unit = enum(i32) {
+    pub const Unit = enum {
         pub const Bytes: i32 = 0;
         pub const Files: i32 = 1;
         pub const Directories: i32 = 2;
@@ -3477,18 +3477,18 @@ pub const enums = struct {
         pub const UnitsCount: i32 = 4;
     };
 
-    pub const Capability = enum(i32) {
+    pub const Capability = enum {
         pub const NoCapabilities: i32 = 0;
         pub const Killable: i32 = 1;
         pub const Suspendable: i32 = 2;
     };
 
-    pub const KillVerbosity = enum(i32) {
+    pub const KillVerbosity = enum {
         pub const Quietly: i32 = 0;
         pub const EmitResult: i32 = 1;
     };
 
-    pub const KJob = enum(i32) {
+    pub const KJob = enum {
         pub const NoError: i32 = 0;
         pub const KilledJobError: i32 = 1;
         pub const UserDefinedError: i32 = 100;

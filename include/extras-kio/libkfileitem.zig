@@ -1498,17 +1498,17 @@ pub const KFileItem__MostLocalUrlResult = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfileitem.html#public-types)
 pub const enums = struct {
-    pub const KFileItem = enum(i32) {
+    pub const KFileItem = enum {
         pub const Unknown: i32 = -1;
     };
 
-    pub const FileTimes = enum(i32) {
+    pub const FileTimes = enum {
         pub const ModificationTime: i32 = 0;
         pub const AccessTime: i32 = 1;
         pub const CreationTime: i32 = 2;
     };
 
-    pub const MimeTypeDetermination = enum(i32) {
+    pub const MimeTypeDetermination = enum {
         pub const NormalMimeTypeDetermination: i32 = 0;
         pub const SkipMimeTypeFromContent: i32 = 1;
     };

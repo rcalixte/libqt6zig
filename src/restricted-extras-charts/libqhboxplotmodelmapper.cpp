@@ -161,9 +161,8 @@ QMetaObject* QHBoxPlotModelMapper_SuperMetaObject(const QHBoxPlotModelMapper* se
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnMetaObject(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QHBoxPlotModelMapper_SuperMetacast(QHBoxPlotModelMapper* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnMetacast(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QHBoxPlotModelMapper_SuperMetacall(QHBoxPlotModelMapper* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnMetacall(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Metacall_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QHBoxPlotModelMapper_SuperEvent(QHBoxPlotModelMapper* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnEvent(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Event_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QHBoxPlotModelMapper_SuperEventFilter(QHBoxPlotModelMapper* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnEventFilter(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QHBoxPlotModelMapper_SuperTimerEvent(QHBoxPlotModelMapper* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnTimerEvent(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QHBoxPlotModelMapper_SuperChildEvent(QHBoxPlotModelMapper* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnChildEvent(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QHBoxPlotModelMapper_SuperCustomEvent(QHBoxPlotModelMapper* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnCustomEvent(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QHBoxPlotModelMapper_SuperConnectNotify(QHBoxPlotModelMapper* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnConnectNotify(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QHBoxPlotModelMapper_SuperDisconnectNotify(QHBoxPlotModelMapper* self, cons
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnDisconnectNotify(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ int QHBoxPlotModelMapper_SuperFirst(const QHBoxPlotModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnFirst(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_First_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_First_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void QHBoxPlotModelMapper_SuperSetFirst(QHBoxPlotModelMapper* self, int first) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSetFirst(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SetFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QHBoxPlotModelMapper_SuperCount(const QHBoxPlotModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnCount(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Count_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void QHBoxPlotModelMapper_SuperSetCount(QHBoxPlotModelMapper* self, int count) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSetCount(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SetCount_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SetCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ int QHBoxPlotModelMapper_SuperFirstBoxSetSection(const QHBoxPlotModelMapper* sel
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnFirstBoxSetSection(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_FirstBoxSetSection_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_FirstBoxSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void QHBoxPlotModelMapper_SuperSetFirstBoxSetSection(QHBoxPlotModelMapper* self,
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSetFirstBoxSetSection(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SetFirstBoxSetSection_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SetFirstBoxSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ int QHBoxPlotModelMapper_SuperLastBoxSetSection(const QHBoxPlotModelMapper* self
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnLastBoxSetSection(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_LastBoxSetSection_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_LastBoxSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ void QHBoxPlotModelMapper_SuperSetLastBoxSetSection(QHBoxPlotModelMapper* self, 
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSetLastBoxSetSection(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SetLastBoxSetSection_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SetLastBoxSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int QHBoxPlotModelMapper_SuperOrientation(const QHBoxPlotModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnOrientation(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Orientation_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ void QHBoxPlotModelMapper_SuperSetOrientation(QHBoxPlotModelMapper* self, int or
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSetOrientation(QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SetOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QObject* QHBoxPlotModelMapper_SuperSender(const QHBoxPlotModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSender(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Sender_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ int QHBoxPlotModelMapper_SuperSenderSignalIndex(const QHBoxPlotModelMapper* self
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnSenderSignalIndex(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ int QHBoxPlotModelMapper_SuperReceivers(const QHBoxPlotModelMapper* self, const 
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnReceivers(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Receivers_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ bool QHBoxPlotModelMapper_SuperIsSignalConnected(const QHBoxPlotModelMapper* sel
 // Auxiliary method to allow providing re-implementation
 void QHBoxPlotModelMapper_OnIsSignalConnected(const QHBoxPlotModelMapper* self, intptr_t slot) {
     auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
-    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper)
         vqhboxplotmodelmapper->setQHBoxPlotModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QHBoxPlotModelMapper_Delete(QHBoxPlotModelMapper* self) {

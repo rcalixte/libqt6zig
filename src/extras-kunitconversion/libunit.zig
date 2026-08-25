@@ -488,7 +488,7 @@ pub const KUnitConversion__Unit = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kunitconversion.html#public-types)
 pub const enums = struct {
-    pub const CategoryId = enum(i32) {
+    pub const CategoryId = enum {
         pub const InvalidCategory: i32 = -1;
         pub const LengthCategory: i32 = 0;
         pub const AreaCategory: i32 = 1;
@@ -518,7 +518,7 @@ pub const enums = struct {
         pub const BinaryDataCategory: i32 = 25;
     };
 
-    pub const UnitId = enum(i32) {
+    pub const UnitId = enum {
         pub const InvalidUnit: i32 = -1;
         pub const NoUnit: i32 = 0;
         pub const Percent: i32 = 1;

@@ -126,9 +126,8 @@ QMetaObject* QCommonStyle_SuperMetaObject(const QCommonStyle* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnMetaObject(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_MetaObject_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +144,8 @@ void* QCommonStyle_SuperMetacast(QCommonStyle* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnMetacast(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Metacast_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +162,8 @@ int QCommonStyle_SuperMetacall(QCommonStyle* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnMetacall(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Metacall_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +180,8 @@ void QCommonStyle_SuperDrawPrimitive(const QCommonStyle* self, int pe, const QSt
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDrawPrimitive(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DrawPrimitive_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DrawPrimitive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +198,8 @@ void QCommonStyle_SuperDrawControl(const QCommonStyle* self, int element, const 
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDrawControl(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DrawControl_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DrawControl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +216,8 @@ QRect* QCommonStyle_SuperSubElementRect(const QCommonStyle* self, int r, const Q
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnSubElementRect(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_SubElementRect_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_SubElementRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +234,8 @@ void QCommonStyle_SuperDrawComplexControl(const QCommonStyle* self, int cc, cons
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDrawComplexControl(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DrawComplexControl_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DrawComplexControl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +252,8 @@ int QCommonStyle_SuperHitTestComplexControl(const QCommonStyle* self, int cc, co
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnHitTestComplexControl(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_HitTestComplexControl_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_HitTestComplexControl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +270,8 @@ QRect* QCommonStyle_SuperSubControlRect(const QCommonStyle* self, int cc, const 
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnSubControlRect(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_SubControlRect_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_SubControlRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -297,9 +288,8 @@ QSize* QCommonStyle_SuperSizeFromContents(const QCommonStyle* self, int ct, cons
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnSizeFromContents(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_SizeFromContents_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_SizeFromContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -316,9 +306,8 @@ int QCommonStyle_SuperPixelMetric(const QCommonStyle* self, int m, const QStyleO
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnPixelMetric(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_PixelMetric_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_PixelMetric_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +324,8 @@ int QCommonStyle_SuperStyleHint(const QCommonStyle* self, int sh, const QStyleOp
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnStyleHint(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_StyleHint_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_StyleHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -354,9 +342,8 @@ QIcon* QCommonStyle_SuperStandardIcon(const QCommonStyle* self, int standardIcon
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnStandardIcon(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_StandardIcon_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_StandardIcon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +360,8 @@ QPixmap* QCommonStyle_SuperStandardPixmap(const QCommonStyle* self, int sp, cons
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnStandardPixmap(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_StandardPixmap_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_StandardPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +378,8 @@ QPixmap* QCommonStyle_SuperGeneratedIconPixmap(const QCommonStyle* self, int ico
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnGeneratedIconPixmap(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_GeneratedIconPixmap_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_GeneratedIconPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -411,9 +396,8 @@ int QCommonStyle_SuperLayoutSpacing(const QCommonStyle* self, int control1, int 
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnLayoutSpacing(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_LayoutSpacing_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_LayoutSpacing_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -430,9 +414,8 @@ void QCommonStyle_SuperPolish(QCommonStyle* self, QPalette* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnPolish(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Polish_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Polish_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -449,9 +432,8 @@ void QCommonStyle_SuperPolish2(QCommonStyle* self, QApplication* app) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnPolish2(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Polish2_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Polish2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -468,9 +450,8 @@ void QCommonStyle_SuperPolish3(QCommonStyle* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnPolish3(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Polish3_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Polish3_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -487,9 +468,8 @@ void QCommonStyle_SuperUnpolish(QCommonStyle* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnUnpolish(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Unpolish_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Unpolish_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -506,9 +486,8 @@ void QCommonStyle_SuperUnpolish2(QCommonStyle* self, QApplication* application) 
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnUnpolish2(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Unpolish2_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Unpolish2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +516,8 @@ QRect* QCommonStyle_SuperItemTextRect(const QCommonStyle* self, const QFontMetri
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnItemTextRect(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_ItemTextRect_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_ItemTextRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +544,8 @@ QRect* QCommonStyle_SuperItemPixmapRect(const QCommonStyle* self, const QRect* r
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnItemPixmapRect(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_ItemPixmapRect_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_ItemPixmapRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +574,8 @@ void QCommonStyle_SuperDrawItemText(const QCommonStyle* self, QPainter* painter,
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDrawItemText(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DrawItemText_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DrawItemText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +602,8 @@ void QCommonStyle_SuperDrawItemPixmap(const QCommonStyle* self, QPainter* painte
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDrawItemPixmap(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DrawItemPixmap_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DrawItemPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +630,8 @@ QPalette* QCommonStyle_SuperStandardPalette(const QCommonStyle* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnStandardPalette(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_StandardPalette_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_StandardPalette_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +658,8 @@ bool QCommonStyle_SuperEvent(QCommonStyle* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnEvent(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Event_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +686,8 @@ bool QCommonStyle_SuperEventFilter(QCommonStyle* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnEventFilter(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_EventFilter_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +714,8 @@ void QCommonStyle_SuperTimerEvent(QCommonStyle* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnTimerEvent(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_TimerEvent_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +742,8 @@ void QCommonStyle_SuperChildEvent(QCommonStyle* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnChildEvent(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_ChildEvent_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +770,8 @@ void QCommonStyle_SuperCustomEvent(QCommonStyle* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnCustomEvent(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_CustomEvent_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +798,8 @@ void QCommonStyle_SuperConnectNotify(QCommonStyle* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnConnectNotify(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_ConnectNotify_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +826,8 @@ void QCommonStyle_SuperDisconnectNotify(QCommonStyle* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnDisconnectNotify(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_DisconnectNotify_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +854,8 @@ QObject* QCommonStyle_SuperSender(const QCommonStyle* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnSender(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Sender_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +882,8 @@ int QCommonStyle_SuperSenderSignalIndex(const QCommonStyle* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnSenderSignalIndex(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +910,8 @@ int QCommonStyle_SuperReceivers(const QCommonStyle* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnReceivers(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_Receivers_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +938,8 @@ bool QCommonStyle_SuperIsSignalConnected(const QCommonStyle* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QCommonStyle_OnIsSignalConnected(const QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle)
         vqcommonstyle->setQCommonStyle_IsSignalConnected_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QCommonStyle_Delete(QCommonStyle* self) {

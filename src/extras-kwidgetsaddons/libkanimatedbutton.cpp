@@ -99,9 +99,8 @@ QMetaObject* KAnimatedButton_SuperMetaObject(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetaObject(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MetaObject_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +117,8 @@ void* KAnimatedButton_SuperMetacast(KAnimatedButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetacast(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Metacast_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +135,8 @@ int KAnimatedButton_SuperMetacall(KAnimatedButton* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetacall(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Metacall_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -166,9 +163,8 @@ QSize* KAnimatedButton_SuperSizeHint(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSizeHint(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_SizeHint_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -195,9 +191,8 @@ QSize* KAnimatedButton_SuperMinimumSizeHint(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMinimumSizeHint(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +219,8 @@ bool KAnimatedButton_SuperEvent(KAnimatedButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Event_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +247,8 @@ void KAnimatedButton_SuperMousePressEvent(KAnimatedButton* self, QMouseEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMousePressEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MousePressEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +275,8 @@ void KAnimatedButton_SuperMouseReleaseEvent(KAnimatedButton* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseReleaseEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +303,8 @@ void KAnimatedButton_SuperPaintEvent(KAnimatedButton* self, QPaintEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnPaintEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_PaintEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +331,8 @@ void KAnimatedButton_SuperActionEvent(KAnimatedButton* self, QActionEvent* param
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnActionEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ActionEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +359,8 @@ void KAnimatedButton_SuperEnterEvent(KAnimatedButton* self, QEnterEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEnterEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_EnterEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +387,8 @@ void KAnimatedButton_SuperLeaveEvent(KAnimatedButton* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnLeaveEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_LeaveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +415,8 @@ void KAnimatedButton_SuperTimerEvent(KAnimatedButton* self, QTimerEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnTimerEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_TimerEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +443,8 @@ void KAnimatedButton_SuperChangeEvent(KAnimatedButton* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnChangeEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ChangeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +471,8 @@ bool KAnimatedButton_SuperHitButton(const KAnimatedButton* self, const QPoint* p
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnHitButton(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_HitButton_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +499,8 @@ void KAnimatedButton_SuperCheckStateSet(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCheckStateSet(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_CheckStateSet_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +527,8 @@ void KAnimatedButton_SuperNextCheckState(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnNextCheckState(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_NextCheckState_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +555,8 @@ void KAnimatedButton_SuperInitStyleOption(const KAnimatedButton* self, QStyleOpt
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnInitStyleOption(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_InitStyleOption_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +583,8 @@ void KAnimatedButton_SuperKeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnKeyPressEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +611,8 @@ void KAnimatedButton_SuperKeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnKeyReleaseEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +639,8 @@ void KAnimatedButton_SuperMouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseMoveEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +667,8 @@ void KAnimatedButton_SuperFocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusInEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_FocusInEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +695,8 @@ void KAnimatedButton_SuperFocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusOutEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +723,8 @@ int KAnimatedButton_SuperDevType(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDevType(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DevType_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +751,8 @@ void KAnimatedButton_SuperSetVisible(KAnimatedButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSetVisible(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_SetVisible_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +779,8 @@ int KAnimatedButton_SuperHeightForWidth(const KAnimatedButton* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnHeightForWidth(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_HeightForWidth_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +807,8 @@ bool KAnimatedButton_SuperHasHeightForWidth(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnHasHeightForWidth(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +835,8 @@ QPaintEngine* KAnimatedButton_SuperPaintEngine(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnPaintEngine(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_PaintEngine_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +863,8 @@ void KAnimatedButton_SuperMouseDoubleClickEvent(KAnimatedButton* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseDoubleClickEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +891,8 @@ void KAnimatedButton_SuperWheelEvent(KAnimatedButton* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnWheelEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_WheelEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +919,8 @@ void KAnimatedButton_SuperMoveEvent(KAnimatedButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMoveEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_MoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +947,8 @@ void KAnimatedButton_SuperResizeEvent(KAnimatedButton* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnResizeEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ResizeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +975,8 @@ void KAnimatedButton_SuperCloseEvent(KAnimatedButton* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCloseEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_CloseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1003,8 @@ void KAnimatedButton_SuperContextMenuEvent(KAnimatedButton* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnContextMenuEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1031,8 @@ void KAnimatedButton_SuperTabletEvent(KAnimatedButton* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnTabletEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_TabletEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1059,8 @@ void KAnimatedButton_SuperDragEnterEvent(KAnimatedButton* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragEnterEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1123,9 +1087,8 @@ void KAnimatedButton_SuperDragMoveEvent(KAnimatedButton* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragMoveEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1115,8 @@ void KAnimatedButton_SuperDragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragLeaveEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1143,8 @@ void KAnimatedButton_SuperDropEvent(KAnimatedButton* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDropEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DropEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1171,8 @@ void KAnimatedButton_SuperShowEvent(KAnimatedButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnShowEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ShowEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1199,8 @@ void KAnimatedButton_SuperHideEvent(KAnimatedButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnHideEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_HideEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1229,8 @@ bool KAnimatedButton_SuperNativeEvent(KAnimatedButton* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnNativeEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_NativeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1257,8 @@ int KAnimatedButton_SuperMetric(const KAnimatedButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetric(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Metric_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1285,8 @@ void KAnimatedButton_SuperInitPainter(const KAnimatedButton* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnInitPainter(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_InitPainter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1313,8 @@ QPaintDevice* KAnimatedButton_SuperRedirected(const KAnimatedButton* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnRedirected(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Redirected_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1341,8 @@ QPainter* KAnimatedButton_SuperSharedPainter(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSharedPainter(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_SharedPainter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1369,8 @@ void KAnimatedButton_SuperInputMethodEvent(KAnimatedButton* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnInputMethodEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1397,8 @@ QVariant* KAnimatedButton_SuperInputMethodQuery(const KAnimatedButton* self, int
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnInputMethodQuery(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1425,8 @@ bool KAnimatedButton_SuperFocusNextPrevChild(KAnimatedButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusNextPrevChild(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1453,8 @@ bool KAnimatedButton_SuperEventFilter(KAnimatedButton* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEventFilter(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_EventFilter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1481,8 @@ void KAnimatedButton_SuperChildEvent(KAnimatedButton* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnChildEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ChildEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1509,8 @@ void KAnimatedButton_SuperCustomEvent(KAnimatedButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCustomEvent(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_CustomEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1537,8 @@ void KAnimatedButton_SuperConnectNotify(KAnimatedButton* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnConnectNotify(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_ConnectNotify_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1565,8 @@ void KAnimatedButton_SuperDisconnectNotify(KAnimatedButton* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDisconnectNotify(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1593,8 @@ void KAnimatedButton_SuperUpdateMicroFocus(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnUpdateMicroFocus(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1621,8 @@ void KAnimatedButton_SuperCreate(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCreate(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Create_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1649,8 @@ void KAnimatedButton_SuperDestroy(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDestroy(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Destroy_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1677,8 @@ bool KAnimatedButton_SuperFocusNextChild(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusNextChild(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_FocusNextChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1705,8 @@ bool KAnimatedButton_SuperFocusPreviousChild(KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusPreviousChild(KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1733,8 @@ QObject* KAnimatedButton_SuperSender(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSender(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Sender_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1821,9 +1761,8 @@ int KAnimatedButton_SuperSenderSignalIndex(const KAnimatedButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSenderSignalIndex(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1850,9 +1789,8 @@ int KAnimatedButton_SuperReceivers(const KAnimatedButton* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnReceivers(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_Receivers_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1879,9 +1817,8 @@ bool KAnimatedButton_SuperIsSignalConnected(const KAnimatedButton* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnIsSignalConnected(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1908,9 +1845,8 @@ double KAnimatedButton_SuperGetDecodedMetricF(const KAnimatedButton* self, int m
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnGetDecodedMetricF(const KAnimatedButton* self, intptr_t slot) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
         vkanimatedbutton->setKAnimatedButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KAnimatedButton_Delete(KAnimatedButton* self) {

@@ -204,9 +204,8 @@ QMetaObject* QTextTable_SuperMetaObject(const QTextTable* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnMetaObject(const QTextTable* self, intptr_t slot) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_MetaObject_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +222,8 @@ void* QTextTable_SuperMetacast(QTextTable* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnMetacast(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_Metacast_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +240,8 @@ int QTextTable_SuperMetacall(QTextTable* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnMetacall(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_Metacall_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +268,8 @@ bool QTextTable_SuperEvent(QTextTable* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnEvent(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_Event_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +296,8 @@ bool QTextTable_SuperEventFilter(QTextTable* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnEventFilter(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_EventFilter_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +324,8 @@ void QTextTable_SuperTimerEvent(QTextTable* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnTimerEvent(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_TimerEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +352,8 @@ void QTextTable_SuperChildEvent(QTextTable* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnChildEvent(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_ChildEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +380,8 @@ void QTextTable_SuperCustomEvent(QTextTable* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnCustomEvent(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_CustomEvent_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +408,8 @@ void QTextTable_SuperConnectNotify(QTextTable* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnConnectNotify(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_ConnectNotify_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +436,8 @@ void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnDisconnectNotify(QTextTable* self, intptr_t slot) {
     auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +464,8 @@ QObject* QTextTable_SuperSender(const QTextTable* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnSender(const QTextTable* self, intptr_t slot) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_Sender_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +492,8 @@ int QTextTable_SuperSenderSignalIndex(const QTextTable* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnSenderSignalIndex(const QTextTable* self, intptr_t slot) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +520,8 @@ int QTextTable_SuperReceivers(const QTextTable* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnReceivers(const QTextTable* self, intptr_t slot) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_Receivers_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +548,8 @@ bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QTextTable_OnIsSignalConnected(const QTextTable* self, intptr_t slot) {
     auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+    if (vqtexttable && vqtexttable->isVirtualQTextTable)
         vqtexttable->setQTextTable_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTextTable_Delete(QTextTable* self) {

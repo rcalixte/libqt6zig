@@ -116,9 +116,8 @@ QWidget* QFormBuilder_SuperCreateWidget(QFormBuilder* self, const libqt_string w
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateWidget(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_CreateWidget_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +136,8 @@ QLayout* QFormBuilder_SuperCreateLayout(QFormBuilder* self, const libqt_string l
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateLayout(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_CreateLayout_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +154,8 @@ void QFormBuilder_SuperUpdateCustomWidgets(QFormBuilder* self) {
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnUpdateCustomWidgets(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_UpdateCustomWidgets_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_UpdateCustomWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +182,8 @@ QWidget* QFormBuilder_SuperLoad(QFormBuilder* self, QIODevice* dev, QWidget* par
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnLoad(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_Load_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Load_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +210,8 @@ void QFormBuilder_SuperSave(QFormBuilder* self, QIODevice* dev, QWidget* widget)
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnSave(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_Save_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Save_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +238,8 @@ void QFormBuilder_SuperAddMenuAction(QFormBuilder* self, QAction* action) {
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnAddMenuAction(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_AddMenuAction_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_AddMenuAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +268,8 @@ QAction* QFormBuilder_SuperCreateAction(QFormBuilder* self, QObject* parent, con
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateAction(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_CreateAction_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +298,8 @@ QActionGroup* QFormBuilder_SuperCreateActionGroup(QFormBuilder* self, QObject* p
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCreateActionGroup(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_CreateActionGroup_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CreateActionGroup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +328,8 @@ bool QFormBuilder_SuperCheckProperty(const QFormBuilder* self, QObject* obj, con
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnCheckProperty(const QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = const_cast<VirtualQFormBuilder*>(dynamic_cast<const VirtualQFormBuilder*>(self));
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_CheckProperty_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_CheckProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +358,8 @@ QWidget* QFormBuilder_SuperWidgetByName(QFormBuilder* self, QWidget* topLevel, c
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnWidgetByName(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_WidgetByName_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_WidgetByName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +388,8 @@ bool QFormBuilder_SuperApplyPropertyInternally(QFormBuilder* self, QObject* o, c
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnApplyPropertyInternally(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_ApplyPropertyInternally_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_ApplyPropertyInternally_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +416,8 @@ void QFormBuilder_SuperReset(QFormBuilder* self) {
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnReset(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_Reset_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +442,8 @@ QMetaEnum* QFormBuilder_SuperToolBarAreaMetaEnum(QFormBuilder* self) {
 // Auxiliary method to allow providing re-implementation
 void QFormBuilder_OnToolBarAreaMetaEnum(QFormBuilder* self, intptr_t slot) {
     auto* vqformbuilder = dynamic_cast<VirtualQFormBuilder*>(self);
-    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder) {
+    if (vqformbuilder && vqformbuilder->isVirtualQFormBuilder)
         vqformbuilder->setQFormBuilder_ToolBarAreaMetaEnum_Callback(reinterpret_cast<VirtualQFormBuilder::QFormBuilder_ToolBarAreaMetaEnum_Callback>(slot));
-    }
 }
 
 void QFormBuilder_Delete(QFormBuilder* self) {

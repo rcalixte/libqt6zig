@@ -125,9 +125,8 @@ QMetaObject* QWaveDecoder_SuperMetaObject(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnMetaObject(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_MetaObject_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +143,8 @@ void* QWaveDecoder_SuperMetacast(QWaveDecoder* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnMetacast(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Metacast_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +161,8 @@ int QWaveDecoder_SuperMetacall(QWaveDecoder* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnMetacall(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Metacall_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +179,8 @@ bool QWaveDecoder_SuperOpen(QWaveDecoder* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnOpen(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Open_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +197,8 @@ void QWaveDecoder_SuperClose(QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnClose(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Close_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +215,8 @@ bool QWaveDecoder_SuperSeek(QWaveDecoder* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSeek(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Seek_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Seek_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +233,8 @@ long long QWaveDecoder_SuperPos(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnPos(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Pos_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Pos_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +251,8 @@ long long QWaveDecoder_SuperSize(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSize(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Size_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Size_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +269,8 @@ bool QWaveDecoder_SuperIsSequential(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnIsSequential(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_IsSequential_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_IsSequential_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +287,8 @@ long long QWaveDecoder_SuperBytesAvailable(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnBytesAvailable(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_BytesAvailable_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +315,8 @@ bool QWaveDecoder_SuperAtEnd(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnAtEnd(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_AtEnd_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +343,8 @@ bool QWaveDecoder_SuperReset(QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnReset(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Reset_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +371,8 @@ long long QWaveDecoder_SuperBytesToWrite(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnBytesToWrite(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_BytesToWrite_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +399,8 @@ bool QWaveDecoder_SuperCanReadLine(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnCanReadLine(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_CanReadLine_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +427,8 @@ bool QWaveDecoder_SuperWaitForReadyRead(QWaveDecoder* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnWaitForReadyRead(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_WaitForReadyRead_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +455,8 @@ bool QWaveDecoder_SuperWaitForBytesWritten(QWaveDecoder* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnWaitForBytesWritten(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +483,8 @@ long long QWaveDecoder_SuperReadLineData(QWaveDecoder* self, char* data, long lo
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnReadLineData(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_ReadLineData_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +511,8 @@ long long QWaveDecoder_SuperSkipData(QWaveDecoder* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSkipData(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_SkipData_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +539,8 @@ bool QWaveDecoder_SuperEvent(QWaveDecoder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnEvent(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Event_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +567,8 @@ bool QWaveDecoder_SuperEventFilter(QWaveDecoder* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnEventFilter(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_EventFilter_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +595,8 @@ void QWaveDecoder_SuperTimerEvent(QWaveDecoder* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnTimerEvent(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_TimerEvent_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +623,8 @@ void QWaveDecoder_SuperChildEvent(QWaveDecoder* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnChildEvent(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_ChildEvent_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +651,8 @@ void QWaveDecoder_SuperCustomEvent(QWaveDecoder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnCustomEvent(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_CustomEvent_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +679,8 @@ void QWaveDecoder_SuperConnectNotify(QWaveDecoder* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnConnectNotify(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_ConnectNotify_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +707,8 @@ void QWaveDecoder_SuperDisconnectNotify(QWaveDecoder* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnDisconnectNotify(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_DisconnectNotify_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +735,8 @@ void QWaveDecoder_SuperSetOpenMode(QWaveDecoder* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSetOpenMode(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_SetOpenMode_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -791,9 +765,8 @@ void QWaveDecoder_SuperSetErrorString(QWaveDecoder* self, const libqt_string err
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSetErrorString(QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_SetErrorString_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -820,9 +793,8 @@ QObject* QWaveDecoder_SuperSender(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSender(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Sender_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -849,9 +821,8 @@ int QWaveDecoder_SuperSenderSignalIndex(const QWaveDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnSenderSignalIndex(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -878,9 +849,8 @@ int QWaveDecoder_SuperReceivers(const QWaveDecoder* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnReceivers(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_Receivers_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -907,9 +877,8 @@ bool QWaveDecoder_SuperIsSignalConnected(const QWaveDecoder* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QWaveDecoder_OnIsSignalConnected(const QWaveDecoder* self, intptr_t slot) {
     auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder)
         vqwavedecoder->setQWaveDecoder_IsSignalConnected_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWaveDecoder_Delete(QWaveDecoder* self) {

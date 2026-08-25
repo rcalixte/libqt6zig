@@ -207,9 +207,8 @@ QMetaObject* KOpenWithDialog_SuperMetaObject(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMetaObject(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MetaObject_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +225,8 @@ void* KOpenWithDialog_SuperMetacast(KOpenWithDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMetacast(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Metacast_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -245,9 +243,8 @@ int KOpenWithDialog_SuperMetacall(KOpenWithDialog* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMetacall(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Metacall_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +261,8 @@ void KOpenWithDialog_SuperAccept(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnAccept(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Accept_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +289,8 @@ void KOpenWithDialog_SuperSetVisible(KOpenWithDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnSetVisible(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_SetVisible_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +317,8 @@ QSize* KOpenWithDialog_SuperSizeHint(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnSizeHint(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_SizeHint_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +345,8 @@ QSize* KOpenWithDialog_SuperMinimumSizeHint(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMinimumSizeHint(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +373,8 @@ void KOpenWithDialog_SuperOpen(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnOpen(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Open_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +401,8 @@ int KOpenWithDialog_SuperExec(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnExec(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Exec_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +429,8 @@ void KOpenWithDialog_SuperDone(KOpenWithDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDone(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Done_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +457,8 @@ void KOpenWithDialog_SuperReject(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnReject(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Reject_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +485,8 @@ void KOpenWithDialog_SuperKeyPressEvent(KOpenWithDialog* self, QKeyEvent* param1
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnKeyPressEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +513,8 @@ void KOpenWithDialog_SuperCloseEvent(KOpenWithDialog* self, QCloseEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnCloseEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_CloseEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +541,8 @@ void KOpenWithDialog_SuperShowEvent(KOpenWithDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnShowEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ShowEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +569,8 @@ void KOpenWithDialog_SuperResizeEvent(KOpenWithDialog* self, QResizeEvent* param
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnResizeEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +597,8 @@ void KOpenWithDialog_SuperContextMenuEvent(KOpenWithDialog* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnContextMenuEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +625,8 @@ int KOpenWithDialog_SuperDevType(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDevType(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DevType_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +653,8 @@ int KOpenWithDialog_SuperHeightForWidth(const KOpenWithDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnHeightForWidth(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +681,8 @@ bool KOpenWithDialog_SuperHasHeightForWidth(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnHasHeightForWidth(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +709,8 @@ QPaintEngine* KOpenWithDialog_SuperPaintEngine(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnPaintEngine(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_PaintEngine_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +737,8 @@ bool KOpenWithDialog_SuperEvent(KOpenWithDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Event_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +765,8 @@ void KOpenWithDialog_SuperMousePressEvent(KOpenWithDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMousePressEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +793,8 @@ void KOpenWithDialog_SuperMouseReleaseEvent(KOpenWithDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMouseReleaseEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +821,8 @@ void KOpenWithDialog_SuperMouseDoubleClickEvent(KOpenWithDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMouseDoubleClickEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +849,8 @@ void KOpenWithDialog_SuperMouseMoveEvent(KOpenWithDialog* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMouseMoveEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +877,8 @@ void KOpenWithDialog_SuperWheelEvent(KOpenWithDialog* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnWheelEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_WheelEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +905,8 @@ void KOpenWithDialog_SuperKeyReleaseEvent(KOpenWithDialog* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnKeyReleaseEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +933,8 @@ void KOpenWithDialog_SuperFocusInEvent(KOpenWithDialog* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnFocusInEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +961,8 @@ void KOpenWithDialog_SuperFocusOutEvent(KOpenWithDialog* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnFocusOutEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +989,8 @@ void KOpenWithDialog_SuperEnterEvent(KOpenWithDialog* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnEnterEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_EnterEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1017,8 @@ void KOpenWithDialog_SuperLeaveEvent(KOpenWithDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnLeaveEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1045,8 @@ void KOpenWithDialog_SuperPaintEvent(KOpenWithDialog* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnPaintEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_PaintEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1073,8 @@ void KOpenWithDialog_SuperMoveEvent(KOpenWithDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMoveEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_MoveEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1101,8 @@ void KOpenWithDialog_SuperTabletEvent(KOpenWithDialog* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnTabletEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_TabletEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1129,8 @@ void KOpenWithDialog_SuperActionEvent(KOpenWithDialog* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnActionEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ActionEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1157,8 @@ void KOpenWithDialog_SuperDragEnterEvent(KOpenWithDialog* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDragEnterEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1185,8 @@ void KOpenWithDialog_SuperDragMoveEvent(KOpenWithDialog* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDragMoveEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1213,8 @@ void KOpenWithDialog_SuperDragLeaveEvent(KOpenWithDialog* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDragLeaveEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1241,8 @@ void KOpenWithDialog_SuperDropEvent(KOpenWithDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDropEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DropEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1269,8 @@ void KOpenWithDialog_SuperHideEvent(KOpenWithDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnHideEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_HideEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1299,8 @@ bool KOpenWithDialog_SuperNativeEvent(KOpenWithDialog* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnNativeEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_NativeEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1327,8 @@ void KOpenWithDialog_SuperChangeEvent(KOpenWithDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnChangeEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1355,8 @@ int KOpenWithDialog_SuperMetric(const KOpenWithDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnMetric(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Metric_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1383,8 @@ void KOpenWithDialog_SuperInitPainter(const KOpenWithDialog* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnInitPainter(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_InitPainter_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1411,8 @@ QPaintDevice* KOpenWithDialog_SuperRedirected(const KOpenWithDialog* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnRedirected(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Redirected_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1439,8 @@ QPainter* KOpenWithDialog_SuperSharedPainter(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnSharedPainter(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_SharedPainter_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1467,8 @@ void KOpenWithDialog_SuperInputMethodEvent(KOpenWithDialog* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnInputMethodEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1495,8 @@ QVariant* KOpenWithDialog_SuperInputMethodQuery(const KOpenWithDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnInputMethodQuery(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1523,8 @@ bool KOpenWithDialog_SuperFocusNextPrevChild(KOpenWithDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnFocusNextPrevChild(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1551,8 @@ void KOpenWithDialog_SuperTimerEvent(KOpenWithDialog* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnTimerEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_TimerEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1579,8 @@ void KOpenWithDialog_SuperChildEvent(KOpenWithDialog* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnChildEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ChildEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1607,8 @@ void KOpenWithDialog_SuperCustomEvent(KOpenWithDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnCustomEvent(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_CustomEvent_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1635,8 @@ void KOpenWithDialog_SuperConnectNotify(KOpenWithDialog* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnConnectNotify(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1663,8 @@ void KOpenWithDialog_SuperDisconnectNotify(KOpenWithDialog* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDisconnectNotify(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1691,8 @@ void KOpenWithDialog_SuperAdjustPosition(KOpenWithDialog* self, QWidget* param1)
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnAdjustPosition(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1719,8 @@ void KOpenWithDialog_SuperUpdateMicroFocus(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnUpdateMicroFocus(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1747,8 @@ void KOpenWithDialog_SuperCreate(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnCreate(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Create_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1775,8 @@ void KOpenWithDialog_SuperDestroy(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnDestroy(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Destroy_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1803,8 @@ bool KOpenWithDialog_SuperFocusNextChild(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnFocusNextChild(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1831,8 @@ bool KOpenWithDialog_SuperFocusPreviousChild(KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnFocusPreviousChild(KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1859,8 @@ QObject* KOpenWithDialog_SuperSender(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnSender(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Sender_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1887,8 @@ int KOpenWithDialog_SuperSenderSignalIndex(const KOpenWithDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnSenderSignalIndex(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1977,9 +1915,8 @@ int KOpenWithDialog_SuperReceivers(const KOpenWithDialog* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnReceivers(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_Receivers_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2006,9 +1943,8 @@ bool KOpenWithDialog_SuperIsSignalConnected(const KOpenWithDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnIsSignalConnected(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2035,9 +1971,8 @@ double KOpenWithDialog_SuperGetDecodedMetricF(const KOpenWithDialog* self, int m
 // Auxiliary method to allow providing re-implementation
 void KOpenWithDialog_OnGetDecodedMetricF(const KOpenWithDialog* self, intptr_t slot) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog)
         vkopenwithdialog->setKOpenWithDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KOpenWithDialog_Delete(KOpenWithDialog* self) {

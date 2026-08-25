@@ -103,9 +103,8 @@ bool KArchiveDirectory_SuperIsDirectory(const KArchiveDirectory* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveDirectory_OnIsDirectory(const KArchiveDirectory* self, intptr_t slot) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
+    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
         vkarchivedirectory->setKArchiveDirectory_IsDirectory_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsDirectory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +121,8 @@ void KArchiveDirectory_SuperVirtualHook(KArchiveDirectory* self, int id, void* d
 // Auxiliary method to allow providing re-implementation
 void KArchiveDirectory_OnVirtualHook(KArchiveDirectory* self, intptr_t slot) {
     auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self);
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
+    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
         vkarchivedirectory->setKArchiveDirectory_VirtualHook_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -151,9 +149,8 @@ bool KArchiveDirectory_SuperIsFile(const KArchiveDirectory* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveDirectory_OnIsFile(const KArchiveDirectory* self, intptr_t slot) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
+    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
         vkarchivedirectory->setKArchiveDirectory_IsFile_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_IsFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +177,8 @@ KArchive* KArchiveDirectory_SuperArchive(const KArchiveDirectory* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveDirectory_OnArchive(const KArchiveDirectory* self, intptr_t slot) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
+    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory)
         vkarchivedirectory->setKArchiveDirectory_Archive_Callback(reinterpret_cast<VirtualKArchiveDirectory::KArchiveDirectory_Archive_Callback>(slot));
-    }
 }
 
 void KArchiveDirectory_Delete(KArchiveDirectory* self) {

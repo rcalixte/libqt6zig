@@ -159,7 +159,7 @@ pub const QWebEngineGlobalSettings = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings.html#public-types)
 pub const enums = struct {
-    pub const SecureDnsMode = enum(u8) {
+    pub const SecureDnsMode = enum {
         pub const SystemOnly: u8 = 0;
         pub const SecureWithFallback: u8 = 1;
         pub const SecureOnly: u8 = 2;

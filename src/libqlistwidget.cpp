@@ -309,9 +309,8 @@ QListWidgetItem* QListWidgetItem_SuperClone(const QListWidgetItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnClone(const QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_Clone_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Clone_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -328,9 +327,8 @@ QVariant* QListWidgetItem_SuperData(const QListWidgetItem* self, int role) {
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnData(const QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_Data_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -347,9 +345,8 @@ void QListWidgetItem_SuperSetData(QListWidgetItem* self, int role, const QVarian
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnSetData(QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_SetData_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -366,9 +363,8 @@ bool QListWidgetItem_SuperOperatorLesser(const QListWidgetItem* self, const QLis
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnOperatorLesser(const QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_OperatorLesser_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_OperatorLesser_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -385,9 +381,8 @@ void QListWidgetItem_SuperRead(QListWidgetItem* self, QDataStream* in) {
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnRead(QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_Read_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Read_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -404,9 +399,8 @@ void QListWidgetItem_SuperWrite(const QListWidgetItem* self, QDataStream* out) {
 // Auxiliary method to allow providing re-implementation
 void QListWidgetItem_OnWrite(const QListWidgetItem* self, intptr_t slot) {
     auto* vqlistwidgetitem = const_cast<VirtualQListWidgetItem*>(dynamic_cast<const VirtualQListWidgetItem*>(self));
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
+    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem)
         vqlistwidgetitem->setQListWidgetItem_Write_Callback(reinterpret_cast<VirtualQListWidgetItem::QListWidgetItem_Write_Callback>(slot));
-    }
 }
 
 void QListWidgetItem_Delete(QListWidgetItem* self) {
@@ -846,9 +840,8 @@ QMetaObject* QListWidget_SuperMetaObject(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetaObject(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MetaObject_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -865,9 +858,8 @@ void* QListWidget_SuperMetacast(QListWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetacast(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Metacast_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -884,9 +876,8 @@ int QListWidget_SuperMetacall(QListWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetacall(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Metacall_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -903,9 +894,8 @@ void QListWidget_SuperSetSelectionModel(QListWidget* self, QItemSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetSelectionModel(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetSelectionModel_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -922,9 +912,8 @@ void QListWidget_SuperDropEvent(QListWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDropEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DropEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -941,9 +930,8 @@ bool QListWidget_SuperEvent(QListWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Event_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -994,9 +982,8 @@ libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* s
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMimeTypes(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MimeTypes_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1019,9 +1006,8 @@ QMimeData* QListWidget_SuperMimeData(const QListWidget* self, const libqt_list /
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMimeData(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MimeData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1038,9 +1024,8 @@ bool QListWidget_SuperDropMimeData(QListWidget* self, int index, const QMimeData
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDropMimeData(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DropMimeData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1057,9 +1042,8 @@ int QListWidget_SuperSupportedDropActions(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSupportedDropActions(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1070,8 @@ QRect* QListWidget_SuperVisualRect(const QListWidget* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVisualRect(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_VisualRect_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VisualRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1098,8 @@ void QListWidget_SuperScrollTo(QListWidget* self, const QModelIndex* index, int 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScrollTo(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ScrollTo_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1126,8 @@ QModelIndex* QListWidget_SuperIndexAt(const QListWidget* self, const QPoint* p) 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnIndexAt(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_IndexAt_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IndexAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1154,8 @@ void QListWidget_SuperDoItemsLayout(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDoItemsLayout(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DoItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1182,8 @@ void QListWidget_SuperReset(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnReset(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Reset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1210,8 @@ void QListWidget_SuperSetRootIndex(QListWidget* self, const QModelIndex* index) 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetRootIndex(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetRootIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1238,8 @@ void QListWidget_SuperScrollContentsBy(QListWidget* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScrollContentsBy(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ScrollContentsBy_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1278,8 @@ void QListWidget_SuperDataChanged(QListWidget* self, const QModelIndex* topLeft,
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDataChanged(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DataChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1306,8 @@ void QListWidget_SuperRowsInserted(QListWidget* self, const QModelIndex* parent,
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRowsInserted(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_RowsInserted_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RowsInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1334,8 @@ void QListWidget_SuperRowsAboutToBeRemoved(QListWidget* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRowsAboutToBeRemoved(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1362,8 @@ void QListWidget_SuperMouseMoveEvent(QListWidget* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseMoveEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1390,8 @@ void QListWidget_SuperMouseReleaseEvent(QListWidget* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseReleaseEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1418,8 @@ void QListWidget_SuperWheelEvent(QListWidget* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnWheelEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_WheelEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1446,8 @@ void QListWidget_SuperTimerEvent(QListWidget* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnTimerEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_TimerEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1474,8 @@ void QListWidget_SuperResizeEvent(QListWidget* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnResizeEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1502,8 @@ void QListWidget_SuperDragMoveEvent(QListWidget* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragMoveEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1530,8 @@ void QListWidget_SuperDragLeaveEvent(QListWidget* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragLeaveEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1558,8 @@ void QListWidget_SuperStartDrag(QListWidget* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnStartDrag(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_StartDrag_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1586,8 @@ void QListWidget_SuperInitViewItemOption(const QListWidget* self, QStyleOptionVi
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInitViewItemOption(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_InitViewItemOption_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1614,8 @@ void QListWidget_SuperPaintEvent(QListWidget* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnPaintEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_PaintEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1642,8 @@ int QListWidget_SuperHorizontalOffset(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHorizontalOffset(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HorizontalOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1670,8 @@ int QListWidget_SuperVerticalOffset(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVerticalOffset(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_VerticalOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1696,8 @@ QModelIndex* QListWidget_SuperMoveCursor(QListWidget* self, int cursorAction, in
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMoveCursor(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MoveCursor_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MoveCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1724,8 @@ void QListWidget_SuperSetSelection(QListWidget* self, const QRect* rect, int com
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetSelection(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetSelection_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1790,9 +1750,8 @@ QRegion* QListWidget_SuperVisualRegionForSelection(const QListWidget* self, cons
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVisualRegionForSelection(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1814,8 @@ libqt_list /* of QModelIndex* */ QListWidget_SuperSelectedIndexes(const QListWid
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectedIndexes(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SelectedIndexes_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1842,8 @@ void QListWidget_SuperUpdateGeometries(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateGeometries(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_UpdateGeometries_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1870,8 @@ bool QListWidget_SuperIsIndexHidden(const QListWidget* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnIsIndexHidden(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_IsIndexHidden_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1898,8 @@ void QListWidget_SuperSelectionChanged(QListWidget* self, const QItemSelection* 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectionChanged(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SelectionChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1926,8 @@ void QListWidget_SuperCurrentChanged(QListWidget* self, const QModelIndex* curre
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCurrentChanged(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_CurrentChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1998,9 +1952,8 @@ QSize* QListWidget_SuperViewportSizeHint(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnViewportSizeHint(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ViewportSizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2029,9 +1982,8 @@ void QListWidget_SuperKeyboardSearch(QListWidget* self, const libqt_string searc
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyboardSearch(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_KeyboardSearch_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2058,9 +2010,8 @@ int QListWidget_SuperSizeHintForRow(const QListWidget* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSizeHintForRow(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SizeHintForRow_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2087,9 +2038,8 @@ int QListWidget_SuperSizeHintForColumn(const QListWidget* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSizeHintForColumn(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SizeHintForColumn_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2066,8 @@ QAbstractItemDelegate* QListWidget_SuperItemDelegateForIndex(const QListWidget* 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnItemDelegateForIndex(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2145,9 +2094,8 @@ QVariant* QListWidget_SuperInputMethodQuery(const QListWidget* self, int query) 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInputMethodQuery(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2174,9 +2122,8 @@ void QListWidget_SuperSelectAll(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectAll(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SelectAll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2203,9 +2150,8 @@ void QListWidget_SuperUpdateEditorData(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateEditorData(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_UpdateEditorData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2232,9 +2178,8 @@ void QListWidget_SuperUpdateEditorGeometries(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateEditorGeometries(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2261,9 +2206,8 @@ void QListWidget_SuperVerticalScrollbarAction(QListWidget* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVerticalScrollbarAction(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2290,9 +2234,8 @@ void QListWidget_SuperHorizontalScrollbarAction(QListWidget* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHorizontalScrollbarAction(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2319,9 +2262,8 @@ void QListWidget_SuperVerticalScrollbarValueChanged(QListWidget* self, int value
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnVerticalScrollbarValueChanged(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2348,9 +2290,8 @@ void QListWidget_SuperHorizontalScrollbarValueChanged(QListWidget* self, int val
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHorizontalScrollbarValueChanged(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2377,9 +2318,8 @@ void QListWidget_SuperCloseEditor(QListWidget* self, QWidget* editor, int hint) 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCloseEditor(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_CloseEditor_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2406,9 +2346,8 @@ void QListWidget_SuperCommitData(QListWidget* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCommitData(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_CommitData_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2435,9 +2374,8 @@ void QListWidget_SuperEditorDestroyed(QListWidget* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEditorDestroyed(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_EditorDestroyed_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2464,9 +2402,8 @@ bool QListWidget_SuperEdit2(QListWidget* self, const QModelIndex* index, int tri
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEdit2(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Edit2_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2493,9 +2430,8 @@ int QListWidget_SuperSelectionCommand(const QListWidget* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSelectionCommand(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SelectionCommand_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2522,9 +2458,8 @@ bool QListWidget_SuperFocusNextPrevChild(QListWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusNextPrevChild(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2551,9 +2486,8 @@ bool QListWidget_SuperViewportEvent(QListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnViewportEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ViewportEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2580,9 +2514,8 @@ void QListWidget_SuperMousePressEvent(QListWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMousePressEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2609,9 +2542,8 @@ void QListWidget_SuperMouseDoubleClickEvent(QListWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMouseDoubleClickEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2638,9 +2570,8 @@ void QListWidget_SuperDragEnterEvent(QListWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDragEnterEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2667,9 +2598,8 @@ void QListWidget_SuperFocusInEvent(QListWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusInEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2696,9 +2626,8 @@ void QListWidget_SuperFocusOutEvent(QListWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusOutEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2725,9 +2654,8 @@ void QListWidget_SuperKeyPressEvent(QListWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyPressEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2754,9 +2682,8 @@ void QListWidget_SuperInputMethodEvent(QListWidget* self, QInputMethodEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInputMethodEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2783,9 +2710,8 @@ bool QListWidget_SuperEventFilter(QListWidget* self, QObject* object, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEventFilter(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_EventFilter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2812,9 +2738,8 @@ QSize* QListWidget_SuperMinimumSizeHint(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMinimumSizeHint(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2841,9 +2766,8 @@ QSize* QListWidget_SuperSizeHint(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSizeHint(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SizeHint_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2870,9 +2794,8 @@ void QListWidget_SuperSetupViewport(QListWidget* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetupViewport(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetupViewport_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2899,9 +2822,8 @@ void QListWidget_SuperContextMenuEvent(QListWidget* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnContextMenuEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2928,9 +2850,8 @@ void QListWidget_SuperChangeEvent(QListWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnChangeEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2957,9 +2878,8 @@ void QListWidget_SuperInitStyleOption(const QListWidget* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInitStyleOption(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2986,9 +2906,8 @@ int QListWidget_SuperDevType(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDevType(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DevType_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3015,9 +2934,8 @@ void QListWidget_SuperSetVisible(QListWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetVisible(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetVisible_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3044,9 +2962,8 @@ int QListWidget_SuperHeightForWidth(const QListWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHeightForWidth(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3073,9 +2990,8 @@ bool QListWidget_SuperHasHeightForWidth(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHasHeightForWidth(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3102,9 +3018,8 @@ QPaintEngine* QListWidget_SuperPaintEngine(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnPaintEngine(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_PaintEngine_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3131,9 +3046,8 @@ void QListWidget_SuperKeyReleaseEvent(QListWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnKeyReleaseEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3160,9 +3074,8 @@ void QListWidget_SuperEnterEvent(QListWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnEnterEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_EnterEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3189,9 +3102,8 @@ void QListWidget_SuperLeaveEvent(QListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnLeaveEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3218,9 +3130,8 @@ void QListWidget_SuperMoveEvent(QListWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMoveEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_MoveEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3247,9 +3158,8 @@ void QListWidget_SuperCloseEvent(QListWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCloseEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_CloseEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3276,9 +3186,8 @@ void QListWidget_SuperTabletEvent(QListWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnTabletEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_TabletEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3305,9 +3214,8 @@ void QListWidget_SuperActionEvent(QListWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnActionEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ActionEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3334,9 +3242,8 @@ void QListWidget_SuperShowEvent(QListWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnShowEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ShowEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3363,9 +3270,8 @@ void QListWidget_SuperHideEvent(QListWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnHideEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_HideEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3394,9 +3300,8 @@ bool QListWidget_SuperNativeEvent(QListWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnNativeEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_NativeEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3423,9 +3328,8 @@ int QListWidget_SuperMetric(const QListWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnMetric(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Metric_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3452,9 +3356,8 @@ void QListWidget_SuperInitPainter(const QListWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnInitPainter(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_InitPainter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3481,9 +3384,8 @@ QPaintDevice* QListWidget_SuperRedirected(const QListWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRedirected(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Redirected_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3510,9 +3412,8 @@ QPainter* QListWidget_SuperSharedPainter(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSharedPainter(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SharedPainter_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3539,9 +3440,8 @@ void QListWidget_SuperChildEvent(QListWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnChildEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ChildEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3568,9 +3468,8 @@ void QListWidget_SuperCustomEvent(QListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCustomEvent(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_CustomEvent_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3597,9 +3496,8 @@ void QListWidget_SuperConnectNotify(QListWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnConnectNotify(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3626,9 +3524,8 @@ void QListWidget_SuperDisconnectNotify(QListWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDisconnectNotify(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3655,9 +3552,8 @@ void QListWidget_SuperResizeContents(QListWidget* self, int width, int height) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnResizeContents(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ResizeContents_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3682,9 +3578,8 @@ QSize* QListWidget_SuperContentsSize(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnContentsSize(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ContentsSize_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3709,9 +3604,8 @@ QRect* QListWidget_SuperRectForIndex(const QListWidget* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnRectForIndex(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_RectForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3738,9 +3632,8 @@ void QListWidget_SuperSetPositionForIndex(QListWidget* self, const QPoint* posit
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetPositionForIndex(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetPositionForIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3767,9 +3660,8 @@ int QListWidget_SuperState(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnState(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_State_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3796,9 +3688,8 @@ void QListWidget_SuperSetState(QListWidget* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetState(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetState_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3825,9 +3716,8 @@ void QListWidget_SuperScheduleDelayedItemsLayout(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScheduleDelayedItemsLayout(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3854,9 +3744,8 @@ void QListWidget_SuperExecuteDelayedItemsLayout(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnExecuteDelayedItemsLayout(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3883,9 +3772,8 @@ void QListWidget_SuperSetDirtyRegion(QListWidget* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetDirtyRegion(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetDirtyRegion_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3912,9 +3800,8 @@ void QListWidget_SuperScrollDirtyRegion(QListWidget* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnScrollDirtyRegion(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3939,9 +3826,8 @@ QPoint* QListWidget_SuperDirtyRegionOffset(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDirtyRegionOffset(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3968,9 +3854,8 @@ void QListWidget_SuperStartAutoScroll(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnStartAutoScroll(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_StartAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3997,9 +3882,8 @@ void QListWidget_SuperStopAutoScroll(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnStopAutoScroll(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_StopAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4026,9 +3910,8 @@ void QListWidget_SuperDoAutoScroll(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDoAutoScroll(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DoAutoScroll_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4055,9 +3938,8 @@ int QListWidget_SuperDropIndicatorPosition(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDropIndicatorPosition(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4084,9 +3966,8 @@ void QListWidget_SuperSetViewportMargins(QListWidget* self, int left, int top, i
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSetViewportMargins(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SetViewportMargins_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4111,9 +3992,8 @@ QMargins* QListWidget_SuperViewportMargins(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnViewportMargins(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_ViewportMargins_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4140,9 +4020,8 @@ void QListWidget_SuperDrawFrame(QListWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDrawFrame(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_DrawFrame_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4169,9 +4048,8 @@ void QListWidget_SuperUpdateMicroFocus(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnUpdateMicroFocus(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4198,9 +4076,8 @@ void QListWidget_SuperCreate(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnCreate(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Create_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4227,9 +4104,8 @@ void QListWidget_SuperDestroy(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnDestroy(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Destroy_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4256,9 +4132,8 @@ bool QListWidget_SuperFocusNextChild(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusNextChild(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4285,9 +4160,8 @@ bool QListWidget_SuperFocusPreviousChild(QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnFocusPreviousChild(QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4314,9 +4188,8 @@ QObject* QListWidget_SuperSender(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSender(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Sender_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4343,9 +4216,8 @@ int QListWidget_SuperSenderSignalIndex(const QListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnSenderSignalIndex(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4372,9 +4244,8 @@ int QListWidget_SuperReceivers(const QListWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnReceivers(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_Receivers_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4401,9 +4272,8 @@ bool QListWidget_SuperIsSignalConnected(const QListWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnIsSignalConnected(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4430,9 +4300,8 @@ double QListWidget_SuperGetDecodedMetricF(const QListWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QListWidget_OnGetDecodedMetricF(const QListWidget* self, intptr_t slot) {
     auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget)
         vqlistwidget->setQListWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QListWidget_Delete(QListWidget* self) {

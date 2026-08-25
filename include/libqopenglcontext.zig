@@ -3652,7 +3652,7 @@ pub const QOpenGLContext = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglcontext.html#public-types)
 pub const enums = struct {
-    pub const OpenGLModuleType = enum(i32) {
+    pub const OpenGLModuleType = enum {
         pub const LibGL: i32 = 0;
         pub const LibGLES: i32 = 1;
     };

@@ -2721,7 +2721,7 @@ pub const KTextEditor__MainWindow = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/mainwindow.html#public-types)
 pub const enums = struct {
-    pub const ToolViewPosition = enum(i32) {
+    pub const ToolViewPosition = enum {
         pub const Left: i32 = 0;
         pub const Right: i32 = 1;
         pub const Top: i32 = 2;

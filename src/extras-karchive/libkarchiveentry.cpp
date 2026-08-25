@@ -99,9 +99,8 @@ bool KArchiveEntry_SuperIsFile(const KArchiveEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveEntry_OnIsFile(const KArchiveEntry* self, intptr_t slot) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
+    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
         vkarchiveentry->setKArchiveEntry_IsFile_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +117,8 @@ bool KArchiveEntry_SuperIsDirectory(const KArchiveEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveEntry_OnIsDirectory(const KArchiveEntry* self, intptr_t slot) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
+    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
         vkarchiveentry->setKArchiveEntry_IsDirectory_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsDirectory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +135,8 @@ void KArchiveEntry_SuperVirtualHook(KArchiveEntry* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveEntry_OnVirtualHook(KArchiveEntry* self, intptr_t slot) {
     auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
+    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
         vkarchiveentry->setKArchiveEntry_VirtualHook_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -166,9 +163,8 @@ KArchive* KArchiveEntry_SuperArchive(const KArchiveEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveEntry_OnArchive(const KArchiveEntry* self, intptr_t slot) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
+    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
         vkarchiveentry->setKArchiveEntry_Archive_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_Archive_Callback>(slot));
-    }
 }
 
 void KArchiveEntry_Delete(KArchiveEntry* self) {

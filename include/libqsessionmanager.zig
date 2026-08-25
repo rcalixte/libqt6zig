@@ -1508,7 +1508,7 @@ pub const QSessionManager = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsessionmanager.html#public-types)
 pub const enums = struct {
-    pub const RestartHint = enum(i32) {
+    pub const RestartHint = enum {
         pub const RestartIfRunning: i32 = 0;
         pub const RestartAnyway: i32 = 1;
         pub const RestartImmediately: i32 = 2;

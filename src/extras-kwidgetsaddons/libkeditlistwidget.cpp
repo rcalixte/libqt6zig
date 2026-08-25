@@ -294,9 +294,8 @@ QMetaObject* KEditListWidget_SuperMetaObject(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetaObject(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MetaObject_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -313,9 +312,8 @@ void* KEditListWidget_SuperMetacast(KEditListWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetacast(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Metacast_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -332,9 +330,8 @@ int KEditListWidget_SuperMetacall(KEditListWidget* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Metacall_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -351,9 +348,8 @@ bool KEditListWidget_SuperEventFilter(KEditListWidget* self, QObject* o, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEventFilter(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_EventFilter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +376,8 @@ int KEditListWidget_SuperDevType(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDevType(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DevType_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +404,8 @@ void KEditListWidget_SuperSetVisible(KEditListWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSetVisible(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_SetVisible_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +432,8 @@ QSize* KEditListWidget_SuperSizeHint(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSizeHint(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_SizeHint_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +460,8 @@ QSize* KEditListWidget_SuperMinimumSizeHint(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMinimumSizeHint(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +488,8 @@ int KEditListWidget_SuperHeightForWidth(const KEditListWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnHeightForWidth(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +516,8 @@ bool KEditListWidget_SuperHasHeightForWidth(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnHasHeightForWidth(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +544,8 @@ QPaintEngine* KEditListWidget_SuperPaintEngine(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnPaintEngine(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_PaintEngine_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +572,8 @@ bool KEditListWidget_SuperEvent(KEditListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Event_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +600,8 @@ void KEditListWidget_SuperMousePressEvent(KEditListWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMousePressEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +628,8 @@ void KEditListWidget_SuperMouseReleaseEvent(KEditListWidget* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseReleaseEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +656,8 @@ void KEditListWidget_SuperMouseDoubleClickEvent(KEditListWidget* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseDoubleClickEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +684,8 @@ void KEditListWidget_SuperMouseMoveEvent(KEditListWidget* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMouseMoveEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +712,8 @@ void KEditListWidget_SuperWheelEvent(KEditListWidget* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnWheelEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_WheelEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +740,8 @@ void KEditListWidget_SuperKeyPressEvent(KEditListWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnKeyPressEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +768,8 @@ void KEditListWidget_SuperKeyReleaseEvent(KEditListWidget* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnKeyReleaseEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +796,8 @@ void KEditListWidget_SuperFocusInEvent(KEditListWidget* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusInEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +824,8 @@ void KEditListWidget_SuperFocusOutEvent(KEditListWidget* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusOutEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +852,8 @@ void KEditListWidget_SuperEnterEvent(KEditListWidget* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnEnterEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_EnterEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +880,8 @@ void KEditListWidget_SuperLeaveEvent(KEditListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnLeaveEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +908,8 @@ void KEditListWidget_SuperPaintEvent(KEditListWidget* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnPaintEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_PaintEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +936,8 @@ void KEditListWidget_SuperMoveEvent(KEditListWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMoveEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_MoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +964,8 @@ void KEditListWidget_SuperResizeEvent(KEditListWidget* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnResizeEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +992,8 @@ void KEditListWidget_SuperCloseEvent(KEditListWidget* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnCloseEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_CloseEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1020,8 @@ void KEditListWidget_SuperContextMenuEvent(KEditListWidget* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnContextMenuEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1048,8 @@ void KEditListWidget_SuperTabletEvent(KEditListWidget* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnTabletEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_TabletEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1076,8 @@ void KEditListWidget_SuperActionEvent(KEditListWidget* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnActionEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ActionEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1104,8 @@ void KEditListWidget_SuperDragEnterEvent(KEditListWidget* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragEnterEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1132,8 @@ void KEditListWidget_SuperDragMoveEvent(KEditListWidget* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragMoveEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1160,8 @@ void KEditListWidget_SuperDragLeaveEvent(KEditListWidget* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDragLeaveEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1188,8 @@ void KEditListWidget_SuperDropEvent(KEditListWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDropEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DropEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1216,8 @@ void KEditListWidget_SuperShowEvent(KEditListWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnShowEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ShowEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1244,8 @@ void KEditListWidget_SuperHideEvent(KEditListWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnHideEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_HideEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1274,8 @@ bool KEditListWidget_SuperNativeEvent(KEditListWidget* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnNativeEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_NativeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1302,8 @@ void KEditListWidget_SuperChangeEvent(KEditListWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnChangeEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1330,8 @@ int KEditListWidget_SuperMetric(const KEditListWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnMetric(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Metric_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1358,8 @@ void KEditListWidget_SuperInitPainter(const KEditListWidget* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnInitPainter(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_InitPainter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1386,8 @@ QPaintDevice* KEditListWidget_SuperRedirected(const KEditListWidget* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnRedirected(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Redirected_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1414,8 @@ QPainter* KEditListWidget_SuperSharedPainter(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSharedPainter(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_SharedPainter_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1442,8 @@ void KEditListWidget_SuperInputMethodEvent(KEditListWidget* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnInputMethodEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1470,8 @@ QVariant* KEditListWidget_SuperInputMethodQuery(const KEditListWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnInputMethodQuery(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1498,8 @@ bool KEditListWidget_SuperFocusNextPrevChild(KEditListWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusNextPrevChild(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1526,8 @@ void KEditListWidget_SuperTimerEvent(KEditListWidget* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnTimerEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_TimerEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1554,8 @@ void KEditListWidget_SuperChildEvent(KEditListWidget* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnChildEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ChildEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1582,8 @@ void KEditListWidget_SuperCustomEvent(KEditListWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnCustomEvent(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_CustomEvent_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1610,8 @@ void KEditListWidget_SuperConnectNotify(KEditListWidget* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnConnectNotify(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1638,8 @@ void KEditListWidget_SuperDisconnectNotify(KEditListWidget* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDisconnectNotify(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1666,8 @@ void KEditListWidget_SuperUpdateMicroFocus(KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnUpdateMicroFocus(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1694,8 @@ void KEditListWidget_SuperCreate(KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnCreate(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Create_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1722,8 @@ void KEditListWidget_SuperDestroy(KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnDestroy(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Destroy_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1750,8 @@ bool KEditListWidget_SuperFocusNextChild(KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusNextChild(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1778,8 @@ bool KEditListWidget_SuperFocusPreviousChild(KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnFocusPreviousChild(KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1806,8 @@ QObject* KEditListWidget_SuperSender(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSender(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Sender_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1834,8 @@ int KEditListWidget_SuperSenderSignalIndex(const KEditListWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnSenderSignalIndex(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1862,8 @@ int KEditListWidget_SuperReceivers(const KEditListWidget* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnReceivers(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_Receivers_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1890,8 @@ bool KEditListWidget_SuperIsSignalConnected(const KEditListWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnIsSignalConnected(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1977,9 +1918,8 @@ double KEditListWidget_SuperGetDecodedMetricF(const KEditListWidget* self, int m
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget_OnGetDecodedMetricF(const KEditListWidget* self, intptr_t slot) {
     auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
-    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget)
         vkeditlistwidget->setKEditListWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KEditListWidget_Delete(KEditListWidget* self) {
@@ -2028,9 +1968,8 @@ QWidget* KEditListWidget__CustomEditor_SuperRepresentationWidget(const KEditList
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget__CustomEditor* self, intptr_t slot) {
     auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor)
         vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_RepresentationWidget_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_RepresentationWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2047,9 +1986,8 @@ QLineEdit* KEditListWidget__CustomEditor_SuperLineEdit(const KEditListWidget__Cu
 // Auxiliary method to allow providing re-implementation
 void KEditListWidget__CustomEditor_OnLineEdit(const KEditListWidget__CustomEditor* self, intptr_t slot) {
     auto* vkeditlistwidgetcustomeditor = const_cast<VirtualKEditListWidgetCustomEditor*>(dynamic_cast<const VirtualKEditListWidgetCustomEditor*>(self));
-    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor) {
+    if (vkeditlistwidgetcustomeditor && vkeditlistwidgetcustomeditor->isVirtualKEditListWidgetCustomEditor)
         vkeditlistwidgetcustomeditor->setKEditListWidget__CustomEditor_LineEdit_Callback(reinterpret_cast<VirtualKEditListWidgetCustomEditor::KEditListWidget__CustomEditor_LineEdit_Callback>(slot));
-    }
 }
 
 void KEditListWidget__CustomEditor_Delete(KEditListWidget__CustomEditor* self) {

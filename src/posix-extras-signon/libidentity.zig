@@ -1887,7 +1887,7 @@ pub const SignOn__Identity = extern struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
 pub const enums = struct {
-    pub const IdentityError = enum(i32) {
+    pub const IdentityError = enum {
         pub const UnknownError: i32 = 1;
         pub const InternalServerError: i32 = 2;
         pub const InternalCommunicationError: i32 = 3;

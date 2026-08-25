@@ -101,9 +101,8 @@ QMetaObject* QHistoryState_SuperMetaObject(const QHistoryState* self) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnMetaObject(const QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_MetaObject_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +119,8 @@ void* QHistoryState_SuperMetacast(QHistoryState* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnMetacast(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_Metacast_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +137,8 @@ int QHistoryState_SuperMetacall(QHistoryState* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnMetacall(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_Metacall_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +155,8 @@ void QHistoryState_SuperOnEntry(QHistoryState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnOnEntry(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_OnEntry_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_OnEntry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +173,8 @@ void QHistoryState_SuperOnExit(QHistoryState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnOnExit(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_OnExit_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_OnExit_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +191,8 @@ bool QHistoryState_SuperEvent(QHistoryState* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnEvent(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_Event_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +219,8 @@ bool QHistoryState_SuperEventFilter(QHistoryState* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnEventFilter(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_EventFilter_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +247,8 @@ void QHistoryState_SuperTimerEvent(QHistoryState* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnTimerEvent(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_TimerEvent_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +275,8 @@ void QHistoryState_SuperChildEvent(QHistoryState* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnChildEvent(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_ChildEvent_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +303,8 @@ void QHistoryState_SuperCustomEvent(QHistoryState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnCustomEvent(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_CustomEvent_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +331,8 @@ void QHistoryState_SuperConnectNotify(QHistoryState* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnConnectNotify(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_ConnectNotify_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +359,8 @@ void QHistoryState_SuperDisconnectNotify(QHistoryState* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnDisconnectNotify(QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_DisconnectNotify_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +387,8 @@ QObject* QHistoryState_SuperSender(const QHistoryState* self) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnSender(const QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_Sender_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ int QHistoryState_SuperSenderSignalIndex(const QHistoryState* self) {
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnSenderSignalIndex(const QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +443,8 @@ int QHistoryState_SuperReceivers(const QHistoryState* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnReceivers(const QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_Receivers_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +471,8 @@ bool QHistoryState_SuperIsSignalConnected(const QHistoryState* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QHistoryState_OnIsSignalConnected(const QHistoryState* self, intptr_t slot) {
     auto* vqhistorystate = const_cast<VirtualQHistoryState*>(dynamic_cast<const VirtualQHistoryState*>(self));
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
+    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState)
         vqhistorystate->setQHistoryState_IsSignalConnected_Callback(reinterpret_cast<VirtualQHistoryState::QHistoryState_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QHistoryState_Connect_DefaultTransitionChanged(QHistoryState* self, intptr_t slot) {

@@ -202,9 +202,8 @@ QMetaObject* QDBusServiceWatcher_SuperMetaObject(const QDBusServiceWatcher* self
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnMetaObject(const QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_MetaObject_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +220,8 @@ void* QDBusServiceWatcher_SuperMetacast(QDBusServiceWatcher* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnMetacast(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_Metacast_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +238,8 @@ int QDBusServiceWatcher_SuperMetacall(QDBusServiceWatcher* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnMetacall(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_Metacall_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +266,8 @@ bool QDBusServiceWatcher_SuperEvent(QDBusServiceWatcher* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnEvent(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_Event_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +294,8 @@ bool QDBusServiceWatcher_SuperEventFilter(QDBusServiceWatcher* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnEventFilter(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_EventFilter_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +322,8 @@ void QDBusServiceWatcher_SuperTimerEvent(QDBusServiceWatcher* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnTimerEvent(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_TimerEvent_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +350,8 @@ void QDBusServiceWatcher_SuperChildEvent(QDBusServiceWatcher* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnChildEvent(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_ChildEvent_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +378,8 @@ void QDBusServiceWatcher_SuperCustomEvent(QDBusServiceWatcher* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnCustomEvent(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_CustomEvent_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +406,8 @@ void QDBusServiceWatcher_SuperConnectNotify(QDBusServiceWatcher* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnConnectNotify(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +434,8 @@ void QDBusServiceWatcher_SuperDisconnectNotify(QDBusServiceWatcher* self, const 
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnDisconnectNotify(QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +462,8 @@ QObject* QDBusServiceWatcher_SuperSender(const QDBusServiceWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnSender(const QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_Sender_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +490,8 @@ int QDBusServiceWatcher_SuperSenderSignalIndex(const QDBusServiceWatcher* self) 
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnSenderSignalIndex(const QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +518,8 @@ int QDBusServiceWatcher_SuperReceivers(const QDBusServiceWatcher* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnReceivers(const QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_Receivers_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +546,8 @@ bool QDBusServiceWatcher_SuperIsSignalConnected(const QDBusServiceWatcher* self,
 // Auxiliary method to allow providing re-implementation
 void QDBusServiceWatcher_OnIsSignalConnected(const QDBusServiceWatcher* self, intptr_t slot) {
     auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher)
         vqdbusservicewatcher->setQDBusServiceWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDBusServiceWatcher_Delete(QDBusServiceWatcher* self) {

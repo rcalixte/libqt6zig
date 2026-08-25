@@ -59,6 +59,8 @@ typedef struct QWidget QWidget;
 QGraphicsWidget* QGraphicsWidget_new();
 QGraphicsWidget* QGraphicsWidget_new2(QGraphicsItem* parent);
 QGraphicsWidget* QGraphicsWidget_new3(QGraphicsItem* parent, int wFlags);
+QGraphicsLayoutItem* QGraphicsWidget_AsQGraphicsLayoutItem(QGraphicsWidget* self);
+QGraphicsWidget* QGraphicsWidget_FromQGraphicsLayoutItem(QGraphicsLayoutItem* _qgraphicslayoutitem);
 QMetaObject* QGraphicsWidget_MetaObject(const QGraphicsWidget* self);
 void* QGraphicsWidget_Metacast(QGraphicsWidget* self, const char* param1);
 int QGraphicsWidget_Metacall(QGraphicsWidget* self, int param1, int param2, void** param3);

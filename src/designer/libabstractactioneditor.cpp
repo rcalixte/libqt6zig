@@ -90,9 +90,8 @@ QMetaObject* QDesignerActionEditorInterface_SuperMetaObject(const QDesignerActio
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetaObject(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +108,8 @@ void* QDesignerActionEditorInterface_SuperMetacast(QDesignerActionEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetacast(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +126,8 @@ int QDesignerActionEditorInterface_SuperMetacall(QDesignerActionEditorInterface*
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetacall(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -147,9 +144,8 @@ QDesignerFormEditorInterface* QDesignerActionEditorInterface_SuperCore(const QDe
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCore(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Core_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Core_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +162,8 @@ void QDesignerActionEditorInterface_SuperManageAction(QDesignerActionEditorInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnManageAction(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ManageAction_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ManageAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +180,8 @@ void QDesignerActionEditorInterface_SuperUnmanageAction(QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnUnmanageAction(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UnmanageAction_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_UnmanageAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +198,8 @@ void QDesignerActionEditorInterface_SuperSetFormWindow(QDesignerActionEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSetFormWindow(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetFormWindow_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetFormWindow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +226,8 @@ int QDesignerActionEditorInterface_SuperDevType(const QDesignerActionEditorInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDevType(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +254,8 @@ void QDesignerActionEditorInterface_SuperSetVisible(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSetVisible(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +282,8 @@ QSize* QDesignerActionEditorInterface_SuperSizeHint(const QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSizeHint(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +310,8 @@ QSize* QDesignerActionEditorInterface_SuperMinimumSizeHint(const QDesignerAction
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMinimumSizeHint(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +338,8 @@ int QDesignerActionEditorInterface_SuperHeightForWidth(const QDesignerActionEdit
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnHeightForWidth(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +366,8 @@ bool QDesignerActionEditorInterface_SuperHasHeightForWidth(const QDesignerAction
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnHasHeightForWidth(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +394,8 @@ QPaintEngine* QDesignerActionEditorInterface_SuperPaintEngine(const QDesignerAct
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnPaintEngine(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +422,8 @@ bool QDesignerActionEditorInterface_SuperEvent(QDesignerActionEditorInterface* s
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Event_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +450,8 @@ void QDesignerActionEditorInterface_SuperMousePressEvent(QDesignerActionEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMousePressEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +478,8 @@ void QDesignerActionEditorInterface_SuperMouseReleaseEvent(QDesignerActionEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseReleaseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +506,8 @@ void QDesignerActionEditorInterface_SuperMouseDoubleClickEvent(QDesignerActionEd
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseDoubleClickEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +534,8 @@ void QDesignerActionEditorInterface_SuperMouseMoveEvent(QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -581,9 +562,8 @@ void QDesignerActionEditorInterface_SuperWheelEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnWheelEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -610,9 +590,8 @@ void QDesignerActionEditorInterface_SuperKeyPressEvent(QDesignerActionEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnKeyPressEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +618,8 @@ void QDesignerActionEditorInterface_SuperKeyReleaseEvent(QDesignerActionEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnKeyReleaseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +646,8 @@ void QDesignerActionEditorInterface_SuperFocusInEvent(QDesignerActionEditorInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusInEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +674,8 @@ void QDesignerActionEditorInterface_SuperFocusOutEvent(QDesignerActionEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusOutEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +702,8 @@ void QDesignerActionEditorInterface_SuperEnterEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEnterEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +730,8 @@ void QDesignerActionEditorInterface_SuperLeaveEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnLeaveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -784,9 +758,8 @@ void QDesignerActionEditorInterface_SuperPaintEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnPaintEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +786,8 @@ void QDesignerActionEditorInterface_SuperMoveEvent(QDesignerActionEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +814,8 @@ void QDesignerActionEditorInterface_SuperResizeEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnResizeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +842,8 @@ void QDesignerActionEditorInterface_SuperCloseEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCloseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -900,9 +870,8 @@ void QDesignerActionEditorInterface_SuperContextMenuEvent(QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnContextMenuEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +898,8 @@ void QDesignerActionEditorInterface_SuperTabletEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnTabletEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +926,8 @@ void QDesignerActionEditorInterface_SuperActionEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnActionEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +954,8 @@ void QDesignerActionEditorInterface_SuperDragEnterEvent(QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragEnterEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1016,9 +982,8 @@ void QDesignerActionEditorInterface_SuperDragMoveEvent(QDesignerActionEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1045,9 +1010,8 @@ void QDesignerActionEditorInterface_SuperDragLeaveEvent(QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragLeaveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1074,9 +1038,8 @@ void QDesignerActionEditorInterface_SuperDropEvent(QDesignerActionEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDropEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1103,9 +1066,8 @@ void QDesignerActionEditorInterface_SuperShowEvent(QDesignerActionEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnShowEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1132,9 +1094,8 @@ void QDesignerActionEditorInterface_SuperHideEvent(QDesignerActionEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnHideEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1124,8 @@ bool QDesignerActionEditorInterface_SuperNativeEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnNativeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1152,8 @@ void QDesignerActionEditorInterface_SuperChangeEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnChangeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1180,8 @@ int QDesignerActionEditorInterface_SuperMetric(const QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetric(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1208,8 @@ void QDesignerActionEditorInterface_SuperInitPainter(const QDesignerActionEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnInitPainter(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1236,8 @@ QPaintDevice* QDesignerActionEditorInterface_SuperRedirected(const QDesignerActi
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnRedirected(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1264,8 @@ QPainter* QDesignerActionEditorInterface_SuperSharedPainter(const QDesignerActio
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSharedPainter(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1292,8 @@ void QDesignerActionEditorInterface_SuperInputMethodEvent(QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnInputMethodEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1320,8 @@ QVariant* QDesignerActionEditorInterface_SuperInputMethodQuery(const QDesignerAc
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnInputMethodQuery(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1348,8 @@ bool QDesignerActionEditorInterface_SuperFocusNextPrevChild(QDesignerActionEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusNextPrevChild(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1376,8 @@ bool QDesignerActionEditorInterface_SuperEventFilter(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEventFilter(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1404,8 @@ void QDesignerActionEditorInterface_SuperTimerEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnTimerEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1432,8 @@ void QDesignerActionEditorInterface_SuperChildEvent(QDesignerActionEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnChildEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1460,8 @@ void QDesignerActionEditorInterface_SuperCustomEvent(QDesignerActionEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCustomEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1488,8 @@ void QDesignerActionEditorInterface_SuperConnectNotify(QDesignerActionEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnConnectNotify(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1569,9 +1516,8 @@ void QDesignerActionEditorInterface_SuperDisconnectNotify(QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDisconnectNotify(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1598,9 +1544,8 @@ void QDesignerActionEditorInterface_SuperUpdateMicroFocus(QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnUpdateMicroFocus(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1627,9 +1572,8 @@ void QDesignerActionEditorInterface_SuperCreate(QDesignerActionEditorInterface* 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCreate(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Create_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1656,9 +1600,8 @@ void QDesignerActionEditorInterface_SuperDestroy(QDesignerActionEditorInterface*
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDestroy(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1685,9 +1628,8 @@ bool QDesignerActionEditorInterface_SuperFocusNextChild(QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusNextChild(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1714,9 +1656,8 @@ bool QDesignerActionEditorInterface_SuperFocusPreviousChild(QDesignerActionEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusPreviousChild(QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1743,9 +1684,8 @@ QObject* QDesignerActionEditorInterface_SuperSender(const QDesignerActionEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSender(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1772,9 +1712,8 @@ int QDesignerActionEditorInterface_SuperSenderSignalIndex(const QDesignerActionE
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSenderSignalIndex(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1801,9 +1740,8 @@ int QDesignerActionEditorInterface_SuperReceivers(const QDesignerActionEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnReceivers(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1830,9 +1768,8 @@ bool QDesignerActionEditorInterface_SuperIsSignalConnected(const QDesignerAction
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnIsSignalConnected(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1859,9 +1796,8 @@ double QDesignerActionEditorInterface_SuperGetDecodedMetricF(const QDesignerActi
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnGetDecodedMetricF(const QDesignerActionEditorInterface* self, intptr_t slot) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
         vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDesignerActionEditorInterface_Delete(QDesignerActionEditorInterface* self) {

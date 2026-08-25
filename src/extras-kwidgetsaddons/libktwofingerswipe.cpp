@@ -79,9 +79,8 @@ QMetaObject* KTwoFingerSwipe_SuperMetaObject(const KTwoFingerSwipe* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnMetaObject(const KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_MetaObject_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +97,8 @@ void* KTwoFingerSwipe_SuperMetacast(KTwoFingerSwipe* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnMetacast(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_Metacast_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +115,8 @@ int KTwoFingerSwipe_SuperMetacall(KTwoFingerSwipe* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnMetacall(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_Metacall_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -146,9 +143,8 @@ bool KTwoFingerSwipe_SuperEvent(KTwoFingerSwipe* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnEvent(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_Event_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -175,9 +171,8 @@ bool KTwoFingerSwipe_SuperEventFilter(KTwoFingerSwipe* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnEventFilter(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_EventFilter_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -204,9 +199,8 @@ void KTwoFingerSwipe_SuperTimerEvent(KTwoFingerSwipe* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnTimerEvent(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_TimerEvent_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +227,8 @@ void KTwoFingerSwipe_SuperChildEvent(KTwoFingerSwipe* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnChildEvent(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_ChildEvent_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +255,8 @@ void KTwoFingerSwipe_SuperCustomEvent(KTwoFingerSwipe* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnCustomEvent(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_CustomEvent_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +283,8 @@ void KTwoFingerSwipe_SuperConnectNotify(KTwoFingerSwipe* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnConnectNotify(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_ConnectNotify_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +311,8 @@ void KTwoFingerSwipe_SuperDisconnectNotify(KTwoFingerSwipe* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnDisconnectNotify(KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_DisconnectNotify_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +339,8 @@ QObject* KTwoFingerSwipe_SuperSender(const KTwoFingerSwipe* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnSender(const KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_Sender_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +367,8 @@ int KTwoFingerSwipe_SuperSenderSignalIndex(const KTwoFingerSwipe* self) {
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnSenderSignalIndex(const KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +395,8 @@ int KTwoFingerSwipe_SuperReceivers(const KTwoFingerSwipe* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnReceivers(const KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_Receivers_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +423,8 @@ bool KTwoFingerSwipe_SuperIsSignalConnected(const KTwoFingerSwipe* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipe_OnIsSignalConnected(const KTwoFingerSwipe* self, intptr_t slot) {
     auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe)
         vktwofingerswipe->setKTwoFingerSwipe_IsSignalConnected_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTwoFingerSwipe_Delete(KTwoFingerSwipe* self) {
@@ -487,9 +473,8 @@ QGesture* KTwoFingerSwipeRecognizer_SuperCreate(KTwoFingerSwipeRecognizer* self,
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipeRecognizer_OnCreate(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer)
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Create_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Create_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -506,9 +491,8 @@ int KTwoFingerSwipeRecognizer_SuperRecognize(KTwoFingerSwipeRecognizer* self, QG
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipeRecognizer_OnRecognize(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer)
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Recognize_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Recognize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +519,8 @@ void KTwoFingerSwipeRecognizer_SuperReset(KTwoFingerSwipeRecognizer* self, QGest
 // Auxiliary method to allow providing re-implementation
 void KTwoFingerSwipeRecognizer_OnReset(KTwoFingerSwipeRecognizer* self, intptr_t slot) {
     auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
+    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer)
         vktwofingerswiperecognizer->setKTwoFingerSwipeRecognizer_Reset_Callback(reinterpret_cast<VirtualKTwoFingerSwipeRecognizer::KTwoFingerSwipeRecognizer_Reset_Callback>(slot));
-    }
 }
 
 void KTwoFingerSwipeRecognizer_Delete(KTwoFingerSwipeRecognizer* self) {

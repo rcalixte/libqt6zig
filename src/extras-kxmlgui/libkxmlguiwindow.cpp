@@ -62,6 +62,22 @@ KXmlGuiWindow* KXmlGuiWindow_new3(QWidget* parent, int flags) {
     return new VirtualKXmlGuiWindow(parent, static_cast<Qt::WindowFlags>(flags));
 }
 
+KXMLGUIBuilder* KXmlGuiWindow_AsKXMLGUIBuilder(KXmlGuiWindow* self) {
+    return static_cast<KXMLGUIBuilder*>(self);
+}
+
+KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIBuilder(KXMLGUIBuilder* _kxmlguibuilder) {
+    return dynamic_cast<KXmlGuiWindow*>(static_cast<KXMLGUIBuilder*>(_kxmlguibuilder));
+}
+
+KXMLGUIClient* KXmlGuiWindow_AsKXMLGUIClient(KXmlGuiWindow* self) {
+    return static_cast<KXMLGUIClient*>(self);
+}
+
+KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIClient(KXMLGUIClient* _kxmlguiclient) {
+    return dynamic_cast<KXmlGuiWindow*>(static_cast<KXMLGUIClient*>(_kxmlguiclient));
+}
+
 QMetaObject* KXmlGuiWindow_MetaObject(const KXmlGuiWindow* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -235,9 +251,8 @@ QMetaObject* KXmlGuiWindow_SuperMetaObject(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMetaObject(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MetaObject_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -254,9 +269,8 @@ void* KXmlGuiWindow_SuperMetacast(KXmlGuiWindow* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMetacast(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Metacast_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +287,8 @@ int KXmlGuiWindow_SuperMetacall(KXmlGuiWindow* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMetacall(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Metacall_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +305,8 @@ KXMLGUIFactory* KXmlGuiWindow_SuperGuiFactory(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnGuiFactory(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_GuiFactory_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_GuiFactory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +323,8 @@ void KXmlGuiWindow_SuperApplyMainWindowSettings(KXmlGuiWindow* self, const KConf
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnApplyMainWindowSettings(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ApplyMainWindowSettings_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ApplyMainWindowSettings_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +341,8 @@ void KXmlGuiWindow_SuperConfigureToolbars(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnConfigureToolbars(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ConfigureToolbars_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ConfigureToolbars_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -350,9 +360,8 @@ void KXmlGuiWindow_SuperSlotStateChanged(KXmlGuiWindow* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSlotStateChanged(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SlotStateChanged_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SlotStateChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -369,9 +378,8 @@ bool KXmlGuiWindow_SuperEvent(KXmlGuiWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Event_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -388,9 +396,8 @@ void KXmlGuiWindow_SuperSaveNewToolbarConfig(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSaveNewToolbarConfig(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SaveNewToolbarConfig_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SaveNewToolbarConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +426,8 @@ void KXmlGuiWindow_SuperSetCaption(KXmlGuiWindow* self, const libqt_string capti
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetCaption(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetCaption_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetCaption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +456,8 @@ void KXmlGuiWindow_SuperSetPlainCaption(KXmlGuiWindow* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetPlainCaption(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetPlainCaption_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetPlainCaption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +484,8 @@ void KXmlGuiWindow_SuperKeyPressEvent(KXmlGuiWindow* self, QKeyEvent* keyEvent) 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnKeyPressEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +512,8 @@ void KXmlGuiWindow_SuperCloseEvent(KXmlGuiWindow* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCloseEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CloseEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +540,8 @@ bool KXmlGuiWindow_SuperQueryClose(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnQueryClose(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_QueryClose_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_QueryClose_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +568,8 @@ void KXmlGuiWindow_SuperSaveProperties(KXmlGuiWindow* self, KConfigGroup* param1
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSaveProperties(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SaveProperties_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SaveProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +596,8 @@ void KXmlGuiWindow_SuperReadProperties(KXmlGuiWindow* self, const KConfigGroup* 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnReadProperties(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ReadProperties_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +624,8 @@ void KXmlGuiWindow_SuperSaveGlobalProperties(KXmlGuiWindow* self, KConfig* sessi
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSaveGlobalProperties(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SaveGlobalProperties_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SaveGlobalProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +652,8 @@ void KXmlGuiWindow_SuperReadGlobalProperties(KXmlGuiWindow* self, KConfig* sessi
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnReadGlobalProperties(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ReadGlobalProperties_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ReadGlobalProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +680,8 @@ QMenu* KXmlGuiWindow_SuperCreatePopupMenu(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCreatePopupMenu(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CreatePopupMenu_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +708,8 @@ void KXmlGuiWindow_SuperContextMenuEvent(KXmlGuiWindow* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnContextMenuEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +736,8 @@ int KXmlGuiWindow_SuperDevType(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDevType(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DevType_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +764,8 @@ void KXmlGuiWindow_SuperSetVisible(KXmlGuiWindow* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetVisible(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetVisible_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +792,8 @@ QSize* KXmlGuiWindow_SuperSizeHint(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSizeHint(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SizeHint_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +820,8 @@ QSize* KXmlGuiWindow_SuperMinimumSizeHint(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMinimumSizeHint(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +848,8 @@ int KXmlGuiWindow_SuperHeightForWidth(const KXmlGuiWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnHeightForWidth(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_HeightForWidth_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +876,8 @@ bool KXmlGuiWindow_SuperHasHeightForWidth(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnHasHeightForWidth(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +904,8 @@ QPaintEngine* KXmlGuiWindow_SuperPaintEngine(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnPaintEngine(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_PaintEngine_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +932,8 @@ void KXmlGuiWindow_SuperMousePressEvent(KXmlGuiWindow* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMousePressEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MousePressEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +960,8 @@ void KXmlGuiWindow_SuperMouseReleaseEvent(KXmlGuiWindow* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMouseReleaseEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +988,8 @@ void KXmlGuiWindow_SuperMouseDoubleClickEvent(KXmlGuiWindow* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMouseDoubleClickEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +1016,8 @@ void KXmlGuiWindow_SuperMouseMoveEvent(KXmlGuiWindow* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMouseMoveEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1044,8 @@ void KXmlGuiWindow_SuperWheelEvent(KXmlGuiWindow* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnWheelEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_WheelEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1072,8 @@ void KXmlGuiWindow_SuperKeyReleaseEvent(KXmlGuiWindow* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnKeyReleaseEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1100,8 @@ void KXmlGuiWindow_SuperFocusInEvent(KXmlGuiWindow* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnFocusInEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_FocusInEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1128,8 @@ void KXmlGuiWindow_SuperFocusOutEvent(KXmlGuiWindow* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnFocusOutEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1175,9 +1156,8 @@ void KXmlGuiWindow_SuperEnterEvent(KXmlGuiWindow* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnEnterEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_EnterEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1184,8 @@ void KXmlGuiWindow_SuperLeaveEvent(KXmlGuiWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnLeaveEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_LeaveEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1233,9 +1212,8 @@ void KXmlGuiWindow_SuperPaintEvent(KXmlGuiWindow* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnPaintEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_PaintEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1262,9 +1240,8 @@ void KXmlGuiWindow_SuperMoveEvent(KXmlGuiWindow* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMoveEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_MoveEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1268,8 @@ void KXmlGuiWindow_SuperResizeEvent(KXmlGuiWindow* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnResizeEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ResizeEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1296,8 @@ void KXmlGuiWindow_SuperTabletEvent(KXmlGuiWindow* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnTabletEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_TabletEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1324,8 @@ void KXmlGuiWindow_SuperActionEvent(KXmlGuiWindow* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnActionEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ActionEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1352,8 @@ void KXmlGuiWindow_SuperDragEnterEvent(KXmlGuiWindow* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDragEnterEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1380,8 @@ void KXmlGuiWindow_SuperDragMoveEvent(KXmlGuiWindow* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDragMoveEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1408,8 @@ void KXmlGuiWindow_SuperDragLeaveEvent(KXmlGuiWindow* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDragLeaveEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1436,8 @@ void KXmlGuiWindow_SuperDropEvent(KXmlGuiWindow* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDropEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DropEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1464,8 @@ void KXmlGuiWindow_SuperShowEvent(KXmlGuiWindow* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnShowEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ShowEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1492,8 @@ void KXmlGuiWindow_SuperHideEvent(KXmlGuiWindow* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnHideEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_HideEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1522,8 @@ bool KXmlGuiWindow_SuperNativeEvent(KXmlGuiWindow* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnNativeEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_NativeEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1550,8 @@ void KXmlGuiWindow_SuperChangeEvent(KXmlGuiWindow* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnChangeEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ChangeEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1578,8 @@ int KXmlGuiWindow_SuperMetric(const KXmlGuiWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnMetric(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Metric_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1606,8 @@ void KXmlGuiWindow_SuperInitPainter(const KXmlGuiWindow* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnInitPainter(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_InitPainter_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1634,8 @@ QPaintDevice* KXmlGuiWindow_SuperRedirected(const KXmlGuiWindow* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnRedirected(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Redirected_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1662,8 @@ QPainter* KXmlGuiWindow_SuperSharedPainter(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSharedPainter(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SharedPainter_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1690,8 @@ void KXmlGuiWindow_SuperInputMethodEvent(KXmlGuiWindow* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnInputMethodEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1718,8 @@ QVariant* KXmlGuiWindow_SuperInputMethodQuery(const KXmlGuiWindow* self, int par
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnInputMethodQuery(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1746,8 @@ bool KXmlGuiWindow_SuperFocusNextPrevChild(KXmlGuiWindow* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnFocusNextPrevChild(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1774,8 @@ bool KXmlGuiWindow_SuperEventFilter(KXmlGuiWindow* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnEventFilter(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_EventFilter_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1844,9 +1802,8 @@ void KXmlGuiWindow_SuperTimerEvent(KXmlGuiWindow* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnTimerEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_TimerEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1873,9 +1830,8 @@ void KXmlGuiWindow_SuperChildEvent(KXmlGuiWindow* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnChildEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ChildEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1902,9 +1858,8 @@ void KXmlGuiWindow_SuperCustomEvent(KXmlGuiWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCustomEvent(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CustomEvent_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1931,9 +1886,8 @@ void KXmlGuiWindow_SuperConnectNotify(KXmlGuiWindow* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnConnectNotify(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ConnectNotify_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1960,9 +1914,8 @@ void KXmlGuiWindow_SuperDisconnectNotify(KXmlGuiWindow* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDisconnectNotify(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2057,9 +2010,8 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperContainerTags(const KXmlGuiW
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnContainerTags(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ContainerTags_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ContainerTags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2086,9 +2038,8 @@ QWidget* KXmlGuiWindow_SuperCreateContainer(KXmlGuiWindow* self, QWidget* parent
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCreateContainer(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CreateContainer_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CreateContainer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2115,9 +2066,8 @@ void KXmlGuiWindow_SuperRemoveContainer(KXmlGuiWindow* self, QWidget* container,
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnRemoveContainer(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_RemoveContainer_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_RemoveContainer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2212,9 +2162,8 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperCustomTags(const KXmlGuiWind
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCustomTags(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CustomTags_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CustomTags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2241,9 +2190,8 @@ QAction* KXmlGuiWindow_SuperCreateCustomElement(KXmlGuiWindow* self, QWidget* pa
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCreateCustomElement(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CreateCustomElement_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CreateCustomElement_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2270,9 +2218,8 @@ QAction* KXmlGuiWindow_SuperAction2(const KXmlGuiWindow* self, const QDomElement
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnAction2(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Action2_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Action2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2299,9 +2246,8 @@ KActionCollection* KXmlGuiWindow_SuperActionCollection(const KXmlGuiWindow* self
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnActionCollection(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ActionCollection_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ActionCollection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2360,9 +2306,8 @@ libqt_string KXmlGuiWindow_SuperComponentName(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnComponentName(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ComponentName_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2389,9 +2334,8 @@ QDomDocument* KXmlGuiWindow_SuperDomDocument(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDomDocument(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_DomDocument_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_DomDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2450,9 +2394,8 @@ libqt_string KXmlGuiWindow_SuperXmlFile(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnXmlFile(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_XmlFile_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_XmlFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2511,9 +2454,8 @@ libqt_string KXmlGuiWindow_SuperLocalXMLFile(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnLocalXMLFile(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_LocalXMLFile_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_LocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2544,9 +2486,8 @@ void KXmlGuiWindow_SuperSetComponentName(KXmlGuiWindow* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetComponentName(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetComponentName_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2575,9 +2516,8 @@ void KXmlGuiWindow_SuperSetXMLFile(KXmlGuiWindow* self, const libqt_string file,
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetXMLFile(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetXMLFile_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2606,9 +2546,8 @@ void KXmlGuiWindow_SuperSetLocalXMLFile(KXmlGuiWindow* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetLocalXMLFile(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetLocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2637,9 +2576,8 @@ void KXmlGuiWindow_SuperSetXML(KXmlGuiWindow* self, const libqt_string document,
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetXML(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetXML_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetXML_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2666,9 +2604,8 @@ void KXmlGuiWindow_SuperSetDOMDocument(KXmlGuiWindow* self, const QDomDocument* 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSetDOMDocument(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SetDOMDocument_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SetDOMDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2697,9 +2634,8 @@ void KXmlGuiWindow_SuperStateChanged(KXmlGuiWindow* self, const libqt_string new
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnStateChanged(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_StateChanged_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_StateChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2726,9 +2662,8 @@ void KXmlGuiWindow_SuperCheckAmbiguousShortcuts(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCheckAmbiguousShortcuts(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_CheckAmbiguousShortcuts_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_CheckAmbiguousShortcuts_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2755,9 +2690,8 @@ void KXmlGuiWindow_SuperSavePropertiesInternal(KXmlGuiWindow* self, KConfig* par
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSavePropertiesInternal(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SavePropertiesInternal_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SavePropertiesInternal_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2784,9 +2718,8 @@ bool KXmlGuiWindow_SuperReadPropertiesInternal(KXmlGuiWindow* self, KConfig* par
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnReadPropertiesInternal(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_ReadPropertiesInternal_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_ReadPropertiesInternal_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2813,9 +2746,8 @@ bool KXmlGuiWindow_SuperSettingsDirty(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSettingsDirty(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SettingsDirty_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SettingsDirty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2842,9 +2774,8 @@ void KXmlGuiWindow_SuperSaveAutoSaveSettings(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSaveAutoSaveSettings(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SaveAutoSaveSettings_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SaveAutoSaveSettings_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2871,9 +2802,8 @@ void KXmlGuiWindow_SuperUpdateMicroFocus(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnUpdateMicroFocus(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2900,9 +2830,8 @@ void KXmlGuiWindow_SuperCreate(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnCreate(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Create_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2929,9 +2858,8 @@ void KXmlGuiWindow_SuperDestroy(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnDestroy(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Destroy_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2958,9 +2886,8 @@ bool KXmlGuiWindow_SuperFocusNextChild(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnFocusNextChild(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_FocusNextChild_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2987,9 +2914,8 @@ bool KXmlGuiWindow_SuperFocusPreviousChild(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnFocusPreviousChild(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3016,9 +2942,8 @@ QObject* KXmlGuiWindow_SuperSender(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSender(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Sender_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3045,9 +2970,8 @@ int KXmlGuiWindow_SuperSenderSignalIndex(const KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnSenderSignalIndex(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3074,9 +2998,8 @@ int KXmlGuiWindow_SuperReceivers(const KXmlGuiWindow* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnReceivers(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_Receivers_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3103,9 +3026,8 @@ bool KXmlGuiWindow_SuperIsSignalConnected(const KXmlGuiWindow* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnIsSignalConnected(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3132,9 +3054,8 @@ double KXmlGuiWindow_SuperGetDecodedMetricF(const KXmlGuiWindow* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnGetDecodedMetricF(const KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3193,9 +3114,8 @@ libqt_string KXmlGuiWindow_SuperStandardsXmlFileLocation(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnStandardsXmlFileLocation(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_StandardsXmlFileLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3222,9 +3142,8 @@ void KXmlGuiWindow_SuperLoadStandardsXmlFile(KXmlGuiWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KXmlGuiWindow_OnLoadStandardsXmlFile(KXmlGuiWindow* self, intptr_t slot) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow)
         vkxmlguiwindow->setKXmlGuiWindow_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_LoadStandardsXmlFile_Callback>(slot));
-    }
 }
 
 void KXmlGuiWindow_Delete(KXmlGuiWindow* self) {

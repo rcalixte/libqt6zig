@@ -124,9 +124,8 @@ QMetaObject* KAssistantDialog_SuperMetaObject(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMetaObject(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MetaObject_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +142,8 @@ void* KAssistantDialog_SuperMetacast(KAssistantDialog* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMetacast(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Metacast_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +160,8 @@ int KAssistantDialog_SuperMetacall(KAssistantDialog* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMetacall(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Metacall_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +178,8 @@ void KAssistantDialog_SuperBack(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnBack(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Back_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Back_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +196,8 @@ void KAssistantDialog_SuperNext(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnNext(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Next_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Next_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +214,8 @@ void KAssistantDialog_SuperShowEvent(KAssistantDialog* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnShowEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ShowEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -248,9 +242,8 @@ void KAssistantDialog_SuperSetVisible(KAssistantDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSetVisible(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SetVisible_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -277,9 +270,8 @@ QSize* KAssistantDialog_SuperSizeHint(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSizeHint(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SizeHint_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +298,8 @@ QSize* KAssistantDialog_SuperMinimumSizeHint(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMinimumSizeHint(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +326,8 @@ void KAssistantDialog_SuperOpen(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnOpen(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Open_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +354,8 @@ int KAssistantDialog_SuperExec(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnExec(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Exec_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +382,8 @@ void KAssistantDialog_SuperDone(KAssistantDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDone(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Done_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +410,8 @@ void KAssistantDialog_SuperAccept(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnAccept(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Accept_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +438,8 @@ void KAssistantDialog_SuperReject(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnReject(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Reject_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +466,8 @@ void KAssistantDialog_SuperKeyPressEvent(KAssistantDialog* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnKeyPressEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +494,8 @@ void KAssistantDialog_SuperCloseEvent(KAssistantDialog* self, QCloseEvent* param
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnCloseEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_CloseEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +522,8 @@ void KAssistantDialog_SuperResizeEvent(KAssistantDialog* self, QResizeEvent* par
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnResizeEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +550,8 @@ void KAssistantDialog_SuperContextMenuEvent(KAssistantDialog* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnContextMenuEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +578,8 @@ bool KAssistantDialog_SuperEventFilter(KAssistantDialog* self, QObject* param1, 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnEventFilter(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_EventFilter_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +606,8 @@ int KAssistantDialog_SuperDevType(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDevType(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DevType_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +634,8 @@ int KAssistantDialog_SuperHeightForWidth(const KAssistantDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnHeightForWidth(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +662,8 @@ bool KAssistantDialog_SuperHasHeightForWidth(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnHasHeightForWidth(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +690,8 @@ QPaintEngine* KAssistantDialog_SuperPaintEngine(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnPaintEngine(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_PaintEngine_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +718,8 @@ bool KAssistantDialog_SuperEvent(KAssistantDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Event_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +746,8 @@ void KAssistantDialog_SuperMousePressEvent(KAssistantDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMousePressEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +774,8 @@ void KAssistantDialog_SuperMouseReleaseEvent(KAssistantDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMouseReleaseEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +802,8 @@ void KAssistantDialog_SuperMouseDoubleClickEvent(KAssistantDialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMouseDoubleClickEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +830,8 @@ void KAssistantDialog_SuperMouseMoveEvent(KAssistantDialog* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMouseMoveEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +858,8 @@ void KAssistantDialog_SuperWheelEvent(KAssistantDialog* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnWheelEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_WheelEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +886,8 @@ void KAssistantDialog_SuperKeyReleaseEvent(KAssistantDialog* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnKeyReleaseEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +914,8 @@ void KAssistantDialog_SuperFocusInEvent(KAssistantDialog* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnFocusInEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +942,8 @@ void KAssistantDialog_SuperFocusOutEvent(KAssistantDialog* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnFocusOutEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +970,8 @@ void KAssistantDialog_SuperEnterEvent(KAssistantDialog* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnEnterEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_EnterEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +998,8 @@ void KAssistantDialog_SuperLeaveEvent(KAssistantDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnLeaveEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1026,8 @@ void KAssistantDialog_SuperPaintEvent(KAssistantDialog* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnPaintEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_PaintEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1054,8 @@ void KAssistantDialog_SuperMoveEvent(KAssistantDialog* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMoveEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_MoveEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1082,8 @@ void KAssistantDialog_SuperTabletEvent(KAssistantDialog* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnTabletEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_TabletEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1110,8 @@ void KAssistantDialog_SuperActionEvent(KAssistantDialog* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnActionEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ActionEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1138,8 @@ void KAssistantDialog_SuperDragEnterEvent(KAssistantDialog* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDragEnterEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1166,8 @@ void KAssistantDialog_SuperDragMoveEvent(KAssistantDialog* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDragMoveEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1194,8 @@ void KAssistantDialog_SuperDragLeaveEvent(KAssistantDialog* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDragLeaveEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1222,8 @@ void KAssistantDialog_SuperDropEvent(KAssistantDialog* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDropEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DropEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1250,8 @@ void KAssistantDialog_SuperHideEvent(KAssistantDialog* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnHideEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_HideEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1323,9 +1280,8 @@ bool KAssistantDialog_SuperNativeEvent(KAssistantDialog* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnNativeEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_NativeEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1308,8 @@ void KAssistantDialog_SuperChangeEvent(KAssistantDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnChangeEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1336,8 @@ int KAssistantDialog_SuperMetric(const KAssistantDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnMetric(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Metric_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1364,8 @@ void KAssistantDialog_SuperInitPainter(const KAssistantDialog* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnInitPainter(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_InitPainter_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1392,8 @@ QPaintDevice* KAssistantDialog_SuperRedirected(const KAssistantDialog* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnRedirected(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Redirected_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1420,8 @@ QPainter* KAssistantDialog_SuperSharedPainter(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSharedPainter(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SharedPainter_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1497,9 +1448,8 @@ void KAssistantDialog_SuperInputMethodEvent(KAssistantDialog* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnInputMethodEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1526,9 +1476,8 @@ QVariant* KAssistantDialog_SuperInputMethodQuery(const KAssistantDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnInputMethodQuery(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1555,9 +1504,8 @@ bool KAssistantDialog_SuperFocusNextPrevChild(KAssistantDialog* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnFocusNextPrevChild(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1584,9 +1532,8 @@ void KAssistantDialog_SuperTimerEvent(KAssistantDialog* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnTimerEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_TimerEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1613,9 +1560,8 @@ void KAssistantDialog_SuperChildEvent(KAssistantDialog* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnChildEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ChildEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1642,9 +1588,8 @@ void KAssistantDialog_SuperCustomEvent(KAssistantDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnCustomEvent(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_CustomEvent_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1671,9 +1616,8 @@ void KAssistantDialog_SuperConnectNotify(KAssistantDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnConnectNotify(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1700,9 +1644,8 @@ void KAssistantDialog_SuperDisconnectNotify(KAssistantDialog* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDisconnectNotify(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1729,9 +1672,8 @@ KPageWidget* KAssistantDialog_SuperPageWidget(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnPageWidget(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_PageWidget_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_PageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1758,9 +1700,8 @@ void KAssistantDialog_SuperSetPageWidget(KAssistantDialog* self, KPageWidget* wi
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSetPageWidget(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SetPageWidget_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SetPageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1787,9 +1728,8 @@ QDialogButtonBox* KAssistantDialog_SuperButtonBox(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnButtonBox(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_ButtonBox_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_ButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1816,9 +1756,8 @@ void KAssistantDialog_SuperSetButtonBox(KAssistantDialog* self, QDialogButtonBox
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSetButtonBox(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SetButtonBox_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SetButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1845,9 +1784,8 @@ void KAssistantDialog_SuperAdjustPosition(KAssistantDialog* self, QWidget* param
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnAdjustPosition(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1874,9 +1812,8 @@ void KAssistantDialog_SuperUpdateMicroFocus(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnUpdateMicroFocus(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1903,9 +1840,8 @@ void KAssistantDialog_SuperCreate(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnCreate(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Create_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1932,9 +1868,8 @@ void KAssistantDialog_SuperDestroy(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnDestroy(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Destroy_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1961,9 +1896,8 @@ bool KAssistantDialog_SuperFocusNextChild(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnFocusNextChild(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1990,9 +1924,8 @@ bool KAssistantDialog_SuperFocusPreviousChild(KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnFocusPreviousChild(KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2019,9 +1952,8 @@ QObject* KAssistantDialog_SuperSender(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSender(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Sender_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2048,9 +1980,8 @@ int KAssistantDialog_SuperSenderSignalIndex(const KAssistantDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnSenderSignalIndex(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2077,9 +2008,8 @@ int KAssistantDialog_SuperReceivers(const KAssistantDialog* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnReceivers(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_Receivers_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2106,9 +2036,8 @@ bool KAssistantDialog_SuperIsSignalConnected(const KAssistantDialog* self, const
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnIsSignalConnected(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2135,9 +2064,8 @@ double KAssistantDialog_SuperGetDecodedMetricF(const KAssistantDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KAssistantDialog_OnGetDecodedMetricF(const KAssistantDialog* self, intptr_t slot) {
     auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
-    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog)
         vkassistantdialog->setKAssistantDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KAssistantDialog_Delete(KAssistantDialog* self) {

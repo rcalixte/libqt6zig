@@ -1529,7 +1529,7 @@ pub const QNetworkInformation = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#public-types)
 pub const enums = struct {
-    pub const Reachability = enum(i32) {
+    pub const Reachability = enum {
         pub const Unknown: i32 = 0;
         pub const Disconnected: i32 = 1;
         pub const Local: i32 = 2;
@@ -1537,7 +1537,7 @@ pub const enums = struct {
         pub const Online: i32 = 4;
     };
 
-    pub const TransportMedium = enum(i32) {
+    pub const TransportMedium = enum {
         pub const Unknown: i32 = 0;
         pub const Ethernet: i32 = 1;
         pub const Cellular: i32 = 2;
@@ -1545,7 +1545,7 @@ pub const enums = struct {
         pub const Bluetooth: i32 = 4;
     };
 
-    pub const Feature = enum(i32) {
+    pub const Feature = enum {
         pub const Reachability: i32 = 1;
         pub const CaptivePortal: i32 = 2;
         pub const TransportMedium: i32 = 4;

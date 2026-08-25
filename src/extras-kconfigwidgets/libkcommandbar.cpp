@@ -94,9 +94,8 @@ QMetaObject* KCommandBar_SuperMetaObject(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetaObject(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MetaObject_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -113,9 +112,8 @@ void* KCommandBar_SuperMetacast(KCommandBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetacast(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Metacast_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +130,8 @@ int KCommandBar_SuperMetacall(KCommandBar* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetacall(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Metacall_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +148,8 @@ bool KCommandBar_SuperEventFilter(KCommandBar* self, QObject* obj, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEventFilter(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_EventFilter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +176,8 @@ QSize* KCommandBar_SuperSizeHint(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSizeHint(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_SizeHint_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -209,9 +204,8 @@ bool KCommandBar_SuperEvent(KCommandBar* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Event_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +232,8 @@ void KCommandBar_SuperPaintEvent(KCommandBar* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnPaintEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_PaintEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +260,8 @@ void KCommandBar_SuperChangeEvent(KCommandBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnChangeEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +288,8 @@ void KCommandBar_SuperInitStyleOption(const KCommandBar* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnInitStyleOption(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_InitStyleOption_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +316,8 @@ int KCommandBar_SuperDevType(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDevType(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DevType_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +344,8 @@ void KCommandBar_SuperSetVisible(KCommandBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSetVisible(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_SetVisible_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +372,8 @@ QSize* KCommandBar_SuperMinimumSizeHint(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMinimumSizeHint(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +400,8 @@ int KCommandBar_SuperHeightForWidth(const KCommandBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnHeightForWidth(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_HeightForWidth_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +428,8 @@ bool KCommandBar_SuperHasHeightForWidth(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnHasHeightForWidth(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +456,8 @@ QPaintEngine* KCommandBar_SuperPaintEngine(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnPaintEngine(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_PaintEngine_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +484,8 @@ void KCommandBar_SuperMousePressEvent(KCommandBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMousePressEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MousePressEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +512,8 @@ void KCommandBar_SuperMouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseReleaseEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +540,8 @@ void KCommandBar_SuperMouseDoubleClickEvent(KCommandBar* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseDoubleClickEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +568,8 @@ void KCommandBar_SuperMouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseMoveEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +596,8 @@ void KCommandBar_SuperWheelEvent(KCommandBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnWheelEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_WheelEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +624,8 @@ void KCommandBar_SuperKeyPressEvent(KCommandBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnKeyPressEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +652,8 @@ void KCommandBar_SuperKeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnKeyReleaseEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +680,8 @@ void KCommandBar_SuperFocusInEvent(KCommandBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusInEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_FocusInEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +708,8 @@ void KCommandBar_SuperFocusOutEvent(KCommandBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusOutEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +736,8 @@ void KCommandBar_SuperEnterEvent(KCommandBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEnterEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_EnterEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +764,8 @@ void KCommandBar_SuperLeaveEvent(KCommandBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnLeaveEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_LeaveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +792,8 @@ void KCommandBar_SuperMoveEvent(KCommandBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMoveEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_MoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +820,8 @@ void KCommandBar_SuperResizeEvent(KCommandBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnResizeEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ResizeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +848,8 @@ void KCommandBar_SuperCloseEvent(KCommandBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnCloseEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_CloseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +876,8 @@ void KCommandBar_SuperContextMenuEvent(KCommandBar* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnContextMenuEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +904,8 @@ void KCommandBar_SuperTabletEvent(KCommandBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnTabletEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_TabletEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +932,8 @@ void KCommandBar_SuperActionEvent(KCommandBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnActionEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ActionEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +960,8 @@ void KCommandBar_SuperDragEnterEvent(KCommandBar* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragEnterEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1021,9 +988,8 @@ void KCommandBar_SuperDragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragMoveEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1016,8 @@ void KCommandBar_SuperDragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragLeaveEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1044,8 @@ void KCommandBar_SuperDropEvent(KCommandBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDropEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DropEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1072,8 @@ void KCommandBar_SuperShowEvent(KCommandBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnShowEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ShowEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1100,8 @@ void KCommandBar_SuperHideEvent(KCommandBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnHideEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_HideEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1168,9 +1130,8 @@ bool KCommandBar_SuperNativeEvent(KCommandBar* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnNativeEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_NativeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1197,9 +1158,8 @@ int KCommandBar_SuperMetric(const KCommandBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetric(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Metric_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1186,8 @@ void KCommandBar_SuperInitPainter(const KCommandBar* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnInitPainter(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_InitPainter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1214,8 @@ QPaintDevice* KCommandBar_SuperRedirected(const KCommandBar* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnRedirected(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Redirected_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1242,8 @@ QPainter* KCommandBar_SuperSharedPainter(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSharedPainter(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_SharedPainter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1270,8 @@ void KCommandBar_SuperInputMethodEvent(KCommandBar* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnInputMethodEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1298,8 @@ QVariant* KCommandBar_SuperInputMethodQuery(const KCommandBar* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnInputMethodQuery(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1326,8 @@ bool KCommandBar_SuperFocusNextPrevChild(KCommandBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusNextPrevChild(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1354,8 @@ void KCommandBar_SuperTimerEvent(KCommandBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnTimerEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_TimerEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1382,8 @@ void KCommandBar_SuperChildEvent(KCommandBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnChildEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ChildEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1410,8 @@ void KCommandBar_SuperCustomEvent(KCommandBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnCustomEvent(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_CustomEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1438,8 @@ void KCommandBar_SuperConnectNotify(KCommandBar* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnConnectNotify(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_ConnectNotify_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1466,8 @@ void KCommandBar_SuperDisconnectNotify(KCommandBar* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDisconnectNotify(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1494,8 @@ void KCommandBar_SuperDrawFrame(KCommandBar* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDrawFrame(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_DrawFrame_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1522,8 @@ void KCommandBar_SuperUpdateMicroFocus(KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnUpdateMicroFocus(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1550,8 @@ void KCommandBar_SuperCreate(KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnCreate(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Create_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1578,8 @@ void KCommandBar_SuperDestroy(KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDestroy(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Destroy_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1606,8 @@ bool KCommandBar_SuperFocusNextChild(KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusNextChild(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_FocusNextChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1634,8 @@ bool KCommandBar_SuperFocusPreviousChild(KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusPreviousChild(KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1662,8 @@ QObject* KCommandBar_SuperSender(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSender(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Sender_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1690,8 @@ int KCommandBar_SuperSenderSignalIndex(const KCommandBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSenderSignalIndex(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1718,8 @@ int KCommandBar_SuperReceivers(const KCommandBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnReceivers(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_Receivers_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1746,8 @@ bool KCommandBar_SuperIsSignalConnected(const KCommandBar* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnIsSignalConnected(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1774,8 @@ double KCommandBar_SuperGetDecodedMetricF(const KCommandBar* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnGetDecodedMetricF(const KCommandBar* self, intptr_t slot) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
         vkcommandbar->setKCommandBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KCommandBar_Delete(KCommandBar* self) {

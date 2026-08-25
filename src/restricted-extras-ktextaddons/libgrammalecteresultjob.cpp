@@ -169,9 +169,8 @@ QMetaObject* TextGrammarCheck__GrammalecteResultJob_SuperMetaObject(const TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +187,8 @@ void* TextGrammarCheck__GrammalecteResultJob_SuperMetacast(TextGrammarCheck__Gra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnMetacast(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +205,8 @@ int TextGrammarCheck__GrammalecteResultJob_SuperMetacall(TextGrammarCheck__Gramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnMetacall(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +233,8 @@ bool TextGrammarCheck__GrammalecteResultJob_SuperEvent(TextGrammarCheck__Grammal
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +261,8 @@ bool TextGrammarCheck__GrammalecteResultJob_SuperEventFilter(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnEventFilter(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +289,8 @@ void TextGrammarCheck__GrammalecteResultJob_SuperTimerEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnTimerEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +317,8 @@ void TextGrammarCheck__GrammalecteResultJob_SuperChildEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnChildEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +345,8 @@ void TextGrammarCheck__GrammalecteResultJob_SuperCustomEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnCustomEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +373,8 @@ void TextGrammarCheck__GrammalecteResultJob_SuperConnectNotify(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +401,8 @@ void TextGrammarCheck__GrammalecteResultJob_SuperDisconnectNotify(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +429,8 @@ QObject* TextGrammarCheck__GrammalecteResultJob_SuperSender(const TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnSender(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +457,8 @@ int TextGrammarCheck__GrammalecteResultJob_SuperSenderSignalIndex(const TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +485,8 @@ int TextGrammarCheck__GrammalecteResultJob_SuperReceivers(const TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnReceivers(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +513,8 @@ bool TextGrammarCheck__GrammalecteResultJob_SuperIsSignalConnected(const TextGra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteResultJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteresultjob = const_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self));
-    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
+    if (vtextgrammarcheckgrammalecteresultjob && vtextgrammarcheckgrammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob)
         vtextgrammarcheckgrammalecteresultjob->setTextGrammarCheck__GrammalecteResultJob_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteResultJob::TextGrammarCheck__GrammalecteResultJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__GrammalecteResultJob_Delete(TextGrammarCheck__GrammalecteResultJob* self) {

@@ -2281,7 +2281,7 @@ pub const KAbstractViewAdapter = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#public-types)
 pub const enums = struct {
-    pub const Signal = enum(i32) {
+    pub const Signal = enum {
         pub const ScrollBarValueChanged: i32 = 0;
         pub const IconSizeChanged: i32 = 1;
     };

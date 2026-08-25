@@ -77,9 +77,8 @@ QMetaObject* KBugReport_SuperMetaObject(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMetaObject(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MetaObject_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -96,9 +95,8 @@ void* KBugReport_SuperMetacast(KBugReport* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMetacast(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Metacast_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -115,9 +113,8 @@ int KBugReport_SuperMetacall(KBugReport* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMetacall(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Metacall_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +131,8 @@ void KBugReport_SuperAccept(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnAccept(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Accept_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -163,9 +159,8 @@ void KBugReport_SuperSetVisible(KBugReport* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSetVisible(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_SetVisible_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -192,9 +187,8 @@ QSize* KBugReport_SuperSizeHint(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSizeHint(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_SizeHint_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -221,9 +215,8 @@ QSize* KBugReport_SuperMinimumSizeHint(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMinimumSizeHint(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MinimumSizeHint_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -250,9 +243,8 @@ void KBugReport_SuperOpen(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnOpen(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Open_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -279,9 +271,8 @@ int KBugReport_SuperExec(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnExec(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Exec_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +299,8 @@ void KBugReport_SuperDone(KBugReport* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDone(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Done_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +327,8 @@ void KBugReport_SuperReject(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnReject(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Reject_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +355,8 @@ void KBugReport_SuperKeyPressEvent(KBugReport* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnKeyPressEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_KeyPressEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +383,8 @@ void KBugReport_SuperCloseEvent(KBugReport* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnCloseEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_CloseEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +411,8 @@ void KBugReport_SuperShowEvent(KBugReport* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnShowEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ShowEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +439,8 @@ void KBugReport_SuperResizeEvent(KBugReport* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnResizeEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ResizeEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +467,8 @@ void KBugReport_SuperContextMenuEvent(KBugReport* self, QContextMenuEvent* param
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnContextMenuEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ContextMenuEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +495,8 @@ bool KBugReport_SuperEventFilter(KBugReport* self, QObject* param1, QEvent* para
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnEventFilter(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_EventFilter_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +523,8 @@ int KBugReport_SuperDevType(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDevType(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DevType_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +551,8 @@ int KBugReport_SuperHeightForWidth(const KBugReport* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnHeightForWidth(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_HeightForWidth_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +579,8 @@ bool KBugReport_SuperHasHeightForWidth(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnHasHeightForWidth(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_HasHeightForWidth_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +607,8 @@ QPaintEngine* KBugReport_SuperPaintEngine(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnPaintEngine(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_PaintEngine_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +635,8 @@ bool KBugReport_SuperEvent(KBugReport* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Event_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +663,8 @@ void KBugReport_SuperMousePressEvent(KBugReport* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMousePressEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MousePressEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +691,8 @@ void KBugReport_SuperMouseReleaseEvent(KBugReport* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMouseReleaseEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +719,8 @@ void KBugReport_SuperMouseDoubleClickEvent(KBugReport* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMouseDoubleClickEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +747,8 @@ void KBugReport_SuperMouseMoveEvent(KBugReport* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMouseMoveEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MouseMoveEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +775,8 @@ void KBugReport_SuperWheelEvent(KBugReport* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnWheelEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_WheelEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +803,8 @@ void KBugReport_SuperKeyReleaseEvent(KBugReport* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnKeyReleaseEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +831,8 @@ void KBugReport_SuperFocusInEvent(KBugReport* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnFocusInEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_FocusInEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +859,8 @@ void KBugReport_SuperFocusOutEvent(KBugReport* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnFocusOutEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_FocusOutEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +887,8 @@ void KBugReport_SuperEnterEvent(KBugReport* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnEnterEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_EnterEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +915,8 @@ void KBugReport_SuperLeaveEvent(KBugReport* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnLeaveEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_LeaveEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +943,8 @@ void KBugReport_SuperPaintEvent(KBugReport* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnPaintEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_PaintEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +971,8 @@ void KBugReport_SuperMoveEvent(KBugReport* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMoveEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_MoveEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +999,8 @@ void KBugReport_SuperTabletEvent(KBugReport* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnTabletEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_TabletEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1027,8 @@ void KBugReport_SuperActionEvent(KBugReport* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnActionEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ActionEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1055,8 @@ void KBugReport_SuperDragEnterEvent(KBugReport* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDragEnterEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DragEnterEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1083,8 @@ void KBugReport_SuperDragMoveEvent(KBugReport* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDragMoveEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DragMoveEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1111,8 @@ void KBugReport_SuperDragLeaveEvent(KBugReport* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDragLeaveEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DragLeaveEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1139,8 @@ void KBugReport_SuperDropEvent(KBugReport* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDropEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DropEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1167,8 @@ void KBugReport_SuperHideEvent(KBugReport* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnHideEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_HideEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1197,8 @@ bool KBugReport_SuperNativeEvent(KBugReport* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnNativeEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_NativeEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1225,8 @@ void KBugReport_SuperChangeEvent(KBugReport* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnChangeEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ChangeEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1253,8 @@ int KBugReport_SuperMetric(const KBugReport* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnMetric(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Metric_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1281,8 @@ void KBugReport_SuperInitPainter(const KBugReport* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnInitPainter(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_InitPainter_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1309,8 @@ QPaintDevice* KBugReport_SuperRedirected(const KBugReport* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnRedirected(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Redirected_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1337,8 @@ QPainter* KBugReport_SuperSharedPainter(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSharedPainter(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_SharedPainter_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1365,8 @@ void KBugReport_SuperInputMethodEvent(KBugReport* self, QInputMethodEvent* param
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnInputMethodEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_InputMethodEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1393,8 @@ QVariant* KBugReport_SuperInputMethodQuery(const KBugReport* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnInputMethodQuery(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_InputMethodQuery_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1421,8 @@ bool KBugReport_SuperFocusNextPrevChild(KBugReport* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnFocusNextPrevChild(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1449,8 @@ void KBugReport_SuperTimerEvent(KBugReport* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnTimerEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_TimerEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1477,8 @@ void KBugReport_SuperChildEvent(KBugReport* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnChildEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ChildEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1505,8 @@ void KBugReport_SuperCustomEvent(KBugReport* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnCustomEvent(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_CustomEvent_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1533,8 @@ void KBugReport_SuperConnectNotify(KBugReport* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnConnectNotify(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_ConnectNotify_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1561,8 @@ void KBugReport_SuperDisconnectNotify(KBugReport* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDisconnectNotify(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_DisconnectNotify_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1589,8 @@ bool KBugReport_SuperSendBugReport(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSendBugReport(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_SendBugReport_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_SendBugReport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1617,8 @@ void KBugReport_SuperAdjustPosition(KBugReport* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnAdjustPosition(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_AdjustPosition_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1645,8 @@ void KBugReport_SuperUpdateMicroFocus(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnUpdateMicroFocus(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1673,8 @@ void KBugReport_SuperCreate(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnCreate(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Create_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1701,8 @@ void KBugReport_SuperDestroy(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnDestroy(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Destroy_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1729,8 @@ bool KBugReport_SuperFocusNextChild(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnFocusNextChild(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_FocusNextChild_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1757,8 @@ bool KBugReport_SuperFocusPreviousChild(KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnFocusPreviousChild(KBugReport* self, intptr_t slot) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_FocusPreviousChild_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1785,8 @@ QObject* KBugReport_SuperSender(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSender(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Sender_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1813,8 @@ int KBugReport_SuperSenderSignalIndex(const KBugReport* self) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnSenderSignalIndex(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1841,8 @@ int KBugReport_SuperReceivers(const KBugReport* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnReceivers(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_Receivers_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1934,9 +1869,8 @@ bool KBugReport_SuperIsSignalConnected(const KBugReport* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnIsSignalConnected(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_IsSignalConnected_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1963,9 +1897,8 @@ double KBugReport_SuperGetDecodedMetricF(const KBugReport* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void KBugReport_OnGetDecodedMetricF(const KBugReport* self, intptr_t slot) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+    if (vkbugreport && vkbugreport->isVirtualKBugReport)
         vkbugreport->setKBugReport_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KBugReport_Delete(KBugReport* self) {

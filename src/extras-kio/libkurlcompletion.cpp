@@ -193,9 +193,8 @@ QMetaObject* KUrlCompletion_SuperMetaObject(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnMetaObject(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_MetaObject_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +211,8 @@ void* KUrlCompletion_SuperMetacast(KUrlCompletion* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnMetacast(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Metacast_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +229,8 @@ int KUrlCompletion_SuperMetacall(KUrlCompletion* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnMetacall(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Metacall_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +264,8 @@ libqt_string KUrlCompletion_SuperMakeCompletion(KUrlCompletion* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnMakeCompletion(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_MakeCompletion_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +282,8 @@ void KUrlCompletion_SuperSetDir(KUrlCompletion* self, const QUrl* dir) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetDir(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetDir_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -305,9 +300,8 @@ QUrl* KUrlCompletion_SuperDir(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnDir(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Dir_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Dir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +318,8 @@ bool KUrlCompletion_SuperIsRunning(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnIsRunning(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_IsRunning_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_IsRunning_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +336,8 @@ void KUrlCompletion_SuperStop(KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnStop(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Stop_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Stop_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -362,9 +354,8 @@ int KUrlCompletion_SuperMode(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnMode(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Mode_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Mode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -381,9 +372,8 @@ void KUrlCompletion_SuperSetMode(KUrlCompletion* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetMode(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetMode_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -400,9 +390,8 @@ bool KUrlCompletion_SuperReplaceEnv(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnReplaceEnv(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_ReplaceEnv_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_ReplaceEnv_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -419,9 +408,8 @@ void KUrlCompletion_SuperSetReplaceEnv(KUrlCompletion* self, bool replace) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetReplaceEnv(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetReplaceEnv_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetReplaceEnv_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -438,9 +426,8 @@ bool KUrlCompletion_SuperReplaceHome(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnReplaceHome(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_ReplaceHome_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_ReplaceHome_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -457,9 +444,8 @@ void KUrlCompletion_SuperSetReplaceHome(KUrlCompletion* self, bool replace) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetReplaceHome(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetReplaceHome_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetReplaceHome_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -483,9 +469,8 @@ void KUrlCompletion_SuperPostProcessMatches(const KUrlCompletion* self, libqt_li
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnPostProcessMatches(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_PostProcessMatches_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -502,9 +487,8 @@ void KUrlCompletion_SuperPostProcessMatches2(const KUrlCompletion* self, KComple
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnPostProcessMatches2(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_PostProcessMatches2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +547,8 @@ libqt_string KUrlCompletion_SuperLastMatch(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnLastMatch(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_LastMatch_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_LastMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +575,8 @@ void KUrlCompletion_SuperSetCompletionMode(KUrlCompletion* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetCompletionMode(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetCompletionMode_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +603,8 @@ void KUrlCompletion_SuperSetOrder(KUrlCompletion* self, int order) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetOrder(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetOrder_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetOrder_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +631,8 @@ void KUrlCompletion_SuperSetIgnoreCase(KUrlCompletion* self, bool ignoreCase) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetIgnoreCase(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetIgnoreCase_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetIgnoreCase_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +659,8 @@ void KUrlCompletion_SuperSetSoundsEnabled(KUrlCompletion* self, bool enable) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetSoundsEnabled(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetSoundsEnabled_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetSoundsEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +701,8 @@ void KUrlCompletion_SuperSetItems(KUrlCompletion* self, const libqt_list /* of l
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetItems(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetItems_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -751,9 +729,8 @@ void KUrlCompletion_SuperClear(KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnClear(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Clear_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +757,8 @@ bool KUrlCompletion_SuperEvent(KUrlCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnEvent(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Event_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +785,8 @@ bool KUrlCompletion_SuperEventFilter(KUrlCompletion* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnEventFilter(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_EventFilter_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +813,8 @@ void KUrlCompletion_SuperTimerEvent(KUrlCompletion* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnTimerEvent(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_TimerEvent_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +841,8 @@ void KUrlCompletion_SuperChildEvent(KUrlCompletion* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnChildEvent(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_ChildEvent_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +869,8 @@ void KUrlCompletion_SuperCustomEvent(KUrlCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnCustomEvent(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_CustomEvent_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +897,8 @@ void KUrlCompletion_SuperConnectNotify(KUrlCompletion* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnConnectNotify(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +925,8 @@ void KUrlCompletion_SuperDisconnectNotify(KUrlCompletion* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnDisconnectNotify(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +953,8 @@ void KUrlCompletion_SuperSetShouldAutoSuggest(KUrlCompletion* self, bool shouldA
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSetShouldAutoSuggest(KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SetShouldAutoSuggest_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SetShouldAutoSuggest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +981,8 @@ QObject* KUrlCompletion_SuperSender(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSender(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Sender_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1009,8 @@ int KUrlCompletion_SuperSenderSignalIndex(const KUrlCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnSenderSignalIndex(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1037,8 @@ int KUrlCompletion_SuperReceivers(const KUrlCompletion* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnReceivers(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_Receivers_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1065,8 @@ bool KUrlCompletion_SuperIsSignalConnected(const KUrlCompletion* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KUrlCompletion_OnIsSignalConnected(const KUrlCompletion* self, intptr_t slot) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion)
         vkurlcompletion->setKUrlCompletion_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KUrlCompletion_Delete(KUrlCompletion* self) {

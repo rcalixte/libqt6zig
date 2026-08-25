@@ -211,7 +211,7 @@ pub const QWebEnginePermission = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#public-types)
 pub const enums = struct {
-    pub const PermissionType = enum(u8) {
+    pub const PermissionType = enum {
         pub const Unsupported: u8 = 0;
         pub const MediaAudioCapture: u8 = 1;
         pub const MediaVideoCapture: u8 = 2;
@@ -225,7 +225,7 @@ pub const enums = struct {
         pub const LocalFontsAccess: u8 = 10;
     };
 
-    pub const State = enum(u8) {
+    pub const State = enum {
         pub const Invalid: u8 = 0;
         pub const Ask: u8 = 1;
         pub const Granted: u8 = 2;

@@ -3177,7 +3177,7 @@ pub const QAction = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaction.html#public-types)
 pub const enums = struct {
-    pub const MenuRole = enum(i32) {
+    pub const MenuRole = enum {
         pub const NoRole: i32 = 0;
         pub const TextHeuristicRole: i32 = 1;
         pub const ApplicationSpecificRole: i32 = 2;
@@ -3187,13 +3187,13 @@ pub const enums = struct {
         pub const QuitRole: i32 = 6;
     };
 
-    pub const Priority = enum(i32) {
+    pub const Priority = enum {
         pub const LowPriority: i32 = 0;
         pub const NormalPriority: i32 = 128;
         pub const HighPriority: i32 = 256;
     };
 
-    pub const ActionEvent = enum(i32) {
+    pub const ActionEvent = enum {
         pub const Trigger: i32 = 0;
         pub const Hover: i32 = 1;
     };

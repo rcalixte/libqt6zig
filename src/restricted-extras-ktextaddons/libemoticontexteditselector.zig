@@ -455,6 +455,31 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
+    ///
+    pub fn asQPaintDevice(self: TextEmoticonsWidgets__EmoticonTextEditSelector) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a TextEmoticonsWidgets__EmoticonTextEditSelector object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) TextEmoticonsWidgets__EmoticonTextEditSelector {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6439,7 +6464,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn paintingActive(self: TextEmoticonsWidgets__EmoticonTextEditSelector) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6455,7 +6480,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn widthMM(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6471,7 +6496,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn heightMM(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6487,7 +6512,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn logicalDpiX(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6503,7 +6528,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn logicalDpiY(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6519,7 +6544,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn physicalDpiX(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6535,7 +6560,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn physicalDpiY(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6551,7 +6576,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn devicePixelRatio(self: TextEmoticonsWidgets__EmoticonTextEditSelector) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6567,7 +6592,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn devicePixelRatioF(self: TextEmoticonsWidgets__EmoticonTextEditSelector) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6583,7 +6608,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn colorCount(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6599,7 +6624,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector `
     ///
     pub fn depth(self: TextEmoticonsWidgets__EmoticonTextEditSelector) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

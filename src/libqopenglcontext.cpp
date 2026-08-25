@@ -219,9 +219,8 @@ QMetaObject* QOpenGLContext_SuperMetaObject(const QOpenGLContext* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnMetaObject(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +237,8 @@ void* QOpenGLContext_SuperMetacast(QOpenGLContext* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnMetacast(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_Metacast_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +255,8 @@ int QOpenGLContext_SuperMetacall(QOpenGLContext* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnMetacall(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_Metacall_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +283,8 @@ bool QOpenGLContext_SuperEvent(QOpenGLContext* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnEvent(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_Event_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +311,8 @@ bool QOpenGLContext_SuperEventFilter(QOpenGLContext* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnEventFilter(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +339,8 @@ void QOpenGLContext_SuperTimerEvent(QOpenGLContext* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnTimerEvent(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +367,8 @@ void QOpenGLContext_SuperChildEvent(QOpenGLContext* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnChildEvent(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +395,8 @@ void QOpenGLContext_SuperCustomEvent(QOpenGLContext* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnCustomEvent(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +423,8 @@ void QOpenGLContext_SuperConnectNotify(QOpenGLContext* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnConnectNotify(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +451,8 @@ void QOpenGLContext_SuperDisconnectNotify(QOpenGLContext* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnDisconnectNotify(QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +479,8 @@ void* QOpenGLContext_SuperResolveInterface(const QOpenGLContext* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnResolveInterface(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_ResolveInterface_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_ResolveInterface_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +507,8 @@ QObject* QOpenGLContext_SuperSender(const QOpenGLContext* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnSender(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_Sender_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +535,8 @@ int QOpenGLContext_SuperSenderSignalIndex(const QOpenGLContext* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnSenderSignalIndex(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +563,8 @@ int QOpenGLContext_SuperReceivers(const QOpenGLContext* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnReceivers(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_Receivers_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +591,8 @@ bool QOpenGLContext_SuperIsSignalConnected(const QOpenGLContext* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QOpenGLContext_OnIsSignalConnected(const QOpenGLContext* self, intptr_t slot) {
     auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
-    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext)
         vqopenglcontext->setQOpenGLContext_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLContext_Delete(QOpenGLContext* self) {

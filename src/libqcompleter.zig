@@ -2777,13 +2777,13 @@ pub const QCompleter = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#public-types)
 pub const enums = struct {
-    pub const CompletionMode = enum(i32) {
+    pub const CompletionMode = enum {
         pub const PopupCompletion: i32 = 0;
         pub const UnfilteredPopupCompletion: i32 = 1;
         pub const InlineCompletion: i32 = 2;
     };
 
-    pub const ModelSorting = enum(i32) {
+    pub const ModelSorting = enum {
         pub const UnsortedModel: i32 = 0;
         pub const CaseSensitivelySortedModel: i32 = 1;
         pub const CaseInsensitivelySortedModel: i32 = 2;

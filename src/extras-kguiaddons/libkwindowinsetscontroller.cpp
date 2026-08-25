@@ -83,9 +83,8 @@ QMetaObject* KWindowInsetsController_SuperMetaObject(const KWindowInsetsControll
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +101,8 @@ void* KWindowInsetsController_SuperMetacast(KWindowInsetsController* self, const
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_Metacast_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +119,8 @@ int KWindowInsetsController_SuperMetacall(KWindowInsetsController* self, int par
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnMetacall(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_Metacall_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -150,9 +147,8 @@ bool KWindowInsetsController_SuperEvent(KWindowInsetsController* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnEvent(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_Event_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -179,9 +175,8 @@ bool KWindowInsetsController_SuperEventFilter(KWindowInsetsController* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnEventFilter(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_EventFilter_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -208,9 +203,8 @@ void KWindowInsetsController_SuperTimerEvent(KWindowInsetsController* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnTimerEvent(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_TimerEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +231,8 @@ void KWindowInsetsController_SuperChildEvent(KWindowInsetsController* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnChildEvent(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_ChildEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +259,8 @@ void KWindowInsetsController_SuperCustomEvent(KWindowInsetsController* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnCustomEvent(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_CustomEvent_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +287,8 @@ void KWindowInsetsController_SuperConnectNotify(KWindowInsetsController* self, c
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnConnectNotify(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_ConnectNotify_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +315,8 @@ void KWindowInsetsController_SuperDisconnectNotify(KWindowInsetsController* self
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnDisconnectNotify(KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_DisconnectNotify_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +343,8 @@ QObject* KWindowInsetsController_SuperSender(const KWindowInsetsController* self
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnSender(const KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_Sender_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +371,8 @@ int KWindowInsetsController_SuperSenderSignalIndex(const KWindowInsetsController
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnSenderSignalIndex(const KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_SenderSignalIndex_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +399,8 @@ int KWindowInsetsController_SuperReceivers(const KWindowInsetsController* self, 
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnReceivers(const KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_Receivers_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +427,8 @@ bool KWindowInsetsController_SuperIsSignalConnected(const KWindowInsetsControlle
 // Auxiliary method to allow providing re-implementation
 void KWindowInsetsController_OnIsSignalConnected(const KWindowInsetsController* self, intptr_t slot) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController)
         vkwindowinsetscontroller->setKWindowInsetsController_IsSignalConnected_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KWindowInsetsController_Delete(KWindowInsetsController* self) {

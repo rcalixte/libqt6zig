@@ -3296,7 +3296,7 @@ pub const KDE = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kiconloader.html#public-types)
 pub const enums = struct {
-    pub const Context = enum(i32) {
+    pub const Context = enum {
         pub const Any: i32 = 0;
         pub const Action: i32 = 1;
         pub const Application: i32 = 2;
@@ -3311,19 +3311,19 @@ pub const enums = struct {
         pub const StatusIcon: i32 = 11;
     };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Fixed: i32 = 0;
         pub const Scalable: i32 = 1;
         pub const Threshold: i32 = 2;
     };
 
-    pub const MatchType = enum(i32) {
+    pub const MatchType = enum {
         pub const MatchExact: i32 = 0;
         pub const MatchBest: i32 = 1;
         pub const MatchBestOrGreaterSize: i32 = 2;
     };
 
-    pub const Group = enum(i32) {
+    pub const Group = enum {
         pub const NoGroup: i32 = -1;
         pub const Desktop: i32 = 0;
         pub const FirstGroup: i32 = 0;
@@ -3336,7 +3336,7 @@ pub const enums = struct {
         pub const User: i32 = 7;
     };
 
-    pub const StdSizes = enum(i32) {
+    pub const StdSizes = enum {
         pub const SizeSmall: i32 = 16;
         pub const SizeSmallMedium: i32 = 22;
         pub const SizeMedium: i32 = 32;
@@ -3345,7 +3345,7 @@ pub const enums = struct {
         pub const SizeEnormous: i32 = 128;
     };
 
-    pub const States = enum(i32) {
+    pub const States = enum {
         pub const DefaultState: i32 = 0;
         pub const ActiveState: i32 = 1;
         pub const DisabledState: i32 = 2;

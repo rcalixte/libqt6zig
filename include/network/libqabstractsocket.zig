@@ -5,6 +5,7 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
 const QHostAddress = @import("libqt6").QHostAddress;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -2345,6 +2346,18 @@ pub const QAbstractSocket = extern struct {
     pub fn connectToHost3(self: QAbstractSocket, address: anytype, port: u16, mode: i32) void {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSocket `
+    ///
+    pub fn asQIODeviceBase(self: QAbstractSocket) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -5369,21 +5382,21 @@ pub const QAbstractSocket = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#public-types)
 pub const enums = struct {
-    pub const SocketType = enum(i32) {
+    pub const SocketType = enum {
         pub const TcpSocket: i32 = 0;
         pub const UdpSocket: i32 = 1;
         pub const SctpSocket: i32 = 2;
         pub const UnknownSocketType: i32 = -1;
     };
 
-    pub const NetworkLayerProtocol = enum(i32) {
+    pub const NetworkLayerProtocol = enum {
         pub const IPv4Protocol: i32 = 0;
         pub const IPv6Protocol: i32 = 1;
         pub const AnyIPProtocol: i32 = 2;
         pub const UnknownNetworkLayerProtocol: i32 = -1;
     };
 
-    pub const SocketError = enum(i32) {
+    pub const SocketError = enum {
         pub const ConnectionRefusedError: i32 = 0;
         pub const RemoteHostClosedError: i32 = 1;
         pub const HostNotFoundError: i32 = 2;
@@ -5410,7 +5423,7 @@ pub const enums = struct {
         pub const UnknownSocketError: i32 = -1;
     };
 
-    pub const SocketState = enum(i32) {
+    pub const SocketState = enum {
         pub const UnconnectedState: i32 = 0;
         pub const HostLookupState: i32 = 1;
         pub const ConnectingState: i32 = 2;
@@ -5420,7 +5433,7 @@ pub const enums = struct {
         pub const ClosingState: i32 = 6;
     };
 
-    pub const SocketOption = enum(i32) {
+    pub const SocketOption = enum {
         pub const LowDelayOption: i32 = 0;
         pub const KeepAliveOption: i32 = 1;
         pub const MulticastTtlOption: i32 = 2;
@@ -5431,14 +5444,14 @@ pub const enums = struct {
         pub const PathMtuSocketOption: i32 = 7;
     };
 
-    pub const BindFlag = enum(i32) {
+    pub const BindFlag = enum {
         pub const DefaultForPlatform: i32 = 0;
         pub const ShareAddress: i32 = 1;
         pub const DontShareAddress: i32 = 2;
         pub const ReuseAddressHint: i32 = 4;
     };
 
-    pub const PauseMode = enum(i32) {
+    pub const PauseMode = enum {
         pub const PauseNever: i32 = 0;
         pub const PauseOnSslErrors: i32 = 1;
     };

@@ -3058,13 +3058,13 @@ pub const KStatusNotifierItem = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstatusnotifieritem.html#public-types)
 pub const enums = struct {
-    pub const ItemStatus = enum(i32) {
+    pub const ItemStatus = enum {
         pub const Passive: i32 = 1;
         pub const Active: i32 = 2;
         pub const NeedsAttention: i32 = 3;
     };
 
-    pub const ItemCategory = enum(i32) {
+    pub const ItemCategory = enum {
         pub const ApplicationStatus: i32 = 1;
         pub const Communications: i32 = 2;
         pub const SystemServices: i32 = 3;

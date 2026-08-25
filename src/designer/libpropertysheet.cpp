@@ -105,9 +105,8 @@ int QDesignerPropertySheetExtension_SuperCount(const QDesignerPropertySheetExten
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnCount(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Count_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_Count_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -125,9 +124,8 @@ int QDesignerPropertySheetExtension_SuperIndexOf(const QDesignerPropertySheetExt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnIndexOf(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IndexOf_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_IndexOf_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +158,8 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyName(const QDesignerPr
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnPropertyName(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyName_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_PropertyName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +192,8 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyGroup(const QDesignerP
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnPropertyGroup(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyGroup_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_PropertyGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +211,8 @@ void QDesignerPropertySheetExtension_SuperSetPropertyGroup(QDesignerPropertyShee
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnSetPropertyGroup(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetPropertyGroup_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_SetPropertyGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +229,8 @@ bool QDesignerPropertySheetExtension_SuperHasReset(const QDesignerPropertySheetE
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnHasReset(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_HasReset_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_HasReset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +247,8 @@ bool QDesignerPropertySheetExtension_SuperReset(QDesignerPropertySheetExtension*
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnReset(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Reset_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -272,9 +265,8 @@ bool QDesignerPropertySheetExtension_SuperIsVisible(const QDesignerPropertySheet
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnIsVisible(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsVisible_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_IsVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +283,8 @@ void QDesignerPropertySheetExtension_SuperSetVisible(QDesignerPropertySheetExten
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnSetVisible(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetVisible_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +301,8 @@ bool QDesignerPropertySheetExtension_SuperIsAttribute(const QDesignerPropertyShe
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnIsAttribute(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsAttribute_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_IsAttribute_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -329,9 +319,8 @@ void QDesignerPropertySheetExtension_SuperSetAttribute(QDesignerPropertySheetExt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnSetAttribute(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetAttribute_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_SetAttribute_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -348,9 +337,8 @@ QVariant* QDesignerPropertySheetExtension_SuperProperty(const QDesignerPropertyS
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnProperty(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_Property_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -367,9 +355,8 @@ void QDesignerPropertySheetExtension_SuperSetProperty(QDesignerPropertySheetExte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnSetProperty(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetProperty_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -386,9 +373,8 @@ bool QDesignerPropertySheetExtension_SuperIsChanged(const QDesignerPropertySheet
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnIsChanged(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsChanged_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_IsChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -405,9 +391,8 @@ void QDesignerPropertySheetExtension_SuperSetChanged(QDesignerPropertySheetExten
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnSetChanged(QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_SetChanged_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_SetChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -424,9 +409,8 @@ bool QDesignerPropertySheetExtension_SuperIsEnabled(const QDesignerPropertySheet
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertySheetExtension_OnIsEnabled(const QDesignerPropertySheetExtension* self, intptr_t slot) {
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
+    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension)
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_IsEnabled_Callback(reinterpret_cast<VirtualQDesignerPropertySheetExtension::QDesignerPropertySheetExtension_IsEnabled_Callback>(slot));
-    }
 }
 
 void QDesignerPropertySheetExtension_Delete(QDesignerPropertySheetExtension* self) {

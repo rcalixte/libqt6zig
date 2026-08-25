@@ -133,9 +133,8 @@ QMetaObject* QPdfLinkModel_SuperMetaObject(const QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMetaObject(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +151,8 @@ void* QPdfLinkModel_SuperMetacast(QPdfLinkModel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMetacast(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Metacast_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +169,8 @@ int QPdfLinkModel_SuperMetacall(QPdfLinkModel* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMetacall(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Metacall_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +225,8 @@ libqt_map /* of int to libqt_string */ QPdfLinkModel_SuperRoleNames(const QPdfLi
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRoleNames(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +243,8 @@ int QPdfLinkModel_SuperRowCount(const QPdfLinkModel* self, const QModelIndex* pa
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRowCount(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_RowCount_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +261,8 @@ QVariant* QPdfLinkModel_SuperData(const QPdfLinkModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Data_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +289,8 @@ QModelIndex* QPdfLinkModel_SuperIndex(const QPdfLinkModel* self, int row, int co
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnIndex(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Index_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +317,8 @@ QModelIndex* QPdfLinkModel_SuperSibling(const QPdfLinkModel* self, int row, int 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSibling(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Sibling_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +345,8 @@ bool QPdfLinkModel_SuperDropMimeData(QPdfLinkModel* self, const QMimeData* data,
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnDropMimeData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_DropMimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +373,8 @@ int QPdfLinkModel_SuperFlags(const QPdfLinkModel* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnFlags(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Flags_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +401,8 @@ bool QPdfLinkModel_SuperSetData(QPdfLinkModel* self, const QModelIndex* index, c
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SetData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +429,8 @@ QVariant* QPdfLinkModel_SuperHeaderData(const QPdfLinkModel* self, int section, 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnHeaderData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_HeaderData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +457,8 @@ bool QPdfLinkModel_SuperSetHeaderData(QPdfLinkModel* self, int section, int orie
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetHeaderData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SetHeaderData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +541,8 @@ libqt_map /* of int to QVariant* */ QPdfLinkModel_SuperItemData(const QPdfLinkMo
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnItemData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +581,8 @@ bool QPdfLinkModel_SuperSetItemData(QPdfLinkModel* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSetItemData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SetItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +609,8 @@ bool QPdfLinkModel_SuperClearItemData(QPdfLinkModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnClearItemData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ClearItemData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +705,8 @@ libqt_list /* of libqt_string */ QPdfLinkModel_SuperMimeTypes(const QPdfLinkMode
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMimeTypes(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MimeTypes_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -762,9 +745,8 @@ QMimeData* QPdfLinkModel_SuperMimeData(const QPdfLinkModel* self, const libqt_li
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMimeData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -791,9 +773,8 @@ bool QPdfLinkModel_SuperCanDropMimeData(const QPdfLinkModel* self, const QMimeDa
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnCanDropMimeData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -820,9 +801,8 @@ int QPdfLinkModel_SuperSupportedDropActions(const QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSupportedDropActions(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -849,9 +829,8 @@ int QPdfLinkModel_SuperSupportedDragActions(const QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSupportedDragActions(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -878,9 +857,8 @@ bool QPdfLinkModel_SuperInsertRows(QPdfLinkModel* self, int row, int count, cons
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnInsertRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_InsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -907,9 +885,8 @@ bool QPdfLinkModel_SuperInsertColumns(QPdfLinkModel* self, int column, int count
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnInsertColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_InsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -936,9 +913,8 @@ bool QPdfLinkModel_SuperRemoveRows(QPdfLinkModel* self, int row, int count, cons
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRemoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_RemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -965,9 +941,8 @@ bool QPdfLinkModel_SuperRemoveColumns(QPdfLinkModel* self, int column, int count
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_RemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -994,9 +969,8 @@ bool QPdfLinkModel_SuperMoveRows(QPdfLinkModel* self, const QModelIndex* sourceP
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +997,8 @@ bool QPdfLinkModel_SuperMoveColumns(QPdfLinkModel* self, const QModelIndex* sour
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1025,8 @@ void QPdfLinkModel_SuperFetchMore(QPdfLinkModel* self, const QModelIndex* parent
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnFetchMore(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_FetchMore_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1081,9 +1053,8 @@ bool QPdfLinkModel_SuperCanFetchMore(const QPdfLinkModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnCanFetchMore(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_CanFetchMore_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1110,9 +1081,8 @@ void QPdfLinkModel_SuperSort(QPdfLinkModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSort(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Sort_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1139,9 +1109,8 @@ QModelIndex* QPdfLinkModel_SuperBuddy(const QPdfLinkModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBuddy(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Buddy_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1173,8 @@ libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperMatch(const QPdfLinkModel* s
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMatch(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Match_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1233,9 +1201,8 @@ QSize* QPdfLinkModel_SuperSpan(const QPdfLinkModel* self, const QModelIndex* ind
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSpan(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Span_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1262,9 +1229,8 @@ void QPdfLinkModel_SuperMultiData(const QPdfLinkModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnMultiData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_MultiData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1257,8 @@ bool QPdfLinkModel_SuperSubmit(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSubmit(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Submit_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1285,8 @@ void QPdfLinkModel_SuperRevert(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnRevert(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Revert_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1313,8 @@ void QPdfLinkModel_SuperResetInternalData(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnResetInternalData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ResetInternalData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1341,8 @@ bool QPdfLinkModel_SuperEvent(QPdfLinkModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEvent(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Event_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1369,8 @@ bool QPdfLinkModel_SuperEventFilter(QPdfLinkModel* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEventFilter(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EventFilter_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1397,8 @@ void QPdfLinkModel_SuperTimerEvent(QPdfLinkModel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnTimerEvent(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_TimerEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1425,8 @@ void QPdfLinkModel_SuperChildEvent(QPdfLinkModel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnChildEvent(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ChildEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1453,8 @@ void QPdfLinkModel_SuperCustomEvent(QPdfLinkModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnCustomEvent(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_CustomEvent_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1481,8 @@ void QPdfLinkModel_SuperConnectNotify(QPdfLinkModel* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnConnectNotify(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1509,8 @@ void QPdfLinkModel_SuperDisconnectNotify(QPdfLinkModel* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnDisconnectNotify(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1579,9 +1535,8 @@ QModelIndex* QPdfLinkModel_SuperCreateIndex(const QPdfLinkModel* self, int row, 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnCreateIndex(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_CreateIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1575,8 @@ void QPdfLinkModel_SuperEncodeData(const QPdfLinkModel* self, const libqt_list /
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEncodeData(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EncodeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1603,8 @@ bool QPdfLinkModel_SuperDecodeData(QPdfLinkModel* self, int row, int column, con
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnDecodeData(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_DecodeData_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1631,8 @@ void QPdfLinkModel_SuperBeginInsertRows(QPdfLinkModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginInsertRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1659,8 @@ void QPdfLinkModel_SuperEndInsertRows(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndInsertRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndInsertRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1687,8 @@ void QPdfLinkModel_SuperBeginRemoveRows(QPdfLinkModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginRemoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1715,8 @@ void QPdfLinkModel_SuperEndRemoveRows(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndRemoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1743,8 @@ bool QPdfLinkModel_SuperBeginMoveRows(QPdfLinkModel* self, const QModelIndex* so
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginMoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1771,8 @@ void QPdfLinkModel_SuperEndMoveRows(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndMoveRows(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndMoveRows_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1799,8 @@ void QPdfLinkModel_SuperBeginInsertColumns(QPdfLinkModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginInsertColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1827,8 @@ void QPdfLinkModel_SuperEndInsertColumns(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndInsertColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1855,8 @@ void QPdfLinkModel_SuperBeginRemoveColumns(QPdfLinkModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1883,8 @@ void QPdfLinkModel_SuperEndRemoveColumns(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndRemoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1911,8 @@ bool QPdfLinkModel_SuperBeginMoveColumns(QPdfLinkModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginMoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1939,8 @@ void QPdfLinkModel_SuperEndMoveColumns(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndMoveColumns(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1967,8 @@ void QPdfLinkModel_SuperBeginResetModel(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnBeginResetModel(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_BeginResetModel_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2055,9 +1995,8 @@ void QPdfLinkModel_SuperEndResetModel(QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnEndResetModel(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_EndResetModel_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2084,9 +2023,8 @@ void QPdfLinkModel_SuperChangePersistentIndex(QPdfLinkModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnChangePersistentIndex(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2137,9 +2075,8 @@ void QPdfLinkModel_SuperChangePersistentIndexList(QPdfLinkModel* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnChangePersistentIndexList(QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2202,9 +2139,8 @@ libqt_list /* of QModelIndex* */ QPdfLinkModel_SuperPersistentIndexList(const QP
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnPersistentIndexList(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2231,9 +2167,8 @@ QObject* QPdfLinkModel_SuperSender(const QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSender(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Sender_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2260,9 +2195,8 @@ int QPdfLinkModel_SuperSenderSignalIndex(const QPdfLinkModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnSenderSignalIndex(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2289,9 +2223,8 @@ int QPdfLinkModel_SuperReceivers(const QPdfLinkModel* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnReceivers(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_Receivers_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2318,9 +2251,8 @@ bool QPdfLinkModel_SuperIsSignalConnected(const QPdfLinkModel* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QPdfLinkModel_OnIsSignalConnected(const QPdfLinkModel* self, intptr_t slot) {
     auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel)
         vqpdflinkmodel->setQPdfLinkModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPdfLinkModel_Delete(QPdfLinkModel* self) {

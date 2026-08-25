@@ -52,9 +52,8 @@ bool QAccessibleObject_SuperIsValid(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnIsValid(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_IsValid_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_IsValid_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +70,8 @@ QObject* QAccessibleObject_SuperObject(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnObject(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Object_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Object_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +88,8 @@ QRect* QAccessibleObject_SuperRect(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnRect(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Rect_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Rect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +107,8 @@ void QAccessibleObject_SuperSetText(QAccessibleObject* self, int t, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnSetText(QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_SetText_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_SetText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +125,8 @@ QAccessibleInterface* QAccessibleObject_SuperChildAt(const QAccessibleObject* se
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnChildAt(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_ChildAt_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_ChildAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -158,9 +153,8 @@ QWindow* QAccessibleObject_SuperWindow(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnWindow(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Window_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Window_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +237,8 @@ libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* an
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnRelations(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Relations_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Relations_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +265,8 @@ QAccessibleInterface* QAccessibleObject_SuperFocusChild(const QAccessibleObject*
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnFocusChild(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_FocusChild_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_FocusChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +293,8 @@ QAccessibleInterface* QAccessibleObject_SuperParent(const QAccessibleObject* sel
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnParent(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Parent_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +321,8 @@ QAccessibleInterface* QAccessibleObject_SuperChild(const QAccessibleObject* self
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnChild(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Child_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Child_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +349,8 @@ int QAccessibleObject_SuperChildCount(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnChildCount(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_ChildCount_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_ChildCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +377,8 @@ int QAccessibleObject_SuperIndexOfChild(const QAccessibleObject* self, const QAc
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnIndexOfChild(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_IndexOfChild_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_IndexOfChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +437,8 @@ libqt_string QAccessibleObject_SuperText(const QAccessibleObject* self, int t) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnText(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Text_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Text_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +465,8 @@ int QAccessibleObject_SuperRole(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnRole(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_Role_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_Role_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +493,8 @@ QAccessible__State* QAccessibleObject_SuperState(const QAccessibleObject* self) 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnState(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_State_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +521,8 @@ QColor* QAccessibleObject_SuperForegroundColor(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnForegroundColor(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_ForegroundColor_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_ForegroundColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +549,8 @@ QColor* QAccessibleObject_SuperBackgroundColor(const QAccessibleObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnBackgroundColor(const QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_BackgroundColor_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_BackgroundColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +577,8 @@ void QAccessibleObject_SuperVirtualHook(QAccessibleObject* self, int id, void* d
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnVirtualHook(QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_VirtualHook_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +605,8 @@ void* QAccessibleObject_SuperInterfaceCast(QAccessibleObject* self, int param1) 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleObject_OnInterfaceCast(QAccessibleObject* self, intptr_t slot) {
     auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
+    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject)
         vqaccessibleobject->setQAccessibleObject_InterfaceCast_Callback(reinterpret_cast<VirtualQAccessibleObject::QAccessibleObject_InterfaceCast_Callback>(slot));
-    }
 }
 
 QAccessibleApplication* QAccessibleApplication_new() {
@@ -690,9 +671,8 @@ QWindow* QAccessibleApplication_SuperWindow(const QAccessibleApplication* self) 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnWindow(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Window_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Window_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -709,9 +689,8 @@ int QAccessibleApplication_SuperChildCount(const QAccessibleApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnChildCount(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_ChildCount_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_ChildCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -728,9 +707,8 @@ int QAccessibleApplication_SuperIndexOfChild(const QAccessibleApplication* self,
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnIndexOfChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_IndexOfChild_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_IndexOfChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -747,9 +725,8 @@ QAccessibleInterface* QAccessibleApplication_SuperFocusChild(const QAccessibleAp
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnFocusChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_FocusChild_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_FocusChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -766,9 +743,8 @@ QAccessibleInterface* QAccessibleApplication_SuperParent(const QAccessibleApplic
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnParent(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Parent_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -785,9 +761,8 @@ QAccessibleInterface* QAccessibleApplication_SuperChild(const QAccessibleApplica
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnChild(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Child_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Child_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -820,9 +795,8 @@ libqt_string QAccessibleApplication_SuperText(const QAccessibleApplication* self
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnText(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Text_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Text_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -839,9 +813,8 @@ int QAccessibleApplication_SuperRole(const QAccessibleApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnRole(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Role_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Role_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -858,9 +831,8 @@ QAccessible__State* QAccessibleApplication_SuperState(const QAccessibleApplicati
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnState(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_State_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +859,8 @@ bool QAccessibleApplication_SuperIsValid(const QAccessibleApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnIsValid(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_IsValid_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_IsValid_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +887,8 @@ QObject* QAccessibleApplication_SuperObject(const QAccessibleApplication* self) 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnObject(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Object_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Object_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +915,8 @@ QRect* QAccessibleApplication_SuperRect(const QAccessibleApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnRect(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Rect_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Rect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +945,8 @@ void QAccessibleApplication_SuperSetText(QAccessibleApplication* self, int t, co
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnSetText(QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_SetText_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_SetText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +973,8 @@ QAccessibleInterface* QAccessibleApplication_SuperChildAt(const QAccessibleAppli
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnChildAt(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_ChildAt_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_ChildAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1057,8 @@ libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* an
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnRelations(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_Relations_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_Relations_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1085,8 @@ QColor* QAccessibleApplication_SuperForegroundColor(const QAccessibleApplication
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnForegroundColor(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_ForegroundColor_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_ForegroundColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1113,8 @@ QColor* QAccessibleApplication_SuperBackgroundColor(const QAccessibleApplication
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnBackgroundColor(const QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_BackgroundColor_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_BackgroundColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1141,8 @@ void QAccessibleApplication_SuperVirtualHook(QAccessibleApplication* self, int i
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnVirtualHook(QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_VirtualHook_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1169,8 @@ void* QAccessibleApplication_SuperInterfaceCast(QAccessibleApplication* self, in
 // Auxiliary method to allow providing re-implementation
 void QAccessibleApplication_OnInterfaceCast(QAccessibleApplication* self, intptr_t slot) {
     auto* vqaccessibleapplication = dynamic_cast<VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
+    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication)
         vqaccessibleapplication->setQAccessibleApplication_InterfaceCast_Callback(reinterpret_cast<VirtualQAccessibleApplication::QAccessibleApplication_InterfaceCast_Callback>(slot));
-    }
 }
 
 void QAccessibleApplication_Delete(QAccessibleApplication* self) {

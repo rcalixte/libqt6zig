@@ -52,9 +52,8 @@ libqt_string KTextEditor__TextHintProvider_SuperTextHint(KTextEditor__TextHintPr
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__TextHintProvider_OnTextHint(KTextEditor__TextHintProvider* self, intptr_t slot) {
     auto* vktexteditortexthintprovider = dynamic_cast<VirtualKTextEditorTextHintProvider*>(self);
-    if (vktexteditortexthintprovider && vktexteditortexthintprovider->isVirtualKTextEditorTextHintProvider) {
+    if (vktexteditortexthintprovider && vktexteditortexthintprovider->isVirtualKTextEditorTextHintProvider)
         vktexteditortexthintprovider->setKTextEditor__TextHintProvider_TextHint_Callback(reinterpret_cast<VirtualKTextEditorTextHintProvider::KTextEditor__TextHintProvider_TextHint_Callback>(slot));
-    }
 }
 
 void KTextEditor__TextHintProvider_Delete(KTextEditor__TextHintProvider* self) {

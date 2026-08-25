@@ -67,9 +67,8 @@ QMetaObject* KPropertiesDialogPlugin_SuperMetaObject(const KPropertiesDialogPlug
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnMetaObject(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_MetaObject_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -86,9 +85,8 @@ void* KPropertiesDialogPlugin_SuperMetacast(KPropertiesDialogPlugin* self, const
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnMetacast(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacast_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +103,8 @@ int KPropertiesDialogPlugin_SuperMetacall(KPropertiesDialogPlugin* self, int par
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnMetacall(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacall_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +121,8 @@ void KPropertiesDialogPlugin_SuperApplyChanges(KPropertiesDialogPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnApplyChanges(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ApplyChanges_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_ApplyChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -153,9 +149,8 @@ bool KPropertiesDialogPlugin_SuperEvent(KPropertiesDialogPlugin* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnEvent(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Event_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +177,8 @@ bool KPropertiesDialogPlugin_SuperEventFilter(KPropertiesDialogPlugin* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnEventFilter(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_EventFilter_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +205,8 @@ void KPropertiesDialogPlugin_SuperTimerEvent(KPropertiesDialogPlugin* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnTimerEvent(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +233,8 @@ void KPropertiesDialogPlugin_SuperChildEvent(KPropertiesDialogPlugin* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnChildEvent(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +261,8 @@ void KPropertiesDialogPlugin_SuperCustomEvent(KPropertiesDialogPlugin* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnCustomEvent(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +289,8 @@ void KPropertiesDialogPlugin_SuperConnectNotify(KPropertiesDialogPlugin* self, c
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnConnectNotify(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +317,8 @@ void KPropertiesDialogPlugin_SuperDisconnectNotify(KPropertiesDialogPlugin* self
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnDisconnectNotify(KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +345,8 @@ int KPropertiesDialogPlugin_SuperFontHeight(const KPropertiesDialogPlugin* self)
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnFontHeight(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_FontHeight_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_FontHeight_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +373,8 @@ QObject* KPropertiesDialogPlugin_SuperSender(const KPropertiesDialogPlugin* self
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnSender(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Sender_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +401,8 @@ int KPropertiesDialogPlugin_SuperSenderSignalIndex(const KPropertiesDialogPlugin
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnSenderSignalIndex(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +429,8 @@ int KPropertiesDialogPlugin_SuperReceivers(const KPropertiesDialogPlugin* self, 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnReceivers(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Receivers_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +457,8 @@ bool KPropertiesDialogPlugin_SuperIsSignalConnected(const KPropertiesDialogPlugi
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialogPlugin_OnIsSignalConnected(const KPropertiesDialogPlugin* self, intptr_t slot) {
     auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin)
         vkpropertiesdialogplugin->setKPropertiesDialogPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KPropertiesDialogPlugin_Delete(KPropertiesDialogPlugin* self) {

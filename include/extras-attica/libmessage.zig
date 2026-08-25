@@ -352,7 +352,7 @@ pub const Attica__Message = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-message.html#public-types)
 pub const enums = struct {
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const Unread: i32 = 0;
         pub const Read: i32 = 1;
         pub const Answered: i32 = 2;

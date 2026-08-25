@@ -349,9 +349,8 @@ QMetaObject* KTextEdit_SuperMetaObject(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetaObject(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +367,8 @@ void* KTextEdit_SuperMetacast(KTextEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetacast(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Metacast_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +385,8 @@ int KTextEdit_SuperMetacall(KTextEdit* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetacall(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Metacall_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +403,8 @@ void KTextEdit_SuperSetReadOnly(KTextEdit* self, bool readOnly) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetReadOnly(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +421,8 @@ void KTextEdit_SuperSetCheckSpellingEnabled(KTextEdit* self, bool check) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetCheckSpellingEnabled(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SetCheckSpellingEnabled_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetCheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -444,9 +439,8 @@ bool KTextEdit_SuperCheckSpellingEnabled(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCheckSpellingEnabled(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CheckSpellingEnabled_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -464,9 +458,8 @@ bool KTextEdit_SuperShouldBlockBeSpellChecked(const KTextEdit* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnShouldBlockBeSpellChecked(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ShouldBlockBeSpellChecked_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ShouldBlockBeSpellChecked_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -483,9 +476,8 @@ void KTextEdit_SuperCreateHighlighter(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCreateHighlighter(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CreateHighlighter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateHighlighter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -502,9 +494,8 @@ QMenu* KTextEdit_SuperMousePopupMenu(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMousePopupMenu(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MousePopupMenu_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePopupMenu_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -521,9 +512,8 @@ bool KTextEdit_SuperEvent(KTextEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Event_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -540,9 +530,8 @@ void KTextEdit_SuperKeyPressEvent(KTextEdit* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnKeyPressEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -559,9 +548,8 @@ void KTextEdit_SuperFocusInEvent(KTextEdit* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusInEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -578,9 +566,8 @@ void KTextEdit_SuperDeleteWordBack(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDeleteWordBack(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DeleteWordBack_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordBack_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -597,9 +584,8 @@ void KTextEdit_SuperDeleteWordForward(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDeleteWordForward(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DeleteWordForward_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordForward_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -616,9 +602,8 @@ void KTextEdit_SuperContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnContextMenuEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +630,8 @@ QVariant* KTextEdit_SuperLoadResource(KTextEdit* self, int typeVal, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnLoadResource(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_LoadResource_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +658,8 @@ QVariant* KTextEdit_SuperInputMethodQuery(const KTextEdit* self, int property) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInputMethodQuery(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +686,8 @@ void KTextEdit_SuperTimerEvent(KTextEdit* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnTimerEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +714,8 @@ void KTextEdit_SuperKeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnKeyReleaseEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +742,8 @@ void KTextEdit_SuperResizeEvent(KTextEdit* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnResizeEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +770,8 @@ void KTextEdit_SuperPaintEvent(KTextEdit* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnPaintEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +798,8 @@ void KTextEdit_SuperMousePressEvent(KTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMousePressEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +826,8 @@ void KTextEdit_SuperMouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseMoveEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +854,8 @@ void KTextEdit_SuperMouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseReleaseEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +882,8 @@ void KTextEdit_SuperMouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseDoubleClickEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +910,8 @@ bool KTextEdit_SuperFocusNextPrevChild(KTextEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusNextPrevChild(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +938,8 @@ void KTextEdit_SuperDragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragEnterEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -993,9 +966,8 @@ void KTextEdit_SuperDragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragLeaveEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1022,9 +994,8 @@ void KTextEdit_SuperDragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragMoveEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1051,9 +1022,8 @@ void KTextEdit_SuperDropEvent(KTextEdit* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDropEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DropEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1050,8 @@ void KTextEdit_SuperFocusOutEvent(KTextEdit* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusOutEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1078,8 @@ void KTextEdit_SuperShowEvent(KTextEdit* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnShowEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1106,8 @@ void KTextEdit_SuperChangeEvent(KTextEdit* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnChangeEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1134,8 @@ void KTextEdit_SuperWheelEvent(KTextEdit* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnWheelEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1162,8 @@ QMimeData* KTextEdit_SuperCreateMimeDataFromSelection(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCreateMimeDataFromSelection(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1190,8 @@ bool KTextEdit_SuperCanInsertFromMimeData(const KTextEdit* self, const QMimeData
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCanInsertFromMimeData(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1218,8 @@ void KTextEdit_SuperInsertFromMimeData(KTextEdit* self, const QMimeData* source)
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInsertFromMimeData(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1246,8 @@ void KTextEdit_SuperInputMethodEvent(KTextEdit* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInputMethodEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1274,8 @@ void KTextEdit_SuperScrollContentsBy(KTextEdit* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnScrollContentsBy(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1302,8 @@ void KTextEdit_SuperDoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDoSetTextCursor(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1330,8 @@ QSize* KTextEdit_SuperMinimumSizeHint(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMinimumSizeHint(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1399,9 +1358,8 @@ QSize* KTextEdit_SuperSizeHint(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSizeHint(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1428,9 +1386,8 @@ void KTextEdit_SuperSetupViewport(KTextEdit* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetupViewport(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1414,8 @@ bool KTextEdit_SuperEventFilter(KTextEdit* self, QObject* param1, QEvent* param2
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEventFilter(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_EventFilter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1442,8 @@ bool KTextEdit_SuperViewportEvent(KTextEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnViewportEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1468,8 @@ QSize* KTextEdit_SuperViewportSizeHint(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnViewportSizeHint(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1496,8 @@ void KTextEdit_SuperInitStyleOption(const KTextEdit* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInitStyleOption(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1524,8 @@ int KTextEdit_SuperDevType(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDevType(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DevType_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1552,8 @@ void KTextEdit_SuperSetVisible(KTextEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetVisible(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SetVisible_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1580,8 @@ int KTextEdit_SuperHeightForWidth(const KTextEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnHeightForWidth(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1608,8 @@ bool KTextEdit_SuperHasHeightForWidth(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnHasHeightForWidth(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1636,8 @@ QPaintEngine* KTextEdit_SuperPaintEngine(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnPaintEngine(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1664,8 @@ void KTextEdit_SuperEnterEvent(KTextEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEnterEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1692,8 @@ void KTextEdit_SuperLeaveEvent(KTextEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnLeaveEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1720,8 @@ void KTextEdit_SuperMoveEvent(KTextEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMoveEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1748,8 @@ void KTextEdit_SuperCloseEvent(KTextEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCloseEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1776,8 @@ void KTextEdit_SuperTabletEvent(KTextEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnTabletEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1804,8 @@ void KTextEdit_SuperActionEvent(KTextEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnActionEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1832,8 @@ void KTextEdit_SuperHideEvent(KTextEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnHideEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_HideEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1862,8 @@ bool KTextEdit_SuperNativeEvent(KTextEdit* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnNativeEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1890,8 @@ int KTextEdit_SuperMetric(const KTextEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetric(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Metric_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1918,8 @@ void KTextEdit_SuperInitPainter(const KTextEdit* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInitPainter(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_InitPainter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2008,9 +1946,8 @@ QPaintDevice* KTextEdit_SuperRedirected(const KTextEdit* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnRedirected(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Redirected_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1974,8 @@ QPainter* KTextEdit_SuperSharedPainter(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSharedPainter(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2066,9 +2002,8 @@ void KTextEdit_SuperChildEvent(KTextEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnChildEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2095,9 +2030,8 @@ void KTextEdit_SuperCustomEvent(KTextEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCustomEvent(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2124,9 +2058,8 @@ void KTextEdit_SuperConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnConnectNotify(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2153,9 +2086,8 @@ void KTextEdit_SuperDisconnectNotify(KTextEdit* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDisconnectNotify(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2182,9 +2114,8 @@ void KTextEdit_SuperSlotDoReplace(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotDoReplace(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotDoReplace_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotDoReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2211,9 +2142,8 @@ void KTextEdit_SuperSlotReplaceNext(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotReplaceNext(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotReplaceNext_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotReplaceNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2240,9 +2170,8 @@ void KTextEdit_SuperSlotDoFind(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotDoFind(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotDoFind_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotDoFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2269,9 +2198,8 @@ void KTextEdit_SuperSlotFind(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotFind(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotFind_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2298,9 +2226,8 @@ void KTextEdit_SuperSlotFindNext(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotFindNext(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotFindNext_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFindNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2327,9 +2254,8 @@ void KTextEdit_SuperSlotFindPrevious(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotFindPrevious(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotFindPrevious_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFindPrevious_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2356,9 +2282,8 @@ void KTextEdit_SuperSlotReplace(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotReplace(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotReplace_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2385,9 +2310,8 @@ void KTextEdit_SuperSlotSpeakText(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSlotSpeakText(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SlotSpeakText_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotSpeakText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2414,9 +2338,8 @@ void KTextEdit_SuperZoomInF(KTextEdit* self, float range) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnZoomInF(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2443,9 +2366,8 @@ void KTextEdit_SuperSetViewportMargins(KTextEdit* self, int left, int top, int r
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetViewportMargins(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2470,9 +2392,8 @@ QMargins* KTextEdit_SuperViewportMargins(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnViewportMargins(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2499,9 +2420,8 @@ void KTextEdit_SuperDrawFrame(KTextEdit* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDrawFrame(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2528,9 +2448,8 @@ void KTextEdit_SuperUpdateMicroFocus(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnUpdateMicroFocus(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2557,9 +2476,8 @@ void KTextEdit_SuperCreate(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCreate(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Create_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2586,9 +2504,8 @@ void KTextEdit_SuperDestroy(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDestroy(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Destroy_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2615,9 +2532,8 @@ bool KTextEdit_SuperFocusNextChild(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusNextChild(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2644,9 +2560,8 @@ bool KTextEdit_SuperFocusPreviousChild(KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusPreviousChild(KTextEdit* self, intptr_t slot) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2673,9 +2588,8 @@ QObject* KTextEdit_SuperSender(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSender(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Sender_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2702,9 +2616,8 @@ int KTextEdit_SuperSenderSignalIndex(const KTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSenderSignalIndex(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2731,9 +2644,8 @@ int KTextEdit_SuperReceivers(const KTextEdit* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnReceivers(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_Receivers_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2760,9 +2672,8 @@ bool KTextEdit_SuperIsSignalConnected(const KTextEdit* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnIsSignalConnected(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2789,9 +2700,8 @@ double KTextEdit_SuperGetDecodedMetricF(const KTextEdit* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnGetDecodedMetricF(const KTextEdit* self, intptr_t slot) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit && vktextedit->isVirtualKTextEdit)
         vktextedit->setKTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KTextEdit_Delete(KTextEdit* self) {

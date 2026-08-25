@@ -1345,7 +1345,7 @@ pub const Solid__Processor = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-processor.html#public-types)
 pub const enums = struct {
-    pub const InstructionSet = enum(i32) {
+    pub const InstructionSet = enum {
         pub const NoExtensions: i32 = 0;
         pub const IntelMmx: i32 = 1;
         pub const IntelSse: i32 = 2;

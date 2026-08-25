@@ -161,9 +161,8 @@ QMetaObject* QVPieModelMapper_SuperMetaObject(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnMetaObject(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QVPieModelMapper_SuperMetacast(QVPieModelMapper* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnMetacast(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QVPieModelMapper_SuperMetacall(QVPieModelMapper* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnMetacall(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QVPieModelMapper_SuperEvent(QVPieModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnEvent(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Event_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QVPieModelMapper_SuperEventFilter(QVPieModelMapper* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnEventFilter(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QVPieModelMapper_SuperTimerEvent(QVPieModelMapper* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnTimerEvent(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QVPieModelMapper_SuperChildEvent(QVPieModelMapper* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnChildEvent(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QVPieModelMapper_SuperCustomEvent(QVPieModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnCustomEvent(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QVPieModelMapper_SuperConnectNotify(QVPieModelMapper* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnConnectNotify(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QVPieModelMapper_SuperDisconnectNotify(QVPieModelMapper* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnDisconnectNotify(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ int QVPieModelMapper_SuperFirst(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnFirst(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_First_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_First_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void QVPieModelMapper_SuperSetFirst(QVPieModelMapper* self, int first) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSetFirst(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QVPieModelMapper_SuperCount(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnCount(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Count_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void QVPieModelMapper_SuperSetCount(QVPieModelMapper* self, int count) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSetCount(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ int QVPieModelMapper_SuperValuesSection(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnValuesSection(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_ValuesSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ValuesSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void QVPieModelMapper_SuperSetValuesSection(QVPieModelMapper* self, int valuesSe
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSetValuesSection(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SetValuesSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetValuesSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ int QVPieModelMapper_SuperLabelsSection(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnLabelsSection(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_LabelsSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_LabelsSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ void QVPieModelMapper_SuperSetLabelsSection(QVPieModelMapper* self, int labelsSe
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSetLabelsSection(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SetLabelsSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetLabelsSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int QVPieModelMapper_SuperOrientation(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnOrientation(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ void QVPieModelMapper_SuperSetOrientation(QVPieModelMapper* self, int orientatio
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSetOrientation(QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QObject* QVPieModelMapper_SuperSender(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSender(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Sender_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ int QVPieModelMapper_SuperSenderSignalIndex(const QVPieModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnSenderSignalIndex(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ int QVPieModelMapper_SuperReceivers(const QVPieModelMapper* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnReceivers(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ bool QVPieModelMapper_SuperIsSignalConnected(const QVPieModelMapper* self, const
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnIsSignalConnected(const QVPieModelMapper* self, intptr_t slot) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
         vqvpiemodelmapper->setQVPieModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVPieModelMapper_Delete(QVPieModelMapper* self) {

@@ -50,9 +50,8 @@ QMetaObject* QIconEnginePlugin_SuperMetaObject(const QIconEnginePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnMetaObject(const QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_MetaObject_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QIconEnginePlugin_SuperMetacast(QIconEnginePlugin* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnMetacast(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Metacast_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QIconEnginePlugin_SuperMetacall(QIconEnginePlugin* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnMetacall(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Metacall_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -108,9 +105,8 @@ QIconEngine* QIconEnginePlugin_SuperCreate(QIconEnginePlugin* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnCreate(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Create_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -137,9 +133,8 @@ bool QIconEnginePlugin_SuperEvent(QIconEnginePlugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnEvent(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Event_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -166,9 +161,8 @@ bool QIconEnginePlugin_SuperEventFilter(QIconEnginePlugin* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnEventFilter(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_EventFilter_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -195,9 +189,8 @@ void QIconEnginePlugin_SuperTimerEvent(QIconEnginePlugin* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnTimerEvent(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_TimerEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +217,8 @@ void QIconEnginePlugin_SuperChildEvent(QIconEnginePlugin* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnChildEvent(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_ChildEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +245,8 @@ void QIconEnginePlugin_SuperCustomEvent(QIconEnginePlugin* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnCustomEvent(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_CustomEvent_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +273,8 @@ void QIconEnginePlugin_SuperConnectNotify(QIconEnginePlugin* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnConnectNotify(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +301,8 @@ void QIconEnginePlugin_SuperDisconnectNotify(QIconEnginePlugin* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnDisconnectNotify(QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +329,8 @@ QObject* QIconEnginePlugin_SuperSender(const QIconEnginePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnSender(const QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Sender_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +357,8 @@ int QIconEnginePlugin_SuperSenderSignalIndex(const QIconEnginePlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnSenderSignalIndex(const QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +385,8 @@ int QIconEnginePlugin_SuperReceivers(const QIconEnginePlugin* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnReceivers(const QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_Receivers_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +413,8 @@ bool QIconEnginePlugin_SuperIsSignalConnected(const QIconEnginePlugin* self, con
 // Auxiliary method to allow providing re-implementation
 void QIconEnginePlugin_OnIsSignalConnected(const QIconEnginePlugin* self, intptr_t slot) {
     auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin)
         vqiconengineplugin->setQIconEnginePlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QIconEnginePlugin_Delete(QIconEnginePlugin* self) {

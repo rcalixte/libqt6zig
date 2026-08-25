@@ -50,9 +50,8 @@ void KParts__PartActivateEvent_SuperSetAccepted(KParts__PartActivateEvent* self,
 // Auxiliary method to allow providing re-implementation
 void KParts__PartActivateEvent_OnSetAccepted(KParts__PartActivateEvent* self, intptr_t slot) {
     auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self);
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
+    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent)
         vkpartspartactivateevent->setKParts__PartActivateEvent_SetAccepted_Callback(reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -79,9 +78,8 @@ QEvent* KParts__PartActivateEvent_SuperClone(const KParts__PartActivateEvent* se
 // Auxiliary method to allow providing re-implementation
 void KParts__PartActivateEvent_OnClone(const KParts__PartActivateEvent* self, intptr_t slot) {
     auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self));
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
+    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent)
         vkpartspartactivateevent->setKParts__PartActivateEvent_Clone_Callback(reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_Clone_Callback>(slot));
-    }
 }
 
 void KParts__PartActivateEvent_Delete(KParts__PartActivateEvent* self) {

@@ -8748,7 +8748,7 @@ pub const QSqlRelationalTableModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrelationaltablemodel.html#public-types)
 pub const enums = struct {
-    pub const JoinMode = enum(i32) {
+    pub const JoinMode = enum {
         pub const InnerJoin: i32 = 0;
         pub const LeftJoin: i32 = 1;
     };

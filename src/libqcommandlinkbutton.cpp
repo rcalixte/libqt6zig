@@ -144,9 +144,8 @@ QMetaObject* QCommandLinkButton_SuperMetaObject(const QCommandLinkButton* self) 
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMetaObject(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MetaObject_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +162,8 @@ void* QCommandLinkButton_SuperMetacast(QCommandLinkButton* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMetacast(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Metacast_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +180,8 @@ int QCommandLinkButton_SuperMetacall(QCommandLinkButton* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMetacall(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Metacall_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +198,8 @@ QSize* QCommandLinkButton_SuperSizeHint(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnSizeHint(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_SizeHint_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +216,8 @@ int QCommandLinkButton_SuperHeightForWidth(const QCommandLinkButton* self, int p
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnHeightForWidth(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_HeightForWidth_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +234,8 @@ QSize* QCommandLinkButton_SuperMinimumSizeHint(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMinimumSizeHint(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +252,8 @@ void QCommandLinkButton_SuperInitStyleOption(const QCommandLinkButton* self, QSt
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnInitStyleOption(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_InitStyleOption_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +270,8 @@ bool QCommandLinkButton_SuperEvent(QCommandLinkButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Event_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +288,8 @@ void QCommandLinkButton_SuperPaintEvent(QCommandLinkButton* self, QPaintEvent* p
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnPaintEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_PaintEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +316,8 @@ void QCommandLinkButton_SuperKeyPressEvent(QCommandLinkButton* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnKeyPressEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_KeyPressEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +344,8 @@ void QCommandLinkButton_SuperFocusInEvent(QCommandLinkButton* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnFocusInEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_FocusInEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +372,8 @@ void QCommandLinkButton_SuperFocusOutEvent(QCommandLinkButton* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnFocusOutEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_FocusOutEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +400,8 @@ void QCommandLinkButton_SuperMouseMoveEvent(QCommandLinkButton* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMouseMoveEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +428,8 @@ bool QCommandLinkButton_SuperHitButton(const QCommandLinkButton* self, const QPo
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnHitButton(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_HitButton_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +456,8 @@ void QCommandLinkButton_SuperCheckStateSet(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnCheckStateSet(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_CheckStateSet_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +484,8 @@ void QCommandLinkButton_SuperNextCheckState(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnNextCheckState(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_NextCheckState_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +512,8 @@ void QCommandLinkButton_SuperKeyReleaseEvent(QCommandLinkButton* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnKeyReleaseEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +540,8 @@ void QCommandLinkButton_SuperMousePressEvent(QCommandLinkButton* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMousePressEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MousePressEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +568,8 @@ void QCommandLinkButton_SuperMouseReleaseEvent(QCommandLinkButton* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMouseReleaseEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +596,8 @@ void QCommandLinkButton_SuperChangeEvent(QCommandLinkButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnChangeEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ChangeEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +624,8 @@ void QCommandLinkButton_SuperTimerEvent(QCommandLinkButton* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnTimerEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_TimerEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +652,8 @@ int QCommandLinkButton_SuperDevType(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDevType(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DevType_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +680,8 @@ void QCommandLinkButton_SuperSetVisible(QCommandLinkButton* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnSetVisible(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_SetVisible_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +708,8 @@ bool QCommandLinkButton_SuperHasHeightForWidth(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnHasHeightForWidth(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +736,8 @@ QPaintEngine* QCommandLinkButton_SuperPaintEngine(const QCommandLinkButton* self
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnPaintEngine(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_PaintEngine_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +764,8 @@ void QCommandLinkButton_SuperMouseDoubleClickEvent(QCommandLinkButton* self, QMo
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMouseDoubleClickEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +792,8 @@ void QCommandLinkButton_SuperWheelEvent(QCommandLinkButton* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnWheelEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_WheelEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +820,8 @@ void QCommandLinkButton_SuperEnterEvent(QCommandLinkButton* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnEnterEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_EnterEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +848,8 @@ void QCommandLinkButton_SuperLeaveEvent(QCommandLinkButton* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnLeaveEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_LeaveEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +876,8 @@ void QCommandLinkButton_SuperMoveEvent(QCommandLinkButton* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMoveEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_MoveEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +904,8 @@ void QCommandLinkButton_SuperResizeEvent(QCommandLinkButton* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnResizeEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ResizeEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +932,8 @@ void QCommandLinkButton_SuperCloseEvent(QCommandLinkButton* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnCloseEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_CloseEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +960,8 @@ void QCommandLinkButton_SuperContextMenuEvent(QCommandLinkButton* self, QContext
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnContextMenuEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1021,9 +988,8 @@ void QCommandLinkButton_SuperTabletEvent(QCommandLinkButton* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnTabletEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_TabletEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1016,8 @@ void QCommandLinkButton_SuperActionEvent(QCommandLinkButton* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnActionEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ActionEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1044,8 @@ void QCommandLinkButton_SuperDragEnterEvent(QCommandLinkButton* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDragEnterEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DragEnterEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1072,8 @@ void QCommandLinkButton_SuperDragMoveEvent(QCommandLinkButton* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDragMoveEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DragMoveEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1100,8 @@ void QCommandLinkButton_SuperDragLeaveEvent(QCommandLinkButton* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDragLeaveEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1128,8 @@ void QCommandLinkButton_SuperDropEvent(QCommandLinkButton* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDropEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DropEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1156,8 @@ void QCommandLinkButton_SuperShowEvent(QCommandLinkButton* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnShowEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ShowEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1224,9 +1184,8 @@ void QCommandLinkButton_SuperHideEvent(QCommandLinkButton* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnHideEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_HideEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1214,8 @@ bool QCommandLinkButton_SuperNativeEvent(QCommandLinkButton* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnNativeEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_NativeEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1242,8 @@ int QCommandLinkButton_SuperMetric(const QCommandLinkButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnMetric(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Metric_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1270,8 @@ void QCommandLinkButton_SuperInitPainter(const QCommandLinkButton* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnInitPainter(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_InitPainter_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1298,8 @@ QPaintDevice* QCommandLinkButton_SuperRedirected(const QCommandLinkButton* self,
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnRedirected(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Redirected_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1326,8 @@ QPainter* QCommandLinkButton_SuperSharedPainter(const QCommandLinkButton* self) 
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnSharedPainter(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_SharedPainter_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1354,8 @@ void QCommandLinkButton_SuperInputMethodEvent(QCommandLinkButton* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnInputMethodEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_InputMethodEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1382,8 @@ QVariant* QCommandLinkButton_SuperInputMethodQuery(const QCommandLinkButton* sel
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnInputMethodQuery(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_InputMethodQuery_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1410,8 @@ bool QCommandLinkButton_SuperFocusNextPrevChild(QCommandLinkButton* self, bool n
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnFocusNextPrevChild(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1438,8 @@ bool QCommandLinkButton_SuperEventFilter(QCommandLinkButton* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnEventFilter(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_EventFilter_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1466,8 @@ void QCommandLinkButton_SuperChildEvent(QCommandLinkButton* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnChildEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ChildEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1494,8 @@ void QCommandLinkButton_SuperCustomEvent(QCommandLinkButton* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnCustomEvent(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_CustomEvent_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1522,8 @@ void QCommandLinkButton_SuperConnectNotify(QCommandLinkButton* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnConnectNotify(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_ConnectNotify_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1550,8 @@ void QCommandLinkButton_SuperDisconnectNotify(QCommandLinkButton* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDisconnectNotify(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_DisconnectNotify_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1578,8 @@ void QCommandLinkButton_SuperUpdateMicroFocus(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnUpdateMicroFocus(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1606,8 @@ void QCommandLinkButton_SuperCreate(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnCreate(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Create_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1634,8 @@ void QCommandLinkButton_SuperDestroy(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnDestroy(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Destroy_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1662,8 @@ bool QCommandLinkButton_SuperFocusNextChild(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnFocusNextChild(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_FocusNextChild_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1690,8 @@ bool QCommandLinkButton_SuperFocusPreviousChild(QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnFocusPreviousChild(QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1718,8 @@ QObject* QCommandLinkButton_SuperSender(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnSender(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Sender_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1746,8 @@ int QCommandLinkButton_SuperSenderSignalIndex(const QCommandLinkButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnSenderSignalIndex(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1774,8 @@ int QCommandLinkButton_SuperReceivers(const QCommandLinkButton* self, const char
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnReceivers(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_Receivers_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1802,8 @@ bool QCommandLinkButton_SuperIsSignalConnected(const QCommandLinkButton* self, c
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnIsSignalConnected(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_IsSignalConnected_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1893,9 +1830,8 @@ double QCommandLinkButton_SuperGetDecodedMetricF(const QCommandLinkButton* self,
 // Auxiliary method to allow providing re-implementation
 void QCommandLinkButton_OnGetDecodedMetricF(const QCommandLinkButton* self, intptr_t slot) {
     auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton)
         vqcommandlinkbutton->setQCommandLinkButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QCommandLinkButton_Delete(QCommandLinkButton* self) {

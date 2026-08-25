@@ -1578,19 +1578,19 @@ pub const KIO__AskUserActionInterface = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-askuseractioninterface.html#public-types)
 pub const enums = struct {
-    pub const DeletionType = enum(i32) {
+    pub const DeletionType = enum {
         pub const Delete: i32 = 0;
         pub const Trash: i32 = 1;
         pub const EmptyTrash: i32 = 2;
         pub const DeleteInsteadOfTrash: i32 = 3;
     };
 
-    pub const ConfirmationType = enum(i32) {
+    pub const ConfirmationType = enum {
         pub const DefaultConfirmation: i32 = 0;
         pub const ForceConfirmation: i32 = 1;
     };
 
-    pub const MessageDialogType = enum(i32) {
+    pub const MessageDialogType = enum {
         pub const QuestionTwoActions: i32 = 1;
         pub const QuestionTwoActionsCancel: i32 = 2;
         pub const WarningTwoActions: i32 = 3;

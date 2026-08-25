@@ -778,22 +778,22 @@ pub const QMicrophonePermission = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermissions.html#public-types)
 pub const enums = struct {
-    pub const Accuracy = enum(u8) {
+    pub const Accuracy = enum {
         pub const Approximate: u8 = 0;
         pub const Precise: u8 = 1;
     };
 
-    pub const Availability = enum(u8) {
+    pub const Availability = enum {
         pub const WhenInUse: u8 = 0;
         pub const Always: u8 = 1;
     };
 
-    pub const AccessMode = enum(u8) {
+    pub const AccessMode = enum {
         pub const ReadOnly: u8 = 0;
         pub const ReadWrite: u8 = 1;
     };
 
-    pub const CommunicationMode = enum(u8) {
+    pub const CommunicationMode = enum {
         pub const Access: u8 = 1;
         pub const Advertise: u8 = 2;
         pub const Default: u8 = 3;

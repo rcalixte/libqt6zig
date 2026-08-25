@@ -20,6 +20,14 @@ QExtensionFactory* QExtensionFactory_new2(QExtensionManager* parent) {
     return new VirtualQExtensionFactory(parent);
 }
 
+QAbstractExtensionFactory* QExtensionFactory_AsQAbstractExtensionFactory(QExtensionFactory* self) {
+    return static_cast<QAbstractExtensionFactory*>(self);
+}
+
+QExtensionFactory* QExtensionFactory_FromQAbstractExtensionFactory(QAbstractExtensionFactory* _qabstractextensionfactory) {
+    return dynamic_cast<QExtensionFactory*>(static_cast<QAbstractExtensionFactory*>(_qabstractextensionfactory));
+}
+
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -64,9 +72,8 @@ QMetaObject* QExtensionFactory_SuperMetaObject(const QExtensionFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnMetaObject(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_MetaObject_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -83,9 +90,8 @@ void* QExtensionFactory_SuperMetacast(QExtensionFactory* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnMetacast(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Metacast_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +108,8 @@ int QExtensionFactory_SuperMetacall(QExtensionFactory* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnMetacall(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Metacall_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +127,8 @@ QObject* QExtensionFactory_SuperExtension(const QExtensionFactory* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnExtension(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Extension_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Extension_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -142,9 +146,8 @@ QObject* QExtensionFactory_SuperCreateExtension(const QExtensionFactory* self, Q
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnCreateExtension(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_CreateExtension_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_CreateExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -171,9 +174,8 @@ bool QExtensionFactory_SuperEvent(QExtensionFactory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnEvent(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Event_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +202,8 @@ bool QExtensionFactory_SuperEventFilter(QExtensionFactory* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnEventFilter(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_EventFilter_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +230,8 @@ void QExtensionFactory_SuperTimerEvent(QExtensionFactory* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnTimerEvent(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_TimerEvent_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +258,8 @@ void QExtensionFactory_SuperChildEvent(QExtensionFactory* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnChildEvent(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_ChildEvent_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +286,8 @@ void QExtensionFactory_SuperCustomEvent(QExtensionFactory* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnCustomEvent(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_CustomEvent_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +314,8 @@ void QExtensionFactory_SuperConnectNotify(QExtensionFactory* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnConnectNotify(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_ConnectNotify_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +342,8 @@ void QExtensionFactory_SuperDisconnectNotify(QExtensionFactory* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnDisconnectNotify(QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_DisconnectNotify_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +370,8 @@ QObject* QExtensionFactory_SuperSender(const QExtensionFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnSender(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Sender_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +398,8 @@ int QExtensionFactory_SuperSenderSignalIndex(const QExtensionFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnSenderSignalIndex(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_SenderSignalIndex_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +426,8 @@ int QExtensionFactory_SuperReceivers(const QExtensionFactory* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnReceivers(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_Receivers_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +454,8 @@ bool QExtensionFactory_SuperIsSignalConnected(const QExtensionFactory* self, con
 // Auxiliary method to allow providing re-implementation
 void QExtensionFactory_OnIsSignalConnected(const QExtensionFactory* self, intptr_t slot) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory)
         vqextensionfactory->setQExtensionFactory_IsSignalConnected_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QExtensionFactory_Delete(QExtensionFactory* self) {

@@ -1771,12 +1771,12 @@ pub const QLowEnergyService = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservice.html#public-types)
 pub const enums = struct {
-    pub const ServiceType = enum(i32) {
+    pub const ServiceType = enum {
         pub const PrimaryService: i32 = 1;
         pub const IncludedService: i32 = 2;
     };
 
-    pub const ServiceError = enum(i32) {
+    pub const ServiceError = enum {
         pub const NoError: i32 = 0;
         pub const OperationError: i32 = 1;
         pub const CharacteristicWriteError: i32 = 2;
@@ -1786,7 +1786,7 @@ pub const enums = struct {
         pub const DescriptorReadError: i32 = 6;
     };
 
-    pub const ServiceState = enum(i32) {
+    pub const ServiceState = enum {
         pub const InvalidService: i32 = 0;
         pub const RemoteService: i32 = 1;
         pub const RemoteServiceDiscovering: i32 = 2;
@@ -1797,12 +1797,12 @@ pub const enums = struct {
         pub const ServiceDiscovered: i32 = 3;
     };
 
-    pub const DiscoveryMode = enum(i32) {
+    pub const DiscoveryMode = enum {
         pub const FullDiscovery: i32 = 0;
         pub const SkipValueDiscovery: i32 = 1;
     };
 
-    pub const WriteMode = enum(i32) {
+    pub const WriteMode = enum {
         pub const WriteWithResponse: i32 = 0;
         pub const WriteWithoutResponse: i32 = 1;
         pub const WriteSigned: i32 = 2;

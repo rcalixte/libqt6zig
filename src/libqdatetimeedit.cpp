@@ -469,9 +469,8 @@ QMetaObject* QDateTimeEdit_SuperMetaObject(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetaObject(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -488,9 +487,8 @@ void* QDateTimeEdit_SuperMetacast(QDateTimeEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetacast(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -507,9 +505,8 @@ int QDateTimeEdit_SuperMetacall(QDateTimeEdit* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetacall(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Metacall_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -526,9 +523,8 @@ QSize* QDateTimeEdit_SuperSizeHint(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -545,9 +541,8 @@ void QDateTimeEdit_SuperClear(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnClear(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Clear_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -564,9 +559,8 @@ void QDateTimeEdit_SuperStepBy(QDateTimeEdit* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnStepBy(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -583,9 +577,8 @@ bool QDateTimeEdit_SuperEvent(QDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Event_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -602,9 +595,8 @@ void QDateTimeEdit_SuperKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnKeyPressEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -621,9 +613,8 @@ void QDateTimeEdit_SuperWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnWheelEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -640,9 +631,8 @@ void QDateTimeEdit_SuperFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusInEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -659,9 +649,8 @@ bool QDateTimeEdit_SuperFocusNextPrevChild(QDateTimeEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusNextPrevChild(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -679,9 +668,8 @@ int QDateTimeEdit_SuperValidate(const QDateTimeEdit* self, libqt_string input, i
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnValidate(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Validate_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -699,9 +687,8 @@ void QDateTimeEdit_SuperFixup(const QDateTimeEdit* self, libqt_string input) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFixup(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Fixup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -718,9 +705,8 @@ QDateTime* QDateTimeEdit_SuperDateTimeFromText(const QDateTimeEdit* self, const 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDateTimeFromText(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DateTimeFromText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -753,9 +739,8 @@ libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, cons
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnTextFromDateTime(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TextFromDateTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -772,9 +757,8 @@ int QDateTimeEdit_SuperStepEnabled(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnStepEnabled(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -791,9 +775,8 @@ void QDateTimeEdit_SuperMousePressEvent(QDateTimeEdit* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMousePressEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -810,9 +793,8 @@ void QDateTimeEdit_SuperPaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnPaintEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -829,9 +811,8 @@ void QDateTimeEdit_SuperInitStyleOption(const QDateTimeEdit* self, QStyleOptionS
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnInitStyleOption(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +839,8 @@ QSize* QDateTimeEdit_SuperMinimumSizeHint(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMinimumSizeHint(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +867,8 @@ QVariant* QDateTimeEdit_SuperInputMethodQuery(const QDateTimeEdit* self, int par
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnInputMethodQuery(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +895,8 @@ void QDateTimeEdit_SuperResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnResizeEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +923,8 @@ void QDateTimeEdit_SuperKeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnKeyReleaseEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +951,8 @@ void QDateTimeEdit_SuperFocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusOutEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +979,8 @@ void QDateTimeEdit_SuperContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnContextMenuEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1007,8 @@ void QDateTimeEdit_SuperChangeEvent(QDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnChangeEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1035,8 @@ void QDateTimeEdit_SuperCloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnCloseEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_CloseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1063,8 @@ void QDateTimeEdit_SuperHideEvent(QDateTimeEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnHideEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_HideEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1091,8 @@ void QDateTimeEdit_SuperMouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseReleaseEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1119,8 @@ void QDateTimeEdit_SuperMouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseMoveEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1147,8 @@ void QDateTimeEdit_SuperTimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnTimerEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_TimerEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1175,8 @@ void QDateTimeEdit_SuperShowEvent(QDateTimeEdit* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnShowEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ShowEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1203,8 @@ int QDateTimeEdit_SuperDevType(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDevType(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DevType_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1231,8 @@ void QDateTimeEdit_SuperSetVisible(QDateTimeEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSetVisible(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_SetVisible_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1259,8 @@ int QDateTimeEdit_SuperHeightForWidth(const QDateTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnHeightForWidth(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1287,8 @@ bool QDateTimeEdit_SuperHasHeightForWidth(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnHasHeightForWidth(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1315,8 @@ QPaintEngine* QDateTimeEdit_SuperPaintEngine(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnPaintEngine(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_PaintEngine_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1343,8 @@ void QDateTimeEdit_SuperMouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseDoubleClickEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1371,8 @@ void QDateTimeEdit_SuperEnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEnterEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_EnterEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1399,8 @@ void QDateTimeEdit_SuperLeaveEvent(QDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnLeaveEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1427,8 @@ void QDateTimeEdit_SuperMoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMoveEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_MoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1455,8 @@ void QDateTimeEdit_SuperTabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnTabletEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_TabletEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1483,8 @@ void QDateTimeEdit_SuperActionEvent(QDateTimeEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnActionEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ActionEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1511,8 @@ void QDateTimeEdit_SuperDragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragEnterEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1539,8 @@ void QDateTimeEdit_SuperDragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragMoveEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1567,8 @@ void QDateTimeEdit_SuperDragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragLeaveEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1595,8 @@ void QDateTimeEdit_SuperDropEvent(QDateTimeEdit* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDropEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DropEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1625,8 @@ bool QDateTimeEdit_SuperNativeEvent(QDateTimeEdit* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnNativeEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_NativeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1653,8 @@ int QDateTimeEdit_SuperMetric(const QDateTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetric(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Metric_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1681,8 @@ void QDateTimeEdit_SuperInitPainter(const QDateTimeEdit* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnInitPainter(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_InitPainter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1709,8 @@ QPaintDevice* QDateTimeEdit_SuperRedirected(const QDateTimeEdit* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnRedirected(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Redirected_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1737,8 @@ QPainter* QDateTimeEdit_SuperSharedPainter(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSharedPainter(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_SharedPainter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1765,8 @@ void QDateTimeEdit_SuperInputMethodEvent(QDateTimeEdit* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnInputMethodEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1793,8 @@ bool QDateTimeEdit_SuperEventFilter(QDateTimeEdit* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEventFilter(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1821,8 @@ void QDateTimeEdit_SuperChildEvent(QDateTimeEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnChildEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ChildEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1849,8 @@ void QDateTimeEdit_SuperCustomEvent(QDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnCustomEvent(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_CustomEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1877,8 @@ void QDateTimeEdit_SuperConnectNotify(QDateTimeEdit* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnConnectNotify(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1905,8 @@ void QDateTimeEdit_SuperDisconnectNotify(QDateTimeEdit* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDisconnectNotify(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1933,8 @@ QLineEdit* QDateTimeEdit_SuperLineEdit(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnLineEdit(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_LineEdit_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1961,8 @@ void QDateTimeEdit_SuperSetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSetLineEdit(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1989,8 @@ void QDateTimeEdit_SuperUpdateMicroFocus(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnUpdateMicroFocus(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2078,9 +2017,8 @@ void QDateTimeEdit_SuperCreate(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnCreate(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Create_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2107,9 +2045,8 @@ void QDateTimeEdit_SuperDestroy(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDestroy(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Destroy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2136,9 +2073,8 @@ bool QDateTimeEdit_SuperFocusNextChild(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusNextChild(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2165,9 +2101,8 @@ bool QDateTimeEdit_SuperFocusPreviousChild(QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusPreviousChild(QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2194,9 +2129,8 @@ QObject* QDateTimeEdit_SuperSender(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSender(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Sender_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2223,9 +2157,8 @@ int QDateTimeEdit_SuperSenderSignalIndex(const QDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSenderSignalIndex(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2252,9 +2185,8 @@ int QDateTimeEdit_SuperReceivers(const QDateTimeEdit* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnReceivers(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_Receivers_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2281,9 +2213,8 @@ bool QDateTimeEdit_SuperIsSignalConnected(const QDateTimeEdit* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnIsSignalConnected(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2310,9 +2241,8 @@ double QDateTimeEdit_SuperGetDecodedMetricF(const QDateTimeEdit* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnGetDecodedMetricF(const QDateTimeEdit* self, intptr_t slot) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
         vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDateTimeEdit_Delete(QDateTimeEdit* self) {
@@ -2373,9 +2303,8 @@ QMetaObject* QTimeEdit_SuperMetaObject(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetaObject(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2392,9 +2321,8 @@ void* QTimeEdit_SuperMetacast(QTimeEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetacast(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2411,9 +2339,8 @@ int QTimeEdit_SuperMetacall(QTimeEdit* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetacall(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Metacall_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2440,9 +2367,8 @@ QSize* QTimeEdit_SuperSizeHint(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSizeHint(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2469,9 +2395,8 @@ void QTimeEdit_SuperClear(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnClear(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Clear_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2498,9 +2423,8 @@ void QTimeEdit_SuperStepBy(QTimeEdit* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnStepBy(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2527,9 +2451,8 @@ bool QTimeEdit_SuperEvent(QTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Event_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2556,9 +2479,8 @@ void QTimeEdit_SuperKeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnKeyPressEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2585,9 +2507,8 @@ void QTimeEdit_SuperWheelEvent(QTimeEdit* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnWheelEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2614,9 +2535,8 @@ void QTimeEdit_SuperFocusInEvent(QTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusInEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2643,9 +2563,8 @@ bool QTimeEdit_SuperFocusNextPrevChild(QTimeEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusNextPrevChild(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2674,9 +2593,8 @@ int QTimeEdit_SuperValidate(const QTimeEdit* self, libqt_string input, int* pos)
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnValidate(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Validate_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Validate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2705,9 +2623,8 @@ void QTimeEdit_SuperFixup(const QTimeEdit* self, libqt_string input) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFixup(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2734,9 +2651,8 @@ QDateTime* QTimeEdit_SuperDateTimeFromText(const QTimeEdit* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDateTimeFromText(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DateTimeFromText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2795,9 +2711,8 @@ libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateT
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnTextFromDateTime(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TextFromDateTime_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2824,9 +2739,8 @@ int QTimeEdit_SuperStepEnabled(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnStepEnabled(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2853,9 +2767,8 @@ void QTimeEdit_SuperMousePressEvent(QTimeEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMousePressEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2882,9 +2795,8 @@ void QTimeEdit_SuperPaintEvent(QTimeEdit* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnPaintEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2911,9 +2823,8 @@ void QTimeEdit_SuperInitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnInitStyleOption(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2940,9 +2851,8 @@ QSize* QTimeEdit_SuperMinimumSizeHint(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMinimumSizeHint(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2969,9 +2879,8 @@ QVariant* QTimeEdit_SuperInputMethodQuery(const QTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnInputMethodQuery(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2998,9 +2907,8 @@ void QTimeEdit_SuperResizeEvent(QTimeEdit* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnResizeEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3027,9 +2935,8 @@ void QTimeEdit_SuperKeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnKeyReleaseEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3056,9 +2963,8 @@ void QTimeEdit_SuperFocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusOutEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3085,9 +2991,8 @@ void QTimeEdit_SuperContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnContextMenuEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3114,9 +3019,8 @@ void QTimeEdit_SuperChangeEvent(QTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnChangeEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3143,9 +3047,8 @@ void QTimeEdit_SuperCloseEvent(QTimeEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnCloseEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_CloseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3172,9 +3075,8 @@ void QTimeEdit_SuperHideEvent(QTimeEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnHideEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_HideEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3201,9 +3103,8 @@ void QTimeEdit_SuperMouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseReleaseEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3230,9 +3131,8 @@ void QTimeEdit_SuperMouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseMoveEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3259,9 +3159,8 @@ void QTimeEdit_SuperTimerEvent(QTimeEdit* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnTimerEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_TimerEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3288,9 +3187,8 @@ void QTimeEdit_SuperShowEvent(QTimeEdit* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnShowEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ShowEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3317,9 +3215,8 @@ int QTimeEdit_SuperDevType(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDevType(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DevType_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3346,9 +3243,8 @@ void QTimeEdit_SuperSetVisible(QTimeEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSetVisible(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_SetVisible_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3375,9 +3271,8 @@ int QTimeEdit_SuperHeightForWidth(const QTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnHeightForWidth(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3404,9 +3299,8 @@ bool QTimeEdit_SuperHasHeightForWidth(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnHasHeightForWidth(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3433,9 +3327,8 @@ QPaintEngine* QTimeEdit_SuperPaintEngine(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnPaintEngine(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_PaintEngine_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3462,9 +3355,8 @@ void QTimeEdit_SuperMouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseDoubleClickEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3491,9 +3383,8 @@ void QTimeEdit_SuperEnterEvent(QTimeEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEnterEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_EnterEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3520,9 +3411,8 @@ void QTimeEdit_SuperLeaveEvent(QTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnLeaveEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3549,9 +3439,8 @@ void QTimeEdit_SuperMoveEvent(QTimeEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMoveEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_MoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3578,9 +3467,8 @@ void QTimeEdit_SuperTabletEvent(QTimeEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnTabletEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_TabletEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3607,9 +3495,8 @@ void QTimeEdit_SuperActionEvent(QTimeEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnActionEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ActionEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3636,9 +3523,8 @@ void QTimeEdit_SuperDragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragEnterEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3665,9 +3551,8 @@ void QTimeEdit_SuperDragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragMoveEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3694,9 +3579,8 @@ void QTimeEdit_SuperDragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragLeaveEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3723,9 +3607,8 @@ void QTimeEdit_SuperDropEvent(QTimeEdit* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDropEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DropEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3754,9 +3637,8 @@ bool QTimeEdit_SuperNativeEvent(QTimeEdit* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnNativeEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_NativeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3783,9 +3665,8 @@ int QTimeEdit_SuperMetric(const QTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetric(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Metric_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3812,9 +3693,8 @@ void QTimeEdit_SuperInitPainter(const QTimeEdit* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnInitPainter(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_InitPainter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3841,9 +3721,8 @@ QPaintDevice* QTimeEdit_SuperRedirected(const QTimeEdit* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnRedirected(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Redirected_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3870,9 +3749,8 @@ QPainter* QTimeEdit_SuperSharedPainter(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSharedPainter(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_SharedPainter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3899,9 +3777,8 @@ void QTimeEdit_SuperInputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnInputMethodEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3928,9 +3805,8 @@ bool QTimeEdit_SuperEventFilter(QTimeEdit* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEventFilter(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3957,9 +3833,8 @@ void QTimeEdit_SuperChildEvent(QTimeEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnChildEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ChildEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3986,9 +3861,8 @@ void QTimeEdit_SuperCustomEvent(QTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnCustomEvent(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_CustomEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4015,9 +3889,8 @@ void QTimeEdit_SuperConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnConnectNotify(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4044,9 +3917,8 @@ void QTimeEdit_SuperDisconnectNotify(QTimeEdit* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDisconnectNotify(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4073,9 +3945,8 @@ QLineEdit* QTimeEdit_SuperLineEdit(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnLineEdit(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_LineEdit_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4102,9 +3973,8 @@ void QTimeEdit_SuperSetLineEdit(QTimeEdit* self, QLineEdit* edit) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSetLineEdit(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4131,9 +4001,8 @@ void QTimeEdit_SuperUpdateMicroFocus(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnUpdateMicroFocus(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4160,9 +4029,8 @@ void QTimeEdit_SuperCreate(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnCreate(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Create_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4189,9 +4057,8 @@ void QTimeEdit_SuperDestroy(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDestroy(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Destroy_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4218,9 +4085,8 @@ bool QTimeEdit_SuperFocusNextChild(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusNextChild(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4247,9 +4113,8 @@ bool QTimeEdit_SuperFocusPreviousChild(QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusPreviousChild(QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4276,9 +4141,8 @@ QObject* QTimeEdit_SuperSender(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSender(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Sender_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4305,9 +4169,8 @@ int QTimeEdit_SuperSenderSignalIndex(const QTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSenderSignalIndex(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4334,9 +4197,8 @@ int QTimeEdit_SuperReceivers(const QTimeEdit* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnReceivers(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_Receivers_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4363,9 +4225,8 @@ bool QTimeEdit_SuperIsSignalConnected(const QTimeEdit* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnIsSignalConnected(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4392,9 +4253,8 @@ double QTimeEdit_SuperGetDecodedMetricF(const QTimeEdit* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnGetDecodedMetricF(const QTimeEdit* self, intptr_t slot) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
         vqtimeedit->setQTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QTimeEdit_Delete(QTimeEdit* self) {
@@ -4455,9 +4315,8 @@ QMetaObject* QDateEdit_SuperMetaObject(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetaObject(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4474,9 +4333,8 @@ void* QDateEdit_SuperMetacast(QDateEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetacast(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Metacast_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4493,9 +4351,8 @@ int QDateEdit_SuperMetacall(QDateEdit* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetacall(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Metacall_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4522,9 +4379,8 @@ QSize* QDateEdit_SuperSizeHint(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSizeHint(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4551,9 +4407,8 @@ void QDateEdit_SuperClear(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnClear(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Clear_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4580,9 +4435,8 @@ void QDateEdit_SuperStepBy(QDateEdit* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnStepBy(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_StepBy_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_StepBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4609,9 +4463,8 @@ bool QDateEdit_SuperEvent(QDateEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Event_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4638,9 +4491,8 @@ void QDateEdit_SuperKeyPressEvent(QDateEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnKeyPressEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4667,9 +4519,8 @@ void QDateEdit_SuperWheelEvent(QDateEdit* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnWheelEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4696,9 +4547,8 @@ void QDateEdit_SuperFocusInEvent(QDateEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusInEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4725,9 +4575,8 @@ bool QDateEdit_SuperFocusNextPrevChild(QDateEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusNextPrevChild(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4756,9 +4605,8 @@ int QDateEdit_SuperValidate(const QDateEdit* self, libqt_string input, int* pos)
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnValidate(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Validate_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Validate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4787,9 +4635,8 @@ void QDateEdit_SuperFixup(const QDateEdit* self, libqt_string input) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFixup(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Fixup_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4816,9 +4663,8 @@ QDateTime* QDateEdit_SuperDateTimeFromText(const QDateEdit* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDateTimeFromText(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DateTimeFromText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4877,9 +4723,8 @@ libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateT
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnTextFromDateTime(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TextFromDateTime_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4906,9 +4751,8 @@ int QDateEdit_SuperStepEnabled(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnStepEnabled(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4935,9 +4779,8 @@ void QDateEdit_SuperMousePressEvent(QDateEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMousePressEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4964,9 +4807,8 @@ void QDateEdit_SuperPaintEvent(QDateEdit* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnPaintEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4993,9 +4835,8 @@ void QDateEdit_SuperInitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnInitStyleOption(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5022,9 +4863,8 @@ QSize* QDateEdit_SuperMinimumSizeHint(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMinimumSizeHint(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5051,9 +4891,8 @@ QVariant* QDateEdit_SuperInputMethodQuery(const QDateEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnInputMethodQuery(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5080,9 +4919,8 @@ void QDateEdit_SuperResizeEvent(QDateEdit* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnResizeEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5109,9 +4947,8 @@ void QDateEdit_SuperKeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnKeyReleaseEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5138,9 +4975,8 @@ void QDateEdit_SuperFocusOutEvent(QDateEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusOutEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5167,9 +5003,8 @@ void QDateEdit_SuperContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnContextMenuEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5196,9 +5031,8 @@ void QDateEdit_SuperChangeEvent(QDateEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnChangeEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5225,9 +5059,8 @@ void QDateEdit_SuperCloseEvent(QDateEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnCloseEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_CloseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5254,9 +5087,8 @@ void QDateEdit_SuperHideEvent(QDateEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnHideEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_HideEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5283,9 +5115,8 @@ void QDateEdit_SuperMouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseReleaseEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5312,9 +5143,8 @@ void QDateEdit_SuperMouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseMoveEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5341,9 +5171,8 @@ void QDateEdit_SuperTimerEvent(QDateEdit* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnTimerEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_TimerEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5370,9 +5199,8 @@ void QDateEdit_SuperShowEvent(QDateEdit* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnShowEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ShowEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5399,9 +5227,8 @@ int QDateEdit_SuperDevType(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDevType(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DevType_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5428,9 +5255,8 @@ void QDateEdit_SuperSetVisible(QDateEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSetVisible(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_SetVisible_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5457,9 +5283,8 @@ int QDateEdit_SuperHeightForWidth(const QDateEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnHeightForWidth(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5486,9 +5311,8 @@ bool QDateEdit_SuperHasHeightForWidth(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnHasHeightForWidth(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5515,9 +5339,8 @@ QPaintEngine* QDateEdit_SuperPaintEngine(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnPaintEngine(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_PaintEngine_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5544,9 +5367,8 @@ void QDateEdit_SuperMouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseDoubleClickEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5573,9 +5395,8 @@ void QDateEdit_SuperEnterEvent(QDateEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEnterEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_EnterEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5602,9 +5423,8 @@ void QDateEdit_SuperLeaveEvent(QDateEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnLeaveEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5631,9 +5451,8 @@ void QDateEdit_SuperMoveEvent(QDateEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMoveEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_MoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5660,9 +5479,8 @@ void QDateEdit_SuperTabletEvent(QDateEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnTabletEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_TabletEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5689,9 +5507,8 @@ void QDateEdit_SuperActionEvent(QDateEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnActionEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ActionEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5718,9 +5535,8 @@ void QDateEdit_SuperDragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragEnterEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5747,9 +5563,8 @@ void QDateEdit_SuperDragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragMoveEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5776,9 +5591,8 @@ void QDateEdit_SuperDragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragLeaveEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5805,9 +5619,8 @@ void QDateEdit_SuperDropEvent(QDateEdit* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDropEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DropEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5836,9 +5649,8 @@ bool QDateEdit_SuperNativeEvent(QDateEdit* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnNativeEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_NativeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5865,9 +5677,8 @@ int QDateEdit_SuperMetric(const QDateEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetric(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Metric_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5894,9 +5705,8 @@ void QDateEdit_SuperInitPainter(const QDateEdit* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnInitPainter(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_InitPainter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5923,9 +5733,8 @@ QPaintDevice* QDateEdit_SuperRedirected(const QDateEdit* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnRedirected(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Redirected_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5952,9 +5761,8 @@ QPainter* QDateEdit_SuperSharedPainter(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSharedPainter(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_SharedPainter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5981,9 +5789,8 @@ void QDateEdit_SuperInputMethodEvent(QDateEdit* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnInputMethodEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6010,9 +5817,8 @@ bool QDateEdit_SuperEventFilter(QDateEdit* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEventFilter(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_EventFilter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6039,9 +5845,8 @@ void QDateEdit_SuperChildEvent(QDateEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnChildEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ChildEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6068,9 +5873,8 @@ void QDateEdit_SuperCustomEvent(QDateEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnCustomEvent(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_CustomEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6097,9 +5901,8 @@ void QDateEdit_SuperConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnConnectNotify(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6126,9 +5929,8 @@ void QDateEdit_SuperDisconnectNotify(QDateEdit* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDisconnectNotify(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6155,9 +5957,8 @@ QLineEdit* QDateEdit_SuperLineEdit(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnLineEdit(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_LineEdit_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6184,9 +5985,8 @@ void QDateEdit_SuperSetLineEdit(QDateEdit* self, QLineEdit* edit) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSetLineEdit(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6213,9 +6013,8 @@ void QDateEdit_SuperUpdateMicroFocus(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnUpdateMicroFocus(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6242,9 +6041,8 @@ void QDateEdit_SuperCreate(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnCreate(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Create_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6271,9 +6069,8 @@ void QDateEdit_SuperDestroy(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDestroy(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Destroy_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6300,9 +6097,8 @@ bool QDateEdit_SuperFocusNextChild(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusNextChild(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6329,9 +6125,8 @@ bool QDateEdit_SuperFocusPreviousChild(QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusPreviousChild(QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6358,9 +6153,8 @@ QObject* QDateEdit_SuperSender(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSender(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Sender_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6387,9 +6181,8 @@ int QDateEdit_SuperSenderSignalIndex(const QDateEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSenderSignalIndex(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6416,9 +6209,8 @@ int QDateEdit_SuperReceivers(const QDateEdit* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnReceivers(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_Receivers_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6445,9 +6237,8 @@ bool QDateEdit_SuperIsSignalConnected(const QDateEdit* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnIsSignalConnected(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -6474,9 +6265,8 @@ double QDateEdit_SuperGetDecodedMetricF(const QDateEdit* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnGetDecodedMetricF(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
         vqdateedit->setQDateEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDateEdit_Delete(QDateEdit* self) {

@@ -1391,7 +1391,7 @@ pub const Solid__StorageVolume = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-storagevolume.html#public-types)
 pub const enums = struct {
-    pub const UsageType = enum(i32) {
+    pub const UsageType = enum {
         pub const Other: i32 = 0;
         pub const Unused: i32 = 1;
         pub const FileSystem: i32 = 2;

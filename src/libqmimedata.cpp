@@ -198,9 +198,8 @@ QMetaObject* QMimeData_SuperMetaObject(const QMimeData* self) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnMetaObject(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_MetaObject_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +216,8 @@ void* QMimeData_SuperMetacast(QMimeData* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnMetacast(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Metacast_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +234,8 @@ int QMimeData_SuperMetacall(QMimeData* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnMetacall(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Metacall_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +253,8 @@ bool QMimeData_SuperHasFormat(const QMimeData* self, const libqt_string mimetype
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnHasFormat(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_HasFormat_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_HasFormat_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +305,8 @@ libqt_list /* of libqt_string */ QMimeData_SuperFormats(const QMimeData* self) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnFormats(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Formats_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Formats_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -328,9 +323,8 @@ QVariant* QMimeData_SuperRetrieveData(const QMimeData* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnRetrieveData(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_RetrieveData_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_RetrieveData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +351,8 @@ bool QMimeData_SuperEvent(QMimeData* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnEvent(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Event_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +379,8 @@ bool QMimeData_SuperEventFilter(QMimeData* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnEventFilter(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_EventFilter_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +407,8 @@ void QMimeData_SuperTimerEvent(QMimeData* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnTimerEvent(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_TimerEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +435,8 @@ void QMimeData_SuperChildEvent(QMimeData* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnChildEvent(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_ChildEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +463,8 @@ void QMimeData_SuperCustomEvent(QMimeData* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnCustomEvent(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_CustomEvent_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +491,8 @@ void QMimeData_SuperConnectNotify(QMimeData* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnConnectNotify(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_ConnectNotify_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +519,8 @@ void QMimeData_SuperDisconnectNotify(QMimeData* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnDisconnectNotify(QMimeData* self, intptr_t slot) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_DisconnectNotify_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +547,8 @@ QObject* QMimeData_SuperSender(const QMimeData* self) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnSender(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Sender_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +575,8 @@ int QMimeData_SuperSenderSignalIndex(const QMimeData* self) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnSenderSignalIndex(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +603,8 @@ int QMimeData_SuperReceivers(const QMimeData* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnReceivers(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_Receivers_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +631,8 @@ bool QMimeData_SuperIsSignalConnected(const QMimeData* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QMimeData_OnIsSignalConnected(const QMimeData* self, intptr_t slot) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
-    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+    if (vqmimedata && vqmimedata->isVirtualQMimeData)
         vqmimedata->setQMimeData_IsSignalConnected_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QMimeData_Delete(QMimeData* self) {

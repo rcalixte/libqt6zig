@@ -98,9 +98,8 @@ bool KConfigLoader_SuperUsrSave(KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -127,9 +126,8 @@ QMetaObject* KConfigLoader_SuperMetaObject(const KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnMetaObject(const KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_MetaObject_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -156,9 +154,8 @@ void* KConfigLoader_SuperMetacast(KConfigLoader* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnMetacast(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_Metacast_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +182,8 @@ int KConfigLoader_SuperMetacall(KConfigLoader* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnMetacall(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_Metacall_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +210,8 @@ void KConfigLoader_SuperSetDefaults(KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnSetDefaults(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_SetDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_SetDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +238,8 @@ bool KConfigLoader_SuperUseDefaults(KConfigLoader* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUseDefaults(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_UseDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UseDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +266,8 @@ bool KConfigLoader_SuperUsrUseDefaults(KConfigLoader* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrUseDefaults(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_UsrUseDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrUseDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +294,8 @@ void KConfigLoader_SuperUsrSetDefaults(KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrSetDefaults(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_UsrSetDefaults_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSetDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +322,8 @@ void KConfigLoader_SuperUsrRead(KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnUsrRead(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_UsrRead_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +350,8 @@ bool KConfigLoader_SuperEvent(KConfigLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnEvent(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_Event_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +378,8 @@ bool KConfigLoader_SuperEventFilter(KConfigLoader* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnEventFilter(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_EventFilter_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +406,8 @@ void KConfigLoader_SuperTimerEvent(KConfigLoader* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnTimerEvent(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_TimerEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +434,8 @@ void KConfigLoader_SuperChildEvent(KConfigLoader* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnChildEvent(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_ChildEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +462,8 @@ void KConfigLoader_SuperCustomEvent(KConfigLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnCustomEvent(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_CustomEvent_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +490,8 @@ void KConfigLoader_SuperConnectNotify(KConfigLoader* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnConnectNotify(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +518,8 @@ void KConfigLoader_SuperDisconnectNotify(KConfigLoader* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnDisconnectNotify(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +546,8 @@ QObject* KConfigLoader_SuperSender(const KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnSender(const KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_Sender_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +574,8 @@ int KConfigLoader_SuperSenderSignalIndex(const KConfigLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnSenderSignalIndex(const KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +602,8 @@ int KConfigLoader_SuperReceivers(const KConfigLoader* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnReceivers(const KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_Receivers_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +630,8 @@ bool KConfigLoader_SuperIsSignalConnected(const KConfigLoader* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KConfigLoader_OnIsSignalConnected(const KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
-    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader)
         vkconfigloader->setKConfigLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KConfigLoader_Delete(KConfigLoader* self) {

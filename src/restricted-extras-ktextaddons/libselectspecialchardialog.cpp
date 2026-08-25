@@ -102,9 +102,8 @@ QMetaObject* TextAddonsWidgets__SelectSpecialCharDialog_SuperMetaObject(const Te
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MetaObject_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +120,8 @@ void* TextAddonsWidgets__SelectSpecialCharDialog_SuperMetacast(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetacast(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacast_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperMetacall(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetacall(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacall_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +166,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperSetVisible(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSetVisible(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SetVisible_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +194,8 @@ QSize* TextAddonsWidgets__SelectSpecialCharDialog_SuperSizeHint(const TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +222,8 @@ QSize* TextAddonsWidgets__SelectSpecialCharDialog_SuperMinimumSizeHint(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMinimumSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +250,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperOpen(TextAddonsWidgets__Sel
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnOpen(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Open_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +278,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperExec(TextAddonsWidgets__Sele
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnExec(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Exec_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +306,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDone(TextAddonsWidgets__Sel
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDone(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Done_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +334,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperAccept(TextAddonsWidgets__S
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnAccept(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Accept_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +362,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperReject(TextAddonsWidgets__S
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnReject(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Reject_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +390,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperKeyPressEvent(TextAddonsWid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnKeyPressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +418,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperCloseEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnCloseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +446,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperShowEvent(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnShowEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +474,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperResizeEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnResizeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +502,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperContextMenuEvent(TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnContextMenuEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +530,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperEventFilter(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEventFilter(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EventFilter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +558,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperDevType(const TextAddonsWidg
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDevType(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DevType_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +586,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperHeightForWidth(const TextAdd
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +614,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperHasHeightForWidth(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnHasHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +642,8 @@ QPaintEngine* TextAddonsWidgets__SelectSpecialCharDialog_SuperPaintEngine(const 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnPaintEngine(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +670,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperEvent(TextAddonsWidgets__Se
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Event_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +698,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperMousePressEvent(TextAddonsW
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMousePressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +726,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseReleaseEvent(TextAddon
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +754,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseDoubleClickEvent(TextA
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseDoubleClickEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +782,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseMoveEvent(TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +810,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperWheelEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnWheelEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +838,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperKeyReleaseEvent(TextAddonsW
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnKeyReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +866,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusInEvent(TextAddonsWidg
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusInEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +894,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusOutEvent(TextAddonsWid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusOutEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +922,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperEnterEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +950,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperLeaveEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +978,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperPaintEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnPaintEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1006,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperMoveEvent(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1034,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperTabletEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnTabletEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1062,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperActionEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnActionEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1090,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragEnterEvent(TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1118,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragMoveEvent(TextAddonsWid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1146,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragLeaveEvent(TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1174,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDropEvent(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDropEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DropEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1202,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperHideEvent(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnHideEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HideEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1232,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperNativeEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnNativeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1260,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperChangeEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnChangeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1288,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperMetric(const TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetric(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metric_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1316,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperInitPainter(const TextAddon
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnInitPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InitPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1344,8 @@ QPaintDevice* TextAddonsWidgets__SelectSpecialCharDialog_SuperRedirected(const T
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnRedirected(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Redirected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1372,8 @@ QPainter* TextAddonsWidgets__SelectSpecialCharDialog_SuperSharedPainter(const Te
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSharedPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1400,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperInputMethodEvent(TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnInputMethodEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1428,8 @@ QVariant* TextAddonsWidgets__SelectSpecialCharDialog_SuperInputMethodQuery(const
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnInputMethodQuery(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1456,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusNextPrevChild(TextAddo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusNextPrevChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1484,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperTimerEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnTimerEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1512,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperChildEvent(TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnChildEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1540,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperCustomEvent(TextAddonsWidge
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnCustomEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1568,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperConnectNotify(TextAddonsWid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnConnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1596,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDisconnectNotify(TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDisconnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1624,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperAdjustPosition(TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnAdjustPosition(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1652,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperUpdateMicroFocus(TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnUpdateMicroFocus(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1680,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperCreate(TextAddonsWidgets__S
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnCreate(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Create_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1708,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_SuperDestroy(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDestroy(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Destroy_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1736,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusNextChild(TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusNextChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1764,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusPreviousChild(TextAddo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusPreviousChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1792,8 @@ QObject* TextAddonsWidgets__SelectSpecialCharDialog_SuperSender(const TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSender(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Sender_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1882,9 +1820,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperSenderSignalIndex(const Text
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSenderSignalIndex(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1911,9 +1848,8 @@ int TextAddonsWidgets__SelectSpecialCharDialog_SuperReceivers(const TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnReceivers(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Receivers_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1940,9 +1876,8 @@ bool TextAddonsWidgets__SelectSpecialCharDialog_SuperIsSignalConnected(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnIsSignalConnected(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1969,9 +1904,8 @@ double TextAddonsWidgets__SelectSpecialCharDialog_SuperGetDecodedMetricF(const T
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnGetDecodedMetricF(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
         vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextAddonsWidgets__SelectSpecialCharDialog_Delete(TextAddonsWidgets__SelectSpecialCharDialog* self) {

@@ -79,9 +79,8 @@ QMetaObject* KShellCompletion_SuperMetaObject(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnMetaObject(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_MetaObject_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +97,8 @@ void* KShellCompletion_SuperMetacast(KShellCompletion* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnMetacast(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Metacast_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +115,8 @@ int KShellCompletion_SuperMetacall(KShellCompletion* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnMetacall(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Metacall_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +150,8 @@ libqt_string KShellCompletion_SuperMakeCompletion(KShellCompletion* self, const 
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnMakeCompletion(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_MakeCompletion_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -179,9 +175,8 @@ void KShellCompletion_SuperPostProcessMatches(const KShellCompletion* self, libq
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnPostProcessMatches(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_PostProcessMatches_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -198,9 +193,8 @@ void KShellCompletion_SuperPostProcessMatches2(const KShellCompletion* self, KCo
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnPostProcessMatches2(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_PostProcessMatches2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +221,8 @@ void KShellCompletion_SuperSetDir(KShellCompletion* self, const QUrl* dir) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetDir(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetDir_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +249,8 @@ QUrl* KShellCompletion_SuperDir(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnDir(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Dir_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Dir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +277,8 @@ bool KShellCompletion_SuperIsRunning(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnIsRunning(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_IsRunning_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_IsRunning_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +305,8 @@ void KShellCompletion_SuperStop(KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnStop(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Stop_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Stop_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +333,8 @@ int KShellCompletion_SuperMode(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnMode(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Mode_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Mode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +361,8 @@ void KShellCompletion_SuperSetMode(KShellCompletion* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetMode(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetMode_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +389,8 @@ bool KShellCompletion_SuperReplaceEnv(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnReplaceEnv(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_ReplaceEnv_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_ReplaceEnv_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +417,8 @@ void KShellCompletion_SuperSetReplaceEnv(KShellCompletion* self, bool replace) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetReplaceEnv(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetReplaceEnv_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetReplaceEnv_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +445,8 @@ bool KShellCompletion_SuperReplaceHome(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnReplaceHome(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_ReplaceHome_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_ReplaceHome_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +473,8 @@ void KShellCompletion_SuperSetReplaceHome(KShellCompletion* self, bool replace) 
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetReplaceHome(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetReplaceHome_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetReplaceHome_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +533,8 @@ libqt_string KShellCompletion_SuperLastMatch(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnLastMatch(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_LastMatch_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_LastMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +561,8 @@ void KShellCompletion_SuperSetCompletionMode(KShellCompletion* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetCompletionMode(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetCompletionMode_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +589,8 @@ void KShellCompletion_SuperSetOrder(KShellCompletion* self, int order) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetOrder(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetOrder_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetOrder_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +617,8 @@ void KShellCompletion_SuperSetIgnoreCase(KShellCompletion* self, bool ignoreCase
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetIgnoreCase(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetIgnoreCase_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetIgnoreCase_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +645,8 @@ void KShellCompletion_SuperSetSoundsEnabled(KShellCompletion* self, bool enable)
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetSoundsEnabled(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetSoundsEnabled_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetSoundsEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +687,8 @@ void KShellCompletion_SuperSetItems(KShellCompletion* self, const libqt_list /* 
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetItems(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetItems_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +715,8 @@ void KShellCompletion_SuperClear(KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnClear(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Clear_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +743,8 @@ bool KShellCompletion_SuperEvent(KShellCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnEvent(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Event_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +771,8 @@ bool KShellCompletion_SuperEventFilter(KShellCompletion* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnEventFilter(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_EventFilter_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +799,8 @@ void KShellCompletion_SuperTimerEvent(KShellCompletion* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnTimerEvent(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_TimerEvent_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +827,8 @@ void KShellCompletion_SuperChildEvent(KShellCompletion* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnChildEvent(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_ChildEvent_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +855,8 @@ void KShellCompletion_SuperCustomEvent(KShellCompletion* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnCustomEvent(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_CustomEvent_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +883,8 @@ void KShellCompletion_SuperConnectNotify(KShellCompletion* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnConnectNotify(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_ConnectNotify_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +911,8 @@ void KShellCompletion_SuperDisconnectNotify(KShellCompletion* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnDisconnectNotify(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_DisconnectNotify_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +939,8 @@ void KShellCompletion_SuperSetShouldAutoSuggest(KShellCompletion* self, bool sho
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSetShouldAutoSuggest(KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SetShouldAutoSuggest_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SetShouldAutoSuggest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +967,8 @@ QObject* KShellCompletion_SuperSender(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSender(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Sender_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +995,8 @@ int KShellCompletion_SuperSenderSignalIndex(const KShellCompletion* self) {
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnSenderSignalIndex(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1023,8 @@ int KShellCompletion_SuperReceivers(const KShellCompletion* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnReceivers(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_Receivers_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1051,8 @@ bool KShellCompletion_SuperIsSignalConnected(const KShellCompletion* self, const
 // Auxiliary method to allow providing re-implementation
 void KShellCompletion_OnIsSignalConnected(const KShellCompletion* self, intptr_t slot) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion)
         vkshellcompletion->setKShellCompletion_IsSignalConnected_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KShellCompletion_Delete(KShellCompletion* self) {

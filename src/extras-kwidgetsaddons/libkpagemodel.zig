@@ -6864,7 +6864,7 @@ pub const KPageModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpagemodel.html#public-types)
 pub const enums = struct {
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const HeaderRole: i32 = 257;
         pub const WidgetRole: i32 = 258;
         pub const HeaderVisibleRole: i32 = 259;

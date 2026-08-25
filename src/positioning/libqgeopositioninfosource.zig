@@ -2835,7 +2835,7 @@ pub const QGeoPositionInfoSource = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const AccessError: i32 = 0;
         pub const ClosedError: i32 = 1;
         pub const UnknownSourceError: i32 = 2;
@@ -2843,7 +2843,7 @@ pub const enums = struct {
         pub const UpdateTimeoutError: i32 = 4;
     };
 
-    pub const PositioningMethod = enum(i32) {
+    pub const PositioningMethod = enum {
         pub const NoPositioningMethods: i32 = 0;
         pub const SatellitePositioningMethods: i32 = 255;
         pub const NonSatellitePositioningMethods: i32 = -256;

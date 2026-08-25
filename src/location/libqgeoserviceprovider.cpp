@@ -240,9 +240,8 @@ QMetaObject* QGeoServiceProvider_SuperMetaObject(const QGeoServiceProvider* self
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +258,8 @@ void* QGeoServiceProvider_SuperMetacast(QGeoServiceProvider* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_Metacast_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +276,8 @@ int QGeoServiceProvider_SuperMetacall(QGeoServiceProvider* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnMetacall(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_Metacall_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +304,8 @@ bool QGeoServiceProvider_SuperEvent(QGeoServiceProvider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnEvent(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_Event_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +332,8 @@ bool QGeoServiceProvider_SuperEventFilter(QGeoServiceProvider* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnEventFilter(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_EventFilter_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +360,8 @@ void QGeoServiceProvider_SuperTimerEvent(QGeoServiceProvider* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnTimerEvent(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_TimerEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +388,8 @@ void QGeoServiceProvider_SuperChildEvent(QGeoServiceProvider* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnChildEvent(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_ChildEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +416,8 @@ void QGeoServiceProvider_SuperCustomEvent(QGeoServiceProvider* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnCustomEvent(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_CustomEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +444,8 @@ void QGeoServiceProvider_SuperConnectNotify(QGeoServiceProvider* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnConnectNotify(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +472,8 @@ void QGeoServiceProvider_SuperDisconnectNotify(QGeoServiceProvider* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnDisconnectNotify(QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +500,8 @@ QObject* QGeoServiceProvider_SuperSender(const QGeoServiceProvider* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnSender(const QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_Sender_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +528,8 @@ int QGeoServiceProvider_SuperSenderSignalIndex(const QGeoServiceProvider* self) 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnSenderSignalIndex(const QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +556,8 @@ int QGeoServiceProvider_SuperReceivers(const QGeoServiceProvider* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnReceivers(const QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_Receivers_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +584,8 @@ bool QGeoServiceProvider_SuperIsSignalConnected(const QGeoServiceProvider* self,
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnIsSignalConnected(const QGeoServiceProvider* self, intptr_t slot) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
         vqgeoserviceprovider->setQGeoServiceProvider_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoServiceProvider_Delete(QGeoServiceProvider* self) {

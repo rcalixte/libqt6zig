@@ -4011,6 +4011,31 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowser `
+    ///
+    pub fn asQPaintDevice(self: TextCustomEditor__RichTextBrowser) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a TextCustomEditor__RichTextBrowser object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) TextCustomEditor__RichTextBrowser {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -9979,7 +10004,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn paintingActive(self: TextCustomEditor__RichTextBrowser) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9995,7 +10020,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn widthMM(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -10011,7 +10036,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn heightMM(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -10027,7 +10052,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn logicalDpiX(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -10043,7 +10068,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn logicalDpiY(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -10059,7 +10084,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn physicalDpiX(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -10075,7 +10100,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn physicalDpiY(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -10091,7 +10116,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn devicePixelRatio(self: TextCustomEditor__RichTextBrowser) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -10107,7 +10132,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn devicePixelRatioF(self: TextCustomEditor__RichTextBrowser) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -10123,7 +10148,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn colorCount(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -10139,7 +10164,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowser `
     ///
     pub fn depth(self: TextCustomEditor__RichTextBrowser) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -14596,7 +14621,7 @@ pub const TextCustomEditor__RichTextBrowser = extern struct {
 };
 
 pub const enums = struct {
-    pub const SupportFeature = enum(i32) {
+    pub const SupportFeature = enum {
         pub const None: i32 = 0;
         pub const Search: i32 = 1;
         pub const TextToSpeech: i32 = 4;

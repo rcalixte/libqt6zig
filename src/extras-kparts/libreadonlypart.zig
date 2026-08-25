@@ -7,6 +7,7 @@ const KParts__NavigationExtension = @import("libqt6").KParts__NavigationExtensio
 const KParts__OpenUrlArguments = @import("libqt6").KParts__OpenUrlArguments;
 const KParts__Part = @import("libqt6").KParts__Part;
 const KParts__PartActivateEvent = @import("libqt6").KParts__PartActivateEvent;
+const KParts__PartBase = @import("libqt6").KParts__PartBase;
 const KParts__PartManager = @import("libqt6").KParts__PartManager;
 const KPluginMetaData = @import("libqt6").KPluginMetaData;
 const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
@@ -1044,6 +1045,31 @@ pub const KParts__ReadOnlyPart = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__ReadOnlyPart.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from KParts::Part
+    ///
+    /// Upcasts to a KParts::PartBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__ReadOnlyPart `
+    ///
+    pub fn asKParts__PartBase(self: KParts__ReadOnlyPart) KParts__PartBase {
+        return .{ .ptr = qtc.KParts__Part_AsKParts__PartBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from KParts::Part
+    ///
+    /// Downcasts to a KParts__ReadOnlyPart object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kparts__partbase: KParts__PartBase `
+    ///
+    pub fn fromKParts__PartBase(_kparts__partbase: anytype) KParts__ReadOnlyPart {
+        comptime _ = @TypeOf(_kparts__partbase)._is_KParts__PartBase;
+        return @bitCast(qtc.KParts__Part_FromKParts__PartBase(@ptrCast(_kparts__partbase.ptr)));
     }
 
     /// ### DEPRECATED: Use `manager` instead

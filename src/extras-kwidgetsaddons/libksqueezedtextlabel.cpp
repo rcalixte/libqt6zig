@@ -163,9 +163,8 @@ QMetaObject* KSqueezedTextLabel_SuperMetaObject(const KSqueezedTextLabel* self) 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetaObject(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +181,8 @@ void* KSqueezedTextLabel_SuperMetacast(KSqueezedTextLabel* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetacast(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +199,8 @@ int KSqueezedTextLabel_SuperMetacall(KSqueezedTextLabel* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetacall(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Metacall_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +217,8 @@ QSize* KSqueezedTextLabel_SuperMinimumSizeHint(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMinimumSizeHint(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +235,8 @@ QSize* KSqueezedTextLabel_SuperSizeHint(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSizeHint(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SizeHint_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +253,8 @@ void KSqueezedTextLabel_SuperSetAlignment(KSqueezedTextLabel* self, int alignmen
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSetAlignment(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SetAlignment_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetAlignment_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +271,8 @@ void KSqueezedTextLabel_SuperMouseReleaseEvent(KSqueezedTextLabel* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseReleaseEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +289,8 @@ void KSqueezedTextLabel_SuperResizeEvent(KSqueezedTextLabel* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnResizeEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ResizeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -315,9 +307,8 @@ void KSqueezedTextLabel_SuperContextMenuEvent(KSqueezedTextLabel* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnContextMenuEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +335,8 @@ int KSqueezedTextLabel_SuperHeightForWidth(const KSqueezedTextLabel* self, int p
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_HeightForWidth_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +363,8 @@ bool KSqueezedTextLabel_SuperEvent(KSqueezedTextLabel* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Event_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +391,8 @@ void KSqueezedTextLabel_SuperKeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnKeyPressEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +419,8 @@ void KSqueezedTextLabel_SuperPaintEvent(KSqueezedTextLabel* self, QPaintEvent* p
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnPaintEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_PaintEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +447,8 @@ void KSqueezedTextLabel_SuperChangeEvent(KSqueezedTextLabel* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnChangeEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ChangeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +475,8 @@ void KSqueezedTextLabel_SuperMousePressEvent(KSqueezedTextLabel* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMousePressEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MousePressEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +503,8 @@ void KSqueezedTextLabel_SuperMouseMoveEvent(KSqueezedTextLabel* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +531,8 @@ void KSqueezedTextLabel_SuperFocusInEvent(KSqueezedTextLabel* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusInEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusInEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +559,8 @@ void KSqueezedTextLabel_SuperFocusOutEvent(KSqueezedTextLabel* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusOutEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +587,8 @@ bool KSqueezedTextLabel_SuperFocusNextPrevChild(KSqueezedTextLabel* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusNextPrevChild(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +615,8 @@ void KSqueezedTextLabel_SuperInitStyleOption(const KSqueezedTextLabel* self, QSt
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnInitStyleOption(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_InitStyleOption_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +643,8 @@ int KSqueezedTextLabel_SuperDevType(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDevType(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DevType_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +671,8 @@ void KSqueezedTextLabel_SuperSetVisible(KSqueezedTextLabel* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSetVisible(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SetVisible_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +699,8 @@ bool KSqueezedTextLabel_SuperHasHeightForWidth(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnHasHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +727,8 @@ QPaintEngine* KSqueezedTextLabel_SuperPaintEngine(const KSqueezedTextLabel* self
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnPaintEngine(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_PaintEngine_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +755,8 @@ void KSqueezedTextLabel_SuperMouseDoubleClickEvent(KSqueezedTextLabel* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMouseDoubleClickEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +783,8 @@ void KSqueezedTextLabel_SuperWheelEvent(KSqueezedTextLabel* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnWheelEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_WheelEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -837,9 +811,8 @@ void KSqueezedTextLabel_SuperKeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnKeyReleaseEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -866,9 +839,8 @@ void KSqueezedTextLabel_SuperEnterEvent(KSqueezedTextLabel* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEnterEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_EnterEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -895,9 +867,8 @@ void KSqueezedTextLabel_SuperLeaveEvent(KSqueezedTextLabel* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnLeaveEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -924,9 +895,8 @@ void KSqueezedTextLabel_SuperMoveEvent(KSqueezedTextLabel* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_MoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -953,9 +923,8 @@ void KSqueezedTextLabel_SuperCloseEvent(KSqueezedTextLabel* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnCloseEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_CloseEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -982,9 +951,8 @@ void KSqueezedTextLabel_SuperTabletEvent(KSqueezedTextLabel* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnTabletEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_TabletEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1011,9 +979,8 @@ void KSqueezedTextLabel_SuperActionEvent(KSqueezedTextLabel* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnActionEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ActionEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1007,8 @@ void KSqueezedTextLabel_SuperDragEnterEvent(KSqueezedTextLabel* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragEnterEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1035,8 @@ void KSqueezedTextLabel_SuperDragMoveEvent(KSqueezedTextLabel* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragMoveEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1063,8 @@ void KSqueezedTextLabel_SuperDragLeaveEvent(KSqueezedTextLabel* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDragLeaveEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1091,8 @@ void KSqueezedTextLabel_SuperDropEvent(KSqueezedTextLabel* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDropEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DropEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1119,8 @@ void KSqueezedTextLabel_SuperShowEvent(KSqueezedTextLabel* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnShowEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ShowEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1147,8 @@ void KSqueezedTextLabel_SuperHideEvent(KSqueezedTextLabel* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnHideEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_HideEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1216,9 +1177,8 @@ bool KSqueezedTextLabel_SuperNativeEvent(KSqueezedTextLabel* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnNativeEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_NativeEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1245,9 +1205,8 @@ int KSqueezedTextLabel_SuperMetric(const KSqueezedTextLabel* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnMetric(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Metric_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1274,9 +1233,8 @@ void KSqueezedTextLabel_SuperInitPainter(const KSqueezedTextLabel* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnInitPainter(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_InitPainter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1303,9 +1261,8 @@ QPaintDevice* KSqueezedTextLabel_SuperRedirected(const KSqueezedTextLabel* self,
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnRedirected(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Redirected_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1332,9 +1289,8 @@ QPainter* KSqueezedTextLabel_SuperSharedPainter(const KSqueezedTextLabel* self) 
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSharedPainter(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SharedPainter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1361,9 +1317,8 @@ void KSqueezedTextLabel_SuperInputMethodEvent(KSqueezedTextLabel* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnInputMethodEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1390,9 +1345,8 @@ QVariant* KSqueezedTextLabel_SuperInputMethodQuery(const KSqueezedTextLabel* sel
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnInputMethodQuery(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1419,9 +1373,8 @@ bool KSqueezedTextLabel_SuperEventFilter(KSqueezedTextLabel* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnEventFilter(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_EventFilter_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1448,9 +1401,8 @@ void KSqueezedTextLabel_SuperTimerEvent(KSqueezedTextLabel* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnTimerEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_TimerEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1477,9 +1429,8 @@ void KSqueezedTextLabel_SuperChildEvent(KSqueezedTextLabel* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnChildEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ChildEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1506,9 +1457,8 @@ void KSqueezedTextLabel_SuperCustomEvent(KSqueezedTextLabel* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnCustomEvent(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_CustomEvent_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1535,9 +1485,8 @@ void KSqueezedTextLabel_SuperConnectNotify(KSqueezedTextLabel* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnConnectNotify(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_ConnectNotify_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1564,9 +1513,8 @@ void KSqueezedTextLabel_SuperDisconnectNotify(KSqueezedTextLabel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDisconnectNotify(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1593,9 +1541,8 @@ void KSqueezedTextLabel_SuperSqueezeTextToLabel(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSqueezeTextToLabel(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SqueezeTextToLabel_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SqueezeTextToLabel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1622,9 +1569,8 @@ void KSqueezedTextLabel_SuperDrawFrame(KSqueezedTextLabel* self, QPainter* param
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDrawFrame(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_DrawFrame_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1651,9 +1597,8 @@ void KSqueezedTextLabel_SuperUpdateMicroFocus(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnUpdateMicroFocus(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1680,9 +1625,8 @@ void KSqueezedTextLabel_SuperCreate(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnCreate(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Create_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1709,9 +1653,8 @@ void KSqueezedTextLabel_SuperDestroy(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnDestroy(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Destroy_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1738,9 +1681,8 @@ bool KSqueezedTextLabel_SuperFocusNextChild(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusNextChild(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1767,9 +1709,8 @@ bool KSqueezedTextLabel_SuperFocusPreviousChild(KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnFocusPreviousChild(KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1796,9 +1737,8 @@ QObject* KSqueezedTextLabel_SuperSender(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSender(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Sender_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1825,9 +1765,8 @@ int KSqueezedTextLabel_SuperSenderSignalIndex(const KSqueezedTextLabel* self) {
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnSenderSignalIndex(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1854,9 +1793,8 @@ int KSqueezedTextLabel_SuperReceivers(const KSqueezedTextLabel* self, const char
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnReceivers(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_Receivers_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1883,9 +1821,8 @@ bool KSqueezedTextLabel_SuperIsSignalConnected(const KSqueezedTextLabel* self, c
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnIsSignalConnected(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1912,9 +1849,8 @@ double KSqueezedTextLabel_SuperGetDecodedMetricF(const KSqueezedTextLabel* self,
 // Auxiliary method to allow providing re-implementation
 void KSqueezedTextLabel_OnGetDecodedMetricF(const KSqueezedTextLabel* self, intptr_t slot) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel)
         vksqueezedtextlabel->setKSqueezedTextLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSqueezedTextLabel_Delete(KSqueezedTextLabel* self) {

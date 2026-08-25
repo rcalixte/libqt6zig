@@ -2330,20 +2330,20 @@ pub const QBluetoothLocalDevice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothlocaldevice.html#public-types)
 pub const enums = struct {
-    pub const Pairing = enum(i32) {
+    pub const Pairing = enum {
         pub const Unpaired: i32 = 0;
         pub const Paired: i32 = 1;
         pub const AuthorizedPaired: i32 = 2;
     };
 
-    pub const HostMode = enum(i32) {
+    pub const HostMode = enum {
         pub const HostPoweredOff: i32 = 0;
         pub const HostConnectable: i32 = 1;
         pub const HostDiscoverable: i32 = 2;
         pub const HostDiscoverableLimitedInquiry: i32 = 3;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const PairingError: i32 = 1;
         pub const MissingPermissionsError: i32 = 2;

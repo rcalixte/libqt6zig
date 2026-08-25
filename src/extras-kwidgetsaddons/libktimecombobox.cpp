@@ -328,9 +328,8 @@ QMetaObject* KTimeComboBox_SuperMetaObject(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetaObject(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MetaObject_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -347,9 +346,8 @@ void* KTimeComboBox_SuperMetacast(KTimeComboBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetacast(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Metacast_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -366,9 +364,8 @@ int KTimeComboBox_SuperMetacall(KTimeComboBox* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetacall(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Metacall_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -385,9 +382,8 @@ bool KTimeComboBox_SuperEventFilter(KTimeComboBox* self, QObject* object, QEvent
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEventFilter(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_EventFilter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -404,9 +400,8 @@ void KTimeComboBox_SuperShowPopup(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnShowPopup(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowPopup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -423,9 +418,8 @@ void KTimeComboBox_SuperHidePopup(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHidePopup(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_HidePopup_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HidePopup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -442,9 +436,8 @@ void KTimeComboBox_SuperMousePressEvent(KTimeComboBox* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMousePressEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -461,9 +454,8 @@ void KTimeComboBox_SuperWheelEvent(KTimeComboBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnWheelEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -480,9 +472,8 @@ void KTimeComboBox_SuperKeyPressEvent(KTimeComboBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnKeyPressEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -499,9 +490,8 @@ void KTimeComboBox_SuperFocusInEvent(KTimeComboBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusInEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -518,9 +508,8 @@ void KTimeComboBox_SuperFocusOutEvent(KTimeComboBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusOutEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -537,9 +526,8 @@ void KTimeComboBox_SuperResizeEvent(KTimeComboBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnResizeEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -556,9 +544,8 @@ void KTimeComboBox_SuperAssignTime(KTimeComboBox* self, const QTime* time) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnAssignTime(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_AssignTime_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_AssignTime_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +572,8 @@ void KTimeComboBox_SuperSetModel(KTimeComboBox* self, QAbstractItemModel* model)
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSetModel(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_SetModel_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +600,8 @@ QSize* KTimeComboBox_SuperSizeHint(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSizeHint(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_SizeHint_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +628,8 @@ QSize* KTimeComboBox_SuperMinimumSizeHint(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMinimumSizeHint(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +656,8 @@ bool KTimeComboBox_SuperEvent(KTimeComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Event_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +684,8 @@ QVariant* KTimeComboBox_SuperInputMethodQuery(const KTimeComboBox* self, int par
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnInputMethodQuery(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +712,8 @@ void KTimeComboBox_SuperChangeEvent(KTimeComboBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnChangeEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +740,8 @@ void KTimeComboBox_SuperPaintEvent(KTimeComboBox* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnPaintEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +768,8 @@ void KTimeComboBox_SuperShowEvent(KTimeComboBox* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnShowEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +796,8 @@ void KTimeComboBox_SuperHideEvent(KTimeComboBox* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHideEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_HideEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +824,8 @@ void KTimeComboBox_SuperMouseReleaseEvent(KTimeComboBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseReleaseEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +852,8 @@ void KTimeComboBox_SuperKeyReleaseEvent(KTimeComboBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnKeyReleaseEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +880,8 @@ void KTimeComboBox_SuperContextMenuEvent(KTimeComboBox* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnContextMenuEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +908,8 @@ void KTimeComboBox_SuperInputMethodEvent(KTimeComboBox* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnInputMethodEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +936,8 @@ void KTimeComboBox_SuperInitStyleOption(const KTimeComboBox* self, QStyleOptionC
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnInitStyleOption(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +964,8 @@ int KTimeComboBox_SuperDevType(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDevType(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DevType_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +992,8 @@ void KTimeComboBox_SuperSetVisible(KTimeComboBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSetVisible(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_SetVisible_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1020,8 @@ int KTimeComboBox_SuperHeightForWidth(const KTimeComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHeightForWidth(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1048,8 @@ bool KTimeComboBox_SuperHasHeightForWidth(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHasHeightForWidth(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1076,8 @@ QPaintEngine* KTimeComboBox_SuperPaintEngine(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnPaintEngine(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1104,8 @@ void KTimeComboBox_SuperMouseDoubleClickEvent(KTimeComboBox* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseDoubleClickEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1132,8 @@ void KTimeComboBox_SuperMouseMoveEvent(KTimeComboBox* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseMoveEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1160,8 @@ void KTimeComboBox_SuperEnterEvent(KTimeComboBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEnterEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1223,9 +1188,8 @@ void KTimeComboBox_SuperLeaveEvent(KTimeComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnLeaveEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1216,8 @@ void KTimeComboBox_SuperMoveEvent(KTimeComboBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMoveEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1244,8 @@ void KTimeComboBox_SuperCloseEvent(KTimeComboBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnCloseEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1272,8 @@ void KTimeComboBox_SuperTabletEvent(KTimeComboBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnTabletEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1300,8 @@ void KTimeComboBox_SuperActionEvent(KTimeComboBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnActionEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1328,8 @@ void KTimeComboBox_SuperDragEnterEvent(KTimeComboBox* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragEnterEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1356,8 @@ void KTimeComboBox_SuperDragMoveEvent(KTimeComboBox* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragMoveEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1384,8 @@ void KTimeComboBox_SuperDragLeaveEvent(KTimeComboBox* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragLeaveEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1412,8 @@ void KTimeComboBox_SuperDropEvent(KTimeComboBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDropEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DropEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1442,8 @@ bool KTimeComboBox_SuperNativeEvent(KTimeComboBox* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnNativeEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1470,8 @@ int KTimeComboBox_SuperMetric(const KTimeComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetric(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Metric_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1498,8 @@ void KTimeComboBox_SuperInitPainter(const KTimeComboBox* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnInitPainter(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_InitPainter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1526,8 @@ QPaintDevice* KTimeComboBox_SuperRedirected(const KTimeComboBox* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnRedirected(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Redirected_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1554,8 @@ QPainter* KTimeComboBox_SuperSharedPainter(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSharedPainter(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1582,8 @@ bool KTimeComboBox_SuperFocusNextPrevChild(KTimeComboBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusNextPrevChild(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1610,8 @@ void KTimeComboBox_SuperTimerEvent(KTimeComboBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnTimerEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1638,8 @@ void KTimeComboBox_SuperChildEvent(KTimeComboBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnChildEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1666,8 @@ void KTimeComboBox_SuperCustomEvent(KTimeComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnCustomEvent(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1694,8 @@ void KTimeComboBox_SuperConnectNotify(KTimeComboBox* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnConnectNotify(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1722,8 @@ void KTimeComboBox_SuperDisconnectNotify(KTimeComboBox* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDisconnectNotify(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1750,8 @@ void KTimeComboBox_SuperUpdateMicroFocus(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnUpdateMicroFocus(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1778,8 @@ void KTimeComboBox_SuperCreate(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnCreate(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Create_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1806,8 @@ void KTimeComboBox_SuperDestroy(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDestroy(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Destroy_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1834,8 @@ bool KTimeComboBox_SuperFocusNextChild(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusNextChild(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1862,8 @@ bool KTimeComboBox_SuperFocusPreviousChild(KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusPreviousChild(KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1890,8 @@ QObject* KTimeComboBox_SuperSender(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSender(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Sender_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1918,8 @@ int KTimeComboBox_SuperSenderSignalIndex(const KTimeComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSenderSignalIndex(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2008,9 +1946,8 @@ int KTimeComboBox_SuperReceivers(const KTimeComboBox* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnReceivers(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_Receivers_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1974,8 @@ bool KTimeComboBox_SuperIsSignalConnected(const KTimeComboBox* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnIsSignalConnected(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2066,9 +2002,8 @@ double KTimeComboBox_SuperGetDecodedMetricF(const KTimeComboBox* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnGetDecodedMetricF(const KTimeComboBox* self, intptr_t slot) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
         vktimecombobox->setKTimeComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KTimeComboBox_Delete(KTimeComboBox* self) {

@@ -1274,7 +1274,7 @@ pub const Attica__BaseJob = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-atticabasejob.html#public-types)
 pub const enums = struct {
-    pub const NetworkRequestCustomAttributes = enum(i32) {
+    pub const NetworkRequestCustomAttributes = enum {
         pub const UserAttribute: i32 = 1001;
         pub const PasswordAttribute: i32 = 1002;
     };

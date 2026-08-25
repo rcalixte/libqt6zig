@@ -1083,7 +1083,7 @@ pub const QImageReader = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#public-types)
 pub const enums = struct {
-    pub const ImageReaderError = enum(i32) {
+    pub const ImageReaderError = enum {
         pub const UnknownError: i32 = 0;
         pub const FileNotFoundError: i32 = 1;
         pub const DeviceError: i32 = 2;

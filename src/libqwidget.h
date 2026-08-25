@@ -75,6 +75,8 @@ typedef struct QWindow QWindow;
 QWidget* QWidget_new(QWidget* parent);
 QWidget* QWidget_new2();
 QWidget* QWidget_new3(QWidget* parent, int f);
+QPaintDevice* QWidget_AsQPaintDevice(QWidget* self);
+QWidget* QWidget_FromQPaintDevice(QPaintDevice* _qpaintdevice);
 QMetaObject* QWidget_MetaObject(const QWidget* self);
 void* QWidget_Metacast(QWidget* self, const char* param1);
 int QWidget_Metacall(QWidget* self, int param1, int param2, void** param3);

@@ -75,7 +75,7 @@ pub const QBluetooth = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetooth.html#public-types)
 pub const enums = struct {
-    pub const Security = enum(i32) {
+    pub const Security = enum {
         pub const NoSecurity: i32 = 0;
         pub const Authorization: i32 = 1;
         pub const Authentication: i32 = 2;
@@ -83,7 +83,7 @@ pub const enums = struct {
         pub const Secure: i32 = 8;
     };
 
-    pub const AttAccessConstraint = enum(i32) {
+    pub const AttAccessConstraint = enum {
         pub const AttAuthorizationRequired: i32 = 1;
         pub const AttAuthenticationRequired: i32 = 2;
         pub const AttEncryptionRequired: i32 = 4;

@@ -154,9 +154,8 @@ QMetaObject* KFontRequester_SuperMetaObject(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetaObject(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MetaObject_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +172,8 @@ void* KFontRequester_SuperMetacast(KFontRequester* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetacast(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Metacast_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +190,8 @@ int KFontRequester_SuperMetacall(KFontRequester* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetacall(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Metacall_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +208,8 @@ void KFontRequester_SuperSetFont(KFontRequester* self, const QFont* font, bool o
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SetFont_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetFont_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +227,8 @@ void KFontRequester_SuperSetSampleText(KFontRequester* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SetSampleText_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetSampleText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -251,9 +246,8 @@ void KFontRequester_SuperSetTitle(KFontRequester* self, const libqt_string title
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SetTitle_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetTitle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -270,9 +264,8 @@ bool KFontRequester_SuperEventFilter(KFontRequester* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEventFilter(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_EventFilter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +292,8 @@ int KFontRequester_SuperDevType(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDevType(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DevType_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +320,8 @@ void KFontRequester_SuperSetVisible(KFontRequester* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSetVisible(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SetVisible_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +348,8 @@ QSize* KFontRequester_SuperSizeHint(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSizeHint(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SizeHint_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +376,8 @@ QSize* KFontRequester_SuperMinimumSizeHint(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMinimumSizeHint(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +404,8 @@ int KFontRequester_SuperHeightForWidth(const KFontRequester* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnHeightForWidth(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_HeightForWidth_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +432,8 @@ bool KFontRequester_SuperHasHeightForWidth(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnHasHeightForWidth(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +460,8 @@ QPaintEngine* KFontRequester_SuperPaintEngine(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnPaintEngine(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_PaintEngine_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +488,8 @@ bool KFontRequester_SuperEvent(KFontRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Event_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +516,8 @@ void KFontRequester_SuperMousePressEvent(KFontRequester* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMousePressEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MousePressEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +544,8 @@ void KFontRequester_SuperMouseReleaseEvent(KFontRequester* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseReleaseEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +572,8 @@ void KFontRequester_SuperMouseDoubleClickEvent(KFontRequester* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseDoubleClickEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +600,8 @@ void KFontRequester_SuperMouseMoveEvent(KFontRequester* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMouseMoveEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +628,8 @@ void KFontRequester_SuperWheelEvent(KFontRequester* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnWheelEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_WheelEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +656,8 @@ void KFontRequester_SuperKeyPressEvent(KFontRequester* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnKeyPressEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_KeyPressEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +684,8 @@ void KFontRequester_SuperKeyReleaseEvent(KFontRequester* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnKeyReleaseEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +712,8 @@ void KFontRequester_SuperFocusInEvent(KFontRequester* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusInEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_FocusInEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +740,8 @@ void KFontRequester_SuperFocusOutEvent(KFontRequester* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusOutEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_FocusOutEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +768,8 @@ void KFontRequester_SuperEnterEvent(KFontRequester* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnEnterEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_EnterEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +796,8 @@ void KFontRequester_SuperLeaveEvent(KFontRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnLeaveEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_LeaveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +824,8 @@ void KFontRequester_SuperPaintEvent(KFontRequester* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnPaintEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_PaintEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +852,8 @@ void KFontRequester_SuperMoveEvent(KFontRequester* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMoveEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_MoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +880,8 @@ void KFontRequester_SuperResizeEvent(KFontRequester* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnResizeEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ResizeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +908,8 @@ void KFontRequester_SuperCloseEvent(KFontRequester* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnCloseEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_CloseEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +936,8 @@ void KFontRequester_SuperContextMenuEvent(KFontRequester* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnContextMenuEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +964,8 @@ void KFontRequester_SuperTabletEvent(KFontRequester* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnTabletEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_TabletEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +992,8 @@ void KFontRequester_SuperActionEvent(KFontRequester* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnActionEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ActionEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1053,9 +1020,8 @@ void KFontRequester_SuperDragEnterEvent(KFontRequester* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragEnterEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DragEnterEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1082,9 +1048,8 @@ void KFontRequester_SuperDragMoveEvent(KFontRequester* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragMoveEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DragMoveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1076,8 @@ void KFontRequester_SuperDragLeaveEvent(KFontRequester* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDragLeaveEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1140,9 +1104,8 @@ void KFontRequester_SuperDropEvent(KFontRequester* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDropEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DropEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1169,9 +1132,8 @@ void KFontRequester_SuperShowEvent(KFontRequester* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnShowEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ShowEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1198,9 +1160,8 @@ void KFontRequester_SuperHideEvent(KFontRequester* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnHideEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_HideEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1229,9 +1190,8 @@ bool KFontRequester_SuperNativeEvent(KFontRequester* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnNativeEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_NativeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1258,9 +1218,8 @@ void KFontRequester_SuperChangeEvent(KFontRequester* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnChangeEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ChangeEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1287,9 +1246,8 @@ int KFontRequester_SuperMetric(const KFontRequester* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnMetric(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Metric_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1274,8 @@ void KFontRequester_SuperInitPainter(const KFontRequester* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnInitPainter(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_InitPainter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1302,8 @@ QPaintDevice* KFontRequester_SuperRedirected(const KFontRequester* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnRedirected(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Redirected_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1330,8 @@ QPainter* KFontRequester_SuperSharedPainter(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSharedPainter(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SharedPainter_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1358,8 @@ void KFontRequester_SuperInputMethodEvent(KFontRequester* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnInputMethodEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_InputMethodEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1386,8 @@ QVariant* KFontRequester_SuperInputMethodQuery(const KFontRequester* self, int p
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnInputMethodQuery(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_InputMethodQuery_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1414,8 @@ bool KFontRequester_SuperFocusNextPrevChild(KFontRequester* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusNextPrevChild(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1442,8 @@ void KFontRequester_SuperTimerEvent(KFontRequester* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnTimerEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_TimerEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1470,8 @@ void KFontRequester_SuperChildEvent(KFontRequester* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnChildEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ChildEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1498,8 @@ void KFontRequester_SuperCustomEvent(KFontRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnCustomEvent(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_CustomEvent_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1577,9 +1526,8 @@ void KFontRequester_SuperConnectNotify(KFontRequester* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnConnectNotify(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_ConnectNotify_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1554,8 @@ void KFontRequester_SuperDisconnectNotify(KFontRequester* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDisconnectNotify(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1582,8 @@ void KFontRequester_SuperUpdateMicroFocus(KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnUpdateMicroFocus(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1610,8 @@ void KFontRequester_SuperCreate(KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnCreate(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Create_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1693,9 +1638,8 @@ void KFontRequester_SuperDestroy(KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnDestroy(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Destroy_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1722,9 +1666,8 @@ bool KFontRequester_SuperFocusNextChild(KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusNextChild(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_FocusNextChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1751,9 +1694,8 @@ bool KFontRequester_SuperFocusPreviousChild(KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnFocusPreviousChild(KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1780,9 +1722,8 @@ QObject* KFontRequester_SuperSender(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSender(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Sender_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1809,9 +1750,8 @@ int KFontRequester_SuperSenderSignalIndex(const KFontRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnSenderSignalIndex(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1838,9 +1778,8 @@ int KFontRequester_SuperReceivers(const KFontRequester* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnReceivers(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_Receivers_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1867,9 +1806,8 @@ bool KFontRequester_SuperIsSignalConnected(const KFontRequester* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnIsSignalConnected(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1896,9 +1834,8 @@ double KFontRequester_SuperGetDecodedMetricF(const KFontRequester* self, int met
 // Auxiliary method to allow providing re-implementation
 void KFontRequester_OnGetDecodedMetricF(const KFontRequester* self, intptr_t slot) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester)
         vkfontrequester->setKFontRequester_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFontRequester_Delete(KFontRequester* self) {

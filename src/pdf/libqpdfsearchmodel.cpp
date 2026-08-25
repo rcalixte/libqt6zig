@@ -175,9 +175,8 @@ QMetaObject* QPdfSearchModel_SuperMetaObject(const QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMetaObject(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +193,8 @@ void* QPdfSearchModel_SuperMetacast(QPdfSearchModel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMetacast(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Metacast_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +211,8 @@ int QPdfSearchModel_SuperMetacall(QPdfSearchModel* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMetacall(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Metacall_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -270,9 +267,8 @@ libqt_map /* of int to libqt_string */ QPdfSearchModel_SuperRoleNames(const QPdf
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnRoleNames(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_RoleNames_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -289,9 +285,8 @@ int QPdfSearchModel_SuperRowCount(const QPdfSearchModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnRowCount(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_RowCount_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -308,9 +303,8 @@ QVariant* QPdfSearchModel_SuperData(const QPdfSearchModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Data_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -327,9 +321,8 @@ void QPdfSearchModel_SuperTimerEvent(QPdfSearchModel* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnTimerEvent(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_TimerEvent_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +349,8 @@ QModelIndex* QPdfSearchModel_SuperIndex(const QPdfSearchModel* self, int row, in
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnIndex(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Index_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +377,8 @@ QModelIndex* QPdfSearchModel_SuperSibling(const QPdfSearchModel* self, int row, 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSibling(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Sibling_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +405,8 @@ bool QPdfSearchModel_SuperDropMimeData(QPdfSearchModel* self, const QMimeData* d
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnDropMimeData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_DropMimeData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +433,8 @@ int QPdfSearchModel_SuperFlags(const QPdfSearchModel* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnFlags(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Flags_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +461,8 @@ bool QPdfSearchModel_SuperSetData(QPdfSearchModel* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSetData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SetData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +489,8 @@ QVariant* QPdfSearchModel_SuperHeaderData(const QPdfSearchModel* self, int secti
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnHeaderData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_HeaderData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +517,8 @@ bool QPdfSearchModel_SuperSetHeaderData(QPdfSearchModel* self, int section, int 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSetHeaderData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SetHeaderData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +601,8 @@ libqt_map /* of int to QVariant* */ QPdfSearchModel_SuperItemData(const QPdfSear
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnItemData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ItemData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +641,8 @@ bool QPdfSearchModel_SuperSetItemData(QPdfSearchModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSetItemData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SetItemData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +669,8 @@ bool QPdfSearchModel_SuperClearItemData(QPdfSearchModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnClearItemData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ClearItemData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +765,8 @@ libqt_list /* of libqt_string */ QPdfSearchModel_SuperMimeTypes(const QPdfSearch
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMimeTypes(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MimeTypes_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -823,9 +805,8 @@ QMimeData* QPdfSearchModel_SuperMimeData(const QPdfSearchModel* self, const libq
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMimeData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MimeData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -852,9 +833,8 @@ bool QPdfSearchModel_SuperCanDropMimeData(const QPdfSearchModel* self, const QMi
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnCanDropMimeData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -881,9 +861,8 @@ int QPdfSearchModel_SuperSupportedDropActions(const QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSupportedDropActions(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -910,9 +889,8 @@ int QPdfSearchModel_SuperSupportedDragActions(const QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSupportedDragActions(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -939,9 +917,8 @@ bool QPdfSearchModel_SuperInsertRows(QPdfSearchModel* self, int row, int count, 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnInsertRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_InsertRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -968,9 +945,8 @@ bool QPdfSearchModel_SuperInsertColumns(QPdfSearchModel* self, int column, int c
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnInsertColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_InsertColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -997,9 +973,8 @@ bool QPdfSearchModel_SuperRemoveRows(QPdfSearchModel* self, int row, int count, 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnRemoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_RemoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1026,9 +1001,8 @@ bool QPdfSearchModel_SuperRemoveColumns(QPdfSearchModel* self, int column, int c
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnRemoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_RemoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1055,9 +1029,8 @@ bool QPdfSearchModel_SuperMoveRows(QPdfSearchModel* self, const QModelIndex* sou
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1057,8 @@ bool QPdfSearchModel_SuperMoveColumns(QPdfSearchModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1085,8 @@ void QPdfSearchModel_SuperFetchMore(QPdfSearchModel* self, const QModelIndex* pa
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnFetchMore(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_FetchMore_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1113,8 @@ bool QPdfSearchModel_SuperCanFetchMore(const QPdfSearchModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnCanFetchMore(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_CanFetchMore_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1171,9 +1141,8 @@ void QPdfSearchModel_SuperSort(QPdfSearchModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSort(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Sort_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1200,9 +1169,8 @@ QModelIndex* QPdfSearchModel_SuperBuddy(const QPdfSearchModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBuddy(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Buddy_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1265,9 +1233,8 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_SuperMatch(const QPdfSearchMode
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMatch(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Match_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1294,9 +1261,8 @@ QSize* QPdfSearchModel_SuperSpan(const QPdfSearchModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSpan(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Span_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1323,9 +1289,8 @@ void QPdfSearchModel_SuperMultiData(const QPdfSearchModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnMultiData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_MultiData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1317,8 @@ bool QPdfSearchModel_SuperSubmit(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSubmit(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Submit_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1345,8 @@ void QPdfSearchModel_SuperRevert(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnRevert(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Revert_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1373,8 @@ void QPdfSearchModel_SuperResetInternalData(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnResetInternalData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ResetInternalData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1401,8 @@ bool QPdfSearchModel_SuperEvent(QPdfSearchModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEvent(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Event_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1429,8 @@ bool QPdfSearchModel_SuperEventFilter(QPdfSearchModel* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEventFilter(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EventFilter_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1497,9 +1457,8 @@ void QPdfSearchModel_SuperChildEvent(QPdfSearchModel* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnChildEvent(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ChildEvent_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1526,9 +1485,8 @@ void QPdfSearchModel_SuperCustomEvent(QPdfSearchModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnCustomEvent(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_CustomEvent_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1555,9 +1513,8 @@ void QPdfSearchModel_SuperConnectNotify(QPdfSearchModel* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnConnectNotify(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1584,9 +1541,8 @@ void QPdfSearchModel_SuperDisconnectNotify(QPdfSearchModel* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnDisconnectNotify(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1613,9 +1569,8 @@ void QPdfSearchModel_SuperUpdatePage(QPdfSearchModel* self, int page) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnUpdatePage(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_UpdatePage_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_UpdatePage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1595,8 @@ QModelIndex* QPdfSearchModel_SuperCreateIndex(const QPdfSearchModel* self, int r
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnCreateIndex(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_CreateIndex_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1635,8 @@ void QPdfSearchModel_SuperEncodeData(const QPdfSearchModel* self, const libqt_li
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEncodeData(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EncodeData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1663,8 @@ bool QPdfSearchModel_SuperDecodeData(QPdfSearchModel* self, int row, int column,
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnDecodeData(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_DecodeData_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1691,8 @@ void QPdfSearchModel_SuperBeginInsertRows(QPdfSearchModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginInsertRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1719,8 @@ void QPdfSearchModel_SuperEndInsertRows(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndInsertRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndInsertRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1747,8 @@ void QPdfSearchModel_SuperBeginRemoveRows(QPdfSearchModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginRemoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1775,8 @@ void QPdfSearchModel_SuperEndRemoveRows(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndRemoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1803,8 @@ bool QPdfSearchModel_SuperBeginMoveRows(QPdfSearchModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginMoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1831,8 @@ void QPdfSearchModel_SuperEndMoveRows(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndMoveRows(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndMoveRows_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1859,8 @@ void QPdfSearchModel_SuperBeginInsertColumns(QPdfSearchModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginInsertColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1887,8 @@ void QPdfSearchModel_SuperEndInsertColumns(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndInsertColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1915,8 @@ void QPdfSearchModel_SuperBeginRemoveColumns(QPdfSearchModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginRemoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2000,9 +1943,8 @@ void QPdfSearchModel_SuperEndRemoveColumns(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndRemoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2029,9 +1971,8 @@ bool QPdfSearchModel_SuperBeginMoveColumns(QPdfSearchModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginMoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2058,9 +1999,8 @@ void QPdfSearchModel_SuperEndMoveColumns(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndMoveColumns(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2087,9 +2027,8 @@ void QPdfSearchModel_SuperBeginResetModel(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnBeginResetModel(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_BeginResetModel_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2055,8 @@ void QPdfSearchModel_SuperEndResetModel(QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnEndResetModel(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_EndResetModel_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2145,9 +2083,8 @@ void QPdfSearchModel_SuperChangePersistentIndex(QPdfSearchModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnChangePersistentIndex(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2198,9 +2135,8 @@ void QPdfSearchModel_SuperChangePersistentIndexList(QPdfSearchModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnChangePersistentIndexList(QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2263,9 +2199,8 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_SuperPersistentIndexList(const 
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnPersistentIndexList(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2292,9 +2227,8 @@ QObject* QPdfSearchModel_SuperSender(const QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSender(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Sender_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2321,9 +2255,8 @@ int QPdfSearchModel_SuperSenderSignalIndex(const QPdfSearchModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnSenderSignalIndex(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2350,9 +2283,8 @@ int QPdfSearchModel_SuperReceivers(const QPdfSearchModel* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnReceivers(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_Receivers_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2379,9 +2311,8 @@ bool QPdfSearchModel_SuperIsSignalConnected(const QPdfSearchModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QPdfSearchModel_OnIsSignalConnected(const QPdfSearchModel* self, intptr_t slot) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel)
         vqpdfsearchmodel->setQPdfSearchModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPdfSearchModel_Delete(QPdfSearchModel* self) {

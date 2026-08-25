@@ -843,7 +843,7 @@ pub const QColorSpace = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#public-types)
 pub const enums = struct {
-    pub const NamedColorSpace = enum(i32) {
+    pub const NamedColorSpace = enum {
         pub const SRgb: i32 = 1;
         pub const SRgbLinear: i32 = 2;
         pub const AdobeRgb: i32 = 3;
@@ -854,7 +854,7 @@ pub const enums = struct {
         pub const Bt2100Hlg: i32 = 8;
     };
 
-    pub const Primaries = enum(i32) {
+    pub const Primaries = enum {
         pub const Custom: i32 = 0;
         pub const SRgb: i32 = 1;
         pub const AdobeRgb: i32 = 2;
@@ -863,7 +863,7 @@ pub const enums = struct {
         pub const Bt2020: i32 = 5;
     };
 
-    pub const TransferFunction = enum(i32) {
+    pub const TransferFunction = enum {
         pub const Custom: i32 = 0;
         pub const Linear: i32 = 1;
         pub const Gamma: i32 = 2;
@@ -874,12 +874,12 @@ pub const enums = struct {
         pub const Hlg: i32 = 7;
     };
 
-    pub const TransformModel = enum(u8) {
+    pub const TransformModel = enum {
         pub const ThreeComponentMatrix: u8 = 0;
         pub const ElementListProcessing: u8 = 1;
     };
 
-    pub const ColorModel = enum(u8) {
+    pub const ColorModel = enum {
         pub const Undefined: u8 = 0;
         pub const Rgb: u8 = 1;
         pub const Gray: u8 = 2;

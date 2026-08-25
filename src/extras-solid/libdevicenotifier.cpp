@@ -86,9 +86,8 @@ QMetaObject* Solid__DeviceNotifier_SuperMetaObject(const Solid__DeviceNotifier* 
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnMetaObject(const Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = const_cast<VirtualSolidDeviceNotifier*>(dynamic_cast<const VirtualSolidDeviceNotifier*>(self));
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_MetaObject_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +104,8 @@ void* Solid__DeviceNotifier_SuperMetacast(Solid__DeviceNotifier* self, const cha
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnMetacast(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_Metacast_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +122,8 @@ int Solid__DeviceNotifier_SuperMetacall(Solid__DeviceNotifier* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnMetacall(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_Metacall_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -153,9 +150,8 @@ bool Solid__DeviceNotifier_SuperEvent(Solid__DeviceNotifier* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnEvent(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_Event_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +178,8 @@ bool Solid__DeviceNotifier_SuperEventFilter(Solid__DeviceNotifier* self, QObject
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnEventFilter(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_EventFilter_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +206,8 @@ void Solid__DeviceNotifier_SuperTimerEvent(Solid__DeviceNotifier* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnTimerEvent(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_TimerEvent_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +234,8 @@ void Solid__DeviceNotifier_SuperChildEvent(Solid__DeviceNotifier* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnChildEvent(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_ChildEvent_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +262,8 @@ void Solid__DeviceNotifier_SuperCustomEvent(Solid__DeviceNotifier* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnCustomEvent(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_CustomEvent_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +290,8 @@ void Solid__DeviceNotifier_SuperConnectNotify(Solid__DeviceNotifier* self, const
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnConnectNotify(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_ConnectNotify_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +318,8 @@ void Solid__DeviceNotifier_SuperDisconnectNotify(Solid__DeviceNotifier* self, co
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnDisconnectNotify(Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = dynamic_cast<VirtualSolidDeviceNotifier*>(self);
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_DisconnectNotify_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +346,8 @@ QObject* Solid__DeviceNotifier_SuperSender(const Solid__DeviceNotifier* self) {
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnSender(const Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = const_cast<VirtualSolidDeviceNotifier*>(dynamic_cast<const VirtualSolidDeviceNotifier*>(self));
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_Sender_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +374,8 @@ int Solid__DeviceNotifier_SuperSenderSignalIndex(const Solid__DeviceNotifier* se
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnSenderSignalIndex(const Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = const_cast<VirtualSolidDeviceNotifier*>(dynamic_cast<const VirtualSolidDeviceNotifier*>(self));
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_SenderSignalIndex_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +402,8 @@ int Solid__DeviceNotifier_SuperReceivers(const Solid__DeviceNotifier* self, cons
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnReceivers(const Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = const_cast<VirtualSolidDeviceNotifier*>(dynamic_cast<const VirtualSolidDeviceNotifier*>(self));
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_Receivers_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +430,8 @@ bool Solid__DeviceNotifier_SuperIsSignalConnected(const Solid__DeviceNotifier* s
 // Auxiliary method to allow providing re-implementation
 void Solid__DeviceNotifier_OnIsSignalConnected(const Solid__DeviceNotifier* self, intptr_t slot) {
     auto* vsoliddevicenotifier = const_cast<VirtualSolidDeviceNotifier*>(dynamic_cast<const VirtualSolidDeviceNotifier*>(self));
-    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier) {
+    if (vsoliddevicenotifier && vsoliddevicenotifier->isVirtualSolidDeviceNotifier)
         vsoliddevicenotifier->setSolid__DeviceNotifier_IsSignalConnected_Callback(reinterpret_cast<VirtualSolidDeviceNotifier::Solid__DeviceNotifier_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Solid__DeviceNotifier_Delete(Solid__DeviceNotifier* self) {

@@ -119,9 +119,8 @@ QMetaObject* KTextEditor__ConfigPage_SuperMetaObject(const KTextEditor__ConfigPa
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMetaObject(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +137,8 @@ void* KTextEditor__ConfigPage_SuperMetacast(KTextEditor__ConfigPage* self, const
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMetacast(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacast_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +155,8 @@ int KTextEditor__ConfigPage_SuperMetacall(KTextEditor__ConfigPage* self, int par
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMetacall(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacall_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +189,8 @@ libqt_string KTextEditor__ConfigPage_SuperName(const KTextEditor__ConfigPage* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnName(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Name_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Name_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +223,8 @@ libqt_string KTextEditor__ConfigPage_SuperFullName(const KTextEditor__ConfigPage
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFullName(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FullName_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FullName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +241,8 @@ QIcon* KTextEditor__ConfigPage_SuperIcon(const KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnIcon(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Icon_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Icon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -265,9 +259,8 @@ void KTextEditor__ConfigPage_SuperApply(KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnApply(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Apply_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Apply_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -284,9 +277,8 @@ void KTextEditor__ConfigPage_SuperReset(KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnReset(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Reset_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -303,9 +295,8 @@ void KTextEditor__ConfigPage_SuperDefaults(KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDefaults(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Defaults_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Defaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +323,8 @@ int KTextEditor__ConfigPage_SuperDevType(const KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDevType(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DevType_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +351,8 @@ void KTextEditor__ConfigPage_SuperSetVisible(KTextEditor__ConfigPage* self, bool
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnSetVisible(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SetVisible_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +379,8 @@ QSize* KTextEditor__ConfigPage_SuperSizeHint(const KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnSizeHint(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SizeHint_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +407,8 @@ QSize* KTextEditor__ConfigPage_SuperMinimumSizeHint(const KTextEditor__ConfigPag
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMinimumSizeHint(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -448,9 +435,8 @@ int KTextEditor__ConfigPage_SuperHeightForWidth(const KTextEditor__ConfigPage* s
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnHeightForWidth(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HeightForWidth_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -477,9 +463,8 @@ bool KTextEditor__ConfigPage_SuperHasHeightForWidth(const KTextEditor__ConfigPag
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnHasHeightForWidth(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -506,9 +491,8 @@ QPaintEngine* KTextEditor__ConfigPage_SuperPaintEngine(const KTextEditor__Config
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnPaintEngine(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_PaintEngine_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +519,8 @@ bool KTextEditor__ConfigPage_SuperEvent(KTextEditor__ConfigPage* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Event_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -564,9 +547,8 @@ void KTextEditor__ConfigPage_SuperMousePressEvent(KTextEditor__ConfigPage* self,
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMousePressEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MousePressEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +575,8 @@ void KTextEditor__ConfigPage_SuperMouseReleaseEvent(KTextEditor__ConfigPage* sel
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMouseReleaseEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +603,8 @@ void KTextEditor__ConfigPage_SuperMouseDoubleClickEvent(KTextEditor__ConfigPage*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMouseDoubleClickEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +631,8 @@ void KTextEditor__ConfigPage_SuperMouseMoveEvent(KTextEditor__ConfigPage* self, 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMouseMoveEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +659,8 @@ void KTextEditor__ConfigPage_SuperWheelEvent(KTextEditor__ConfigPage* self, QWhe
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnWheelEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_WheelEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -709,9 +687,8 @@ void KTextEditor__ConfigPage_SuperKeyPressEvent(KTextEditor__ConfigPage* self, Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnKeyPressEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_KeyPressEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -738,9 +715,8 @@ void KTextEditor__ConfigPage_SuperKeyReleaseEvent(KTextEditor__ConfigPage* self,
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnKeyReleaseEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -767,9 +743,8 @@ void KTextEditor__ConfigPage_SuperFocusInEvent(KTextEditor__ConfigPage* self, QF
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFocusInEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusInEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +771,8 @@ void KTextEditor__ConfigPage_SuperFocusOutEvent(KTextEditor__ConfigPage* self, Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFocusOutEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusOutEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +799,8 @@ void KTextEditor__ConfigPage_SuperEnterEvent(KTextEditor__ConfigPage* self, QEnt
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnEnterEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_EnterEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +827,8 @@ void KTextEditor__ConfigPage_SuperLeaveEvent(KTextEditor__ConfigPage* self, QEve
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnLeaveEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_LeaveEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +855,8 @@ void KTextEditor__ConfigPage_SuperPaintEvent(KTextEditor__ConfigPage* self, QPai
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnPaintEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_PaintEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +883,8 @@ void KTextEditor__ConfigPage_SuperMoveEvent(KTextEditor__ConfigPage* self, QMove
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMoveEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_MoveEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +911,8 @@ void KTextEditor__ConfigPage_SuperResizeEvent(KTextEditor__ConfigPage* self, QRe
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnResizeEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ResizeEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +939,8 @@ void KTextEditor__ConfigPage_SuperCloseEvent(KTextEditor__ConfigPage* self, QClo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnCloseEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_CloseEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +967,8 @@ void KTextEditor__ConfigPage_SuperContextMenuEvent(KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnContextMenuEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +995,8 @@ void KTextEditor__ConfigPage_SuperTabletEvent(KTextEditor__ConfigPage* self, QTa
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnTabletEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_TabletEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1023,8 @@ void KTextEditor__ConfigPage_SuperActionEvent(KTextEditor__ConfigPage* self, QAc
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnActionEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ActionEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1051,8 @@ void KTextEditor__ConfigPage_SuperDragEnterEvent(KTextEditor__ConfigPage* self, 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDragEnterEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragEnterEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1079,8 @@ void KTextEditor__ConfigPage_SuperDragMoveEvent(KTextEditor__ConfigPage* self, Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDragMoveEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragMoveEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1107,8 @@ void KTextEditor__ConfigPage_SuperDragLeaveEvent(KTextEditor__ConfigPage* self, 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDragLeaveEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1135,8 @@ void KTextEditor__ConfigPage_SuperDropEvent(KTextEditor__ConfigPage* self, QDrop
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDropEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DropEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1163,8 @@ void KTextEditor__ConfigPage_SuperShowEvent(KTextEditor__ConfigPage* self, QShow
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnShowEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ShowEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1191,8 @@ void KTextEditor__ConfigPage_SuperHideEvent(KTextEditor__ConfigPage* self, QHide
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnHideEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_HideEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1262,9 +1221,8 @@ bool KTextEditor__ConfigPage_SuperNativeEvent(KTextEditor__ConfigPage* self, con
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnNativeEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_NativeEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1249,8 @@ void KTextEditor__ConfigPage_SuperChangeEvent(KTextEditor__ConfigPage* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnChangeEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ChangeEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1277,8 @@ int KTextEditor__ConfigPage_SuperMetric(const KTextEditor__ConfigPage* self, int
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnMetric(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Metric_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1305,8 @@ void KTextEditor__ConfigPage_SuperInitPainter(const KTextEditor__ConfigPage* sel
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnInitPainter(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InitPainter_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1333,8 @@ QPaintDevice* KTextEditor__ConfigPage_SuperRedirected(const KTextEditor__ConfigP
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnRedirected(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Redirected_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1361,8 @@ QPainter* KTextEditor__ConfigPage_SuperSharedPainter(const KTextEditor__ConfigPa
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnSharedPainter(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SharedPainter_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1389,8 @@ void KTextEditor__ConfigPage_SuperInputMethodEvent(KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnInputMethodEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InputMethodEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1417,8 @@ QVariant* KTextEditor__ConfigPage_SuperInputMethodQuery(const KTextEditor__Confi
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnInputMethodQuery(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_InputMethodQuery_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1445,8 @@ bool KTextEditor__ConfigPage_SuperFocusNextPrevChild(KTextEditor__ConfigPage* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFocusNextPrevChild(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1473,8 @@ bool KTextEditor__ConfigPage_SuperEventFilter(KTextEditor__ConfigPage* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnEventFilter(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1501,8 @@ void KTextEditor__ConfigPage_SuperTimerEvent(KTextEditor__ConfigPage* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnTimerEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1581,9 +1529,8 @@ void KTextEditor__ConfigPage_SuperChildEvent(KTextEditor__ConfigPage* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnChildEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1610,9 +1557,8 @@ void KTextEditor__ConfigPage_SuperCustomEvent(KTextEditor__ConfigPage* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnCustomEvent(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1639,9 +1585,8 @@ void KTextEditor__ConfigPage_SuperConnectNotify(KTextEditor__ConfigPage* self, c
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnConnectNotify(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1668,9 +1613,8 @@ void KTextEditor__ConfigPage_SuperDisconnectNotify(KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDisconnectNotify(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1641,8 @@ void KTextEditor__ConfigPage_SuperUpdateMicroFocus(KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnUpdateMicroFocus(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1669,8 @@ void KTextEditor__ConfigPage_SuperCreate(KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnCreate(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Create_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1697,8 @@ void KTextEditor__ConfigPage_SuperDestroy(KTextEditor__ConfigPage* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnDestroy(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Destroy_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1725,8 @@ bool KTextEditor__ConfigPage_SuperFocusNextChild(KTextEditor__ConfigPage* self) 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFocusNextChild(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusNextChild_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1753,8 @@ bool KTextEditor__ConfigPage_SuperFocusPreviousChild(KTextEditor__ConfigPage* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnFocusPreviousChild(KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1781,8 @@ QObject* KTextEditor__ConfigPage_SuperSender(const KTextEditor__ConfigPage* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnSender(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Sender_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1809,8 @@ int KTextEditor__ConfigPage_SuperSenderSignalIndex(const KTextEditor__ConfigPage
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnSenderSignalIndex(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1837,8 @@ int KTextEditor__ConfigPage_SuperReceivers(const KTextEditor__ConfigPage* self, 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnReceivers(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Receivers_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1865,8 @@ bool KTextEditor__ConfigPage_SuperIsSignalConnected(const KTextEditor__ConfigPag
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnIsSignalConnected(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1893,8 @@ double KTextEditor__ConfigPage_SuperGetDecodedMetricF(const KTextEditor__ConfigP
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__ConfigPage_OnGetDecodedMetricF(const KTextEditor__ConfigPage* self, intptr_t slot) {
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
-    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage)
         vktexteditorconfigpage->setKTextEditor__ConfigPage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KTextEditor__ConfigPage_Delete(KTextEditor__ConfigPage* self) {

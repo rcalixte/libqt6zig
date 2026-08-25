@@ -1308,14 +1308,14 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PDFConverter_1_1NewSignatureData.html)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const FileLockedError: i32 = 1;
         pub const OpenOutputError: i32 = 2;
         pub const NotSupportedInputFileError: i32 = 3;
     };
 
-    pub const PSOption = enum(i32) {
+    pub const PSOption = enum {
         pub const Printing: i32 = 1;
         pub const StrictMargins: i32 = 2;
         pub const ForceRasterization: i32 = 4;
@@ -1324,7 +1324,7 @@ pub const enums = struct {
         pub const ForceOverprintPreview: i32 = 32;
     };
 
-    pub const PDFOption = enum(i32) {
+    pub const PDFOption = enum {
         pub const WithChanges: i32 = 1;
     };
 };

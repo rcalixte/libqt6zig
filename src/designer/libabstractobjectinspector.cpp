@@ -81,9 +81,8 @@ QMetaObject* QDesignerObjectInspectorInterface_SuperMetaObject(const QDesignerOb
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMetaObject(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* QDesignerObjectInspectorInterface_SuperMetacast(QDesignerObjectInspectorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMetacast(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int QDesignerObjectInspectorInterface_SuperMetacall(QDesignerObjectInspectorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMetacall(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +135,8 @@ QDesignerFormEditorInterface* QDesignerObjectInspectorInterface_SuperCore(const 
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnCore(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Core_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Core_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +153,8 @@ void QDesignerObjectInspectorInterface_SuperSetFormWindow(QDesignerObjectInspect
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSetFormWindow(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SetFormWindow_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_SetFormWindow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +181,8 @@ int QDesignerObjectInspectorInterface_SuperDevType(const QDesignerObjectInspecto
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDevType(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +209,8 @@ void QDesignerObjectInspectorInterface_SuperSetVisible(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSetVisible(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +237,8 @@ QSize* QDesignerObjectInspectorInterface_SuperSizeHint(const QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSizeHint(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +265,8 @@ QSize* QDesignerObjectInspectorInterface_SuperMinimumSizeHint(const QDesignerObj
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMinimumSizeHint(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +293,8 @@ int QDesignerObjectInspectorInterface_SuperHeightForWidth(const QDesignerObjectI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnHeightForWidth(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +321,8 @@ bool QDesignerObjectInspectorInterface_SuperHasHeightForWidth(const QDesignerObj
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnHasHeightForWidth(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +349,8 @@ QPaintEngine* QDesignerObjectInspectorInterface_SuperPaintEngine(const QDesigner
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnPaintEngine(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +377,8 @@ bool QDesignerObjectInspectorInterface_SuperEvent(QDesignerObjectInspectorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Event_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +405,8 @@ void QDesignerObjectInspectorInterface_SuperMousePressEvent(QDesignerObjectInspe
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMousePressEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +433,8 @@ void QDesignerObjectInspectorInterface_SuperMouseReleaseEvent(QDesignerObjectIns
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMouseReleaseEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +461,8 @@ void QDesignerObjectInspectorInterface_SuperMouseDoubleClickEvent(QDesignerObjec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMouseDoubleClickEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +489,8 @@ void QDesignerObjectInspectorInterface_SuperMouseMoveEvent(QDesignerObjectInspec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMouseMoveEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +517,8 @@ void QDesignerObjectInspectorInterface_SuperWheelEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnWheelEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +545,8 @@ void QDesignerObjectInspectorInterface_SuperKeyPressEvent(QDesignerObjectInspect
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnKeyPressEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +573,8 @@ void QDesignerObjectInspectorInterface_SuperKeyReleaseEvent(QDesignerObjectInspe
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnKeyReleaseEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +601,8 @@ void QDesignerObjectInspectorInterface_SuperFocusInEvent(QDesignerObjectInspecto
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnFocusInEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +629,8 @@ void QDesignerObjectInspectorInterface_SuperFocusOutEvent(QDesignerObjectInspect
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnFocusOutEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +657,8 @@ void QDesignerObjectInspectorInterface_SuperEnterEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnEnterEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +685,8 @@ void QDesignerObjectInspectorInterface_SuperLeaveEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnLeaveEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +713,8 @@ void QDesignerObjectInspectorInterface_SuperPaintEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnPaintEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +741,8 @@ void QDesignerObjectInspectorInterface_SuperMoveEvent(QDesignerObjectInspectorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMoveEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +769,8 @@ void QDesignerObjectInspectorInterface_SuperResizeEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnResizeEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +797,8 @@ void QDesignerObjectInspectorInterface_SuperCloseEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnCloseEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +825,8 @@ void QDesignerObjectInspectorInterface_SuperContextMenuEvent(QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnContextMenuEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +853,8 @@ void QDesignerObjectInspectorInterface_SuperTabletEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnTabletEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +881,8 @@ void QDesignerObjectInspectorInterface_SuperActionEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnActionEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +909,8 @@ void QDesignerObjectInspectorInterface_SuperDragEnterEvent(QDesignerObjectInspec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDragEnterEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +937,8 @@ void QDesignerObjectInspectorInterface_SuperDragMoveEvent(QDesignerObjectInspect
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDragMoveEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +965,8 @@ void QDesignerObjectInspectorInterface_SuperDragLeaveEvent(QDesignerObjectInspec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDragLeaveEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +993,8 @@ void QDesignerObjectInspectorInterface_SuperDropEvent(QDesignerObjectInspectorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDropEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1021,8 @@ void QDesignerObjectInspectorInterface_SuperShowEvent(QDesignerObjectInspectorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnShowEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1049,8 @@ void QDesignerObjectInspectorInterface_SuperHideEvent(QDesignerObjectInspectorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnHideEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1079,8 @@ bool QDesignerObjectInspectorInterface_SuperNativeEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnNativeEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1107,8 @@ void QDesignerObjectInspectorInterface_SuperChangeEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnChangeEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1135,8 @@ int QDesignerObjectInspectorInterface_SuperMetric(const QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnMetric(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1163,8 @@ void QDesignerObjectInspectorInterface_SuperInitPainter(const QDesignerObjectIns
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnInitPainter(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1191,8 @@ QPaintDevice* QDesignerObjectInspectorInterface_SuperRedirected(const QDesignerO
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnRedirected(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1219,8 @@ QPainter* QDesignerObjectInspectorInterface_SuperSharedPainter(const QDesignerOb
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSharedPainter(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1247,8 @@ void QDesignerObjectInspectorInterface_SuperInputMethodEvent(QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnInputMethodEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1275,8 @@ QVariant* QDesignerObjectInspectorInterface_SuperInputMethodQuery(const QDesigne
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnInputMethodQuery(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1303,8 @@ bool QDesignerObjectInspectorInterface_SuperFocusNextPrevChild(QDesignerObjectIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnFocusNextPrevChild(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1331,8 @@ bool QDesignerObjectInspectorInterface_SuperEventFilter(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnEventFilter(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1359,8 @@ void QDesignerObjectInspectorInterface_SuperTimerEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnTimerEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1387,8 @@ void QDesignerObjectInspectorInterface_SuperChildEvent(QDesignerObjectInspectorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnChildEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1415,8 @@ void QDesignerObjectInspectorInterface_SuperCustomEvent(QDesignerObjectInspector
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnCustomEvent(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1443,8 @@ void QDesignerObjectInspectorInterface_SuperConnectNotify(QDesignerObjectInspect
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnConnectNotify(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1471,8 @@ void QDesignerObjectInspectorInterface_SuperDisconnectNotify(QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDisconnectNotify(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1499,8 @@ void QDesignerObjectInspectorInterface_SuperUpdateMicroFocus(QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnUpdateMicroFocus(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1527,8 @@ void QDesignerObjectInspectorInterface_SuperCreate(QDesignerObjectInspectorInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnCreate(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Create_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1555,8 @@ void QDesignerObjectInspectorInterface_SuperDestroy(QDesignerObjectInspectorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnDestroy(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1583,8 @@ bool QDesignerObjectInspectorInterface_SuperFocusNextChild(QDesignerObjectInspec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnFocusNextChild(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1611,8 @@ bool QDesignerObjectInspectorInterface_SuperFocusPreviousChild(QDesignerObjectIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnFocusPreviousChild(QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1639,8 @@ QObject* QDesignerObjectInspectorInterface_SuperSender(const QDesignerObjectInsp
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSender(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1667,8 @@ int QDesignerObjectInspectorInterface_SuperSenderSignalIndex(const QDesignerObje
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnSenderSignalIndex(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1695,8 @@ int QDesignerObjectInspectorInterface_SuperReceivers(const QDesignerObjectInspec
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnReceivers(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1723,8 @@ bool QDesignerObjectInspectorInterface_SuperIsSignalConnected(const QDesignerObj
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnIsSignalConnected(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1751,8 @@ double QDesignerObjectInspectorInterface_SuperGetDecodedMetricF(const QDesignerO
 // Auxiliary method to allow providing re-implementation
 void QDesignerObjectInspectorInterface_OnGetDecodedMetricF(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface)
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDesignerObjectInspectorInterface_Delete(QDesignerObjectInspectorInterface* self) {

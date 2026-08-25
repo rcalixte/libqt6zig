@@ -120,9 +120,8 @@ QMetaObject* KReplace_SuperMetaObject(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnMetaObject(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_MetaObject_Callback(reinterpret_cast<VirtualKReplace::KReplace_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +138,8 @@ void* KReplace_SuperMetacast(KReplace* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnMetacast(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_Metacast_Callback(reinterpret_cast<VirtualKReplace::KReplace_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +156,8 @@ int KReplace_SuperMetacall(KReplace* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnMetacall(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_Metacall_Callback(reinterpret_cast<VirtualKReplace::KReplace_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +174,8 @@ void KReplace_SuperResetCounts(KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnResetCounts(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ResetCounts_Callback(reinterpret_cast<VirtualKReplace::KReplace_ResetCounts_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +192,8 @@ bool KReplace_SuperShouldRestart(const KReplace* self, bool forceAsking, bool sh
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnShouldRestart(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ShouldRestart_Callback(reinterpret_cast<VirtualKReplace::KReplace_ShouldRestart_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +210,8 @@ void KReplace_SuperDisplayFinalDialog(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnDisplayFinalDialog(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_DisplayFinalDialog_Callback(reinterpret_cast<VirtualKReplace::KReplace_DisplayFinalDialog_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +238,8 @@ void KReplace_SuperSetOptions(KReplace* self, long options) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnSetOptions(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_SetOptions_Callback(reinterpret_cast<VirtualKReplace::KReplace_SetOptions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ bool KReplace_SuperValidateMatch(KReplace* self, const libqt_string text, int in
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnValidateMatch(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ValidateMatch_Callback(reinterpret_cast<VirtualKReplace::KReplace_ValidateMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ bool KReplace_SuperEvent(KReplace* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnEvent(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_Event_Callback(reinterpret_cast<VirtualKReplace::KReplace_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ bool KReplace_SuperEventFilter(KReplace* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnEventFilter(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_EventFilter_Callback(reinterpret_cast<VirtualKReplace::KReplace_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ void KReplace_SuperTimerEvent(KReplace* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnTimerEvent(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_TimerEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ void KReplace_SuperChildEvent(KReplace* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnChildEvent(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ChildEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ void KReplace_SuperCustomEvent(KReplace* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnCustomEvent(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_CustomEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ void KReplace_SuperConnectNotify(KReplace* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnConnectNotify(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ConnectNotify_Callback(reinterpret_cast<VirtualKReplace::KReplace_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ void KReplace_SuperDisconnectNotify(KReplace* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnDisconnectNotify(KReplace* self, intptr_t slot) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_DisconnectNotify_Callback(reinterpret_cast<VirtualKReplace::KReplace_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ QWidget* KReplace_SuperParentWidget(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnParentWidget(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_ParentWidget_Callback(reinterpret_cast<VirtualKReplace::KReplace_ParentWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ QWidget* KReplace_SuperDialogsParent(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnDialogsParent(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_DialogsParent_Callback(reinterpret_cast<VirtualKReplace::KReplace_DialogsParent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ QObject* KReplace_SuperSender(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnSender(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_Sender_Callback(reinterpret_cast<VirtualKReplace::KReplace_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ int KReplace_SuperSenderSignalIndex(const KReplace* self) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnSenderSignalIndex(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_SenderSignalIndex_Callback(reinterpret_cast<VirtualKReplace::KReplace_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ int KReplace_SuperReceivers(const KReplace* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnReceivers(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_Receivers_Callback(reinterpret_cast<VirtualKReplace::KReplace_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ bool KReplace_SuperIsSignalConnected(const KReplace* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnIsSignalConnected(const KReplace* self, intptr_t slot) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace && vkreplace->isVirtualKReplace)
         vkreplace->setKReplace_IsSignalConnected_Callback(reinterpret_cast<VirtualKReplace::KReplace_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KReplace_Delete(KReplace* self) {

@@ -143,9 +143,8 @@ QMetaObject* QAudioSink_SuperMetaObject(const QAudioSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnMetaObject(const QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_MetaObject_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +161,8 @@ void* QAudioSink_SuperMetacast(QAudioSink* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnMetacast(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_Metacast_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +179,8 @@ int QAudioSink_SuperMetacall(QAudioSink* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnMetacall(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_Metacall_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +207,8 @@ bool QAudioSink_SuperEvent(QAudioSink* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnEvent(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_Event_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +235,8 @@ bool QAudioSink_SuperEventFilter(QAudioSink* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnEventFilter(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_EventFilter_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +263,8 @@ void QAudioSink_SuperTimerEvent(QAudioSink* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnTimerEvent(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_TimerEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +291,8 @@ void QAudioSink_SuperChildEvent(QAudioSink* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnChildEvent(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_ChildEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +319,8 @@ void QAudioSink_SuperCustomEvent(QAudioSink* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnCustomEvent(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_CustomEvent_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +347,8 @@ void QAudioSink_SuperConnectNotify(QAudioSink* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnConnectNotify(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +375,8 @@ void QAudioSink_SuperDisconnectNotify(QAudioSink* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnDisconnectNotify(QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +403,8 @@ QObject* QAudioSink_SuperSender(const QAudioSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnSender(const QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_Sender_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +431,8 @@ int QAudioSink_SuperSenderSignalIndex(const QAudioSink* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnSenderSignalIndex(const QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +459,8 @@ int QAudioSink_SuperReceivers(const QAudioSink* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnReceivers(const QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_Receivers_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +487,8 @@ bool QAudioSink_SuperIsSignalConnected(const QAudioSink* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QAudioSink_OnIsSignalConnected(const QAudioSink* self, intptr_t slot) {
     auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink)
         vqaudiosink->setQAudioSink_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAudioSink_Delete(QAudioSink* self) {

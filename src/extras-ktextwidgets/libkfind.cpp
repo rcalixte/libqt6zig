@@ -215,9 +215,8 @@ QMetaObject* KFind_SuperMetaObject(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnMetaObject(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_MetaObject_Callback(reinterpret_cast<VirtualKFind::KFind_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +233,8 @@ void* KFind_SuperMetacast(KFind* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnMetacast(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_Metacast_Callback(reinterpret_cast<VirtualKFind::KFind_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +251,8 @@ int KFind_SuperMetacall(KFind* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnMetacall(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_Metacall_Callback(reinterpret_cast<VirtualKFind::KFind_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -272,9 +269,8 @@ void KFind_SuperSetOptions(KFind* self, long options) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnSetOptions(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_SetOptions_Callback(reinterpret_cast<VirtualKFind::KFind_SetOptions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +287,8 @@ void KFind_SuperResetCounts(KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnResetCounts(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ResetCounts_Callback(reinterpret_cast<VirtualKFind::KFind_ResetCounts_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +306,8 @@ bool KFind_SuperValidateMatch(KFind* self, const libqt_string text, int index, i
 // Auxiliary method to allow providing re-implementation
 void KFind_OnValidateMatch(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ValidateMatch_Callback(reinterpret_cast<VirtualKFind::KFind_ValidateMatch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +324,8 @@ bool KFind_SuperShouldRestart(const KFind* self, bool forceAsking, bool showNumM
 // Auxiliary method to allow providing re-implementation
 void KFind_OnShouldRestart(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ShouldRestart_Callback(reinterpret_cast<VirtualKFind::KFind_ShouldRestart_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +342,8 @@ void KFind_SuperDisplayFinalDialog(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnDisplayFinalDialog(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_DisplayFinalDialog_Callback(reinterpret_cast<VirtualKFind::KFind_DisplayFinalDialog_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +370,8 @@ bool KFind_SuperEvent(KFind* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnEvent(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_Event_Callback(reinterpret_cast<VirtualKFind::KFind_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +398,8 @@ bool KFind_SuperEventFilter(KFind* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnEventFilter(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_EventFilter_Callback(reinterpret_cast<VirtualKFind::KFind_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +426,8 @@ void KFind_SuperTimerEvent(KFind* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnTimerEvent(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_TimerEvent_Callback(reinterpret_cast<VirtualKFind::KFind_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +454,8 @@ void KFind_SuperChildEvent(KFind* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnChildEvent(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ChildEvent_Callback(reinterpret_cast<VirtualKFind::KFind_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +482,8 @@ void KFind_SuperCustomEvent(KFind* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnCustomEvent(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_CustomEvent_Callback(reinterpret_cast<VirtualKFind::KFind_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +510,8 @@ void KFind_SuperConnectNotify(KFind* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnConnectNotify(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ConnectNotify_Callback(reinterpret_cast<VirtualKFind::KFind_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +538,8 @@ void KFind_SuperDisconnectNotify(KFind* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnDisconnectNotify(KFind* self, intptr_t slot) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_DisconnectNotify_Callback(reinterpret_cast<VirtualKFind::KFind_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -581,9 +566,8 @@ QWidget* KFind_SuperParentWidget(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnParentWidget(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_ParentWidget_Callback(reinterpret_cast<VirtualKFind::KFind_ParentWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -610,9 +594,8 @@ QWidget* KFind_SuperDialogsParent(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnDialogsParent(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_DialogsParent_Callback(reinterpret_cast<VirtualKFind::KFind_DialogsParent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +622,8 @@ QObject* KFind_SuperSender(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnSender(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_Sender_Callback(reinterpret_cast<VirtualKFind::KFind_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +650,8 @@ int KFind_SuperSenderSignalIndex(const KFind* self) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnSenderSignalIndex(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFind::KFind_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +678,8 @@ int KFind_SuperReceivers(const KFind* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFind_OnReceivers(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_Receivers_Callback(reinterpret_cast<VirtualKFind::KFind_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +706,8 @@ bool KFind_SuperIsSignalConnected(const KFind* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnIsSignalConnected(const KFind* self, intptr_t slot) {
     auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind && vkfind->isVirtualKFind)
         vkfind->setKFind_IsSignalConnected_Callback(reinterpret_cast<VirtualKFind::KFind_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFind_Delete(KFind* self) {

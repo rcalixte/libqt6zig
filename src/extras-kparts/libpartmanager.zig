@@ -2773,12 +2773,12 @@ pub const KParts__PartManager = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#public-types)
 pub const enums = struct {
-    pub const SelectionPolicy = enum(i32) {
+    pub const SelectionPolicy = enum {
         pub const Direct: i32 = 0;
         pub const TriState: i32 = 1;
     };
 
-    pub const Reason = enum(i32) {
+    pub const Reason = enum {
         pub const ReasonLeftClick: i32 = 100;
         pub const ReasonMidClick: i32 = 101;
         pub const ReasonRightClick: i32 = 102;

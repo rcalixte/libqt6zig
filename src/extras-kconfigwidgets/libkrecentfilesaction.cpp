@@ -150,9 +150,8 @@ QMetaObject* KRecentFilesAction_SuperMetaObject(const KRecentFilesAction* self) 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnMetaObject(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +168,8 @@ void* KRecentFilesAction_SuperMetacast(KRecentFilesAction* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnMetacast(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +186,8 @@ int KRecentFilesAction_SuperMetacall(KRecentFilesAction* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnMetacall(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +204,8 @@ QAction* KRecentFilesAction_SuperRemoveAction(KRecentFilesAction* self, QAction*
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnRemoveAction(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_RemoveAction_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_RemoveAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +222,8 @@ void KRecentFilesAction_SuperClear(KRecentFilesAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnClear(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Clear_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +250,8 @@ void KRecentFilesAction_SuperInsertAction(KRecentFilesAction* self, QAction* bef
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnInsertAction(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_InsertAction_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_InsertAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +278,8 @@ void KRecentFilesAction_SuperSlotActionTriggered(KRecentFilesAction* self, QActi
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnSlotActionTriggered(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +306,8 @@ QWidget* KRecentFilesAction_SuperCreateWidget(KRecentFilesAction* self, QWidget*
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnCreateWidget(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_CreateWidget_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +334,8 @@ void KRecentFilesAction_SuperDeleteWidget(KRecentFilesAction* self, QWidget* wid
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnDeleteWidget(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_DeleteWidget_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +362,8 @@ bool KRecentFilesAction_SuperEvent(KRecentFilesAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnEvent(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Event_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +390,8 @@ bool KRecentFilesAction_SuperEventFilter(KRecentFilesAction* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnEventFilter(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_EventFilter_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +418,8 @@ void KRecentFilesAction_SuperTimerEvent(KRecentFilesAction* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnTimerEvent(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_TimerEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +446,8 @@ void KRecentFilesAction_SuperChildEvent(KRecentFilesAction* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnChildEvent(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_ChildEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +474,8 @@ void KRecentFilesAction_SuperCustomEvent(KRecentFilesAction* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnCustomEvent(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_CustomEvent_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +502,8 @@ void KRecentFilesAction_SuperConnectNotify(KRecentFilesAction* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnConnectNotify(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_ConnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +530,8 @@ void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnDisconnectNotify(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +558,8 @@ void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1) 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnSlotToggled(KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_SlotToggled_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +622,8 @@ libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecen
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnCreatedWidgets(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +650,8 @@ QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnSender(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Sender_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +678,8 @@ int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnSenderSignalIndex(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +706,8 @@ int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnReceivers(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_Receivers_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +734,8 @@ bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, c
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesAction_OnIsSignalConnected(const KRecentFilesAction* self, intptr_t slot) {
     auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction)
         vkrecentfilesaction->setKRecentFilesAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KRecentFilesAction_Delete(KRecentFilesAction* self) {

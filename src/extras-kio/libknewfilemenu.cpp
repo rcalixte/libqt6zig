@@ -241,9 +241,8 @@ QMetaObject* KNewFileMenu_SuperMetaObject(const KNewFileMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_MetaObject_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +259,8 @@ void* KNewFileMenu_SuperMetacast(KNewFileMenu* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_Metacast_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +277,8 @@ int KNewFileMenu_SuperMetacall(KNewFileMenu* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnMetacall(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_Metacall_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +295,8 @@ void KNewFileMenu_SuperSlotResult(KNewFileMenu* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnSlotResult(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_SlotResult_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_SlotResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +323,8 @@ QWidget* KNewFileMenu_SuperCreateWidget(KNewFileMenu* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnCreateWidget(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_CreateWidget_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +351,8 @@ bool KNewFileMenu_SuperEvent(KNewFileMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnEvent(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_Event_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +379,8 @@ bool KNewFileMenu_SuperEventFilter(KNewFileMenu* self, QObject* param1, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnEventFilter(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_EventFilter_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +407,8 @@ void KNewFileMenu_SuperDeleteWidget(KNewFileMenu* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnDeleteWidget(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_DeleteWidget_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +435,8 @@ void KNewFileMenu_SuperTimerEvent(KNewFileMenu* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnTimerEvent(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_TimerEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +463,8 @@ void KNewFileMenu_SuperChildEvent(KNewFileMenu* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnChildEvent(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_ChildEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +491,8 @@ void KNewFileMenu_SuperCustomEvent(KNewFileMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnCustomEvent(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_CustomEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +519,8 @@ void KNewFileMenu_SuperConnectNotify(KNewFileMenu* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnConnectNotify(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +547,8 @@ void KNewFileMenu_SuperDisconnectNotify(KNewFileMenu* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnDisconnectNotify(KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +611,8 @@ libqt_list /* of QWidget* */ KNewFileMenu_SuperCreatedWidgets(const KNewFileMenu
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnCreatedWidgets(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_CreatedWidgets_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +639,8 @@ QObject* KNewFileMenu_SuperSender(const KNewFileMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnSender(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_Sender_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +667,8 @@ int KNewFileMenu_SuperSenderSignalIndex(const KNewFileMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnSenderSignalIndex(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +695,8 @@ int KNewFileMenu_SuperReceivers(const KNewFileMenu* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnReceivers(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_Receivers_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +723,8 @@ bool KNewFileMenu_SuperIsSignalConnected(const KNewFileMenu* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnIsSignalConnected(const KNewFileMenu* self, intptr_t slot) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
         vknewfilemenu->setKNewFileMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNewFileMenu_Delete(KNewFileMenu* self) {

@@ -61,9 +61,8 @@ bool KMessageBoxDontAskAgainInterface_SuperShouldBeShownTwoActions(KMessageBoxDo
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -81,9 +80,8 @@ bool KMessageBoxDontAskAgainInterface_SuperShouldBeShownContinue(KMessageBoxDont
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_ShouldBeShownContinue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -101,9 +99,8 @@ void KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainTwoActions(KMessageB
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +118,8 @@ void KMessageBoxDontAskAgainInterface_SuperSaveDontShowAgainContinue(KMessageBox
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +136,8 @@ void KMessageBoxDontAskAgainInterface_SuperEnableAllMessages(KMessageBoxDontAskA
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnEnableAllMessages(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_EnableAllMessages_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_EnableAllMessages_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +155,8 @@ void KMessageBoxDontAskAgainInterface_SuperEnableMessage(KMessageBoxDontAskAgain
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnEnableMessage(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_EnableMessage_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_EnableMessage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -179,9 +173,8 @@ void KMessageBoxDontAskAgainInterface_SuperSetConfig(KMessageBoxDontAskAgainInte
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnSetConfig(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self);
-    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface) {
+    if (vkmessageboxdontaskagaininterface && vkmessageboxdontaskagaininterface->isVirtualKMessageBoxDontAskAgainInterface)
         vkmessageboxdontaskagaininterface->setKMessageBoxDontAskAgainInterface_SetConfig_Callback(reinterpret_cast<VirtualKMessageBoxDontAskAgainInterface::KMessageBoxDontAskAgainInterface_SetConfig_Callback>(slot));
-    }
 }
 
 void KMessageBoxDontAskAgainInterface_Delete(KMessageBoxDontAskAgainInterface* self) {

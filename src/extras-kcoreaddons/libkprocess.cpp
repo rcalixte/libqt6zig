@@ -254,9 +254,8 @@ QMetaObject* KProcess_SuperMetaObject(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnMetaObject(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_MetaObject_Callback(reinterpret_cast<VirtualKProcess::KProcess_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +272,8 @@ void* KProcess_SuperMetacast(KProcess* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnMetacast(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Metacast_Callback(reinterpret_cast<VirtualKProcess::KProcess_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +290,8 @@ int KProcess_SuperMetacall(KProcess* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnMetacall(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Metacall_Callback(reinterpret_cast<VirtualKProcess::KProcess_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +318,8 @@ bool KProcess_SuperOpen(KProcess* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnOpen(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Open_Callback(reinterpret_cast<VirtualKProcess::KProcess_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +346,8 @@ bool KProcess_SuperWaitForReadyRead(KProcess* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnWaitForReadyRead(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_WaitForReadyRead_Callback(reinterpret_cast<VirtualKProcess::KProcess_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +374,8 @@ bool KProcess_SuperWaitForBytesWritten(KProcess* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnWaitForBytesWritten(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_WaitForBytesWritten_Callback(reinterpret_cast<VirtualKProcess::KProcess_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +402,8 @@ long long KProcess_SuperBytesToWrite(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnBytesToWrite(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_BytesToWrite_Callback(reinterpret_cast<VirtualKProcess::KProcess_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +430,8 @@ bool KProcess_SuperIsSequential(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnIsSequential(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_IsSequential_Callback(reinterpret_cast<VirtualKProcess::KProcess_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +458,8 @@ void KProcess_SuperClose(KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnClose(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Close_Callback(reinterpret_cast<VirtualKProcess::KProcess_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +486,8 @@ long long KProcess_SuperReadData(KProcess* self, char* data, long long maxlen) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnReadData(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_ReadData_Callback(reinterpret_cast<VirtualKProcess::KProcess_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +514,8 @@ long long KProcess_SuperWriteData(KProcess* self, const char* data, long long le
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnWriteData(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_WriteData_Callback(reinterpret_cast<VirtualKProcess::KProcess_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +542,8 @@ long long KProcess_SuperPos(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnPos(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Pos_Callback(reinterpret_cast<VirtualKProcess::KProcess_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +570,8 @@ long long KProcess_SuperSize(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSize(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Size_Callback(reinterpret_cast<VirtualKProcess::KProcess_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +598,8 @@ bool KProcess_SuperSeek(KProcess* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSeek(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Seek_Callback(reinterpret_cast<VirtualKProcess::KProcess_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +626,8 @@ bool KProcess_SuperAtEnd(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnAtEnd(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_AtEnd_Callback(reinterpret_cast<VirtualKProcess::KProcess_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +654,8 @@ bool KProcess_SuperReset(KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnReset(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Reset_Callback(reinterpret_cast<VirtualKProcess::KProcess_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +682,8 @@ long long KProcess_SuperBytesAvailable(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnBytesAvailable(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_BytesAvailable_Callback(reinterpret_cast<VirtualKProcess::KProcess_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +710,8 @@ bool KProcess_SuperCanReadLine(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnCanReadLine(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_CanReadLine_Callback(reinterpret_cast<VirtualKProcess::KProcess_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +738,8 @@ long long KProcess_SuperReadLineData(KProcess* self, char* data, long long maxle
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnReadLineData(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_ReadLineData_Callback(reinterpret_cast<VirtualKProcess::KProcess_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +766,8 @@ long long KProcess_SuperSkipData(KProcess* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSkipData(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_SkipData_Callback(reinterpret_cast<VirtualKProcess::KProcess_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +794,8 @@ bool KProcess_SuperEvent(KProcess* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnEvent(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Event_Callback(reinterpret_cast<VirtualKProcess::KProcess_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +822,8 @@ bool KProcess_SuperEventFilter(KProcess* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnEventFilter(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_EventFilter_Callback(reinterpret_cast<VirtualKProcess::KProcess_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +850,8 @@ void KProcess_SuperTimerEvent(KProcess* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnTimerEvent(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_TimerEvent_Callback(reinterpret_cast<VirtualKProcess::KProcess_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +878,8 @@ void KProcess_SuperChildEvent(KProcess* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnChildEvent(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_ChildEvent_Callback(reinterpret_cast<VirtualKProcess::KProcess_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +906,8 @@ void KProcess_SuperCustomEvent(KProcess* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnCustomEvent(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_CustomEvent_Callback(reinterpret_cast<VirtualKProcess::KProcess_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +934,8 @@ void KProcess_SuperConnectNotify(KProcess* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnConnectNotify(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_ConnectNotify_Callback(reinterpret_cast<VirtualKProcess::KProcess_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +962,8 @@ void KProcess_SuperDisconnectNotify(KProcess* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnDisconnectNotify(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_DisconnectNotify_Callback(reinterpret_cast<VirtualKProcess::KProcess_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +990,8 @@ void KProcess_SuperSetProcessState(KProcess* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSetProcessState(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_SetProcessState_Callback(reinterpret_cast<VirtualKProcess::KProcess_SetProcessState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1018,8 @@ void KProcess_SuperSetOpenMode(KProcess* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSetOpenMode(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_SetOpenMode_Callback(reinterpret_cast<VirtualKProcess::KProcess_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1048,8 @@ void KProcess_SuperSetErrorString(KProcess* self, const libqt_string errorString
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSetErrorString(KProcess* self, intptr_t slot) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_SetErrorString_Callback(reinterpret_cast<VirtualKProcess::KProcess_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1076,8 @@ QObject* KProcess_SuperSender(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSender(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Sender_Callback(reinterpret_cast<VirtualKProcess::KProcess_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1104,8 @@ int KProcess_SuperSenderSignalIndex(const KProcess* self) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnSenderSignalIndex(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_SenderSignalIndex_Callback(reinterpret_cast<VirtualKProcess::KProcess_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1132,8 @@ int KProcess_SuperReceivers(const KProcess* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnReceivers(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_Receivers_Callback(reinterpret_cast<VirtualKProcess::KProcess_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1160,8 @@ bool KProcess_SuperIsSignalConnected(const KProcess* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KProcess_OnIsSignalConnected(const KProcess* self, intptr_t slot) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
-    if (vkprocess && vkprocess->isVirtualKProcess) {
+    if (vkprocess && vkprocess->isVirtualKProcess)
         vkprocess->setKProcess_IsSignalConnected_Callback(reinterpret_cast<VirtualKProcess::KProcess_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KProcess_Delete(KProcess* self) {

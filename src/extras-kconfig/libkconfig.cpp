@@ -332,9 +332,8 @@ bool KConfig_SuperSync(KConfig* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnSync(KConfig* self, intptr_t slot) {
     auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_Sync_Callback(reinterpret_cast<VirtualKConfig::KConfig_Sync_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -351,9 +350,8 @@ void KConfig_SuperMarkAsClean(KConfig* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnMarkAsClean(KConfig* self, intptr_t slot) {
     auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_MarkAsClean_Callback(reinterpret_cast<VirtualKConfig::KConfig_MarkAsClean_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -370,9 +368,8 @@ int KConfig_SuperAccessMode(const KConfig* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnAccessMode(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_AccessMode_Callback(reinterpret_cast<VirtualKConfig::KConfig_AccessMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -389,9 +386,8 @@ bool KConfig_SuperIsImmutable(const KConfig* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnIsImmutable(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_IsImmutable_Callback(reinterpret_cast<VirtualKConfig::KConfig_IsImmutable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -442,9 +438,8 @@ libqt_list /* of libqt_string */ KConfig_SuperGroupList(const KConfig* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnGroupList(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_GroupList_Callback(reinterpret_cast<VirtualKConfig::KConfig_GroupList_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +457,8 @@ bool KConfig_SuperHasGroupImpl(const KConfig* self, const libqt_string groupName
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnHasGroupImpl(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_HasGroupImpl_Callback(reinterpret_cast<VirtualKConfig::KConfig_HasGroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -481,9 +475,8 @@ KConfigGroup* KConfig_SuperGroupImpl(KConfig* self, const libqt_string groupName
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnGroupImpl(KConfig* self, intptr_t slot) {
     auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_GroupImpl_Callback(reinterpret_cast<VirtualKConfig::KConfig_GroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -500,9 +493,8 @@ KConfigGroup* KConfig_SuperGroupImpl2(const KConfig* self, const libqt_string gr
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnGroupImpl2(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_GroupImpl2_Callback(reinterpret_cast<VirtualKConfig::KConfig_GroupImpl2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +512,8 @@ void KConfig_SuperDeleteGroupImpl(KConfig* self, const libqt_string groupName, i
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnDeleteGroupImpl(KConfig* self, intptr_t slot) {
     auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKConfig::KConfig_DeleteGroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -540,9 +531,8 @@ bool KConfig_SuperIsGroupImmutableImpl(const KConfig* self, const libqt_string g
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnIsGroupImmutableImpl(const KConfig* self, intptr_t slot) {
     auto* vkconfig = const_cast<VirtualKConfig*>(dynamic_cast<const VirtualKConfig*>(self));
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKConfig::KConfig_IsGroupImmutableImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -559,9 +549,8 @@ void KConfig_SuperVirtualHook(KConfig* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KConfig_OnVirtualHook(KConfig* self, intptr_t slot) {
     auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
+    if (vkconfig && vkconfig->isVirtualKConfig)
         vkconfig->setKConfig_VirtualHook_Callback(reinterpret_cast<VirtualKConfig::KConfig_VirtualHook_Callback>(slot));
-    }
 }
 
 void KConfig_Delete(KConfig* self) {

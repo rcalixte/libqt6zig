@@ -1128,7 +1128,7 @@ pub const QTermWidgetInterface = extern struct {
 
 /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const enums = struct {
-    pub const ScrollBarPosition = enum(i32) {
+    pub const ScrollBarPosition = enum {
         pub const NoScrollBar: i32 = 0;
         pub const ScrollBarLeft: i32 = 1;
         pub const ScrollBarRight: i32 = 2;

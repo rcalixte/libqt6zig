@@ -153,9 +153,8 @@ QMetaObject* QAbstractItemDelegate_SuperMetaObject(const QAbstractItemDelegate* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnMetaObject(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +171,8 @@ void* QAbstractItemDelegate_SuperMetacast(QAbstractItemDelegate* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnMetacast(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +189,8 @@ int QAbstractItemDelegate_SuperMetacall(QAbstractItemDelegate* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnMetacall(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Metacall_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -210,9 +207,8 @@ void QAbstractItemDelegate_SuperPaint(const QAbstractItemDelegate* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnPaint(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Paint_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +225,8 @@ QSize* QAbstractItemDelegate_SuperSizeHint(const QAbstractItemDelegate* self, co
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnSizeHint(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +243,8 @@ QWidget* QAbstractItemDelegate_SuperCreateEditor(const QAbstractItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnCreateEditor(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_CreateEditor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +261,8 @@ void QAbstractItemDelegate_SuperDestroyEditor(const QAbstractItemDelegate* self,
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnDestroyEditor(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_DestroyEditor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +279,8 @@ void QAbstractItemDelegate_SuperSetEditorData(const QAbstractItemDelegate* self,
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnSetEditorData(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_SetEditorData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -305,9 +297,8 @@ void QAbstractItemDelegate_SuperSetModelData(const QAbstractItemDelegate* self, 
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnSetModelData(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_SetModelData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +315,8 @@ void QAbstractItemDelegate_SuperUpdateEditorGeometry(const QAbstractItemDelegate
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnUpdateEditorGeometry(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +333,8 @@ bool QAbstractItemDelegate_SuperEditorEvent(QAbstractItemDelegate* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnEditorEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -362,9 +351,8 @@ bool QAbstractItemDelegate_SuperHelpEvent(QAbstractItemDelegate* self, QHelpEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnHelpEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_HelpEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -399,9 +387,8 @@ libqt_list /* of int */ QAbstractItemDelegate_SuperPaintingRoles(const QAbstract
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnPaintingRoles(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_PaintingRoles_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ bool QAbstractItemDelegate_SuperEvent(QAbstractItemDelegate* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Event_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +443,8 @@ bool QAbstractItemDelegate_SuperEventFilter(QAbstractItemDelegate* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnEventFilter(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +471,8 @@ void QAbstractItemDelegate_SuperTimerEvent(QAbstractItemDelegate* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnTimerEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +499,8 @@ void QAbstractItemDelegate_SuperChildEvent(QAbstractItemDelegate* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnChildEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +527,8 @@ void QAbstractItemDelegate_SuperCustomEvent(QAbstractItemDelegate* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnCustomEvent(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +555,8 @@ void QAbstractItemDelegate_SuperConnectNotify(QAbstractItemDelegate* self, const
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnConnectNotify(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +583,8 @@ void QAbstractItemDelegate_SuperDisconnectNotify(QAbstractItemDelegate* self, co
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnDisconnectNotify(QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +611,8 @@ QObject* QAbstractItemDelegate_SuperSender(const QAbstractItemDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnSender(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Sender_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +639,8 @@ int QAbstractItemDelegate_SuperSenderSignalIndex(const QAbstractItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnSenderSignalIndex(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +667,8 @@ int QAbstractItemDelegate_SuperReceivers(const QAbstractItemDelegate* self, cons
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnReceivers(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_Receivers_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +695,8 @@ bool QAbstractItemDelegate_SuperIsSignalConnected(const QAbstractItemDelegate* s
 // Auxiliary method to allow providing re-implementation
 void QAbstractItemDelegate_OnIsSignalConnected(const QAbstractItemDelegate* self, intptr_t slot) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate)
         vqabstractitemdelegate->setQAbstractItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAbstractItemDelegate_Delete(QAbstractItemDelegate* self) {

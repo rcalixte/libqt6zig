@@ -102,9 +102,8 @@ QMetaObject* QSaveFile_SuperMetaObject(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnMetaObject(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_MetaObject_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +120,8 @@ void* QSaveFile_SuperMetacast(QSaveFile* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnMetacast(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Metacast_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ int QSaveFile_SuperMetacall(QSaveFile* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnMetacall(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Metacall_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +172,8 @@ libqt_string QSaveFile_SuperFileName(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnFileName(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_FileName_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_FileName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +190,8 @@ bool QSaveFile_SuperOpen(QSaveFile* self, int flags) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnOpen(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Open_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +208,8 @@ long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long 
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnWriteData(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_WriteData_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +236,8 @@ bool QSaveFile_SuperIsSequential(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnIsSequential(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_IsSequential_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +264,8 @@ long long QSaveFile_SuperPos(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnPos(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Pos_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +292,8 @@ bool QSaveFile_SuperSeek(QSaveFile* self, long long offset) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSeek(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Seek_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +320,8 @@ bool QSaveFile_SuperAtEnd(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnAtEnd(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_AtEnd_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +348,8 @@ long long QSaveFile_SuperSize(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSize(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Size_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +376,8 @@ bool QSaveFile_SuperResize(QSaveFile* self, long long sz) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnResize(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Resize_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Resize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +404,8 @@ int QSaveFile_SuperPermissions(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnPermissions(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Permissions_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Permissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +432,8 @@ bool QSaveFile_SuperSetPermissions(QSaveFile* self, int permissionSpec) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSetPermissions(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_SetPermissions_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_SetPermissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +460,8 @@ long long QSaveFile_SuperReadData(QSaveFile* self, char* data, long long maxlen)
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnReadData(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_ReadData_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +488,8 @@ long long QSaveFile_SuperReadLineData(QSaveFile* self, char* data, long long max
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnReadLineData(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_ReadLineData_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +516,8 @@ bool QSaveFile_SuperReset(QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnReset(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Reset_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +544,8 @@ long long QSaveFile_SuperBytesAvailable(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnBytesAvailable(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_BytesAvailable_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +572,8 @@ long long QSaveFile_SuperBytesToWrite(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnBytesToWrite(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_BytesToWrite_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +600,8 @@ bool QSaveFile_SuperCanReadLine(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnCanReadLine(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_CanReadLine_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +628,8 @@ bool QSaveFile_SuperWaitForReadyRead(QSaveFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnWaitForReadyRead(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +656,8 @@ bool QSaveFile_SuperWaitForBytesWritten(QSaveFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnWaitForBytesWritten(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +684,8 @@ long long QSaveFile_SuperSkipData(QSaveFile* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSkipData(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_SkipData_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +712,8 @@ bool QSaveFile_SuperEvent(QSaveFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnEvent(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Event_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +740,8 @@ bool QSaveFile_SuperEventFilter(QSaveFile* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnEventFilter(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_EventFilter_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +768,8 @@ void QSaveFile_SuperTimerEvent(QSaveFile* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnTimerEvent(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_TimerEvent_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +796,8 @@ void QSaveFile_SuperChildEvent(QSaveFile* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnChildEvent(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_ChildEvent_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +824,8 @@ void QSaveFile_SuperCustomEvent(QSaveFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnCustomEvent(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_CustomEvent_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +852,8 @@ void QSaveFile_SuperConnectNotify(QSaveFile* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnConnectNotify(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_ConnectNotify_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +880,8 @@ void QSaveFile_SuperDisconnectNotify(QSaveFile* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnDisconnectNotify(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_DisconnectNotify_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +908,8 @@ void QSaveFile_SuperSetOpenMode(QSaveFile* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSetOpenMode(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_SetOpenMode_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +938,8 @@ void QSaveFile_SuperSetErrorString(QSaveFile* self, const libqt_string errorStri
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSetErrorString(QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_SetErrorString_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +966,8 @@ QObject* QSaveFile_SuperSender(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSender(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Sender_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +994,8 @@ int QSaveFile_SuperSenderSignalIndex(const QSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnSenderSignalIndex(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1022,8 @@ int QSaveFile_SuperReceivers(const QSaveFile* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnReceivers(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_Receivers_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1050,8 @@ bool QSaveFile_SuperIsSignalConnected(const QSaveFile* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QSaveFile_OnIsSignalConnected(const QSaveFile* self, intptr_t slot) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile)
         vqsavefile->setQSaveFile_IsSignalConnected_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSaveFile_Delete(QSaveFile* self) {

@@ -116,9 +116,8 @@ QMetaObject* KPixmapRegionSelectorDialog_SuperMetaObject(const KPixmapRegionSele
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetaObject(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +134,8 @@ void* KPixmapRegionSelectorDialog_SuperMetacast(KPixmapRegionSelectorDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetacast(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ int KPixmapRegionSelectorDialog_SuperMetacall(KPixmapRegionSelectorDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetacall(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -183,9 +180,8 @@ void KPixmapRegionSelectorDialog_SuperSetVisible(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSetVisible(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SetVisible_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +208,8 @@ QSize* KPixmapRegionSelectorDialog_SuperSizeHint(const KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSizeHint(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SizeHint_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +236,8 @@ QSize* KPixmapRegionSelectorDialog_SuperMinimumSizeHint(const KPixmapRegionSelec
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMinimumSizeHint(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +264,8 @@ void KPixmapRegionSelectorDialog_SuperOpen(KPixmapRegionSelectorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnOpen(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Open_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +292,8 @@ int KPixmapRegionSelectorDialog_SuperExec(KPixmapRegionSelectorDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnExec(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Exec_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +320,8 @@ void KPixmapRegionSelectorDialog_SuperDone(KPixmapRegionSelectorDialog* self, in
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDone(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Done_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +348,8 @@ void KPixmapRegionSelectorDialog_SuperAccept(KPixmapRegionSelectorDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnAccept(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Accept_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +376,8 @@ void KPixmapRegionSelectorDialog_SuperReject(KPixmapRegionSelectorDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnReject(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Reject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +404,8 @@ void KPixmapRegionSelectorDialog_SuperKeyPressEvent(KPixmapRegionSelectorDialog*
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnKeyPressEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +432,8 @@ void KPixmapRegionSelectorDialog_SuperCloseEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnCloseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CloseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +460,8 @@ void KPixmapRegionSelectorDialog_SuperShowEvent(KPixmapRegionSelectorDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnShowEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ShowEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +488,8 @@ void KPixmapRegionSelectorDialog_SuperResizeEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnResizeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +516,8 @@ void KPixmapRegionSelectorDialog_SuperContextMenuEvent(KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnContextMenuEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +544,8 @@ bool KPixmapRegionSelectorDialog_SuperEventFilter(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEventFilter(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EventFilter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +572,8 @@ int KPixmapRegionSelectorDialog_SuperDevType(const KPixmapRegionSelectorDialog* 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDevType(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DevType_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +600,8 @@ int KPixmapRegionSelectorDialog_SuperHeightForWidth(const KPixmapRegionSelectorD
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnHeightForWidth(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +628,8 @@ bool KPixmapRegionSelectorDialog_SuperHasHeightForWidth(const KPixmapRegionSelec
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnHasHeightForWidth(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +656,8 @@ QPaintEngine* KPixmapRegionSelectorDialog_SuperPaintEngine(const KPixmapRegionSe
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnPaintEngine(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEngine_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +684,8 @@ bool KPixmapRegionSelectorDialog_SuperEvent(KPixmapRegionSelectorDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Event_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +712,8 @@ void KPixmapRegionSelectorDialog_SuperMousePressEvent(KPixmapRegionSelectorDialo
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMousePressEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +740,8 @@ void KPixmapRegionSelectorDialog_SuperMouseReleaseEvent(KPixmapRegionSelectorDia
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseReleaseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +768,8 @@ void KPixmapRegionSelectorDialog_SuperMouseDoubleClickEvent(KPixmapRegionSelecto
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +796,8 @@ void KPixmapRegionSelectorDialog_SuperMouseMoveEvent(KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +824,8 @@ void KPixmapRegionSelectorDialog_SuperWheelEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnWheelEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_WheelEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +852,8 @@ void KPixmapRegionSelectorDialog_SuperKeyReleaseEvent(KPixmapRegionSelectorDialo
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnKeyReleaseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +880,8 @@ void KPixmapRegionSelectorDialog_SuperFocusInEvent(KPixmapRegionSelectorDialog* 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusInEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +908,8 @@ void KPixmapRegionSelectorDialog_SuperFocusOutEvent(KPixmapRegionSelectorDialog*
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusOutEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +936,8 @@ void KPixmapRegionSelectorDialog_SuperEnterEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEnterEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EnterEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +964,8 @@ void KPixmapRegionSelectorDialog_SuperLeaveEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnLeaveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +992,8 @@ void KPixmapRegionSelectorDialog_SuperPaintEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnPaintEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1053,9 +1020,8 @@ void KPixmapRegionSelectorDialog_SuperMoveEvent(KPixmapRegionSelectorDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1082,9 +1048,8 @@ void KPixmapRegionSelectorDialog_SuperTabletEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnTabletEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TabletEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1076,8 @@ void KPixmapRegionSelectorDialog_SuperActionEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnActionEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ActionEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1140,9 +1104,8 @@ void KPixmapRegionSelectorDialog_SuperDragEnterEvent(KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragEnterEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1169,9 +1132,8 @@ void KPixmapRegionSelectorDialog_SuperDragMoveEvent(KPixmapRegionSelectorDialog*
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1198,9 +1160,8 @@ void KPixmapRegionSelectorDialog_SuperDragLeaveEvent(KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragLeaveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1227,9 +1188,8 @@ void KPixmapRegionSelectorDialog_SuperDropEvent(KPixmapRegionSelectorDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDropEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DropEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1256,9 +1216,8 @@ void KPixmapRegionSelectorDialog_SuperHideEvent(KPixmapRegionSelectorDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnHideEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HideEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1287,9 +1246,8 @@ bool KPixmapRegionSelectorDialog_SuperNativeEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnNativeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_NativeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1274,8 @@ void KPixmapRegionSelectorDialog_SuperChangeEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnChangeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1302,8 @@ int KPixmapRegionSelectorDialog_SuperMetric(const KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetric(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metric_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1330,8 @@ void KPixmapRegionSelectorDialog_SuperInitPainter(const KPixmapRegionSelectorDia
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnInitPainter(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InitPainter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1358,8 @@ QPaintDevice* KPixmapRegionSelectorDialog_SuperRedirected(const KPixmapRegionSel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnRedirected(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Redirected_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1386,8 @@ QPainter* KPixmapRegionSelectorDialog_SuperSharedPainter(const KPixmapRegionSele
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSharedPainter(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SharedPainter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1414,8 @@ void KPixmapRegionSelectorDialog_SuperInputMethodEvent(KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnInputMethodEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1442,8 @@ QVariant* KPixmapRegionSelectorDialog_SuperInputMethodQuery(const KPixmapRegionS
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnInputMethodQuery(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1470,8 @@ bool KPixmapRegionSelectorDialog_SuperFocusNextPrevChild(KPixmapRegionSelectorDi
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusNextPrevChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1498,8 @@ void KPixmapRegionSelectorDialog_SuperTimerEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnTimerEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1577,9 +1526,8 @@ void KPixmapRegionSelectorDialog_SuperChildEvent(KPixmapRegionSelectorDialog* se
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnChildEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1554,8 @@ void KPixmapRegionSelectorDialog_SuperCustomEvent(KPixmapRegionSelectorDialog* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnCustomEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1582,8 @@ void KPixmapRegionSelectorDialog_SuperConnectNotify(KPixmapRegionSelectorDialog*
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnConnectNotify(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1610,8 @@ void KPixmapRegionSelectorDialog_SuperDisconnectNotify(KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDisconnectNotify(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1693,9 +1638,8 @@ void KPixmapRegionSelectorDialog_SuperAdjustPosition(KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnAdjustPosition(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1722,9 +1666,8 @@ void KPixmapRegionSelectorDialog_SuperUpdateMicroFocus(KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnUpdateMicroFocus(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1751,9 +1694,8 @@ void KPixmapRegionSelectorDialog_SuperCreate(KPixmapRegionSelectorDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnCreate(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Create_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1780,9 +1722,8 @@ void KPixmapRegionSelectorDialog_SuperDestroy(KPixmapRegionSelectorDialog* self)
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDestroy(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Destroy_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1809,9 +1750,8 @@ bool KPixmapRegionSelectorDialog_SuperFocusNextChild(KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusNextChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1838,9 +1778,8 @@ bool KPixmapRegionSelectorDialog_SuperFocusPreviousChild(KPixmapRegionSelectorDi
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusPreviousChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1867,9 +1806,8 @@ QObject* KPixmapRegionSelectorDialog_SuperSender(const KPixmapRegionSelectorDial
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSender(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Sender_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1896,9 +1834,8 @@ int KPixmapRegionSelectorDialog_SuperSenderSignalIndex(const KPixmapRegionSelect
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSenderSignalIndex(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1925,9 +1862,8 @@ int KPixmapRegionSelectorDialog_SuperReceivers(const KPixmapRegionSelectorDialog
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnReceivers(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Receivers_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1954,9 +1890,8 @@ bool KPixmapRegionSelectorDialog_SuperIsSignalConnected(const KPixmapRegionSelec
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnIsSignalConnected(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1983,9 +1918,8 @@ double KPixmapRegionSelectorDialog_SuperGetDecodedMetricF(const KPixmapRegionSel
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnGetDecodedMetricF(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
         vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPixmapRegionSelectorDialog_Delete(KPixmapRegionSelectorDialog* self) {

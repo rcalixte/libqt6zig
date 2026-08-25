@@ -342,9 +342,8 @@ QMetaObject* QTextBrowser_SuperMetaObject(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMetaObject(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MetaObject_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -361,9 +360,8 @@ void* QTextBrowser_SuperMetacast(QTextBrowser* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMetacast(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Metacast_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -380,9 +378,8 @@ int QTextBrowser_SuperMetacall(QTextBrowser* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMetacall(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Metacall_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -399,9 +396,8 @@ QVariant* QTextBrowser_SuperLoadResource(QTextBrowser* self, int typeVal, const 
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnLoadResource(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_LoadResource_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_LoadResource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -418,9 +414,8 @@ void QTextBrowser_SuperBackward(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnBackward(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Backward_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Backward_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -437,9 +432,8 @@ void QTextBrowser_SuperForward(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnForward(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Forward_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Forward_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -456,9 +450,8 @@ void QTextBrowser_SuperHome(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnHome(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Home_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Home_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -475,9 +468,8 @@ void QTextBrowser_SuperReload(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnReload(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Reload_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Reload_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -494,9 +486,8 @@ bool QTextBrowser_SuperEvent(QTextBrowser* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Event_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -513,9 +504,8 @@ void QTextBrowser_SuperKeyPressEvent(QTextBrowser* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnKeyPressEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_KeyPressEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -532,9 +522,8 @@ void QTextBrowser_SuperMouseMoveEvent(QTextBrowser* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMouseMoveEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -551,9 +540,8 @@ void QTextBrowser_SuperMousePressEvent(QTextBrowser* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMousePressEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MousePressEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -570,9 +558,8 @@ void QTextBrowser_SuperMouseReleaseEvent(QTextBrowser* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMouseReleaseEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -589,9 +576,8 @@ void QTextBrowser_SuperFocusOutEvent(QTextBrowser* self, QFocusEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnFocusOutEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_FocusOutEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -608,9 +594,8 @@ bool QTextBrowser_SuperFocusNextPrevChild(QTextBrowser* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnFocusNextPrevChild(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -627,9 +612,8 @@ void QTextBrowser_SuperPaintEvent(QTextBrowser* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnPaintEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_PaintEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -646,9 +630,8 @@ void QTextBrowser_SuperDoSetSource(QTextBrowser* self, const QUrl* name, int typ
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDoSetSource(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DoSetSource_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DoSetSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -675,9 +658,8 @@ QVariant* QTextBrowser_SuperInputMethodQuery(const QTextBrowser* self, int prope
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnInputMethodQuery(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_InputMethodQuery_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -704,9 +686,8 @@ void QTextBrowser_SuperTimerEvent(QTextBrowser* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnTimerEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_TimerEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -733,9 +714,8 @@ void QTextBrowser_SuperKeyReleaseEvent(QTextBrowser* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnKeyReleaseEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -762,9 +742,8 @@ void QTextBrowser_SuperResizeEvent(QTextBrowser* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnResizeEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ResizeEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -791,9 +770,8 @@ void QTextBrowser_SuperMouseDoubleClickEvent(QTextBrowser* self, QMouseEvent* e)
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMouseDoubleClickEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -820,9 +798,8 @@ void QTextBrowser_SuperContextMenuEvent(QTextBrowser* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnContextMenuEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -849,9 +826,8 @@ void QTextBrowser_SuperDragEnterEvent(QTextBrowser* self, QDragEnterEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDragEnterEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DragEnterEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -878,9 +854,8 @@ void QTextBrowser_SuperDragLeaveEvent(QTextBrowser* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDragLeaveEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -907,9 +882,8 @@ void QTextBrowser_SuperDragMoveEvent(QTextBrowser* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDragMoveEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DragMoveEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -936,9 +910,8 @@ void QTextBrowser_SuperDropEvent(QTextBrowser* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDropEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DropEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -965,9 +938,8 @@ void QTextBrowser_SuperFocusInEvent(QTextBrowser* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnFocusInEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_FocusInEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -994,9 +966,8 @@ void QTextBrowser_SuperShowEvent(QTextBrowser* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnShowEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ShowEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +994,8 @@ void QTextBrowser_SuperChangeEvent(QTextBrowser* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnChangeEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ChangeEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1022,8 @@ void QTextBrowser_SuperWheelEvent(QTextBrowser* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnWheelEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_WheelEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1081,9 +1050,8 @@ QMimeData* QTextBrowser_SuperCreateMimeDataFromSelection(const QTextBrowser* sel
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnCreateMimeDataFromSelection(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1110,9 +1078,8 @@ bool QTextBrowser_SuperCanInsertFromMimeData(const QTextBrowser* self, const QMi
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnCanInsertFromMimeData(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1139,9 +1106,8 @@ void QTextBrowser_SuperInsertFromMimeData(QTextBrowser* self, const QMimeData* s
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnInsertFromMimeData(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_InsertFromMimeData_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1168,9 +1134,8 @@ void QTextBrowser_SuperInputMethodEvent(QTextBrowser* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnInputMethodEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_InputMethodEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1197,9 +1162,8 @@ void QTextBrowser_SuperScrollContentsBy(QTextBrowser* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnScrollContentsBy(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1190,8 @@ void QTextBrowser_SuperDoSetTextCursor(QTextBrowser* self, const QTextCursor* cu
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDoSetTextCursor(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DoSetTextCursor_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1218,8 @@ QSize* QTextBrowser_SuperMinimumSizeHint(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMinimumSizeHint(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1246,8 @@ QSize* QTextBrowser_SuperSizeHint(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSizeHint(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SizeHint_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1274,8 @@ void QTextBrowser_SuperSetupViewport(QTextBrowser* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSetupViewport(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SetupViewport_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1302,8 @@ bool QTextBrowser_SuperEventFilter(QTextBrowser* self, QObject* param1, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnEventFilter(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_EventFilter_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1330,8 @@ bool QTextBrowser_SuperViewportEvent(QTextBrowser* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnViewportEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ViewportEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1356,8 @@ QSize* QTextBrowser_SuperViewportSizeHint(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnViewportSizeHint(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1384,8 @@ void QTextBrowser_SuperInitStyleOption(const QTextBrowser* self, QStyleOptionFra
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnInitStyleOption(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_InitStyleOption_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1412,8 @@ int QTextBrowser_SuperDevType(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDevType(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DevType_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1440,8 @@ void QTextBrowser_SuperSetVisible(QTextBrowser* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSetVisible(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SetVisible_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1468,8 @@ int QTextBrowser_SuperHeightForWidth(const QTextBrowser* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnHeightForWidth(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_HeightForWidth_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1496,8 @@ bool QTextBrowser_SuperHasHeightForWidth(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnHasHeightForWidth(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1524,8 @@ QPaintEngine* QTextBrowser_SuperPaintEngine(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnPaintEngine(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_PaintEngine_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1552,8 @@ void QTextBrowser_SuperEnterEvent(QTextBrowser* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnEnterEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_EnterEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1580,8 @@ void QTextBrowser_SuperLeaveEvent(QTextBrowser* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnLeaveEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_LeaveEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1608,8 @@ void QTextBrowser_SuperMoveEvent(QTextBrowser* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMoveEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_MoveEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1636,8 @@ void QTextBrowser_SuperCloseEvent(QTextBrowser* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnCloseEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_CloseEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1664,8 @@ void QTextBrowser_SuperTabletEvent(QTextBrowser* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnTabletEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_TabletEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1692,8 @@ void QTextBrowser_SuperActionEvent(QTextBrowser* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnActionEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ActionEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1720,8 @@ void QTextBrowser_SuperHideEvent(QTextBrowser* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnHideEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_HideEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1750,8 @@ bool QTextBrowser_SuperNativeEvent(QTextBrowser* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnNativeEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_NativeEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1778,8 @@ int QTextBrowser_SuperMetric(const QTextBrowser* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnMetric(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Metric_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1806,8 @@ void QTextBrowser_SuperInitPainter(const QTextBrowser* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnInitPainter(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_InitPainter_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1893,9 +1834,8 @@ QPaintDevice* QTextBrowser_SuperRedirected(const QTextBrowser* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnRedirected(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Redirected_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1922,9 +1862,8 @@ QPainter* QTextBrowser_SuperSharedPainter(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSharedPainter(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SharedPainter_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1951,9 +1890,8 @@ void QTextBrowser_SuperChildEvent(QTextBrowser* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnChildEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ChildEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1980,9 +1918,8 @@ void QTextBrowser_SuperCustomEvent(QTextBrowser* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnCustomEvent(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_CustomEvent_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2009,9 +1946,8 @@ void QTextBrowser_SuperConnectNotify(QTextBrowser* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnConnectNotify(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ConnectNotify_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2038,9 +1974,8 @@ void QTextBrowser_SuperDisconnectNotify(QTextBrowser* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDisconnectNotify(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2067,9 +2002,8 @@ void QTextBrowser_SuperZoomInF(QTextBrowser* self, float range) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnZoomInF(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ZoomInF_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2096,9 +2030,8 @@ void QTextBrowser_SuperSetViewportMargins(QTextBrowser* self, int left, int top,
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSetViewportMargins(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SetViewportMargins_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2123,9 +2056,8 @@ QMargins* QTextBrowser_SuperViewportMargins(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnViewportMargins(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_ViewportMargins_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2152,9 +2084,8 @@ void QTextBrowser_SuperDrawFrame(QTextBrowser* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDrawFrame(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_DrawFrame_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2181,9 +2112,8 @@ void QTextBrowser_SuperUpdateMicroFocus(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnUpdateMicroFocus(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2210,9 +2140,8 @@ void QTextBrowser_SuperCreate(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnCreate(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Create_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2239,9 +2168,8 @@ void QTextBrowser_SuperDestroy(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnDestroy(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Destroy_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2268,9 +2196,8 @@ bool QTextBrowser_SuperFocusNextChild(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnFocusNextChild(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_FocusNextChild_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2297,9 +2224,8 @@ bool QTextBrowser_SuperFocusPreviousChild(QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnFocusPreviousChild(QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2326,9 +2252,8 @@ QObject* QTextBrowser_SuperSender(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSender(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Sender_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2355,9 +2280,8 @@ int QTextBrowser_SuperSenderSignalIndex(const QTextBrowser* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnSenderSignalIndex(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2384,9 +2308,8 @@ int QTextBrowser_SuperReceivers(const QTextBrowser* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnReceivers(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_Receivers_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2413,9 +2336,8 @@ bool QTextBrowser_SuperIsSignalConnected(const QTextBrowser* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnIsSignalConnected(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2442,9 +2364,8 @@ double QTextBrowser_SuperGetDecodedMetricF(const QTextBrowser* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void QTextBrowser_OnGetDecodedMetricF(const QTextBrowser* self, intptr_t slot) {
     auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser)
         vqtextbrowser->setQTextBrowser_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QTextBrowser_Delete(QTextBrowser* self) {

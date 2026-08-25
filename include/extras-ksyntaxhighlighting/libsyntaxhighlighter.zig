@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KSyntaxHighlighting__AbstractHighlighter = @import("libqt6").KSyntaxHighlighting__AbstractHighlighter;
 const KSyntaxHighlighting__Definition = @import("libqt6").KSyntaxHighlighting__Definition;
 const KSyntaxHighlighting__FoldingRegion = @import("libqt6").KSyntaxHighlighting__FoldingRegion;
 const KSyntaxHighlighting__Format = @import("libqt6").KSyntaxHighlighting__Format;
@@ -74,6 +75,27 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     pub fn new3(_parent: anytype) KSyntaxHighlighting__SyntaxHighlighter {
         comptime _ = @TypeOf(_parent)._is_QObject;
         return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_new3(@ptrCast(_parent.ptr)) };
+    }
+
+    /// Upcasts to a KSyntaxHighlighting::AbstractHighlighter object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
+    ///
+    pub fn asKSyntaxHighlighting__AbstractHighlighter(self: KSyntaxHighlighting__SyntaxHighlighter) KSyntaxHighlighting__AbstractHighlighter {
+        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KSyntaxHighlighting__SyntaxHighlighter object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _ksyntaxhighlighting__abstracthighlighter: KSyntaxHighlighting__AbstractHighlighter `
+    ///
+    pub fn fromKSyntaxHighlighting__AbstractHighlighter(_ksyntaxhighlighting__abstracthighlighter: anytype) KSyntaxHighlighting__SyntaxHighlighter {
+        comptime _ = @TypeOf(_ksyntaxhighlighting__abstracthighlighter)._is_KSyntaxHighlighting__AbstractHighlighter;
+        return @bitCast(qtc.KSyntaxHighlighting__SyntaxHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(@ptrCast(_ksyntaxhighlighting__abstracthighlighter.ptr)));
     }
 
     /// ### DEPRECATED: Use `metaObject` instead

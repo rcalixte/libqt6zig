@@ -72,9 +72,8 @@ QMetaObject* TextCustomEditor__TextEditorCompleter_SuperMetaObject(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnMetaObject(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = const_cast<VirtualTextCustomEditorTextEditorCompleter*>(dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self));
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* TextCustomEditor__TextEditorCompleter_SuperMetacast(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnMetacast(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int TextCustomEditor__TextEditorCompleter_SuperMetacall(TextCustomEditor__TextEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnMetacall(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -139,9 +136,8 @@ bool TextCustomEditor__TextEditorCompleter_SuperEvent(TextCustomEditor__TextEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_Event_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -168,9 +164,8 @@ bool TextCustomEditor__TextEditorCompleter_SuperEventFilter(TextCustomEditor__Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnEventFilter(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -197,9 +192,8 @@ void TextCustomEditor__TextEditorCompleter_SuperTimerEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnTimerEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +220,8 @@ void TextCustomEditor__TextEditorCompleter_SuperChildEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnChildEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +248,8 @@ void TextCustomEditor__TextEditorCompleter_SuperCustomEvent(TextCustomEditor__Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnCustomEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ void TextCustomEditor__TextEditorCompleter_SuperConnectNotify(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnConnectNotify(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ void TextCustomEditor__TextEditorCompleter_SuperDisconnectNotify(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnDisconnectNotify(TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +332,8 @@ QObject* TextCustomEditor__TextEditorCompleter_SuperSender(const TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnSender(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = const_cast<VirtualTextCustomEditorTextEditorCompleter*>(dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self));
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +360,8 @@ int TextCustomEditor__TextEditorCompleter_SuperSenderSignalIndex(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnSenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = const_cast<VirtualTextCustomEditorTextEditorCompleter*>(dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self));
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +388,8 @@ int TextCustomEditor__TextEditorCompleter_SuperReceivers(const TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnReceivers(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = const_cast<VirtualTextCustomEditorTextEditorCompleter*>(dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self));
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +416,8 @@ bool TextCustomEditor__TextEditorCompleter_SuperIsSignalConnected(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditorCompleter_OnIsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot) {
     auto* vtextcustomeditortexteditorcompleter = const_cast<VirtualTextCustomEditorTextEditorCompleter*>(dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self));
-    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
+    if (vtextcustomeditortexteditorcompleter && vtextcustomeditortexteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter)
         vtextcustomeditortexteditorcompleter->setTextCustomEditor__TextEditorCompleter_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditorCompleter::TextCustomEditor__TextEditorCompleter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__TextEditorCompleter_Delete(TextCustomEditor__TextEditorCompleter* self) {

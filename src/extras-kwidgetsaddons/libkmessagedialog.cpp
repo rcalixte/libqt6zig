@@ -169,9 +169,8 @@ QMetaObject* KMessageDialog_SuperMetaObject(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMetaObject(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MetaObject_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +187,8 @@ void* KMessageDialog_SuperMetacast(KMessageDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMetacast(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Metacast_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +205,8 @@ int KMessageDialog_SuperMetacall(KMessageDialog* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMetacall(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Metacall_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +223,8 @@ void KMessageDialog_SuperShowEvent(KMessageDialog* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnShowEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ShowEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +251,8 @@ void KMessageDialog_SuperSetVisible(KMessageDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnSetVisible(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_SetVisible_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +279,8 @@ QSize* KMessageDialog_SuperSizeHint(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnSizeHint(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_SizeHint_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +307,8 @@ QSize* KMessageDialog_SuperMinimumSizeHint(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMinimumSizeHint(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +335,8 @@ void KMessageDialog_SuperOpen(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnOpen(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Open_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +363,8 @@ int KMessageDialog_SuperExec(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnExec(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Exec_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +391,8 @@ void KMessageDialog_SuperDone(KMessageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDone(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Done_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +419,8 @@ void KMessageDialog_SuperAccept(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnAccept(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Accept_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +447,8 @@ void KMessageDialog_SuperReject(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnReject(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Reject_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +475,8 @@ void KMessageDialog_SuperKeyPressEvent(KMessageDialog* self, QKeyEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnKeyPressEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +503,8 @@ void KMessageDialog_SuperCloseEvent(KMessageDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnCloseEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_CloseEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +531,8 @@ void KMessageDialog_SuperResizeEvent(KMessageDialog* self, QResizeEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnResizeEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +559,8 @@ void KMessageDialog_SuperContextMenuEvent(KMessageDialog* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnContextMenuEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +587,8 @@ bool KMessageDialog_SuperEventFilter(KMessageDialog* self, QObject* param1, QEve
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnEventFilter(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_EventFilter_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +615,8 @@ int KMessageDialog_SuperDevType(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDevType(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DevType_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +643,8 @@ int KMessageDialog_SuperHeightForWidth(const KMessageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnHeightForWidth(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +671,8 @@ bool KMessageDialog_SuperHasHeightForWidth(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnHasHeightForWidth(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +699,8 @@ QPaintEngine* KMessageDialog_SuperPaintEngine(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnPaintEngine(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_PaintEngine_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +727,8 @@ bool KMessageDialog_SuperEvent(KMessageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Event_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +755,8 @@ void KMessageDialog_SuperMousePressEvent(KMessageDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMousePressEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +783,8 @@ void KMessageDialog_SuperMouseReleaseEvent(KMessageDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMouseReleaseEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +811,8 @@ void KMessageDialog_SuperMouseDoubleClickEvent(KMessageDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMouseDoubleClickEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +839,8 @@ void KMessageDialog_SuperMouseMoveEvent(KMessageDialog* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMouseMoveEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +867,8 @@ void KMessageDialog_SuperWheelEvent(KMessageDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnWheelEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_WheelEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +895,8 @@ void KMessageDialog_SuperKeyReleaseEvent(KMessageDialog* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnKeyReleaseEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +923,8 @@ void KMessageDialog_SuperFocusInEvent(KMessageDialog* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnFocusInEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +951,8 @@ void KMessageDialog_SuperFocusOutEvent(KMessageDialog* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnFocusOutEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +979,8 @@ void KMessageDialog_SuperEnterEvent(KMessageDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnEnterEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_EnterEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1007,8 @@ void KMessageDialog_SuperLeaveEvent(KMessageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnLeaveEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1035,8 @@ void KMessageDialog_SuperPaintEvent(KMessageDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnPaintEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_PaintEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1063,8 @@ void KMessageDialog_SuperMoveEvent(KMessageDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMoveEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_MoveEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1091,8 @@ void KMessageDialog_SuperTabletEvent(KMessageDialog* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnTabletEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_TabletEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1119,8 @@ void KMessageDialog_SuperActionEvent(KMessageDialog* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnActionEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ActionEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1147,8 @@ void KMessageDialog_SuperDragEnterEvent(KMessageDialog* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDragEnterEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1175,8 @@ void KMessageDialog_SuperDragMoveEvent(KMessageDialog* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDragMoveEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1203,8 @@ void KMessageDialog_SuperDragLeaveEvent(KMessageDialog* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDragLeaveEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1231,8 @@ void KMessageDialog_SuperDropEvent(KMessageDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDropEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DropEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1259,8 @@ void KMessageDialog_SuperHideEvent(KMessageDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnHideEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_HideEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1289,8 @@ bool KMessageDialog_SuperNativeEvent(KMessageDialog* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnNativeEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_NativeEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1317,8 @@ void KMessageDialog_SuperChangeEvent(KMessageDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnChangeEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1345,8 @@ int KMessageDialog_SuperMetric(const KMessageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnMetric(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Metric_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1373,8 @@ void KMessageDialog_SuperInitPainter(const KMessageDialog* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnInitPainter(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_InitPainter_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1401,8 @@ QPaintDevice* KMessageDialog_SuperRedirected(const KMessageDialog* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnRedirected(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Redirected_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1429,8 @@ QPainter* KMessageDialog_SuperSharedPainter(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnSharedPainter(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_SharedPainter_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1457,8 @@ void KMessageDialog_SuperInputMethodEvent(KMessageDialog* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnInputMethodEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1485,8 @@ QVariant* KMessageDialog_SuperInputMethodQuery(const KMessageDialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnInputMethodQuery(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1513,8 @@ bool KMessageDialog_SuperFocusNextPrevChild(KMessageDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnFocusNextPrevChild(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1541,8 @@ void KMessageDialog_SuperTimerEvent(KMessageDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnTimerEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_TimerEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1569,8 @@ void KMessageDialog_SuperChildEvent(KMessageDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnChildEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ChildEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1597,8 @@ void KMessageDialog_SuperCustomEvent(KMessageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnCustomEvent(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_CustomEvent_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1625,8 @@ void KMessageDialog_SuperConnectNotify(KMessageDialog* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnConnectNotify(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1653,8 @@ void KMessageDialog_SuperDisconnectNotify(KMessageDialog* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDisconnectNotify(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1681,8 @@ void KMessageDialog_SuperAdjustPosition(KMessageDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnAdjustPosition(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1709,8 @@ void KMessageDialog_SuperUpdateMicroFocus(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnUpdateMicroFocus(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1737,8 @@ void KMessageDialog_SuperCreate(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnCreate(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Create_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1765,8 @@ void KMessageDialog_SuperDestroy(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnDestroy(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Destroy_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1793,8 @@ bool KMessageDialog_SuperFocusNextChild(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnFocusNextChild(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1821,8 @@ bool KMessageDialog_SuperFocusPreviousChild(KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnFocusPreviousChild(KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1849,8 @@ QObject* KMessageDialog_SuperSender(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnSender(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Sender_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1877,8 @@ int KMessageDialog_SuperSenderSignalIndex(const KMessageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnSenderSignalIndex(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1905,8 @@ int KMessageDialog_SuperReceivers(const KMessageDialog* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnReceivers(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_Receivers_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1933,8 @@ bool KMessageDialog_SuperIsSignalConnected(const KMessageDialog* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnIsSignalConnected(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1961,8 @@ double KMessageDialog_SuperGetDecodedMetricF(const KMessageDialog* self, int met
 // Auxiliary method to allow providing re-implementation
 void KMessageDialog_OnGetDecodedMetricF(const KMessageDialog* self, intptr_t slot) {
     auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog)
         vkmessagedialog->setKMessageDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KMessageDialog_Delete(KMessageDialog* self) {

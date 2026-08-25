@@ -5,6 +5,7 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
 const QHostAddress = @import("libqt6").QHostAddress;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -3543,6 +3544,18 @@ pub const QSslSocket = extern struct {
     pub fn connectToHost3(self: QSslSocket, address: anytype, port: u16, _mode: i32) void {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(_mode));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSslSocket `
+    ///
+    pub fn asQIODeviceBase(self: QSslSocket) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -7135,13 +7148,13 @@ pub const QSslSocket = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#public-types)
 pub const enums = struct {
-    pub const SslMode = enum(i32) {
+    pub const SslMode = enum {
         pub const UnencryptedMode: i32 = 0;
         pub const SslClientMode: i32 = 1;
         pub const SslServerMode: i32 = 2;
     };
 
-    pub const PeerVerifyMode = enum(i32) {
+    pub const PeerVerifyMode = enum {
         pub const VerifyNone: i32 = 0;
         pub const QueryPeer: i32 = 1;
         pub const VerifyPeer: i32 = 2;

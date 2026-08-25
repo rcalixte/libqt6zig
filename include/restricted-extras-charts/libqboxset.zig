@@ -2594,7 +2594,7 @@ pub const QBoxSet = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const ValuePositions = enum(i32) {
+    pub const ValuePositions = enum {
         pub const LowerExtreme: i32 = 0;
         pub const LowerQuartile: i32 = 1;
         pub const Median: i32 = 2;

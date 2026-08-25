@@ -77,9 +77,8 @@ QMetaObject* QsciMacro_SuperMetaObject(const QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnMetaObject(const QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_MetaObject_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -96,9 +95,8 @@ void* QsciMacro_SuperMetacast(QsciMacro* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnMetacast(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Metacast_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -115,9 +113,8 @@ int QsciMacro_SuperMetacall(QsciMacro* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnMetacall(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Metacall_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +131,8 @@ void QsciMacro_SuperPlay(QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnPlay(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Play_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Play_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +149,8 @@ void QsciMacro_SuperStartRecording(QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnStartRecording(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_StartRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_StartRecording_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +167,8 @@ void QsciMacro_SuperEndRecording(QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnEndRecording(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_EndRecording_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_EndRecording_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -201,9 +195,8 @@ bool QsciMacro_SuperEvent(QsciMacro* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnEvent(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Event_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -230,9 +223,8 @@ bool QsciMacro_SuperEventFilter(QsciMacro* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnEventFilter(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_EventFilter_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -259,9 +251,8 @@ void QsciMacro_SuperTimerEvent(QsciMacro* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnTimerEvent(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_TimerEvent_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -288,9 +279,8 @@ void QsciMacro_SuperChildEvent(QsciMacro* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnChildEvent(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_ChildEvent_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -317,9 +307,8 @@ void QsciMacro_SuperCustomEvent(QsciMacro* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnCustomEvent(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_CustomEvent_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -346,9 +335,8 @@ void QsciMacro_SuperConnectNotify(QsciMacro* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnConnectNotify(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_ConnectNotify_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -375,9 +363,8 @@ void QsciMacro_SuperDisconnectNotify(QsciMacro* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnDisconnectNotify(QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -404,9 +391,8 @@ QObject* QsciMacro_SuperSender(const QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnSender(const QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Sender_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -433,9 +419,8 @@ int QsciMacro_SuperSenderSignalIndex(const QsciMacro* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnSenderSignalIndex(const QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +447,8 @@ int QsciMacro_SuperReceivers(const QsciMacro* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnReceivers(const QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_Receivers_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +475,8 @@ bool QsciMacro_SuperIsSignalConnected(const QsciMacro* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QsciMacro_OnIsSignalConnected(const QsciMacro* self, intptr_t slot) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro)
         vqscimacro->setQsciMacro_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciMacro_Delete(QsciMacro* self) {

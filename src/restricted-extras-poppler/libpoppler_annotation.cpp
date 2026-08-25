@@ -284,9 +284,8 @@ int Poppler__TextAnnotation_SuperSubType(const Poppler__TextAnnotation* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__TextAnnotation_OnSubType(const Poppler__TextAnnotation* self, intptr_t slot) {
     auto* vpopplertextannotation = const_cast<VirtualPopplerTextAnnotation*>(dynamic_cast<const VirtualPopplerTextAnnotation*>(self));
-    if (vpopplertextannotation && vpopplertextannotation->isVirtualPopplerTextAnnotation) {
+    if (vpopplertextannotation && vpopplertextannotation->isVirtualPopplerTextAnnotation)
         vpopplertextannotation->setPoppler__TextAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerTextAnnotation::Poppler__TextAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__TextAnnotation_Delete(Poppler__TextAnnotation* self) {
@@ -406,9 +405,8 @@ int Poppler__LineAnnotation_SuperSubType(const Poppler__LineAnnotation* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__LineAnnotation_OnSubType(const Poppler__LineAnnotation* self, intptr_t slot) {
     auto* vpopplerlineannotation = const_cast<VirtualPopplerLineAnnotation*>(dynamic_cast<const VirtualPopplerLineAnnotation*>(self));
-    if (vpopplerlineannotation && vpopplerlineannotation->isVirtualPopplerLineAnnotation) {
+    if (vpopplerlineannotation && vpopplerlineannotation->isVirtualPopplerLineAnnotation)
         vpopplerlineannotation->setPoppler__LineAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerLineAnnotation::Poppler__LineAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__LineAnnotation_Delete(Poppler__LineAnnotation* self) {
@@ -453,9 +451,8 @@ int Poppler__GeomAnnotation_SuperSubType(const Poppler__GeomAnnotation* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__GeomAnnotation_OnSubType(const Poppler__GeomAnnotation* self, intptr_t slot) {
     auto* vpopplergeomannotation = const_cast<VirtualPopplerGeomAnnotation*>(dynamic_cast<const VirtualPopplerGeomAnnotation*>(self));
-    if (vpopplergeomannotation && vpopplergeomannotation->isVirtualPopplerGeomAnnotation) {
+    if (vpopplergeomannotation && vpopplergeomannotation->isVirtualPopplerGeomAnnotation)
         vpopplergeomannotation->setPoppler__GeomAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerGeomAnnotation::Poppler__GeomAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__GeomAnnotation_Delete(Poppler__GeomAnnotation* self) {
@@ -515,9 +512,8 @@ int Poppler__HighlightAnnotation_SuperSubType(const Poppler__HighlightAnnotation
 // Auxiliary method to allow providing re-implementation
 void Poppler__HighlightAnnotation_OnSubType(const Poppler__HighlightAnnotation* self, intptr_t slot) {
     auto* vpopplerhighlightannotation = const_cast<VirtualPopplerHighlightAnnotation*>(dynamic_cast<const VirtualPopplerHighlightAnnotation*>(self));
-    if (vpopplerhighlightannotation && vpopplerhighlightannotation->isVirtualPopplerHighlightAnnotation) {
+    if (vpopplerhighlightannotation && vpopplerhighlightannotation->isVirtualPopplerHighlightAnnotation)
         vpopplerhighlightannotation->setPoppler__HighlightAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerHighlightAnnotation::Poppler__HighlightAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__HighlightAnnotation_Delete(Poppler__HighlightAnnotation* self) {
@@ -567,9 +563,8 @@ int Poppler__StampAnnotation_SuperSubType(const Poppler__StampAnnotation* self) 
 // Auxiliary method to allow providing re-implementation
 void Poppler__StampAnnotation_OnSubType(const Poppler__StampAnnotation* self, intptr_t slot) {
     auto* vpopplerstampannotation = const_cast<VirtualPopplerStampAnnotation*>(dynamic_cast<const VirtualPopplerStampAnnotation*>(self));
-    if (vpopplerstampannotation && vpopplerstampannotation->isVirtualPopplerStampAnnotation) {
+    if (vpopplerstampannotation && vpopplerstampannotation->isVirtualPopplerStampAnnotation)
         vpopplerstampannotation->setPoppler__StampAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerStampAnnotation::Poppler__StampAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__StampAnnotation_Delete(Poppler__StampAnnotation* self) {
@@ -695,9 +690,8 @@ int Poppler__SignatureAnnotation_SuperSubType(const Poppler__SignatureAnnotation
 // Auxiliary method to allow providing re-implementation
 void Poppler__SignatureAnnotation_OnSubType(const Poppler__SignatureAnnotation* self, intptr_t slot) {
     auto* vpopplersignatureannotation = const_cast<VirtualPopplerSignatureAnnotation*>(dynamic_cast<const VirtualPopplerSignatureAnnotation*>(self));
-    if (vpopplersignatureannotation && vpopplersignatureannotation->isVirtualPopplerSignatureAnnotation) {
+    if (vpopplersignatureannotation && vpopplersignatureannotation->isVirtualPopplerSignatureAnnotation)
         vpopplersignatureannotation->setPoppler__SignatureAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerSignatureAnnotation::Poppler__SignatureAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__SignatureAnnotation_Delete(Poppler__SignatureAnnotation* self) {
@@ -764,9 +758,8 @@ int Poppler__InkAnnotation_SuperSubType(const Poppler__InkAnnotation* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__InkAnnotation_OnSubType(const Poppler__InkAnnotation* self, intptr_t slot) {
     auto* vpopplerinkannotation = const_cast<VirtualPopplerInkAnnotation*>(dynamic_cast<const VirtualPopplerInkAnnotation*>(self));
-    if (vpopplerinkannotation && vpopplerinkannotation->isVirtualPopplerInkAnnotation) {
+    if (vpopplerinkannotation && vpopplerinkannotation->isVirtualPopplerInkAnnotation)
         vpopplerinkannotation->setPoppler__InkAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerInkAnnotation::Poppler__InkAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__InkAnnotation_Delete(Poppler__InkAnnotation* self) {
@@ -831,9 +824,8 @@ int Poppler__CaretAnnotation_SuperSubType(const Poppler__CaretAnnotation* self) 
 // Auxiliary method to allow providing re-implementation
 void Poppler__CaretAnnotation_OnSubType(const Poppler__CaretAnnotation* self, intptr_t slot) {
     auto* vpopplercaretannotation = const_cast<VirtualPopplerCaretAnnotation*>(dynamic_cast<const VirtualPopplerCaretAnnotation*>(self));
-    if (vpopplercaretannotation && vpopplercaretannotation->isVirtualPopplerCaretAnnotation) {
+    if (vpopplercaretannotation && vpopplercaretannotation->isVirtualPopplerCaretAnnotation)
         vpopplercaretannotation->setPoppler__CaretAnnotation_SubType_Callback(reinterpret_cast<VirtualPopplerCaretAnnotation::Poppler__CaretAnnotation_SubType_Callback>(slot));
-    }
 }
 
 void Poppler__CaretAnnotation_Delete(Poppler__CaretAnnotation* self) {

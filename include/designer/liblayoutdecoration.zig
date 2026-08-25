@@ -884,7 +884,7 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/layoutdecoration.html#public-types)
 pub const enums = struct {
-    pub const InsertMode = enum(i32) {
+    pub const InsertMode = enum {
         pub const InsertWidgetMode: i32 = 0;
         pub const InsertRowMode: i32 = 1;
         pub const InsertColumnMode: i32 = 2;

@@ -257,9 +257,8 @@ bool QPaintEngine_SuperBegin(QPaintEngine* self, QPaintDevice* pdev) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnBegin(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_Begin_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_Begin_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +275,8 @@ bool QPaintEngine_SuperEnd(QPaintEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnEnd(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_End_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_End_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +293,8 @@ void QPaintEngine_SuperUpdateState(QPaintEngine* self, const QPaintEngineState* 
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnUpdateState(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_UpdateState_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_UpdateState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +311,8 @@ void QPaintEngine_SuperDrawRects(QPaintEngine* self, const QRect* rects, int rec
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawRects(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawRects_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawRects_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +329,8 @@ void QPaintEngine_SuperDrawRects2(QPaintEngine* self, const QRectF* rects, int r
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawRects2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawRects2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawRects2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +347,8 @@ void QPaintEngine_SuperDrawLines(QPaintEngine* self, const QLine* lines, int lin
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawLines(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawLines_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawLines_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +365,8 @@ void QPaintEngine_SuperDrawLines2(QPaintEngine* self, const QLineF* lines, int l
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawLines2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawLines2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawLines2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +383,8 @@ void QPaintEngine_SuperDrawEllipse(QPaintEngine* self, const QRectF* r) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawEllipse(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawEllipse_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawEllipse_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +401,8 @@ void QPaintEngine_SuperDrawEllipse2(QPaintEngine* self, const QRect* r) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawEllipse2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawEllipse2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawEllipse2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -428,9 +419,8 @@ void QPaintEngine_SuperDrawPath(QPaintEngine* self, const QPainterPath* path) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPath(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPath_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPath_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -447,9 +437,8 @@ void QPaintEngine_SuperDrawPoints(QPaintEngine* self, const QPointF* points, int
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPoints(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPoints_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPoints_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -466,9 +455,8 @@ void QPaintEngine_SuperDrawPoints2(QPaintEngine* self, const QPoint* points, int
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPoints2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPoints2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPoints2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -485,9 +473,8 @@ void QPaintEngine_SuperDrawPolygon(QPaintEngine* self, const QPointF* points, in
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPolygon(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPolygon_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPolygon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -504,9 +491,8 @@ void QPaintEngine_SuperDrawPolygon2(QPaintEngine* self, const QPoint* points, in
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPolygon2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPolygon2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPolygon2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -523,9 +509,8 @@ void QPaintEngine_SuperDrawPixmap(QPaintEngine* self, const QRectF* r, const QPi
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawPixmap(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawPixmap_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -542,9 +527,8 @@ void QPaintEngine_SuperDrawTextItem(QPaintEngine* self, const QPointF* p, const 
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawTextItem(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawTextItem_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawTextItem_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -561,9 +545,8 @@ void QPaintEngine_SuperDrawTiledPixmap(QPaintEngine* self, const QRectF* r, cons
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawTiledPixmap(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawTiledPixmap_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawTiledPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -580,9 +563,8 @@ void QPaintEngine_SuperDrawImage(QPaintEngine* self, const QRectF* r, const QIma
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnDrawImage(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_DrawImage_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawImage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -599,9 +581,8 @@ QPoint* QPaintEngine_SuperCoordinateOffset(const QPaintEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnCoordinateOffset(const QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = const_cast<VirtualQPaintEngine*>(dynamic_cast<const VirtualQPaintEngine*>(self));
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_CoordinateOffset_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_CoordinateOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -618,9 +599,8 @@ int QPaintEngine_SuperType(const QPaintEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnType(const QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = const_cast<VirtualQPaintEngine*>(dynamic_cast<const VirtualQPaintEngine*>(self));
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_Type_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -637,9 +617,8 @@ QPixmap* QPaintEngine_SuperCreatePixmap(QPaintEngine* self, QSize* size) {
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnCreatePixmap(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_CreatePixmap_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_CreatePixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -656,9 +635,8 @@ QPixmap* QPaintEngine_SuperCreatePixmapFromImage(QPaintEngine* self, QImage* ima
 // Auxiliary method to allow providing re-implementation
 void QPaintEngine_OnCreatePixmapFromImage(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
+    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine)
         vqpaintengine->setQPaintEngine_CreatePixmapFromImage_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_CreatePixmapFromImage_Callback>(slot));
-    }
 }
 
 void QPaintEngine_Delete(QPaintEngine* self) {

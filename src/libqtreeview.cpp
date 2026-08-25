@@ -594,9 +594,8 @@ QMetaObject* QTreeView_SuperMetaObject(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetaObject(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MetaObject_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -613,9 +612,8 @@ void* QTreeView_SuperMetacast(QTreeView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetacast(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Metacast_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -632,9 +630,8 @@ int QTreeView_SuperMetacall(QTreeView* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetacall(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Metacall_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -651,9 +648,8 @@ void QTreeView_SuperSetModel(QTreeView* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetModel(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetModel_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -670,9 +666,8 @@ void QTreeView_SuperSetRootIndex(QTreeView* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetRootIndex(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetRootIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -689,9 +684,8 @@ void QTreeView_SuperSetSelectionModel(QTreeView* self, QItemSelectionModel* sele
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetSelectionModel(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetSelectionModel_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -709,9 +703,8 @@ void QTreeView_SuperKeyboardSearch(QTreeView* self, const libqt_string search) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyboardSearch(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_KeyboardSearch_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -728,9 +721,8 @@ QRect* QTreeView_SuperVisualRect(const QTreeView* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVisualRect(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_VisualRect_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -747,9 +739,8 @@ void QTreeView_SuperScrollTo(QTreeView* self, const QModelIndex* index, int hint
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScrollTo(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ScrollTo_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -766,9 +757,8 @@ QModelIndex* QTreeView_SuperIndexAt(const QTreeView* self, const QPoint* p) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnIndexAt(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_IndexAt_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IndexAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -785,9 +775,8 @@ void QTreeView_SuperDoItemsLayout(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDoItemsLayout(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DoItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -804,9 +793,8 @@ void QTreeView_SuperReset(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnReset(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Reset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -829,9 +817,8 @@ void QTreeView_SuperDataChanged(QTreeView* self, const QModelIndex* topLeft, con
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDataChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DataChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DataChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -848,9 +835,8 @@ void QTreeView_SuperSelectAll(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectAll(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SelectAll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectAll_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -867,9 +853,8 @@ void QTreeView_SuperVerticalScrollbarValueChanged(QTreeView* self, int value) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVerticalScrollbarValueChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -886,9 +871,8 @@ void QTreeView_SuperScrollContentsBy(QTreeView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScrollContentsBy(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -905,9 +889,8 @@ void QTreeView_SuperRowsInserted(QTreeView* self, const QModelIndex* parent, int
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowsInserted(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_RowsInserted_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -924,9 +907,8 @@ void QTreeView_SuperRowsAboutToBeRemoved(QTreeView* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowsAboutToBeRemoved(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -942,9 +924,8 @@ QModelIndex* QTreeView_SuperMoveCursor(QTreeView* self, int cursorAction, int mo
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMoveCursor(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MoveCursor_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -961,9 +942,8 @@ int QTreeView_SuperHorizontalOffset(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHorizontalOffset(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HorizontalOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -980,9 +960,8 @@ int QTreeView_SuperVerticalOffset(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVerticalOffset(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_VerticalOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -999,9 +978,8 @@ void QTreeView_SuperSetSelection(QTreeView* self, const QRect* rect, int command
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetSelection(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetSelection_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1017,9 +995,8 @@ QRegion* QTreeView_SuperVisualRegionForSelection(const QTreeView* self, const QI
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVisualRegionForSelection(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1054,9 +1031,8 @@ libqt_list /* of QModelIndex* */ QTreeView_SuperSelectedIndexes(const QTreeView*
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectedIndexes(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SelectedIndexes_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1073,9 +1049,8 @@ void QTreeView_SuperChangeEvent(QTreeView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnChangeEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ChangeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1092,9 +1067,8 @@ void QTreeView_SuperTimerEvent(QTreeView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnTimerEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_TimerEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1111,9 +1085,8 @@ void QTreeView_SuperPaintEvent(QTreeView* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnPaintEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_PaintEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1130,9 +1103,8 @@ void QTreeView_SuperDrawRow(const QTreeView* self, QPainter* painter, const QSty
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDrawRow(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DrawRow_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawRow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1149,9 +1121,8 @@ void QTreeView_SuperDrawBranches(const QTreeView* self, QPainter* painter, const
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDrawBranches(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DrawBranches_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawBranches_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1168,9 +1139,8 @@ void QTreeView_SuperMousePressEvent(QTreeView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMousePressEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MousePressEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1187,9 +1157,8 @@ void QTreeView_SuperMouseReleaseEvent(QTreeView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseReleaseEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1206,9 +1175,8 @@ void QTreeView_SuperMouseDoubleClickEvent(QTreeView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseDoubleClickEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1225,9 +1193,8 @@ void QTreeView_SuperMouseMoveEvent(QTreeView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseMoveEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1244,9 +1211,8 @@ void QTreeView_SuperKeyPressEvent(QTreeView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyPressEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_KeyPressEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1263,9 +1229,8 @@ void QTreeView_SuperDragMoveEvent(QTreeView* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragMoveEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DragMoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1282,9 +1247,8 @@ bool QTreeView_SuperViewportEvent(QTreeView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnViewportEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ViewportEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1301,9 +1265,8 @@ void QTreeView_SuperUpdateGeometries(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateGeometries(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_UpdateGeometries_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1319,9 +1282,8 @@ QSize* QTreeView_SuperViewportSizeHint(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnViewportSizeHint(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1338,9 +1300,8 @@ int QTreeView_SuperSizeHintForColumn(const QTreeView* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSizeHintForColumn(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1357,9 +1318,8 @@ void QTreeView_SuperHorizontalScrollbarAction(QTreeView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHorizontalScrollbarAction(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1376,9 +1336,8 @@ bool QTreeView_SuperIsIndexHidden(const QTreeView* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnIsIndexHidden(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_IsIndexHidden_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1395,9 +1354,8 @@ void QTreeView_SuperSelectionChanged(QTreeView* self, const QItemSelection* sele
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectionChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SelectionChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1414,9 +1372,8 @@ void QTreeView_SuperCurrentChanged(QTreeView* self, const QModelIndex* current, 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCurrentChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_CurrentChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1400,8 @@ int QTreeView_SuperSizeHintForRow(const QTreeView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSizeHintForRow(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SizeHintForRow_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1428,8 @@ QAbstractItemDelegate* QTreeView_SuperItemDelegateForIndex(const QTreeView* self
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnItemDelegateForIndex(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1456,8 @@ QVariant* QTreeView_SuperInputMethodQuery(const QTreeView* self, int query) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInputMethodQuery(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_InputMethodQuery_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1484,8 @@ void QTreeView_SuperUpdateEditorData(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateEditorData(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_UpdateEditorData_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1559,9 +1512,8 @@ void QTreeView_SuperUpdateEditorGeometries(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateEditorGeometries(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1588,9 +1540,8 @@ void QTreeView_SuperVerticalScrollbarAction(QTreeView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVerticalScrollbarAction(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1617,9 +1568,8 @@ void QTreeView_SuperHorizontalScrollbarValueChanged(QTreeView* self, int value) 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHorizontalScrollbarValueChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1646,9 +1596,8 @@ void QTreeView_SuperCloseEditor(QTreeView* self, QWidget* editor, int hint) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCloseEditor(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_CloseEditor_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1675,9 +1624,8 @@ void QTreeView_SuperCommitData(QTreeView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCommitData(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_CommitData_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1704,9 +1652,8 @@ void QTreeView_SuperEditorDestroyed(QTreeView* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEditorDestroyed(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_EditorDestroyed_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1733,9 +1680,8 @@ bool QTreeView_SuperEdit2(QTreeView* self, const QModelIndex* index, int trigger
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEdit2(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Edit2_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1762,9 +1708,8 @@ int QTreeView_SuperSelectionCommand(const QTreeView* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectionCommand(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SelectionCommand_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1791,9 +1736,8 @@ void QTreeView_SuperStartDrag(QTreeView* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnStartDrag(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_StartDrag_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1820,9 +1764,8 @@ void QTreeView_SuperInitViewItemOption(const QTreeView* self, QStyleOptionViewIt
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInitViewItemOption(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_InitViewItemOption_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1849,9 +1792,8 @@ bool QTreeView_SuperFocusNextPrevChild(QTreeView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusNextPrevChild(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1878,9 +1820,8 @@ bool QTreeView_SuperEvent(QTreeView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Event_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1907,9 +1848,8 @@ void QTreeView_SuperDragEnterEvent(QTreeView* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragEnterEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DragEnterEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1936,9 +1876,8 @@ void QTreeView_SuperDragLeaveEvent(QTreeView* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragLeaveEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1965,9 +1904,8 @@ void QTreeView_SuperDropEvent(QTreeView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDropEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DropEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1994,9 +1932,8 @@ void QTreeView_SuperFocusInEvent(QTreeView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusInEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_FocusInEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2023,9 +1960,8 @@ void QTreeView_SuperFocusOutEvent(QTreeView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusOutEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_FocusOutEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2052,9 +1988,8 @@ void QTreeView_SuperResizeEvent(QTreeView* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnResizeEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ResizeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2081,9 +2016,8 @@ void QTreeView_SuperInputMethodEvent(QTreeView* self, QInputMethodEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInputMethodEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_InputMethodEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2110,9 +2044,8 @@ bool QTreeView_SuperEventFilter(QTreeView* self, QObject* object, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEventFilter(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_EventFilter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2139,9 +2072,8 @@ QSize* QTreeView_SuperMinimumSizeHint(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMinimumSizeHint(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2168,9 +2100,8 @@ QSize* QTreeView_SuperSizeHint(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSizeHint(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2197,9 +2128,8 @@ void QTreeView_SuperSetupViewport(QTreeView* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetupViewport(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetupViewport_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2226,9 +2156,8 @@ void QTreeView_SuperWheelEvent(QTreeView* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnWheelEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_WheelEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2255,9 +2184,8 @@ void QTreeView_SuperContextMenuEvent(QTreeView* self, QContextMenuEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnContextMenuEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2284,9 +2212,8 @@ void QTreeView_SuperInitStyleOption(const QTreeView* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInitStyleOption(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_InitStyleOption_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2313,9 +2240,8 @@ int QTreeView_SuperDevType(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDevType(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DevType_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2342,9 +2268,8 @@ void QTreeView_SuperSetVisible(QTreeView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetVisible(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetVisible_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2371,9 +2296,8 @@ int QTreeView_SuperHeightForWidth(const QTreeView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHeightForWidth(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HeightForWidth_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2400,9 +2324,8 @@ bool QTreeView_SuperHasHeightForWidth(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHasHeightForWidth(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2429,9 +2352,8 @@ QPaintEngine* QTreeView_SuperPaintEngine(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnPaintEngine(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_PaintEngine_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2458,9 +2380,8 @@ void QTreeView_SuperKeyReleaseEvent(QTreeView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyReleaseEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2487,9 +2408,8 @@ void QTreeView_SuperEnterEvent(QTreeView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEnterEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_EnterEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2516,9 +2436,8 @@ void QTreeView_SuperLeaveEvent(QTreeView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnLeaveEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_LeaveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2545,9 +2464,8 @@ void QTreeView_SuperMoveEvent(QTreeView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMoveEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_MoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2574,9 +2492,8 @@ void QTreeView_SuperCloseEvent(QTreeView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCloseEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_CloseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2603,9 +2520,8 @@ void QTreeView_SuperTabletEvent(QTreeView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnTabletEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_TabletEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2632,9 +2548,8 @@ void QTreeView_SuperActionEvent(QTreeView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnActionEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ActionEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2661,9 +2576,8 @@ void QTreeView_SuperShowEvent(QTreeView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnShowEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ShowEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2690,9 +2604,8 @@ void QTreeView_SuperHideEvent(QTreeView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHideEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_HideEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2721,9 +2634,8 @@ bool QTreeView_SuperNativeEvent(QTreeView* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnNativeEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_NativeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2750,9 +2662,8 @@ int QTreeView_SuperMetric(const QTreeView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetric(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Metric_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2779,9 +2690,8 @@ void QTreeView_SuperInitPainter(const QTreeView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInitPainter(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_InitPainter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2808,9 +2718,8 @@ QPaintDevice* QTreeView_SuperRedirected(const QTreeView* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRedirected(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Redirected_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2837,9 +2746,8 @@ QPainter* QTreeView_SuperSharedPainter(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSharedPainter(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SharedPainter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2866,9 +2774,8 @@ void QTreeView_SuperChildEvent(QTreeView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnChildEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ChildEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2895,9 +2802,8 @@ void QTreeView_SuperCustomEvent(QTreeView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCustomEvent(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_CustomEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2924,9 +2830,8 @@ void QTreeView_SuperConnectNotify(QTreeView* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnConnectNotify(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ConnectNotify_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2953,9 +2858,8 @@ void QTreeView_SuperDisconnectNotify(QTreeView* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDisconnectNotify(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DisconnectNotify_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2982,9 +2886,8 @@ void QTreeView_SuperColumnResized(QTreeView* self, int column, int oldSize, int 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnColumnResized(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ColumnResized_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnResized_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3011,9 +2914,8 @@ void QTreeView_SuperColumnCountChanged(QTreeView* self, int oldCount, int newCou
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnColumnCountChanged(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ColumnCountChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnCountChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3040,9 +2942,8 @@ void QTreeView_SuperColumnMoved(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnColumnMoved(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ColumnMoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnMoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3069,9 +2970,8 @@ void QTreeView_SuperReexpand(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnReexpand(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Reexpand_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Reexpand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3098,9 +2998,8 @@ void QTreeView_SuperRowsRemoved(QTreeView* self, const QModelIndex* parent, int 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowsRemoved(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_RowsRemoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3127,9 +3026,8 @@ void QTreeView_SuperDrawTree(const QTreeView* self, QPainter* painter, const QRe
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDrawTree(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DrawTree_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawTree_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3156,9 +3054,8 @@ int QTreeView_SuperIndexRowSizeHint(const QTreeView* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnIndexRowSizeHint(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_IndexRowSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IndexRowSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3185,9 +3082,8 @@ int QTreeView_SuperRowHeight(const QTreeView* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowHeight(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_RowHeight_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowHeight_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3214,9 +3110,8 @@ int QTreeView_SuperState(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnState(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_State_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3243,9 +3138,8 @@ void QTreeView_SuperSetState(QTreeView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetState(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetState_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3272,9 +3166,8 @@ void QTreeView_SuperScheduleDelayedItemsLayout(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScheduleDelayedItemsLayout(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3301,9 +3194,8 @@ void QTreeView_SuperExecuteDelayedItemsLayout(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnExecuteDelayedItemsLayout(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3330,9 +3222,8 @@ void QTreeView_SuperSetDirtyRegion(QTreeView* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetDirtyRegion(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3359,9 +3250,8 @@ void QTreeView_SuperScrollDirtyRegion(QTreeView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScrollDirtyRegion(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3386,9 +3276,8 @@ QPoint* QTreeView_SuperDirtyRegionOffset(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDirtyRegionOffset(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3415,9 +3304,8 @@ void QTreeView_SuperStartAutoScroll(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnStartAutoScroll(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_StartAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3444,9 +3332,8 @@ void QTreeView_SuperStopAutoScroll(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnStopAutoScroll(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_StopAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3473,9 +3360,8 @@ void QTreeView_SuperDoAutoScroll(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDoAutoScroll(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DoAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3502,9 +3388,8 @@ int QTreeView_SuperDropIndicatorPosition(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDropIndicatorPosition(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3531,9 +3416,8 @@ void QTreeView_SuperSetViewportMargins(QTreeView* self, int left, int top, int r
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetViewportMargins(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SetViewportMargins_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3558,9 +3442,8 @@ QMargins* QTreeView_SuperViewportMargins(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnViewportMargins(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_ViewportMargins_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3587,9 +3470,8 @@ void QTreeView_SuperDrawFrame(QTreeView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDrawFrame(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_DrawFrame_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3616,9 +3498,8 @@ void QTreeView_SuperUpdateMicroFocus(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateMicroFocus(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3645,9 +3526,8 @@ void QTreeView_SuperCreate(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCreate(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Create_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3674,9 +3554,8 @@ void QTreeView_SuperDestroy(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDestroy(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Destroy_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3703,9 +3582,8 @@ bool QTreeView_SuperFocusNextChild(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusNextChild(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_FocusNextChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3732,9 +3610,8 @@ bool QTreeView_SuperFocusPreviousChild(QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusPreviousChild(QTreeView* self, intptr_t slot) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3761,9 +3638,8 @@ QObject* QTreeView_SuperSender(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSender(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Sender_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3790,9 +3666,8 @@ int QTreeView_SuperSenderSignalIndex(const QTreeView* self) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSenderSignalIndex(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3819,9 +3694,8 @@ int QTreeView_SuperReceivers(const QTreeView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnReceivers(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_Receivers_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3848,9 +3722,8 @@ bool QTreeView_SuperIsSignalConnected(const QTreeView* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnIsSignalConnected(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_IsSignalConnected_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3877,9 +3750,8 @@ double QTreeView_SuperGetDecodedMetricF(const QTreeView* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnGetDecodedMetricF(const QTreeView* self, intptr_t slot) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview && vqtreeview->isVirtualQTreeView)
         vqtreeview->setQTreeView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QTreeView_Delete(QTreeView* self) {

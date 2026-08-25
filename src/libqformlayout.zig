@@ -1792,6 +1792,31 @@ pub const QFormLayout = extern struct {
         return _ret;
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFormLayout `
+    ///
+    pub fn asQLayoutItem(self: QFormLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QFormLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QFormLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -3307,7 +3332,7 @@ pub const QFormLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QFormLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `geometry` instead
@@ -5047,19 +5072,19 @@ pub const QFormLayout__TakeRowResult = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#public-types)
 pub const enums = struct {
-    pub const FieldGrowthPolicy = enum(i32) {
+    pub const FieldGrowthPolicy = enum {
         pub const FieldsStayAtSizeHint: i32 = 0;
         pub const ExpandingFieldsGrow: i32 = 1;
         pub const AllNonFixedFieldsGrow: i32 = 2;
     };
 
-    pub const RowWrapPolicy = enum(i32) {
+    pub const RowWrapPolicy = enum {
         pub const DontWrapRows: i32 = 0;
         pub const WrapLongRows: i32 = 1;
         pub const WrapAllRows: i32 = 2;
     };
 
-    pub const ItemRole = enum(i32) {
+    pub const ItemRole = enum {
         pub const LabelRole: i32 = 0;
         pub const FieldRole: i32 = 1;
         pub const SpanningRole: i32 = 2;

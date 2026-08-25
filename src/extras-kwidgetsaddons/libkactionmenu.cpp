@@ -87,9 +87,8 @@ QMetaObject* KActionMenu_SuperMetaObject(const KActionMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnMetaObject(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_MetaObject_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -106,9 +105,8 @@ void* KActionMenu_SuperMetacast(KActionMenu* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnMetacast(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_Metacast_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -125,9 +123,8 @@ int KActionMenu_SuperMetacall(KActionMenu* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnMetacall(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_Metacall_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +141,8 @@ QWidget* KActionMenu_SuperCreateWidget(KActionMenu* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnCreateWidget(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_CreateWidget_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -173,9 +169,8 @@ bool KActionMenu_SuperEvent(KActionMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnEvent(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_Event_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -202,9 +197,8 @@ bool KActionMenu_SuperEventFilter(KActionMenu* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnEventFilter(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_EventFilter_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +225,8 @@ void KActionMenu_SuperDeleteWidget(KActionMenu* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnDeleteWidget(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_DeleteWidget_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +253,8 @@ void KActionMenu_SuperTimerEvent(KActionMenu* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnTimerEvent(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_TimerEvent_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +281,8 @@ void KActionMenu_SuperChildEvent(KActionMenu* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnChildEvent(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_ChildEvent_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +309,8 @@ void KActionMenu_SuperCustomEvent(KActionMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnCustomEvent(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_CustomEvent_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +337,8 @@ void KActionMenu_SuperConnectNotify(KActionMenu* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnConnectNotify(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +365,8 @@ void KActionMenu_SuperDisconnectNotify(KActionMenu* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnDisconnectNotify(KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +429,8 @@ libqt_list /* of QWidget* */ KActionMenu_SuperCreatedWidgets(const KActionMenu* 
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnCreatedWidgets(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_CreatedWidgets_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +457,8 @@ QObject* KActionMenu_SuperSender(const KActionMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnSender(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_Sender_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +485,8 @@ int KActionMenu_SuperSenderSignalIndex(const KActionMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnSenderSignalIndex(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +513,8 @@ int KActionMenu_SuperReceivers(const KActionMenu* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnReceivers(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_Receivers_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +541,8 @@ bool KActionMenu_SuperIsSignalConnected(const KActionMenu* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KActionMenu_OnIsSignalConnected(const KActionMenu* self, intptr_t slot) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu)
         vkactionmenu->setKActionMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KActionMenu_Delete(KActionMenu* self) {

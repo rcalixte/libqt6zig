@@ -121,9 +121,8 @@ bool K7Zip_SuperDoWriteSymLink(K7Zip* self, const libqt_string name, const libqt
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnDoWriteSymLink(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_DoWriteSymLink_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_DoWriteSymLink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +142,8 @@ bool K7Zip_SuperDoWriteDir(K7Zip* self, const libqt_string name, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnDoWriteDir(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_DoWriteDir_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_DoWriteDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ bool K7Zip_SuperDoPrepareWriting(K7Zip* self, const libqt_string name, const lib
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnDoPrepareWriting(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_DoPrepareWriting_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_DoPrepareWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +181,8 @@ bool K7Zip_SuperDoFinishWriting(K7Zip* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnDoFinishWriting(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_DoFinishWriting_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_DoFinishWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +199,8 @@ bool K7Zip_SuperDoWriteData(K7Zip* self, const char* data, long long size) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnDoWriteData(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_DoWriteData_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_DoWriteData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +217,8 @@ bool K7Zip_SuperOpenArchive(K7Zip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnOpenArchive(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_OpenArchive_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_OpenArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +235,8 @@ bool K7Zip_SuperCloseArchive(K7Zip* self) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnCloseArchive(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_CloseArchive_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_CloseArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +253,8 @@ void K7Zip_SuperVirtualHook(K7Zip* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnVirtualHook(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_VirtualHook_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +281,8 @@ bool K7Zip_SuperOpen(K7Zip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnOpen(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_Open_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +309,8 @@ bool K7Zip_SuperClose(K7Zip* self) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnClose(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_Close_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +337,8 @@ KArchiveDirectory* K7Zip_SuperRootDir(K7Zip* self) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnRootDir(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_RootDir_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_RootDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +365,8 @@ bool K7Zip_SuperCreateDevice(K7Zip* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnCreateDevice(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_CreateDevice_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_CreateDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +395,8 @@ void K7Zip_SuperSetErrorString(K7Zip* self, const libqt_string errorStr) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnSetErrorString(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_SetErrorString_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ KArchiveDirectory* K7Zip_SuperFindOrCreate(K7Zip* self, const libqt_string path)
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnFindOrCreate(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_FindOrCreate_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_FindOrCreate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ void K7Zip_SuperSetDevice(K7Zip* self, QIODevice* dev) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnSetDevice(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_SetDevice_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_SetDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ void K7Zip_SuperSetRootDir(K7Zip* self, KArchiveDirectory* rootDir) {
 // Auxiliary method to allow providing re-implementation
 void K7Zip_OnSetRootDir(K7Zip* self, intptr_t slot) {
     auto* vk7zip = dynamic_cast<VirtualK7Zip*>(self);
-    if (vk7zip && vk7zip->isVirtualK7Zip) {
+    if (vk7zip && vk7zip->isVirtualK7Zip)
         vk7zip->setK7Zip_SetRootDir_Callback(reinterpret_cast<VirtualK7Zip::K7Zip_SetRootDir_Callback>(slot));
-    }
 }
 
 void K7Zip_Delete(K7Zip* self) {

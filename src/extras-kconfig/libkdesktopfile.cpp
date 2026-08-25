@@ -273,9 +273,8 @@ bool KDesktopFile_SuperSync(KDesktopFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnSync(KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_Sync_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_Sync_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +301,8 @@ void KDesktopFile_SuperMarkAsClean(KDesktopFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnMarkAsClean(KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_MarkAsClean_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_MarkAsClean_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +329,8 @@ int KDesktopFile_SuperAccessMode(const KDesktopFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnAccessMode(const KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_AccessMode_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_AccessMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +357,8 @@ bool KDesktopFile_SuperIsImmutable(const KDesktopFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnIsImmutable(const KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_IsImmutable_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsImmutable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +453,8 @@ libqt_list /* of libqt_string */ KDesktopFile_SuperGroupList(const KDesktopFile*
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnGroupList(const KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_GroupList_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_GroupList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +483,8 @@ bool KDesktopFile_SuperHasGroupImpl(const KDesktopFile* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnHasGroupImpl(const KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_HasGroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_HasGroupImpl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +511,8 @@ KConfigGroup* KDesktopFile_SuperGroupImpl(KDesktopFile* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnGroupImpl(KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_GroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_GroupImpl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +541,8 @@ void KDesktopFile_SuperDeleteGroupImpl(KDesktopFile* self, const libqt_string gr
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnDeleteGroupImpl(KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_DeleteGroupImpl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +571,8 @@ bool KDesktopFile_SuperIsGroupImmutableImpl(const KDesktopFile* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnIsGroupImmutableImpl(const KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = const_cast<VirtualKDesktopFile*>(dynamic_cast<const VirtualKDesktopFile*>(self));
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_IsGroupImmutableImpl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +599,8 @@ void KDesktopFile_SuperVirtualHook(KDesktopFile* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KDesktopFile_OnVirtualHook(KDesktopFile* self, intptr_t slot) {
     auto* vkdesktopfile = dynamic_cast<VirtualKDesktopFile*>(self);
-    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
+    if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile)
         vkdesktopfile->setKDesktopFile_VirtualHook_Callback(reinterpret_cast<VirtualKDesktopFile::KDesktopFile_VirtualHook_Callback>(slot));
-    }
 }
 
 void KDesktopFile_Delete(KDesktopFile* self) {

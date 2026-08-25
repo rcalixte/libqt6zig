@@ -104,9 +104,8 @@ QMetaObject* KUrlRequesterDialog_SuperMetaObject(const KUrlRequesterDialog* self
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetaObject(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MetaObject_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -123,9 +122,8 @@ void* KUrlRequesterDialog_SuperMetacast(KUrlRequesterDialog* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetacast(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Metacast_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -142,9 +140,8 @@ int KUrlRequesterDialog_SuperMetacall(KUrlRequesterDialog* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetacall(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Metacall_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -171,9 +168,8 @@ void KUrlRequesterDialog_SuperSetVisible(KUrlRequesterDialog* self, bool visible
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSetVisible(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_SetVisible_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +196,8 @@ QSize* KUrlRequesterDialog_SuperSizeHint(const KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSizeHint(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_SizeHint_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +224,8 @@ QSize* KUrlRequesterDialog_SuperMinimumSizeHint(const KUrlRequesterDialog* self)
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMinimumSizeHint(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +252,8 @@ void KUrlRequesterDialog_SuperOpen(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnOpen(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Open_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +280,8 @@ int KUrlRequesterDialog_SuperExec(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnExec(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Exec_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +308,8 @@ void KUrlRequesterDialog_SuperDone(KUrlRequesterDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDone(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Done_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +336,8 @@ void KUrlRequesterDialog_SuperAccept(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnAccept(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Accept_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +364,8 @@ void KUrlRequesterDialog_SuperReject(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnReject(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Reject_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +392,8 @@ void KUrlRequesterDialog_SuperKeyPressEvent(KUrlRequesterDialog* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnKeyPressEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +420,8 @@ void KUrlRequesterDialog_SuperCloseEvent(KUrlRequesterDialog* self, QCloseEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnCloseEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_CloseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +448,8 @@ void KUrlRequesterDialog_SuperShowEvent(KUrlRequesterDialog* self, QShowEvent* p
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnShowEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ShowEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +476,8 @@ void KUrlRequesterDialog_SuperResizeEvent(KUrlRequesterDialog* self, QResizeEven
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnResizeEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +504,8 @@ void KUrlRequesterDialog_SuperContextMenuEvent(KUrlRequesterDialog* self, QConte
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnContextMenuEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +532,8 @@ bool KUrlRequesterDialog_SuperEventFilter(KUrlRequesterDialog* self, QObject* pa
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEventFilter(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_EventFilter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +560,8 @@ int KUrlRequesterDialog_SuperDevType(const KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDevType(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DevType_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +588,8 @@ int KUrlRequesterDialog_SuperHeightForWidth(const KUrlRequesterDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +616,8 @@ bool KUrlRequesterDialog_SuperHasHeightForWidth(const KUrlRequesterDialog* self)
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnHasHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +644,8 @@ QPaintEngine* KUrlRequesterDialog_SuperPaintEngine(const KUrlRequesterDialog* se
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnPaintEngine(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_PaintEngine_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -693,9 +672,8 @@ bool KUrlRequesterDialog_SuperEvent(KUrlRequesterDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Event_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +700,8 @@ void KUrlRequesterDialog_SuperMousePressEvent(KUrlRequesterDialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMousePressEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -751,9 +728,8 @@ void KUrlRequesterDialog_SuperMouseReleaseEvent(KUrlRequesterDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseReleaseEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +756,8 @@ void KUrlRequesterDialog_SuperMouseDoubleClickEvent(KUrlRequesterDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseDoubleClickEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +784,8 @@ void KUrlRequesterDialog_SuperMouseMoveEvent(KUrlRequesterDialog* self, QMouseEv
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +812,8 @@ void KUrlRequesterDialog_SuperWheelEvent(KUrlRequesterDialog* self, QWheelEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnWheelEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_WheelEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +840,8 @@ void KUrlRequesterDialog_SuperKeyReleaseEvent(KUrlRequesterDialog* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnKeyReleaseEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +868,8 @@ void KUrlRequesterDialog_SuperFocusInEvent(KUrlRequesterDialog* self, QFocusEven
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusInEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +896,8 @@ void KUrlRequesterDialog_SuperFocusOutEvent(KUrlRequesterDialog* self, QFocusEve
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusOutEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +924,8 @@ void KUrlRequesterDialog_SuperEnterEvent(KUrlRequesterDialog* self, QEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEnterEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_EnterEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +952,8 @@ void KUrlRequesterDialog_SuperLeaveEvent(KUrlRequesterDialog* self, QEvent* even
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnLeaveEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +980,8 @@ void KUrlRequesterDialog_SuperPaintEvent(KUrlRequesterDialog* self, QPaintEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnPaintEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_PaintEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1008,8 @@ void KUrlRequesterDialog_SuperMoveEvent(KUrlRequesterDialog* self, QMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_MoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1036,8 @@ void KUrlRequesterDialog_SuperTabletEvent(KUrlRequesterDialog* self, QTabletEven
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnTabletEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_TabletEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1064,8 @@ void KUrlRequesterDialog_SuperActionEvent(KUrlRequesterDialog* self, QActionEven
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnActionEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ActionEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1092,8 @@ void KUrlRequesterDialog_SuperDragEnterEvent(KUrlRequesterDialog* self, QDragEnt
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragEnterEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1120,8 @@ void KUrlRequesterDialog_SuperDragMoveEvent(KUrlRequesterDialog* self, QDragMove
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1148,8 @@ void KUrlRequesterDialog_SuperDragLeaveEvent(KUrlRequesterDialog* self, QDragLea
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragLeaveEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1176,8 @@ void KUrlRequesterDialog_SuperDropEvent(KUrlRequesterDialog* self, QDropEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDropEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DropEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1204,8 @@ void KUrlRequesterDialog_SuperHideEvent(KUrlRequesterDialog* self, QHideEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnHideEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_HideEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1275,9 +1234,8 @@ bool KUrlRequesterDialog_SuperNativeEvent(KUrlRequesterDialog* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnNativeEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_NativeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1304,9 +1262,8 @@ void KUrlRequesterDialog_SuperChangeEvent(KUrlRequesterDialog* self, QEvent* par
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnChangeEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1333,9 +1290,8 @@ int KUrlRequesterDialog_SuperMetric(const KUrlRequesterDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetric(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Metric_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1362,9 +1318,8 @@ void KUrlRequesterDialog_SuperInitPainter(const KUrlRequesterDialog* self, QPain
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnInitPainter(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_InitPainter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1391,9 +1346,8 @@ QPaintDevice* KUrlRequesterDialog_SuperRedirected(const KUrlRequesterDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnRedirected(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Redirected_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1420,9 +1374,8 @@ QPainter* KUrlRequesterDialog_SuperSharedPainter(const KUrlRequesterDialog* self
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSharedPainter(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_SharedPainter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1449,9 +1402,8 @@ void KUrlRequesterDialog_SuperInputMethodEvent(KUrlRequesterDialog* self, QInput
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnInputMethodEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1478,9 +1430,8 @@ QVariant* KUrlRequesterDialog_SuperInputMethodQuery(const KUrlRequesterDialog* s
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnInputMethodQuery(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1507,9 +1458,8 @@ bool KUrlRequesterDialog_SuperFocusNextPrevChild(KUrlRequesterDialog* self, bool
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusNextPrevChild(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1536,9 +1486,8 @@ void KUrlRequesterDialog_SuperTimerEvent(KUrlRequesterDialog* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnTimerEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_TimerEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1565,9 +1514,8 @@ void KUrlRequesterDialog_SuperChildEvent(KUrlRequesterDialog* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnChildEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ChildEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1594,9 +1542,8 @@ void KUrlRequesterDialog_SuperCustomEvent(KUrlRequesterDialog* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnCustomEvent(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_CustomEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1570,8 @@ void KUrlRequesterDialog_SuperConnectNotify(KUrlRequesterDialog* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnConnectNotify(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1598,8 @@ void KUrlRequesterDialog_SuperDisconnectNotify(KUrlRequesterDialog* self, const 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDisconnectNotify(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1626,8 @@ void KUrlRequesterDialog_SuperAdjustPosition(KUrlRequesterDialog* self, QWidget*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnAdjustPosition(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1654,8 @@ void KUrlRequesterDialog_SuperUpdateMicroFocus(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnUpdateMicroFocus(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1682,8 @@ void KUrlRequesterDialog_SuperCreate(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnCreate(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Create_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1710,8 @@ void KUrlRequesterDialog_SuperDestroy(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDestroy(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Destroy_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1738,8 @@ bool KUrlRequesterDialog_SuperFocusNextChild(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusNextChild(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1766,8 @@ bool KUrlRequesterDialog_SuperFocusPreviousChild(KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusPreviousChild(KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1794,8 @@ QObject* KUrlRequesterDialog_SuperSender(const KUrlRequesterDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSender(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Sender_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1822,8 @@ int KUrlRequesterDialog_SuperSenderSignalIndex(const KUrlRequesterDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSenderSignalIndex(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1850,8 @@ int KUrlRequesterDialog_SuperReceivers(const KUrlRequesterDialog* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnReceivers(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_Receivers_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1878,8 @@ bool KUrlRequesterDialog_SuperIsSignalConnected(const KUrlRequesterDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnIsSignalConnected(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1906,8 @@ double KUrlRequesterDialog_SuperGetDecodedMetricF(const KUrlRequesterDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnGetDecodedMetricF(const KUrlRequesterDialog* self, intptr_t slot) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
         vkurlrequesterdialog->setKUrlRequesterDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KUrlRequesterDialog_Delete(KUrlRequesterDialog* self) {

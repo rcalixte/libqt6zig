@@ -99,9 +99,8 @@ void KIO__ApplicationLauncherJob_SuperStart(KIO__ApplicationLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnStart(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Start_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -128,9 +127,8 @@ QMetaObject* KIO__ApplicationLauncherJob_SuperMetaObject(const KIO__ApplicationL
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnMetaObject(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -157,9 +155,8 @@ void* KIO__ApplicationLauncherJob_SuperMetacast(KIO__ApplicationLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnMetacast(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +183,8 @@ int KIO__ApplicationLauncherJob_SuperMetacall(KIO__ApplicationLauncherJob* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnMetacall(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +211,8 @@ bool KIO__ApplicationLauncherJob_SuperDoKill(KIO__ApplicationLauncherJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnDoKill(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +239,8 @@ bool KIO__ApplicationLauncherJob_SuperDoSuspend(KIO__ApplicationLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnDoSuspend(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +267,8 @@ bool KIO__ApplicationLauncherJob_SuperDoResume(KIO__ApplicationLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnDoResume(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +327,8 @@ libqt_string KIO__ApplicationLauncherJob_SuperErrorString(const KIO__Application
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnErrorString(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +355,8 @@ bool KIO__ApplicationLauncherJob_SuperEvent(KIO__ApplicationLauncherJob* self, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnEvent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Event_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +383,8 @@ bool KIO__ApplicationLauncherJob_SuperEventFilter(KIO__ApplicationLauncherJob* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnEventFilter(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +411,8 @@ void KIO__ApplicationLauncherJob_SuperTimerEvent(KIO__ApplicationLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnTimerEvent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +439,8 @@ void KIO__ApplicationLauncherJob_SuperChildEvent(KIO__ApplicationLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnChildEvent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +467,8 @@ void KIO__ApplicationLauncherJob_SuperCustomEvent(KIO__ApplicationLauncherJob* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnCustomEvent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +495,8 @@ void KIO__ApplicationLauncherJob_SuperConnectNotify(KIO__ApplicationLauncherJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnConnectNotify(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +523,8 @@ void KIO__ApplicationLauncherJob_SuperDisconnectNotify(KIO__ApplicationLauncherJ
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnDisconnectNotify(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +551,8 @@ void KIO__ApplicationLauncherJob_SuperSetCapabilities(KIO__ApplicationLauncherJo
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetCapabilities(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +579,8 @@ bool KIO__ApplicationLauncherJob_SuperIsFinished(const KIO__ApplicationLauncherJ
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnIsFinished(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +607,8 @@ void KIO__ApplicationLauncherJob_SuperSetError(KIO__ApplicationLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetError(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetError_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +637,8 @@ void KIO__ApplicationLauncherJob_SuperSetErrorText(KIO__ApplicationLauncherJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetErrorText(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +665,8 @@ void KIO__ApplicationLauncherJob_SuperSetProcessedAmount(KIO__ApplicationLaunche
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetProcessedAmount(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +693,8 @@ void KIO__ApplicationLauncherJob_SuperSetTotalAmount(KIO__ApplicationLauncherJob
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetTotalAmount(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +721,8 @@ void KIO__ApplicationLauncherJob_SuperSetProgressUnit(KIO__ApplicationLauncherJo
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetProgressUnit(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +749,8 @@ void KIO__ApplicationLauncherJob_SuperSetPercent(KIO__ApplicationLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSetPercent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +777,8 @@ void KIO__ApplicationLauncherJob_SuperEmitResult(KIO__ApplicationLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnEmitResult(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +805,8 @@ void KIO__ApplicationLauncherJob_SuperEmitPercent(KIO__ApplicationLauncherJob* s
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnEmitPercent(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +833,8 @@ void KIO__ApplicationLauncherJob_SuperEmitSpeed(KIO__ApplicationLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnEmitSpeed(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +861,8 @@ void KIO__ApplicationLauncherJob_SuperStartElapsedTimer(KIO__ApplicationLauncher
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnStartElapsedTimer(KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +889,8 @@ QObject* KIO__ApplicationLauncherJob_SuperSender(const KIO__ApplicationLauncherJ
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSender(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Sender_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +917,8 @@ int KIO__ApplicationLauncherJob_SuperSenderSignalIndex(const KIO__ApplicationLau
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnSenderSignalIndex(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +945,8 @@ int KIO__ApplicationLauncherJob_SuperReceivers(const KIO__ApplicationLauncherJob
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnReceivers(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +973,8 @@ bool KIO__ApplicationLauncherJob_SuperIsSignalConnected(const KIO__ApplicationLa
 // Auxiliary method to allow providing re-implementation
 void KIO__ApplicationLauncherJob_OnIsSignalConnected(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
-    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob)
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__ApplicationLauncherJob_Delete(KIO__ApplicationLauncherJob* self) {

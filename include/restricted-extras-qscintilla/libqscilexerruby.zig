@@ -4322,7 +4322,7 @@ pub const QsciLexerRuby = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerRuby = enum(i32) {
+    pub const QsciLexerRuby = enum {
         pub const Default: i32 = 0;
         pub const Error: i32 = 1;
         pub const Comment: i32 = 2;

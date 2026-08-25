@@ -188,9 +188,8 @@ QMetaObject* QLCDNumber_SuperMetaObject(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMetaObject(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MetaObject_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +206,8 @@ void* QLCDNumber_SuperMetacast(QLCDNumber* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMetacast(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Metacast_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +224,8 @@ int QLCDNumber_SuperMetacall(QLCDNumber* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMetacall(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Metacall_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -245,9 +242,8 @@ QSize* QLCDNumber_SuperSizeHint(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnSizeHint(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_SizeHint_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +260,8 @@ bool QLCDNumber_SuperEvent(QLCDNumber* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Event_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -283,9 +278,8 @@ void QLCDNumber_SuperPaintEvent(QLCDNumber* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnPaintEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_PaintEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +306,8 @@ void QLCDNumber_SuperChangeEvent(QLCDNumber* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnChangeEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ChangeEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +334,8 @@ void QLCDNumber_SuperInitStyleOption(const QLCDNumber* self, QStyleOptionFrame* 
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnInitStyleOption(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_InitStyleOption_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +362,8 @@ int QLCDNumber_SuperDevType(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDevType(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DevType_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +390,8 @@ void QLCDNumber_SuperSetVisible(QLCDNumber* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnSetVisible(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_SetVisible_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +418,8 @@ QSize* QLCDNumber_SuperMinimumSizeHint(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMinimumSizeHint(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MinimumSizeHint_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +446,8 @@ int QLCDNumber_SuperHeightForWidth(const QLCDNumber* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnHeightForWidth(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_HeightForWidth_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +474,8 @@ bool QLCDNumber_SuperHasHeightForWidth(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnHasHeightForWidth(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_HasHeightForWidth_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +502,8 @@ QPaintEngine* QLCDNumber_SuperPaintEngine(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnPaintEngine(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_PaintEngine_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +530,8 @@ void QLCDNumber_SuperMousePressEvent(QLCDNumber* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMousePressEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MousePressEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +558,8 @@ void QLCDNumber_SuperMouseReleaseEvent(QLCDNumber* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMouseReleaseEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +586,8 @@ void QLCDNumber_SuperMouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMouseDoubleClickEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +614,8 @@ void QLCDNumber_SuperMouseMoveEvent(QLCDNumber* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMouseMoveEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MouseMoveEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +642,8 @@ void QLCDNumber_SuperWheelEvent(QLCDNumber* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnWheelEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_WheelEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +670,8 @@ void QLCDNumber_SuperKeyPressEvent(QLCDNumber* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnKeyPressEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_KeyPressEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +698,8 @@ void QLCDNumber_SuperKeyReleaseEvent(QLCDNumber* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnKeyReleaseEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +726,8 @@ void QLCDNumber_SuperFocusInEvent(QLCDNumber* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnFocusInEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_FocusInEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +754,8 @@ void QLCDNumber_SuperFocusOutEvent(QLCDNumber* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnFocusOutEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_FocusOutEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +782,8 @@ void QLCDNumber_SuperEnterEvent(QLCDNumber* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnEnterEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_EnterEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +810,8 @@ void QLCDNumber_SuperLeaveEvent(QLCDNumber* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnLeaveEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_LeaveEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +838,8 @@ void QLCDNumber_SuperMoveEvent(QLCDNumber* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMoveEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_MoveEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +866,8 @@ void QLCDNumber_SuperResizeEvent(QLCDNumber* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnResizeEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ResizeEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +894,8 @@ void QLCDNumber_SuperCloseEvent(QLCDNumber* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnCloseEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_CloseEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +922,8 @@ void QLCDNumber_SuperContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnContextMenuEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ContextMenuEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +950,8 @@ void QLCDNumber_SuperTabletEvent(QLCDNumber* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnTabletEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_TabletEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +978,8 @@ void QLCDNumber_SuperActionEvent(QLCDNumber* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnActionEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ActionEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1006,8 @@ void QLCDNumber_SuperDragEnterEvent(QLCDNumber* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDragEnterEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DragEnterEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1034,8 @@ void QLCDNumber_SuperDragMoveEvent(QLCDNumber* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDragMoveEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DragMoveEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1062,8 @@ void QLCDNumber_SuperDragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDragLeaveEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DragLeaveEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1090,8 @@ void QLCDNumber_SuperDropEvent(QLCDNumber* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDropEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DropEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1118,8 @@ void QLCDNumber_SuperShowEvent(QLCDNumber* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnShowEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ShowEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1146,8 @@ void QLCDNumber_SuperHideEvent(QLCDNumber* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnHideEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_HideEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1176,8 @@ bool QLCDNumber_SuperNativeEvent(QLCDNumber* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnNativeEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_NativeEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1204,8 @@ int QLCDNumber_SuperMetric(const QLCDNumber* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnMetric(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Metric_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1232,8 @@ void QLCDNumber_SuperInitPainter(const QLCDNumber* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnInitPainter(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_InitPainter_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1260,8 @@ QPaintDevice* QLCDNumber_SuperRedirected(const QLCDNumber* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnRedirected(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Redirected_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1288,8 @@ QPainter* QLCDNumber_SuperSharedPainter(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnSharedPainter(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_SharedPainter_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1316,8 @@ void QLCDNumber_SuperInputMethodEvent(QLCDNumber* self, QInputMethodEvent* param
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnInputMethodEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_InputMethodEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1344,8 @@ QVariant* QLCDNumber_SuperInputMethodQuery(const QLCDNumber* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnInputMethodQuery(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_InputMethodQuery_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1372,8 @@ bool QLCDNumber_SuperFocusNextPrevChild(QLCDNumber* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnFocusNextPrevChild(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1400,8 @@ bool QLCDNumber_SuperEventFilter(QLCDNumber* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnEventFilter(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_EventFilter_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1428,8 @@ void QLCDNumber_SuperTimerEvent(QLCDNumber* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnTimerEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_TimerEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1456,8 @@ void QLCDNumber_SuperChildEvent(QLCDNumber* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnChildEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ChildEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1484,8 @@ void QLCDNumber_SuperCustomEvent(QLCDNumber* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnCustomEvent(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_CustomEvent_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1512,8 @@ void QLCDNumber_SuperConnectNotify(QLCDNumber* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnConnectNotify(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_ConnectNotify_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1540,8 @@ void QLCDNumber_SuperDisconnectNotify(QLCDNumber* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDisconnectNotify(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DisconnectNotify_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1568,8 @@ void QLCDNumber_SuperDrawFrame(QLCDNumber* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDrawFrame(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_DrawFrame_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1596,8 @@ void QLCDNumber_SuperUpdateMicroFocus(QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnUpdateMicroFocus(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1624,8 @@ void QLCDNumber_SuperCreate(QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnCreate(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Create_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1652,8 @@ void QLCDNumber_SuperDestroy(QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnDestroy(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Destroy_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1680,8 @@ bool QLCDNumber_SuperFocusNextChild(QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnFocusNextChild(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_FocusNextChild_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1708,8 @@ bool QLCDNumber_SuperFocusPreviousChild(QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnFocusPreviousChild(QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_FocusPreviousChild_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1736,8 @@ QObject* QLCDNumber_SuperSender(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnSender(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Sender_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1764,8 @@ int QLCDNumber_SuperSenderSignalIndex(const QLCDNumber* self) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnSenderSignalIndex(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1792,8 @@ int QLCDNumber_SuperReceivers(const QLCDNumber* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnReceivers(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_Receivers_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1880,9 +1820,8 @@ bool QLCDNumber_SuperIsSignalConnected(const QLCDNumber* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnIsSignalConnected(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_IsSignalConnected_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1909,9 +1848,8 @@ double QLCDNumber_SuperGetDecodedMetricF(const QLCDNumber* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void QLCDNumber_OnGetDecodedMetricF(const QLCDNumber* self, intptr_t slot) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber)
         vqlcdnumber->setQLCDNumber_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QLCDNumber_Delete(QLCDNumber* self) {

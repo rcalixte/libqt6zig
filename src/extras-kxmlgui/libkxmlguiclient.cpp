@@ -279,9 +279,8 @@ QAction* KXMLGUIClient_SuperAction2(const KXMLGUIClient* self, const QDomElement
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnAction2(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_Action2_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_Action2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +297,8 @@ KActionCollection* KXMLGUIClient_SuperActionCollection(const KXMLGUIClient* self
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnActionCollection(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_ActionCollection_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ActionCollection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +331,8 @@ libqt_string KXMLGUIClient_SuperComponentName(const KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnComponentName(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_ComponentName_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_ComponentName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +349,8 @@ QDomDocument* KXMLGUIClient_SuperDomDocument(const KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnDomDocument(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_DomDocument_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_DomDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +383,8 @@ libqt_string KXMLGUIClient_SuperXmlFile(const KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnXmlFile(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_XmlFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_XmlFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -422,9 +417,8 @@ libqt_string KXMLGUIClient_SuperLocalXMLFile(const KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnLocalXMLFile(const KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_LocalXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_LocalXMLFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +437,8 @@ void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetComponentName(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_SetComponentName_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetComponentName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +456,8 @@ void KXMLGUIClient_SuperSetXMLFile(KXMLGUIClient* self, const libqt_string file,
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetXMLFile(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_SetXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXMLFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -483,9 +475,8 @@ void KXMLGUIClient_SuperSetLocalXMLFile(KXMLGUIClient* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetLocalXMLFile(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetLocalXMLFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -503,9 +494,8 @@ void KXMLGUIClient_SuperSetXML(KXMLGUIClient* self, const libqt_string document,
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetXML(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_SetXML_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetXML_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -522,9 +512,8 @@ void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnSetDOMDocument(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_SetDOMDocument_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_SetDOMDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -542,9 +531,8 @@ void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string new
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnStateChanged(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_StateChanged_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StateChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +591,8 @@ libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnStandardsXmlFileLocation(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StandardsXmlFileLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +619,8 @@ void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIClient_OnLoadStandardsXmlFile(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
+    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient)
         vkxmlguiclient->setKXMLGUIClient_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_LoadStandardsXmlFile_Callback>(slot));
-    }
 }
 
 void KXMLGUIClient_Delete(KXMLGUIClient* self) {

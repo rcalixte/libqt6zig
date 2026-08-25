@@ -1103,7 +1103,7 @@ pub const QLineF = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qline.html#public-types)
 pub const enums = struct {
-    pub const IntersectionType = enum(i32) {
+    pub const IntersectionType = enum {
         pub const NoIntersection: i32 = 0;
         pub const BoundedIntersection: i32 = 1;
         pub const UnboundedIntersection: i32 = 2;

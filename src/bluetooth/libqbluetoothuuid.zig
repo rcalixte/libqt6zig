@@ -830,7 +830,7 @@ pub const QBluetoothUuid = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#public-types)
 pub const enums = struct {
-    pub const ProtocolUuid = enum(i32) {
+    pub const ProtocolUuid = enum {
         pub const Sdp: i32 = 1;
         pub const Udp: i32 = 2;
         pub const Rfcomm: i32 = 3;
@@ -858,7 +858,7 @@ pub const enums = struct {
         pub const L2cap: i32 = 256;
     };
 
-    pub const ServiceClassUuid = enum(i32) {
+    pub const ServiceClassUuid = enum {
         pub const ServiceDiscoveryServer: i32 = 4096;
         pub const BrowseGroupDescriptor: i32 = 4097;
         pub const PublicBrowseGroup: i32 = 4098;
@@ -952,7 +952,7 @@ pub const enums = struct {
         pub const ContinuousGlucoseMonitoring: i32 = 6175;
     };
 
-    pub const CharacteristicType = enum(i32) {
+    pub const CharacteristicType = enum {
         pub const DeviceName: i32 = 10752;
         pub const Appearance: i32 = 10753;
         pub const PeripheralPrivacyFlag: i32 = 10754;
@@ -1092,7 +1092,7 @@ pub const enums = struct {
         pub const BarometricPressureTrend: i32 = 10915;
     };
 
-    pub const DescriptorType = enum(i32) {
+    pub const DescriptorType = enum {
         pub const UnknownDescriptorType: i32 = 0;
         pub const CharacteristicExtendedProperties: i32 = 10496;
         pub const CharacteristicUserDescription: i32 = 10497;

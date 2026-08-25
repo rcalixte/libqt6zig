@@ -4454,7 +4454,7 @@ pub const QsciLexerSpice = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerSpice = enum(i32) {
+    pub const QsciLexerSpice = enum {
         pub const Default: i32 = 0;
         pub const Identifier: i32 = 1;
         pub const Command: i32 = 2;

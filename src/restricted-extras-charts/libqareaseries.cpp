@@ -359,9 +359,8 @@ QMetaObject* QAreaSeries_SuperMetaObject(const QAreaSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnMetaObject(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_MetaObject_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +377,8 @@ void* QAreaSeries_SuperMetacast(QAreaSeries* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnMetacast(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Metacast_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +395,8 @@ int QAreaSeries_SuperMetacall(QAreaSeries* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnMetacall(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Metacall_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -416,9 +413,8 @@ int QAreaSeries_SuperType(const QAreaSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Type_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +441,8 @@ bool QAreaSeries_SuperEvent(QAreaSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnEvent(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Event_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +469,8 @@ bool QAreaSeries_SuperEventFilter(QAreaSeries* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnEventFilter(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_EventFilter_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +497,8 @@ void QAreaSeries_SuperTimerEvent(QAreaSeries* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnTimerEvent(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_TimerEvent_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +525,8 @@ void QAreaSeries_SuperChildEvent(QAreaSeries* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnChildEvent(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_ChildEvent_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +553,8 @@ void QAreaSeries_SuperCustomEvent(QAreaSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnCustomEvent(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_CustomEvent_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +581,8 @@ void QAreaSeries_SuperConnectNotify(QAreaSeries* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnConnectNotify(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +609,8 @@ void QAreaSeries_SuperDisconnectNotify(QAreaSeries* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnDisconnectNotify(QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +637,8 @@ QObject* QAreaSeries_SuperSender(const QAreaSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnSender(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Sender_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +665,8 @@ int QAreaSeries_SuperSenderSignalIndex(const QAreaSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnSenderSignalIndex(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +693,8 @@ int QAreaSeries_SuperReceivers(const QAreaSeries* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnReceivers(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_Receivers_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +721,8 @@ bool QAreaSeries_SuperIsSignalConnected(const QAreaSeries* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QAreaSeries_OnIsSignalConnected(const QAreaSeries* self, intptr_t slot) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries)
         vqareaseries->setQAreaSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAreaSeries_Delete(QAreaSeries* self) {

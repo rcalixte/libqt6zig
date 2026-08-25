@@ -134,9 +134,8 @@ QMetaObject* KActionCategory_SuperMetaObject(const KActionCategory* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnMetaObject(const KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_MetaObject_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +152,8 @@ void* KActionCategory_SuperMetacast(KActionCategory* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnMetacast(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_Metacast_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +170,8 @@ int KActionCategory_SuperMetacall(KActionCategory* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnMetacall(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_Metacall_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -201,9 +198,8 @@ bool KActionCategory_SuperEvent(KActionCategory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnEvent(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_Event_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -230,9 +226,8 @@ bool KActionCategory_SuperEventFilter(KActionCategory* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnEventFilter(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_EventFilter_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -259,9 +254,8 @@ void KActionCategory_SuperTimerEvent(KActionCategory* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnTimerEvent(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_TimerEvent_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -288,9 +282,8 @@ void KActionCategory_SuperChildEvent(KActionCategory* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnChildEvent(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_ChildEvent_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -317,9 +310,8 @@ void KActionCategory_SuperCustomEvent(KActionCategory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnCustomEvent(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_CustomEvent_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -346,9 +338,8 @@ void KActionCategory_SuperConnectNotify(KActionCategory* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnConnectNotify(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_ConnectNotify_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -375,9 +366,8 @@ void KActionCategory_SuperDisconnectNotify(KActionCategory* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnDisconnectNotify(KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -404,9 +394,8 @@ QObject* KActionCategory_SuperSender(const KActionCategory* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnSender(const KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_Sender_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -433,9 +422,8 @@ int KActionCategory_SuperSenderSignalIndex(const KActionCategory* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnSenderSignalIndex(const KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +450,8 @@ int KActionCategory_SuperReceivers(const KActionCategory* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnReceivers(const KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_Receivers_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +478,8 @@ bool KActionCategory_SuperIsSignalConnected(const KActionCategory* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KActionCategory_OnIsSignalConnected(const KActionCategory* self, intptr_t slot) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory)
         vkactioncategory->setKActionCategory_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KActionCategory_Delete(KActionCategory* self) {

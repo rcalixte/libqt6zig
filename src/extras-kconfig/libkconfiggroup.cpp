@@ -1029,9 +1029,8 @@ bool KConfigGroup_SuperSync(KConfigGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnSync(KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_Sync_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_Sync_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1048,9 +1047,8 @@ void KConfigGroup_SuperMarkAsClean(KConfigGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnMarkAsClean(KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_MarkAsClean_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_MarkAsClean_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1067,9 +1065,8 @@ int KConfigGroup_SuperAccessMode(const KConfigGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnAccessMode(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_AccessMode_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_AccessMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1120,9 +1117,8 @@ libqt_list /* of libqt_string */ KConfigGroup_SuperGroupList(const KConfigGroup*
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnGroupList(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_GroupList_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupList_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1139,9 +1135,8 @@ bool KConfigGroup_SuperIsImmutable(const KConfigGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnIsImmutable(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_IsImmutable_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsImmutable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1159,9 +1154,8 @@ bool KConfigGroup_SuperHasGroupImpl(const KConfigGroup* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnHasGroupImpl(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_HasGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_HasGroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1178,9 +1172,8 @@ KConfigGroup* KConfigGroup_SuperGroupImpl(KConfigGroup* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnGroupImpl(KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_GroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1197,9 +1190,8 @@ KConfigGroup* KConfigGroup_SuperGroupImpl2(const KConfigGroup* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnGroupImpl2(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_GroupImpl2_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_GroupImpl2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1217,9 +1209,8 @@ void KConfigGroup_SuperDeleteGroupImpl(KConfigGroup* self, const libqt_string gr
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnDeleteGroupImpl(KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_DeleteGroupImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_DeleteGroupImpl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1237,9 +1228,8 @@ bool KConfigGroup_SuperIsGroupImmutableImpl(const KConfigGroup* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnIsGroupImmutableImpl(const KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = const_cast<VirtualKConfigGroup*>(dynamic_cast<const VirtualKConfigGroup*>(self));
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_IsGroupImmutableImpl_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_IsGroupImmutableImpl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1256,8 @@ void KConfigGroup_SuperVirtualHook(KConfigGroup* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KConfigGroup_OnVirtualHook(KConfigGroup* self, intptr_t slot) {
     auto* vkconfiggroup = dynamic_cast<VirtualKConfigGroup*>(self);
-    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
+    if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup)
         vkconfiggroup->setKConfigGroup_VirtualHook_Callback(reinterpret_cast<VirtualKConfigGroup::KConfigGroup_VirtualHook_Callback>(slot));
-    }
 }
 
 void KConfigGroup_Delete(KConfigGroup* self) {

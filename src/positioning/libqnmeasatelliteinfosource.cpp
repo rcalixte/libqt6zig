@@ -123,9 +123,8 @@ QMetaObject* QNmeaSatelliteInfoSource_SuperMetaObject(const QNmeaSatelliteInfoSo
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnMetaObject(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -142,9 +141,8 @@ void* QNmeaSatelliteInfoSource_SuperMetacast(QNmeaSatelliteInfoSource* self, con
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnMetacast(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacast_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -161,9 +159,8 @@ int QNmeaSatelliteInfoSource_SuperMetacall(QNmeaSatelliteInfoSource* self, int p
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnMetacall(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacall_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +177,8 @@ void QNmeaSatelliteInfoSource_SuperSetUpdateInterval(QNmeaSatelliteInfoSource* s
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnSetUpdateInterval(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SetUpdateInterval_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_SetUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +195,8 @@ int QNmeaSatelliteInfoSource_SuperMinimumUpdateInterval(const QNmeaSatelliteInfo
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnMinimumUpdateInterval(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -218,9 +213,8 @@ int QNmeaSatelliteInfoSource_SuperError(const QNmeaSatelliteInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnError(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Error_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Error_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +232,8 @@ bool QNmeaSatelliteInfoSource_SuperSetBackendProperty(QNmeaSatelliteInfoSource* 
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnSetBackendProperty(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SetBackendProperty_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_SetBackendProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +251,8 @@ QVariant* QNmeaSatelliteInfoSource_SuperBackendProperty(const QNmeaSatelliteInfo
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnBackendProperty(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_BackendProperty_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_BackendProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +269,8 @@ void QNmeaSatelliteInfoSource_SuperStartUpdates(QNmeaSatelliteInfoSource* self) 
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnStartUpdates(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_StartUpdates_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_StartUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +287,8 @@ void QNmeaSatelliteInfoSource_SuperStopUpdates(QNmeaSatelliteInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnStopUpdates(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_StopUpdates_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_StopUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -315,9 +305,8 @@ void QNmeaSatelliteInfoSource_SuperRequestUpdate(QNmeaSatelliteInfoSource* self,
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnRequestUpdate(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_RequestUpdate_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_RequestUpdate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -340,9 +329,8 @@ int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea(QNmeaSatelliteInf
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -365,9 +353,8 @@ int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea(QNmeaSatelliteInfoS
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +381,8 @@ bool QNmeaSatelliteInfoSource_SuperEvent(QNmeaSatelliteInfoSource* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnEvent(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Event_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +409,8 @@ bool QNmeaSatelliteInfoSource_SuperEventFilter(QNmeaSatelliteInfoSource* self, Q
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnEventFilter(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_EventFilter_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +437,8 @@ void QNmeaSatelliteInfoSource_SuperTimerEvent(QNmeaSatelliteInfoSource* self, QT
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnTimerEvent(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_TimerEvent_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +465,8 @@ void QNmeaSatelliteInfoSource_SuperChildEvent(QNmeaSatelliteInfoSource* self, QC
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnChildEvent(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ChildEvent_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +493,8 @@ void QNmeaSatelliteInfoSource_SuperCustomEvent(QNmeaSatelliteInfoSource* self, Q
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnCustomEvent(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_CustomEvent_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +521,8 @@ void QNmeaSatelliteInfoSource_SuperConnectNotify(QNmeaSatelliteInfoSource* self,
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnConnectNotify(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ConnectNotify_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +549,8 @@ void QNmeaSatelliteInfoSource_SuperDisconnectNotify(QNmeaSatelliteInfoSource* se
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnDisconnectNotify(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +591,8 @@ int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea2(QNmeaSatelliteIn
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +633,8 @@ int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea2(QNmeaSatelliteInfo
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +661,8 @@ void QNmeaSatelliteInfoSource_SuperSetError(QNmeaSatelliteInfoSource* self, int 
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnSetError(QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SetError_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +689,8 @@ QObject* QNmeaSatelliteInfoSource_SuperSender(const QNmeaSatelliteInfoSource* se
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnSender(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Sender_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +717,8 @@ int QNmeaSatelliteInfoSource_SuperSenderSignalIndex(const QNmeaSatelliteInfoSour
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnSenderSignalIndex(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +745,8 @@ int QNmeaSatelliteInfoSource_SuperReceivers(const QNmeaSatelliteInfoSource* self
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnReceivers(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Receivers_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +773,8 @@ bool QNmeaSatelliteInfoSource_SuperIsSignalConnected(const QNmeaSatelliteInfoSou
 // Auxiliary method to allow providing re-implementation
 void QNmeaSatelliteInfoSource_OnIsSignalConnected(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
     auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource)
         vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QNmeaSatelliteInfoSource_Delete(QNmeaSatelliteInfoSource* self) {

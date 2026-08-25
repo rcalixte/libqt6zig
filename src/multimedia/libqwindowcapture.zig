@@ -2250,7 +2250,7 @@ pub const QWindowCapture = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const InternalError: i32 = 1;
         pub const CapturingNotSupported: i32 = 2;

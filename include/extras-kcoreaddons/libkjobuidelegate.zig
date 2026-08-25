@@ -2228,7 +2228,7 @@ pub const KJobUiDelegate = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#public-types)
 pub const enums = struct {
-    pub const Flag = enum(i32) {
+    pub const Flag = enum {
         pub const AutoHandlingDisabled: i32 = 0;
         pub const AutoErrorHandlingEnabled: i32 = 1;
         pub const AutoWarningHandlingEnabled: i32 = 2;

@@ -2851,13 +2851,13 @@ pub const QSettings = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#public-types)
 pub const enums = struct {
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const NoError: i32 = 0;
         pub const AccessError: i32 = 1;
         pub const FormatError: i32 = 2;
     };
 
-    pub const Format = enum(i32) {
+    pub const Format = enum {
         pub const NativeFormat: i32 = 0;
         pub const IniFormat: i32 = 1;
         pub const Registry32Format: i32 = 2;
@@ -2881,7 +2881,7 @@ pub const enums = struct {
         pub const CustomFormat16: i32 = 32;
     };
 
-    pub const Scope = enum(i32) {
+    pub const Scope = enum {
         pub const UserScope: i32 = 0;
         pub const SystemScope: i32 = 1;
     };

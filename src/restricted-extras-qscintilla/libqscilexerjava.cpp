@@ -56,9 +56,8 @@ QMetaObject* QsciLexerJava_SuperMetaObject(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnMetaObject(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -75,9 +74,8 @@ void* QsciLexerJava_SuperMetacast(QsciLexerJava* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnMetacast(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Metacast_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -94,9 +92,8 @@ int QsciLexerJava_SuperMetacall(QsciLexerJava* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnMetacall(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Metacall_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -123,9 +120,8 @@ void QsciLexerJava_SuperSetFoldAtElse(QsciLexerJava* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetFoldAtElse(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetFoldAtElse_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -152,9 +148,8 @@ void QsciLexerJava_SuperSetFoldComments(QsciLexerJava* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetFoldComments(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +176,8 @@ void QsciLexerJava_SuperSetFoldCompact(QsciLexerJava* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetFoldCompact(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetFoldCompact_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +204,8 @@ void QsciLexerJava_SuperSetFoldPreprocessor(QsciLexerJava* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetFoldPreprocessor(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetFoldPreprocessor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +232,8 @@ void QsciLexerJava_SuperSetStylePreprocessor(QsciLexerJava* self, bool style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetStylePreprocessor(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetStylePreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetStylePreprocessor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +260,8 @@ const char* QsciLexerJava_SuperLexer(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnLexer(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Lexer_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +288,8 @@ int QsciLexerJava_SuperLexerId(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnLexerId(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_LexerId_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +316,8 @@ const char* QsciLexerJava_SuperAutoCompletionFillups(const QsciLexerJava* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnAutoCompletionFillups(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +412,8 @@ libqt_list /* of libqt_string */ QsciLexerJava_SuperAutoCompletionWordSeparators
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnAutoCompletionWordSeparators(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +440,8 @@ const char* QsciLexerJava_SuperBlockEnd(const QsciLexerJava* self, int* style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBlockEnd(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +468,8 @@ int QsciLexerJava_SuperBlockLookback(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBlockLookback(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +496,8 @@ const char* QsciLexerJava_SuperBlockStart(const QsciLexerJava* self, int* style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBlockStart(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +524,8 @@ const char* QsciLexerJava_SuperBlockStartKeyword(const QsciLexerJava* self, int*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBlockStartKeyword(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +552,8 @@ int QsciLexerJava_SuperBraceStyle(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBraceStyle(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +580,8 @@ bool QsciLexerJava_SuperCaseSensitive(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnCaseSensitive(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +608,8 @@ QColor* QsciLexerJava_SuperColor(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnColor(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Color_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +636,8 @@ bool QsciLexerJava_SuperEolFill(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnEolFill(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_EolFill_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +664,8 @@ QFont* QsciLexerJava_SuperFont(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnFont(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Font_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +692,8 @@ int QsciLexerJava_SuperIndentationGuideView(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnIndentationGuideView(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +720,8 @@ int QsciLexerJava_SuperDefaultStyle(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDefaultStyle(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +780,8 @@ libqt_string QsciLexerJava_SuperDescription(const QsciLexerJava* self, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDescription(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Description_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Description_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +808,8 @@ QColor* QsciLexerJava_SuperPaper(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnPaper(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Paper_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +836,8 @@ QColor* QsciLexerJava_SuperDefaultColor2(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDefaultColor2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +864,8 @@ bool QsciLexerJava_SuperDefaultEolFill(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDefaultEolFill(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +892,8 @@ QFont* QsciLexerJava_SuperDefaultFont2(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDefaultFont2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +920,8 @@ QColor* QsciLexerJava_SuperDefaultPaper2(const QsciLexerJava* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDefaultPaper2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +948,8 @@ void QsciLexerJava_SuperSetEditor(QsciLexerJava* self, QsciScintilla* editor) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetEditor(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +976,8 @@ void QsciLexerJava_SuperRefreshProperties(QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnRefreshProperties(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1004,8 @@ int QsciLexerJava_SuperStyleBitsNeeded(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnStyleBitsNeeded(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1032,8 @@ const char* QsciLexerJava_SuperWordCharacters(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnWordCharacters(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1060,8 @@ void QsciLexerJava_SuperSetAutoIndentStyle(QsciLexerJava* self, int autoindentst
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetAutoIndentStyle(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1088,8 @@ void QsciLexerJava_SuperSetColor(QsciLexerJava* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetColor(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetColor_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1116,8 @@ void QsciLexerJava_SuperSetEolFill(QsciLexerJava* self, bool eoffill, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetEolFill(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1144,8 @@ void QsciLexerJava_SuperSetFont(QsciLexerJava* self, const QFont* f, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetFont(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetFont_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1172,8 @@ void QsciLexerJava_SuperSetPaper(QsciLexerJava* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSetPaper(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1202,8 @@ bool QsciLexerJava_SuperReadProperties(QsciLexerJava* self, QSettings* qs, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnReadProperties(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1232,8 @@ bool QsciLexerJava_SuperWriteProperties(const QsciLexerJava* self, QSettings* qs
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnWriteProperties(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1260,8 @@ bool QsciLexerJava_SuperEvent(QsciLexerJava* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnEvent(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Event_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1288,8 @@ bool QsciLexerJava_SuperEventFilter(QsciLexerJava* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnEventFilter(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1316,8 @@ void QsciLexerJava_SuperTimerEvent(QsciLexerJava* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnTimerEvent(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1344,8 @@ void QsciLexerJava_SuperChildEvent(QsciLexerJava* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnChildEvent(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1372,8 @@ void QsciLexerJava_SuperCustomEvent(QsciLexerJava* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnCustomEvent(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1400,8 @@ void QsciLexerJava_SuperConnectNotify(QsciLexerJava* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnConnectNotify(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1428,8 @@ void QsciLexerJava_SuperDisconnectNotify(QsciLexerJava* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnDisconnectNotify(QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1478,8 @@ libqt_string QsciLexerJava_SuperTextAsBytes(const QsciLexerJava* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnTextAsBytes(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1538,8 @@ libqt_string QsciLexerJava_SuperBytesAsText(const QsciLexerJava* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnBytesAsText(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1566,8 @@ QObject* QsciLexerJava_SuperSender(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSender(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Sender_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1594,8 @@ int QsciLexerJava_SuperSenderSignalIndex(const QsciLexerJava* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnSenderSignalIndex(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1622,8 @@ int QsciLexerJava_SuperReceivers(const QsciLexerJava* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnReceivers(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_Receivers_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1650,8 @@ bool QsciLexerJava_SuperIsSignalConnected(const QsciLexerJava* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJava_OnIsSignalConnected(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
-    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava)
         vqscilexerjava->setQsciLexerJava_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerJava_Delete(QsciLexerJava* self) {

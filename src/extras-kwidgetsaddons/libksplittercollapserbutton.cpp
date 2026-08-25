@@ -127,9 +127,8 @@ QMetaObject* KSplitterCollapserButton_SuperMetaObject(const KSplitterCollapserBu
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetaObject(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MetaObject_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* KSplitterCollapserButton_SuperMetacast(KSplitterCollapserButton* self, con
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetacast(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Metacast_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int KSplitterCollapserButton_SuperMetacall(KSplitterCollapserButton* self, int p
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetacall(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Metacall_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +181,8 @@ QSize* KSplitterCollapserButton_SuperSizeHint(const KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSizeHint(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_SizeHint_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +199,8 @@ bool KSplitterCollapserButton_SuperEventFilter(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEventFilter(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_EventFilter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +217,8 @@ void KSplitterCollapserButton_SuperPaintEvent(KSplitterCollapserButton* self, QP
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnPaintEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_PaintEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +235,8 @@ void KSplitterCollapserButton_SuperEnterEvent(KSplitterCollapserButton* self, QE
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEnterEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_EnterEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +253,8 @@ void KSplitterCollapserButton_SuperLeaveEvent(KSplitterCollapserButton* self, QE
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnLeaveEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_LeaveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +271,8 @@ void KSplitterCollapserButton_SuperShowEvent(KSplitterCollapserButton* self, QSh
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnShowEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ShowEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +299,8 @@ QSize* KSplitterCollapserButton_SuperMinimumSizeHint(const KSplitterCollapserBut
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMinimumSizeHint(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +327,8 @@ bool KSplitterCollapserButton_SuperEvent(KSplitterCollapserButton* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Event_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +355,8 @@ void KSplitterCollapserButton_SuperMousePressEvent(KSplitterCollapserButton* sel
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMousePressEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MousePressEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +383,8 @@ void KSplitterCollapserButton_SuperMouseReleaseEvent(KSplitterCollapserButton* s
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseReleaseEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +411,8 @@ void KSplitterCollapserButton_SuperActionEvent(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnActionEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ActionEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +439,8 @@ void KSplitterCollapserButton_SuperTimerEvent(KSplitterCollapserButton* self, QT
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnTimerEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_TimerEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +467,8 @@ void KSplitterCollapserButton_SuperChangeEvent(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnChangeEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ChangeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +495,8 @@ bool KSplitterCollapserButton_SuperHitButton(const KSplitterCollapserButton* sel
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnHitButton(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_HitButton_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +523,8 @@ void KSplitterCollapserButton_SuperCheckStateSet(KSplitterCollapserButton* self)
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCheckStateSet(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_CheckStateSet_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +551,8 @@ void KSplitterCollapserButton_SuperNextCheckState(KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnNextCheckState(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_NextCheckState_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +579,8 @@ void KSplitterCollapserButton_SuperInitStyleOption(const KSplitterCollapserButto
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnInitStyleOption(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_InitStyleOption_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +607,8 @@ void KSplitterCollapserButton_SuperKeyPressEvent(KSplitterCollapserButton* self,
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnKeyPressEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +635,8 @@ void KSplitterCollapserButton_SuperKeyReleaseEvent(KSplitterCollapserButton* sel
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnKeyReleaseEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +663,8 @@ void KSplitterCollapserButton_SuperMouseMoveEvent(KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +691,8 @@ void KSplitterCollapserButton_SuperFocusInEvent(KSplitterCollapserButton* self, 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusInEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusInEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +719,8 @@ void KSplitterCollapserButton_SuperFocusOutEvent(KSplitterCollapserButton* self,
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusOutEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +747,8 @@ int KSplitterCollapserButton_SuperDevType(const KSplitterCollapserButton* self) 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDevType(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DevType_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +775,8 @@ void KSplitterCollapserButton_SuperSetVisible(KSplitterCollapserButton* self, bo
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSetVisible(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_SetVisible_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +803,8 @@ int KSplitterCollapserButton_SuperHeightForWidth(const KSplitterCollapserButton*
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnHeightForWidth(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_HeightForWidth_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +831,8 @@ bool KSplitterCollapserButton_SuperHasHeightForWidth(const KSplitterCollapserBut
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnHasHeightForWidth(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +859,8 @@ QPaintEngine* KSplitterCollapserButton_SuperPaintEngine(const KSplitterCollapser
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnPaintEngine(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_PaintEngine_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +887,8 @@ void KSplitterCollapserButton_SuperMouseDoubleClickEvent(KSplitterCollapserButto
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMouseDoubleClickEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +915,8 @@ void KSplitterCollapserButton_SuperWheelEvent(KSplitterCollapserButton* self, QW
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnWheelEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_WheelEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +943,8 @@ void KSplitterCollapserButton_SuperMoveEvent(KSplitterCollapserButton* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_MoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +971,8 @@ void KSplitterCollapserButton_SuperResizeEvent(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnResizeEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ResizeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +999,8 @@ void KSplitterCollapserButton_SuperCloseEvent(KSplitterCollapserButton* self, QC
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCloseEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_CloseEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1027,8 @@ void KSplitterCollapserButton_SuperContextMenuEvent(KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnContextMenuEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1055,8 @@ void KSplitterCollapserButton_SuperTabletEvent(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnTabletEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_TabletEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1083,8 @@ void KSplitterCollapserButton_SuperDragEnterEvent(KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragEnterEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1111,8 @@ void KSplitterCollapserButton_SuperDragMoveEvent(KSplitterCollapserButton* self,
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragMoveEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1139,8 @@ void KSplitterCollapserButton_SuperDragLeaveEvent(KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDragLeaveEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1167,8 @@ void KSplitterCollapserButton_SuperDropEvent(KSplitterCollapserButton* self, QDr
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDropEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DropEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1195,8 @@ void KSplitterCollapserButton_SuperHideEvent(KSplitterCollapserButton* self, QHi
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnHideEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_HideEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1225,8 @@ bool KSplitterCollapserButton_SuperNativeEvent(KSplitterCollapserButton* self, c
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnNativeEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_NativeEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1253,8 @@ int KSplitterCollapserButton_SuperMetric(const KSplitterCollapserButton* self, i
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnMetric(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Metric_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1281,8 @@ void KSplitterCollapserButton_SuperInitPainter(const KSplitterCollapserButton* s
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnInitPainter(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_InitPainter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1309,8 @@ QPaintDevice* KSplitterCollapserButton_SuperRedirected(const KSplitterCollapserB
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnRedirected(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Redirected_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1337,8 @@ QPainter* KSplitterCollapserButton_SuperSharedPainter(const KSplitterCollapserBu
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSharedPainter(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_SharedPainter_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1365,8 @@ void KSplitterCollapserButton_SuperInputMethodEvent(KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnInputMethodEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1393,8 @@ QVariant* KSplitterCollapserButton_SuperInputMethodQuery(const KSplitterCollapse
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnInputMethodQuery(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1421,8 @@ bool KSplitterCollapserButton_SuperFocusNextPrevChild(KSplitterCollapserButton* 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusNextPrevChild(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1449,8 @@ void KSplitterCollapserButton_SuperChildEvent(KSplitterCollapserButton* self, QC
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnChildEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ChildEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1477,8 @@ void KSplitterCollapserButton_SuperCustomEvent(KSplitterCollapserButton* self, Q
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCustomEvent(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_CustomEvent_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1505,8 @@ void KSplitterCollapserButton_SuperConnectNotify(KSplitterCollapserButton* self,
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnConnectNotify(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_ConnectNotify_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1533,8 @@ void KSplitterCollapserButton_SuperDisconnectNotify(KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDisconnectNotify(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1561,8 @@ void KSplitterCollapserButton_SuperUpdateMicroFocus(KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnUpdateMicroFocus(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1589,8 @@ void KSplitterCollapserButton_SuperCreate(KSplitterCollapserButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnCreate(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Create_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1617,8 @@ void KSplitterCollapserButton_SuperDestroy(KSplitterCollapserButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnDestroy(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Destroy_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1645,8 @@ bool KSplitterCollapserButton_SuperFocusNextChild(KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusNextChild(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1673,8 @@ bool KSplitterCollapserButton_SuperFocusPreviousChild(KSplitterCollapserButton* 
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnFocusPreviousChild(KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1701,8 @@ QObject* KSplitterCollapserButton_SuperSender(const KSplitterCollapserButton* se
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSender(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Sender_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1729,8 @@ int KSplitterCollapserButton_SuperSenderSignalIndex(const KSplitterCollapserButt
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnSenderSignalIndex(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1757,8 @@ int KSplitterCollapserButton_SuperReceivers(const KSplitterCollapserButton* self
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnReceivers(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_Receivers_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1785,8 @@ bool KSplitterCollapserButton_SuperIsSignalConnected(const KSplitterCollapserBut
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnIsSignalConnected(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1813,8 @@ double KSplitterCollapserButton_SuperGetDecodedMetricF(const KSplitterCollapserB
 // Auxiliary method to allow providing re-implementation
 void KSplitterCollapserButton_OnGetDecodedMetricF(const KSplitterCollapserButton* self, intptr_t slot) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
+    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton)
         vksplittercollapserbutton->setKSplitterCollapserButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSplitterCollapserButton::KSplitterCollapserButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSplitterCollapserButton_Delete(KSplitterCollapserButton* self) {

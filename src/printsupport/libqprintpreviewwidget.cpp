@@ -211,9 +211,8 @@ QMetaObject* QPrintPreviewWidget_SuperMetaObject(const QPrintPreviewWidget* self
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetaObject(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MetaObject_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -230,9 +229,8 @@ void* QPrintPreviewWidget_SuperMetacast(QPrintPreviewWidget* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetacast(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Metacast_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -249,9 +247,8 @@ int QPrintPreviewWidget_SuperMetacall(QPrintPreviewWidget* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -268,9 +265,8 @@ void QPrintPreviewWidget_SuperSetVisible(QPrintPreviewWidget* self, bool visible
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSetVisible(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +293,8 @@ int QPrintPreviewWidget_SuperDevType(const QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDevType(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DevType_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +321,8 @@ QSize* QPrintPreviewWidget_SuperSizeHint(const QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSizeHint(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_SizeHint_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +349,8 @@ QSize* QPrintPreviewWidget_SuperMinimumSizeHint(const QPrintPreviewWidget* self)
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMinimumSizeHint(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +377,8 @@ int QPrintPreviewWidget_SuperHeightForWidth(const QPrintPreviewWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnHeightForWidth(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +405,8 @@ bool QPrintPreviewWidget_SuperHasHeightForWidth(const QPrintPreviewWidget* self)
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnHasHeightForWidth(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +433,8 @@ QPaintEngine* QPrintPreviewWidget_SuperPaintEngine(const QPrintPreviewWidget* se
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnPaintEngine(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_PaintEngine_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +461,8 @@ bool QPrintPreviewWidget_SuperEvent(QPrintPreviewWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Event_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +489,8 @@ void QPrintPreviewWidget_SuperMousePressEvent(QPrintPreviewWidget* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMousePressEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +517,8 @@ void QPrintPreviewWidget_SuperMouseReleaseEvent(QPrintPreviewWidget* self, QMous
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseReleaseEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +545,8 @@ void QPrintPreviewWidget_SuperMouseDoubleClickEvent(QPrintPreviewWidget* self, Q
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseDoubleClickEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +573,8 @@ void QPrintPreviewWidget_SuperMouseMoveEvent(QPrintPreviewWidget* self, QMouseEv
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMouseMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +601,8 @@ void QPrintPreviewWidget_SuperWheelEvent(QPrintPreviewWidget* self, QWheelEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnWheelEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_WheelEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +629,8 @@ void QPrintPreviewWidget_SuperKeyPressEvent(QPrintPreviewWidget* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnKeyPressEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +657,8 @@ void QPrintPreviewWidget_SuperKeyReleaseEvent(QPrintPreviewWidget* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnKeyReleaseEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +685,8 @@ void QPrintPreviewWidget_SuperFocusInEvent(QPrintPreviewWidget* self, QFocusEven
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusInEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +713,8 @@ void QPrintPreviewWidget_SuperFocusOutEvent(QPrintPreviewWidget* self, QFocusEve
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusOutEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +741,8 @@ void QPrintPreviewWidget_SuperEnterEvent(QPrintPreviewWidget* self, QEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEnterEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_EnterEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +769,8 @@ void QPrintPreviewWidget_SuperLeaveEvent(QPrintPreviewWidget* self, QEvent* even
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnLeaveEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +797,8 @@ void QPrintPreviewWidget_SuperPaintEvent(QPrintPreviewWidget* self, QPaintEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnPaintEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_PaintEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +825,8 @@ void QPrintPreviewWidget_SuperMoveEvent(QPrintPreviewWidget* self, QMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_MoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +853,8 @@ void QPrintPreviewWidget_SuperResizeEvent(QPrintPreviewWidget* self, QResizeEven
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnResizeEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +881,8 @@ void QPrintPreviewWidget_SuperCloseEvent(QPrintPreviewWidget* self, QCloseEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnCloseEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_CloseEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +909,8 @@ void QPrintPreviewWidget_SuperContextMenuEvent(QPrintPreviewWidget* self, QConte
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnContextMenuEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +937,8 @@ void QPrintPreviewWidget_SuperTabletEvent(QPrintPreviewWidget* self, QTabletEven
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnTabletEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_TabletEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -993,9 +965,8 @@ void QPrintPreviewWidget_SuperActionEvent(QPrintPreviewWidget* self, QActionEven
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnActionEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ActionEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1022,9 +993,8 @@ void QPrintPreviewWidget_SuperDragEnterEvent(QPrintPreviewWidget* self, QDragEnt
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragEnterEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1051,9 +1021,8 @@ void QPrintPreviewWidget_SuperDragMoveEvent(QPrintPreviewWidget* self, QDragMove
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragMoveEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1049,8 @@ void QPrintPreviewWidget_SuperDragLeaveEvent(QPrintPreviewWidget* self, QDragLea
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDragLeaveEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1077,8 @@ void QPrintPreviewWidget_SuperDropEvent(QPrintPreviewWidget* self, QDropEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDropEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DropEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1105,8 @@ void QPrintPreviewWidget_SuperShowEvent(QPrintPreviewWidget* self, QShowEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnShowEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ShowEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1133,8 @@ void QPrintPreviewWidget_SuperHideEvent(QPrintPreviewWidget* self, QHideEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnHideEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_HideEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1198,9 +1163,8 @@ bool QPrintPreviewWidget_SuperNativeEvent(QPrintPreviewWidget* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnNativeEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_NativeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1227,9 +1191,8 @@ void QPrintPreviewWidget_SuperChangeEvent(QPrintPreviewWidget* self, QEvent* par
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnChangeEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1256,9 +1219,8 @@ int QPrintPreviewWidget_SuperMetric(const QPrintPreviewWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnMetric(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Metric_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1285,9 +1247,8 @@ void QPrintPreviewWidget_SuperInitPainter(const QPrintPreviewWidget* self, QPain
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnInitPainter(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_InitPainter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1314,9 +1275,8 @@ QPaintDevice* QPrintPreviewWidget_SuperRedirected(const QPrintPreviewWidget* sel
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnRedirected(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Redirected_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1343,9 +1303,8 @@ QPainter* QPrintPreviewWidget_SuperSharedPainter(const QPrintPreviewWidget* self
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSharedPainter(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_SharedPainter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1372,9 +1331,8 @@ void QPrintPreviewWidget_SuperInputMethodEvent(QPrintPreviewWidget* self, QInput
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnInputMethodEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1401,9 +1359,8 @@ QVariant* QPrintPreviewWidget_SuperInputMethodQuery(const QPrintPreviewWidget* s
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnInputMethodQuery(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1430,9 +1387,8 @@ bool QPrintPreviewWidget_SuperFocusNextPrevChild(QPrintPreviewWidget* self, bool
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusNextPrevChild(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1459,9 +1415,8 @@ bool QPrintPreviewWidget_SuperEventFilter(QPrintPreviewWidget* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnEventFilter(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_EventFilter_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1488,9 +1443,8 @@ void QPrintPreviewWidget_SuperTimerEvent(QPrintPreviewWidget* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnTimerEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_TimerEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1517,9 +1471,8 @@ void QPrintPreviewWidget_SuperChildEvent(QPrintPreviewWidget* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnChildEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ChildEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1546,9 +1499,8 @@ void QPrintPreviewWidget_SuperCustomEvent(QPrintPreviewWidget* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnCustomEvent(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_CustomEvent_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1575,9 +1527,8 @@ void QPrintPreviewWidget_SuperConnectNotify(QPrintPreviewWidget* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnConnectNotify(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1604,9 +1555,8 @@ void QPrintPreviewWidget_SuperDisconnectNotify(QPrintPreviewWidget* self, const 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDisconnectNotify(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1633,9 +1583,8 @@ void QPrintPreviewWidget_SuperUpdateMicroFocus(QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnUpdateMicroFocus(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1662,9 +1611,8 @@ void QPrintPreviewWidget_SuperCreate(QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnCreate(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Create_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1691,9 +1639,8 @@ void QPrintPreviewWidget_SuperDestroy(QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnDestroy(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Destroy_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1720,9 +1667,8 @@ bool QPrintPreviewWidget_SuperFocusNextChild(QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusNextChild(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1749,9 +1695,8 @@ bool QPrintPreviewWidget_SuperFocusPreviousChild(QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnFocusPreviousChild(QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1778,9 +1723,8 @@ QObject* QPrintPreviewWidget_SuperSender(const QPrintPreviewWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSender(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Sender_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1807,9 +1751,8 @@ int QPrintPreviewWidget_SuperSenderSignalIndex(const QPrintPreviewWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnSenderSignalIndex(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1836,9 +1779,8 @@ int QPrintPreviewWidget_SuperReceivers(const QPrintPreviewWidget* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnReceivers(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_Receivers_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1865,9 +1807,8 @@ bool QPrintPreviewWidget_SuperIsSignalConnected(const QPrintPreviewWidget* self,
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnIsSignalConnected(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1894,9 +1835,8 @@ double QPrintPreviewWidget_SuperGetDecodedMetricF(const QPrintPreviewWidget* sel
 // Auxiliary method to allow providing re-implementation
 void QPrintPreviewWidget_OnGetDecodedMetricF(const QPrintPreviewWidget* self, intptr_t slot) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget)
         vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QPrintPreviewWidget_Delete(QPrintPreviewWidget* self) {

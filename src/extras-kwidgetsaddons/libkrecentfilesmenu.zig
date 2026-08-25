@@ -1594,6 +1594,31 @@ pub const KRecentFilesMenu = extern struct {
         return .{ .ptr = qtc.QMenu_Exec4(actions_list, @ptrCast(_pos.ptr), @ptrCast(at.ptr), @ptrCast(_parent.ptr)) };
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    pub fn asQPaintDevice(self: KRecentFilesMenu) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KRecentFilesMenu object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KRecentFilesMenu {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7578,7 +7603,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn paintingActive(self: KRecentFilesMenu) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7594,7 +7619,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn widthMM(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7610,7 +7635,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn heightMM(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7626,7 +7651,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn logicalDpiX(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7642,7 +7667,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn logicalDpiY(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7658,7 +7683,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn physicalDpiX(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7674,7 +7699,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn physicalDpiY(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7690,7 +7715,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn devicePixelRatio(self: KRecentFilesMenu) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7706,7 +7731,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn devicePixelRatioF(self: KRecentFilesMenu) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7722,7 +7747,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn colorCount(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7738,7 +7763,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn depth(self: KRecentFilesMenu) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

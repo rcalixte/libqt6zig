@@ -758,7 +758,7 @@ pub const QHostAddress = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#public-types)
 pub const enums = struct {
-    pub const SpecialAddress = enum(i32) {
+    pub const SpecialAddress = enum {
         pub const Null: i32 = 0;
         pub const Broadcast: i32 = 1;
         pub const LocalHost: i32 = 2;
@@ -768,7 +768,7 @@ pub const enums = struct {
         pub const AnyIPv4: i32 = 6;
     };
 
-    pub const ConversionModeFlag = enum(i32) {
+    pub const ConversionModeFlag = enum {
         pub const ConvertV4MappedToIPv4: i32 = 1;
         pub const ConvertV4CompatToIPv4: i32 = 2;
         pub const ConvertUnspecifiedAddress: i32 = 4;

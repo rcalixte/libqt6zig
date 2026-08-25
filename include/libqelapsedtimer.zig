@@ -273,7 +273,7 @@ pub const QElapsedTimer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#public-types)
 pub const enums = struct {
-    pub const ClockType = enum(i32) {
+    pub const ClockType = enum {
         pub const SystemTime: i32 = 0;
         pub const MonotonicClock: i32 = 1;
         pub const MachAbsoluteTime: i32 = 2;

@@ -429,7 +429,7 @@ pub const QWebEngineHttpRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#public-types)
 pub const enums = struct {
-    pub const Method = enum(i32) {
+    pub const Method = enum {
         pub const Get: i32 = 0;
         pub const Post: i32 = 1;
     };

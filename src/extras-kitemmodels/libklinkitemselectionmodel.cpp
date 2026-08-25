@@ -83,9 +83,8 @@ QMetaObject* KLinkItemSelectionModel_SuperMetaObject(const KLinkItemSelectionMod
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnMetaObject(const KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_MetaObject_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +101,8 @@ void* KLinkItemSelectionModel_SuperMetacast(KLinkItemSelectionModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnMetacast(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacast_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +119,8 @@ int KLinkItemSelectionModel_SuperMetacall(KLinkItemSelectionModel* self, int par
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnMetacall(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacall_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +137,8 @@ void KLinkItemSelectionModel_SuperSelect(KLinkItemSelectionModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnSelect(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Select_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Select_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +155,8 @@ void KLinkItemSelectionModel_SuperSelect2(KLinkItemSelectionModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnSelect2(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Select2_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Select2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +183,8 @@ void KLinkItemSelectionModel_SuperSetCurrentIndex(KLinkItemSelectionModel* self,
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnSetCurrentIndex(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_SetCurrentIndex_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_SetCurrentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +211,8 @@ void KLinkItemSelectionModel_SuperClear(KLinkItemSelectionModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnClear(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Clear_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +239,8 @@ void KLinkItemSelectionModel_SuperReset(KLinkItemSelectionModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnReset(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Reset_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +267,8 @@ void KLinkItemSelectionModel_SuperClearCurrentIndex(KLinkItemSelectionModel* sel
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnClearCurrentIndex(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ClearCurrentIndex_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_ClearCurrentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +295,8 @@ bool KLinkItemSelectionModel_SuperEvent(KLinkItemSelectionModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnEvent(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Event_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +323,8 @@ bool KLinkItemSelectionModel_SuperEventFilter(KLinkItemSelectionModel* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnEventFilter(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_EventFilter_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +351,8 @@ void KLinkItemSelectionModel_SuperTimerEvent(KLinkItemSelectionModel* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnTimerEvent(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_TimerEvent_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +379,8 @@ void KLinkItemSelectionModel_SuperChildEvent(KLinkItemSelectionModel* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnChildEvent(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ChildEvent_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +407,8 @@ void KLinkItemSelectionModel_SuperCustomEvent(KLinkItemSelectionModel* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnCustomEvent(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_CustomEvent_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +435,8 @@ void KLinkItemSelectionModel_SuperConnectNotify(KLinkItemSelectionModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnConnectNotify(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_ConnectNotify_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +463,8 @@ void KLinkItemSelectionModel_SuperDisconnectNotify(KLinkItemSelectionModel* self
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnDisconnectNotify(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +491,8 @@ void KLinkItemSelectionModel_SuperEmitSelectionChanged(KLinkItemSelectionModel* 
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnEmitSelectionChanged(KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_EmitSelectionChanged_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_EmitSelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +519,8 @@ QObject* KLinkItemSelectionModel_SuperSender(const KLinkItemSelectionModel* self
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnSender(const KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Sender_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +547,8 @@ int KLinkItemSelectionModel_SuperSenderSignalIndex(const KLinkItemSelectionModel
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnSenderSignalIndex(const KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +575,8 @@ int KLinkItemSelectionModel_SuperReceivers(const KLinkItemSelectionModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnReceivers(const KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_Receivers_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +603,8 @@ bool KLinkItemSelectionModel_SuperIsSignalConnected(const KLinkItemSelectionMode
 // Auxiliary method to allow providing re-implementation
 void KLinkItemSelectionModel_OnIsSignalConnected(const KLinkItemSelectionModel* self, intptr_t slot) {
     auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel)
         vklinkitemselectionmodel->setKLinkItemSelectionModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KLinkItemSelectionModel_Delete(KLinkItemSelectionModel* self) {

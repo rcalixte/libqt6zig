@@ -1559,6 +1559,31 @@ pub const QChart = extern struct {
         return .{ .ptr = qtc.QChart_MapToPosition2(@ptrCast(self.ptr), @ptrCast(value.ptr), @ptrCast(_series.ptr)) };
     }
 
+    /// Inherited from QGraphicsWidget
+    ///
+    /// Upcasts to a QGraphicsLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChart `
+    ///
+    pub fn asQGraphicsLayoutItem(self: QChart) QGraphicsLayoutItem {
+        return .{ .ptr = qtc.QGraphicsWidget_AsQGraphicsLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QGraphicsWidget
+    ///
+    /// Downcasts to a QChart object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qgraphicslayoutitem: QGraphicsLayoutItem `
+    ///
+    pub fn fromQGraphicsLayoutItem(_qgraphicslayoutitem: anytype) QChart {
+        comptime _ = @TypeOf(_qgraphicslayoutitem)._is_QGraphicsLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QGraphicsWidget_FromQGraphicsLayoutItem(@ptrCast(_qgraphicslayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `layout` instead
     ///
     pub const Layout = layout;
@@ -2651,6 +2676,31 @@ pub const QChart = extern struct {
     ///
     pub fn setAttribute2(self: QChart, attribute: i32, on: bool) void {
         qtc.QGraphicsWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(attribute), on);
+    }
+
+    /// Inherited from QGraphicsObject
+    ///
+    /// Upcasts to a QGraphicsItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChart `
+    ///
+    pub fn asQGraphicsItem(self: QChart) QGraphicsItem {
+        return .{ .ptr = qtc.QGraphicsObject_AsQGraphicsItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QGraphicsObject
+    ///
+    /// Downcasts to a QChart object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qgraphicsitem: QGraphicsItem `
+    ///
+    pub fn fromQGraphicsItem(_qgraphicsitem: anytype) QChart {
+        comptime _ = @TypeOf(_qgraphicsitem)._is_QGraphicsItem;
+        return .{ .ptr = @ptrCast(qtc.QGraphicsObject_FromQGraphicsItem(@ptrCast(_qgraphicsitem.ptr))) };
     }
 
     /// ### DEPRECATED: Use `grabGesture` instead
@@ -4095,7 +4145,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn scene(self: QChart) QGraphicsScene {
-        return .{ .ptr = qtc.QGraphicsItem_Scene(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Scene(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `parentItem` instead
@@ -4111,7 +4161,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn parentItem(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_ParentItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ParentItem(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `topLevelItem` instead
@@ -4127,7 +4177,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn topLevelItem(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_TopLevelItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_TopLevelItem(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `parentObject` instead
@@ -4143,7 +4193,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn parentObject(self: QChart) QGraphicsObject {
-        return .{ .ptr = qtc.QGraphicsItem_ParentObject(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ParentObject(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `parentWidget` instead
@@ -4159,7 +4209,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn parentWidget(self: QChart) QGraphicsWidget {
-        return .{ .ptr = qtc.QGraphicsItem_ParentWidget(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ParentWidget(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `topLevelWidget` instead
@@ -4175,7 +4225,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn topLevelWidget(self: QChart) QGraphicsWidget {
-        return .{ .ptr = qtc.QGraphicsItem_TopLevelWidget(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_TopLevelWidget(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `window` instead
@@ -4191,7 +4241,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn window(self: QChart) QGraphicsWidget {
-        return .{ .ptr = qtc.QGraphicsItem_Window(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Window(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `panel` instead
@@ -4207,7 +4257,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn panel(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_Panel(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Panel(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setParentItem` instead
@@ -4226,7 +4276,7 @@ pub const QChart = extern struct {
     ///
     pub fn setParentItem(self: QChart, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -4244,7 +4294,7 @@ pub const QChart = extern struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn childItems(self: QChart, allocator: std.mem.Allocator) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.asQGraphicsItem().ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChart.childItems: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -4266,7 +4316,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isWidget(self: QChart) bool {
-        return qtc.QGraphicsItem_IsWidget(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsWidget(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isWindow` instead
@@ -4282,7 +4332,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isWindow(self: QChart) bool {
-        return qtc.QGraphicsItem_IsWindow(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsWindow(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isPanel` instead
@@ -4298,7 +4348,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isPanel(self: QChart) bool {
-        return qtc.QGraphicsItem_IsPanel(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsPanel(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `toGraphicsObject` instead
@@ -4314,7 +4364,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn toGraphicsObject(self: QChart) QGraphicsObject {
-        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `toGraphicsObject2` instead
@@ -4330,7 +4380,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn toGraphicsObject2(self: QChart) QGraphicsObject {
-        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject2(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ToGraphicsObject2(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `group` instead
@@ -4346,7 +4396,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn group(self: QChart) QGraphicsItemGroup {
-        return .{ .ptr = qtc.QGraphicsItem_Group(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Group(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setGroup` instead
@@ -4365,7 +4415,7 @@ pub const QChart = extern struct {
     ///
     pub fn setGroup(self: QChart, _group: anytype) void {
         comptime _ = @TypeOf(_group)._is_QGraphicsItemGroup;
-        qtc.QGraphicsItem_SetGroup(@ptrCast(self.ptr), @ptrCast(_group.ptr));
+        qtc.QGraphicsItem_SetGroup(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_group.ptr));
     }
 
     /// ### DEPRECATED: Use `flags` instead
@@ -4385,7 +4435,7 @@ pub const QChart = extern struct {
     /// ` flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn flags(self: QChart) i32 {
-        return qtc.QGraphicsItem_Flags(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_Flags(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag` instead
@@ -4403,7 +4453,7 @@ pub const QChart = extern struct {
     /// ` flag: qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn setFlag(self: QChart, flag: i32) void {
-        qtc.QGraphicsItem_SetFlag(@ptrCast(self.ptr), @bitCast(flag));
+        qtc.QGraphicsItem_SetFlag(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(flag));
     }
 
     /// ### DEPRECATED: Use `setFlags` instead
@@ -4421,7 +4471,7 @@ pub const QChart = extern struct {
     /// ` _flags: flag of qgraphicsitem_enums.GraphicsItemFlag `
     ///
     pub fn setFlags(self: QChart, _flags: i32) void {
-        qtc.QGraphicsItem_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
+        qtc.QGraphicsItem_SetFlags(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_flags));
     }
 
     /// ### DEPRECATED: Use `cacheMode` instead
@@ -4441,7 +4491,7 @@ pub const QChart = extern struct {
     /// ` qgraphicsitem_enums.CacheMode `
     ///
     pub fn cacheMode(self: QChart) i32 {
-        return qtc.QGraphicsItem_CacheMode(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_CacheMode(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setCacheMode` instead
@@ -4459,7 +4509,7 @@ pub const QChart = extern struct {
     /// ` mode: qgraphicsitem_enums.CacheMode `
     ///
     pub fn setCacheMode(self: QChart, mode: i32) void {
-        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self.ptr), @bitCast(mode));
+        qtc.QGraphicsItem_SetCacheMode(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `panelModality` instead
@@ -4479,7 +4529,7 @@ pub const QChart = extern struct {
     /// ` qgraphicsitem_enums.PanelModality `
     ///
     pub fn panelModality(self: QChart) i32 {
-        return qtc.QGraphicsItem_PanelModality(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_PanelModality(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setPanelModality` instead
@@ -4497,7 +4547,7 @@ pub const QChart = extern struct {
     /// ` _panelModality: qgraphicsitem_enums.PanelModality `
     ///
     pub fn setPanelModality(self: QChart, _panelModality: i32) void {
-        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.ptr), @bitCast(_panelModality));
+        qtc.QGraphicsItem_SetPanelModality(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_panelModality));
     }
 
     /// ### DEPRECATED: Use `isBlockedByModalPanel` instead
@@ -4513,7 +4563,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isBlockedByModalPanel(self: QChart) bool {
-        return qtc.QGraphicsItem_IsBlockedByModalPanel(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsBlockedByModalPanel(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `toolTip` instead
@@ -4531,7 +4581,7 @@ pub const QChart = extern struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn toolTip(self: QChart, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
+        var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.asQGraphicsItem().ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QChart.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4557,7 +4607,7 @@ pub const QChart = extern struct {
             .len = _toolTip.len,
             .data = _toolTip.ptr,
         };
-        qtc.QGraphicsItem_SetToolTip(@ptrCast(self.ptr), toolTip_str);
+        qtc.QGraphicsItem_SetToolTip(@ptrCast(self.asQGraphicsItem().ptr), toolTip_str);
     }
 
     /// ### DEPRECATED: Use `cursor` instead
@@ -4573,7 +4623,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn cursor(self: QChart) QCursor {
-        return .{ .ptr = qtc.QGraphicsItem_Cursor(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Cursor(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setCursor` instead
@@ -4592,7 +4642,7 @@ pub const QChart = extern struct {
     ///
     pub fn setCursor(self: QChart, _cursor: anytype) void {
         comptime _ = @TypeOf(_cursor)._is_QCursor;
-        qtc.QGraphicsItem_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
+        qtc.QGraphicsItem_SetCursor(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_cursor.ptr));
     }
 
     /// ### DEPRECATED: Use `hasCursor` instead
@@ -4608,7 +4658,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn hasCursor(self: QChart) bool {
-        return qtc.QGraphicsItem_HasCursor(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_HasCursor(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `unsetCursor` instead
@@ -4624,7 +4674,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn unsetCursor(self: QChart) void {
-        qtc.QGraphicsItem_UnsetCursor(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_UnsetCursor(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isVisible` instead
@@ -4640,7 +4690,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isVisible(self: QChart) bool {
-        return qtc.QGraphicsItem_IsVisible(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsVisible(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isVisibleTo` instead
@@ -4659,7 +4709,7 @@ pub const QChart = extern struct {
     ///
     pub fn isVisibleTo(self: QChart, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -4677,7 +4727,7 @@ pub const QChart = extern struct {
     /// ` visible: bool `
     ///
     pub fn setVisible(self: QChart, visible: bool) void {
-        qtc.QGraphicsItem_SetVisible(@ptrCast(self.ptr), visible);
+        qtc.QGraphicsItem_SetVisible(@ptrCast(self.asQGraphicsItem().ptr), visible);
     }
 
     /// ### DEPRECATED: Use `hide` instead
@@ -4693,7 +4743,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn hide(self: QChart) void {
-        qtc.QGraphicsItem_Hide(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_Hide(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `show` instead
@@ -4709,7 +4759,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn show(self: QChart) void {
-        qtc.QGraphicsItem_Show(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_Show(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isEnabled` instead
@@ -4725,7 +4775,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isEnabled(self: QChart) bool {
-        return qtc.QGraphicsItem_IsEnabled(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsEnabled(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setEnabled` instead
@@ -4743,7 +4793,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setEnabled(self: QChart, enabled: bool) void {
-        qtc.QGraphicsItem_SetEnabled(@ptrCast(self.ptr), enabled);
+        qtc.QGraphicsItem_SetEnabled(@ptrCast(self.asQGraphicsItem().ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `isSelected` instead
@@ -4759,7 +4809,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isSelected(self: QChart) bool {
-        return qtc.QGraphicsItem_IsSelected(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsSelected(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setSelected` instead
@@ -4777,7 +4827,7 @@ pub const QChart = extern struct {
     /// ` selected: bool `
     ///
     pub fn setSelected(self: QChart, selected: bool) void {
-        qtc.QGraphicsItem_SetSelected(@ptrCast(self.ptr), selected);
+        qtc.QGraphicsItem_SetSelected(@ptrCast(self.asQGraphicsItem().ptr), selected);
     }
 
     /// ### DEPRECATED: Use `acceptDrops` instead
@@ -4793,7 +4843,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn acceptDrops(self: QChart) bool {
-        return qtc.QGraphicsItem_AcceptDrops(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_AcceptDrops(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setAcceptDrops` instead
@@ -4811,7 +4861,7 @@ pub const QChart = extern struct {
     /// ` on: bool `
     ///
     pub fn setAcceptDrops(self: QChart, on: bool) void {
-        qtc.QGraphicsItem_SetAcceptDrops(@ptrCast(self.ptr), on);
+        qtc.QGraphicsItem_SetAcceptDrops(@ptrCast(self.asQGraphicsItem().ptr), on);
     }
 
     /// ### DEPRECATED: Use `opacity` instead
@@ -4827,7 +4877,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn opacity(self: QChart) f64 {
-        return qtc.QGraphicsItem_Opacity(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_Opacity(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `effectiveOpacity` instead
@@ -4843,7 +4893,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn effectiveOpacity(self: QChart) f64 {
-        return qtc.QGraphicsItem_EffectiveOpacity(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_EffectiveOpacity(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setOpacity` instead
@@ -4861,7 +4911,7 @@ pub const QChart = extern struct {
     /// ` _opacity: f64 `
     ///
     pub fn setOpacity(self: QChart, _opacity: f64) void {
-        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
+        qtc.QGraphicsItem_SetOpacity(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_opacity));
     }
 
     /// ### DEPRECATED: Use `graphicsEffect` instead
@@ -4877,7 +4927,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn graphicsEffect(self: QChart) QGraphicsEffect {
-        return .{ .ptr = qtc.QGraphicsItem_GraphicsEffect(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_GraphicsEffect(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setGraphicsEffect` instead
@@ -4896,7 +4946,7 @@ pub const QChart = extern struct {
     ///
     pub fn setGraphicsEffect(self: QChart, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
-        qtc.QGraphicsItem_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
+        qtc.QGraphicsItem_SetGraphicsEffect(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(effect.ptr));
     }
 
     /// ### DEPRECATED: Use `acceptedMouseButtons` instead
@@ -4916,7 +4966,7 @@ pub const QChart = extern struct {
     /// ` flag of qnamespace_enums.MouseButton `
     ///
     pub fn acceptedMouseButtons(self: QChart) i32 {
-        return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setAcceptedMouseButtons` instead
@@ -4934,7 +4984,7 @@ pub const QChart = extern struct {
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
     pub fn setAcceptedMouseButtons(self: QChart, buttons: i32) void {
-        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self.ptr), @bitCast(buttons));
+        qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(buttons));
     }
 
     /// ### DEPRECATED: Use `acceptHoverEvents` instead
@@ -4950,7 +5000,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn acceptHoverEvents(self: QChart) bool {
-        return qtc.QGraphicsItem_AcceptHoverEvents(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_AcceptHoverEvents(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setAcceptHoverEvents` instead
@@ -4968,7 +5018,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setAcceptHoverEvents(self: QChart, enabled: bool) void {
-        qtc.QGraphicsItem_SetAcceptHoverEvents(@ptrCast(self.ptr), enabled);
+        qtc.QGraphicsItem_SetAcceptHoverEvents(@ptrCast(self.asQGraphicsItem().ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `acceptTouchEvents` instead
@@ -4984,7 +5034,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn acceptTouchEvents(self: QChart) bool {
-        return qtc.QGraphicsItem_AcceptTouchEvents(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_AcceptTouchEvents(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setAcceptTouchEvents` instead
@@ -5002,7 +5052,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setAcceptTouchEvents(self: QChart, enabled: bool) void {
-        qtc.QGraphicsItem_SetAcceptTouchEvents(@ptrCast(self.ptr), enabled);
+        qtc.QGraphicsItem_SetAcceptTouchEvents(@ptrCast(self.asQGraphicsItem().ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `filtersChildEvents` instead
@@ -5018,7 +5068,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn filtersChildEvents(self: QChart) bool {
-        return qtc.QGraphicsItem_FiltersChildEvents(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_FiltersChildEvents(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setFiltersChildEvents` instead
@@ -5036,7 +5086,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setFiltersChildEvents(self: QChart, enabled: bool) void {
-        qtc.QGraphicsItem_SetFiltersChildEvents(@ptrCast(self.ptr), enabled);
+        qtc.QGraphicsItem_SetFiltersChildEvents(@ptrCast(self.asQGraphicsItem().ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `handlesChildEvents` instead
@@ -5052,7 +5102,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn handlesChildEvents(self: QChart) bool {
-        return qtc.QGraphicsItem_HandlesChildEvents(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_HandlesChildEvents(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setHandlesChildEvents` instead
@@ -5070,7 +5120,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setHandlesChildEvents(self: QChart, enabled: bool) void {
-        qtc.QGraphicsItem_SetHandlesChildEvents(@ptrCast(self.ptr), enabled);
+        qtc.QGraphicsItem_SetHandlesChildEvents(@ptrCast(self.asQGraphicsItem().ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `isActive` instead
@@ -5086,7 +5136,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isActive(self: QChart) bool {
-        return qtc.QGraphicsItem_IsActive(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsActive(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setActive` instead
@@ -5104,7 +5154,7 @@ pub const QChart = extern struct {
     /// ` active: bool `
     ///
     pub fn setActive(self: QChart, active: bool) void {
-        qtc.QGraphicsItem_SetActive(@ptrCast(self.ptr), active);
+        qtc.QGraphicsItem_SetActive(@ptrCast(self.asQGraphicsItem().ptr), active);
     }
 
     /// ### DEPRECATED: Use `hasFocus` instead
@@ -5120,7 +5170,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn hasFocus(self: QChart) bool {
-        return qtc.QGraphicsItem_HasFocus(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_HasFocus(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setFocus` instead
@@ -5136,7 +5186,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn setFocus(self: QChart) void {
-        qtc.QGraphicsItem_SetFocus(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_SetFocus(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `clearFocus` instead
@@ -5152,7 +5202,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn clearFocus(self: QChart) void {
-        qtc.QGraphicsItem_ClearFocus(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_ClearFocus(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `focusProxy` instead
@@ -5168,7 +5218,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn focusProxy(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_FocusProxy(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_FocusProxy(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setFocusProxy` instead
@@ -5187,7 +5237,7 @@ pub const QChart = extern struct {
     ///
     pub fn setFocusProxy(self: QChart, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -5203,7 +5253,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn focusItem(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_FocusItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_FocusItem(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `focusScopeItem` instead
@@ -5219,7 +5269,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn focusScopeItem(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsItem_FocusScopeItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_FocusScopeItem(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `grabMouse` instead
@@ -5235,7 +5285,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn grabMouse(self: QChart) void {
-        qtc.QGraphicsItem_GrabMouse(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_GrabMouse(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `ungrabMouse` instead
@@ -5251,7 +5301,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn ungrabMouse(self: QChart) void {
-        qtc.QGraphicsItem_UngrabMouse(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_UngrabMouse(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `grabKeyboard` instead
@@ -5267,7 +5317,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn grabKeyboard(self: QChart) void {
-        qtc.QGraphicsItem_GrabKeyboard(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_GrabKeyboard(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `ungrabKeyboard` instead
@@ -5283,7 +5333,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn ungrabKeyboard(self: QChart) void {
-        qtc.QGraphicsItem_UngrabKeyboard(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_UngrabKeyboard(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `pos` instead
@@ -5299,7 +5349,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn pos(self: QChart) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_Pos(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Pos(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `x` instead
@@ -5315,7 +5365,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn x(self: QChart) f64 {
-        return qtc.QGraphicsItem_X(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_X(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setX` instead
@@ -5333,7 +5383,7 @@ pub const QChart = extern struct {
     /// ` _x: f64 `
     ///
     pub fn setX(self: QChart, _x: f64) void {
-        qtc.QGraphicsItem_SetX(@ptrCast(self.ptr), @bitCast(_x));
+        qtc.QGraphicsItem_SetX(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x));
     }
 
     /// ### DEPRECATED: Use `y` instead
@@ -5349,7 +5399,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn y(self: QChart) f64 {
-        return qtc.QGraphicsItem_Y(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_Y(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setY` instead
@@ -5367,7 +5417,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn setY(self: QChart, _y: f64) void {
-        qtc.QGraphicsItem_SetY(@ptrCast(self.ptr), @bitCast(_y));
+        qtc.QGraphicsItem_SetY(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_y));
     }
 
     /// ### DEPRECATED: Use `scenePos` instead
@@ -5383,7 +5433,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn scenePos(self: QChart) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_ScenePos(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ScenePos(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setPos` instead
@@ -5402,7 +5452,7 @@ pub const QChart = extern struct {
     ///
     pub fn setPos(self: QChart, _pos: anytype) void {
         comptime _ = @TypeOf(_pos)._is_QPointF;
-        qtc.QGraphicsItem_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
+        qtc.QGraphicsItem_SetPos(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_pos.ptr));
     }
 
     /// ### DEPRECATED: Use `setPos2` instead
@@ -5422,7 +5472,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn setPos2(self: QChart, _x: f64, _y: f64) void {
-        qtc.QGraphicsItem_SetPos2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
+        qtc.QGraphicsItem_SetPos2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y));
     }
 
     /// ### DEPRECATED: Use `moveBy` instead
@@ -5442,7 +5492,7 @@ pub const QChart = extern struct {
     /// ` dy: f64 `
     ///
     pub fn moveBy(self: QChart, dx: f64, dy: f64) void {
-        qtc.QGraphicsItem_MoveBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
+        qtc.QGraphicsItem_MoveBy(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `ensureVisible` instead
@@ -5458,7 +5508,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn ensureVisible(self: QChart) void {
-        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_EnsureVisible(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `ensureVisible2` instead
@@ -5482,7 +5532,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn ensureVisible2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) void {
-        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
+        qtc.QGraphicsItem_EnsureVisible2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
 
     /// ### DEPRECATED: Use `transform` instead
@@ -5498,7 +5548,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn transform(self: QChart) QTransform {
-        return .{ .ptr = qtc.QGraphicsItem_Transform(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_Transform(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `sceneTransform` instead
@@ -5514,7 +5564,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn sceneTransform(self: QChart) QTransform {
-        return .{ .ptr = qtc.QGraphicsItem_SceneTransform(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_SceneTransform(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `deviceTransform` instead
@@ -5533,7 +5583,7 @@ pub const QChart = extern struct {
     ///
     pub fn deviceTransform(self: QChart, viewportTransform: anytype) QTransform {
         comptime _ = @TypeOf(viewportTransform)._is_QTransform;
-        return .{ .ptr = qtc.QGraphicsItem_DeviceTransform(@ptrCast(self.ptr), @ptrCast(viewportTransform.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_DeviceTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(viewportTransform.ptr)) };
     }
 
     /// ### DEPRECATED: Use `itemTransform` instead
@@ -5552,7 +5602,7 @@ pub const QChart = extern struct {
     ///
     pub fn itemTransform(self: QChart, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -5571,7 +5621,7 @@ pub const QChart = extern struct {
     ///
     pub fn setTransform(self: QChart, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
-        qtc.QGraphicsItem_SetTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
+        qtc.QGraphicsItem_SetTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(matrix.ptr));
     }
 
     /// ### DEPRECATED: Use `resetTransform` instead
@@ -5587,7 +5637,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn resetTransform(self: QChart) void {
-        qtc.QGraphicsItem_ResetTransform(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_ResetTransform(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setRotation` instead
@@ -5605,7 +5655,7 @@ pub const QChart = extern struct {
     /// ` angle: f64 `
     ///
     pub fn setRotation(self: QChart, angle: f64) void {
-        qtc.QGraphicsItem_SetRotation(@ptrCast(self.ptr), @bitCast(angle));
+        qtc.QGraphicsItem_SetRotation(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(angle));
     }
 
     /// ### DEPRECATED: Use `rotation` instead
@@ -5621,7 +5671,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn rotation(self: QChart) f64 {
-        return qtc.QGraphicsItem_Rotation(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_Rotation(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setScale` instead
@@ -5639,7 +5689,7 @@ pub const QChart = extern struct {
     /// ` _scale: f64 `
     ///
     pub fn setScale(self: QChart, _scale: f64) void {
-        qtc.QGraphicsItem_SetScale(@ptrCast(self.ptr), @bitCast(_scale));
+        qtc.QGraphicsItem_SetScale(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_scale));
     }
 
     /// ### DEPRECATED: Use `scale` instead
@@ -5655,7 +5705,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn scale(self: QChart) f64 {
-        return qtc.QGraphicsItem_Scale(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_Scale(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `transformations` instead
@@ -5673,7 +5723,7 @@ pub const QChart = extern struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn transformations(self: QChart, allocator: std.mem.Allocator) []QGraphicsTransform {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.asQGraphicsItem().ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QChart.transformations: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
@@ -5701,7 +5751,7 @@ pub const QChart = extern struct {
             .len = _transformations.len,
             .data = @ptrCast(_transformations.ptr),
         };
-        qtc.QGraphicsItem_SetTransformations(@ptrCast(self.ptr), transformations_list);
+        qtc.QGraphicsItem_SetTransformations(@ptrCast(self.asQGraphicsItem().ptr), transformations_list);
     }
 
     /// ### DEPRECATED: Use `transformOriginPoint` instead
@@ -5717,7 +5767,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn transformOriginPoint(self: QChart) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_TransformOriginPoint(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_TransformOriginPoint(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransformOriginPoint` instead
@@ -5736,7 +5786,7 @@ pub const QChart = extern struct {
     ///
     pub fn setTransformOriginPoint(self: QChart, origin: anytype) void {
         comptime _ = @TypeOf(origin)._is_QPointF;
-        qtc.QGraphicsItem_SetTransformOriginPoint(@ptrCast(self.ptr), @ptrCast(origin.ptr));
+        qtc.QGraphicsItem_SetTransformOriginPoint(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(origin.ptr));
     }
 
     /// ### DEPRECATED: Use `setTransformOriginPoint2` instead
@@ -5756,7 +5806,7 @@ pub const QChart = extern struct {
     /// ` ay: f64 `
     ///
     pub fn setTransformOriginPoint2(self: QChart, ax: f64, ay: f64) void {
-        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self.ptr), @bitCast(ax), @bitCast(ay));
+        qtc.QGraphicsItem_SetTransformOriginPoint2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(ax), @bitCast(ay));
     }
 
     /// ### DEPRECATED: Use `zValue` instead
@@ -5772,7 +5822,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn zValue(self: QChart) f64 {
-        return qtc.QGraphicsItem_ZValue(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_ZValue(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setZValue` instead
@@ -5790,7 +5840,7 @@ pub const QChart = extern struct {
     /// ` z: f64 `
     ///
     pub fn setZValue(self: QChart, z: f64) void {
-        qtc.QGraphicsItem_SetZValue(@ptrCast(self.ptr), @bitCast(z));
+        qtc.QGraphicsItem_SetZValue(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(z));
     }
 
     /// ### DEPRECATED: Use `stackBefore` instead
@@ -5809,7 +5859,7 @@ pub const QChart = extern struct {
     ///
     pub fn stackBefore(self: QChart, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(sibling.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -5825,7 +5875,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn childrenBoundingRect(self: QChart) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_ChildrenBoundingRect(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ChildrenBoundingRect(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `sceneBoundingRect` instead
@@ -5841,7 +5891,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn sceneBoundingRect(self: QChart) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_SceneBoundingRect(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_SceneBoundingRect(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `isClipped` instead
@@ -5857,7 +5907,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isClipped(self: QChart) bool {
-        return qtc.QGraphicsItem_IsClipped(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsClipped(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `clipPath` instead
@@ -5873,7 +5923,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn clipPath(self: QChart) QPainterPath {
-        return .{ .ptr = qtc.QGraphicsItem_ClipPath(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_ClipPath(@ptrCast(self.asQGraphicsItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `collidingItems` instead
@@ -5891,7 +5941,7 @@ pub const QChart = extern struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn collidingItems(self: QChart, allocator: std.mem.Allocator) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.asQGraphicsItem().ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChart.collidingItems: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -5913,7 +5963,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isObscured(self: QChart) bool {
-        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsObscured(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `isObscured2` instead
@@ -5937,7 +5987,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn isObscured2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) bool {
-        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
+        return qtc.QGraphicsItem_IsObscured2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
 
     /// ### DEPRECATED: Use `boundingRegion` instead
@@ -5956,7 +6006,7 @@ pub const QChart = extern struct {
     ///
     pub fn boundingRegion(self: QChart, itemToDeviceTransform: anytype) QRegion {
         comptime _ = @TypeOf(itemToDeviceTransform)._is_QTransform;
-        return .{ .ptr = qtc.QGraphicsItem_BoundingRegion(@ptrCast(self.ptr), @ptrCast(itemToDeviceTransform.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_BoundingRegion(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(itemToDeviceTransform.ptr)) };
     }
 
     /// ### DEPRECATED: Use `boundingRegionGranularity` instead
@@ -5972,7 +6022,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn boundingRegionGranularity(self: QChart) f64 {
-        return qtc.QGraphicsItem_BoundingRegionGranularity(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_BoundingRegionGranularity(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setBoundingRegionGranularity` instead
@@ -5990,7 +6040,7 @@ pub const QChart = extern struct {
     /// ` granularity: f64 `
     ///
     pub fn setBoundingRegionGranularity(self: QChart, granularity: f64) void {
-        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self.ptr), @bitCast(granularity));
+        qtc.QGraphicsItem_SetBoundingRegionGranularity(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(granularity));
     }
 
     /// ### DEPRECATED: Use `update` instead
@@ -6006,7 +6056,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn update(self: QChart) void {
-        qtc.QGraphicsItem_Update(@ptrCast(self.ptr));
+        qtc.QGraphicsItem_Update(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `update2` instead
@@ -6030,7 +6080,7 @@ pub const QChart = extern struct {
     /// ` height: f64 `
     ///
     pub fn update2(self: QChart, _x: f64, _y: f64, width: f64, height: f64) void {
-        qtc.QGraphicsItem_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(width), @bitCast(height));
+        qtc.QGraphicsItem_Update2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(width), @bitCast(height));
     }
 
     /// ### DEPRECATED: Use `mapToItem` instead
@@ -6052,7 +6102,7 @@ pub const QChart = extern struct {
     pub fn mapToItem(self: QChart, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -6071,7 +6121,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapToParent(self: QChart, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToScene` instead
@@ -6090,7 +6140,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapToScene(self: QChart, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToItem` instead
@@ -6112,7 +6162,7 @@ pub const QChart = extern struct {
     pub fn mapRectToItem(self: QChart, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -6131,7 +6181,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectToParent(self: QChart, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToScene` instead
@@ -6150,7 +6200,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectToScene(self: QChart, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToItem4` instead
@@ -6172,7 +6222,7 @@ pub const QChart = extern struct {
     pub fn mapToItem4(self: QChart, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -6191,7 +6241,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapToParent4(self: QChart, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToScene4` instead
@@ -6210,7 +6260,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapToScene4(self: QChart, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromItem` instead
@@ -6232,7 +6282,7 @@ pub const QChart = extern struct {
     pub fn mapFromItem(self: QChart, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -6251,7 +6301,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapFromParent(self: QChart, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromParent(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromScene` instead
@@ -6270,7 +6320,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapFromScene(self: QChart, point: anytype) QPointF {
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromItem` instead
@@ -6292,7 +6342,7 @@ pub const QChart = extern struct {
     pub fn mapRectFromItem(self: QChart, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -6311,7 +6361,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectFromParent(self: QChart, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromScene` instead
@@ -6330,7 +6380,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectFromScene(self: QChart, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromItem4` instead
@@ -6352,7 +6402,7 @@ pub const QChart = extern struct {
     pub fn mapFromItem4(self: QChart, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -6371,7 +6421,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapFromParent4(self: QChart, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromParent4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromScene4` instead
@@ -6390,7 +6440,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapFromScene4(self: QChart, path: anytype) QPainterPath {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromScene4(@ptrCast(self.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToItem5` instead
@@ -6413,7 +6463,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapToItem5(self: QChart, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -6433,7 +6483,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn mapToParent5(self: QChart, _x: f64, _y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToScene5` instead
@@ -6453,7 +6503,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn mapToScene5(self: QChart, _x: f64, _y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToItem2` instead
@@ -6480,7 +6530,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectToItem2(self: QChart, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -6504,7 +6554,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn mapRectToParent2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToParent2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToScene2` instead
@@ -6528,7 +6578,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn mapRectToScene2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToScene2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapFromItem5` instead
@@ -6551,7 +6601,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapFromItem5(self: QChart, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -6571,7 +6621,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn mapFromParent5(self: QChart, _x: f64, _y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromScene5` instead
@@ -6591,7 +6641,7 @@ pub const QChart = extern struct {
     /// ` _y: f64 `
     ///
     pub fn mapFromScene5(self: QChart, _x: f64, _y: f64) QPointF {
-        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromItem2` instead
@@ -6618,7 +6668,7 @@ pub const QChart = extern struct {
     ///
     pub fn mapRectFromItem2(self: QChart, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -6642,7 +6692,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn mapRectFromParent2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromParent2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromScene2` instead
@@ -6666,7 +6716,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn mapRectFromScene2(self: QChart, _x: f64, _y: f64, w: f64, h: f64) QRectF {
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `isAncestorOf` instead
@@ -6685,7 +6735,7 @@ pub const QChart = extern struct {
     ///
     pub fn isAncestorOf(self: QChart, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(child.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -6704,7 +6754,7 @@ pub const QChart = extern struct {
     ///
     pub fn commonAncestorItem(self: QChart, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -6720,7 +6770,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isUnderMouse(self: QChart) bool {
-        return qtc.QGraphicsItem_IsUnderMouse(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_IsUnderMouse(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `data` instead
@@ -6738,7 +6788,7 @@ pub const QChart = extern struct {
     /// ` key: i32 `
     ///
     pub fn data(self: QChart, key: i32) QVariant {
-        return .{ .ptr = qtc.QGraphicsItem_Data(@ptrCast(self.ptr), @bitCast(key)) };
+        return .{ .ptr = qtc.QGraphicsItem_Data(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(key)) };
     }
 
     /// ### DEPRECATED: Use `setData` instead
@@ -6759,7 +6809,7 @@ pub const QChart = extern struct {
     ///
     pub fn setData(self: QChart, key: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QGraphicsItem_SetData(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value.ptr));
+        qtc.QGraphicsItem_SetData(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(key), @ptrCast(value.ptr));
     }
 
     /// ### DEPRECATED: Use `inputMethodHints` instead
@@ -6779,7 +6829,7 @@ pub const QChart = extern struct {
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn inputMethodHints(self: QChart) i32 {
-        return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self.ptr));
+        return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self.asQGraphicsItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setInputMethodHints` instead
@@ -6797,7 +6847,7 @@ pub const QChart = extern struct {
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
     pub fn setInputMethodHints(self: QChart, hints: i32) void {
-        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
+        qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(hints));
     }
 
     /// ### DEPRECATED: Use `installSceneEventFilter` instead
@@ -6816,7 +6866,7 @@ pub const QChart = extern struct {
     ///
     pub fn installSceneEventFilter(self: QChart, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -6835,7 +6885,7 @@ pub const QChart = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QChart, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -6855,7 +6905,7 @@ pub const QChart = extern struct {
     /// ` enabled: bool `
     ///
     pub fn setFlag2(self: QChart, flag: i32, enabled: bool) void {
-        qtc.QGraphicsItem_SetFlag2(@ptrCast(self.ptr), @bitCast(flag), enabled);
+        qtc.QGraphicsItem_SetFlag2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(flag), enabled);
     }
 
     /// ### DEPRECATED: Use `setCacheMode2` instead
@@ -6876,7 +6926,7 @@ pub const QChart = extern struct {
     ///
     pub fn setCacheMode2(self: QChart, mode: i32, cacheSize: anytype) void {
         comptime _ = @TypeOf(cacheSize)._is_QSize;
-        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self.ptr), @bitCast(mode), @ptrCast(cacheSize.ptr));
+        qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(mode), @ptrCast(cacheSize.ptr));
     }
 
     /// ### DEPRECATED: Use `isBlockedByModalPanel1` instead
@@ -6894,7 +6944,7 @@ pub const QChart = extern struct {
     /// ` blockingPanel: *QGraphicsItem.ptr `
     ///
     pub fn isBlockedByModalPanel1(self: QChart, blockingPanel: *?*anyopaque) bool {
-        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self.ptr), @ptrCast(blockingPanel));
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(blockingPanel));
     }
 
     /// ### DEPRECATED: Use `setFocus1` instead
@@ -6912,7 +6962,7 @@ pub const QChart = extern struct {
     /// ` focusReason: qnamespace_enums.FocusReason `
     ///
     pub fn setFocus1(self: QChart, focusReason: i32) void {
-        qtc.QGraphicsItem_SetFocus1(@ptrCast(self.ptr), @bitCast(focusReason));
+        qtc.QGraphicsItem_SetFocus1(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(focusReason));
     }
 
     /// ### DEPRECATED: Use `ensureVisible1` instead
@@ -6931,7 +6981,7 @@ pub const QChart = extern struct {
     ///
     pub fn ensureVisible1(self: QChart, _rect: anytype) void {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        qtc.QGraphicsItem_EnsureVisible1(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+        qtc.QGraphicsItem_EnsureVisible1(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr));
     }
 
     /// ### DEPRECATED: Use `ensureVisible22` instead
@@ -6952,7 +7002,7 @@ pub const QChart = extern struct {
     ///
     pub fn ensureVisible22(self: QChart, _rect: anytype, xmargin: i32) void {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible22(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr), @bitCast(xmargin));
     }
 
     /// ### DEPRECATED: Use `ensureVisible3` instead
@@ -6975,7 +7025,7 @@ pub const QChart = extern struct {
     ///
     pub fn ensureVisible3(self: QChart, _rect: anytype, xmargin: i32, ymargin: i32) void {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### DEPRECATED: Use `ensureVisible5` instead
@@ -7001,7 +7051,7 @@ pub const QChart = extern struct {
     /// ` xmargin: i32 `
     ///
     pub fn ensureVisible5(self: QChart, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
+        qtc.QGraphicsItem_EnsureVisible5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin));
     }
 
     /// ### DEPRECATED: Use `ensureVisible6` instead
@@ -7029,7 +7079,7 @@ pub const QChart = extern struct {
     /// ` ymargin: i32 `
     ///
     pub fn ensureVisible6(self: QChart, _x: f64, _y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
-        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
+        qtc.QGraphicsItem_EnsureVisible6(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### DEPRECATED: Use `itemTransform2` instead
@@ -7050,7 +7100,7 @@ pub const QChart = extern struct {
     ///
     pub fn itemTransform2(self: QChart, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -7071,7 +7121,7 @@ pub const QChart = extern struct {
     ///
     pub fn setTransform2(self: QChart, matrix: anytype, combine: bool) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
-        qtc.QGraphicsItem_SetTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
+        qtc.QGraphicsItem_SetTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(matrix.ptr), combine);
     }
 
     /// ### DEPRECATED: Use `collidingItems1` instead
@@ -7091,7 +7141,7 @@ pub const QChart = extern struct {
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
     pub fn collidingItems1(self: QChart, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChart.collidingItems1: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -7116,7 +7166,7 @@ pub const QChart = extern struct {
     ///
     pub fn isObscured1(self: QChart, _rect: anytype) bool {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return qtc.QGraphicsItem_IsObscured1(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+        return qtc.QGraphicsItem_IsObscured1(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr));
     }
 
     /// ### DEPRECATED: Use `update1` instead
@@ -7135,7 +7185,7 @@ pub const QChart = extern struct {
     ///
     pub fn update1(self: QChart, _rect: anytype) void {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        qtc.QGraphicsItem_Update1(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
+        qtc.QGraphicsItem_Update1(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr));
     }
 
     /// ### DEPRECATED: Use `scroll3` instead
@@ -7158,7 +7208,7 @@ pub const QChart = extern struct {
     ///
     pub fn scroll3(self: QChart, dx: f64, dy: f64, _rect: anytype) void {
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        qtc.QGraphicsItem_Scroll3(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(_rect.ptr));
+        qtc.QGraphicsItem_Scroll3(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(dx), @bitCast(dy), @ptrCast(_rect.ptr));
     }
 
     /// ### DEPRECATED: Use `setSizePolicy` instead
@@ -7177,7 +7227,7 @@ pub const QChart = extern struct {
     ///
     pub fn setSizePolicy(self: QChart, policy: anytype) void {
         comptime _ = @TypeOf(policy)._is_QSizePolicy;
-        qtc.QGraphicsLayoutItem_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(policy.ptr));
+        qtc.QGraphicsLayoutItem_SetSizePolicy(@ptrCast(self.asQGraphicsLayoutItem().ptr), @ptrCast(policy.ptr));
     }
 
     /// ### DEPRECATED: Use `setSizePolicy2` instead
@@ -7197,7 +7247,7 @@ pub const QChart = extern struct {
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
     pub fn setSizePolicy2(self: QChart, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(hPolicy), @bitCast(vPolicy));
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// ### DEPRECATED: Use `sizePolicy` instead
@@ -7213,7 +7263,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn sizePolicy(self: QChart) QSizePolicy {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_SizePolicy(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_SizePolicy(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setMinimumSize` instead
@@ -7232,7 +7282,7 @@ pub const QChart = extern struct {
     ///
     pub fn setMinimumSize(self: QChart, _size: anytype) void {
         comptime _ = @TypeOf(_size)._is_QSizeF;
-        qtc.QGraphicsLayoutItem_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
+        qtc.QGraphicsLayoutItem_SetMinimumSize(@ptrCast(self.asQGraphicsLayoutItem().ptr), @ptrCast(_size.ptr));
     }
 
     /// ### DEPRECATED: Use `setMinimumSize2` instead
@@ -7252,7 +7302,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn setMinimumSize2(self: QChart, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(w), @bitCast(h));
     }
 
     /// ### DEPRECATED: Use `minimumSize` instead
@@ -7268,7 +7318,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn minimumSize(self: QChart) QSizeF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_MinimumSize(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_MinimumSize(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setMinimumWidth` instead
@@ -7286,7 +7336,7 @@ pub const QChart = extern struct {
     /// ` width: f64 `
     ///
     pub fn setMinimumWidth(self: QChart, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(width));
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(width));
     }
 
     /// ### DEPRECATED: Use `minimumWidth` instead
@@ -7302,7 +7352,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn minimumWidth(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_MinimumWidth(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_MinimumWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setMinimumHeight` instead
@@ -7320,7 +7370,7 @@ pub const QChart = extern struct {
     /// ` height: f64 `
     ///
     pub fn setMinimumHeight(self: QChart, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(height));
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(height));
     }
 
     /// ### DEPRECATED: Use `minimumHeight` instead
@@ -7336,7 +7386,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn minimumHeight(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_MinimumHeight(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_MinimumHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setPreferredSize` instead
@@ -7355,7 +7405,7 @@ pub const QChart = extern struct {
     ///
     pub fn setPreferredSize(self: QChart, _size: anytype) void {
         comptime _ = @TypeOf(_size)._is_QSizeF;
-        qtc.QGraphicsLayoutItem_SetPreferredSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
+        qtc.QGraphicsLayoutItem_SetPreferredSize(@ptrCast(self.asQGraphicsLayoutItem().ptr), @ptrCast(_size.ptr));
     }
 
     /// ### DEPRECATED: Use `setPreferredSize2` instead
@@ -7375,7 +7425,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn setPreferredSize2(self: QChart, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(w), @bitCast(h));
     }
 
     /// ### DEPRECATED: Use `preferredSize` instead
@@ -7391,7 +7441,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn preferredSize(self: QChart) QSizeF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_PreferredSize(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_PreferredSize(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setPreferredWidth` instead
@@ -7409,7 +7459,7 @@ pub const QChart = extern struct {
     /// ` width: f64 `
     ///
     pub fn setPreferredWidth(self: QChart, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self.ptr), @bitCast(width));
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(width));
     }
 
     /// ### DEPRECATED: Use `preferredWidth` instead
@@ -7425,7 +7475,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn preferredWidth(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_PreferredWidth(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_PreferredWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setPreferredHeight` instead
@@ -7443,7 +7493,7 @@ pub const QChart = extern struct {
     /// ` height: f64 `
     ///
     pub fn setPreferredHeight(self: QChart, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self.ptr), @bitCast(height));
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(height));
     }
 
     /// ### DEPRECATED: Use `preferredHeight` instead
@@ -7459,7 +7509,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn preferredHeight(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_PreferredHeight(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_PreferredHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setMaximumSize` instead
@@ -7478,7 +7528,7 @@ pub const QChart = extern struct {
     ///
     pub fn setMaximumSize(self: QChart, _size: anytype) void {
         comptime _ = @TypeOf(_size)._is_QSizeF;
-        qtc.QGraphicsLayoutItem_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
+        qtc.QGraphicsLayoutItem_SetMaximumSize(@ptrCast(self.asQGraphicsLayoutItem().ptr), @ptrCast(_size.ptr));
     }
 
     /// ### DEPRECATED: Use `setMaximumSize2` instead
@@ -7498,7 +7548,7 @@ pub const QChart = extern struct {
     /// ` h: f64 `
     ///
     pub fn setMaximumSize2(self: QChart, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(w), @bitCast(h));
     }
 
     /// ### DEPRECATED: Use `maximumSize` instead
@@ -7514,7 +7564,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn maximumSize(self: QChart) QSizeF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_MaximumSize(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_MaximumSize(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setMaximumWidth` instead
@@ -7532,7 +7582,7 @@ pub const QChart = extern struct {
     /// ` width: f64 `
     ///
     pub fn setMaximumWidth(self: QChart, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(width));
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(width));
     }
 
     /// ### DEPRECATED: Use `maximumWidth` instead
@@ -7548,7 +7598,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn maximumWidth(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_MaximumWidth(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_MaximumWidth(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setMaximumHeight` instead
@@ -7566,7 +7616,7 @@ pub const QChart = extern struct {
     /// ` height: f64 `
     ///
     pub fn setMaximumHeight(self: QChart, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(height));
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(height));
     }
 
     /// ### DEPRECATED: Use `maximumHeight` instead
@@ -7582,7 +7632,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn maximumHeight(self: QChart) f64 {
-        return qtc.QGraphicsLayoutItem_MaximumHeight(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_MaximumHeight(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `geometry` instead
@@ -7598,7 +7648,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn geometry(self: QChart) QRectF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_Geometry(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_Geometry(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `contentsRect` instead
@@ -7614,7 +7664,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn contentsRect(self: QChart) QRectF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_ContentsRect(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_ContentsRect(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `effectiveSizeHint` instead
@@ -7632,7 +7682,7 @@ pub const QChart = extern struct {
     /// ` which: qnamespace_enums.SizeHint `
     ///
     pub fn effectiveSizeHint(self: QChart, which: i32) QSizeF {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self.ptr), @bitCast(which)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(which)) };
     }
 
     /// ### DEPRECATED: Use `parentLayoutItem` instead
@@ -7648,7 +7698,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn parentLayoutItem(self: QChart) QGraphicsLayoutItem {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_ParentLayoutItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_ParentLayoutItem(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `setParentLayoutItem` instead
@@ -7667,7 +7717,7 @@ pub const QChart = extern struct {
     ///
     pub fn setParentLayoutItem(self: QChart, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.asQGraphicsLayoutItem().ptr), @ptrCast(_parent.ptr));
     }
 
     /// ### DEPRECATED: Use `isLayout` instead
@@ -7683,7 +7733,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn isLayout(self: QChart) bool {
-        return qtc.QGraphicsLayoutItem_IsLayout(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_IsLayout(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `graphicsItem` instead
@@ -7699,7 +7749,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn graphicsItem(self: QChart) QGraphicsItem {
-        return .{ .ptr = qtc.QGraphicsLayoutItem_GraphicsItem(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_GraphicsItem(@ptrCast(self.asQGraphicsLayoutItem().ptr)) };
     }
 
     /// ### DEPRECATED: Use `ownedByLayout` instead
@@ -7715,7 +7765,7 @@ pub const QChart = extern struct {
     /// ` self: QChart `
     ///
     pub fn ownedByLayout(self: QChart) bool {
-        return qtc.QGraphicsLayoutItem_OwnedByLayout(@ptrCast(self.ptr));
+        return qtc.QGraphicsLayoutItem_OwnedByLayout(@ptrCast(self.asQGraphicsLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `setSizePolicy3` instead
@@ -7737,7 +7787,7 @@ pub const QChart = extern struct {
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
     pub fn setSizePolicy3(self: QChart, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self.ptr), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// ### DEPRECATED: Use `effectiveSizeHint2` instead
@@ -7758,7 +7808,7 @@ pub const QChart = extern struct {
     ///
     pub fn effectiveSizeHint2(self: QChart, which: i32, constraint: anytype) QSizeF {
         comptime _ = @TypeOf(constraint)._is_QSizeF;
-        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self.ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
+        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self.asQGraphicsLayoutItem().ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setGeometry` instead
@@ -12404,13 +12454,13 @@ pub const QChart = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qchart-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const ChartType = enum(i32) {
+    pub const ChartType = enum {
         pub const ChartTypeUndefined: i32 = 0;
         pub const ChartTypeCartesian: i32 = 1;
         pub const ChartTypePolar: i32 = 2;
     };
 
-    pub const ChartTheme = enum(i32) {
+    pub const ChartTheme = enum {
         pub const ChartThemeLight: i32 = 0;
         pub const ChartThemeBlueCerulean: i32 = 1;
         pub const ChartThemeDark: i32 = 2;
@@ -12421,7 +12471,7 @@ pub const enums = struct {
         pub const ChartThemeQt: i32 = 7;
     };
 
-    pub const AnimationOption = enum(i32) {
+    pub const AnimationOption = enum {
         pub const NoAnimation: i32 = 0;
         pub const GridAxisAnimations: i32 = 1;
         pub const SeriesAnimations: i32 = 2;

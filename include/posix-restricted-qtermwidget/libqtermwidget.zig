@@ -142,6 +142,27 @@ pub const QTermWidget = extern struct {
         return .{ .ptr = qtc.QTermWidget_new4(@bitCast(startnow), @ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a QTermWidgetInterface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    pub fn asQTermWidgetInterface(self: QTermWidget) QTermWidgetInterface {
+        return .{ .ptr = qtc.QTermWidget_AsQTermWidgetInterface(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QTermWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qtermwidgetinterface: QTermWidgetInterface `
+    ///
+    pub fn fromQTermWidgetInterface(_qtermwidgetinterface: anytype) QTermWidget {
+        comptime _ = @TypeOf(_qtermwidgetinterface)._is_QTermWidgetInterface;
+        return .{ .ptr = @ptrCast(qtc.QTermWidget_FromQTermWidgetInterface(@ptrCast(_qtermwidgetinterface.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -4665,6 +4686,31 @@ pub const QTermWidget = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTermWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTermWidget `
+    ///
+    pub fn asQPaintDevice(self: QTermWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QTermWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QTermWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -10651,7 +10697,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn paintingActive(self: QTermWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -10667,7 +10713,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn widthMM(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -10683,7 +10729,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn heightMM(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -10699,7 +10745,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn logicalDpiX(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -10715,7 +10761,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn logicalDpiY(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -10731,7 +10777,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn physicalDpiX(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -10747,7 +10793,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn physicalDpiY(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -10763,7 +10809,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn devicePixelRatio(self: QTermWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -10779,7 +10825,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn devicePixelRatioF(self: QTermWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -10795,7 +10841,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn colorCount(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -10811,7 +10857,7 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     pub fn depth(self: QTermWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10860,7 +10906,7 @@ pub const QTermWidget = extern struct {
     ///
     pub fn operatorAssign(self: QTermWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
-        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.asQTermWidgetInterface().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `devType` instead

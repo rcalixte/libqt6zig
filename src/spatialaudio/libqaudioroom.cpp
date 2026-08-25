@@ -195,9 +195,8 @@ QMetaObject* QAudioRoom_SuperMetaObject(const QAudioRoom* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnMetaObject(const QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_MetaObject_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +213,8 @@ void* QAudioRoom_SuperMetacast(QAudioRoom* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnMetacast(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_Metacast_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +231,8 @@ int QAudioRoom_SuperMetacall(QAudioRoom* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnMetacall(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_Metacall_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +259,8 @@ bool QAudioRoom_SuperEvent(QAudioRoom* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnEvent(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_Event_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +287,8 @@ bool QAudioRoom_SuperEventFilter(QAudioRoom* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnEventFilter(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_EventFilter_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +315,8 @@ void QAudioRoom_SuperTimerEvent(QAudioRoom* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnTimerEvent(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_TimerEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +343,8 @@ void QAudioRoom_SuperChildEvent(QAudioRoom* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnChildEvent(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_ChildEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +371,8 @@ void QAudioRoom_SuperCustomEvent(QAudioRoom* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnCustomEvent(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_CustomEvent_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +399,8 @@ void QAudioRoom_SuperConnectNotify(QAudioRoom* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnConnectNotify(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +427,8 @@ void QAudioRoom_SuperDisconnectNotify(QAudioRoom* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnDisconnectNotify(QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +455,8 @@ QObject* QAudioRoom_SuperSender(const QAudioRoom* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnSender(const QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_Sender_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +483,8 @@ int QAudioRoom_SuperSenderSignalIndex(const QAudioRoom* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnSenderSignalIndex(const QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +511,8 @@ int QAudioRoom_SuperReceivers(const QAudioRoom* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnReceivers(const QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_Receivers_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +539,8 @@ bool QAudioRoom_SuperIsSignalConnected(const QAudioRoom* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QAudioRoom_OnIsSignalConnected(const QAudioRoom* self, intptr_t slot) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom)
         vqaudioroom->setQAudioRoom_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAudioRoom_Delete(QAudioRoom* self) {

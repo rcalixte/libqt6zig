@@ -111,9 +111,8 @@ QMetaObject* KImageFilePreview_SuperMetaObject(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetaObject(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MetaObject_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +129,8 @@ void* KImageFilePreview_SuperMetacast(KImageFilePreview* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetacast(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Metacast_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +147,8 @@ int KImageFilePreview_SuperMetacall(KImageFilePreview* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetacall(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Metacall_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +165,8 @@ QSize* KImageFilePreview_SuperSizeHint(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSizeHint(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_SizeHint_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -187,9 +183,8 @@ void KImageFilePreview_SuperShowPreview(KImageFilePreview* self, const QUrl* url
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowPreview(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ShowPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -206,9 +201,8 @@ void KImageFilePreview_SuperClearPreview(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnClearPreview(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ClearPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ClearPreview_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +219,8 @@ void KImageFilePreview_SuperGotPreview(KImageFilePreview* self, const KFileItem*
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnGotPreview(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_GotPreview_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_GotPreview_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +237,8 @@ void KImageFilePreview_SuperResizeEvent(KImageFilePreview* self, QResizeEvent* e
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnResizeEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ResizeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +255,8 @@ KIO__PreviewJob* KImageFilePreview_SuperCreateJob(KImageFilePreview* self, const
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCreateJob(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_CreateJob_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CreateJob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +283,8 @@ int KImageFilePreview_SuperDevType(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDevType(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DevType_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +311,8 @@ void KImageFilePreview_SuperSetVisible(KImageFilePreview* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSetVisible(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_SetVisible_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +339,8 @@ QSize* KImageFilePreview_SuperMinimumSizeHint(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMinimumSizeHint(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MinimumSizeHint_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +367,8 @@ int KImageFilePreview_SuperHeightForWidth(const KImageFilePreview* self, int par
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnHeightForWidth(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_HeightForWidth_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +395,8 @@ bool KImageFilePreview_SuperHasHeightForWidth(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnHasHeightForWidth(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_HasHeightForWidth_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +423,8 @@ QPaintEngine* KImageFilePreview_SuperPaintEngine(const KImageFilePreview* self) 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnPaintEngine(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_PaintEngine_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +451,8 @@ bool KImageFilePreview_SuperEvent(KImageFilePreview* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Event_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +479,8 @@ void KImageFilePreview_SuperMousePressEvent(KImageFilePreview* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMousePressEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MousePressEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +507,8 @@ void KImageFilePreview_SuperMouseReleaseEvent(KImageFilePreview* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseReleaseEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +535,8 @@ void KImageFilePreview_SuperMouseDoubleClickEvent(KImageFilePreview* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseDoubleClickEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +563,8 @@ void KImageFilePreview_SuperMouseMoveEvent(KImageFilePreview* self, QMouseEvent*
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMouseMoveEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MouseMoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +591,8 @@ void KImageFilePreview_SuperWheelEvent(KImageFilePreview* self, QWheelEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnWheelEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_WheelEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +619,8 @@ void KImageFilePreview_SuperKeyPressEvent(KImageFilePreview* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnKeyPressEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_KeyPressEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +647,8 @@ void KImageFilePreview_SuperKeyReleaseEvent(KImageFilePreview* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnKeyReleaseEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +675,8 @@ void KImageFilePreview_SuperFocusInEvent(KImageFilePreview* self, QFocusEvent* e
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusInEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_FocusInEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +703,8 @@ void KImageFilePreview_SuperFocusOutEvent(KImageFilePreview* self, QFocusEvent* 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusOutEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_FocusOutEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +731,8 @@ void KImageFilePreview_SuperEnterEvent(KImageFilePreview* self, QEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEnterEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_EnterEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +759,8 @@ void KImageFilePreview_SuperLeaveEvent(KImageFilePreview* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnLeaveEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_LeaveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +787,8 @@ void KImageFilePreview_SuperPaintEvent(KImageFilePreview* self, QPaintEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnPaintEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_PaintEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +815,8 @@ void KImageFilePreview_SuperMoveEvent(KImageFilePreview* self, QMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMoveEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_MoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +843,8 @@ void KImageFilePreview_SuperCloseEvent(KImageFilePreview* self, QCloseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCloseEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_CloseEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +871,8 @@ void KImageFilePreview_SuperContextMenuEvent(KImageFilePreview* self, QContextMe
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnContextMenuEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ContextMenuEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +899,8 @@ void KImageFilePreview_SuperTabletEvent(KImageFilePreview* self, QTabletEvent* e
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnTabletEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_TabletEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +927,8 @@ void KImageFilePreview_SuperActionEvent(KImageFilePreview* self, QActionEvent* e
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnActionEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ActionEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +955,8 @@ void KImageFilePreview_SuperDragEnterEvent(KImageFilePreview* self, QDragEnterEv
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragEnterEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DragEnterEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +983,8 @@ void KImageFilePreview_SuperDragMoveEvent(KImageFilePreview* self, QDragMoveEven
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragMoveEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DragMoveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1011,8 @@ void KImageFilePreview_SuperDragLeaveEvent(KImageFilePreview* self, QDragLeaveEv
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDragLeaveEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DragLeaveEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1039,8 @@ void KImageFilePreview_SuperDropEvent(KImageFilePreview* self, QDropEvent* event
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDropEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DropEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1067,8 @@ void KImageFilePreview_SuperShowEvent(KImageFilePreview* self, QShowEvent* event
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ShowEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1095,8 @@ void KImageFilePreview_SuperHideEvent(KImageFilePreview* self, QHideEvent* event
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnHideEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_HideEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1125,8 @@ bool KImageFilePreview_SuperNativeEvent(KImageFilePreview* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnNativeEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_NativeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1153,8 @@ void KImageFilePreview_SuperChangeEvent(KImageFilePreview* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnChangeEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ChangeEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1181,8 @@ int KImageFilePreview_SuperMetric(const KImageFilePreview* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnMetric(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Metric_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1209,8 @@ void KImageFilePreview_SuperInitPainter(const KImageFilePreview* self, QPainter*
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnInitPainter(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_InitPainter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1237,8 @@ QPaintDevice* KImageFilePreview_SuperRedirected(const KImageFilePreview* self, Q
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnRedirected(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Redirected_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1265,8 @@ QPainter* KImageFilePreview_SuperSharedPainter(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSharedPainter(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_SharedPainter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1293,8 @@ void KImageFilePreview_SuperInputMethodEvent(KImageFilePreview* self, QInputMeth
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnInputMethodEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_InputMethodEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1321,8 @@ QVariant* KImageFilePreview_SuperInputMethodQuery(const KImageFilePreview* self,
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnInputMethodQuery(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_InputMethodQuery_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1349,8 @@ bool KImageFilePreview_SuperFocusNextPrevChild(KImageFilePreview* self, bool nex
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusNextPrevChild(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1377,8 @@ bool KImageFilePreview_SuperEventFilter(KImageFilePreview* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnEventFilter(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_EventFilter_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1405,8 @@ void KImageFilePreview_SuperTimerEvent(KImageFilePreview* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnTimerEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_TimerEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1433,8 @@ void KImageFilePreview_SuperChildEvent(KImageFilePreview* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnChildEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ChildEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1461,8 @@ void KImageFilePreview_SuperCustomEvent(KImageFilePreview* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCustomEvent(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_CustomEvent_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1489,8 @@ void KImageFilePreview_SuperConnectNotify(KImageFilePreview* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnConnectNotify(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ConnectNotify_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1517,8 @@ void KImageFilePreview_SuperDisconnectNotify(KImageFilePreview* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDisconnectNotify(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_DisconnectNotify_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1545,8 @@ void KImageFilePreview_SuperShowPreview2(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowPreview2(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ShowPreview2_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1573,8 @@ void KImageFilePreview_SuperShowPreview3(KImageFilePreview* self, const QUrl* ur
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnShowPreview3(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_ShowPreview3_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_ShowPreview3_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1671,9 +1615,8 @@ void KImageFilePreview_SuperSetSupportedMimeTypes(KImageFilePreview* self, const
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSetSupportedMimeTypes(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_SetSupportedMimeTypes_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SetSupportedMimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1700,9 +1643,8 @@ void KImageFilePreview_SuperUpdateMicroFocus(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnUpdateMicroFocus(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1729,9 +1671,8 @@ void KImageFilePreview_SuperCreate(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnCreate(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Create_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1758,9 +1699,8 @@ void KImageFilePreview_SuperDestroy(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnDestroy(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Destroy_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1787,9 +1727,8 @@ bool KImageFilePreview_SuperFocusNextChild(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusNextChild(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_FocusNextChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1816,9 +1755,8 @@ bool KImageFilePreview_SuperFocusPreviousChild(KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnFocusPreviousChild(KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_FocusPreviousChild_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1845,9 +1783,8 @@ QObject* KImageFilePreview_SuperSender(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSender(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Sender_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1874,9 +1811,8 @@ int KImageFilePreview_SuperSenderSignalIndex(const KImageFilePreview* self) {
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnSenderSignalIndex(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_SenderSignalIndex_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1903,9 +1839,8 @@ int KImageFilePreview_SuperReceivers(const KImageFilePreview* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnReceivers(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_Receivers_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1932,9 +1867,8 @@ bool KImageFilePreview_SuperIsSignalConnected(const KImageFilePreview* self, con
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnIsSignalConnected(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_IsSignalConnected_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1961,9 +1895,8 @@ double KImageFilePreview_SuperGetDecodedMetricF(const KImageFilePreview* self, i
 // Auxiliary method to allow providing re-implementation
 void KImageFilePreview_OnGetDecodedMetricF(const KImageFilePreview* self, intptr_t slot) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview)
         vkimagefilepreview->setKImageFilePreview_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KImageFilePreview_Delete(KImageFilePreview* self) {

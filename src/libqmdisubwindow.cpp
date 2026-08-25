@@ -319,9 +319,8 @@ QMetaObject* QMdiSubWindow_SuperMetaObject(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetaObject(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MetaObject_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +337,8 @@ void* QMdiSubWindow_SuperMetacast(QMdiSubWindow* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetacast(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Metacast_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +355,8 @@ int QMdiSubWindow_SuperMetacall(QMdiSubWindow* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetacall(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Metacall_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +373,8 @@ QSize* QMdiSubWindow_SuperSizeHint(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSizeHint(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_SizeHint_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +391,8 @@ QSize* QMdiSubWindow_SuperMinimumSizeHint(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMinimumSizeHint(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -414,9 +409,8 @@ bool QMdiSubWindow_SuperEventFilter(QMdiSubWindow* self, QObject* object, QEvent
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEventFilter(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_EventFilter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -433,9 +427,8 @@ bool QMdiSubWindow_SuperEvent(QMdiSubWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Event_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -452,9 +445,8 @@ void QMdiSubWindow_SuperShowEvent(QMdiSubWindow* self, QShowEvent* showEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnShowEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ShowEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -471,9 +463,8 @@ void QMdiSubWindow_SuperHideEvent(QMdiSubWindow* self, QHideEvent* hideEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnHideEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_HideEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -490,9 +481,8 @@ void QMdiSubWindow_SuperChangeEvent(QMdiSubWindow* self, QEvent* changeEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnChangeEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ChangeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -509,9 +499,8 @@ void QMdiSubWindow_SuperCloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent)
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnCloseEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_CloseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -528,9 +517,8 @@ void QMdiSubWindow_SuperLeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnLeaveEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_LeaveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -547,9 +535,8 @@ void QMdiSubWindow_SuperResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEve
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnResizeEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -566,9 +553,8 @@ void QMdiSubWindow_SuperTimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent)
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnTimerEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_TimerEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -585,9 +571,8 @@ void QMdiSubWindow_SuperMoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMoveEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -604,9 +589,8 @@ void QMdiSubWindow_SuperPaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent)
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnPaintEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_PaintEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -623,9 +607,8 @@ void QMdiSubWindow_SuperMousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseE
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMousePressEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -642,9 +625,8 @@ void QMdiSubWindow_SuperMouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseDoubleClickEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -661,9 +643,8 @@ void QMdiSubWindow_SuperMouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mous
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseReleaseEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -680,9 +661,8 @@ void QMdiSubWindow_SuperMouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEv
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMouseMoveEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -699,9 +679,8 @@ void QMdiSubWindow_SuperKeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent) 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnKeyPressEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -718,9 +697,8 @@ void QMdiSubWindow_SuperContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnContextMenuEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -737,9 +715,8 @@ void QMdiSubWindow_SuperFocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEv
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusInEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -756,9 +733,8 @@ void QMdiSubWindow_SuperFocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOut
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusOutEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -775,9 +751,8 @@ void QMdiSubWindow_SuperChildEvent(QMdiSubWindow* self, QChildEvent* childEvent)
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnChildEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ChildEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +779,8 @@ int QMdiSubWindow_SuperDevType(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDevType(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DevType_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +807,8 @@ void QMdiSubWindow_SuperSetVisible(QMdiSubWindow* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSetVisible(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_SetVisible_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +835,8 @@ int QMdiSubWindow_SuperHeightForWidth(const QMdiSubWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnHeightForWidth(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_HeightForWidth_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +863,8 @@ bool QMdiSubWindow_SuperHasHeightForWidth(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnHasHeightForWidth(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +891,8 @@ QPaintEngine* QMdiSubWindow_SuperPaintEngine(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnPaintEngine(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_PaintEngine_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +919,8 @@ void QMdiSubWindow_SuperWheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnWheelEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_WheelEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +947,8 @@ void QMdiSubWindow_SuperKeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnKeyReleaseEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +975,8 @@ void QMdiSubWindow_SuperEnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnEnterEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_EnterEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1003,8 @@ void QMdiSubWindow_SuperTabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnTabletEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_TabletEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1031,8 @@ void QMdiSubWindow_SuperActionEvent(QMdiSubWindow* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnActionEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ActionEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1059,8 @@ void QMdiSubWindow_SuperDragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragEnterEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1123,9 +1087,8 @@ void QMdiSubWindow_SuperDragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragMoveEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1115,8 @@ void QMdiSubWindow_SuperDragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDragLeaveEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1143,8 @@ void QMdiSubWindow_SuperDropEvent(QMdiSubWindow* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDropEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DropEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1173,8 @@ bool QMdiSubWindow_SuperNativeEvent(QMdiSubWindow* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnNativeEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_NativeEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1201,8 @@ int QMdiSubWindow_SuperMetric(const QMdiSubWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnMetric(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Metric_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1229,8 @@ void QMdiSubWindow_SuperInitPainter(const QMdiSubWindow* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnInitPainter(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_InitPainter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1257,8 @@ QPaintDevice* QMdiSubWindow_SuperRedirected(const QMdiSubWindow* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnRedirected(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Redirected_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1285,8 @@ QPainter* QMdiSubWindow_SuperSharedPainter(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSharedPainter(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_SharedPainter_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1313,8 @@ void QMdiSubWindow_SuperInputMethodEvent(QMdiSubWindow* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnInputMethodEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1341,8 @@ QVariant* QMdiSubWindow_SuperInputMethodQuery(const QMdiSubWindow* self, int par
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnInputMethodQuery(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1369,8 @@ bool QMdiSubWindow_SuperFocusNextPrevChild(QMdiSubWindow* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusNextPrevChild(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1397,8 @@ void QMdiSubWindow_SuperCustomEvent(QMdiSubWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnCustomEvent(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_CustomEvent_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1425,8 @@ void QMdiSubWindow_SuperConnectNotify(QMdiSubWindow* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnConnectNotify(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1453,8 @@ void QMdiSubWindow_SuperDisconnectNotify(QMdiSubWindow* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDisconnectNotify(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1481,8 @@ void QMdiSubWindow_SuperUpdateMicroFocus(QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnUpdateMicroFocus(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1509,8 @@ void QMdiSubWindow_SuperCreate(QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnCreate(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Create_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1537,8 @@ void QMdiSubWindow_SuperDestroy(QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnDestroy(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Destroy_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1565,8 @@ bool QMdiSubWindow_SuperFocusNextChild(QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusNextChild(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_FocusNextChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1593,8 @@ bool QMdiSubWindow_SuperFocusPreviousChild(QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnFocusPreviousChild(QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1621,8 @@ QObject* QMdiSubWindow_SuperSender(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSender(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Sender_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1649,8 @@ int QMdiSubWindow_SuperSenderSignalIndex(const QMdiSubWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnSenderSignalIndex(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1677,8 @@ int QMdiSubWindow_SuperReceivers(const QMdiSubWindow* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnReceivers(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_Receivers_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1705,8 @@ bool QMdiSubWindow_SuperIsSignalConnected(const QMdiSubWindow* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnIsSignalConnected(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1733,8 @@ double QMdiSubWindow_SuperGetDecodedMetricF(const QMdiSubWindow* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QMdiSubWindow_OnGetDecodedMetricF(const QMdiSubWindow* self, intptr_t slot) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow)
         vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QMdiSubWindow_Delete(QMdiSubWindow* self) {

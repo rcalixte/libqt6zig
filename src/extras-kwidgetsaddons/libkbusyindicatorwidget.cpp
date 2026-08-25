@@ -131,9 +131,8 @@ QMetaObject* KBusyIndicatorWidget_SuperMetaObject(const KBusyIndicatorWidget* se
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMetaObject(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MetaObject_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ void* KBusyIndicatorWidget_SuperMetacast(KBusyIndicatorWidget* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMetacast(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metacast_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ int KBusyIndicatorWidget_SuperMetacall(KBusyIndicatorWidget* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMetacall(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metacall_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +185,8 @@ QSize* KBusyIndicatorWidget_SuperMinimumSizeHint(const KBusyIndicatorWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMinimumSizeHint(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +203,8 @@ void KBusyIndicatorWidget_SuperShowEvent(KBusyIndicatorWidget* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnShowEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ShowEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +221,8 @@ void KBusyIndicatorWidget_SuperHideEvent(KBusyIndicatorWidget* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnHideEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HideEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -245,9 +239,8 @@ void KBusyIndicatorWidget_SuperResizeEvent(KBusyIndicatorWidget* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnResizeEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +257,8 @@ void KBusyIndicatorWidget_SuperPaintEvent(KBusyIndicatorWidget* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnPaintEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_PaintEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -283,9 +275,8 @@ bool KBusyIndicatorWidget_SuperEvent(KBusyIndicatorWidget* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Event_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +303,8 @@ int KBusyIndicatorWidget_SuperDevType(const KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDevType(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DevType_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +331,8 @@ void KBusyIndicatorWidget_SuperSetVisible(KBusyIndicatorWidget* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnSetVisible(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SetVisible_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +359,8 @@ QSize* KBusyIndicatorWidget_SuperSizeHint(const KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnSizeHint(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SizeHint_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +387,8 @@ int KBusyIndicatorWidget_SuperHeightForWidth(const KBusyIndicatorWidget* self, i
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnHeightForWidth(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ bool KBusyIndicatorWidget_SuperHasHeightForWidth(const KBusyIndicatorWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnHasHeightForWidth(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +443,8 @@ QPaintEngine* KBusyIndicatorWidget_SuperPaintEngine(const KBusyIndicatorWidget* 
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnPaintEngine(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_PaintEngine_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +471,8 @@ void KBusyIndicatorWidget_SuperMousePressEvent(KBusyIndicatorWidget* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMousePressEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +499,8 @@ void KBusyIndicatorWidget_SuperMouseReleaseEvent(KBusyIndicatorWidget* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMouseReleaseEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +527,8 @@ void KBusyIndicatorWidget_SuperMouseDoubleClickEvent(KBusyIndicatorWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMouseDoubleClickEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +555,8 @@ void KBusyIndicatorWidget_SuperMouseMoveEvent(KBusyIndicatorWidget* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMouseMoveEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +583,8 @@ void KBusyIndicatorWidget_SuperWheelEvent(KBusyIndicatorWidget* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnWheelEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_WheelEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +611,8 @@ void KBusyIndicatorWidget_SuperKeyPressEvent(KBusyIndicatorWidget* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnKeyPressEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +639,8 @@ void KBusyIndicatorWidget_SuperKeyReleaseEvent(KBusyIndicatorWidget* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnKeyReleaseEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +667,8 @@ void KBusyIndicatorWidget_SuperFocusInEvent(KBusyIndicatorWidget* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnFocusInEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +695,8 @@ void KBusyIndicatorWidget_SuperFocusOutEvent(KBusyIndicatorWidget* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnFocusOutEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +723,8 @@ void KBusyIndicatorWidget_SuperEnterEvent(KBusyIndicatorWidget* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnEnterEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_EnterEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +751,8 @@ void KBusyIndicatorWidget_SuperLeaveEvent(KBusyIndicatorWidget* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnLeaveEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +779,8 @@ void KBusyIndicatorWidget_SuperMoveEvent(KBusyIndicatorWidget* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMoveEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_MoveEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +807,8 @@ void KBusyIndicatorWidget_SuperCloseEvent(KBusyIndicatorWidget* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnCloseEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_CloseEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +835,8 @@ void KBusyIndicatorWidget_SuperContextMenuEvent(KBusyIndicatorWidget* self, QCon
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnContextMenuEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +863,8 @@ void KBusyIndicatorWidget_SuperTabletEvent(KBusyIndicatorWidget* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnTabletEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_TabletEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +891,8 @@ void KBusyIndicatorWidget_SuperActionEvent(KBusyIndicatorWidget* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnActionEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ActionEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +919,8 @@ void KBusyIndicatorWidget_SuperDragEnterEvent(KBusyIndicatorWidget* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDragEnterEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +947,8 @@ void KBusyIndicatorWidget_SuperDragMoveEvent(KBusyIndicatorWidget* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDragMoveEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +975,8 @@ void KBusyIndicatorWidget_SuperDragLeaveEvent(KBusyIndicatorWidget* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDragLeaveEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1003,8 @@ void KBusyIndicatorWidget_SuperDropEvent(KBusyIndicatorWidget* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDropEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DropEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1033,8 @@ bool KBusyIndicatorWidget_SuperNativeEvent(KBusyIndicatorWidget* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnNativeEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_NativeEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1061,8 @@ void KBusyIndicatorWidget_SuperChangeEvent(KBusyIndicatorWidget* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnChangeEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1089,8 @@ int KBusyIndicatorWidget_SuperMetric(const KBusyIndicatorWidget* self, int param
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnMetric(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Metric_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1117,8 @@ void KBusyIndicatorWidget_SuperInitPainter(const KBusyIndicatorWidget* self, QPa
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnInitPainter(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InitPainter_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1145,8 @@ QPaintDevice* KBusyIndicatorWidget_SuperRedirected(const KBusyIndicatorWidget* s
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnRedirected(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Redirected_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1173,8 @@ QPainter* KBusyIndicatorWidget_SuperSharedPainter(const KBusyIndicatorWidget* se
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnSharedPainter(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SharedPainter_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1201,8 @@ void KBusyIndicatorWidget_SuperInputMethodEvent(KBusyIndicatorWidget* self, QInp
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnInputMethodEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1229,8 @@ QVariant* KBusyIndicatorWidget_SuperInputMethodQuery(const KBusyIndicatorWidget*
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnInputMethodQuery(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1257,8 @@ bool KBusyIndicatorWidget_SuperFocusNextPrevChild(KBusyIndicatorWidget* self, bo
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnFocusNextPrevChild(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1285,8 @@ bool KBusyIndicatorWidget_SuperEventFilter(KBusyIndicatorWidget* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnEventFilter(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_EventFilter_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1313,8 @@ void KBusyIndicatorWidget_SuperTimerEvent(KBusyIndicatorWidget* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnTimerEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_TimerEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1341,8 @@ void KBusyIndicatorWidget_SuperChildEvent(KBusyIndicatorWidget* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnChildEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ChildEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1369,8 @@ void KBusyIndicatorWidget_SuperCustomEvent(KBusyIndicatorWidget* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnCustomEvent(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_CustomEvent_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1397,8 @@ void KBusyIndicatorWidget_SuperConnectNotify(KBusyIndicatorWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnConnectNotify(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1425,8 @@ void KBusyIndicatorWidget_SuperDisconnectNotify(KBusyIndicatorWidget* self, cons
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDisconnectNotify(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1453,8 @@ void KBusyIndicatorWidget_SuperUpdateMicroFocus(KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnUpdateMicroFocus(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1481,8 @@ void KBusyIndicatorWidget_SuperCreate(KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnCreate(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Create_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1509,8 @@ void KBusyIndicatorWidget_SuperDestroy(KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnDestroy(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Destroy_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1537,8 @@ bool KBusyIndicatorWidget_SuperFocusNextChild(KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnFocusNextChild(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1565,8 @@ bool KBusyIndicatorWidget_SuperFocusPreviousChild(KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnFocusPreviousChild(KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1593,8 @@ QObject* KBusyIndicatorWidget_SuperSender(const KBusyIndicatorWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnSender(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Sender_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1621,8 @@ int KBusyIndicatorWidget_SuperSenderSignalIndex(const KBusyIndicatorWidget* self
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnSenderSignalIndex(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1649,8 @@ int KBusyIndicatorWidget_SuperReceivers(const KBusyIndicatorWidget* self, const 
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnReceivers(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_Receivers_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1677,8 @@ bool KBusyIndicatorWidget_SuperIsSignalConnected(const KBusyIndicatorWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnIsSignalConnected(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1705,8 @@ double KBusyIndicatorWidget_SuperGetDecodedMetricF(const KBusyIndicatorWidget* s
 // Auxiliary method to allow providing re-implementation
 void KBusyIndicatorWidget_OnGetDecodedMetricF(const KBusyIndicatorWidget* self, intptr_t slot) {
     auto* vkbusyindicatorwidget = const_cast<VirtualKBusyIndicatorWidget*>(dynamic_cast<const VirtualKBusyIndicatorWidget*>(self));
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
+    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget)
         vkbusyindicatorwidget->setKBusyIndicatorWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKBusyIndicatorWidget::KBusyIndicatorWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KBusyIndicatorWidget_Delete(KBusyIndicatorWidget* self) {

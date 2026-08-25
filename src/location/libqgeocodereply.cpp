@@ -154,9 +154,8 @@ QMetaObject* QGeoCodeReply_SuperMetaObject(const QGeoCodeReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnMetaObject(const QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_MetaObject_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +172,8 @@ void* QGeoCodeReply_SuperMetacast(QGeoCodeReply* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnMetacast(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Metacast_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +190,8 @@ int QGeoCodeReply_SuperMetacall(QGeoCodeReply* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnMetacall(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Metacall_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +208,8 @@ void QGeoCodeReply_SuperAbort(QGeoCodeReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnAbort(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Abort_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Abort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +236,8 @@ bool QGeoCodeReply_SuperEvent(QGeoCodeReply* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnEvent(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Event_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +264,8 @@ bool QGeoCodeReply_SuperEventFilter(QGeoCodeReply* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnEventFilter(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_EventFilter_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +292,8 @@ void QGeoCodeReply_SuperTimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnTimerEvent(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_TimerEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +320,8 @@ void QGeoCodeReply_SuperChildEvent(QGeoCodeReply* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnChildEvent(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_ChildEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +348,8 @@ void QGeoCodeReply_SuperCustomEvent(QGeoCodeReply* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnCustomEvent(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_CustomEvent_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +376,8 @@ void QGeoCodeReply_SuperConnectNotify(QGeoCodeReply* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnConnectNotify(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +404,8 @@ void QGeoCodeReply_SuperDisconnectNotify(QGeoCodeReply* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnDisconnectNotify(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +434,8 @@ void QGeoCodeReply_SuperSetError(QGeoCodeReply* self, int errorVal, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetError(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetError_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +462,8 @@ void QGeoCodeReply_SuperSetFinished(QGeoCodeReply* self, bool finished) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetFinished(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetFinished_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +490,8 @@ void QGeoCodeReply_SuperSetViewport(QGeoCodeReply* self, const QGeoShape* viewpo
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetViewport(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetViewport_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +518,8 @@ void QGeoCodeReply_SuperAddLocation(QGeoCodeReply* self, const QGeoLocation* loc
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnAddLocation(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_AddLocation_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_AddLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +558,8 @@ void QGeoCodeReply_SuperSetLocations(QGeoCodeReply* self, const libqt_list /* of
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetLocations(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetLocations_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetLocations_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +586,8 @@ void QGeoCodeReply_SuperSetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetLimit(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetLimit_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetLimit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +614,8 @@ void QGeoCodeReply_SuperSetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSetOffset(QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SetOffset_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SetOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +642,8 @@ QObject* QGeoCodeReply_SuperSender(const QGeoCodeReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSender(const QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Sender_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +670,8 @@ int QGeoCodeReply_SuperSenderSignalIndex(const QGeoCodeReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnSenderSignalIndex(const QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +698,8 @@ int QGeoCodeReply_SuperReceivers(const QGeoCodeReply* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnReceivers(const QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_Receivers_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +726,8 @@ bool QGeoCodeReply_SuperIsSignalConnected(const QGeoCodeReply* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QGeoCodeReply_OnIsSignalConnected(const QGeoCodeReply* self, intptr_t slot) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply)
         vqgeocodereply->setQGeoCodeReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoCodeReply_Delete(QGeoCodeReply* self) {

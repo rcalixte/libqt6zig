@@ -276,9 +276,8 @@ QMetaObject* KRuler_SuperMetaObject(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetaObject(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MetaObject_Callback(reinterpret_cast<VirtualKRuler::KRuler_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +294,8 @@ void* KRuler_SuperMetacast(KRuler* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetacast(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Metacast_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +312,8 @@ int KRuler_SuperMetacall(KRuler* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetacall(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Metacall_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +330,8 @@ void KRuler_SuperPaintEvent(KRuler* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +358,8 @@ bool KRuler_SuperEvent(KRuler* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Event_Callback(reinterpret_cast<VirtualKRuler::KRuler_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +386,8 @@ void KRuler_SuperSliderChange(KRuler* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSliderChange(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SliderChange_Callback(reinterpret_cast<VirtualKRuler::KRuler_SliderChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +414,8 @@ void KRuler_SuperKeyPressEvent(KRuler* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnKeyPressEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_KeyPressEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +442,8 @@ void KRuler_SuperTimerEvent(KRuler* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnTimerEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_TimerEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +470,8 @@ void KRuler_SuperWheelEvent(KRuler* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnWheelEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_WheelEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +498,8 @@ void KRuler_SuperChangeEvent(KRuler* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnChangeEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ChangeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +526,8 @@ int KRuler_SuperDevType(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDevType(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DevType_Callback(reinterpret_cast<VirtualKRuler::KRuler_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +554,8 @@ void KRuler_SuperSetVisible(KRuler* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSetVisible(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SetVisible_Callback(reinterpret_cast<VirtualKRuler::KRuler_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +582,8 @@ QSize* KRuler_SuperSizeHint(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSizeHint(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SizeHint_Callback(reinterpret_cast<VirtualKRuler::KRuler_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +610,8 @@ QSize* KRuler_SuperMinimumSizeHint(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMinimumSizeHint(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRuler::KRuler_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +638,8 @@ int KRuler_SuperHeightForWidth(const KRuler* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnHeightForWidth(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_HeightForWidth_Callback(reinterpret_cast<VirtualKRuler::KRuler_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +666,8 @@ bool KRuler_SuperHasHeightForWidth(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnHasHeightForWidth(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRuler::KRuler_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +694,8 @@ QPaintEngine* KRuler_SuperPaintEngine(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnPaintEngine(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_PaintEngine_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +722,8 @@ void KRuler_SuperMousePressEvent(KRuler* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMousePressEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MousePressEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +750,8 @@ void KRuler_SuperMouseReleaseEvent(KRuler* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseReleaseEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +778,8 @@ void KRuler_SuperMouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseDoubleClickEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +806,8 @@ void KRuler_SuperMouseMoveEvent(KRuler* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseMoveEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +834,8 @@ void KRuler_SuperKeyReleaseEvent(KRuler* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnKeyReleaseEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +862,8 @@ void KRuler_SuperFocusInEvent(KRuler* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusInEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_FocusInEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +890,8 @@ void KRuler_SuperFocusOutEvent(KRuler* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusOutEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_FocusOutEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +918,8 @@ void KRuler_SuperEnterEvent(KRuler* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEnterEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_EnterEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +946,8 @@ void KRuler_SuperLeaveEvent(KRuler* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnLeaveEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_LeaveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +974,8 @@ void KRuler_SuperMoveEvent(KRuler* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMoveEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_MoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +1002,8 @@ void KRuler_SuperResizeEvent(KRuler* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnResizeEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ResizeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1030,8 @@ void KRuler_SuperCloseEvent(KRuler* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnCloseEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_CloseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1058,8 @@ void KRuler_SuperContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnContextMenuEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1086,8 @@ void KRuler_SuperTabletEvent(KRuler* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnTabletEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_TabletEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1114,8 @@ void KRuler_SuperActionEvent(KRuler* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnActionEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ActionEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1142,8 @@ void KRuler_SuperDragEnterEvent(KRuler* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragEnterEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DragEnterEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1170,8 @@ void KRuler_SuperDragMoveEvent(KRuler* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragMoveEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DragMoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1198,8 @@ void KRuler_SuperDragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragLeaveEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1226,8 @@ void KRuler_SuperDropEvent(KRuler* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDropEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DropEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1254,8 @@ void KRuler_SuperShowEvent(KRuler* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnShowEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ShowEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1282,8 @@ void KRuler_SuperHideEvent(KRuler* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnHideEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_HideEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1312,8 @@ bool KRuler_SuperNativeEvent(KRuler* self, const libqt_string eventType, void* m
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnNativeEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_NativeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1340,8 @@ int KRuler_SuperMetric(const KRuler* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetric(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Metric_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1368,8 @@ void KRuler_SuperInitPainter(const KRuler* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnInitPainter(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_InitPainter_Callback(reinterpret_cast<VirtualKRuler::KRuler_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1396,8 @@ QPaintDevice* KRuler_SuperRedirected(const KRuler* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnRedirected(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Redirected_Callback(reinterpret_cast<VirtualKRuler::KRuler_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1424,8 @@ QPainter* KRuler_SuperSharedPainter(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSharedPainter(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SharedPainter_Callback(reinterpret_cast<VirtualKRuler::KRuler_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1452,8 @@ void KRuler_SuperInputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnInputMethodEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_InputMethodEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1480,8 @@ QVariant* KRuler_SuperInputMethodQuery(const KRuler* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnInputMethodQuery(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_InputMethodQuery_Callback(reinterpret_cast<VirtualKRuler::KRuler_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1508,8 @@ bool KRuler_SuperFocusNextPrevChild(KRuler* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusNextPrevChild(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1536,8 @@ bool KRuler_SuperEventFilter(KRuler* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEventFilter(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_EventFilter_Callback(reinterpret_cast<VirtualKRuler::KRuler_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1564,8 @@ void KRuler_SuperChildEvent(KRuler* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnChildEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ChildEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1592,8 @@ void KRuler_SuperCustomEvent(KRuler* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnCustomEvent(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_CustomEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1620,8 @@ void KRuler_SuperConnectNotify(KRuler* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnConnectNotify(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_ConnectNotify_Callback(reinterpret_cast<VirtualKRuler::KRuler_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1648,8 @@ void KRuler_SuperDisconnectNotify(KRuler* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDisconnectNotify(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_DisconnectNotify_Callback(reinterpret_cast<VirtualKRuler::KRuler_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1676,8 @@ void KRuler_SuperSetRepeatAction(KRuler* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSetRepeatAction(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SetRepeatAction_Callback(reinterpret_cast<VirtualKRuler::KRuler_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1704,8 @@ int KRuler_SuperRepeatAction(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnRepeatAction(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_RepeatAction_Callback(reinterpret_cast<VirtualKRuler::KRuler_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1732,8 @@ void KRuler_SuperUpdateMicroFocus(KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnUpdateMicroFocus(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRuler::KRuler_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1760,8 @@ void KRuler_SuperCreate(KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnCreate(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Create_Callback(reinterpret_cast<VirtualKRuler::KRuler_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1788,8 @@ void KRuler_SuperDestroy(KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDestroy(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Destroy_Callback(reinterpret_cast<VirtualKRuler::KRuler_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1816,8 @@ bool KRuler_SuperFocusNextChild(KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusNextChild(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_FocusNextChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1844,8 @@ bool KRuler_SuperFocusPreviousChild(KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusPreviousChild(KRuler* self, intptr_t slot) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1930,9 +1872,8 @@ QObject* KRuler_SuperSender(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSender(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Sender_Callback(reinterpret_cast<VirtualKRuler::KRuler_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1959,9 +1900,8 @@ int KRuler_SuperSenderSignalIndex(const KRuler* self) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSenderSignalIndex(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRuler::KRuler_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1988,9 +1928,8 @@ int KRuler_SuperReceivers(const KRuler* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnReceivers(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_Receivers_Callback(reinterpret_cast<VirtualKRuler::KRuler_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2017,9 +1956,8 @@ bool KRuler_SuperIsSignalConnected(const KRuler* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnIsSignalConnected(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_IsSignalConnected_Callback(reinterpret_cast<VirtualKRuler::KRuler_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2046,9 +1984,8 @@ double KRuler_SuperGetDecodedMetricF(const KRuler* self, int metricA, int metric
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnGetDecodedMetricF(const KRuler* self, intptr_t slot) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler && vkruler->isVirtualKRuler)
         vkruler->setKRuler_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRuler::KRuler_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KRuler_Delete(KRuler* self) {

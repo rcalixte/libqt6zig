@@ -3102,7 +3102,7 @@ pub const KCompletion = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcompletion.html#public-types)
 pub const enums = struct {
-    pub const CompletionMode = enum(i32) {
+    pub const CompletionMode = enum {
         pub const CompletionNone: i32 = 1;
         pub const CompletionAuto: i32 = 2;
         pub const CompletionMan: i32 = 3;
@@ -3111,7 +3111,7 @@ pub const enums = struct {
         pub const CompletionPopupAuto: i32 = 6;
     };
 
-    pub const CompOrder = enum(i32) {
+    pub const CompOrder = enum {
         pub const Sorted: i32 = 0;
         pub const Insertion: i32 = 1;
         pub const Weighted: i32 = 2;

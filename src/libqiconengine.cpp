@@ -111,9 +111,8 @@ void QIconEngine_SuperPaint(QIconEngine* self, QPainter* painter, const QRect* r
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnPaint(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Paint_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +129,8 @@ QSize* QIconEngine_SuperActualSize(QIconEngine* self, const QSize* size, int mod
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnActualSize(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_ActualSize_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_ActualSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +147,8 @@ QPixmap* QIconEngine_SuperPixmap(QIconEngine* self, const QSize* size, int mode,
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnPixmap(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Pixmap_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Pixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +165,8 @@ void QIconEngine_SuperAddPixmap(QIconEngine* self, const QPixmap* pixmap, int mo
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnAddPixmap(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_AddPixmap_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_AddPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +184,8 @@ void QIconEngine_SuperAddFile(QIconEngine* self, const libqt_string fileName, co
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnAddFile(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_AddFile_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_AddFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +218,8 @@ libqt_string QIconEngine_SuperKey(const QIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnKey(const QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = const_cast<VirtualQIconEngine*>(dynamic_cast<const VirtualQIconEngine*>(self));
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Key_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Key_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +236,8 @@ QIconEngine* QIconEngine_SuperClone(const QIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnClone(const QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = const_cast<VirtualQIconEngine*>(dynamic_cast<const VirtualQIconEngine*>(self));
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Clone_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Clone_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +254,8 @@ bool QIconEngine_SuperRead(QIconEngine* self, QDataStream* in) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnRead(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Read_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Read_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +272,8 @@ bool QIconEngine_SuperWrite(const QIconEngine* self, QDataStream* out) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnWrite(const QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = const_cast<VirtualQIconEngine*>(dynamic_cast<const VirtualQIconEngine*>(self));
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_Write_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_Write_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +308,8 @@ libqt_list /* of QSize* */ QIconEngine_SuperAvailableSizes(QIconEngine* self, in
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnAvailableSizes(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_AvailableSizes_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_AvailableSizes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +342,8 @@ libqt_string QIconEngine_SuperIconName(QIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnIconName(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_IconName_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_IconName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +360,8 @@ bool QIconEngine_SuperIsNull(QIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnIsNull(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_IsNull_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_IsNull_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +378,8 @@ QPixmap* QIconEngine_SuperScaledPixmap(QIconEngine* self, const QSize* size, int
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnScaledPixmap(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_ScaledPixmap_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_ScaledPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +396,8 @@ void QIconEngine_SuperVirtualHook(QIconEngine* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void QIconEngine_OnVirtualHook(QIconEngine* self, intptr_t slot) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
+    if (vqiconengine && vqiconengine->isVirtualQIconEngine)
         vqiconengine->setQIconEngine_VirtualHook_Callback(reinterpret_cast<VirtualQIconEngine::QIconEngine_VirtualHook_Callback>(slot));
-    }
 }
 
 void QIconEngine_Delete(QIconEngine* self) {

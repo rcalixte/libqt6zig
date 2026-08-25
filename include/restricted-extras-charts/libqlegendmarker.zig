@@ -1726,7 +1726,7 @@ pub const QLegendMarker = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const LegendMarkerType = enum(i32) {
+    pub const LegendMarkerType = enum {
         pub const LegendMarkerTypeArea: i32 = 0;
         pub const LegendMarkerTypeBar: i32 = 1;
         pub const LegendMarkerTypePie: i32 = 2;

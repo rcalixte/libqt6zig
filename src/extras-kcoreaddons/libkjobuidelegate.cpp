@@ -81,9 +81,8 @@ QMetaObject* KJobUiDelegate_SuperMetaObject(const KJobUiDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnMetaObject(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_MetaObject_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* KJobUiDelegate_SuperMetacast(KJobUiDelegate* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnMetacast(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Metacast_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int KJobUiDelegate_SuperMetacall(KJobUiDelegate* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnMetacall(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Metacall_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +135,8 @@ bool KJobUiDelegate_SuperSetJob(KJobUiDelegate* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnSetJob(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_SetJob_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SetJob_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +153,8 @@ void KJobUiDelegate_SuperShowErrorMessage(KJobUiDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnShowErrorMessage(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_ShowErrorMessage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +172,8 @@ void KJobUiDelegate_SuperSlotWarning(KJobUiDelegate* self, KJob* job, const libq
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnSlotWarning(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_SlotWarning_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SlotWarning_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +200,8 @@ bool KJobUiDelegate_SuperEvent(KJobUiDelegate* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnEvent(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Event_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +228,8 @@ bool KJobUiDelegate_SuperEventFilter(KJobUiDelegate* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnEventFilter(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_EventFilter_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +256,8 @@ void KJobUiDelegate_SuperTimerEvent(KJobUiDelegate* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnTimerEvent(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_TimerEvent_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +284,8 @@ void KJobUiDelegate_SuperChildEvent(KJobUiDelegate* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnChildEvent(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_ChildEvent_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +312,8 @@ void KJobUiDelegate_SuperCustomEvent(KJobUiDelegate* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnCustomEvent(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_CustomEvent_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +340,8 @@ void KJobUiDelegate_SuperConnectNotify(KJobUiDelegate* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnConnectNotify(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +368,8 @@ void KJobUiDelegate_SuperDisconnectNotify(KJobUiDelegate* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnDisconnectNotify(KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +396,8 @@ KJob* KJobUiDelegate_SuperJob(const KJobUiDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnJob(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Job_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Job_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +424,8 @@ QObject* KJobUiDelegate_SuperSender(const KJobUiDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnSender(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Sender_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +452,8 @@ int KJobUiDelegate_SuperSenderSignalIndex(const KJobUiDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnSenderSignalIndex(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +480,8 @@ int KJobUiDelegate_SuperReceivers(const KJobUiDelegate* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnReceivers(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_Receivers_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +508,8 @@ bool KJobUiDelegate_SuperIsSignalConnected(const KJobUiDelegate* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KJobUiDelegate_OnIsSignalConnected(const KJobUiDelegate* self, intptr_t slot) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
+    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate)
         vkjobuidelegate->setKJobUiDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualKJobUiDelegate::KJobUiDelegate_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KJobUiDelegate_Delete(KJobUiDelegate* self) {

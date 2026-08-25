@@ -78,9 +78,8 @@ bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldStartComplet
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnShouldStartCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +96,8 @@ KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_SuperCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_CompletionRange_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_CompletionRange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +114,8 @@ KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_SuperUpd
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_UpdateCompletionRange_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_UpdateCompletionRange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +148,8 @@ libqt_string KTextEditor__CodeCompletionModelControllerInterface_SuperFilterStri
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnFilterString(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_FilterString_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_FilterString_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +167,8 @@ bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldAbortComplet
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnShouldAbortCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldAbortCompletion_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_ShouldAbortCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +185,8 @@ bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldExecute(KTex
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnShouldExecute(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldExecute_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_ShouldExecute_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +203,8 @@ void KTextEditor__CodeCompletionModelControllerInterface_SuperAborted(KTextEdito
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnAborted(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_Aborted_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_Aborted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +221,8 @@ int KTextEditor__CodeCompletionModelControllerInterface_SuperMatchingItem(KTextE
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnMatchingItem(KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_MatchingItem_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_MatchingItem_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +239,8 @@ bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldHideItemsWit
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModelControllerInterface_OnShouldHideItemsWithEqualNames(const KTextEditor__CodeCompletionModelControllerInterface* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodelcontrollerinterface = const_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModelControllerInterface*>(self));
-    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
+    if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface)
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_ShouldHideItemsWithEqualNames_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModelControllerInterface::KTextEditor__CodeCompletionModelControllerInterface_ShouldHideItemsWithEqualNames_Callback>(slot));
-    }
 }
 
 void KTextEditor__CodeCompletionModelControllerInterface_Delete(KTextEditor__CodeCompletionModelControllerInterface* self) {

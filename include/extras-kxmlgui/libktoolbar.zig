@@ -2034,6 +2034,31 @@ pub const KToolBar = extern struct {
         qtc.QToolBar_Connect_VisibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KToolBar `
+    ///
+    pub fn asQPaintDevice(self: KToolBar) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KToolBar object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KToolBar {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8018,7 +8043,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn paintingActive(self: KToolBar) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8034,7 +8059,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn widthMM(self: KToolBar) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8050,7 +8075,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn heightMM(self: KToolBar) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8066,7 +8091,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn logicalDpiX(self: KToolBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8082,7 +8107,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn logicalDpiY(self: KToolBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8098,7 +8123,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn physicalDpiX(self: KToolBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8114,7 +8139,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn physicalDpiY(self: KToolBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8130,7 +8155,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn devicePixelRatio(self: KToolBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8146,7 +8171,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn devicePixelRatioF(self: KToolBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8162,7 +8187,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn colorCount(self: KToolBar) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8178,7 +8203,7 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar `
     ///
     pub fn depth(self: KToolBar) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

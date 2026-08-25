@@ -233,9 +233,8 @@ QMetaObject* KXMLGUIFactory_SuperMetaObject(const KXMLGUIFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnMetaObject(const KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_MetaObject_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +251,8 @@ void* KXMLGUIFactory_SuperMetacast(KXMLGUIFactory* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnMetacast(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_Metacast_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +269,8 @@ int KXMLGUIFactory_SuperMetacall(KXMLGUIFactory* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnMetacall(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_Metacall_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +297,8 @@ bool KXMLGUIFactory_SuperEvent(KXMLGUIFactory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnEvent(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_Event_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +325,8 @@ bool KXMLGUIFactory_SuperEventFilter(KXMLGUIFactory* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnEventFilter(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_EventFilter_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +353,8 @@ void KXMLGUIFactory_SuperTimerEvent(KXMLGUIFactory* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnTimerEvent(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_TimerEvent_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +381,8 @@ void KXMLGUIFactory_SuperChildEvent(KXMLGUIFactory* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnChildEvent(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_ChildEvent_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +409,8 @@ void KXMLGUIFactory_SuperCustomEvent(KXMLGUIFactory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnCustomEvent(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_CustomEvent_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +437,8 @@ void KXMLGUIFactory_SuperConnectNotify(KXMLGUIFactory* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnConnectNotify(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_ConnectNotify_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +465,8 @@ void KXMLGUIFactory_SuperDisconnectNotify(KXMLGUIFactory* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnDisconnectNotify(KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_DisconnectNotify_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +493,8 @@ QObject* KXMLGUIFactory_SuperSender(const KXMLGUIFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnSender(const KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_Sender_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +521,8 @@ int KXMLGUIFactory_SuperSenderSignalIndex(const KXMLGUIFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnSenderSignalIndex(const KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_SenderSignalIndex_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +549,8 @@ int KXMLGUIFactory_SuperReceivers(const KXMLGUIFactory* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnReceivers(const KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_Receivers_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +577,8 @@ bool KXMLGUIFactory_SuperIsSignalConnected(const KXMLGUIFactory* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIFactory_OnIsSignalConnected(const KXMLGUIFactory* self, intptr_t slot) {
     auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory)
         vkxmlguifactory->setKXMLGUIFactory_IsSignalConnected_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KXMLGUIFactory_Delete(KXMLGUIFactory* self) {

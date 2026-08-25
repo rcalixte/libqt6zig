@@ -192,9 +192,8 @@ QMetaObject* KStartupInfo_SuperMetaObject(const KStartupInfo* self) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnMetaObject(const KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_MetaObject_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +210,8 @@ void* KStartupInfo_SuperMetacast(KStartupInfo* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnMetacast(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_Metacast_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -230,9 +228,8 @@ int KStartupInfo_SuperMetacall(KStartupInfo* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnMetacall(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_Metacall_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -249,9 +246,8 @@ void KStartupInfo_SuperCustomEvent(KStartupInfo* self, QEvent* e_P) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnCustomEvent(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_CustomEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +274,8 @@ bool KStartupInfo_SuperEvent(KStartupInfo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnEvent(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_Event_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +302,8 @@ bool KStartupInfo_SuperEventFilter(KStartupInfo* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnEventFilter(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_EventFilter_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +330,8 @@ void KStartupInfo_SuperTimerEvent(KStartupInfo* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnTimerEvent(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_TimerEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +358,8 @@ void KStartupInfo_SuperChildEvent(KStartupInfo* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnChildEvent(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_ChildEvent_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +386,8 @@ void KStartupInfo_SuperConnectNotify(KStartupInfo* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnConnectNotify(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_ConnectNotify_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +414,8 @@ void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnDisconnectNotify(KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_DisconnectNotify_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +442,8 @@ QObject* KStartupInfo_SuperSender(const KStartupInfo* self) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnSender(const KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_Sender_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +470,8 @@ int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnSenderSignalIndex(const KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +498,8 @@ int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnReceivers(const KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_Receivers_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +526,8 @@ bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KStartupInfo_OnIsSignalConnected(const KStartupInfo* self, intptr_t slot) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo)
         vkstartupinfo->setKStartupInfo_IsSignalConnected_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KStartupInfo_Delete(KStartupInfo* self) {

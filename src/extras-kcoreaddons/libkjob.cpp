@@ -260,9 +260,8 @@ QMetaObject* KJob_SuperMetaObject(const KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnMetaObject(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_MetaObject_Callback(reinterpret_cast<VirtualKJob::KJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +278,8 @@ void* KJob_SuperMetacast(KJob* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnMetacast(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Metacast_Callback(reinterpret_cast<VirtualKJob::KJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +296,8 @@ int KJob_SuperMetacall(KJob* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnMetacall(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Metacall_Callback(reinterpret_cast<VirtualKJob::KJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +314,8 @@ void KJob_SuperStart(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnStart(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Start_Callback(reinterpret_cast<VirtualKJob::KJob_Start_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +332,8 @@ bool KJob_SuperDoKill(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoKill(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_DoKill_Callback(reinterpret_cast<VirtualKJob::KJob_DoKill_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -355,9 +350,8 @@ bool KJob_SuperDoSuspend(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoSuspend(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_DoSuspend_Callback(reinterpret_cast<VirtualKJob::KJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -374,9 +368,8 @@ bool KJob_SuperDoResume(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDoResume(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_DoResume_Callback(reinterpret_cast<VirtualKJob::KJob_DoResume_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +402,8 @@ libqt_string KJob_SuperErrorString(const KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnErrorString(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_ErrorString_Callback(reinterpret_cast<VirtualKJob::KJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +430,8 @@ bool KJob_SuperEvent(KJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEvent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Event_Callback(reinterpret_cast<VirtualKJob::KJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +458,8 @@ bool KJob_SuperEventFilter(KJob* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEventFilter(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_EventFilter_Callback(reinterpret_cast<VirtualKJob::KJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +486,8 @@ void KJob_SuperTimerEvent(KJob* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnTimerEvent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_TimerEvent_Callback(reinterpret_cast<VirtualKJob::KJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +514,8 @@ void KJob_SuperChildEvent(KJob* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnChildEvent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_ChildEvent_Callback(reinterpret_cast<VirtualKJob::KJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +542,8 @@ void KJob_SuperCustomEvent(KJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnCustomEvent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_CustomEvent_Callback(reinterpret_cast<VirtualKJob::KJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +570,8 @@ void KJob_SuperConnectNotify(KJob* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnConnectNotify(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_ConnectNotify_Callback(reinterpret_cast<VirtualKJob::KJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +598,8 @@ void KJob_SuperDisconnectNotify(KJob* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnDisconnectNotify(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKJob::KJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +626,8 @@ void KJob_SuperSetCapabilities(KJob* self, int capabilities) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetCapabilities(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetCapabilities_Callback(reinterpret_cast<VirtualKJob::KJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +654,8 @@ bool KJob_SuperIsFinished(const KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnIsFinished(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_IsFinished_Callback(reinterpret_cast<VirtualKJob::KJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +682,8 @@ void KJob_SuperSetError(KJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetError(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetError_Callback(reinterpret_cast<VirtualKJob::KJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +712,8 @@ void KJob_SuperSetErrorText(KJob* self, const libqt_string errorText) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetErrorText(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetErrorText_Callback(reinterpret_cast<VirtualKJob::KJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +740,8 @@ void KJob_SuperSetProcessedAmount(KJob* self, int unit, unsigned long long amoun
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetProcessedAmount(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKJob::KJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +768,8 @@ void KJob_SuperSetTotalAmount(KJob* self, int unit, unsigned long long amount) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetTotalAmount(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKJob::KJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +796,8 @@ void KJob_SuperSetProgressUnit(KJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetProgressUnit(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKJob::KJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +824,8 @@ void KJob_SuperSetPercent(KJob* self, unsigned long percentage) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSetPercent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SetPercent_Callback(reinterpret_cast<VirtualKJob::KJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +852,8 @@ void KJob_SuperEmitResult(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEmitResult(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_EmitResult_Callback(reinterpret_cast<VirtualKJob::KJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +880,8 @@ void KJob_SuperEmitPercent(KJob* self, unsigned long long processedAmount, unsig
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEmitPercent(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_EmitPercent_Callback(reinterpret_cast<VirtualKJob::KJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +908,8 @@ void KJob_SuperEmitSpeed(KJob* self, unsigned long speed) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnEmitSpeed(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_EmitSpeed_Callback(reinterpret_cast<VirtualKJob::KJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +936,8 @@ void KJob_SuperStartElapsedTimer(KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnStartElapsedTimer(KJob* self, intptr_t slot) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKJob::KJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +964,8 @@ QObject* KJob_SuperSender(const KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSender(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Sender_Callback(reinterpret_cast<VirtualKJob::KJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +992,8 @@ int KJob_SuperSenderSignalIndex(const KJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnSenderSignalIndex(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKJob::KJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1020,8 @@ int KJob_SuperReceivers(const KJob* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnReceivers(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_Receivers_Callback(reinterpret_cast<VirtualKJob::KJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1048,8 @@ bool KJob_SuperIsSignalConnected(const KJob* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KJob_OnIsSignalConnected(const KJob* self, intptr_t slot) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
-    if (vkjob && vkjob->isVirtualKJob) {
+    if (vkjob && vkjob->isVirtualKJob)
         vkjob->setKJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKJob::KJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KJob_Connect_Finished(KJob* self, intptr_t slot) {

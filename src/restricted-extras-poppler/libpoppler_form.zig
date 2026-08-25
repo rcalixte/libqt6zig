@@ -5099,54 +5099,54 @@ pub const Poppler = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
 pub const enums = struct {
-    pub const CryptoSignBackend = enum(i32) {
+    pub const CryptoSignBackend = enum {
         pub const NSS: i32 = 0;
         pub const GPG: i32 = 1;
     };
 
-    pub const CryptoSignBackendFeature = enum(i32) {
+    pub const CryptoSignBackendFeature = enum {
         pub const BackendAsksPassphrase: i32 = 0;
     };
 
-    pub const FormType = enum(i32) {
+    pub const FormType = enum {
         pub const FormButton: i32 = 0;
         pub const FormText: i32 = 1;
         pub const FormChoice: i32 = 2;
         pub const FormSignature: i32 = 3;
     };
 
-    pub const AdditionalActionType = enum(i32) {
+    pub const AdditionalActionType = enum {
         pub const FieldModified: i32 = 0;
         pub const FormatField: i32 = 1;
         pub const ValidateField: i32 = 2;
         pub const CalculateField: i32 = 3;
     };
 
-    pub const ButtonType = enum(i32) {
+    pub const ButtonType = enum {
         pub const Push: i32 = 0;
         pub const CheckBox: i32 = 1;
         pub const Radio: i32 = 2;
     };
 
-    pub const TextType = enum(i32) {
+    pub const TextType = enum {
         pub const Normal: i32 = 0;
         pub const Multiline: i32 = 1;
         pub const FileSelect: i32 = 2;
     };
 
-    pub const ChoiceType = enum(i32) {
+    pub const ChoiceType = enum {
         pub const ComboBox: i32 = 0;
         pub const ListBox: i32 = 1;
     };
 
-    pub const PublicKeyType = enum(i32) {
+    pub const PublicKeyType = enum {
         pub const RsaKey: i32 = 0;
         pub const DsaKey: i32 = 1;
         pub const EcKey: i32 = 2;
         pub const OtherKey: i32 = 3;
     };
 
-    pub const KeyUsageExtension = enum(i32) {
+    pub const KeyUsageExtension = enum {
         pub const KuDigitalSignature: i32 = 128;
         pub const KuNonRepudiation: i32 = 64;
         pub const KuKeyEncipherment: i32 = 32;
@@ -5158,26 +5158,26 @@ pub const enums = struct {
         pub const KuNone: i32 = 0;
     };
 
-    pub const EntityInfoKey = enum(i32) {
+    pub const EntityInfoKey = enum {
         pub const CommonName: i32 = 0;
         pub const DistinguishedName: i32 = 1;
         pub const EmailAddress: i32 = 2;
         pub const Organization: i32 = 3;
     };
 
-    pub const CertificateType = enum(i32) {
+    pub const CertificateType = enum {
         pub const X509: i32 = 0;
         pub const PGP: i32 = 1;
     };
 
-    pub const KeyLocation = enum(i32) {
+    pub const KeyLocation = enum {
         pub const Unknown: i32 = 0;
         pub const Other: i32 = 1;
         pub const Computer: i32 = 2;
         pub const HardwareToken: i32 = 3;
     };
 
-    pub const SignatureStatus = enum(i32) {
+    pub const SignatureStatus = enum {
         pub const SignatureValid: i32 = 0;
         pub const SignatureInvalid: i32 = 1;
         pub const SignatureDigestMismatch: i32 = 2;
@@ -5187,7 +5187,7 @@ pub const enums = struct {
         pub const SignatureNotVerified: i32 = 6;
     };
 
-    pub const CertificateStatus = enum(i32) {
+    pub const CertificateStatus = enum {
         pub const CertificateTrusted: i32 = 0;
         pub const CertificateUntrustedIssuer: i32 = 1;
         pub const CertificateUnknownIssuer: i32 = 2;
@@ -5198,7 +5198,7 @@ pub const enums = struct {
         pub const CertificateVerificationInProgress: i32 = 7;
     };
 
-    pub const HashAlgorithm = enum(i32) {
+    pub const HashAlgorithm = enum {
         pub const HashAlgorithmUnknown: i32 = 0;
         pub const HashAlgorithmMd2: i32 = 1;
         pub const HashAlgorithmMd5: i32 = 2;
@@ -5209,7 +5209,7 @@ pub const enums = struct {
         pub const HashAlgorithmSha224: i32 = 7;
     };
 
-    pub const SignatureType = enum(i32) {
+    pub const SignatureType = enum {
         pub const UnknownSignatureType: i32 = 0;
         pub const AdbePkcs7sha1: i32 = 1;
         pub const AdbePkcs7detached: i32 = 2;
@@ -5218,14 +5218,14 @@ pub const enums = struct {
         pub const G10cPgpSignatureDetached: i32 = 5;
     };
 
-    pub const ValidateOptions = enum(i32) {
+    pub const ValidateOptions = enum {
         pub const ValidateVerifyCertificate: i32 = 1;
         pub const ValidateForceRevalidation: i32 = 2;
         pub const ValidateWithoutOCSPRevocationCheck: i32 = 4;
         pub const ValidateUseAIACertFetch: i32 = 8;
     };
 
-    pub const SigningResult = enum(i32) {
+    pub const SigningResult = enum {
         pub const FieldAlreadySigned: i32 = 0;
         pub const GenericSigningError: i32 = 1;
         pub const SigningSuccess: i32 = 2;

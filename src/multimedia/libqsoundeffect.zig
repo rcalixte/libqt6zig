@@ -2525,11 +2525,11 @@ pub const QSoundEffect = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsoundeffect.html#public-types)
 pub const enums = struct {
-    pub const Loop = enum(i32) {
+    pub const Loop = enum {
         pub const Infinite: i32 = -2;
     };
 
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const Null: i32 = 0;
         pub const Loading: i32 = 1;
         pub const Ready: i32 = 2;

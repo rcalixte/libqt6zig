@@ -81,9 +81,8 @@ QMetaObject* KAboutPluginDialog_SuperMetaObject(const KAboutPluginDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMetaObject(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MetaObject_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* KAboutPluginDialog_SuperMetacast(KAboutPluginDialog* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMetacast(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Metacast_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int KAboutPluginDialog_SuperMetacall(KAboutPluginDialog* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMetacall(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Metacall_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -148,9 +145,8 @@ void KAboutPluginDialog_SuperSetVisible(KAboutPluginDialog* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnSetVisible(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_SetVisible_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -177,9 +173,8 @@ QSize* KAboutPluginDialog_SuperSizeHint(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnSizeHint(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_SizeHint_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +201,8 @@ QSize* KAboutPluginDialog_SuperMinimumSizeHint(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMinimumSizeHint(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +229,8 @@ void KAboutPluginDialog_SuperOpen(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnOpen(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Open_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +257,8 @@ int KAboutPluginDialog_SuperExec(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnExec(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Exec_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +285,8 @@ void KAboutPluginDialog_SuperDone(KAboutPluginDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDone(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Done_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +313,8 @@ void KAboutPluginDialog_SuperAccept(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnAccept(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Accept_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ void KAboutPluginDialog_SuperReject(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnReject(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Reject_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ void KAboutPluginDialog_SuperKeyPressEvent(KAboutPluginDialog* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnKeyPressEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ void KAboutPluginDialog_SuperCloseEvent(KAboutPluginDialog* self, QCloseEvent* p
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnCloseEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_CloseEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ void KAboutPluginDialog_SuperShowEvent(KAboutPluginDialog* self, QShowEvent* par
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnShowEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ShowEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ void KAboutPluginDialog_SuperResizeEvent(KAboutPluginDialog* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnResizeEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ void KAboutPluginDialog_SuperContextMenuEvent(KAboutPluginDialog* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnContextMenuEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +509,8 @@ bool KAboutPluginDialog_SuperEventFilter(KAboutPluginDialog* self, QObject* para
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnEventFilter(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_EventFilter_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +537,8 @@ int KAboutPluginDialog_SuperDevType(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDevType(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DevType_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +565,8 @@ int KAboutPluginDialog_SuperHeightForWidth(const KAboutPluginDialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnHeightForWidth(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +593,8 @@ bool KAboutPluginDialog_SuperHasHeightForWidth(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnHasHeightForWidth(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +621,8 @@ QPaintEngine* KAboutPluginDialog_SuperPaintEngine(const KAboutPluginDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnPaintEngine(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_PaintEngine_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +649,8 @@ bool KAboutPluginDialog_SuperEvent(KAboutPluginDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Event_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +677,8 @@ void KAboutPluginDialog_SuperMousePressEvent(KAboutPluginDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMousePressEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +705,8 @@ void KAboutPluginDialog_SuperMouseReleaseEvent(KAboutPluginDialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMouseReleaseEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +733,8 @@ void KAboutPluginDialog_SuperMouseDoubleClickEvent(KAboutPluginDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMouseDoubleClickEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +761,8 @@ void KAboutPluginDialog_SuperMouseMoveEvent(KAboutPluginDialog* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMouseMoveEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +789,8 @@ void KAboutPluginDialog_SuperWheelEvent(KAboutPluginDialog* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnWheelEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_WheelEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +817,8 @@ void KAboutPluginDialog_SuperKeyReleaseEvent(KAboutPluginDialog* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnKeyReleaseEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +845,8 @@ void KAboutPluginDialog_SuperFocusInEvent(KAboutPluginDialog* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnFocusInEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +873,8 @@ void KAboutPluginDialog_SuperFocusOutEvent(KAboutPluginDialog* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnFocusOutEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +901,8 @@ void KAboutPluginDialog_SuperEnterEvent(KAboutPluginDialog* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnEnterEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_EnterEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +929,8 @@ void KAboutPluginDialog_SuperLeaveEvent(KAboutPluginDialog* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnLeaveEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +957,8 @@ void KAboutPluginDialog_SuperPaintEvent(KAboutPluginDialog* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnPaintEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_PaintEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +985,8 @@ void KAboutPluginDialog_SuperMoveEvent(KAboutPluginDialog* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMoveEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_MoveEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1013,8 @@ void KAboutPluginDialog_SuperTabletEvent(KAboutPluginDialog* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnTabletEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_TabletEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1041,8 @@ void KAboutPluginDialog_SuperActionEvent(KAboutPluginDialog* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnActionEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ActionEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1069,8 @@ void KAboutPluginDialog_SuperDragEnterEvent(KAboutPluginDialog* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDragEnterEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1097,8 @@ void KAboutPluginDialog_SuperDragMoveEvent(KAboutPluginDialog* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDragMoveEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1125,8 @@ void KAboutPluginDialog_SuperDragLeaveEvent(KAboutPluginDialog* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDragLeaveEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1153,8 @@ void KAboutPluginDialog_SuperDropEvent(KAboutPluginDialog* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDropEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DropEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1181,8 @@ void KAboutPluginDialog_SuperHideEvent(KAboutPluginDialog* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnHideEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_HideEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1211,8 @@ bool KAboutPluginDialog_SuperNativeEvent(KAboutPluginDialog* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnNativeEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_NativeEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1239,8 @@ void KAboutPluginDialog_SuperChangeEvent(KAboutPluginDialog* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnChangeEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1267,8 @@ int KAboutPluginDialog_SuperMetric(const KAboutPluginDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnMetric(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Metric_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1295,8 @@ void KAboutPluginDialog_SuperInitPainter(const KAboutPluginDialog* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnInitPainter(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_InitPainter_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1323,8 @@ QPaintDevice* KAboutPluginDialog_SuperRedirected(const KAboutPluginDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnRedirected(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Redirected_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1351,8 @@ QPainter* KAboutPluginDialog_SuperSharedPainter(const KAboutPluginDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnSharedPainter(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_SharedPainter_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1379,8 @@ void KAboutPluginDialog_SuperInputMethodEvent(KAboutPluginDialog* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnInputMethodEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1407,8 @@ QVariant* KAboutPluginDialog_SuperInputMethodQuery(const KAboutPluginDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnInputMethodQuery(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1435,8 @@ bool KAboutPluginDialog_SuperFocusNextPrevChild(KAboutPluginDialog* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnFocusNextPrevChild(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1463,8 @@ void KAboutPluginDialog_SuperTimerEvent(KAboutPluginDialog* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnTimerEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_TimerEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1491,8 @@ void KAboutPluginDialog_SuperChildEvent(KAboutPluginDialog* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnChildEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ChildEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1519,8 @@ void KAboutPluginDialog_SuperCustomEvent(KAboutPluginDialog* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnCustomEvent(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_CustomEvent_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1547,8 @@ void KAboutPluginDialog_SuperConnectNotify(KAboutPluginDialog* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnConnectNotify(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1575,8 @@ void KAboutPluginDialog_SuperDisconnectNotify(KAboutPluginDialog* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDisconnectNotify(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1603,8 @@ void KAboutPluginDialog_SuperAdjustPosition(KAboutPluginDialog* self, QWidget* p
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnAdjustPosition(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1631,8 @@ void KAboutPluginDialog_SuperUpdateMicroFocus(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnUpdateMicroFocus(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1659,8 @@ void KAboutPluginDialog_SuperCreate(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnCreate(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Create_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1687,8 @@ void KAboutPluginDialog_SuperDestroy(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnDestroy(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Destroy_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1715,8 @@ bool KAboutPluginDialog_SuperFocusNextChild(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnFocusNextChild(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1743,8 @@ bool KAboutPluginDialog_SuperFocusPreviousChild(KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnFocusPreviousChild(KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1771,8 @@ QObject* KAboutPluginDialog_SuperSender(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnSender(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Sender_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1799,8 @@ int KAboutPluginDialog_SuperSenderSignalIndex(const KAboutPluginDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnSenderSignalIndex(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1827,8 @@ int KAboutPluginDialog_SuperReceivers(const KAboutPluginDialog* self, const char
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnReceivers(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_Receivers_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1855,8 @@ bool KAboutPluginDialog_SuperIsSignalConnected(const KAboutPluginDialog* self, c
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnIsSignalConnected(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1883,8 @@ double KAboutPluginDialog_SuperGetDecodedMetricF(const KAboutPluginDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KAboutPluginDialog_OnGetDecodedMetricF(const KAboutPluginDialog* self, intptr_t slot) {
     auto* vkaboutplugindialog = const_cast<VirtualKAboutPluginDialog*>(dynamic_cast<const VirtualKAboutPluginDialog*>(self));
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
+    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog)
         vkaboutplugindialog->setKAboutPluginDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAboutPluginDialog::KAboutPluginDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KAboutPluginDialog_Delete(KAboutPluginDialog* self) {

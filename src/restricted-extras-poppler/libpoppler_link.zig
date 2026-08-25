@@ -2224,7 +2224,7 @@ pub const Poppler__LinkSubmitForm = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
 pub const enums = struct {
-    pub const Kind = enum(i32) {
+    pub const Kind = enum {
         pub const DestXYZ: i32 = 1;
         pub const DestFit: i32 = 2;
         pub const DestFitH: i32 = 3;
@@ -2235,7 +2235,7 @@ pub const enums = struct {
         pub const DestFitBV: i32 = 8;
     };
 
-    pub const LinkType = enum(i32) {
+    pub const LinkType = enum {
         pub const None: i32 = 0;
         pub const Goto: i32 = 1;
         pub const Execute: i32 = 2;
@@ -2251,7 +2251,7 @@ pub const enums = struct {
         pub const SubmitForm: i32 = 12;
     };
 
-    pub const ActionType = enum(i32) {
+    pub const ActionType = enum {
         pub const PageFirst: i32 = 1;
         pub const PagePrev: i32 = 2;
         pub const PageNext: i32 = 3;
@@ -2268,7 +2268,7 @@ pub const enums = struct {
         pub const SaveAs: i32 = 14;
     };
 
-    pub const RenditionAction = enum(i32) {
+    pub const RenditionAction = enum {
         pub const NoRendition: i32 = 0;
         pub const PlayRendition: i32 = 1;
         pub const StopRendition: i32 = 2;
@@ -2276,14 +2276,14 @@ pub const enums = struct {
         pub const ResumeRendition: i32 = 4;
     };
 
-    pub const Operation = enum(i32) {
+    pub const Operation = enum {
         pub const Play: i32 = 0;
         pub const Stop: i32 = 1;
         pub const Pause: i32 = 2;
         pub const Resume: i32 = 3;
     };
 
-    pub const SubmitFormFlag = enum(i32) {
+    pub const SubmitFormFlag = enum {
         pub const NoOpFlag: i32 = 0;
         pub const ExcludeFlag: i32 = 1;
         pub const IncludeNoValueFieldsFlag: i32 = 2;

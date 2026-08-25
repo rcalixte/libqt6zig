@@ -413,9 +413,8 @@ QMetaObject* QMediaRecorder_SuperMetaObject(const QMediaRecorder* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnMetaObject(const QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_MetaObject_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -432,9 +431,8 @@ void* QMediaRecorder_SuperMetacast(QMediaRecorder* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnMetacast(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_Metacast_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -451,9 +449,8 @@ int QMediaRecorder_SuperMetacall(QMediaRecorder* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnMetacall(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_Metacall_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +477,8 @@ bool QMediaRecorder_SuperEvent(QMediaRecorder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnEvent(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_Event_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +505,8 @@ bool QMediaRecorder_SuperEventFilter(QMediaRecorder* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnEventFilter(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_EventFilter_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +533,8 @@ void QMediaRecorder_SuperTimerEvent(QMediaRecorder* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnTimerEvent(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_TimerEvent_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +561,8 @@ void QMediaRecorder_SuperChildEvent(QMediaRecorder* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnChildEvent(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_ChildEvent_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +589,8 @@ void QMediaRecorder_SuperCustomEvent(QMediaRecorder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnCustomEvent(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_CustomEvent_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +617,8 @@ void QMediaRecorder_SuperConnectNotify(QMediaRecorder* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnConnectNotify(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +645,8 @@ void QMediaRecorder_SuperDisconnectNotify(QMediaRecorder* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnDisconnectNotify(QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_DisconnectNotify_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +673,8 @@ QObject* QMediaRecorder_SuperSender(const QMediaRecorder* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnSender(const QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_Sender_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +701,8 @@ int QMediaRecorder_SuperSenderSignalIndex(const QMediaRecorder* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnSenderSignalIndex(const QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +729,8 @@ int QMediaRecorder_SuperReceivers(const QMediaRecorder* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnReceivers(const QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_Receivers_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +757,8 @@ bool QMediaRecorder_SuperIsSignalConnected(const QMediaRecorder* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QMediaRecorder_OnIsSignalConnected(const QMediaRecorder* self, intptr_t slot) {
     auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
-    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder)
         vqmediarecorder->setQMediaRecorder_IsSignalConnected_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QMediaRecorder_Delete(QMediaRecorder* self) {

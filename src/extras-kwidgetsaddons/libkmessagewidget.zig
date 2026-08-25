@@ -1380,6 +1380,31 @@ pub const KMessageWidget = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMessageWidget `
+    ///
+    pub fn asQPaintDevice(self: KMessageWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KMessageWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KMessageWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7326,7 +7351,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn paintingActive(self: KMessageWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7342,7 +7367,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn widthMM(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7358,7 +7383,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn heightMM(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7374,7 +7399,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn logicalDpiX(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7390,7 +7415,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn logicalDpiY(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7406,7 +7431,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn physicalDpiX(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7422,7 +7447,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn physicalDpiY(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7438,7 +7463,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn devicePixelRatio(self: KMessageWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7454,7 +7479,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn devicePixelRatioF(self: KMessageWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7470,7 +7495,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn colorCount(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7486,7 +7511,7 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     pub fn depth(self: KMessageWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10794,14 +10819,14 @@ pub const KMessageWidget = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kmessagewidget.html#public-types)
 pub const enums = struct {
-    pub const MessageType = enum(i32) {
+    pub const MessageType = enum {
         pub const Positive: i32 = 0;
         pub const Information: i32 = 1;
         pub const Warning: i32 = 2;
         pub const Error: i32 = 3;
     };
 
-    pub const Position = enum(i32) {
+    pub const Position = enum {
         pub const Inline: i32 = 0;
         pub const Header: i32 = 1;
         pub const Footer: i32 = 2;

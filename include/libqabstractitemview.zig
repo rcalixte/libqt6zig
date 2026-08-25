@@ -5829,6 +5829,31 @@ pub const QAbstractItemView = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractItemView `
+    ///
+    pub fn asQPaintDevice(self: QAbstractItemView) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QAbstractItemView object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QAbstractItemView {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -11797,7 +11822,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn paintingActive(self: QAbstractItemView) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -11813,7 +11838,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn widthMM(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -11829,7 +11854,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn heightMM(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -11845,7 +11870,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn logicalDpiX(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -11861,7 +11886,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn logicalDpiY(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -11877,7 +11902,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn physicalDpiX(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -11893,7 +11918,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn physicalDpiY(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -11909,7 +11934,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn devicePixelRatio(self: QAbstractItemView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -11925,7 +11950,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn devicePixelRatioF(self: QAbstractItemView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -11941,7 +11966,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn colorCount(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -11957,7 +11982,7 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     pub fn depth(self: QAbstractItemView) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -14763,7 +14788,7 @@ pub const QAbstractItemView = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#public-types)
 pub const enums = struct {
-    pub const SelectionMode = enum(i32) {
+    pub const SelectionMode = enum {
         pub const NoSelection: i32 = 0;
         pub const SingleSelection: i32 = 1;
         pub const MultiSelection: i32 = 2;
@@ -14771,20 +14796,20 @@ pub const enums = struct {
         pub const ContiguousSelection: i32 = 4;
     };
 
-    pub const SelectionBehavior = enum(i32) {
+    pub const SelectionBehavior = enum {
         pub const SelectItems: i32 = 0;
         pub const SelectRows: i32 = 1;
         pub const SelectColumns: i32 = 2;
     };
 
-    pub const ScrollHint = enum(i32) {
+    pub const ScrollHint = enum {
         pub const EnsureVisible: i32 = 0;
         pub const PositionAtTop: i32 = 1;
         pub const PositionAtBottom: i32 = 2;
         pub const PositionAtCenter: i32 = 3;
     };
 
-    pub const EditTrigger = enum(i32) {
+    pub const EditTrigger = enum {
         pub const NoEditTriggers: i32 = 0;
         pub const CurrentChanged: i32 = 1;
         pub const DoubleClicked: i32 = 2;
@@ -14794,12 +14819,12 @@ pub const enums = struct {
         pub const AllEditTriggers: i32 = 31;
     };
 
-    pub const ScrollMode = enum(i32) {
+    pub const ScrollMode = enum {
         pub const ScrollPerItem: i32 = 0;
         pub const ScrollPerPixel: i32 = 1;
     };
 
-    pub const DragDropMode = enum(i32) {
+    pub const DragDropMode = enum {
         pub const NoDragDrop: i32 = 0;
         pub const DragOnly: i32 = 1;
         pub const DropOnly: i32 = 2;
@@ -14807,7 +14832,7 @@ pub const enums = struct {
         pub const InternalMove: i32 = 4;
     };
 
-    pub const CursorAction = enum(i32) {
+    pub const CursorAction = enum {
         pub const MoveUp: i32 = 0;
         pub const MoveDown: i32 = 1;
         pub const MoveLeft: i32 = 2;
@@ -14820,7 +14845,7 @@ pub const enums = struct {
         pub const MovePrevious: i32 = 9;
     };
 
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const NoState: i32 = 0;
         pub const DraggingState: i32 = 1;
         pub const DragSelectingState: i32 = 2;
@@ -14830,7 +14855,7 @@ pub const enums = struct {
         pub const AnimatingState: i32 = 6;
     };
 
-    pub const DropIndicatorPosition = enum(i32) {
+    pub const DropIndicatorPosition = enum {
         pub const OnItem: i32 = 0;
         pub const AboveItem: i32 = 1;
         pub const BelowItem: i32 = 2;

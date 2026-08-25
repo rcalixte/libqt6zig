@@ -194,9 +194,8 @@ QMetaObject* QKeySequenceEdit_SuperMetaObject(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetaObject(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MetaObject_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +212,8 @@ void* QKeySequenceEdit_SuperMetacast(QKeySequenceEdit* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetacast(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Metacast_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +230,8 @@ int QKeySequenceEdit_SuperMetacall(QKeySequenceEdit* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetacall(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Metacall_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -251,9 +248,8 @@ bool QKeySequenceEdit_SuperEvent(QKeySequenceEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Event_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -270,9 +266,8 @@ void QKeySequenceEdit_SuperKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnKeyPressEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -289,9 +284,8 @@ void QKeySequenceEdit_SuperKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnKeyReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -308,9 +302,8 @@ void QKeySequenceEdit_SuperTimerEvent(QKeySequenceEdit* self, QTimerEvent* param
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnTimerEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -327,9 +320,8 @@ void QKeySequenceEdit_SuperFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusOutEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +348,8 @@ int QKeySequenceEdit_SuperDevType(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDevType(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DevType_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +376,8 @@ void QKeySequenceEdit_SuperSetVisible(QKeySequenceEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSetVisible(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_SetVisible_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +404,8 @@ QSize* QKeySequenceEdit_SuperSizeHint(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSizeHint(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_SizeHint_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +432,8 @@ QSize* QKeySequenceEdit_SuperMinimumSizeHint(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMinimumSizeHint(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +460,8 @@ int QKeySequenceEdit_SuperHeightForWidth(const QKeySequenceEdit* self, int param
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnHeightForWidth(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +488,8 @@ bool QKeySequenceEdit_SuperHasHeightForWidth(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnHasHeightForWidth(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +516,8 @@ QPaintEngine* QKeySequenceEdit_SuperPaintEngine(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnPaintEngine(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_PaintEngine_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +544,8 @@ void QKeySequenceEdit_SuperMousePressEvent(QKeySequenceEdit* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMousePressEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -588,9 +572,8 @@ void QKeySequenceEdit_SuperMouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -617,9 +600,8 @@ void QKeySequenceEdit_SuperMouseDoubleClickEvent(QKeySequenceEdit* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseDoubleClickEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -646,9 +628,8 @@ void QKeySequenceEdit_SuperMouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -675,9 +656,8 @@ void QKeySequenceEdit_SuperWheelEvent(QKeySequenceEdit* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnWheelEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_WheelEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -704,9 +684,8 @@ void QKeySequenceEdit_SuperFocusInEvent(QKeySequenceEdit* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusInEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -733,9 +712,8 @@ void QKeySequenceEdit_SuperEnterEvent(QKeySequenceEdit* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEnterEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_EnterEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -762,9 +740,8 @@ void QKeySequenceEdit_SuperLeaveEvent(QKeySequenceEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnLeaveEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -791,9 +768,8 @@ void QKeySequenceEdit_SuperPaintEvent(QKeySequenceEdit* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnPaintEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_PaintEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -820,9 +796,8 @@ void QKeySequenceEdit_SuperMoveEvent(QKeySequenceEdit* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_MoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -849,9 +824,8 @@ void QKeySequenceEdit_SuperResizeEvent(QKeySequenceEdit* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnResizeEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -878,9 +852,8 @@ void QKeySequenceEdit_SuperCloseEvent(QKeySequenceEdit* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnCloseEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_CloseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -907,9 +880,8 @@ void QKeySequenceEdit_SuperContextMenuEvent(QKeySequenceEdit* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnContextMenuEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -936,9 +908,8 @@ void QKeySequenceEdit_SuperTabletEvent(QKeySequenceEdit* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnTabletEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_TabletEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -965,9 +936,8 @@ void QKeySequenceEdit_SuperActionEvent(QKeySequenceEdit* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnActionEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ActionEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -994,9 +964,8 @@ void QKeySequenceEdit_SuperDragEnterEvent(QKeySequenceEdit* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragEnterEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +992,8 @@ void QKeySequenceEdit_SuperDragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1020,8 @@ void QKeySequenceEdit_SuperDragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragLeaveEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1081,9 +1048,8 @@ void QKeySequenceEdit_SuperDropEvent(QKeySequenceEdit* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDropEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DropEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1110,9 +1076,8 @@ void QKeySequenceEdit_SuperShowEvent(QKeySequenceEdit* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnShowEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ShowEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1139,9 +1104,8 @@ void QKeySequenceEdit_SuperHideEvent(QKeySequenceEdit* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnHideEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_HideEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1134,8 @@ bool QKeySequenceEdit_SuperNativeEvent(QKeySequenceEdit* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnNativeEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_NativeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1162,8 @@ void QKeySequenceEdit_SuperChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnChangeEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1190,8 @@ int QKeySequenceEdit_SuperMetric(const QKeySequenceEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetric(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Metric_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1218,8 @@ void QKeySequenceEdit_SuperInitPainter(const QKeySequenceEdit* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnInitPainter(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_InitPainter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1246,8 @@ QPaintDevice* QKeySequenceEdit_SuperRedirected(const QKeySequenceEdit* self, QPo
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnRedirected(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Redirected_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1315,9 +1274,8 @@ QPainter* QKeySequenceEdit_SuperSharedPainter(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSharedPainter(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_SharedPainter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1302,8 @@ void QKeySequenceEdit_SuperInputMethodEvent(QKeySequenceEdit* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnInputMethodEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1330,8 @@ QVariant* QKeySequenceEdit_SuperInputMethodQuery(const QKeySequenceEdit* self, i
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnInputMethodQuery(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1358,8 @@ bool QKeySequenceEdit_SuperFocusNextPrevChild(QKeySequenceEdit* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusNextPrevChild(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1386,8 @@ bool QKeySequenceEdit_SuperEventFilter(QKeySequenceEdit* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEventFilter(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_EventFilter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1460,9 +1414,8 @@ void QKeySequenceEdit_SuperChildEvent(QKeySequenceEdit* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnChildEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ChildEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1489,9 +1442,8 @@ void QKeySequenceEdit_SuperCustomEvent(QKeySequenceEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnCustomEvent(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_CustomEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1518,9 +1470,8 @@ void QKeySequenceEdit_SuperConnectNotify(QKeySequenceEdit* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnConnectNotify(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1547,9 +1498,8 @@ void QKeySequenceEdit_SuperDisconnectNotify(QKeySequenceEdit* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDisconnectNotify(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1576,9 +1526,8 @@ void QKeySequenceEdit_SuperUpdateMicroFocus(QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnUpdateMicroFocus(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1605,9 +1554,8 @@ void QKeySequenceEdit_SuperCreate(QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnCreate(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Create_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1634,9 +1582,8 @@ void QKeySequenceEdit_SuperDestroy(QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDestroy(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Destroy_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1663,9 +1610,8 @@ bool QKeySequenceEdit_SuperFocusNextChild(QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusNextChild(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1692,9 +1638,8 @@ bool QKeySequenceEdit_SuperFocusPreviousChild(QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusPreviousChild(QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1721,9 +1666,8 @@ QObject* QKeySequenceEdit_SuperSender(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSender(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Sender_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1750,9 +1694,8 @@ int QKeySequenceEdit_SuperSenderSignalIndex(const QKeySequenceEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSenderSignalIndex(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1779,9 +1722,8 @@ int QKeySequenceEdit_SuperReceivers(const QKeySequenceEdit* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnReceivers(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_Receivers_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1808,9 +1750,8 @@ bool QKeySequenceEdit_SuperIsSignalConnected(const QKeySequenceEdit* self, const
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnIsSignalConnected(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1778,8 @@ double QKeySequenceEdit_SuperGetDecodedMetricF(const QKeySequenceEdit* self, int
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnGetDecodedMetricF(const QKeySequenceEdit* self, intptr_t slot) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
         vqkeysequenceedit->setQKeySequenceEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QKeySequenceEdit_Delete(QKeySequenceEdit* self) {

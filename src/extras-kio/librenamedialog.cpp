@@ -145,9 +145,8 @@ QMetaObject* KIO__RenameDialog_SuperMetaObject(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMetaObject(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MetaObject_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +163,8 @@ void* KIO__RenameDialog_SuperMetacast(KIO__RenameDialog* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMetacast(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Metacast_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +181,8 @@ int KIO__RenameDialog_SuperMetacall(KIO__RenameDialog* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMetacall(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Metacall_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +209,8 @@ void KIO__RenameDialog_SuperSetVisible(KIO__RenameDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnSetVisible(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_SetVisible_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +237,8 @@ QSize* KIO__RenameDialog_SuperSizeHint(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnSizeHint(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_SizeHint_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +265,8 @@ QSize* KIO__RenameDialog_SuperMinimumSizeHint(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMinimumSizeHint(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +293,8 @@ void KIO__RenameDialog_SuperOpen(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnOpen(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Open_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +321,8 @@ int KIO__RenameDialog_SuperExec(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnExec(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Exec_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +349,8 @@ void KIO__RenameDialog_SuperDone(KIO__RenameDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDone(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Done_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +377,8 @@ void KIO__RenameDialog_SuperAccept(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnAccept(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Accept_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +405,8 @@ void KIO__RenameDialog_SuperReject(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnReject(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Reject_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +433,8 @@ void KIO__RenameDialog_SuperKeyPressEvent(KIO__RenameDialog* self, QKeyEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnKeyPressEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +461,8 @@ void KIO__RenameDialog_SuperCloseEvent(KIO__RenameDialog* self, QCloseEvent* par
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnCloseEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_CloseEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +489,8 @@ void KIO__RenameDialog_SuperShowEvent(KIO__RenameDialog* self, QShowEvent* param
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnShowEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ShowEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +517,8 @@ void KIO__RenameDialog_SuperResizeEvent(KIO__RenameDialog* self, QResizeEvent* p
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnResizeEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +545,8 @@ void KIO__RenameDialog_SuperContextMenuEvent(KIO__RenameDialog* self, QContextMe
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnContextMenuEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +573,8 @@ bool KIO__RenameDialog_SuperEventFilter(KIO__RenameDialog* self, QObject* param1
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnEventFilter(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_EventFilter_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +601,8 @@ int KIO__RenameDialog_SuperDevType(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDevType(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DevType_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +629,8 @@ int KIO__RenameDialog_SuperHeightForWidth(const KIO__RenameDialog* self, int par
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnHeightForWidth(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +657,8 @@ bool KIO__RenameDialog_SuperHasHeightForWidth(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnHasHeightForWidth(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +685,8 @@ QPaintEngine* KIO__RenameDialog_SuperPaintEngine(const KIO__RenameDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnPaintEngine(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_PaintEngine_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +713,8 @@ bool KIO__RenameDialog_SuperEvent(KIO__RenameDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Event_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +741,8 @@ void KIO__RenameDialog_SuperMousePressEvent(KIO__RenameDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMousePressEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +769,8 @@ void KIO__RenameDialog_SuperMouseReleaseEvent(KIO__RenameDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMouseReleaseEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +797,8 @@ void KIO__RenameDialog_SuperMouseDoubleClickEvent(KIO__RenameDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMouseDoubleClickEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +825,8 @@ void KIO__RenameDialog_SuperMouseMoveEvent(KIO__RenameDialog* self, QMouseEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMouseMoveEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +853,8 @@ void KIO__RenameDialog_SuperWheelEvent(KIO__RenameDialog* self, QWheelEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnWheelEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_WheelEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +881,8 @@ void KIO__RenameDialog_SuperKeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnKeyReleaseEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +909,8 @@ void KIO__RenameDialog_SuperFocusInEvent(KIO__RenameDialog* self, QFocusEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnFocusInEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +937,8 @@ void KIO__RenameDialog_SuperFocusOutEvent(KIO__RenameDialog* self, QFocusEvent* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnFocusOutEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +965,8 @@ void KIO__RenameDialog_SuperEnterEvent(KIO__RenameDialog* self, QEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnEnterEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_EnterEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +993,8 @@ void KIO__RenameDialog_SuperLeaveEvent(KIO__RenameDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnLeaveEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1053,9 +1021,8 @@ void KIO__RenameDialog_SuperPaintEvent(KIO__RenameDialog* self, QPaintEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnPaintEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_PaintEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1082,9 +1049,8 @@ void KIO__RenameDialog_SuperMoveEvent(KIO__RenameDialog* self, QMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMoveEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_MoveEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1077,8 @@ void KIO__RenameDialog_SuperTabletEvent(KIO__RenameDialog* self, QTabletEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnTabletEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_TabletEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1140,9 +1105,8 @@ void KIO__RenameDialog_SuperActionEvent(KIO__RenameDialog* self, QActionEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnActionEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ActionEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1169,9 +1133,8 @@ void KIO__RenameDialog_SuperDragEnterEvent(KIO__RenameDialog* self, QDragEnterEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDragEnterEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1198,9 +1161,8 @@ void KIO__RenameDialog_SuperDragMoveEvent(KIO__RenameDialog* self, QDragMoveEven
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDragMoveEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1227,9 +1189,8 @@ void KIO__RenameDialog_SuperDragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDragLeaveEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1256,9 +1217,8 @@ void KIO__RenameDialog_SuperDropEvent(KIO__RenameDialog* self, QDropEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDropEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DropEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1285,9 +1245,8 @@ void KIO__RenameDialog_SuperHideEvent(KIO__RenameDialog* self, QHideEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnHideEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_HideEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1275,8 @@ bool KIO__RenameDialog_SuperNativeEvent(KIO__RenameDialog* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnNativeEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_NativeEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1303,8 @@ void KIO__RenameDialog_SuperChangeEvent(KIO__RenameDialog* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnChangeEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1331,8 @@ int KIO__RenameDialog_SuperMetric(const KIO__RenameDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnMetric(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Metric_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1359,8 @@ void KIO__RenameDialog_SuperInitPainter(const KIO__RenameDialog* self, QPainter*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnInitPainter(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_InitPainter_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1387,8 @@ QPaintDevice* KIO__RenameDialog_SuperRedirected(const KIO__RenameDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnRedirected(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Redirected_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1415,8 @@ QPainter* KIO__RenameDialog_SuperSharedPainter(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnSharedPainter(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_SharedPainter_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1443,8 @@ void KIO__RenameDialog_SuperInputMethodEvent(KIO__RenameDialog* self, QInputMeth
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnInputMethodEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1471,8 @@ QVariant* KIO__RenameDialog_SuperInputMethodQuery(const KIO__RenameDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnInputMethodQuery(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1499,8 @@ bool KIO__RenameDialog_SuperFocusNextPrevChild(KIO__RenameDialog* self, bool nex
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnFocusNextPrevChild(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1577,9 +1527,8 @@ void KIO__RenameDialog_SuperTimerEvent(KIO__RenameDialog* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnTimerEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_TimerEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1555,8 @@ void KIO__RenameDialog_SuperChildEvent(KIO__RenameDialog* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnChildEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ChildEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1583,8 @@ void KIO__RenameDialog_SuperCustomEvent(KIO__RenameDialog* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnCustomEvent(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_CustomEvent_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1611,8 @@ void KIO__RenameDialog_SuperConnectNotify(KIO__RenameDialog* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnConnectNotify(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1693,9 +1639,8 @@ void KIO__RenameDialog_SuperDisconnectNotify(KIO__RenameDialog* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDisconnectNotify(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1724,9 +1669,8 @@ void KIO__RenameDialog_SuperEnableRenameButton(KIO__RenameDialog* self, const li
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnEnableRenameButton(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_EnableRenameButton_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_EnableRenameButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1753,9 +1697,8 @@ void KIO__RenameDialog_SuperAdjustPosition(KIO__RenameDialog* self, QWidget* par
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnAdjustPosition(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1782,9 +1725,8 @@ void KIO__RenameDialog_SuperUpdateMicroFocus(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnUpdateMicroFocus(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1811,9 +1753,8 @@ void KIO__RenameDialog_SuperCreate(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnCreate(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Create_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1840,9 +1781,8 @@ void KIO__RenameDialog_SuperDestroy(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnDestroy(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Destroy_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1869,9 +1809,8 @@ bool KIO__RenameDialog_SuperFocusNextChild(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnFocusNextChild(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1898,9 +1837,8 @@ bool KIO__RenameDialog_SuperFocusPreviousChild(KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnFocusPreviousChild(KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1927,9 +1865,8 @@ QObject* KIO__RenameDialog_SuperSender(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnSender(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Sender_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1956,9 +1893,8 @@ int KIO__RenameDialog_SuperSenderSignalIndex(const KIO__RenameDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnSenderSignalIndex(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1985,9 +1921,8 @@ int KIO__RenameDialog_SuperReceivers(const KIO__RenameDialog* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnReceivers(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_Receivers_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2014,9 +1949,8 @@ bool KIO__RenameDialog_SuperIsSignalConnected(const KIO__RenameDialog* self, con
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnIsSignalConnected(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2043,9 +1977,8 @@ double KIO__RenameDialog_SuperGetDecodedMetricF(const KIO__RenameDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameDialog_OnGetDecodedMetricF(const KIO__RenameDialog* self, intptr_t slot) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
-    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog)
         vkiorenamedialog->setKIO__RenameDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KIO__RenameDialog_Delete(KIO__RenameDialog* self) {

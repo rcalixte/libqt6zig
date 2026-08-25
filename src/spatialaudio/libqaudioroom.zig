@@ -2436,7 +2436,7 @@ pub const QAudioRoom = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#public-types)
 pub const enums = struct {
-    pub const Material = enum(i32) {
+    pub const Material = enum {
         pub const Transparent: i32 = 0;
         pub const AcousticCeilingTiles: i32 = 1;
         pub const BrickBare: i32 = 2;
@@ -2463,7 +2463,7 @@ pub const enums = struct {
         pub const UniformMaterial: i32 = 23;
     };
 
-    pub const Wall = enum(i32) {
+    pub const Wall = enum {
         pub const LeftWall: i32 = 0;
         pub const RightWall: i32 = 1;
         pub const Floor: i32 = 2;

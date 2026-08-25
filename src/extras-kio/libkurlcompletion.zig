@@ -3880,7 +3880,7 @@ pub const KUrlCompletion = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum(i32) {
+    pub const Mode = enum {
         pub const ExeCompletion: i32 = 1;
         pub const FileCompletion: i32 = 2;
         pub const DirCompletion: i32 = 3;

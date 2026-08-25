@@ -80,9 +80,8 @@ QMetaObject* QsciLexerMatlab_SuperMetaObject(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnMetaObject(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +98,8 @@ void* QsciLexerMatlab_SuperMetacast(QsciLexerMatlab* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnMetacast(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Metacast_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +116,8 @@ int QsciLexerMatlab_SuperMetacall(QsciLexerMatlab* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnMetacall(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Metacall_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -147,9 +144,8 @@ int QsciLexerMatlab_SuperLexerId(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnLexerId(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_LexerId_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -176,9 +172,8 @@ const char* QsciLexerMatlab_SuperAutoCompletionFillups(const QsciLexerMatlab* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnAutoCompletionFillups(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +268,8 @@ libqt_list /* of libqt_string */ QsciLexerMatlab_SuperAutoCompletionWordSeparato
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnAutoCompletionWordSeparators(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +296,8 @@ const char* QsciLexerMatlab_SuperBlockEnd(const QsciLexerMatlab* self, int* styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBlockEnd(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +324,8 @@ int QsciLexerMatlab_SuperBlockLookback(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBlockLookback(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +352,8 @@ const char* QsciLexerMatlab_SuperBlockStart(const QsciLexerMatlab* self, int* st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBlockStart(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +380,8 @@ const char* QsciLexerMatlab_SuperBlockStartKeyword(const QsciLexerMatlab* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBlockStartKeyword(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +408,8 @@ int QsciLexerMatlab_SuperBraceStyle(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBraceStyle(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +436,8 @@ bool QsciLexerMatlab_SuperCaseSensitive(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnCaseSensitive(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +464,8 @@ QColor* QsciLexerMatlab_SuperColor(const QsciLexerMatlab* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnColor(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Color_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +492,8 @@ bool QsciLexerMatlab_SuperEolFill(const QsciLexerMatlab* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnEolFill(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_EolFill_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +520,8 @@ QFont* QsciLexerMatlab_SuperFont(const QsciLexerMatlab* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnFont(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Font_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +548,8 @@ int QsciLexerMatlab_SuperIndentationGuideView(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnIndentationGuideView(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +576,8 @@ int QsciLexerMatlab_SuperDefaultStyle(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDefaultStyle(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +604,8 @@ QColor* QsciLexerMatlab_SuperPaper(const QsciLexerMatlab* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnPaper(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Paper_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +632,8 @@ QColor* QsciLexerMatlab_SuperDefaultColor2(const QsciLexerMatlab* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDefaultColor2(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +660,8 @@ bool QsciLexerMatlab_SuperDefaultEolFill(const QsciLexerMatlab* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDefaultEolFill(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +688,8 @@ QFont* QsciLexerMatlab_SuperDefaultFont2(const QsciLexerMatlab* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDefaultFont2(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +716,8 @@ QColor* QsciLexerMatlab_SuperDefaultPaper2(const QsciLexerMatlab* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDefaultPaper2(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +744,8 @@ void QsciLexerMatlab_SuperSetEditor(QsciLexerMatlab* self, QsciScintilla* editor
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetEditor(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +772,8 @@ void QsciLexerMatlab_SuperRefreshProperties(QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnRefreshProperties(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +800,8 @@ int QsciLexerMatlab_SuperStyleBitsNeeded(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnStyleBitsNeeded(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +828,8 @@ const char* QsciLexerMatlab_SuperWordCharacters(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnWordCharacters(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +856,8 @@ void QsciLexerMatlab_SuperSetAutoIndentStyle(QsciLexerMatlab* self, int autoinde
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetAutoIndentStyle(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +884,8 @@ void QsciLexerMatlab_SuperSetColor(QsciLexerMatlab* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetColor(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetColor_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +912,8 @@ void QsciLexerMatlab_SuperSetEolFill(QsciLexerMatlab* self, bool eoffill, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetEolFill(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +940,8 @@ void QsciLexerMatlab_SuperSetFont(QsciLexerMatlab* self, const QFont* f, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetFont(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetFont_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +968,8 @@ void QsciLexerMatlab_SuperSetPaper(QsciLexerMatlab* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSetPaper(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +998,8 @@ bool QsciLexerMatlab_SuperReadProperties(QsciLexerMatlab* self, QSettings* qs, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnReadProperties(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1028,8 @@ bool QsciLexerMatlab_SuperWriteProperties(const QsciLexerMatlab* self, QSettings
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnWriteProperties(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1056,8 @@ bool QsciLexerMatlab_SuperEvent(QsciLexerMatlab* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnEvent(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Event_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1084,8 @@ bool QsciLexerMatlab_SuperEventFilter(QsciLexerMatlab* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnEventFilter(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1112,8 @@ void QsciLexerMatlab_SuperTimerEvent(QsciLexerMatlab* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnTimerEvent(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1140,8 @@ void QsciLexerMatlab_SuperChildEvent(QsciLexerMatlab* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnChildEvent(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1168,8 @@ void QsciLexerMatlab_SuperCustomEvent(QsciLexerMatlab* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnCustomEvent(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1196,8 @@ void QsciLexerMatlab_SuperConnectNotify(QsciLexerMatlab* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnConnectNotify(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1224,8 @@ void QsciLexerMatlab_SuperDisconnectNotify(QsciLexerMatlab* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnDisconnectNotify(QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = dynamic_cast<VirtualQsciLexerMatlab*>(self);
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1314,9 +1274,8 @@ libqt_string QsciLexerMatlab_SuperTextAsBytes(const QsciLexerMatlab* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnTextAsBytes(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1334,8 @@ libqt_string QsciLexerMatlab_SuperBytesAsText(const QsciLexerMatlab* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnBytesAsText(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1362,8 @@ QObject* QsciLexerMatlab_SuperSender(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSender(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Sender_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1390,8 @@ int QsciLexerMatlab_SuperSenderSignalIndex(const QsciLexerMatlab* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnSenderSignalIndex(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1418,8 @@ int QsciLexerMatlab_SuperReceivers(const QsciLexerMatlab* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnReceivers(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_Receivers_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1446,8 @@ bool QsciLexerMatlab_SuperIsSignalConnected(const QsciLexerMatlab* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMatlab_OnIsSignalConnected(const QsciLexerMatlab* self, intptr_t slot) {
     auto* vqscilexermatlab = const_cast<VirtualQsciLexerMatlab*>(dynamic_cast<const VirtualQsciLexerMatlab*>(self));
-    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab) {
+    if (vqscilexermatlab && vqscilexermatlab->isVirtualQsciLexerMatlab)
         vqscilexermatlab->setQsciLexerMatlab_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerMatlab::QsciLexerMatlab_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerMatlab_Delete(QsciLexerMatlab* self) {

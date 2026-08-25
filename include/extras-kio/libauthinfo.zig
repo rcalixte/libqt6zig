@@ -644,7 +644,7 @@ pub const KIO__AuthInfo = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-authinfo.html#public-types)
 pub const enums = struct {
-    pub const FieldFlags = enum(i32) {
+    pub const FieldFlags = enum {
         pub const ExtraFieldNoFlags: i32 = 0;
         pub const ExtraFieldReadOnly: i32 = 2;
         pub const ExtraFieldMandatory: i32 = 4;

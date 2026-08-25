@@ -9,6 +9,14 @@
 #include "libplatformdependent_v3.h"
 #include "libplatformdependent_v3.hxx"
 
+Attica__PlatformDependentV2* Attica__PlatformDependentV3_AsAttica__PlatformDependentV2(Attica__PlatformDependentV3* self) {
+    return static_cast<Attica::PlatformDependentV2*>(self);
+}
+
+Attica__PlatformDependentV3* Attica__PlatformDependentV3_FromAttica__PlatformDependentV2(Attica::PlatformDependentV2* _attica__platformdependentv2) {
+    return dynamic_cast<Attica::PlatformDependentV3*>(static_cast<Attica::PlatformDependentV2*>(_attica__platformdependentv2));
+}
+
 QMetaObject* Attica__PlatformDependentV3_MetaObject(const Attica__PlatformDependentV3* self) {
     return (QMetaObject*)self->metaObject();
 }

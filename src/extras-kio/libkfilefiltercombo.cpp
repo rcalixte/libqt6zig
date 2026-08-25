@@ -154,9 +154,8 @@ QMetaObject* KFileFilterCombo_SuperMetaObject(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMetaObject(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MetaObject_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +172,8 @@ void* KFileFilterCombo_SuperMetacast(KFileFilterCombo* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMetacast(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Metacast_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +190,8 @@ int KFileFilterCombo_SuperMetacall(KFileFilterCombo* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMetacall(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Metacall_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -211,9 +208,8 @@ bool KFileFilterCombo_SuperEventFilter(KFileFilterCombo* self, QObject* param1, 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnEventFilter(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_EventFilter_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +236,8 @@ void KFileFilterCombo_SuperSetAutoCompletion(KFileFilterCombo* self, bool autoco
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetAutoCompletion(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetAutoCompletion_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetAutoCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +264,8 @@ void KFileFilterCombo_SuperSetLineEdit(KFileFilterCombo* self, QLineEdit* lineEd
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetLineEdit(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetLineEdit_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +292,8 @@ QSize* KFileFilterCombo_SuperMinimumSizeHint(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMinimumSizeHint(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +322,8 @@ void KFileFilterCombo_SuperSetCompletedText(KFileFilterCombo* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetCompletedText(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetCompletedText_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetCompletedText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +364,8 @@ void KFileFilterCombo_SuperSetCompletedItems(KFileFilterCombo* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetCompletedItems(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetCompletedItems_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetCompletedItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +394,8 @@ void KFileFilterCombo_SuperMakeCompletion(KFileFilterCombo* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMakeCompletion(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MakeCompletion_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +422,8 @@ void KFileFilterCombo_SuperSetModel(KFileFilterCombo* self, QAbstractItemModel* 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetModel(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetModel_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +450,8 @@ QSize* KFileFilterCombo_SuperSizeHint(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSizeHint(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SizeHint_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +478,8 @@ void KFileFilterCombo_SuperShowPopup(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnShowPopup(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ShowPopup_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +506,8 @@ void KFileFilterCombo_SuperHidePopup(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnHidePopup(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_HidePopup_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +534,8 @@ bool KFileFilterCombo_SuperEvent(KFileFilterCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Event_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +562,8 @@ QVariant* KFileFilterCombo_SuperInputMethodQuery(const KFileFilterCombo* self, i
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnInputMethodQuery(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_InputMethodQuery_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +590,8 @@ void KFileFilterCombo_SuperFocusInEvent(KFileFilterCombo* self, QFocusEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnFocusInEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_FocusInEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +618,8 @@ void KFileFilterCombo_SuperFocusOutEvent(KFileFilterCombo* self, QFocusEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnFocusOutEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_FocusOutEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +646,8 @@ void KFileFilterCombo_SuperChangeEvent(KFileFilterCombo* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnChangeEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ChangeEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -693,9 +674,8 @@ void KFileFilterCombo_SuperResizeEvent(KFileFilterCombo* self, QResizeEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnResizeEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ResizeEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +702,8 @@ void KFileFilterCombo_SuperPaintEvent(KFileFilterCombo* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnPaintEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_PaintEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -751,9 +730,8 @@ void KFileFilterCombo_SuperShowEvent(KFileFilterCombo* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnShowEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ShowEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +758,8 @@ void KFileFilterCombo_SuperHideEvent(KFileFilterCombo* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnHideEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_HideEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +786,8 @@ void KFileFilterCombo_SuperMousePressEvent(KFileFilterCombo* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMousePressEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MousePressEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +814,8 @@ void KFileFilterCombo_SuperMouseReleaseEvent(KFileFilterCombo* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMouseReleaseEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +842,8 @@ void KFileFilterCombo_SuperKeyPressEvent(KFileFilterCombo* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnKeyPressEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_KeyPressEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +870,8 @@ void KFileFilterCombo_SuperKeyReleaseEvent(KFileFilterCombo* self, QKeyEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnKeyReleaseEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +898,8 @@ void KFileFilterCombo_SuperWheelEvent(KFileFilterCombo* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnWheelEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_WheelEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +926,8 @@ void KFileFilterCombo_SuperContextMenuEvent(KFileFilterCombo* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnContextMenuEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +954,8 @@ void KFileFilterCombo_SuperInputMethodEvent(KFileFilterCombo* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnInputMethodEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_InputMethodEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +982,8 @@ void KFileFilterCombo_SuperInitStyleOption(const KFileFilterCombo* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnInitStyleOption(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_InitStyleOption_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1010,8 @@ int KFileFilterCombo_SuperDevType(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDevType(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DevType_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1038,8 @@ void KFileFilterCombo_SuperSetVisible(KFileFilterCombo* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetVisible(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetVisible_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1066,8 @@ int KFileFilterCombo_SuperHeightForWidth(const KFileFilterCombo* self, int param
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnHeightForWidth(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_HeightForWidth_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1094,8 @@ bool KFileFilterCombo_SuperHasHeightForWidth(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnHasHeightForWidth(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1122,8 @@ QPaintEngine* KFileFilterCombo_SuperPaintEngine(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnPaintEngine(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_PaintEngine_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1150,8 @@ void KFileFilterCombo_SuperMouseDoubleClickEvent(KFileFilterCombo* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMouseDoubleClickEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1178,8 @@ void KFileFilterCombo_SuperMouseMoveEvent(KFileFilterCombo* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMouseMoveEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1206,8 @@ void KFileFilterCombo_SuperEnterEvent(KFileFilterCombo* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnEnterEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_EnterEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1234,8 @@ void KFileFilterCombo_SuperLeaveEvent(KFileFilterCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnLeaveEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_LeaveEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1262,8 @@ void KFileFilterCombo_SuperMoveEvent(KFileFilterCombo* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMoveEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_MoveEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1290,8 @@ void KFileFilterCombo_SuperCloseEvent(KFileFilterCombo* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnCloseEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_CloseEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1318,8 @@ void KFileFilterCombo_SuperTabletEvent(KFileFilterCombo* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnTabletEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_TabletEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1346,8 @@ void KFileFilterCombo_SuperActionEvent(KFileFilterCombo* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnActionEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ActionEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1374,8 @@ void KFileFilterCombo_SuperDragEnterEvent(KFileFilterCombo* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDragEnterEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DragEnterEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1402,8 @@ void KFileFilterCombo_SuperDragMoveEvent(KFileFilterCombo* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDragMoveEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DragMoveEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1430,8 @@ void KFileFilterCombo_SuperDragLeaveEvent(KFileFilterCombo* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDragLeaveEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1458,8 @@ void KFileFilterCombo_SuperDropEvent(KFileFilterCombo* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDropEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DropEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1536,9 +1488,8 @@ bool KFileFilterCombo_SuperNativeEvent(KFileFilterCombo* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnNativeEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_NativeEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1565,9 +1516,8 @@ int KFileFilterCombo_SuperMetric(const KFileFilterCombo* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnMetric(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Metric_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1594,9 +1544,8 @@ void KFileFilterCombo_SuperInitPainter(const KFileFilterCombo* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnInitPainter(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_InitPainter_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1572,8 @@ QPaintDevice* KFileFilterCombo_SuperRedirected(const KFileFilterCombo* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnRedirected(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Redirected_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1600,8 @@ QPainter* KFileFilterCombo_SuperSharedPainter(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSharedPainter(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SharedPainter_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1628,8 @@ bool KFileFilterCombo_SuperFocusNextPrevChild(KFileFilterCombo* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnFocusNextPrevChild(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1656,8 @@ void KFileFilterCombo_SuperTimerEvent(KFileFilterCombo* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnTimerEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_TimerEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1684,8 @@ void KFileFilterCombo_SuperChildEvent(KFileFilterCombo* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnChildEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ChildEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1712,8 @@ void KFileFilterCombo_SuperCustomEvent(KFileFilterCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnCustomEvent(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_CustomEvent_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1740,8 @@ void KFileFilterCombo_SuperConnectNotify(KFileFilterCombo* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnConnectNotify(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_ConnectNotify_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1768,8 @@ void KFileFilterCombo_SuperDisconnectNotify(KFileFilterCombo* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDisconnectNotify(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1796,8 @@ void KFileFilterCombo_SuperSetCompletionObject(KFileFilterCombo* self, KCompleti
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetCompletionObject(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetCompletionObject_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetCompletionObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1824,8 @@ void KFileFilterCombo_SuperSetHandleSignals(KFileFilterCombo* self, bool handle)
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetHandleSignals(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetHandleSignals_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetHandleSignals_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1852,8 @@ void KFileFilterCombo_SuperSetCompletionMode(KFileFilterCombo* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetCompletionMode(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetCompletionMode_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1880,8 @@ void KFileFilterCombo_SuperVirtualHook(KFileFilterCombo* self, int id, void* dat
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnVirtualHook(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_VirtualHook_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1908,8 @@ void KFileFilterCombo_SuperUpdateMicroFocus(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnUpdateMicroFocus(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2000,9 +1936,8 @@ void KFileFilterCombo_SuperCreate(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnCreate(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Create_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2029,9 +1964,8 @@ void KFileFilterCombo_SuperDestroy(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDestroy(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Destroy_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2058,9 +1992,8 @@ bool KFileFilterCombo_SuperFocusNextChild(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnFocusNextChild(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_FocusNextChild_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2087,9 +2020,8 @@ bool KFileFilterCombo_SuperFocusPreviousChild(KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnFocusPreviousChild(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2048,8 @@ QObject* KFileFilterCombo_SuperSender(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSender(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Sender_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2145,9 +2076,8 @@ int KFileFilterCombo_SuperSenderSignalIndex(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSenderSignalIndex(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2174,9 +2104,8 @@ int KFileFilterCombo_SuperReceivers(const KFileFilterCombo* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnReceivers(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Receivers_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2203,9 +2132,8 @@ bool KFileFilterCombo_SuperIsSignalConnected(const KFileFilterCombo* self, const
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnIsSignalConnected(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2232,9 +2160,8 @@ double KFileFilterCombo_SuperGetDecodedMetricF(const KFileFilterCombo* self, int
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnGetDecodedMetricF(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2353,9 +2280,8 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KFileFilterCombo_SuperKeyB
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnKeyBindingMap(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_KeyBindingMap_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_KeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2406,9 +2332,8 @@ void KFileFilterCombo_SuperSetKeyBindingMap(KFileFilterCombo* self, libqt_map /*
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetKeyBindingMap(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetKeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2435,9 +2360,8 @@ void KFileFilterCombo_SuperSetDelegate(KFileFilterCombo* self, KCompletionBase* 
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnSetDelegate(KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_SetDelegate_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_SetDelegate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2464,9 +2388,8 @@ KCompletionBase* KFileFilterCombo_SuperDelegate(const KFileFilterCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileFilterCombo_OnDelegate(const KFileFilterCombo* self, intptr_t slot) {
     auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo)
         vkfilefiltercombo->setKFileFilterCombo_Delegate_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Delegate_Callback>(slot));
-    }
 }
 
 void KFileFilterCombo_Delete(KFileFilterCombo* self) {

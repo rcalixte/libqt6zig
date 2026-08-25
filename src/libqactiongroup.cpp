@@ -138,9 +138,8 @@ QMetaObject* QActionGroup_SuperMetaObject(const QActionGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnMetaObject(const QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_MetaObject_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +156,8 @@ void* QActionGroup_SuperMetacast(QActionGroup* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnMetacast(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_Metacast_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +174,8 @@ int QActionGroup_SuperMetacall(QActionGroup* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnMetacall(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_Metacall_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -205,9 +202,8 @@ bool QActionGroup_SuperEvent(QActionGroup* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnEvent(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_Event_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -234,9 +230,8 @@ bool QActionGroup_SuperEventFilter(QActionGroup* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnEventFilter(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_EventFilter_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +258,8 @@ void QActionGroup_SuperTimerEvent(QActionGroup* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnTimerEvent(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_TimerEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +286,8 @@ void QActionGroup_SuperChildEvent(QActionGroup* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnChildEvent(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_ChildEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +314,8 @@ void QActionGroup_SuperCustomEvent(QActionGroup* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnCustomEvent(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_CustomEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +342,8 @@ void QActionGroup_SuperConnectNotify(QActionGroup* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnConnectNotify(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +370,8 @@ void QActionGroup_SuperDisconnectNotify(QActionGroup* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnDisconnectNotify(QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +398,8 @@ QObject* QActionGroup_SuperSender(const QActionGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnSender(const QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_Sender_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +426,8 @@ int QActionGroup_SuperSenderSignalIndex(const QActionGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnSenderSignalIndex(const QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +454,8 @@ int QActionGroup_SuperReceivers(const QActionGroup* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnReceivers(const QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_Receivers_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +482,8 @@ bool QActionGroup_SuperIsSignalConnected(const QActionGroup* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnIsSignalConnected(const QActionGroup* self, intptr_t slot) {
     auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
         vqactiongroup->setQActionGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QActionGroup_Delete(QActionGroup* self) {

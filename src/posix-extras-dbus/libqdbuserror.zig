@@ -238,7 +238,7 @@ pub const QDBusError = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#public-types)
 pub const enums = struct {
-    pub const ErrorType = enum(i32) {
+    pub const ErrorType = enum {
         pub const NoError: i32 = 0;
         pub const Other: i32 = 1;
         pub const Failed: i32 = 2;

@@ -1901,7 +1901,7 @@ pub const KBookmark__List = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kbookmark.html#public-types)
 pub const enums = struct {
-    pub const MetaDataOverwriteMode = enum(i32) {
+    pub const MetaDataOverwriteMode = enum {
         pub const OverwriteMetaData: i32 = 0;
         pub const DontOverwriteMetaData: i32 = 1;
     };

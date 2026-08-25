@@ -4595,7 +4595,7 @@ pub const QsciLexerPython = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerPython = enum(i32) {
+    pub const QsciLexerPython = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Number: i32 = 2;
@@ -4618,7 +4618,7 @@ pub const enums = struct {
         pub const TripleDoubleQuotedFString: i32 = 19;
     };
 
-    pub const IndentationWarning = enum(i32) {
+    pub const IndentationWarning = enum {
         pub const NoWarning: i32 = 0;
         pub const Inconsistent: i32 = 1;
         pub const TabsAfterSpaces: i32 = 2;

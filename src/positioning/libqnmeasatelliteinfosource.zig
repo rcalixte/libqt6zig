@@ -3136,12 +3136,12 @@ pub const QNmeaSatelliteInfoSource = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#public-types)
 pub const enums = struct {
-    pub const UpdateMode = enum(i32) {
+    pub const UpdateMode = enum {
         pub const RealTimeMode: i32 = 1;
         pub const SimulationMode: i32 = 2;
     };
 
-    pub const SatelliteInfoParseStatus = enum(i32) {
+    pub const SatelliteInfoParseStatus = enum {
         pub const NotParsed: i32 = 0;
         pub const PartiallyParsed: i32 = 1;
         pub const FullyParsed: i32 = 2;

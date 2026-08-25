@@ -2309,7 +2309,7 @@ pub const KIO__Job = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-job-base.html#public-types)
 pub const enums = struct {
-    pub const JobFlag = enum(i32) {
+    pub const JobFlag = enum {
         pub const DefaultFlags: i32 = 0;
         pub const HideProgressInfo: i32 = 1;
         pub const Resume: i32 = 2;
@@ -2317,7 +2317,7 @@ pub const enums = struct {
         pub const NoPrivilegeExecution: i32 = 8;
     };
 
-    pub const LoadType = enum(i32) {
+    pub const LoadType = enum {
         pub const Reload: i32 = 0;
         pub const NoReload: i32 = 1;
     };

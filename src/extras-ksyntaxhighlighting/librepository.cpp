@@ -182,9 +182,8 @@ QMetaObject* KSyntaxHighlighting__Repository_SuperMetaObject(const KSyntaxHighli
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnMetaObject(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_MetaObject_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +200,8 @@ void* KSyntaxHighlighting__Repository_SuperMetacast(KSyntaxHighlighting__Reposit
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnMetacast(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacast_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +218,8 @@ int KSyntaxHighlighting__Repository_SuperMetacall(KSyntaxHighlighting__Repositor
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnMetacall(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacall_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +246,8 @@ bool KSyntaxHighlighting__Repository_SuperEvent(KSyntaxHighlighting__Repository*
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnEvent(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Event_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +274,8 @@ bool KSyntaxHighlighting__Repository_SuperEventFilter(KSyntaxHighlighting__Repos
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnEventFilter(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_EventFilter_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +302,8 @@ void KSyntaxHighlighting__Repository_SuperTimerEvent(KSyntaxHighlighting__Reposi
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnTimerEvent(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_TimerEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +330,8 @@ void KSyntaxHighlighting__Repository_SuperChildEvent(KSyntaxHighlighting__Reposi
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnChildEvent(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_ChildEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +358,8 @@ void KSyntaxHighlighting__Repository_SuperCustomEvent(KSyntaxHighlighting__Repos
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnCustomEvent(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_CustomEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +386,8 @@ void KSyntaxHighlighting__Repository_SuperConnectNotify(KSyntaxHighlighting__Rep
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnConnectNotify(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_ConnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +414,8 @@ void KSyntaxHighlighting__Repository_SuperDisconnectNotify(KSyntaxHighlighting__
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnDisconnectNotify(KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_DisconnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +442,8 @@ QObject* KSyntaxHighlighting__Repository_SuperSender(const KSyntaxHighlighting__
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnSender(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Sender_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +470,8 @@ int KSyntaxHighlighting__Repository_SuperSenderSignalIndex(const KSyntaxHighligh
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnSenderSignalIndex(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +498,8 @@ int KSyntaxHighlighting__Repository_SuperReceivers(const KSyntaxHighlighting__Re
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnReceivers(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Receivers_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +526,8 @@ bool KSyntaxHighlighting__Repository_SuperIsSignalConnected(const KSyntaxHighlig
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__Repository_OnIsSignalConnected(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
-    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository)
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_IsSignalConnected_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSyntaxHighlighting__Repository_Delete(KSyntaxHighlighting__Repository* self) {

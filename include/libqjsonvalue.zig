@@ -1671,7 +1671,7 @@ pub const QJsonValueRef = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Null: i32 = 0;
         pub const Bool: i32 = 1;
         pub const Double: i32 = 2;

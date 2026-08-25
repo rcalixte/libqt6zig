@@ -46,9 +46,8 @@ QAction* KParts__PartBase_SuperAction2(const KParts__PartBase* self, const QDomE
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnAction2(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_Action2_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_Action2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -75,9 +74,8 @@ KActionCollection* KParts__PartBase_SuperActionCollection(const KParts__PartBase
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnActionCollection(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_ActionCollection_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ActionCollection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +134,8 @@ libqt_string KParts__PartBase_SuperComponentName(const KParts__PartBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnComponentName(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_ComponentName_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +162,8 @@ QDomDocument* KParts__PartBase_SuperDomDocument(const KParts__PartBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnDomDocument(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_DomDocument_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_DomDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +222,8 @@ libqt_string KParts__PartBase_SuperXmlFile(const KParts__PartBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnXmlFile(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_XmlFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_XmlFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +282,8 @@ libqt_string KParts__PartBase_SuperLocalXMLFile(const KParts__PartBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnLocalXMLFile(const KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_LocalXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_LocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +314,8 @@ void KParts__PartBase_SuperSetComponentName(KParts__PartBase* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetComponentName(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_SetComponentName_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +344,8 @@ void KParts__PartBase_SuperSetXMLFile(KParts__PartBase* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetXMLFile(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_SetXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +374,8 @@ void KParts__PartBase_SuperSetLocalXMLFile(KParts__PartBase* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetLocalXMLFile(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetLocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +404,8 @@ void KParts__PartBase_SuperSetXML(KParts__PartBase* self, const libqt_string doc
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetXML(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_SetXML_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXML_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +432,8 @@ void KParts__PartBase_SuperSetDOMDocument(KParts__PartBase* self, const QDomDocu
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetDOMDocument(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_SetDOMDocument_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetDOMDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +462,8 @@ void KParts__PartBase_SuperStateChanged(KParts__PartBase* self, const libqt_stri
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnStateChanged(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_StateChanged_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_StateChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +522,8 @@ libqt_string KParts__PartBase_SuperStandardsXmlFileLocation(KParts__PartBase* se
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnStandardsXmlFileLocation(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_StandardsXmlFileLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +550,8 @@ void KParts__PartBase_SuperLoadStandardsXmlFile(KParts__PartBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnLoadStandardsXmlFile(KParts__PartBase* self, intptr_t slot) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
         vkpartspartbase->setKParts__PartBase_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_LoadStandardsXmlFile_Callback>(slot));
-    }
 }
 
 void KParts__PartBase_Delete(KParts__PartBase* self) {

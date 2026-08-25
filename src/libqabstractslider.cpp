@@ -281,9 +281,8 @@ QMetaObject* QAbstractSlider_SuperMetaObject(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetaObject(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -300,9 +299,8 @@ void* QAbstractSlider_SuperMetacast(QAbstractSlider* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetacast(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Metacast_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -319,9 +317,8 @@ int QAbstractSlider_SuperMetacall(QAbstractSlider* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetacall(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Metacall_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +335,8 @@ bool QAbstractSlider_SuperEvent(QAbstractSlider* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Event_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +353,8 @@ void QAbstractSlider_SuperSliderChange(QAbstractSlider* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSliderChange(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SliderChange_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SliderChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +371,8 @@ void QAbstractSlider_SuperKeyPressEvent(QAbstractSlider* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnKeyPressEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +389,8 @@ void QAbstractSlider_SuperTimerEvent(QAbstractSlider* self, QTimerEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnTimerEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -414,9 +407,8 @@ void QAbstractSlider_SuperWheelEvent(QAbstractSlider* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnWheelEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -433,9 +425,8 @@ void QAbstractSlider_SuperChangeEvent(QAbstractSlider* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnChangeEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +453,8 @@ int QAbstractSlider_SuperDevType(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDevType(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DevType_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +481,8 @@ void QAbstractSlider_SuperSetVisible(QAbstractSlider* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSetVisible(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SetVisible_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +509,8 @@ QSize* QAbstractSlider_SuperSizeHint(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSizeHint(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +537,8 @@ QSize* QAbstractSlider_SuperMinimumSizeHint(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMinimumSizeHint(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +565,8 @@ int QAbstractSlider_SuperHeightForWidth(const QAbstractSlider* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnHeightForWidth(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_HeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +593,8 @@ bool QAbstractSlider_SuperHasHeightForWidth(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnHasHeightForWidth(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_HasHeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +621,8 @@ QPaintEngine* QAbstractSlider_SuperPaintEngine(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnPaintEngine(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_PaintEngine_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +649,8 @@ void QAbstractSlider_SuperMousePressEvent(QAbstractSlider* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMousePressEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +677,8 @@ void QAbstractSlider_SuperMouseReleaseEvent(QAbstractSlider* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseReleaseEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +705,8 @@ void QAbstractSlider_SuperMouseDoubleClickEvent(QAbstractSlider* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseDoubleClickEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +733,8 @@ void QAbstractSlider_SuperMouseMoveEvent(QAbstractSlider* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMouseMoveEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +761,8 @@ void QAbstractSlider_SuperKeyReleaseEvent(QAbstractSlider* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnKeyReleaseEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +789,8 @@ void QAbstractSlider_SuperFocusInEvent(QAbstractSlider* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusInEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +817,8 @@ void QAbstractSlider_SuperFocusOutEvent(QAbstractSlider* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusOutEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +845,8 @@ void QAbstractSlider_SuperEnterEvent(QAbstractSlider* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEnterEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_EnterEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +873,8 @@ void QAbstractSlider_SuperLeaveEvent(QAbstractSlider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnLeaveEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_LeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +901,8 @@ void QAbstractSlider_SuperPaintEvent(QAbstractSlider* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnPaintEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +929,8 @@ void QAbstractSlider_SuperMoveEvent(QAbstractSlider* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMoveEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_MoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +957,8 @@ void QAbstractSlider_SuperResizeEvent(QAbstractSlider* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnResizeEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1013,9 +985,8 @@ void QAbstractSlider_SuperCloseEvent(QAbstractSlider* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnCloseEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1042,9 +1013,8 @@ void QAbstractSlider_SuperContextMenuEvent(QAbstractSlider* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnContextMenuEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1071,9 +1041,8 @@ void QAbstractSlider_SuperTabletEvent(QAbstractSlider* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnTabletEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_TabletEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1100,9 +1069,8 @@ void QAbstractSlider_SuperActionEvent(QAbstractSlider* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnActionEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ActionEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1129,9 +1097,8 @@ void QAbstractSlider_SuperDragEnterEvent(QAbstractSlider* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragEnterEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DragEnterEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1158,9 +1125,8 @@ void QAbstractSlider_SuperDragMoveEvent(QAbstractSlider* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragMoveEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DragMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1187,9 +1153,8 @@ void QAbstractSlider_SuperDragLeaveEvent(QAbstractSlider* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDragLeaveEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DragLeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1216,9 +1181,8 @@ void QAbstractSlider_SuperDropEvent(QAbstractSlider* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDropEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DropEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1245,9 +1209,8 @@ void QAbstractSlider_SuperShowEvent(QAbstractSlider* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnShowEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1274,9 +1237,8 @@ void QAbstractSlider_SuperHideEvent(QAbstractSlider* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnHideEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1305,9 +1267,8 @@ bool QAbstractSlider_SuperNativeEvent(QAbstractSlider* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnNativeEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_NativeEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1334,9 +1295,8 @@ int QAbstractSlider_SuperMetric(const QAbstractSlider* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnMetric(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Metric_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1363,9 +1323,8 @@ void QAbstractSlider_SuperInitPainter(const QAbstractSlider* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnInitPainter(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_InitPainter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1351,8 @@ QPaintDevice* QAbstractSlider_SuperRedirected(const QAbstractSlider* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnRedirected(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Redirected_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1379,8 @@ QPainter* QAbstractSlider_SuperSharedPainter(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSharedPainter(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SharedPainter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1450,9 +1407,8 @@ void QAbstractSlider_SuperInputMethodEvent(QAbstractSlider* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnInputMethodEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_InputMethodEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1479,9 +1435,8 @@ QVariant* QAbstractSlider_SuperInputMethodQuery(const QAbstractSlider* self, int
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnInputMethodQuery(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1463,8 @@ bool QAbstractSlider_SuperFocusNextPrevChild(QAbstractSlider* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusNextPrevChild(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1537,9 +1491,8 @@ bool QAbstractSlider_SuperEventFilter(QAbstractSlider* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnEventFilter(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_EventFilter_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1566,9 +1519,8 @@ void QAbstractSlider_SuperChildEvent(QAbstractSlider* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnChildEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1595,9 +1547,8 @@ void QAbstractSlider_SuperCustomEvent(QAbstractSlider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnCustomEvent(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1624,9 +1575,8 @@ void QAbstractSlider_SuperConnectNotify(QAbstractSlider* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnConnectNotify(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1653,9 +1603,8 @@ void QAbstractSlider_SuperDisconnectNotify(QAbstractSlider* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDisconnectNotify(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1682,9 +1631,8 @@ void QAbstractSlider_SuperSetRepeatAction(QAbstractSlider* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSetRepeatAction(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SetRepeatAction_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1711,9 +1659,8 @@ int QAbstractSlider_SuperRepeatAction(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnRepeatAction(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_RepeatAction_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1740,9 +1687,8 @@ void QAbstractSlider_SuperSetRepeatAction2(QAbstractSlider* self, int action, in
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSetRepeatAction2(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SetRepeatAction2_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1769,9 +1715,8 @@ void QAbstractSlider_SuperSetRepeatAction3(QAbstractSlider* self, int action, in
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSetRepeatAction3(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SetRepeatAction3_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SetRepeatAction3_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1798,9 +1743,8 @@ void QAbstractSlider_SuperUpdateMicroFocus(QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnUpdateMicroFocus(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1827,9 +1771,8 @@ void QAbstractSlider_SuperCreate(QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnCreate(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Create_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1856,9 +1799,8 @@ void QAbstractSlider_SuperDestroy(QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnDestroy(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Destroy_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1885,9 +1827,8 @@ bool QAbstractSlider_SuperFocusNextChild(QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusNextChild(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_FocusNextChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1914,9 +1855,8 @@ bool QAbstractSlider_SuperFocusPreviousChild(QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnFocusPreviousChild(QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_FocusPreviousChild_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1943,9 +1883,8 @@ QObject* QAbstractSlider_SuperSender(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSender(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Sender_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1972,9 +1911,8 @@ int QAbstractSlider_SuperSenderSignalIndex(const QAbstractSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnSenderSignalIndex(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2001,9 +1939,8 @@ int QAbstractSlider_SuperReceivers(const QAbstractSlider* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnReceivers(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_Receivers_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2030,9 +1967,8 @@ bool QAbstractSlider_SuperIsSignalConnected(const QAbstractSlider* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnIsSignalConnected(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2059,9 +1995,8 @@ double QAbstractSlider_SuperGetDecodedMetricF(const QAbstractSlider* self, int m
 // Auxiliary method to allow providing re-implementation
 void QAbstractSlider_OnGetDecodedMetricF(const QAbstractSlider* self, intptr_t slot) {
     auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider)
         vqabstractslider->setQAbstractSlider_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QAbstractSlider_Delete(QAbstractSlider* self) {

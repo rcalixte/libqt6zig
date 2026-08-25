@@ -2047,7 +2047,7 @@ pub const KPluginFactory = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html#public-types)
 pub const enums = struct {
-    pub const ResultErrorReason = enum(i32) {
+    pub const ResultErrorReason = enum {
         pub const NO_PLUGIN_ERROR: i32 = 0;
         pub const INVALID_PLUGIN: i32 = 1;
         pub const INVALID_FACTORY: i32 = 2;

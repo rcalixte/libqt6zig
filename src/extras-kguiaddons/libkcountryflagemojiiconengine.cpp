@@ -67,9 +67,8 @@ QIconEngine* KCountryFlagEmojiIconEngine_SuperClone(const KCountryFlagEmojiIconE
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnClone(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Clone_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Clone_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +101,8 @@ libqt_string KCountryFlagEmojiIconEngine_SuperKey(const KCountryFlagEmojiIconEng
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnKey(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Key_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +119,8 @@ void KCountryFlagEmojiIconEngine_SuperPaint(KCountryFlagEmojiIconEngine* self, Q
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnPaint(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Paint_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +137,8 @@ QPixmap* KCountryFlagEmojiIconEngine_SuperPixmap(KCountryFlagEmojiIconEngine* se
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Pixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Pixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +155,8 @@ QPixmap* KCountryFlagEmojiIconEngine_SuperScaledPixmap(KCountryFlagEmojiIconEngi
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnScaledPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_ScaledPixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_ScaledPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +173,8 @@ bool KCountryFlagEmojiIconEngine_SuperIsNull(KCountryFlagEmojiIconEngine* self) 
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnIsNull(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IsNull_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_IsNull_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +201,8 @@ QSize* KCountryFlagEmojiIconEngine_SuperActualSize(KCountryFlagEmojiIconEngine* 
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnActualSize(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_ActualSize_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_ActualSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +229,8 @@ void KCountryFlagEmojiIconEngine_SuperAddPixmap(KCountryFlagEmojiIconEngine* sel
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnAddPixmap(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_AddPixmap_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_AddPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +259,8 @@ void KCountryFlagEmojiIconEngine_SuperAddFile(KCountryFlagEmojiIconEngine* self,
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnAddFile(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_AddFile_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_AddFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +287,8 @@ bool KCountryFlagEmojiIconEngine_SuperRead(KCountryFlagEmojiIconEngine* self, QD
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnRead(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Read_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Read_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +315,8 @@ bool KCountryFlagEmojiIconEngine_SuperWrite(const KCountryFlagEmojiIconEngine* s
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnWrite(const KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Write_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_Write_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +379,8 @@ libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_SuperAvailableSizes(KCoun
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnAvailableSizes(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_AvailableSizes_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_AvailableSizes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +439,8 @@ libqt_string KCountryFlagEmojiIconEngine_SuperIconName(KCountryFlagEmojiIconEngi
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnIconName(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IconName_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_IconName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +467,8 @@ void KCountryFlagEmojiIconEngine_SuperVirtualHook(KCountryFlagEmojiIconEngine* s
 // Auxiliary method to allow providing re-implementation
 void KCountryFlagEmojiIconEngine_OnVirtualHook(KCountryFlagEmojiIconEngine* self, intptr_t slot) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
-    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
+    if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine)
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_VirtualHook_Callback(reinterpret_cast<VirtualKCountryFlagEmojiIconEngine::KCountryFlagEmojiIconEngine_VirtualHook_Callback>(slot));
-    }
 }
 
 void KCountryFlagEmojiIconEngine_Delete(KCountryFlagEmojiIconEngine* self) {

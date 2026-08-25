@@ -96,9 +96,8 @@ QMetaObject* QsciLexerCMake_SuperMetaObject(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnMetaObject(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -115,9 +114,8 @@ void* QsciLexerCMake_SuperMetacast(QsciLexerCMake* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnMetacast(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Metacast_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +132,8 @@ int QsciLexerCMake_SuperMetacall(QsciLexerCMake* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnMetacall(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +150,8 @@ void QsciLexerCMake_SuperSetFoldAtElse(QsciLexerCMake* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetFoldAtElse(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFoldAtElse_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +178,8 @@ int QsciLexerCMake_SuperLexerId(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnLexerId(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_LexerId_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +206,8 @@ const char* QsciLexerCMake_SuperAutoCompletionFillups(const QsciLexerCMake* self
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnAutoCompletionFillups(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +302,8 @@ libqt_list /* of libqt_string */ QsciLexerCMake_SuperAutoCompletionWordSeparator
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnAutoCompletionWordSeparators(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +330,8 @@ const char* QsciLexerCMake_SuperBlockEnd(const QsciLexerCMake* self, int* style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBlockEnd(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +358,8 @@ int QsciLexerCMake_SuperBlockLookback(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBlockLookback(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +386,8 @@ const char* QsciLexerCMake_SuperBlockStart(const QsciLexerCMake* self, int* styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBlockStart(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +414,8 @@ const char* QsciLexerCMake_SuperBlockStartKeyword(const QsciLexerCMake* self, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBlockStartKeyword(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +442,8 @@ int QsciLexerCMake_SuperBraceStyle(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBraceStyle(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +470,8 @@ bool QsciLexerCMake_SuperCaseSensitive(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnCaseSensitive(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +498,8 @@ QColor* QsciLexerCMake_SuperColor(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnColor(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Color_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +526,8 @@ bool QsciLexerCMake_SuperEolFill(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnEolFill(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_EolFill_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +554,8 @@ QFont* QsciLexerCMake_SuperFont(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnFont(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Font_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +582,8 @@ int QsciLexerCMake_SuperIndentationGuideView(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnIndentationGuideView(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +610,8 @@ int QsciLexerCMake_SuperDefaultStyle(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDefaultStyle(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +638,8 @@ QColor* QsciLexerCMake_SuperPaper(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnPaper(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Paper_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +666,8 @@ QColor* QsciLexerCMake_SuperDefaultColor2(const QsciLexerCMake* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDefaultColor2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +694,8 @@ bool QsciLexerCMake_SuperDefaultEolFill(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDefaultEolFill(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +722,8 @@ QFont* QsciLexerCMake_SuperDefaultFont2(const QsciLexerCMake* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDefaultFont2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +750,8 @@ QColor* QsciLexerCMake_SuperDefaultPaper2(const QsciLexerCMake* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDefaultPaper2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +778,8 @@ void QsciLexerCMake_SuperSetEditor(QsciLexerCMake* self, QsciScintilla* editor) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetEditor(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +806,8 @@ int QsciLexerCMake_SuperStyleBitsNeeded(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnStyleBitsNeeded(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +834,8 @@ const char* QsciLexerCMake_SuperWordCharacters(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnWordCharacters(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +862,8 @@ void QsciLexerCMake_SuperSetAutoIndentStyle(QsciLexerCMake* self, int autoindent
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetAutoIndentStyle(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +890,8 @@ void QsciLexerCMake_SuperSetColor(QsciLexerCMake* self, const QColor* c, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetColor(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetColor_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +918,8 @@ void QsciLexerCMake_SuperSetEolFill(QsciLexerCMake* self, bool eoffill, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetEolFill(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +946,8 @@ void QsciLexerCMake_SuperSetFont(QsciLexerCMake* self, const QFont* f, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetFont(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetFont_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +974,8 @@ void QsciLexerCMake_SuperSetPaper(QsciLexerCMake* self, const QColor* c, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSetPaper(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1004,8 @@ bool QsciLexerCMake_SuperReadProperties(QsciLexerCMake* self, QSettings* qs, con
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnReadProperties(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1034,8 @@ bool QsciLexerCMake_SuperWriteProperties(const QsciLexerCMake* self, QSettings* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnWriteProperties(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1062,8 @@ bool QsciLexerCMake_SuperEvent(QsciLexerCMake* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnEvent(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Event_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1090,8 @@ bool QsciLexerCMake_SuperEventFilter(QsciLexerCMake* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnEventFilter(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1118,8 @@ void QsciLexerCMake_SuperTimerEvent(QsciLexerCMake* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnTimerEvent(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1146,8 @@ void QsciLexerCMake_SuperChildEvent(QsciLexerCMake* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnChildEvent(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1174,8 @@ void QsciLexerCMake_SuperCustomEvent(QsciLexerCMake* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnCustomEvent(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1202,8 @@ void QsciLexerCMake_SuperConnectNotify(QsciLexerCMake* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnConnectNotify(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1230,8 @@ void QsciLexerCMake_SuperDisconnectNotify(QsciLexerCMake* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnDisconnectNotify(QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1280,8 @@ libqt_string QsciLexerCMake_SuperTextAsBytes(const QsciLexerCMake* self, const l
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnTextAsBytes(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1340,8 @@ libqt_string QsciLexerCMake_SuperBytesAsText(const QsciLexerCMake* self, const c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnBytesAsText(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1368,8 @@ QObject* QsciLexerCMake_SuperSender(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSender(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Sender_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1396,8 @@ int QsciLexerCMake_SuperSenderSignalIndex(const QsciLexerCMake* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnSenderSignalIndex(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1424,8 @@ int QsciLexerCMake_SuperReceivers(const QsciLexerCMake* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnReceivers(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_Receivers_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1497,9 +1452,8 @@ bool QsciLexerCMake_SuperIsSignalConnected(const QsciLexerCMake* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCMake_OnIsSignalConnected(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake)
         vqscilexercmake->setQsciLexerCMake_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerCMake_Delete(QsciLexerCMake* self) {

@@ -314,9 +314,8 @@ QMetaObject* QToolBar_SuperMetaObject(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMetaObject(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MetaObject_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +332,8 @@ void* QToolBar_SuperMetacast(QToolBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMetacast(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Metacast_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +350,8 @@ int QToolBar_SuperMetacall(QToolBar* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMetacall(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Metacall_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +368,8 @@ void QToolBar_SuperActionEvent(QToolBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnActionEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ActionEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +386,8 @@ void QToolBar_SuperChangeEvent(QToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnChangeEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +404,8 @@ void QToolBar_SuperPaintEvent(QToolBar* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnPaintEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_PaintEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -428,9 +422,8 @@ bool QToolBar_SuperEvent(QToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Event_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -447,9 +440,8 @@ void QToolBar_SuperInitStyleOption(const QToolBar* self, QStyleOptionToolBar* op
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnInitStyleOption(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_InitStyleOption_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +468,8 @@ int QToolBar_SuperDevType(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDevType(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DevType_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +496,8 @@ void QToolBar_SuperSetVisible(QToolBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnSetVisible(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_SetVisible_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +524,8 @@ QSize* QToolBar_SuperSizeHint(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnSizeHint(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_SizeHint_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +552,8 @@ QSize* QToolBar_SuperMinimumSizeHint(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMinimumSizeHint(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +580,8 @@ int QToolBar_SuperHeightForWidth(const QToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnHeightForWidth(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_HeightForWidth_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +608,8 @@ bool QToolBar_SuperHasHeightForWidth(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnHasHeightForWidth(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +636,8 @@ QPaintEngine* QToolBar_SuperPaintEngine(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnPaintEngine(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_PaintEngine_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +664,8 @@ void QToolBar_SuperMousePressEvent(QToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMousePressEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MousePressEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +692,8 @@ void QToolBar_SuperMouseReleaseEvent(QToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMouseReleaseEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +720,8 @@ void QToolBar_SuperMouseDoubleClickEvent(QToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMouseDoubleClickEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +748,8 @@ void QToolBar_SuperMouseMoveEvent(QToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMouseMoveEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +776,8 @@ void QToolBar_SuperWheelEvent(QToolBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnWheelEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_WheelEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +804,8 @@ void QToolBar_SuperKeyPressEvent(QToolBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnKeyPressEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +832,8 @@ void QToolBar_SuperKeyReleaseEvent(QToolBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnKeyReleaseEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +860,8 @@ void QToolBar_SuperFocusInEvent(QToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnFocusInEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_FocusInEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +888,8 @@ void QToolBar_SuperFocusOutEvent(QToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnFocusOutEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +916,8 @@ void QToolBar_SuperEnterEvent(QToolBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnEnterEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_EnterEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +944,8 @@ void QToolBar_SuperLeaveEvent(QToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnLeaveEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_LeaveEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +972,8 @@ void QToolBar_SuperMoveEvent(QToolBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMoveEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_MoveEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +1000,8 @@ void QToolBar_SuperResizeEvent(QToolBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnResizeEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ResizeEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1028,8 @@ void QToolBar_SuperCloseEvent(QToolBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnCloseEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_CloseEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1056,8 @@ void QToolBar_SuperContextMenuEvent(QToolBar* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnContextMenuEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1084,8 @@ void QToolBar_SuperTabletEvent(QToolBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnTabletEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_TabletEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1112,8 @@ void QToolBar_SuperDragEnterEvent(QToolBar* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDragEnterEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1140,8 @@ void QToolBar_SuperDragMoveEvent(QToolBar* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDragMoveEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1168,8 @@ void QToolBar_SuperDragLeaveEvent(QToolBar* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDragLeaveEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1196,8 @@ void QToolBar_SuperDropEvent(QToolBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDropEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DropEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1224,8 @@ void QToolBar_SuperShowEvent(QToolBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnShowEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ShowEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1252,8 @@ void QToolBar_SuperHideEvent(QToolBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnHideEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_HideEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1282,8 @@ bool QToolBar_SuperNativeEvent(QToolBar* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnNativeEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_NativeEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1310,8 @@ int QToolBar_SuperMetric(const QToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnMetric(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Metric_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1338,8 @@ void QToolBar_SuperInitPainter(const QToolBar* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnInitPainter(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_InitPainter_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1366,8 @@ QPaintDevice* QToolBar_SuperRedirected(const QToolBar* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnRedirected(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Redirected_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1394,8 @@ QPainter* QToolBar_SuperSharedPainter(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnSharedPainter(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_SharedPainter_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1422,8 @@ void QToolBar_SuperInputMethodEvent(QToolBar* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnInputMethodEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1450,8 @@ QVariant* QToolBar_SuperInputMethodQuery(const QToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnInputMethodQuery(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1478,8 @@ bool QToolBar_SuperFocusNextPrevChild(QToolBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnFocusNextPrevChild(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1506,8 @@ bool QToolBar_SuperEventFilter(QToolBar* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnEventFilter(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_EventFilter_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1534,8 @@ void QToolBar_SuperTimerEvent(QToolBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnTimerEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_TimerEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1562,8 @@ void QToolBar_SuperChildEvent(QToolBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnChildEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ChildEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1590,8 @@ void QToolBar_SuperCustomEvent(QToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnCustomEvent(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_CustomEvent_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1618,8 @@ void QToolBar_SuperConnectNotify(QToolBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnConnectNotify(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_ConnectNotify_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1646,8 @@ void QToolBar_SuperDisconnectNotify(QToolBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDisconnectNotify(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1674,8 @@ void QToolBar_SuperUpdateMicroFocus(QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnUpdateMicroFocus(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1702,8 @@ void QToolBar_SuperCreate(QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnCreate(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Create_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1730,8 @@ void QToolBar_SuperDestroy(QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnDestroy(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Destroy_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1758,8 @@ bool QToolBar_SuperFocusNextChild(QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnFocusNextChild(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_FocusNextChild_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1786,8 @@ bool QToolBar_SuperFocusPreviousChild(QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnFocusPreviousChild(QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1814,8 @@ QObject* QToolBar_SuperSender(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnSender(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Sender_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1899,9 +1842,8 @@ int QToolBar_SuperSenderSignalIndex(const QToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnSenderSignalIndex(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1928,9 +1870,8 @@ int QToolBar_SuperReceivers(const QToolBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnReceivers(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_Receivers_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1957,9 +1898,8 @@ bool QToolBar_SuperIsSignalConnected(const QToolBar* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnIsSignalConnected(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1986,9 +1926,8 @@ double QToolBar_SuperGetDecodedMetricF(const QToolBar* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QToolBar_OnGetDecodedMetricF(const QToolBar* self, intptr_t slot) {
     auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar)
         vqtoolbar->setQToolBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QToolBar_Delete(QToolBar* self) {

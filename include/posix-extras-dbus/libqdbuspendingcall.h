@@ -42,6 +42,7 @@ void QDBusPendingCall_Delete(QDBusPendingCall* self);
 
 QDBusPendingCallWatcher* QDBusPendingCallWatcher_new(const QDBusPendingCall* call);
 QDBusPendingCallWatcher* QDBusPendingCallWatcher_new2(const QDBusPendingCall* call, QObject* parent);
+QDBusPendingCall* QDBusPendingCallWatcher_AsQDBusPendingCall(QDBusPendingCallWatcher* self);
 QMetaObject* QDBusPendingCallWatcher_MetaObject(const QDBusPendingCallWatcher* self);
 void* QDBusPendingCallWatcher_Metacast(QDBusPendingCallWatcher* self, const char* param1);
 int QDBusPendingCallWatcher_Metacall(QDBusPendingCallWatcher* self, int param1, int param2, void** param3);

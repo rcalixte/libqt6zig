@@ -268,7 +268,7 @@ pub const QKeyCombination = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qt.html#types)
 pub const enums = struct {
-    pub const GlobalColor = enum(i32) {
+    pub const GlobalColor = enum {
         pub const Color0: i32 = 0;
         pub const Color1: i32 = 1;
         pub const Black: i32 = 2;
@@ -291,13 +291,13 @@ pub const enums = struct {
         pub const Transparent: i32 = 19;
     };
 
-    pub const ColorScheme = enum(i32) {
+    pub const ColorScheme = enum {
         pub const Unknown: i32 = 0;
         pub const Light: i32 = 1;
         pub const Dark: i32 = 2;
     };
 
-    pub const MouseButton = enum(i32) {
+    pub const MouseButton = enum {
         pub const NoButton: i32 = 0;
         pub const LeftButton: i32 = 1;
         pub const RightButton: i32 = 2;
@@ -336,12 +336,12 @@ pub const enums = struct {
         pub const MouseButtonMask: i32 = -1;
     };
 
-    pub const Orientation = enum(i32) {
+    pub const Orientation = enum {
         pub const Horizontal: i32 = 1;
         pub const Vertical: i32 = 2;
     };
 
-    pub const FocusPolicy = enum(i32) {
+    pub const FocusPolicy = enum {
         pub const NoFocus: i32 = 0;
         pub const TabFocus: i32 = 1;
         pub const ClickFocus: i32 = 2;
@@ -349,30 +349,30 @@ pub const enums = struct {
         pub const WheelFocus: i32 = 15;
     };
 
-    pub const TabFocusBehavior = enum(i32) {
+    pub const TabFocusBehavior = enum {
         pub const NoTabFocus: i32 = 0;
         pub const TabFocusTextControls: i32 = 1;
         pub const TabFocusListControls: i32 = 2;
         pub const TabFocusAllControls: i32 = 255;
     };
 
-    pub const SortOrder = enum(i32) {
+    pub const SortOrder = enum {
         pub const AscendingOrder: i32 = 0;
         pub const DescendingOrder: i32 = 1;
     };
 
-    pub const SplitBehaviorFlags = enum(i32) {
+    pub const SplitBehaviorFlags = enum {
         pub const KeepEmptyParts: i32 = 0;
         pub const SkipEmptyParts: i32 = 1;
     };
 
-    pub const TileRule = enum(i32) {
+    pub const TileRule = enum {
         pub const StretchTile: i32 = 0;
         pub const RepeatTile: i32 = 1;
         pub const RoundTile: i32 = 2;
     };
 
-    pub const AlignmentFlag = enum(i32) {
+    pub const AlignmentFlag = enum {
         pub const AlignLeft: i32 = 1;
         pub const AlignLeading: i32 = 1;
         pub const AlignRight: i32 = 2;
@@ -389,7 +389,7 @@ pub const enums = struct {
         pub const AlignCenter: i32 = 132;
     };
 
-    pub const TextFlag = enum(i32) {
+    pub const TextFlag = enum {
         pub const TextSingleLine: i32 = 256;
         pub const TextDontClip: i32 = 512;
         pub const TextExpandTabs: i32 = 1024;
@@ -405,26 +405,26 @@ pub const enums = struct {
         pub const TextLongestVariant: i32 = 524288;
     };
 
-    pub const TextElideMode = enum(i32) {
+    pub const TextElideMode = enum {
         pub const ElideLeft: i32 = 0;
         pub const ElideRight: i32 = 1;
         pub const ElideMiddle: i32 = 2;
         pub const ElideNone: i32 = 3;
     };
 
-    pub const WhiteSpaceMode = enum(i32) {
+    pub const WhiteSpaceMode = enum {
         pub const WhiteSpaceNormal: i32 = 0;
         pub const WhiteSpacePre: i32 = 1;
         pub const WhiteSpaceNoWrap: i32 = 2;
         pub const WhiteSpaceModeUndefined: i32 = -1;
     };
 
-    pub const HitTestAccuracy = enum(i32) {
+    pub const HitTestAccuracy = enum {
         pub const ExactHit: i32 = 0;
         pub const FuzzyHit: i32 = 1;
     };
 
-    pub const WindowType = enum(i32) {
+    pub const WindowType = enum {
         pub const Widget: i32 = 0;
         pub const Window: i32 = 1;
         pub const Dialog: i32 = 3;
@@ -465,7 +465,7 @@ pub const enums = struct {
         pub const WindowFullscreenButtonHint: i32 = -2147483648;
     };
 
-    pub const WindowState = enum(i32) {
+    pub const WindowState = enum {
         pub const WindowNoState: i32 = 0;
         pub const WindowMinimized: i32 = 1;
         pub const WindowMaximized: i32 = 2;
@@ -473,14 +473,14 @@ pub const enums = struct {
         pub const WindowActive: i32 = 8;
     };
 
-    pub const ApplicationState = enum(i32) {
+    pub const ApplicationState = enum {
         pub const ApplicationSuspended: i32 = 0;
         pub const ApplicationHidden: i32 = 1;
         pub const ApplicationInactive: i32 = 2;
         pub const ApplicationActive: i32 = 4;
     };
 
-    pub const ScreenOrientation = enum(i32) {
+    pub const ScreenOrientation = enum {
         pub const PrimaryOrientation: i32 = 0;
         pub const PortraitOrientation: i32 = 1;
         pub const LandscapeOrientation: i32 = 2;
@@ -488,7 +488,7 @@ pub const enums = struct {
         pub const InvertedLandscapeOrientation: i32 = 8;
     };
 
-    pub const WidgetAttribute = enum(i32) {
+    pub const WidgetAttribute = enum {
         pub const WA_Disabled: i32 = 0;
         pub const WA_UnderMouse: i32 = 1;
         pub const WA_MouseTracking: i32 = 2;
@@ -594,7 +594,7 @@ pub const enums = struct {
         pub const WA_AttributeCount: i32 = 132;
     };
 
-    pub const ApplicationAttribute = enum(i32) {
+    pub const ApplicationAttribute = enum {
         pub const AA_QtQuickUseDefaultSizePolicy: i32 = 1;
         pub const AA_DontShowIconsInMenus: i32 = 2;
         pub const AA_NativeWindows: i32 = 3;
@@ -628,7 +628,7 @@ pub const enums = struct {
         pub const AA_AttributeCount: i32 = 32;
     };
 
-    pub const ImageConversionFlag = enum(i32) {
+    pub const ImageConversionFlag = enum {
         pub const ColorMode_Mask: i32 = 3;
         pub const AutoColor: i32 = 0;
         pub const ColorOnly: i32 = 3;
@@ -650,12 +650,12 @@ pub const enums = struct {
         pub const NoFormatConversion: i32 = 512;
     };
 
-    pub const BGMode = enum(i32) {
+    pub const BGMode = enum {
         pub const TransparentMode: i32 = 0;
         pub const OpaqueMode: i32 = 1;
     };
 
-    pub const Key = enum(i32) {
+    pub const Key = enum {
         pub const Key_Space: i32 = 32;
         pub const Key_Any: i32 = 32;
         pub const Key_Exclam: i32 = 33;
@@ -1128,7 +1128,7 @@ pub const enums = struct {
         pub const Key_unknown: i32 = 33554431;
     };
 
-    pub const KeyboardModifier = enum(i32) {
+    pub const KeyboardModifier = enum {
         pub const NoModifier: i32 = 0;
         pub const ShiftModifier: i32 = 33554432;
         pub const ControlModifier: i32 = 67108864;
@@ -1139,7 +1139,7 @@ pub const enums = struct {
         pub const KeyboardModifierMask: i32 = -33554432;
     };
 
-    pub const Modifier = enum(i32) {
+    pub const Modifier = enum {
         pub const META: i32 = 268435456;
         pub const SHIFT: i32 = 33554432;
         pub const CTRL: i32 = 67108864;
@@ -1147,7 +1147,7 @@ pub const enums = struct {
         pub const MODIFIER_MASK: i32 = -33554432;
     };
 
-    pub const ArrowType = enum(i32) {
+    pub const ArrowType = enum {
         pub const NoArrow: i32 = 0;
         pub const UpArrow: i32 = 1;
         pub const DownArrow: i32 = 2;
@@ -1155,7 +1155,7 @@ pub const enums = struct {
         pub const RightArrow: i32 = 4;
     };
 
-    pub const PenStyle = enum(i32) {
+    pub const PenStyle = enum {
         pub const NoPen: i32 = 0;
         pub const SolidLine: i32 = 1;
         pub const DashLine: i32 = 2;
@@ -1166,14 +1166,14 @@ pub const enums = struct {
         pub const MPenStyle: i32 = 15;
     };
 
-    pub const PenCapStyle = enum(i32) {
+    pub const PenCapStyle = enum {
         pub const FlatCap: i32 = 0;
         pub const SquareCap: i32 = 16;
         pub const RoundCap: i32 = 32;
         pub const MPenCapStyle: i32 = 48;
     };
 
-    pub const PenJoinStyle = enum(i32) {
+    pub const PenJoinStyle = enum {
         pub const MiterJoin: i32 = 0;
         pub const BevelJoin: i32 = 64;
         pub const RoundJoin: i32 = 128;
@@ -1181,7 +1181,7 @@ pub const enums = struct {
         pub const MPenJoinStyle: i32 = 448;
     };
 
-    pub const BrushStyle = enum(i32) {
+    pub const BrushStyle = enum {
         pub const NoBrush: i32 = 0;
         pub const SolidPattern: i32 = 1;
         pub const Dense1Pattern: i32 = 2;
@@ -1203,12 +1203,12 @@ pub const enums = struct {
         pub const TexturePattern: i32 = 24;
     };
 
-    pub const SizeMode = enum(i32) {
+    pub const SizeMode = enum {
         pub const AbsoluteSize: i32 = 0;
         pub const RelativeSize: i32 = 1;
     };
 
-    pub const UIEffect = enum(i32) {
+    pub const UIEffect = enum {
         pub const UI_General: i32 = 0;
         pub const UI_AnimateMenu: i32 = 1;
         pub const UI_FadeMenu: i32 = 2;
@@ -1218,7 +1218,7 @@ pub const enums = struct {
         pub const UI_AnimateToolBox: i32 = 6;
     };
 
-    pub const CursorShape = enum(i32) {
+    pub const CursorShape = enum {
         pub const ArrowCursor: i32 = 0;
         pub const UpArrowCursor: i32 = 1;
         pub const CrossCursor: i32 = 2;
@@ -1246,20 +1246,20 @@ pub const enums = struct {
         pub const CustomCursor: i32 = 25;
     };
 
-    pub const TextFormat = enum(i32) {
+    pub const TextFormat = enum {
         pub const PlainText: i32 = 0;
         pub const RichText: i32 = 1;
         pub const AutoText: i32 = 2;
         pub const MarkdownText: i32 = 3;
     };
 
-    pub const AspectRatioMode = enum(i32) {
+    pub const AspectRatioMode = enum {
         pub const IgnoreAspectRatio: i32 = 0;
         pub const KeepAspectRatio: i32 = 1;
         pub const KeepAspectRatioByExpanding: i32 = 2;
     };
 
-    pub const DockWidgetArea = enum(i32) {
+    pub const DockWidgetArea = enum {
         pub const LeftDockWidgetArea: i32 = 1;
         pub const RightDockWidgetArea: i32 = 2;
         pub const TopDockWidgetArea: i32 = 4;
@@ -1269,11 +1269,11 @@ pub const enums = struct {
         pub const NoDockWidgetArea: i32 = 0;
     };
 
-    pub const DockWidgetAreaSizes = enum(i32) {
+    pub const DockWidgetAreaSizes = enum {
         pub const NDockWidgetAreas: i32 = 4;
     };
 
-    pub const ToolBarArea = enum(i32) {
+    pub const ToolBarArea = enum {
         pub const LeftToolBarArea: i32 = 1;
         pub const RightToolBarArea: i32 = 2;
         pub const TopToolBarArea: i32 = 4;
@@ -1283,25 +1283,25 @@ pub const enums = struct {
         pub const NoToolBarArea: i32 = 0;
     };
 
-    pub const ToolBarAreaSizes = enum(i32) {
+    pub const ToolBarAreaSizes = enum {
         pub const NToolBarAreas: i32 = 4;
     };
 
-    pub const DateFormat = enum(i32) {
+    pub const DateFormat = enum {
         pub const TextDate: i32 = 0;
         pub const ISODate: i32 = 1;
         pub const RFC2822Date: i32 = 8;
         pub const ISODateWithMs: i32 = 9;
     };
 
-    pub const TimeSpec = enum(i32) {
+    pub const TimeSpec = enum {
         pub const LocalTime: i32 = 0;
         pub const UTC: i32 = 1;
         pub const OffsetFromUTC: i32 = 2;
         pub const TimeZone: i32 = 3;
     };
 
-    pub const DayOfWeek = enum(i32) {
+    pub const DayOfWeek = enum {
         pub const Monday: i32 = 1;
         pub const Tuesday: i32 = 2;
         pub const Wednesday: i32 = 3;
@@ -1311,32 +1311,32 @@ pub const enums = struct {
         pub const Sunday: i32 = 7;
     };
 
-    pub const ScrollBarPolicy = enum(i32) {
+    pub const ScrollBarPolicy = enum {
         pub const ScrollBarAsNeeded: i32 = 0;
         pub const ScrollBarAlwaysOff: i32 = 1;
         pub const ScrollBarAlwaysOn: i32 = 2;
     };
 
-    pub const CaseSensitivity = enum(i32) {
+    pub const CaseSensitivity = enum {
         pub const CaseInsensitive: i32 = 0;
         pub const CaseSensitive: i32 = 1;
     };
 
-    pub const Corner = enum(i32) {
+    pub const Corner = enum {
         pub const TopLeftCorner: i32 = 0;
         pub const TopRightCorner: i32 = 1;
         pub const BottomLeftCorner: i32 = 2;
         pub const BottomRightCorner: i32 = 3;
     };
 
-    pub const Edge = enum(i32) {
+    pub const Edge = enum {
         pub const TopEdge: i32 = 1;
         pub const LeftEdge: i32 = 2;
         pub const RightEdge: i32 = 4;
         pub const BottomEdge: i32 = 8;
     };
 
-    pub const ConnectionType = enum(i32) {
+    pub const ConnectionType = enum {
         pub const AutoConnection: i32 = 0;
         pub const DirectConnection: i32 = 1;
         pub const QueuedConnection: i32 = 2;
@@ -1345,53 +1345,53 @@ pub const enums = struct {
         pub const SingleShotConnection: i32 = 256;
     };
 
-    pub const ShortcutContext = enum(i32) {
+    pub const ShortcutContext = enum {
         pub const WidgetShortcut: i32 = 0;
         pub const WindowShortcut: i32 = 1;
         pub const ApplicationShortcut: i32 = 2;
         pub const WidgetWithChildrenShortcut: i32 = 3;
     };
 
-    pub const FillRule = enum(i32) {
+    pub const FillRule = enum {
         pub const OddEvenFill: i32 = 0;
         pub const WindingFill: i32 = 1;
     };
 
-    pub const MaskMode = enum(i32) {
+    pub const MaskMode = enum {
         pub const MaskInColor: i32 = 0;
         pub const MaskOutColor: i32 = 1;
     };
 
-    pub const ClipOperation = enum(i32) {
+    pub const ClipOperation = enum {
         pub const NoClip: i32 = 0;
         pub const ReplaceClip: i32 = 1;
         pub const IntersectClip: i32 = 2;
     };
 
-    pub const ItemSelectionMode = enum(i32) {
+    pub const ItemSelectionMode = enum {
         pub const ContainsItemShape: i32 = 0;
         pub const IntersectsItemShape: i32 = 1;
         pub const ContainsItemBoundingRect: i32 = 2;
         pub const IntersectsItemBoundingRect: i32 = 3;
     };
 
-    pub const ItemSelectionOperation = enum(i32) {
+    pub const ItemSelectionOperation = enum {
         pub const ReplaceSelection: i32 = 0;
         pub const AddToSelection: i32 = 1;
     };
 
-    pub const TransformationMode = enum(i32) {
+    pub const TransformationMode = enum {
         pub const FastTransformation: i32 = 0;
         pub const SmoothTransformation: i32 = 1;
     };
 
-    pub const Axis = enum(i32) {
+    pub const Axis = enum {
         pub const XAxis: i32 = 0;
         pub const YAxis: i32 = 1;
         pub const ZAxis: i32 = 2;
     };
 
-    pub const FocusReason = enum(i32) {
+    pub const FocusReason = enum {
         pub const MouseFocusReason: i32 = 0;
         pub const TabFocusReason: i32 = 1;
         pub const BacktabFocusReason: i32 = 2;
@@ -1403,7 +1403,7 @@ pub const enums = struct {
         pub const NoFocusReason: i32 = 8;
     };
 
-    pub const ContextMenuPolicy = enum(i32) {
+    pub const ContextMenuPolicy = enum {
         pub const NoContextMenu: i32 = 0;
         pub const DefaultContextMenu: i32 = 1;
         pub const ActionsContextMenu: i32 = 2;
@@ -1411,12 +1411,12 @@ pub const enums = struct {
         pub const PreventContextMenu: i32 = 4;
     };
 
-    pub const ContextMenuTrigger = enum(i32) {
+    pub const ContextMenuTrigger = enum {
         pub const Press: i32 = 0;
         pub const Release: i32 = 1;
     };
 
-    pub const InputMethodQuery = enum(i32) {
+    pub const InputMethodQuery = enum {
         pub const ImEnabled: i32 = 1;
         pub const ImCursorRectangle: i32 = 2;
         pub const ImFont: i32 = 4;
@@ -1439,7 +1439,7 @@ pub const enums = struct {
         pub const ImQueryAll: i32 = -1;
     };
 
-    pub const InputMethodHint = enum(i32) {
+    pub const InputMethodHint = enum {
         pub const ImhNone: i32 = 0;
         pub const ImhHiddenText: i32 = 1;
         pub const ImhSensitiveData: i32 = 2;
@@ -1465,7 +1465,7 @@ pub const enums = struct {
         pub const ImhExclusiveInputMask: i32 = -65536;
     };
 
-    pub const EnterKeyType = enum(i32) {
+    pub const EnterKeyType = enum {
         pub const EnterKeyDefault: i32 = 0;
         pub const EnterKeyReturn: i32 = 1;
         pub const EnterKeyDone: i32 = 2;
@@ -1476,7 +1476,7 @@ pub const enums = struct {
         pub const EnterKeyPrevious: i32 = 7;
     };
 
-    pub const ToolButtonStyle = enum(i32) {
+    pub const ToolButtonStyle = enum {
         pub const ToolButtonIconOnly: i32 = 0;
         pub const ToolButtonTextOnly: i32 = 1;
         pub const ToolButtonTextBesideIcon: i32 = 2;
@@ -1484,13 +1484,13 @@ pub const enums = struct {
         pub const ToolButtonFollowStyle: i32 = 4;
     };
 
-    pub const LayoutDirection = enum(i32) {
+    pub const LayoutDirection = enum {
         pub const LeftToRight: i32 = 0;
         pub const RightToLeft: i32 = 1;
         pub const LayoutDirectionAuto: i32 = 2;
     };
 
-    pub const AnchorPoint = enum(i32) {
+    pub const AnchorPoint = enum {
         pub const AnchorLeft: i32 = 0;
         pub const AnchorHorizontalCenter: i32 = 1;
         pub const AnchorRight: i32 = 2;
@@ -1499,12 +1499,12 @@ pub const enums = struct {
         pub const AnchorBottom: i32 = 5;
     };
 
-    pub const FindChildOption = enum(i32) {
+    pub const FindChildOption = enum {
         pub const FindDirectChildrenOnly: i32 = 0;
         pub const FindChildrenRecursively: i32 = 1;
     };
 
-    pub const DropAction = enum(i32) {
+    pub const DropAction = enum {
         pub const CopyAction: i32 = 1;
         pub const MoveAction: i32 = 2;
         pub const LinkAction: i32 = 4;
@@ -1513,13 +1513,13 @@ pub const enums = struct {
         pub const IgnoreAction: i32 = 0;
     };
 
-    pub const CheckState = enum(i32) {
+    pub const CheckState = enum {
         pub const Unchecked: i32 = 0;
         pub const PartiallyChecked: i32 = 1;
         pub const Checked: i32 = 2;
     };
 
-    pub const ItemDataRole = enum(i32) {
+    pub const ItemDataRole = enum {
         pub const DisplayRole: i32 = 0;
         pub const DecorationRole: i32 = 1;
         pub const EditRole: i32 = 2;
@@ -1543,7 +1543,7 @@ pub const enums = struct {
         pub const UserRole: i32 = 256;
     };
 
-    pub const ItemFlag = enum(i32) {
+    pub const ItemFlag = enum {
         pub const NoItemFlags: i32 = 0;
         pub const ItemIsSelectable: i32 = 1;
         pub const ItemIsEditable: i32 = 2;
@@ -1556,7 +1556,7 @@ pub const enums = struct {
         pub const ItemIsUserTristate: i32 = 256;
     };
 
-    pub const MatchFlag = enum(i32) {
+    pub const MatchFlag = enum {
         pub const MatchExactly: i32 = 0;
         pub const MatchContains: i32 = 1;
         pub const MatchStartsWith: i32 = 2;
@@ -1570,13 +1570,13 @@ pub const enums = struct {
         pub const MatchRecursive: i32 = 64;
     };
 
-    pub const WindowModality = enum(i32) {
+    pub const WindowModality = enum {
         pub const NonModal: i32 = 0;
         pub const WindowModal: i32 = 1;
         pub const ApplicationModal: i32 = 2;
     };
 
-    pub const TextInteractionFlag = enum(i32) {
+    pub const TextInteractionFlag = enum {
         pub const NoTextInteraction: i32 = 0;
         pub const TextSelectableByMouse: i32 = 1;
         pub const TextSelectableByKeyboard: i32 = 2;
@@ -1587,13 +1587,13 @@ pub const enums = struct {
         pub const TextBrowserInteraction: i32 = 13;
     };
 
-    pub const EventPriority = enum(i32) {
+    pub const EventPriority = enum {
         pub const HighEventPriority: i32 = 1;
         pub const NormalEventPriority: i32 = 0;
         pub const LowEventPriority: i32 = -1;
     };
 
-    pub const SizeHint = enum(i32) {
+    pub const SizeHint = enum {
         pub const MinimumSize: i32 = 0;
         pub const PreferredSize: i32 = 1;
         pub const MaximumSize: i32 = 2;
@@ -1601,7 +1601,7 @@ pub const enums = struct {
         pub const NSizeHints: i32 = 4;
     };
 
-    pub const WindowFrameSection = enum(i32) {
+    pub const WindowFrameSection = enum {
         pub const NoSection: i32 = 0;
         pub const LeftSection: i32 = 1;
         pub const TopLeftSection: i32 = 2;
@@ -1614,16 +1614,16 @@ pub const enums = struct {
         pub const TitleBarArea: i32 = 9;
     };
 
-    pub const Initialization = enum(i32) {
+    pub const Initialization = enum {
         pub const Uninitialized: i32 = 0;
     };
 
-    pub const CoordinateSystem = enum(i32) {
+    pub const CoordinateSystem = enum {
         pub const DeviceCoordinates: i32 = 0;
         pub const LogicalCoordinates: i32 = 1;
     };
 
-    pub const TouchPointState = enum(i32) {
+    pub const TouchPointState = enum {
         pub const TouchPointUnknownState: i32 = 0;
         pub const TouchPointPressed: i32 = 1;
         pub const TouchPointMoved: i32 = 2;
@@ -1631,7 +1631,7 @@ pub const enums = struct {
         pub const TouchPointReleased: i32 = 8;
     };
 
-    pub const GestureState = enum(i32) {
+    pub const GestureState = enum {
         pub const NoGesture: i32 = 0;
         pub const GestureStarted: i32 = 1;
         pub const GestureUpdated: i32 = 2;
@@ -1639,7 +1639,7 @@ pub const enums = struct {
         pub const GestureCanceled: i32 = 4;
     };
 
-    pub const GestureType = enum(i32) {
+    pub const GestureType = enum {
         pub const TapGesture: i32 = 1;
         pub const TapAndHoldGesture: i32 = 2;
         pub const PanGesture: i32 = 3;
@@ -1649,13 +1649,13 @@ pub const enums = struct {
         pub const LastGestureType: i32 = -1;
     };
 
-    pub const GestureFlag = enum(i32) {
+    pub const GestureFlag = enum {
         pub const DontStartGestureOnChildren: i32 = 1;
         pub const ReceivePartialGestures: i32 = 2;
         pub const IgnoredGesturesPropagateToParent: i32 = 4;
     };
 
-    pub const NativeGestureType = enum(i32) {
+    pub const NativeGestureType = enum {
         pub const BeginNativeGesture: i32 = 0;
         pub const EndNativeGesture: i32 = 1;
         pub const PanNativeGesture: i32 = 2;
@@ -1665,7 +1665,7 @@ pub const enums = struct {
         pub const SwipeNativeGesture: i32 = 6;
     };
 
-    pub const NavigationMode = enum(i32) {
+    pub const NavigationMode = enum {
         pub const NavigationModeNone: i32 = 0;
         pub const NavigationModeKeypadTabOrder: i32 = 1;
         pub const NavigationModeKeypadDirectional: i32 = 2;
@@ -1673,22 +1673,22 @@ pub const enums = struct {
         pub const NavigationModeCursorForceVisible: i32 = 4;
     };
 
-    pub const CursorMoveStyle = enum(i32) {
+    pub const CursorMoveStyle = enum {
         pub const LogicalMoveStyle: i32 = 0;
         pub const VisualMoveStyle: i32 = 1;
     };
 
-    pub const TimerType = enum(i32) {
+    pub const TimerType = enum {
         pub const PreciseTimer: i32 = 0;
         pub const CoarseTimer: i32 = 1;
         pub const VeryCoarseTimer: i32 = 2;
     };
 
-    pub const TimerId = enum(i32) {
+    pub const TimerId = enum {
         pub const Invalid: i32 = 0;
     };
 
-    pub const ScrollPhase = enum(i32) {
+    pub const ScrollPhase = enum {
         pub const NoScrollPhase: i32 = 0;
         pub const ScrollBegin: i32 = 1;
         pub const ScrollUpdate: i32 = 2;
@@ -1696,25 +1696,25 @@ pub const enums = struct {
         pub const ScrollMomentum: i32 = 4;
     };
 
-    pub const MouseEventSource = enum(i32) {
+    pub const MouseEventSource = enum {
         pub const MouseEventNotSynthesized: i32 = 0;
         pub const MouseEventSynthesizedBySystem: i32 = 1;
         pub const MouseEventSynthesizedByQt: i32 = 2;
         pub const MouseEventSynthesizedByApplication: i32 = 3;
     };
 
-    pub const MouseEventFlag = enum(i32) {
+    pub const MouseEventFlag = enum {
         pub const NoMouseEventFlag: i32 = 0;
         pub const MouseEventCreatedDoubleClick: i32 = 1;
         pub const MouseEventFlagMask: i32 = 255;
     };
 
-    pub const ChecksumType = enum(i32) {
+    pub const ChecksumType = enum {
         pub const ChecksumIso3309: i32 = 0;
         pub const ChecksumItuV41: i32 = 1;
     };
 
-    pub const HighDpiScaleFactorRoundingPolicy = enum(i32) {
+    pub const HighDpiScaleFactorRoundingPolicy = enum {
         pub const Unset: i32 = 0;
         pub const Round: i32 = 1;
         pub const Ceil: i32 = 2;
@@ -1723,17 +1723,17 @@ pub const enums = struct {
         pub const PassThrough: i32 = 5;
     };
 
-    pub const PermissionStatus = enum(i32) {
+    pub const PermissionStatus = enum {
         pub const Undetermined: i32 = 0;
         pub const Granted: i32 = 1;
         pub const Denied: i32 = 2;
     };
 
-    pub const ReturnByValueConstant = enum(i32) {
+    pub const ReturnByValueConstant = enum {
         pub const ReturnByValue: i32 = 0;
     };
 
-    pub const PaintDeviceFlags = enum(i32) {
+    pub const PaintDeviceFlags = enum {
         pub const UnknownDevice: i32 = 0;
         pub const Widget: i32 = 1;
         pub const Pixmap: i32 = 2;
@@ -1747,13 +1747,13 @@ pub const enums = struct {
         pub const OpenGL: i32 = 11;
     };
 
-    pub const RelayoutType = enum(i32) {
+    pub const RelayoutType = enum {
         pub const RelayoutNormal: i32 = 0;
         pub const RelayoutDragging: i32 = 1;
         pub const RelayoutDropped: i32 = 2;
     };
 
-    pub const DockPosition = enum(i32) {
+    pub const DockPosition = enum {
         pub const LeftDock: i32 = 0;
         pub const RightDock: i32 = 1;
         pub const TopDock: i32 = 2;
@@ -1761,7 +1761,7 @@ pub const enums = struct {
         pub const DockCount: i32 = 4;
     };
 
-    pub const Callback = enum(i32) {
+    pub const Callback = enum {
         pub const EventNotifyCallback: i32 = 0;
         pub const LastCallback: i32 = 1;
     };

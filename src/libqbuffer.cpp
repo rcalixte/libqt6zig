@@ -141,9 +141,8 @@ QMetaObject* QBuffer_SuperMetaObject(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnMetaObject(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_MetaObject_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +159,8 @@ void* QBuffer_SuperMetacast(QBuffer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnMetacast(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Metacast_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -179,9 +177,8 @@ int QBuffer_SuperMetacall(QBuffer* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnMetacall(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Metacall_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -198,9 +195,8 @@ bool QBuffer_SuperOpen(QBuffer* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnOpen(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Open_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +213,8 @@ void QBuffer_SuperClose(QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnClose(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Close_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +231,8 @@ long long QBuffer_SuperSize(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSize(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Size_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Size_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -255,9 +249,8 @@ long long QBuffer_SuperPos(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnPos(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Pos_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Pos_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -274,9 +267,8 @@ bool QBuffer_SuperSeek(QBuffer* self, long long off) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSeek(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Seek_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Seek_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -293,9 +285,8 @@ bool QBuffer_SuperAtEnd(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnAtEnd(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_AtEnd_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_AtEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -312,9 +303,8 @@ bool QBuffer_SuperCanReadLine(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnCanReadLine(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_CanReadLine_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_CanReadLine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -331,9 +321,8 @@ void QBuffer_SuperConnectNotify(QBuffer* self, const QMetaMethod* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnConnectNotify(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_ConnectNotify_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -350,9 +339,8 @@ void QBuffer_SuperDisconnectNotify(QBuffer* self, const QMetaMethod* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnDisconnectNotify(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_DisconnectNotify_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -369,9 +357,8 @@ long long QBuffer_SuperReadData(QBuffer* self, char* data, long long maxlen) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnReadData(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_ReadData_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -388,9 +375,8 @@ long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long len)
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnWriteData(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_WriteData_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +403,8 @@ bool QBuffer_SuperIsSequential(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnIsSequential(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_IsSequential_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +431,8 @@ bool QBuffer_SuperReset(QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnReset(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Reset_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +459,8 @@ long long QBuffer_SuperBytesAvailable(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnBytesAvailable(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_BytesAvailable_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +487,8 @@ long long QBuffer_SuperBytesToWrite(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnBytesToWrite(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_BytesToWrite_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +515,8 @@ bool QBuffer_SuperWaitForReadyRead(QBuffer* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnWaitForReadyRead(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_WaitForReadyRead_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +543,8 @@ bool QBuffer_SuperWaitForBytesWritten(QBuffer* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnWaitForBytesWritten(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +571,8 @@ long long QBuffer_SuperReadLineData(QBuffer* self, char* data, long long maxlen)
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnReadLineData(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_ReadLineData_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +599,8 @@ long long QBuffer_SuperSkipData(QBuffer* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSkipData(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_SkipData_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +627,8 @@ bool QBuffer_SuperEvent(QBuffer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnEvent(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Event_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -678,9 +655,8 @@ bool QBuffer_SuperEventFilter(QBuffer* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnEventFilter(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_EventFilter_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -707,9 +683,8 @@ void QBuffer_SuperTimerEvent(QBuffer* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnTimerEvent(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_TimerEvent_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +711,8 @@ void QBuffer_SuperChildEvent(QBuffer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnChildEvent(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_ChildEvent_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -765,9 +739,8 @@ void QBuffer_SuperCustomEvent(QBuffer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnCustomEvent(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_CustomEvent_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +767,8 @@ void QBuffer_SuperSetOpenMode(QBuffer* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSetOpenMode(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_SetOpenMode_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +797,8 @@ void QBuffer_SuperSetErrorString(QBuffer* self, const libqt_string errorString) 
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSetErrorString(QBuffer* self, intptr_t slot) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_SetErrorString_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +825,8 @@ QObject* QBuffer_SuperSender(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSender(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Sender_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +853,8 @@ int QBuffer_SuperSenderSignalIndex(const QBuffer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnSenderSignalIndex(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +881,8 @@ int QBuffer_SuperReceivers(const QBuffer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnReceivers(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_Receivers_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +909,8 @@ bool QBuffer_SuperIsSignalConnected(const QBuffer* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QBuffer_OnIsSignalConnected(const QBuffer* self, intptr_t slot) {
     auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+    if (vqbuffer && vqbuffer->isVirtualQBuffer)
         vqbuffer->setQBuffer_IsSignalConnected_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBuffer_Delete(QBuffer* self) {

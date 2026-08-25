@@ -2170,7 +2170,7 @@ pub const QPdfPageRenderer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#public-types)
 pub const enums = struct {
-    pub const RenderMode = enum(i32) {
+    pub const RenderMode = enum {
         pub const MultiThreaded: i32 = 0;
         pub const SingleThreaded: i32 = 1;
     };

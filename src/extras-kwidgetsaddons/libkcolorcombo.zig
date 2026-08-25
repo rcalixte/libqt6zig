@@ -2161,6 +2161,31 @@ pub const KColorCombo = extern struct {
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KColorCombo `
+    ///
+    pub fn asQPaintDevice(self: KColorCombo) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KColorCombo object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KColorCombo {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8145,7 +8170,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn paintingActive(self: KColorCombo) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8161,7 +8186,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn widthMM(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8177,7 +8202,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn heightMM(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8193,7 +8218,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn logicalDpiX(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8209,7 +8234,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn logicalDpiY(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8225,7 +8250,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn physicalDpiX(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8241,7 +8266,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn physicalDpiY(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8257,7 +8282,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn devicePixelRatio(self: KColorCombo) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8273,7 +8298,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn devicePixelRatioF(self: KColorCombo) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8289,7 +8314,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn colorCount(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8305,7 +8330,7 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo `
     ///
     pub fn depth(self: KColorCombo) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

@@ -4627,7 +4627,7 @@ pub const QsciLexerHex = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerHex = enum(i32) {
+    pub const QsciLexerHex = enum {
         pub const Default: i32 = 0;
         pub const RecordStart: i32 = 1;
         pub const RecordType: i32 = 2;

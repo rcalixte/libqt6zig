@@ -2900,6 +2900,31 @@ pub const QInputDialog = extern struct {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QInputDialog `
+    ///
+    pub fn asQPaintDevice(self: QInputDialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QInputDialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QInputDialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8884,7 +8909,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn paintingActive(self: QInputDialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8900,7 +8925,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn widthMM(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8916,7 +8941,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn heightMM(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8932,7 +8957,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn logicalDpiX(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8948,7 +8973,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn logicalDpiY(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8964,7 +8989,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn physicalDpiX(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8980,7 +9005,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn physicalDpiY(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8996,7 +9021,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn devicePixelRatio(self: QInputDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9012,7 +9037,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn devicePixelRatioF(self: QInputDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9028,7 +9053,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn colorCount(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9044,7 +9069,7 @@ pub const QInputDialog = extern struct {
     /// ` self: QInputDialog `
     ///
     pub fn depth(self: QInputDialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -12700,13 +12725,13 @@ pub const QInputDialog = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#public-types)
 pub const enums = struct {
-    pub const InputDialogOption = enum(i32) {
+    pub const InputDialogOption = enum {
         pub const NoButtons: i32 = 1;
         pub const UseListViewForComboBoxItems: i32 = 2;
         pub const UsePlainTextEditForTextInput: i32 = 4;
     };
 
-    pub const InputMode = enum(i32) {
+    pub const InputMode = enum {
         pub const TextInput: i32 = 0;
         pub const IntInput: i32 = 1;
         pub const DoubleInput: i32 = 2;

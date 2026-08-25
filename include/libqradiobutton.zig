@@ -1362,6 +1362,31 @@ pub const QRadioButton = extern struct {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRadioButton `
+    ///
+    pub fn asQPaintDevice(self: QRadioButton) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QRadioButton object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QRadioButton {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7346,7 +7371,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn paintingActive(self: QRadioButton) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7362,7 +7387,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn widthMM(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7378,7 +7403,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn heightMM(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7394,7 +7419,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn logicalDpiX(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7410,7 +7435,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn logicalDpiY(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7426,7 +7451,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn physicalDpiX(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7442,7 +7467,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn physicalDpiY(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7458,7 +7483,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn devicePixelRatio(self: QRadioButton) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7474,7 +7499,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn devicePixelRatioF(self: QRadioButton) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7490,7 +7515,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn colorCount(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7506,7 +7531,7 @@ pub const QRadioButton = extern struct {
     /// ` self: QRadioButton `
     ///
     pub fn depth(self: QRadioButton) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

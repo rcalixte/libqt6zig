@@ -422,9 +422,8 @@ QMetaObject* KActionCollection_SuperMetaObject(const KActionCollection* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_MetaObject_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -441,9 +440,8 @@ void* KActionCollection_SuperMetacast(KActionCollection* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_Metacast_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -460,9 +458,8 @@ int KActionCollection_SuperMetacall(KActionCollection* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnMetacall(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_Metacall_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -479,9 +476,8 @@ void KActionCollection_SuperConnectNotify(KActionCollection* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnConnectNotify(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_ConnectNotify_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -498,9 +494,8 @@ void KActionCollection_SuperSlotActionTriggered(KActionCollection* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnSlotActionTriggered(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_SlotActionTriggered_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +522,8 @@ bool KActionCollection_SuperEvent(KActionCollection* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnEvent(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_Event_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +550,8 @@ bool KActionCollection_SuperEventFilter(KActionCollection* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnEventFilter(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_EventFilter_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +578,8 @@ void KActionCollection_SuperTimerEvent(KActionCollection* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnTimerEvent(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_TimerEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +606,8 @@ void KActionCollection_SuperChildEvent(KActionCollection* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnChildEvent(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_ChildEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +634,8 @@ void KActionCollection_SuperCustomEvent(KActionCollection* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnCustomEvent(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_CustomEvent_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +662,8 @@ void KActionCollection_SuperDisconnectNotify(KActionCollection* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnDisconnectNotify(KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +690,8 @@ QObject* KActionCollection_SuperSender(const KActionCollection* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnSender(const KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_Sender_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +718,8 @@ int KActionCollection_SuperSenderSignalIndex(const KActionCollection* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnSenderSignalIndex(const KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +746,8 @@ int KActionCollection_SuperReceivers(const KActionCollection* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnReceivers(const KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_Receivers_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +774,8 @@ bool KActionCollection_SuperIsSignalConnected(const KActionCollection* self, con
 // Auxiliary method to allow providing re-implementation
 void KActionCollection_OnIsSignalConnected(const KActionCollection* self, intptr_t slot) {
     auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
-    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection)
         vkactioncollection->setKActionCollection_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KActionCollection_Delete(KActionCollection* self) {

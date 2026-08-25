@@ -2854,7 +2854,7 @@ pub const QOpenGLDebugLogger = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebug.html#public-types)
 pub const enums = struct {
-    pub const Source = enum(i32) {
+    pub const Source = enum {
         pub const InvalidSource: i32 = 0;
         pub const APISource: i32 = 1;
         pub const WindowSystemSource: i32 = 2;
@@ -2866,7 +2866,7 @@ pub const enums = struct {
         pub const AnySource: i32 = -1;
     };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const InvalidType: i32 = 0;
         pub const ErrorType: i32 = 1;
         pub const DeprecatedBehaviorType: i32 = 2;
@@ -2881,7 +2881,7 @@ pub const enums = struct {
         pub const AnyType: i32 = -1;
     };
 
-    pub const Severity = enum(i32) {
+    pub const Severity = enum {
         pub const InvalidSeverity: i32 = 0;
         pub const HighSeverity: i32 = 1;
         pub const MediumSeverity: i32 = 2;
@@ -2891,7 +2891,7 @@ pub const enums = struct {
         pub const AnySeverity: i32 = -1;
     };
 
-    pub const LoggingMode = enum(i32) {
+    pub const LoggingMode = enum {
         pub const AsynchronousLogging: i32 = 0;
         pub const SynchronousLogging: i32 = 1;
     };

@@ -110,9 +110,8 @@ QMetaObject* KEMailClientLauncherJob_SuperMetaObject(const KEMailClientLauncherJ
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnMetaObject(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +128,8 @@ void* KEMailClientLauncherJob_SuperMetacast(KEMailClientLauncherJob* self, const
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnMetacast(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -148,9 +146,8 @@ int KEMailClientLauncherJob_SuperMetacall(KEMailClientLauncherJob* self, int par
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnMetacall(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +164,8 @@ void KEMailClientLauncherJob_SuperStart(KEMailClientLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnStart(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Start_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +192,8 @@ bool KEMailClientLauncherJob_SuperDoKill(KEMailClientLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoKill(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +220,8 @@ bool KEMailClientLauncherJob_SuperDoSuspend(KEMailClientLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoSuspend(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +248,8 @@ bool KEMailClientLauncherJob_SuperDoResume(KEMailClientLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoResume(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +308,8 @@ libqt_string KEMailClientLauncherJob_SuperErrorString(const KEMailClientLauncher
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnErrorString(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +336,8 @@ bool KEMailClientLauncherJob_SuperEvent(KEMailClientLauncherJob* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEvent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Event_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +364,8 @@ bool KEMailClientLauncherJob_SuperEventFilter(KEMailClientLauncherJob* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEventFilter(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +392,8 @@ void KEMailClientLauncherJob_SuperTimerEvent(KEMailClientLauncherJob* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnTimerEvent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +420,8 @@ void KEMailClientLauncherJob_SuperChildEvent(KEMailClientLauncherJob* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnChildEvent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +448,8 @@ void KEMailClientLauncherJob_SuperCustomEvent(KEMailClientLauncherJob* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnCustomEvent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +476,8 @@ void KEMailClientLauncherJob_SuperConnectNotify(KEMailClientLauncherJob* self, c
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnConnectNotify(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +504,8 @@ void KEMailClientLauncherJob_SuperDisconnectNotify(KEMailClientLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDisconnectNotify(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +532,8 @@ void KEMailClientLauncherJob_SuperSetCapabilities(KEMailClientLauncherJob* self,
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetCapabilities(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +560,8 @@ bool KEMailClientLauncherJob_SuperIsFinished(const KEMailClientLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnIsFinished(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +588,8 @@ void KEMailClientLauncherJob_SuperSetError(KEMailClientLauncherJob* self, int er
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetError(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetError_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +618,8 @@ void KEMailClientLauncherJob_SuperSetErrorText(KEMailClientLauncherJob* self, co
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetErrorText(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +646,8 @@ void KEMailClientLauncherJob_SuperSetProcessedAmount(KEMailClientLauncherJob* se
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetProcessedAmount(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +674,8 @@ void KEMailClientLauncherJob_SuperSetTotalAmount(KEMailClientLauncherJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetTotalAmount(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +702,8 @@ void KEMailClientLauncherJob_SuperSetProgressUnit(KEMailClientLauncherJob* self,
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetProgressUnit(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +730,8 @@ void KEMailClientLauncherJob_SuperSetPercent(KEMailClientLauncherJob* self, unsi
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSetPercent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +758,8 @@ void KEMailClientLauncherJob_SuperEmitResult(KEMailClientLauncherJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEmitResult(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +786,8 @@ void KEMailClientLauncherJob_SuperEmitPercent(KEMailClientLauncherJob* self, uns
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEmitPercent(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +814,8 @@ void KEMailClientLauncherJob_SuperEmitSpeed(KEMailClientLauncherJob* self, unsig
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEmitSpeed(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +842,8 @@ void KEMailClientLauncherJob_SuperStartElapsedTimer(KEMailClientLauncherJob* sel
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnStartElapsedTimer(KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +870,8 @@ QObject* KEMailClientLauncherJob_SuperSender(const KEMailClientLauncherJob* self
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSender(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Sender_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +898,8 @@ int KEMailClientLauncherJob_SuperSenderSignalIndex(const KEMailClientLauncherJob
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnSenderSignalIndex(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +926,8 @@ int KEMailClientLauncherJob_SuperReceivers(const KEMailClientLauncherJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnReceivers(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +954,8 @@ bool KEMailClientLauncherJob_SuperIsSignalConnected(const KEMailClientLauncherJo
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnIsSignalConnected(const KEMailClientLauncherJob* self, intptr_t slot) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
         vkemailclientlauncherjob->setKEMailClientLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KEMailClientLauncherJob_Delete(KEMailClientLauncherJob* self) {

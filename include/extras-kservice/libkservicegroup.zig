@@ -633,7 +633,7 @@ pub const KServiceGroup = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#public-types)
 pub const enums = struct {
-    pub const EntriesOption = enum(i32) {
+    pub const EntriesOption = enum {
         pub const NoOptions: i32 = 0;
         pub const SortEntries: i32 = 1;
         pub const ExcludeNoDisplay: i32 = 2;

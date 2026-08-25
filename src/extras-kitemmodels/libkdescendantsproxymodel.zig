@@ -7499,7 +7499,7 @@ pub const KDescendantsProxyModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kdescendantsproxymodel.html#public-types)
 pub const enums = struct {
-    pub const AdditionalRoles = enum(i32) {
+    pub const AdditionalRoles = enum {
         pub const LevelRole: i32 = 344080282;
         pub const ExpandableRole: i32 = 480810157;
         pub const ExpandedRole: i32 = 507592100;

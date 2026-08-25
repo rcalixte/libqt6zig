@@ -103,9 +103,8 @@ bool KAr_SuperDoPrepareWriting(KAr* self, const libqt_string name, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KAr_OnDoPrepareWriting(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_DoPrepareWriting_Callback(reinterpret_cast<VirtualKAr::KAr_DoPrepareWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +121,8 @@ bool KAr_SuperDoFinishWriting(KAr* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnDoFinishWriting(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_DoFinishWriting_Callback(reinterpret_cast<VirtualKAr::KAr_DoFinishWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +142,8 @@ bool KAr_SuperDoWriteDir(KAr* self, const libqt_string name, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KAr_OnDoWriteDir(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_DoWriteDir_Callback(reinterpret_cast<VirtualKAr::KAr_DoWriteDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +164,8 @@ bool KAr_SuperDoWriteSymLink(KAr* self, const libqt_string name, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KAr_OnDoWriteSymLink(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_DoWriteSymLink_Callback(reinterpret_cast<VirtualKAr::KAr_DoWriteSymLink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +182,8 @@ bool KAr_SuperOpenArchive(KAr* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnOpenArchive(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_OpenArchive_Callback(reinterpret_cast<VirtualKAr::KAr_OpenArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -205,9 +200,8 @@ bool KAr_SuperCloseArchive(KAr* self) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnCloseArchive(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_CloseArchive_Callback(reinterpret_cast<VirtualKAr::KAr_CloseArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +218,8 @@ void KAr_SuperVirtualHook(KAr* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnVirtualHook(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_VirtualHook_Callback(reinterpret_cast<VirtualKAr::KAr_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +246,8 @@ bool KAr_SuperOpen(KAr* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnOpen(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_Open_Callback(reinterpret_cast<VirtualKAr::KAr_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +274,8 @@ bool KAr_SuperClose(KAr* self) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnClose(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_Close_Callback(reinterpret_cast<VirtualKAr::KAr_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +302,8 @@ KArchiveDirectory* KAr_SuperRootDir(KAr* self) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnRootDir(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_RootDir_Callback(reinterpret_cast<VirtualKAr::KAr_RootDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +330,8 @@ bool KAr_SuperDoWriteData(KAr* self, const char* data, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnDoWriteData(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_DoWriteData_Callback(reinterpret_cast<VirtualKAr::KAr_DoWriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +358,8 @@ bool KAr_SuperCreateDevice(KAr* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnCreateDevice(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_CreateDevice_Callback(reinterpret_cast<VirtualKAr::KAr_CreateDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +388,8 @@ void KAr_SuperSetErrorString(KAr* self, const libqt_string errorStr) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnSetErrorString(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_SetErrorString_Callback(reinterpret_cast<VirtualKAr::KAr_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +418,8 @@ KArchiveDirectory* KAr_SuperFindOrCreate(KAr* self, const libqt_string path) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnFindOrCreate(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_FindOrCreate_Callback(reinterpret_cast<VirtualKAr::KAr_FindOrCreate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +446,8 @@ void KAr_SuperSetDevice(KAr* self, QIODevice* dev) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnSetDevice(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_SetDevice_Callback(reinterpret_cast<VirtualKAr::KAr_SetDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +474,8 @@ void KAr_SuperSetRootDir(KAr* self, KArchiveDirectory* rootDir) {
 // Auxiliary method to allow providing re-implementation
 void KAr_OnSetRootDir(KAr* self, intptr_t slot) {
     auto* vkar = dynamic_cast<VirtualKAr*>(self);
-    if (vkar && vkar->isVirtualKAr) {
+    if (vkar && vkar->isVirtualKAr)
         vkar->setKAr_SetRootDir_Callback(reinterpret_cast<VirtualKAr::KAr_SetRootDir_Callback>(slot));
-    }
 }
 
 void KAr_Delete(KAr* self) {

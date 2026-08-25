@@ -2000,7 +2000,7 @@ pub const KColorSchemeWatcher = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcolorschemewatcher.html#public-types)
 pub const enums = struct {
-    pub const ColorPreference = enum(i32) {
+    pub const ColorPreference = enum {
         pub const NoPreference: i32 = 0;
         pub const PreferDark: i32 = 1;
         pub const PreferLight: i32 = 2;

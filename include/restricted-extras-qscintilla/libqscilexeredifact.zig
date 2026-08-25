@@ -4541,7 +4541,7 @@ pub const QsciLexerEDIFACT = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerEDIFACT = enum(i32) {
+    pub const QsciLexerEDIFACT = enum {
         pub const Default: i32 = 0;
         pub const SegmentStart: i32 = 1;
         pub const SegmentEnd: i32 = 2;

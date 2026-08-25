@@ -105,9 +105,8 @@ QMetaObject* KTextEditor__InlineNoteProvider_SuperMetaObject(const KTextEditor__
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +123,8 @@ void* KTextEditor__InlineNoteProvider_SuperMetacast(KTextEditor__InlineNoteProvi
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacast_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +141,8 @@ int KTextEditor__InlineNoteProvider_SuperMetacall(KTextEditor__InlineNoteProvide
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnMetacall(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacall_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +177,8 @@ libqt_list /* of int */ KTextEditor__InlineNoteProvider_SuperInlineNotes(const K
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNotes(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNotes_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNotes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +195,8 @@ QSize* KTextEditor__InlineNoteProvider_SuperInlineNoteSize(const KTextEditor__In
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNoteSize(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteSize_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNoteSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -218,9 +213,8 @@ void KTextEditor__InlineNoteProvider_SuperPaintInlineNote(const KTextEditor__Inl
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnPaintInlineNote(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_PaintInlineNote_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_PaintInlineNote_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +231,8 @@ void KTextEditor__InlineNoteProvider_SuperInlineNoteActivated(KTextEditor__Inlin
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNoteActivated(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteActivated_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNoteActivated_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +249,8 @@ void KTextEditor__InlineNoteProvider_SuperInlineNoteFocusInEvent(KTextEditor__In
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteFocusInEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNoteFocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -275,9 +267,8 @@ void KTextEditor__InlineNoteProvider_SuperInlineNoteFocusOutEvent(KTextEditor__I
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNoteFocusOutEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteFocusOutEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNoteFocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -294,9 +285,8 @@ void KTextEditor__InlineNoteProvider_SuperInlineNoteMouseMoveEvent(KTextEditor__
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnInlineNoteMouseMoveEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNoteMouseMoveEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_InlineNoteMouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +313,8 @@ bool KTextEditor__InlineNoteProvider_SuperEvent(KTextEditor__InlineNoteProvider*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Event_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +341,8 @@ bool KTextEditor__InlineNoteProvider_SuperEventFilter(KTextEditor__InlineNotePro
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnEventFilter(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +369,8 @@ void KTextEditor__InlineNoteProvider_SuperTimerEvent(KTextEditor__InlineNoteProv
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnTimerEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +397,8 @@ void KTextEditor__InlineNoteProvider_SuperChildEvent(KTextEditor__InlineNoteProv
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnChildEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +425,8 @@ void KTextEditor__InlineNoteProvider_SuperCustomEvent(KTextEditor__InlineNotePro
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnCustomEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +453,8 @@ void KTextEditor__InlineNoteProvider_SuperConnectNotify(KTextEditor__InlineNoteP
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnConnectNotify(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +481,8 @@ void KTextEditor__InlineNoteProvider_SuperDisconnectNotify(KTextEditor__InlineNo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnDisconnectNotify(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +509,8 @@ QObject* KTextEditor__InlineNoteProvider_SuperSender(const KTextEditor__InlineNo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnSender(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Sender_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +537,8 @@ int KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(const KTextEditor__In
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnSenderSignalIndex(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +565,8 @@ int KTextEditor__InlineNoteProvider_SuperReceivers(const KTextEditor__InlineNote
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnReceivers(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Receivers_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +593,8 @@ bool KTextEditor__InlineNoteProvider_SuperIsSignalConnected(const KTextEditor__I
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__InlineNoteProvider_OnIsSignalConnected(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
-    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider)
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__InlineNoteProvider_Delete(KTextEditor__InlineNoteProvider* self) {

@@ -4485,7 +4485,7 @@ pub const QsciLexerAVS = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerAVS = enum(i32) {
+    pub const QsciLexerAVS = enum {
         pub const Default: i32 = 0;
         pub const BlockComment: i32 = 1;
         pub const NestedBlockComment: i32 = 2;

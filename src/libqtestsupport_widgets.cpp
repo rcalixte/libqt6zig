@@ -71,9 +71,8 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_SuperStationa
 // Auxiliary method to allow providing re-implementation
 void QTest__QTouchEventWidgetSequence_OnStationary(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence)
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Stationary_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +89,8 @@ bool QTest__QTouchEventWidgetSequence_SuperCommit(QTest__QTouchEventWidgetSequen
 // Auxiliary method to allow providing re-implementation
 void QTest__QTouchEventWidgetSequence_OnCommit(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence)
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Commit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -117,9 +115,8 @@ QEventPoint* QTest__QTouchEventWidgetSequence_SuperPoint(QTest__QTouchEventWidge
 // Auxiliary method to allow providing re-implementation
 void QTest__QTouchEventWidgetSequence_OnPoint(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence)
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Point_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_Point_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -144,9 +141,8 @@ QEventPoint* QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(QTest__Q
 // Auxiliary method to allow providing re-implementation
 void QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, intptr_t slot) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
+    if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence)
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_PointOrPreviousPoint_Callback(reinterpret_cast<VirtualQTestQTouchEventWidgetSequence::QTest__QTouchEventWidgetSequence_PointOrPreviousPoint_Callback>(slot));
-    }
 }
 
 void QTest__QTouchEventWidgetSequence_Delete(QTest__QTouchEventWidgetSequence* self) {

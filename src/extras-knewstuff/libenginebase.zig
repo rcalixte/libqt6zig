@@ -2841,7 +2841,7 @@ pub const KNSCore__EngineBase = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#public-types)
 pub const enums = struct {
-    pub const ContentWarningType = enum(i32) {
+    pub const ContentWarningType = enum {
         pub const Static: i32 = 0;
         pub const Executables: i32 = 1;
     };

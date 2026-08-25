@@ -182,9 +182,8 @@ QMetaObject* QKeychain__ReadPasswordJob_SuperMetaObject(const QKeychain__ReadPas
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnMetaObject(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +200,8 @@ void* QKeychain__ReadPasswordJob_SuperMetacast(QKeychain__ReadPasswordJob* self,
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnMetacast(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +218,8 @@ int QKeychain__ReadPasswordJob_SuperMetacall(QKeychain__ReadPasswordJob* self, i
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnMetacall(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacall_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +246,8 @@ bool QKeychain__ReadPasswordJob_SuperEvent(QKeychain__ReadPasswordJob* self, QEv
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnEvent(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Event_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +274,8 @@ bool QKeychain__ReadPasswordJob_SuperEventFilter(QKeychain__ReadPasswordJob* sel
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnEventFilter(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_EventFilter_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +302,8 @@ void QKeychain__ReadPasswordJob_SuperTimerEvent(QKeychain__ReadPasswordJob* self
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnTimerEvent(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_TimerEvent_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +330,8 @@ void QKeychain__ReadPasswordJob_SuperChildEvent(QKeychain__ReadPasswordJob* self
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnChildEvent(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_ChildEvent_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +358,8 @@ void QKeychain__ReadPasswordJob_SuperCustomEvent(QKeychain__ReadPasswordJob* sel
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnCustomEvent(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_CustomEvent_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +386,8 @@ void QKeychain__ReadPasswordJob_SuperConnectNotify(QKeychain__ReadPasswordJob* s
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnConnectNotify(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_ConnectNotify_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +414,8 @@ void QKeychain__ReadPasswordJob_SuperDisconnectNotify(QKeychain__ReadPasswordJob
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnDisconnectNotify(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +442,8 @@ void QKeychain__ReadPasswordJob_SuperDoStart(QKeychain__ReadPasswordJob* self) {
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnDoStart(QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_DoStart_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_DoStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +470,8 @@ QObject* QKeychain__ReadPasswordJob_SuperSender(const QKeychain__ReadPasswordJob
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnSender(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Sender_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +498,8 @@ int QKeychain__ReadPasswordJob_SuperSenderSignalIndex(const QKeychain__ReadPassw
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnSenderSignalIndex(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +526,8 @@ int QKeychain__ReadPasswordJob_SuperReceivers(const QKeychain__ReadPasswordJob* 
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnReceivers(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Receivers_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +554,8 @@ bool QKeychain__ReadPasswordJob_SuperIsSignalConnected(const QKeychain__ReadPass
 // Auxiliary method to allow providing re-implementation
 void QKeychain__ReadPasswordJob_OnIsSignalConnected(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
-    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob)
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QKeychain__ReadPasswordJob_Delete(QKeychain__ReadPasswordJob* self) {
@@ -623,9 +608,8 @@ QMetaObject* QKeychain__WritePasswordJob_SuperMetaObject(const QKeychain__WriteP
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnMetaObject(const QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -642,9 +626,8 @@ void* QKeychain__WritePasswordJob_SuperMetacast(QKeychain__WritePasswordJob* sel
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnMetacast(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -661,9 +644,8 @@ int QKeychain__WritePasswordJob_SuperMetacall(QKeychain__WritePasswordJob* self,
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnMetacall(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacall_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +672,8 @@ bool QKeychain__WritePasswordJob_SuperEvent(QKeychain__WritePasswordJob* self, Q
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnEvent(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Event_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +700,8 @@ bool QKeychain__WritePasswordJob_SuperEventFilter(QKeychain__WritePasswordJob* s
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnEventFilter(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_EventFilter_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +728,8 @@ void QKeychain__WritePasswordJob_SuperTimerEvent(QKeychain__WritePasswordJob* se
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnTimerEvent(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_TimerEvent_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +756,8 @@ void QKeychain__WritePasswordJob_SuperChildEvent(QKeychain__WritePasswordJob* se
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnChildEvent(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_ChildEvent_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +784,8 @@ void QKeychain__WritePasswordJob_SuperCustomEvent(QKeychain__WritePasswordJob* s
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnCustomEvent(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_CustomEvent_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +812,8 @@ void QKeychain__WritePasswordJob_SuperConnectNotify(QKeychain__WritePasswordJob*
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnConnectNotify(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_ConnectNotify_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +840,8 @@ void QKeychain__WritePasswordJob_SuperDisconnectNotify(QKeychain__WritePasswordJ
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnDisconnectNotify(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +868,8 @@ void QKeychain__WritePasswordJob_SuperDoStart(QKeychain__WritePasswordJob* self)
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnDoStart(QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_DoStart_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_DoStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +896,8 @@ QObject* QKeychain__WritePasswordJob_SuperSender(const QKeychain__WritePasswordJ
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnSender(const QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Sender_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +924,8 @@ int QKeychain__WritePasswordJob_SuperSenderSignalIndex(const QKeychain__WritePas
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnSenderSignalIndex(const QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +952,8 @@ int QKeychain__WritePasswordJob_SuperReceivers(const QKeychain__WritePasswordJob
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnReceivers(const QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Receivers_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +980,8 @@ bool QKeychain__WritePasswordJob_SuperIsSignalConnected(const QKeychain__WritePa
 // Auxiliary method to allow providing re-implementation
 void QKeychain__WritePasswordJob_OnIsSignalConnected(const QKeychain__WritePasswordJob* self, intptr_t slot) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
-    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob)
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QKeychain__WritePasswordJob_Delete(QKeychain__WritePasswordJob* self) {
@@ -1054,9 +1024,8 @@ QMetaObject* QKeychain__DeletePasswordJob_SuperMetaObject(const QKeychain__Delet
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnMetaObject(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1073,9 +1042,8 @@ void* QKeychain__DeletePasswordJob_SuperMetacast(QKeychain__DeletePasswordJob* s
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnMetacast(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1092,9 +1060,8 @@ int QKeychain__DeletePasswordJob_SuperMetacall(QKeychain__DeletePasswordJob* sel
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnMetacall(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacall_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1088,8 @@ bool QKeychain__DeletePasswordJob_SuperEvent(QKeychain__DeletePasswordJob* self,
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnEvent(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Event_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1116,8 @@ bool QKeychain__DeletePasswordJob_SuperEventFilter(QKeychain__DeletePasswordJob*
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnEventFilter(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_EventFilter_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1144,8 @@ void QKeychain__DeletePasswordJob_SuperTimerEvent(QKeychain__DeletePasswordJob* 
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnTimerEvent(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_TimerEvent_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1172,8 @@ void QKeychain__DeletePasswordJob_SuperChildEvent(QKeychain__DeletePasswordJob* 
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnChildEvent(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_ChildEvent_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1200,8 @@ void QKeychain__DeletePasswordJob_SuperCustomEvent(QKeychain__DeletePasswordJob*
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnCustomEvent(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_CustomEvent_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1228,8 @@ void QKeychain__DeletePasswordJob_SuperConnectNotify(QKeychain__DeletePasswordJo
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnConnectNotify(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_ConnectNotify_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1256,8 @@ void QKeychain__DeletePasswordJob_SuperDisconnectNotify(QKeychain__DeletePasswor
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnDisconnectNotify(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1284,8 @@ void QKeychain__DeletePasswordJob_SuperDoStart(QKeychain__DeletePasswordJob* sel
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnDoStart(QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_DoStart_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_DoStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1312,8 @@ QObject* QKeychain__DeletePasswordJob_SuperSender(const QKeychain__DeletePasswor
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnSender(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Sender_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1340,8 @@ int QKeychain__DeletePasswordJob_SuperSenderSignalIndex(const QKeychain__DeleteP
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnSenderSignalIndex(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1368,8 @@ int QKeychain__DeletePasswordJob_SuperReceivers(const QKeychain__DeletePasswordJ
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnReceivers(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Receivers_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1396,8 @@ bool QKeychain__DeletePasswordJob_SuperIsSignalConnected(const QKeychain__Delete
 // Auxiliary method to allow providing re-implementation
 void QKeychain__DeletePasswordJob_OnIsSignalConnected(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
-    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob)
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QKeychain__DeletePasswordJob_Delete(QKeychain__DeletePasswordJob* self) {

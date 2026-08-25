@@ -196,9 +196,8 @@ QMetaObject* KLanguageButton_SuperMetaObject(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetaObject(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MetaObject_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +214,8 @@ void* KLanguageButton_SuperMetacast(KLanguageButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetacast(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Metacast_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +232,8 @@ int KLanguageButton_SuperMetacall(KLanguageButton* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetacall(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Metacall_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +260,8 @@ int KLanguageButton_SuperDevType(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDevType(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DevType_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +288,8 @@ void KLanguageButton_SuperSetVisible(KLanguageButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSetVisible(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_SetVisible_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +316,8 @@ QSize* KLanguageButton_SuperSizeHint(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSizeHint(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_SizeHint_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +344,8 @@ QSize* KLanguageButton_SuperMinimumSizeHint(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMinimumSizeHint(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +372,8 @@ int KLanguageButton_SuperHeightForWidth(const KLanguageButton* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnHeightForWidth(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_HeightForWidth_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +400,8 @@ bool KLanguageButton_SuperHasHeightForWidth(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnHasHeightForWidth(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +428,8 @@ QPaintEngine* KLanguageButton_SuperPaintEngine(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnPaintEngine(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_PaintEngine_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +456,8 @@ bool KLanguageButton_SuperEvent(KLanguageButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Event_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +484,8 @@ void KLanguageButton_SuperMousePressEvent(KLanguageButton* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMousePressEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MousePressEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +512,8 @@ void KLanguageButton_SuperMouseReleaseEvent(KLanguageButton* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseReleaseEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +540,8 @@ void KLanguageButton_SuperMouseDoubleClickEvent(KLanguageButton* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseDoubleClickEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +568,8 @@ void KLanguageButton_SuperMouseMoveEvent(KLanguageButton* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMouseMoveEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +596,8 @@ void KLanguageButton_SuperWheelEvent(KLanguageButton* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnWheelEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_WheelEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +624,8 @@ void KLanguageButton_SuperKeyPressEvent(KLanguageButton* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnKeyPressEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +652,8 @@ void KLanguageButton_SuperKeyReleaseEvent(KLanguageButton* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnKeyReleaseEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +680,8 @@ void KLanguageButton_SuperFocusInEvent(KLanguageButton* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusInEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_FocusInEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +708,8 @@ void KLanguageButton_SuperFocusOutEvent(KLanguageButton* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusOutEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +736,8 @@ void KLanguageButton_SuperEnterEvent(KLanguageButton* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEnterEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_EnterEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +764,8 @@ void KLanguageButton_SuperLeaveEvent(KLanguageButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnLeaveEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_LeaveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +792,8 @@ void KLanguageButton_SuperPaintEvent(KLanguageButton* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnPaintEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_PaintEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +820,8 @@ void KLanguageButton_SuperMoveEvent(KLanguageButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMoveEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_MoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +848,8 @@ void KLanguageButton_SuperResizeEvent(KLanguageButton* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnResizeEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ResizeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +876,8 @@ void KLanguageButton_SuperCloseEvent(KLanguageButton* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnCloseEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_CloseEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +904,8 @@ void KLanguageButton_SuperContextMenuEvent(KLanguageButton* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnContextMenuEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +932,8 @@ void KLanguageButton_SuperTabletEvent(KLanguageButton* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnTabletEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_TabletEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +960,8 @@ void KLanguageButton_SuperActionEvent(KLanguageButton* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnActionEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ActionEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +988,8 @@ void KLanguageButton_SuperDragEnterEvent(KLanguageButton* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragEnterEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1016,8 @@ void KLanguageButton_SuperDragMoveEvent(KLanguageButton* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragMoveEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1044,8 @@ void KLanguageButton_SuperDragLeaveEvent(KLanguageButton* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDragLeaveEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1072,8 @@ void KLanguageButton_SuperDropEvent(KLanguageButton* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDropEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DropEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1100,8 @@ void KLanguageButton_SuperShowEvent(KLanguageButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnShowEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ShowEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1128,8 @@ void KLanguageButton_SuperHideEvent(KLanguageButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnHideEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_HideEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1158,8 @@ bool KLanguageButton_SuperNativeEvent(KLanguageButton* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnNativeEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_NativeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1186,8 @@ void KLanguageButton_SuperChangeEvent(KLanguageButton* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnChangeEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ChangeEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1214,8 @@ int KLanguageButton_SuperMetric(const KLanguageButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnMetric(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Metric_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1242,8 @@ void KLanguageButton_SuperInitPainter(const KLanguageButton* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnInitPainter(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_InitPainter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1270,8 @@ QPaintDevice* KLanguageButton_SuperRedirected(const KLanguageButton* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnRedirected(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Redirected_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1298,8 @@ QPainter* KLanguageButton_SuperSharedPainter(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSharedPainter(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_SharedPainter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1326,8 @@ void KLanguageButton_SuperInputMethodEvent(KLanguageButton* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnInputMethodEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1354,8 @@ QVariant* KLanguageButton_SuperInputMethodQuery(const KLanguageButton* self, int
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnInputMethodQuery(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1382,8 @@ bool KLanguageButton_SuperFocusNextPrevChild(KLanguageButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusNextPrevChild(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1410,8 @@ bool KLanguageButton_SuperEventFilter(KLanguageButton* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnEventFilter(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_EventFilter_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1438,8 @@ void KLanguageButton_SuperTimerEvent(KLanguageButton* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnTimerEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_TimerEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1466,8 @@ void KLanguageButton_SuperChildEvent(KLanguageButton* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnChildEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ChildEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1494,8 @@ void KLanguageButton_SuperCustomEvent(KLanguageButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnCustomEvent(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_CustomEvent_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1522,8 @@ void KLanguageButton_SuperConnectNotify(KLanguageButton* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnConnectNotify(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_ConnectNotify_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1550,8 @@ void KLanguageButton_SuperDisconnectNotify(KLanguageButton* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDisconnectNotify(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1578,8 @@ void KLanguageButton_SuperUpdateMicroFocus(KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnUpdateMicroFocus(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1606,8 @@ void KLanguageButton_SuperCreate(KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnCreate(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Create_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1634,8 @@ void KLanguageButton_SuperDestroy(KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnDestroy(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Destroy_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1662,8 @@ bool KLanguageButton_SuperFocusNextChild(KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusNextChild(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_FocusNextChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1690,8 @@ bool KLanguageButton_SuperFocusPreviousChild(KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnFocusPreviousChild(KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1718,8 @@ QObject* KLanguageButton_SuperSender(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSender(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Sender_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1746,8 @@ int KLanguageButton_SuperSenderSignalIndex(const KLanguageButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnSenderSignalIndex(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1774,8 @@ int KLanguageButton_SuperReceivers(const KLanguageButton* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnReceivers(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_Receivers_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1802,8 @@ bool KLanguageButton_SuperIsSignalConnected(const KLanguageButton* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnIsSignalConnected(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1830,8 @@ double KLanguageButton_SuperGetDecodedMetricF(const KLanguageButton* self, int m
 // Auxiliary method to allow providing re-implementation
 void KLanguageButton_OnGetDecodedMetricF(const KLanguageButton* self, intptr_t slot) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton)
         vklanguagebutton->setKLanguageButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KLanguageButton_Delete(KLanguageButton* self) {

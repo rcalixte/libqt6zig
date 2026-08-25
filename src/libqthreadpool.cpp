@@ -135,9 +135,8 @@ QMetaObject* QThreadPool_SuperMetaObject(const QThreadPool* self) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnMetaObject(const QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_MetaObject_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +153,8 @@ void* QThreadPool_SuperMetacast(QThreadPool* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnMetacast(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_Metacast_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +171,8 @@ int QThreadPool_SuperMetacall(QThreadPool* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnMetacall(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_Metacall_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -202,9 +199,8 @@ bool QThreadPool_SuperEvent(QThreadPool* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnEvent(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_Event_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +227,8 @@ bool QThreadPool_SuperEventFilter(QThreadPool* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnEventFilter(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_EventFilter_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +255,8 @@ void QThreadPool_SuperTimerEvent(QThreadPool* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnTimerEvent(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_TimerEvent_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +283,8 @@ void QThreadPool_SuperChildEvent(QThreadPool* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnChildEvent(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_ChildEvent_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +311,8 @@ void QThreadPool_SuperCustomEvent(QThreadPool* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnCustomEvent(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_CustomEvent_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +339,8 @@ void QThreadPool_SuperConnectNotify(QThreadPool* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnConnectNotify(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_ConnectNotify_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +367,8 @@ void QThreadPool_SuperDisconnectNotify(QThreadPool* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnDisconnectNotify(QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_DisconnectNotify_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +395,8 @@ QObject* QThreadPool_SuperSender(const QThreadPool* self) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnSender(const QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_Sender_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +423,8 @@ int QThreadPool_SuperSenderSignalIndex(const QThreadPool* self) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnSenderSignalIndex(const QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_SenderSignalIndex_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +451,8 @@ int QThreadPool_SuperReceivers(const QThreadPool* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnReceivers(const QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_Receivers_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +479,8 @@ bool QThreadPool_SuperIsSignalConnected(const QThreadPool* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QThreadPool_OnIsSignalConnected(const QThreadPool* self, intptr_t slot) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool)
         vqthreadpool->setQThreadPool_IsSignalConnected_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QThreadPool_Delete(QThreadPool* self) {

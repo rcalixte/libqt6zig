@@ -114,9 +114,8 @@ QMetaObject* KCheckableProxyModel_SuperMetaObject(const KCheckableProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMetaObject(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +132,8 @@ void* KCheckableProxyModel_SuperMetacast(KCheckableProxyModel* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMetacast(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Metacast_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +150,8 @@ int KCheckableProxyModel_SuperMetacall(KCheckableProxyModel* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMetacall(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Metacall_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +168,8 @@ int KCheckableProxyModel_SuperFlags(const KCheckableProxyModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnFlags(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Flags_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +186,8 @@ QVariant* KCheckableProxyModel_SuperData(const KCheckableProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Data_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +204,8 @@ bool KCheckableProxyModel_SuperSetData(KCheckableProxyModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +222,8 @@ void KCheckableProxyModel_SuperSetSourceModel(KCheckableProxyModel* self, QAbstr
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetSourceModel(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -285,9 +278,8 @@ libqt_map /* of int to libqt_string */ KCheckableProxyModel_SuperRoleNames(const
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnRoleNames(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +296,8 @@ bool KCheckableProxyModel_SuperSelect(KCheckableProxyModel* self, const QItemSel
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSelect(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Select_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Select_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ int KCheckableProxyModel_SuperColumnCount(const KCheckableProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnColumnCount(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ QModelIndex* KCheckableProxyModel_SuperIndex(const KCheckableProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnIndex(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Index_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ QModelIndex* KCheckableProxyModel_SuperMapFromSource(const KCheckableProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMapFromSource(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ QModelIndex* KCheckableProxyModel_SuperMapToSource(const KCheckableProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMapToSource(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ QModelIndex* KCheckableProxyModel_SuperParent(const KCheckableProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnParent(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Parent_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ int KCheckableProxyModel_SuperRowCount(const KCheckableProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnRowCount(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_RowCount_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ QVariant* KCheckableProxyModel_SuperHeaderData(const KCheckableProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnHeaderData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ bool KCheckableProxyModel_SuperDropMimeData(KCheckableProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnDropMimeData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ QModelIndex* KCheckableProxyModel_SuperSibling(const KCheckableProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSibling(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Sibling_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ QItemSelection* KCheckableProxyModel_SuperMapSelectionFromSource(const KCheckabl
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMapSelectionFromSource(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ QItemSelection* KCheckableProxyModel_SuperMapSelectionToSource(const KCheckableP
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMapSelectionToSource(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +668,8 @@ libqt_list /* of QModelIndex* */ KCheckableProxyModel_SuperMatch(const KCheckabl
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMatch(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Match_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +696,8 @@ bool KCheckableProxyModel_SuperInsertColumns(KCheckableProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnInsertColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +724,8 @@ bool KCheckableProxyModel_SuperInsertRows(KCheckableProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnInsertRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +752,8 @@ bool KCheckableProxyModel_SuperRemoveColumns(KCheckableProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnRemoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +780,8 @@ bool KCheckableProxyModel_SuperRemoveRows(KCheckableProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnRemoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +808,8 @@ bool KCheckableProxyModel_SuperMoveRows(KCheckableProxyModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +836,8 @@ bool KCheckableProxyModel_SuperMoveColumns(KCheckableProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +864,8 @@ bool KCheckableProxyModel_SuperSubmit(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSubmit(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Submit_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +892,8 @@ void KCheckableProxyModel_SuperRevert(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnRevert(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Revert_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +976,8 @@ libqt_map /* of int to QVariant* */ KCheckableProxyModel_SuperItemData(const KCh
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnItemData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ItemData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1016,8 @@ bool KCheckableProxyModel_SuperSetItemData(KCheckableProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetItemData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1044,8 @@ bool KCheckableProxyModel_SuperSetHeaderData(KCheckableProxyModel* self, int sec
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetHeaderData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1072,8 @@ bool KCheckableProxyModel_SuperClearItemData(KCheckableProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnClearItemData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1100,8 @@ QModelIndex* KCheckableProxyModel_SuperBuddy(const KCheckableProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBuddy(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Buddy_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1128,8 @@ bool KCheckableProxyModel_SuperCanFetchMore(const KCheckableProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnCanFetchMore(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1156,8 @@ void KCheckableProxyModel_SuperFetchMore(KCheckableProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnFetchMore(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1184,8 @@ void KCheckableProxyModel_SuperSort(KCheckableProxyModel* self, int column, int 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSort(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Sort_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1212,8 @@ QSize* KCheckableProxyModel_SuperSpan(const KCheckableProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSpan(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Span_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1240,8 @@ bool KCheckableProxyModel_SuperHasChildren(const KCheckableProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnHasChildren(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1280,8 @@ QMimeData* KCheckableProxyModel_SuperMimeData(const KCheckableProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMimeData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MimeData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1308,8 @@ bool KCheckableProxyModel_SuperCanDropMimeData(const KCheckableProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnCanDropMimeData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1404,8 @@ libqt_list /* of libqt_string */ KCheckableProxyModel_SuperMimeTypes(const KChec
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMimeTypes(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1432,8 @@ int KCheckableProxyModel_SuperSupportedDragActions(const KCheckableProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSupportedDragActions(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1460,8 @@ int KCheckableProxyModel_SuperSupportedDropActions(const KCheckableProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSupportedDropActions(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1488,8 @@ void KCheckableProxyModel_SuperMultiData(const KCheckableProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnMultiData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_MultiData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1516,8 @@ void KCheckableProxyModel_SuperResetInternalData(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnResetInternalData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1544,8 @@ bool KCheckableProxyModel_SuperEvent(KCheckableProxyModel* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEvent(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Event_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1572,8 @@ bool KCheckableProxyModel_SuperEventFilter(KCheckableProxyModel* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEventFilter(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1600,8 @@ void KCheckableProxyModel_SuperTimerEvent(KCheckableProxyModel* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnTimerEvent(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1628,8 @@ void KCheckableProxyModel_SuperChildEvent(KCheckableProxyModel* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnChildEvent(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1656,8 @@ void KCheckableProxyModel_SuperCustomEvent(KCheckableProxyModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnCustomEvent(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1684,8 @@ void KCheckableProxyModel_SuperConnectNotify(KCheckableProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnConnectNotify(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1712,8 @@ void KCheckableProxyModel_SuperDisconnectNotify(KCheckableProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnDisconnectNotify(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1740,8 @@ void KCheckableProxyModel_SuperSetHandleSourceLayoutChanges(KCheckableProxyModel
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetHandleSourceLayoutChanges(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetHandleSourceLayoutChanges_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetHandleSourceLayoutChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1768,8 @@ void KCheckableProxyModel_SuperSetHandleSourceDataChanges(KCheckableProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSetHandleSourceDataChanges(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SetHandleSourceDataChanges_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SetHandleSourceDataChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1849,9 +1794,8 @@ QModelIndex* KCheckableProxyModel_SuperCreateSourceIndex(const KCheckableProxyMo
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnCreateSourceIndex(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1820,8 @@ QModelIndex* KCheckableProxyModel_SuperCreateIndex(const KCheckableProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnCreateIndex(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1917,9 +1860,8 @@ void KCheckableProxyModel_SuperEncodeData(const KCheckableProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEncodeData(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1946,9 +1888,8 @@ bool KCheckableProxyModel_SuperDecodeData(KCheckableProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnDecodeData(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1975,9 +1916,8 @@ void KCheckableProxyModel_SuperBeginInsertRows(KCheckableProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginInsertRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2004,9 +1944,8 @@ void KCheckableProxyModel_SuperEndInsertRows(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndInsertRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2033,9 +1972,8 @@ void KCheckableProxyModel_SuperBeginRemoveRows(KCheckableProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginRemoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2062,9 +2000,8 @@ void KCheckableProxyModel_SuperEndRemoveRows(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndRemoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2091,9 +2028,8 @@ bool KCheckableProxyModel_SuperBeginMoveRows(KCheckableProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginMoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2120,9 +2056,8 @@ void KCheckableProxyModel_SuperEndMoveRows(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndMoveRows(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2149,9 +2084,8 @@ void KCheckableProxyModel_SuperBeginInsertColumns(KCheckableProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginInsertColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2178,9 +2112,8 @@ void KCheckableProxyModel_SuperEndInsertColumns(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndInsertColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2207,9 +2140,8 @@ void KCheckableProxyModel_SuperBeginRemoveColumns(KCheckableProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginRemoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2236,9 +2168,8 @@ void KCheckableProxyModel_SuperEndRemoveColumns(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndRemoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2265,9 +2196,8 @@ bool KCheckableProxyModel_SuperBeginMoveColumns(KCheckableProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginMoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2294,9 +2224,8 @@ void KCheckableProxyModel_SuperEndMoveColumns(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndMoveColumns(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2323,9 +2252,8 @@ void KCheckableProxyModel_SuperBeginResetModel(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnBeginResetModel(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2352,9 +2280,8 @@ void KCheckableProxyModel_SuperEndResetModel(KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnEndResetModel(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2381,9 +2308,8 @@ void KCheckableProxyModel_SuperChangePersistentIndex(KCheckableProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnChangePersistentIndex(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2434,9 +2360,8 @@ void KCheckableProxyModel_SuperChangePersistentIndexList(KCheckableProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnChangePersistentIndexList(KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2499,9 +2424,8 @@ libqt_list /* of QModelIndex* */ KCheckableProxyModel_SuperPersistentIndexList(c
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnPersistentIndexList(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2528,9 +2452,8 @@ QObject* KCheckableProxyModel_SuperSender(const KCheckableProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSender(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Sender_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2557,9 +2480,8 @@ int KCheckableProxyModel_SuperSenderSignalIndex(const KCheckableProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnSenderSignalIndex(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2586,9 +2508,8 @@ int KCheckableProxyModel_SuperReceivers(const KCheckableProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnReceivers(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_Receivers_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2615,9 +2536,8 @@ bool KCheckableProxyModel_SuperIsSignalConnected(const KCheckableProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KCheckableProxyModel_OnIsSignalConnected(const KCheckableProxyModel* self, intptr_t slot) {
     auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel)
         vkcheckableproxymodel->setKCheckableProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCheckableProxyModel_Delete(KCheckableProxyModel* self) {

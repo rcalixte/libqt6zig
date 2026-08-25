@@ -1,6 +1,6 @@
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-types.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const FirstType: i32 = 0;
         pub const Empty: i32 = 0;
         pub const Archive: i32 = 1;

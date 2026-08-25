@@ -63,9 +63,8 @@ QMetaObject* KSelectionWatcher_SuperMetaObject(const KSelectionWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnMetaObject(const KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_MetaObject_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -82,9 +81,8 @@ void* KSelectionWatcher_SuperMetacast(KSelectionWatcher* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnMetacast(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_Metacast_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -101,9 +99,8 @@ int KSelectionWatcher_SuperMetacall(KSelectionWatcher* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnMetacall(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_Metacall_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -130,9 +127,8 @@ bool KSelectionWatcher_SuperEvent(KSelectionWatcher* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnEvent(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_Event_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -159,9 +155,8 @@ bool KSelectionWatcher_SuperEventFilter(KSelectionWatcher* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnEventFilter(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_EventFilter_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +183,8 @@ void KSelectionWatcher_SuperTimerEvent(KSelectionWatcher* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnTimerEvent(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_TimerEvent_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +211,8 @@ void KSelectionWatcher_SuperChildEvent(KSelectionWatcher* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnChildEvent(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_ChildEvent_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +239,8 @@ void KSelectionWatcher_SuperCustomEvent(KSelectionWatcher* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnCustomEvent(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_CustomEvent_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +267,8 @@ void KSelectionWatcher_SuperConnectNotify(KSelectionWatcher* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnConnectNotify(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +295,8 @@ void KSelectionWatcher_SuperDisconnectNotify(KSelectionWatcher* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnDisconnectNotify(KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +323,8 @@ QObject* KSelectionWatcher_SuperSender(const KSelectionWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnSender(const KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_Sender_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +351,8 @@ int KSelectionWatcher_SuperSenderSignalIndex(const KSelectionWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnSenderSignalIndex(const KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +379,8 @@ int KSelectionWatcher_SuperReceivers(const KSelectionWatcher* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnReceivers(const KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_Receivers_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +407,8 @@ bool KSelectionWatcher_SuperIsSignalConnected(const KSelectionWatcher* self, con
 // Auxiliary method to allow providing re-implementation
 void KSelectionWatcher_OnIsSignalConnected(const KSelectionWatcher* self, intptr_t slot) {
     auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher)
         vkselectionwatcher->setKSelectionWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSelectionWatcher_Delete(KSelectionWatcher* self) {

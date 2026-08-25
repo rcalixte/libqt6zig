@@ -299,7 +299,7 @@ pub const QStandardPaths = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstandardpaths.html#public-types)
 pub const enums = struct {
-    pub const StandardLocation = enum(i32) {
+    pub const StandardLocation = enum {
         pub const DesktopLocation: i32 = 0;
         pub const DocumentsLocation: i32 = 1;
         pub const FontsLocation: i32 = 2;
@@ -325,7 +325,7 @@ pub const enums = struct {
         pub const GenericStateLocation: i32 = 22;
     };
 
-    pub const LocateOption = enum(i32) {
+    pub const LocateOption = enum {
         pub const LocateFile: i32 = 0;
         pub const LocateDirectory: i32 = 1;
     };

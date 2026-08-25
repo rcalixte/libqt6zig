@@ -21081,13 +21081,13 @@ pub const QAbstractListModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#public-types)
 pub const enums = struct {
-    pub const LayoutChangeHint = enum(i32) {
+    pub const LayoutChangeHint = enum {
         pub const NoLayoutChangeHint: i32 = 0;
         pub const VerticalSortHint: i32 = 1;
         pub const HorizontalSortHint: i32 = 2;
     };
 
-    pub const CheckIndexOption = enum(i32) {
+    pub const CheckIndexOption = enum {
         pub const NoOption: i32 = 0;
         pub const IndexIsValid: i32 = 1;
         pub const DoNotUseParent: i32 = 2;

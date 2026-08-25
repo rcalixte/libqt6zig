@@ -153,9 +153,8 @@ QMetaObject* QTransposeProxyModel_SuperMetaObject(const QTransposeProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMetaObject(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +171,8 @@ void* QTransposeProxyModel_SuperMetacast(QTransposeProxyModel* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMetacast(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Metacast_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +189,8 @@ int QTransposeProxyModel_SuperMetacall(QTransposeProxyModel* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Metacall_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -210,9 +207,8 @@ void QTransposeProxyModel_SuperSetSourceModel(QTransposeProxyModel* self, QAbstr
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +225,8 @@ int QTransposeProxyModel_SuperRowCount(const QTransposeProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnRowCount(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_RowCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +243,8 @@ int QTransposeProxyModel_SuperColumnCount(const QTransposeProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnColumnCount(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +261,8 @@ QVariant* QTransposeProxyModel_SuperHeaderData(const QTransposeProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnHeaderData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +279,8 @@ bool QTransposeProxyModel_SuperSetHeaderData(QTransposeProxyModel* self, int sec
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSetHeaderData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +303,8 @@ bool QTransposeProxyModel_SuperSetItemData(QTransposeProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSetItemData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +321,8 @@ QSize* QTransposeProxyModel_SuperSpan(const QTransposeProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSpan(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Span_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -377,9 +367,8 @@ libqt_map /* of int to QVariant* */ QTransposeProxyModel_SuperItemData(const QTr
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnItemData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -396,9 +385,8 @@ QModelIndex* QTransposeProxyModel_SuperMapFromSource(const QTransposeProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMapFromSource(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -415,9 +403,8 @@ QModelIndex* QTransposeProxyModel_SuperMapToSource(const QTransposeProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMapToSource(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +421,8 @@ QModelIndex* QTransposeProxyModel_SuperParent(const QTransposeProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnParent(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Parent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +439,8 @@ QModelIndex* QTransposeProxyModel_SuperIndex(const QTransposeProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnIndex(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Index_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +457,8 @@ bool QTransposeProxyModel_SuperInsertRows(QTransposeProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnInsertRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +475,8 @@ bool QTransposeProxyModel_SuperRemoveRows(QTransposeProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnRemoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +493,8 @@ bool QTransposeProxyModel_SuperMoveRows(QTransposeProxyModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +511,8 @@ bool QTransposeProxyModel_SuperInsertColumns(QTransposeProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnInsertColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +529,8 @@ bool QTransposeProxyModel_SuperRemoveColumns(QTransposeProxyModel* self, int col
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnRemoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +547,8 @@ bool QTransposeProxyModel_SuperMoveColumns(QTransposeProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -586,9 +565,8 @@ void QTransposeProxyModel_SuperSort(QTransposeProxyModel* self, int column, int 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSort(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Sort_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +593,8 @@ QItemSelection* QTransposeProxyModel_SuperMapSelectionToSource(const QTransposeP
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMapSelectionToSource(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +621,8 @@ QItemSelection* QTransposeProxyModel_SuperMapSelectionFromSource(const QTranspos
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMapSelectionFromSource(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +649,8 @@ bool QTransposeProxyModel_SuperSubmit(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSubmit(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Submit_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +677,8 @@ void QTransposeProxyModel_SuperRevert(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnRevert(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Revert_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +705,8 @@ QVariant* QTransposeProxyModel_SuperData(const QTransposeProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Data_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +733,8 @@ int QTransposeProxyModel_SuperFlags(const QTransposeProxyModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnFlags(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Flags_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +761,8 @@ bool QTransposeProxyModel_SuperSetData(QTransposeProxyModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSetData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SetData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +789,8 @@ bool QTransposeProxyModel_SuperClearItemData(QTransposeProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnClearItemData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +817,8 @@ QModelIndex* QTransposeProxyModel_SuperBuddy(const QTransposeProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBuddy(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Buddy_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +845,8 @@ bool QTransposeProxyModel_SuperCanFetchMore(const QTransposeProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnCanFetchMore(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +873,8 @@ void QTransposeProxyModel_SuperFetchMore(QTransposeProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnFetchMore(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_FetchMore_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +901,8 @@ bool QTransposeProxyModel_SuperHasChildren(const QTransposeProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnHasChildren(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_HasChildren_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +929,8 @@ QModelIndex* QTransposeProxyModel_SuperSibling(const QTransposeProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSibling(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Sibling_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +969,8 @@ QMimeData* QTransposeProxyModel_SuperMimeData(const QTransposeProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMimeData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MimeData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +997,8 @@ bool QTransposeProxyModel_SuperCanDropMimeData(const QTransposeProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnCanDropMimeData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1025,8 @@ bool QTransposeProxyModel_SuperDropMimeData(QTransposeProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnDropMimeData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1121,8 @@ libqt_list /* of libqt_string */ QTransposeProxyModel_SuperMimeTypes(const QTran
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMimeTypes(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1149,8 @@ int QTransposeProxyModel_SuperSupportedDragActions(const QTransposeProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSupportedDragActions(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1177,8 @@ int QTransposeProxyModel_SuperSupportedDropActions(const QTransposeProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSupportedDropActions(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1281,8 @@ libqt_map /* of int to libqt_string */ QTransposeProxyModel_SuperRoleNames(const
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnRoleNames(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_RoleNames_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1345,8 @@ libqt_list /* of QModelIndex* */ QTransposeProxyModel_SuperMatch(const QTranspos
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMatch(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Match_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1373,8 @@ void QTransposeProxyModel_SuperMultiData(const QTransposeProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnMultiData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_MultiData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1401,8 @@ void QTransposeProxyModel_SuperResetInternalData(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnResetInternalData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1429,8 @@ bool QTransposeProxyModel_SuperEvent(QTransposeProxyModel* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEvent(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Event_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1457,8 @@ bool QTransposeProxyModel_SuperEventFilter(QTransposeProxyModel* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEventFilter(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EventFilter_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1485,8 @@ void QTransposeProxyModel_SuperTimerEvent(QTransposeProxyModel* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnTimerEvent(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1513,8 @@ void QTransposeProxyModel_SuperChildEvent(QTransposeProxyModel* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnChildEvent(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1541,8 @@ void QTransposeProxyModel_SuperCustomEvent(QTransposeProxyModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnCustomEvent(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1569,8 @@ void QTransposeProxyModel_SuperConnectNotify(QTransposeProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnConnectNotify(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1597,8 @@ void QTransposeProxyModel_SuperDisconnectNotify(QTransposeProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnDisconnectNotify(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1675,9 +1623,8 @@ QModelIndex* QTransposeProxyModel_SuperCreateSourceIndex(const QTransposeProxyMo
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnCreateSourceIndex(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1649,8 @@ QModelIndex* QTransposeProxyModel_SuperCreateIndex(const QTransposeProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnCreateIndex(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1743,9 +1689,8 @@ void QTransposeProxyModel_SuperEncodeData(const QTransposeProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEncodeData(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EncodeData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1772,9 +1717,8 @@ bool QTransposeProxyModel_SuperDecodeData(QTransposeProxyModel* self, int row, i
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnDecodeData(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_DecodeData_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1801,9 +1745,8 @@ void QTransposeProxyModel_SuperBeginInsertRows(QTransposeProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginInsertRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1830,9 +1773,8 @@ void QTransposeProxyModel_SuperEndInsertRows(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndInsertRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1859,9 +1801,8 @@ void QTransposeProxyModel_SuperBeginRemoveRows(QTransposeProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginRemoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1888,9 +1829,8 @@ void QTransposeProxyModel_SuperEndRemoveRows(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndRemoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1917,9 +1857,8 @@ bool QTransposeProxyModel_SuperBeginMoveRows(QTransposeProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginMoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1946,9 +1885,8 @@ void QTransposeProxyModel_SuperEndMoveRows(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndMoveRows(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1975,9 +1913,8 @@ void QTransposeProxyModel_SuperBeginInsertColumns(QTransposeProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginInsertColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2004,9 +1941,8 @@ void QTransposeProxyModel_SuperEndInsertColumns(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndInsertColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2033,9 +1969,8 @@ void QTransposeProxyModel_SuperBeginRemoveColumns(QTransposeProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginRemoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2062,9 +1997,8 @@ void QTransposeProxyModel_SuperEndRemoveColumns(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndRemoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2091,9 +2025,8 @@ bool QTransposeProxyModel_SuperBeginMoveColumns(QTransposeProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginMoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2120,9 +2053,8 @@ void QTransposeProxyModel_SuperEndMoveColumns(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndMoveColumns(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2149,9 +2081,8 @@ void QTransposeProxyModel_SuperBeginResetModel(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnBeginResetModel(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2178,9 +2109,8 @@ void QTransposeProxyModel_SuperEndResetModel(QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnEndResetModel(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2207,9 +2137,8 @@ void QTransposeProxyModel_SuperChangePersistentIndex(QTransposeProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnChangePersistentIndex(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2260,9 +2189,8 @@ void QTransposeProxyModel_SuperChangePersistentIndexList(QTransposeProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnChangePersistentIndexList(QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2325,9 +2253,8 @@ libqt_list /* of QModelIndex* */ QTransposeProxyModel_SuperPersistentIndexList(c
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnPersistentIndexList(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2354,9 +2281,8 @@ QObject* QTransposeProxyModel_SuperSender(const QTransposeProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSender(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Sender_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2383,9 +2309,8 @@ int QTransposeProxyModel_SuperSenderSignalIndex(const QTransposeProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnSenderSignalIndex(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2412,9 +2337,8 @@ int QTransposeProxyModel_SuperReceivers(const QTransposeProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnReceivers(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_Receivers_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2441,9 +2365,8 @@ bool QTransposeProxyModel_SuperIsSignalConnected(const QTransposeProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QTransposeProxyModel_OnIsSignalConnected(const QTransposeProxyModel* self, intptr_t slot) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
-    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel)
         vqtransposeproxymodel->setQTransposeProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTransposeProxyModel_Delete(QTransposeProxyModel* self) {

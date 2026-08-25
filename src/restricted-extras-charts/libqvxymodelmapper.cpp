@@ -161,9 +161,8 @@ QMetaObject* QVXYModelMapper_SuperMetaObject(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnMetaObject(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QVXYModelMapper_SuperMetacast(QVXYModelMapper* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnMetacast(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QVXYModelMapper_SuperMetacall(QVXYModelMapper* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnMetacall(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QVXYModelMapper_SuperEvent(QVXYModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnEvent(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Event_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QVXYModelMapper_SuperEventFilter(QVXYModelMapper* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnEventFilter(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QVXYModelMapper_SuperTimerEvent(QVXYModelMapper* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnTimerEvent(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QVXYModelMapper_SuperChildEvent(QVXYModelMapper* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnChildEvent(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QVXYModelMapper_SuperCustomEvent(QVXYModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnCustomEvent(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QVXYModelMapper_SuperConnectNotify(QVXYModelMapper* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnConnectNotify(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QVXYModelMapper_SuperDisconnectNotify(QVXYModelMapper* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnDisconnectNotify(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ int QVXYModelMapper_SuperFirst(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnFirst(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_First_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_First_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void QVXYModelMapper_SuperSetFirst(QVXYModelMapper* self, int first) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSetFirst(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QVXYModelMapper_SuperCount(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnCount(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Count_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void QVXYModelMapper_SuperSetCount(QVXYModelMapper* self, int count) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSetCount(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ int QVXYModelMapper_SuperOrientation(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnOrientation(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void QVXYModelMapper_SuperSetOrientation(QVXYModelMapper* self, int orientation)
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSetOrientation(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ int QVXYModelMapper_SuperXSection(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnXSection(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_XSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_XSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ void QVXYModelMapper_SuperSetXSection(QVXYModelMapper* self, int xSection) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSetXSection(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SetXSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetXSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int QVXYModelMapper_SuperYSection(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnYSection(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_YSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_YSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ void QVXYModelMapper_SuperSetYSection(QVXYModelMapper* self, int ySection) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSetYSection(QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SetYSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetYSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QObject* QVXYModelMapper_SuperSender(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSender(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Sender_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ int QVXYModelMapper_SuperSenderSignalIndex(const QVXYModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnSenderSignalIndex(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ int QVXYModelMapper_SuperReceivers(const QVXYModelMapper* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnReceivers(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ bool QVXYModelMapper_SuperIsSignalConnected(const QVXYModelMapper* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnIsSignalConnected(const QVXYModelMapper* self, intptr_t slot) {
     auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
         vqvxymodelmapper->setQVXYModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVXYModelMapper_Delete(QVXYModelMapper* self) {

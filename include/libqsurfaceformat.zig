@@ -727,7 +727,7 @@ pub const QSurfaceFormat = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#public-types)
 pub const enums = struct {
-    pub const FormatOption = enum(i32) {
+    pub const FormatOption = enum {
         pub const StereoBuffers: i32 = 1;
         pub const DebugContext: i32 = 2;
         pub const DeprecatedFunctions: i32 = 4;
@@ -735,27 +735,27 @@ pub const enums = struct {
         pub const ProtectedContent: i32 = 16;
     };
 
-    pub const SwapBehavior = enum(i32) {
+    pub const SwapBehavior = enum {
         pub const DefaultSwapBehavior: i32 = 0;
         pub const SingleBuffer: i32 = 1;
         pub const DoubleBuffer: i32 = 2;
         pub const TripleBuffer: i32 = 3;
     };
 
-    pub const RenderableType = enum(i32) {
+    pub const RenderableType = enum {
         pub const DefaultRenderableType: i32 = 0;
         pub const OpenGL: i32 = 1;
         pub const OpenGLES: i32 = 2;
         pub const OpenVG: i32 = 4;
     };
 
-    pub const OpenGLContextProfile = enum(i32) {
+    pub const OpenGLContextProfile = enum {
         pub const NoProfile: i32 = 0;
         pub const CoreProfile: i32 = 1;
         pub const CompatibilityProfile: i32 = 2;
     };
 
-    pub const ColorSpace = enum(i32) {
+    pub const ColorSpace = enum {
         pub const DefaultColorSpace: i32 = 0;
         pub const SRGBColorSpace: i32 = 1;
     };

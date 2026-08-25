@@ -64,9 +64,8 @@ void QsciPrinter_SuperFormatPage(QsciPrinter* self, QPainter* painter, bool draw
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnFormatPage(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_FormatPage_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_FormatPage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -83,9 +82,8 @@ void QsciPrinter_SuperSetMagnification(QsciPrinter* self, int magnification) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetMagnification(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetMagnification_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetMagnification_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +100,8 @@ int QsciPrinter_SuperPrintRange(QsciPrinter* self, QsciScintillaBase* qsb, QPain
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnPrintRange(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_PrintRange_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_PrintRange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +118,8 @@ int QsciPrinter_SuperPrintRange2(QsciPrinter* self, QsciScintillaBase* qsb, int 
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnPrintRange2(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_PrintRange2_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_PrintRange2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +136,8 @@ void QsciPrinter_SuperSetWrapMode(QsciPrinter* self, int wmode) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetWrapMode(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetWrapMode_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetWrapMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +164,8 @@ int QsciPrinter_SuperDevType(const QsciPrinter* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnDevType(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_DevType_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +192,8 @@ bool QsciPrinter_SuperNewPage(QsciPrinter* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnNewPage(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_NewPage_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_NewPage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +220,8 @@ QPaintEngine* QsciPrinter_SuperPaintEngine(const QsciPrinter* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnPaintEngine(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_PaintEngine_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +248,8 @@ int QsciPrinter_SuperMetric(const QsciPrinter* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnMetric(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_Metric_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +276,8 @@ bool QsciPrinter_SuperSetPageLayout(QsciPrinter* self, const QPageLayout* pageLa
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetPageLayout(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetPageLayout_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetPageLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +304,8 @@ bool QsciPrinter_SuperSetPageSize(QsciPrinter* self, const QPageSize* pageSize) 
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetPageSize(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetPageSize_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetPageSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +332,8 @@ bool QsciPrinter_SuperSetPageOrientation(QsciPrinter* self, int orientation) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetPageOrientation(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetPageOrientation_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetPageOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +360,8 @@ bool QsciPrinter_SuperSetPageMargins(QsciPrinter* self, const QMarginsF* margins
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetPageMargins(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetPageMargins_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetPageMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +388,8 @@ void QsciPrinter_SuperSetPageRanges(QsciPrinter* self, const QPageRanges* ranges
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetPageRanges(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetPageRanges_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetPageRanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +416,8 @@ void QsciPrinter_SuperInitPainter(const QsciPrinter* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnInitPainter(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_InitPainter_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +444,8 @@ QPaintDevice* QsciPrinter_SuperRedirected(const QsciPrinter* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnRedirected(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_Redirected_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +472,8 @@ QPainter* QsciPrinter_SuperSharedPainter(const QsciPrinter* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSharedPainter(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SharedPainter_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +500,8 @@ void QsciPrinter_SuperSetEngines(QsciPrinter* self, QPrintEngine* printEngine, Q
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnSetEngines(QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_SetEngines_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_SetEngines_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +528,8 @@ double QsciPrinter_SuperGetDecodedMetricF(const QsciPrinter* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QsciPrinter_OnGetDecodedMetricF(const QsciPrinter* self, intptr_t slot) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter)
         vqsciprinter->setQsciPrinter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QsciPrinter_Delete(QsciPrinter* self) {

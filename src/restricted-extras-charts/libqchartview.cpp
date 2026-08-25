@@ -132,9 +132,8 @@ QMetaObject* QChartView_SuperMetaObject(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMetaObject(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MetaObject_Callback(reinterpret_cast<VirtualQChartView::QChartView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +150,8 @@ void* QChartView_SuperMetacast(QChartView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMetacast(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Metacast_Callback(reinterpret_cast<VirtualQChartView::QChartView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +168,8 @@ int QChartView_SuperMetacall(QChartView* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMetacall(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Metacall_Callback(reinterpret_cast<VirtualQChartView::QChartView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +186,8 @@ void QChartView_SuperResizeEvent(QChartView* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnResizeEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ResizeEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +204,8 @@ void QChartView_SuperMousePressEvent(QChartView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMousePressEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MousePressEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +222,8 @@ void QChartView_SuperMouseMoveEvent(QChartView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMouseMoveEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +240,8 @@ void QChartView_SuperMouseReleaseEvent(QChartView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMouseReleaseEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ QSize* QChartView_SuperSizeHint(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSizeHint(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SizeHint_Callback(reinterpret_cast<VirtualQChartView::QChartView_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ QVariant* QChartView_SuperInputMethodQuery(const QChartView* self, int query) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnInputMethodQuery(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_InputMethodQuery_Callback(reinterpret_cast<VirtualQChartView::QChartView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ void QChartView_SuperSetupViewport(QChartView* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSetupViewport(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SetupViewport_Callback(reinterpret_cast<VirtualQChartView::QChartView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ bool QChartView_SuperEvent(QChartView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Event_Callback(reinterpret_cast<VirtualQChartView::QChartView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ bool QChartView_SuperViewportEvent(QChartView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnViewportEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ViewportEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ void QChartView_SuperContextMenuEvent(QChartView* self, QContextMenuEvent* event
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnContextMenuEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ void QChartView_SuperDragEnterEvent(QChartView* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDragEnterEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DragEnterEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ void QChartView_SuperDragLeaveEvent(QChartView* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDragLeaveEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ void QChartView_SuperDragMoveEvent(QChartView* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDragMoveEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DragMoveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ void QChartView_SuperDropEvent(QChartView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDropEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DropEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ void QChartView_SuperFocusInEvent(QChartView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnFocusInEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_FocusInEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ bool QChartView_SuperFocusNextPrevChild(QChartView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnFocusNextPrevChild(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQChartView::QChartView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ void QChartView_SuperFocusOutEvent(QChartView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnFocusOutEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_FocusOutEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ void QChartView_SuperKeyPressEvent(QChartView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnKeyPressEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_KeyPressEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ void QChartView_SuperKeyReleaseEvent(QChartView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnKeyReleaseEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ void QChartView_SuperMouseDoubleClickEvent(QChartView* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMouseDoubleClickEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ void QChartView_SuperWheelEvent(QChartView* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnWheelEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_WheelEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ void QChartView_SuperPaintEvent(QChartView* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnPaintEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_PaintEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +772,8 @@ void QChartView_SuperScrollContentsBy(QChartView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnScrollContentsBy(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQChartView::QChartView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +800,8 @@ void QChartView_SuperShowEvent(QChartView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnShowEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ShowEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +828,8 @@ void QChartView_SuperInputMethodEvent(QChartView* self, QInputMethodEvent* event
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnInputMethodEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_InputMethodEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +856,8 @@ void QChartView_SuperDrawBackground(QChartView* self, QPainter* painter, const Q
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDrawBackground(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DrawBackground_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawBackground_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +884,8 @@ void QChartView_SuperDrawForeground(QChartView* self, QPainter* painter, const Q
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDrawForeground(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DrawForeground_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawForeground_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ void QChartView_SuperDrawItems(QChartView* self, QPainter* painter, int numItems
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDrawItems(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DrawItems_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ QSize* QChartView_SuperMinimumSizeHint(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMinimumSizeHint(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQChartView::QChartView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ bool QChartView_SuperEventFilter(QChartView* self, QObject* param1, QEvent* para
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnEventFilter(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_EventFilter_Callback(reinterpret_cast<VirtualQChartView::QChartView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +994,8 @@ QSize* QChartView_SuperViewportSizeHint(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnViewportSizeHint(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQChartView::QChartView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1022,8 @@ void QChartView_SuperChangeEvent(QChartView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnChangeEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ChangeEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1050,8 @@ void QChartView_SuperInitStyleOption(const QChartView* self, QStyleOptionFrame* 
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnInitStyleOption(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_InitStyleOption_Callback(reinterpret_cast<VirtualQChartView::QChartView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1078,8 @@ int QChartView_SuperDevType(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDevType(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DevType_Callback(reinterpret_cast<VirtualQChartView::QChartView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1106,8 @@ void QChartView_SuperSetVisible(QChartView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSetVisible(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SetVisible_Callback(reinterpret_cast<VirtualQChartView::QChartView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1134,8 @@ int QChartView_SuperHeightForWidth(const QChartView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnHeightForWidth(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_HeightForWidth_Callback(reinterpret_cast<VirtualQChartView::QChartView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1162,8 @@ bool QChartView_SuperHasHeightForWidth(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnHasHeightForWidth(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQChartView::QChartView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1190,8 @@ QPaintEngine* QChartView_SuperPaintEngine(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnPaintEngine(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_PaintEngine_Callback(reinterpret_cast<VirtualQChartView::QChartView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1218,8 @@ void QChartView_SuperEnterEvent(QChartView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnEnterEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_EnterEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1246,8 @@ void QChartView_SuperLeaveEvent(QChartView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnLeaveEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_LeaveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1274,8 @@ void QChartView_SuperMoveEvent(QChartView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMoveEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_MoveEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1302,8 @@ void QChartView_SuperCloseEvent(QChartView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnCloseEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_CloseEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1330,8 @@ void QChartView_SuperTabletEvent(QChartView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnTabletEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_TabletEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1358,8 @@ void QChartView_SuperActionEvent(QChartView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnActionEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ActionEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1386,8 @@ void QChartView_SuperHideEvent(QChartView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnHideEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_HideEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1416,8 @@ bool QChartView_SuperNativeEvent(QChartView* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnNativeEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_NativeEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1444,8 @@ int QChartView_SuperMetric(const QChartView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnMetric(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Metric_Callback(reinterpret_cast<VirtualQChartView::QChartView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1472,8 @@ void QChartView_SuperInitPainter(const QChartView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnInitPainter(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_InitPainter_Callback(reinterpret_cast<VirtualQChartView::QChartView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1500,8 @@ QPaintDevice* QChartView_SuperRedirected(const QChartView* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnRedirected(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Redirected_Callback(reinterpret_cast<VirtualQChartView::QChartView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1528,8 @@ QPainter* QChartView_SuperSharedPainter(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSharedPainter(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SharedPainter_Callback(reinterpret_cast<VirtualQChartView::QChartView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1556,8 @@ void QChartView_SuperTimerEvent(QChartView* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnTimerEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_TimerEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1584,8 @@ void QChartView_SuperChildEvent(QChartView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnChildEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ChildEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1612,8 @@ void QChartView_SuperCustomEvent(QChartView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnCustomEvent(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_CustomEvent_Callback(reinterpret_cast<VirtualQChartView::QChartView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1640,8 @@ void QChartView_SuperConnectNotify(QChartView* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnConnectNotify(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ConnectNotify_Callback(reinterpret_cast<VirtualQChartView::QChartView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1668,8 @@ void QChartView_SuperDisconnectNotify(QChartView* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDisconnectNotify(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DisconnectNotify_Callback(reinterpret_cast<VirtualQChartView::QChartView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1696,8 @@ void QChartView_SuperSetViewportMargins(QChartView* self, int left, int top, int
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSetViewportMargins(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SetViewportMargins_Callback(reinterpret_cast<VirtualQChartView::QChartView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1722,8 @@ QMargins* QChartView_SuperViewportMargins(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnViewportMargins(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_ViewportMargins_Callback(reinterpret_cast<VirtualQChartView::QChartView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1750,8 @@ void QChartView_SuperDrawFrame(QChartView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDrawFrame(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_DrawFrame_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1778,8 @@ void QChartView_SuperUpdateMicroFocus(QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnUpdateMicroFocus(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQChartView::QChartView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1806,8 @@ void QChartView_SuperCreate(QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnCreate(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Create_Callback(reinterpret_cast<VirtualQChartView::QChartView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1834,8 @@ void QChartView_SuperDestroy(QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnDestroy(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Destroy_Callback(reinterpret_cast<VirtualQChartView::QChartView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1862,8 @@ bool QChartView_SuperFocusNextChild(QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnFocusNextChild(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_FocusNextChild_Callback(reinterpret_cast<VirtualQChartView::QChartView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1890,8 @@ bool QChartView_SuperFocusPreviousChild(QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnFocusPreviousChild(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQChartView::QChartView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1918,8 @@ QObject* QChartView_SuperSender(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSender(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Sender_Callback(reinterpret_cast<VirtualQChartView::QChartView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1946,8 @@ int QChartView_SuperSenderSignalIndex(const QChartView* self) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnSenderSignalIndex(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQChartView::QChartView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1974,8 @@ int QChartView_SuperReceivers(const QChartView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnReceivers(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_Receivers_Callback(reinterpret_cast<VirtualQChartView::QChartView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2071,9 +2002,8 @@ bool QChartView_SuperIsSignalConnected(const QChartView* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnIsSignalConnected(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_IsSignalConnected_Callback(reinterpret_cast<VirtualQChartView::QChartView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2100,9 +2030,8 @@ double QChartView_SuperGetDecodedMetricF(const QChartView* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void QChartView_OnGetDecodedMetricF(const QChartView* self, intptr_t slot) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
-    if (vqchartview && vqchartview->isVirtualQChartView) {
+    if (vqchartview && vqchartview->isVirtualQChartView)
         vqchartview->setQChartView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQChartView::QChartView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QChartView_Delete(QChartView* self) {

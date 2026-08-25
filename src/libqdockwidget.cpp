@@ -236,9 +236,8 @@ QMetaObject* QDockWidget_SuperMetaObject(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMetaObject(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MetaObject_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -255,9 +254,8 @@ void* QDockWidget_SuperMetacast(QDockWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMetacast(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Metacast_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -274,9 +272,8 @@ int QDockWidget_SuperMetacall(QDockWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMetacall(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Metacall_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -293,9 +290,8 @@ void QDockWidget_SuperChangeEvent(QDockWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnChangeEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -312,9 +308,8 @@ void QDockWidget_SuperCloseEvent(QDockWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnCloseEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_CloseEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -331,9 +326,8 @@ void QDockWidget_SuperPaintEvent(QDockWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnPaintEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_PaintEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -350,9 +344,8 @@ bool QDockWidget_SuperEvent(QDockWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Event_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -369,9 +362,8 @@ void QDockWidget_SuperInitStyleOption(const QDockWidget* self, QStyleOptionDockW
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnInitStyleOption(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +390,8 @@ int QDockWidget_SuperDevType(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDevType(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DevType_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +418,8 @@ void QDockWidget_SuperSetVisible(QDockWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnSetVisible(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_SetVisible_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +446,8 @@ QSize* QDockWidget_SuperSizeHint(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnSizeHint(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_SizeHint_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +474,8 @@ QSize* QDockWidget_SuperMinimumSizeHint(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMinimumSizeHint(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +502,8 @@ int QDockWidget_SuperHeightForWidth(const QDockWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnHeightForWidth(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +530,8 @@ bool QDockWidget_SuperHasHeightForWidth(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnHasHeightForWidth(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +558,8 @@ QPaintEngine* QDockWidget_SuperPaintEngine(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnPaintEngine(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_PaintEngine_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +586,8 @@ void QDockWidget_SuperMousePressEvent(QDockWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMousePressEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +614,8 @@ void QDockWidget_SuperMouseReleaseEvent(QDockWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMouseReleaseEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +642,8 @@ void QDockWidget_SuperMouseDoubleClickEvent(QDockWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMouseDoubleClickEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +670,8 @@ void QDockWidget_SuperMouseMoveEvent(QDockWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMouseMoveEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +698,8 @@ void QDockWidget_SuperWheelEvent(QDockWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnWheelEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_WheelEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +726,8 @@ void QDockWidget_SuperKeyPressEvent(QDockWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnKeyPressEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +754,8 @@ void QDockWidget_SuperKeyReleaseEvent(QDockWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnKeyReleaseEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +782,8 @@ void QDockWidget_SuperFocusInEvent(QDockWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnFocusInEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +810,8 @@ void QDockWidget_SuperFocusOutEvent(QDockWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnFocusOutEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +838,8 @@ void QDockWidget_SuperEnterEvent(QDockWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnEnterEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_EnterEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +866,8 @@ void QDockWidget_SuperLeaveEvent(QDockWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnLeaveEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +894,8 @@ void QDockWidget_SuperMoveEvent(QDockWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMoveEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_MoveEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +922,8 @@ void QDockWidget_SuperResizeEvent(QDockWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnResizeEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +950,8 @@ void QDockWidget_SuperContextMenuEvent(QDockWidget* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnContextMenuEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +978,8 @@ void QDockWidget_SuperTabletEvent(QDockWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnTabletEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_TabletEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1006,8 @@ void QDockWidget_SuperActionEvent(QDockWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnActionEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ActionEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1034,8 @@ void QDockWidget_SuperDragEnterEvent(QDockWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDragEnterEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1062,8 @@ void QDockWidget_SuperDragMoveEvent(QDockWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDragMoveEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1123,9 +1090,8 @@ void QDockWidget_SuperDragLeaveEvent(QDockWidget* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDragLeaveEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1118,8 @@ void QDockWidget_SuperDropEvent(QDockWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDropEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DropEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1146,8 @@ void QDockWidget_SuperShowEvent(QDockWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnShowEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ShowEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1174,8 @@ void QDockWidget_SuperHideEvent(QDockWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnHideEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_HideEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1204,8 @@ bool QDockWidget_SuperNativeEvent(QDockWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnNativeEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_NativeEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1232,8 @@ int QDockWidget_SuperMetric(const QDockWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnMetric(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Metric_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1260,8 @@ void QDockWidget_SuperInitPainter(const QDockWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnInitPainter(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_InitPainter_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1288,8 @@ QPaintDevice* QDockWidget_SuperRedirected(const QDockWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnRedirected(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Redirected_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1316,8 @@ QPainter* QDockWidget_SuperSharedPainter(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnSharedPainter(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_SharedPainter_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1344,8 @@ void QDockWidget_SuperInputMethodEvent(QDockWidget* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnInputMethodEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1372,8 @@ QVariant* QDockWidget_SuperInputMethodQuery(const QDockWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnInputMethodQuery(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1400,8 @@ bool QDockWidget_SuperFocusNextPrevChild(QDockWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnFocusNextPrevChild(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1428,8 @@ bool QDockWidget_SuperEventFilter(QDockWidget* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnEventFilter(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_EventFilter_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1456,8 @@ void QDockWidget_SuperTimerEvent(QDockWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnTimerEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_TimerEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1484,8 @@ void QDockWidget_SuperChildEvent(QDockWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnChildEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ChildEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1512,8 @@ void QDockWidget_SuperCustomEvent(QDockWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnCustomEvent(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_CustomEvent_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1540,8 @@ void QDockWidget_SuperConnectNotify(QDockWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnConnectNotify(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1568,8 @@ void QDockWidget_SuperDisconnectNotify(QDockWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDisconnectNotify(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1596,8 @@ void QDockWidget_SuperUpdateMicroFocus(QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnUpdateMicroFocus(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1624,8 @@ void QDockWidget_SuperCreate(QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnCreate(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Create_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1652,8 @@ void QDockWidget_SuperDestroy(QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnDestroy(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Destroy_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1680,8 @@ bool QDockWidget_SuperFocusNextChild(QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnFocusNextChild(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1708,8 @@ bool QDockWidget_SuperFocusPreviousChild(QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnFocusPreviousChild(QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1736,8 @@ QObject* QDockWidget_SuperSender(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnSender(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Sender_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1821,9 +1764,8 @@ int QDockWidget_SuperSenderSignalIndex(const QDockWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnSenderSignalIndex(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1850,9 +1792,8 @@ int QDockWidget_SuperReceivers(const QDockWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnReceivers(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_Receivers_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1879,9 +1820,8 @@ bool QDockWidget_SuperIsSignalConnected(const QDockWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnIsSignalConnected(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1908,9 +1848,8 @@ double QDockWidget_SuperGetDecodedMetricF(const QDockWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QDockWidget_OnGetDecodedMetricF(const QDockWidget* self, intptr_t slot) {
     auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget)
         vqdockwidget->setQDockWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDockWidget_Delete(QDockWidget* self) {

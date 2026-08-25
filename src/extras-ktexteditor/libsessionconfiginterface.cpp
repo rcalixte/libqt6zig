@@ -30,9 +30,8 @@ void KTextEditor__SessionConfigInterface_SuperReadSessionConfig(KTextEditor__Ses
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__SessionConfigInterface_OnReadSessionConfig(KTextEditor__SessionConfigInterface* self, intptr_t slot) {
     auto* vktexteditorsessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
-    if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
+    if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface)
         vktexteditorsessionconfiginterface->setKTextEditor__SessionConfigInterface_ReadSessionConfig_Callback(reinterpret_cast<VirtualKTextEditorSessionConfigInterface::KTextEditor__SessionConfigInterface_ReadSessionConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -49,9 +48,8 @@ void KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(KTextEditor__Se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__SessionConfigInterface_OnWriteSessionConfig(KTextEditor__SessionConfigInterface* self, intptr_t slot) {
     auto* vktexteditorsessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
-    if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
+    if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface)
         vktexteditorsessionconfiginterface->setKTextEditor__SessionConfigInterface_WriteSessionConfig_Callback(reinterpret_cast<VirtualKTextEditorSessionConfigInterface::KTextEditor__SessionConfigInterface_WriteSessionConfig_Callback>(slot));
-    }
 }
 
 void KTextEditor__SessionConfigInterface_Delete(KTextEditor__SessionConfigInterface* self) {

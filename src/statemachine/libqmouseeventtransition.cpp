@@ -95,9 +95,8 @@ QMetaObject* QMouseEventTransition_SuperMetaObject(const QMouseEventTransition* 
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnMetaObject(const QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_MetaObject_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +113,8 @@ void* QMouseEventTransition_SuperMetacast(QMouseEventTransition* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnMetacast(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_Metacast_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +131,8 @@ int QMouseEventTransition_SuperMetacall(QMouseEventTransition* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnMetacall(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_Metacall_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +149,8 @@ void QMouseEventTransition_SuperOnTransition(QMouseEventTransition* self, QEvent
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnOnTransition(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_OnTransition_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_OnTransition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +167,8 @@ bool QMouseEventTransition_SuperEventTest(QMouseEventTransition* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEventTest(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_EventTest_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventTest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +195,8 @@ bool QMouseEventTransition_SuperEvent(QMouseEventTransition* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEvent(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_Event_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +223,8 @@ bool QMouseEventTransition_SuperEventFilter(QMouseEventTransition* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnEventFilter(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_EventFilter_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +251,8 @@ void QMouseEventTransition_SuperTimerEvent(QMouseEventTransition* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnTimerEvent(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_TimerEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +279,8 @@ void QMouseEventTransition_SuperChildEvent(QMouseEventTransition* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnChildEvent(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_ChildEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +307,8 @@ void QMouseEventTransition_SuperCustomEvent(QMouseEventTransition* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnCustomEvent(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_CustomEvent_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +335,8 @@ void QMouseEventTransition_SuperConnectNotify(QMouseEventTransition* self, const
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnConnectNotify(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +363,8 @@ void QMouseEventTransition_SuperDisconnectNotify(QMouseEventTransition* self, co
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnDisconnectNotify(QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +391,8 @@ QObject* QMouseEventTransition_SuperSender(const QMouseEventTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnSender(const QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_Sender_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +419,8 @@ int QMouseEventTransition_SuperSenderSignalIndex(const QMouseEventTransition* se
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnSenderSignalIndex(const QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +447,8 @@ int QMouseEventTransition_SuperReceivers(const QMouseEventTransition* self, cons
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnReceivers(const QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_Receivers_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +475,8 @@ bool QMouseEventTransition_SuperIsSignalConnected(const QMouseEventTransition* s
 // Auxiliary method to allow providing re-implementation
 void QMouseEventTransition_OnIsSignalConnected(const QMouseEventTransition* self, intptr_t slot) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
+    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition)
         vqmouseeventtransition->setQMouseEventTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQMouseEventTransition::QMouseEventTransition_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QMouseEventTransition_Delete(QMouseEventTransition* self) {

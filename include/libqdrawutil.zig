@@ -214,7 +214,7 @@ pub const QTileRules = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdrawutil.html#public-types)
 pub const enums = struct {
-    pub const DrawingHint = enum(i32) {
+    pub const DrawingHint = enum {
         pub const OpaqueTopLeft: i32 = 1;
         pub const OpaqueTop: i32 = 2;
         pub const OpaqueTopRight: i32 = 4;

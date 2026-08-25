@@ -102,9 +102,8 @@ QMetaObject* TextTranslator__TranslatorTextEdit_SuperMetaObject(const TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetaObject(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +120,8 @@ void* TextTranslator__TranslatorTextEdit_SuperMetacast(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetacast(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ int TextTranslator__TranslatorTextEdit_SuperMetacall(TextTranslator__TranslatorT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetacall(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +156,8 @@ void TextTranslator__TranslatorTextEdit_SuperDropEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDropEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +184,8 @@ QVariant* TextTranslator__TranslatorTextEdit_SuperLoadResource(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnLoadResource(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LoadResource_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +212,8 @@ QVariant* TextTranslator__TranslatorTextEdit_SuperInputMethodQuery(const TextTra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInputMethodQuery(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +240,8 @@ bool TextTranslator__TranslatorTextEdit_SuperEvent(TextTranslator__TranslatorTex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ void TextTranslator__TranslatorTextEdit_SuperTimerEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnTimerEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ void TextTranslator__TranslatorTextEdit_SuperKeyPressEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnKeyPressEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ void TextTranslator__TranslatorTextEdit_SuperKeyReleaseEvent(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnKeyReleaseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ void TextTranslator__TranslatorTextEdit_SuperResizeEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnResizeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ void TextTranslator__TranslatorTextEdit_SuperPaintEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnPaintEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ void TextTranslator__TranslatorTextEdit_SuperMousePressEvent(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMousePressEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ void TextTranslator__TranslatorTextEdit_SuperMouseMoveEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ void TextTranslator__TranslatorTextEdit_SuperMouseReleaseEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseReleaseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ void TextTranslator__TranslatorTextEdit_SuperMouseDoubleClickEvent(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseDoubleClickEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ bool TextTranslator__TranslatorTextEdit_SuperFocusNextPrevChild(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusNextPrevChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ void TextTranslator__TranslatorTextEdit_SuperContextMenuEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnContextMenuEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ void TextTranslator__TranslatorTextEdit_SuperDragEnterEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragEnterEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ void TextTranslator__TranslatorTextEdit_SuperDragLeaveEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragLeaveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ void TextTranslator__TranslatorTextEdit_SuperDragMoveEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ void TextTranslator__TranslatorTextEdit_SuperFocusInEvent(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusInEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ void TextTranslator__TranslatorTextEdit_SuperFocusOutEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusOutEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ void TextTranslator__TranslatorTextEdit_SuperShowEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnShowEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ void TextTranslator__TranslatorTextEdit_SuperChangeEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnChangeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +772,8 @@ void TextTranslator__TranslatorTextEdit_SuperWheelEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnWheelEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +800,8 @@ QMimeData* TextTranslator__TranslatorTextEdit_SuperCreateMimeDataFromSelection(c
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCreateMimeDataFromSelection(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +828,8 @@ bool TextTranslator__TranslatorTextEdit_SuperCanInsertFromMimeData(const TextTra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCanInsertFromMimeData(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +856,8 @@ void TextTranslator__TranslatorTextEdit_SuperInsertFromMimeData(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInsertFromMimeData(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +884,8 @@ void TextTranslator__TranslatorTextEdit_SuperInputMethodEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInputMethodEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ void TextTranslator__TranslatorTextEdit_SuperScrollContentsBy(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnScrollContentsBy(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ void TextTranslator__TranslatorTextEdit_SuperDoSetTextCursor(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDoSetTextCursor(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ QSize* TextTranslator__TranslatorTextEdit_SuperMinimumSizeHint(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +996,8 @@ QSize* TextTranslator__TranslatorTextEdit_SuperSizeHint(const TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1024,8 @@ void TextTranslator__TranslatorTextEdit_SuperSetupViewport(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSetupViewport(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1052,8 @@ bool TextTranslator__TranslatorTextEdit_SuperEventFilter(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEventFilter(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1080,8 @@ bool TextTranslator__TranslatorTextEdit_SuperViewportEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnViewportEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1106,8 @@ QSize* TextTranslator__TranslatorTextEdit_SuperViewportSizeHint(const TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnViewportSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1134,8 @@ void TextTranslator__TranslatorTextEdit_SuperInitStyleOption(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInitStyleOption(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1162,8 @@ int TextTranslator__TranslatorTextEdit_SuperDevType(const TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDevType(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1190,8 @@ void TextTranslator__TranslatorTextEdit_SuperSetVisible(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSetVisible(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1218,8 @@ int TextTranslator__TranslatorTextEdit_SuperHeightForWidth(const TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnHeightForWidth(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1246,8 @@ bool TextTranslator__TranslatorTextEdit_SuperHasHeightForWidth(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnHasHeightForWidth(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1274,8 @@ QPaintEngine* TextTranslator__TranslatorTextEdit_SuperPaintEngine(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnPaintEngine(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1302,8 @@ void TextTranslator__TranslatorTextEdit_SuperEnterEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEnterEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1330,8 @@ void TextTranslator__TranslatorTextEdit_SuperLeaveEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnLeaveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1358,8 @@ void TextTranslator__TranslatorTextEdit_SuperMoveEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1386,8 @@ void TextTranslator__TranslatorTextEdit_SuperCloseEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCloseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1414,8 @@ void TextTranslator__TranslatorTextEdit_SuperTabletEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnTabletEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1442,8 @@ void TextTranslator__TranslatorTextEdit_SuperActionEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnActionEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1470,8 @@ void TextTranslator__TranslatorTextEdit_SuperHideEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnHideEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1500,8 @@ bool TextTranslator__TranslatorTextEdit_SuperNativeEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnNativeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1528,8 @@ int TextTranslator__TranslatorTextEdit_SuperMetric(const TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetric(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1556,8 @@ void TextTranslator__TranslatorTextEdit_SuperInitPainter(const TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInitPainter(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1584,8 @@ QPaintDevice* TextTranslator__TranslatorTextEdit_SuperRedirected(const TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnRedirected(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1612,8 @@ QPainter* TextTranslator__TranslatorTextEdit_SuperSharedPainter(const TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSharedPainter(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1640,8 @@ void TextTranslator__TranslatorTextEdit_SuperChildEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnChildEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1668,8 @@ void TextTranslator__TranslatorTextEdit_SuperCustomEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCustomEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1696,8 @@ void TextTranslator__TranslatorTextEdit_SuperConnectNotify(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnConnectNotify(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1724,8 @@ void TextTranslator__TranslatorTextEdit_SuperDisconnectNotify(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDisconnectNotify(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1750,8 @@ QTextBlock* TextTranslator__TranslatorTextEdit_SuperFirstVisibleBlock(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFirstVisibleBlock(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FirstVisibleBlock_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FirstVisibleBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1776,8 @@ QPointF* TextTranslator__TranslatorTextEdit_SuperContentOffset(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnContentOffset(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContentOffset_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ContentOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1802,8 @@ QRectF* TextTranslator__TranslatorTextEdit_SuperBlockBoundingRect(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnBlockBoundingRect(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingRect_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_BlockBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1828,8 @@ QRectF* TextTranslator__TranslatorTextEdit_SuperBlockBoundingGeometry(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnBlockBoundingGeometry(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingGeometry_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_BlockBoundingGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1854,8 @@ QAbstractTextDocumentLayout__PaintContext* TextTranslator__TranslatorTextEdit_Su
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnGetPaintContext(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetPaintContext_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_GetPaintContext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1882,8 @@ void TextTranslator__TranslatorTextEdit_SuperZoomInF(TextTranslator__TranslatorT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnZoomInF(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1910,8 @@ void TextTranslator__TranslatorTextEdit_SuperSetViewportMargins(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSetViewportMargins(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2003,9 +1936,8 @@ QMargins* TextTranslator__TranslatorTextEdit_SuperViewportMargins(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnViewportMargins(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2032,9 +1964,8 @@ void TextTranslator__TranslatorTextEdit_SuperDrawFrame(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDrawFrame(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2061,9 +1992,8 @@ void TextTranslator__TranslatorTextEdit_SuperUpdateMicroFocus(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnUpdateMicroFocus(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2090,9 +2020,8 @@ void TextTranslator__TranslatorTextEdit_SuperCreate(TextTranslator__TranslatorTe
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCreate(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2119,9 +2048,8 @@ void TextTranslator__TranslatorTextEdit_SuperDestroy(TextTranslator__TranslatorT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDestroy(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2148,9 +2076,8 @@ bool TextTranslator__TranslatorTextEdit_SuperFocusNextChild(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusNextChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2177,9 +2104,8 @@ bool TextTranslator__TranslatorTextEdit_SuperFocusPreviousChild(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusPreviousChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2206,9 +2132,8 @@ QObject* TextTranslator__TranslatorTextEdit_SuperSender(const TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSender(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2235,9 +2160,8 @@ int TextTranslator__TranslatorTextEdit_SuperSenderSignalIndex(const TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSenderSignalIndex(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2264,9 +2188,8 @@ int TextTranslator__TranslatorTextEdit_SuperReceivers(const TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnReceivers(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2293,9 +2216,8 @@ bool TextTranslator__TranslatorTextEdit_SuperIsSignalConnected(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnIsSignalConnected(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2322,9 +2244,8 @@ double TextTranslator__TranslatorTextEdit_SuperGetDecodedMetricF(const TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnGetDecodedMetricF(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
         vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorTextEdit_Delete(TextTranslator__TranslatorTextEdit* self) {
@@ -2419,9 +2340,8 @@ QMetaObject* TextTranslator__TranslatorWidget_SuperMetaObject(const TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetaObject(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2438,9 +2358,8 @@ void* TextTranslator__TranslatorWidget_SuperMetacast(TextTranslator__TranslatorW
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetacast(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2457,9 +2376,8 @@ int TextTranslator__TranslatorWidget_SuperMetacall(TextTranslator__TranslatorWid
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetacall(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2476,9 +2394,8 @@ bool TextTranslator__TranslatorWidget_SuperEvent(TextTranslator__TranslatorWidge
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2505,9 +2422,8 @@ int TextTranslator__TranslatorWidget_SuperDevType(const TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDevType(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2534,9 +2450,8 @@ void TextTranslator__TranslatorWidget_SuperSetVisible(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSetVisible(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2563,9 +2478,8 @@ QSize* TextTranslator__TranslatorWidget_SuperSizeHint(const TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSizeHint(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2592,9 +2506,8 @@ QSize* TextTranslator__TranslatorWidget_SuperMinimumSizeHint(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMinimumSizeHint(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2621,9 +2534,8 @@ int TextTranslator__TranslatorWidget_SuperHeightForWidth(const TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnHeightForWidth(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2650,9 +2562,8 @@ bool TextTranslator__TranslatorWidget_SuperHasHeightForWidth(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnHasHeightForWidth(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2679,9 +2590,8 @@ QPaintEngine* TextTranslator__TranslatorWidget_SuperPaintEngine(const TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnPaintEngine(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2708,9 +2618,8 @@ void TextTranslator__TranslatorWidget_SuperMousePressEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMousePressEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2737,9 +2646,8 @@ void TextTranslator__TranslatorWidget_SuperMouseReleaseEvent(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseReleaseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2766,9 +2674,8 @@ void TextTranslator__TranslatorWidget_SuperMouseDoubleClickEvent(TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseDoubleClickEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2795,9 +2702,8 @@ void TextTranslator__TranslatorWidget_SuperMouseMoveEvent(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2824,9 +2730,8 @@ void TextTranslator__TranslatorWidget_SuperWheelEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnWheelEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2853,9 +2758,8 @@ void TextTranslator__TranslatorWidget_SuperKeyPressEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnKeyPressEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2882,9 +2786,8 @@ void TextTranslator__TranslatorWidget_SuperKeyReleaseEvent(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnKeyReleaseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2911,9 +2814,8 @@ void TextTranslator__TranslatorWidget_SuperFocusInEvent(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusInEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2940,9 +2842,8 @@ void TextTranslator__TranslatorWidget_SuperFocusOutEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusOutEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2969,9 +2870,8 @@ void TextTranslator__TranslatorWidget_SuperEnterEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEnterEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2998,9 +2898,8 @@ void TextTranslator__TranslatorWidget_SuperLeaveEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnLeaveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3027,9 +2926,8 @@ void TextTranslator__TranslatorWidget_SuperPaintEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnPaintEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3056,9 +2954,8 @@ void TextTranslator__TranslatorWidget_SuperMoveEvent(TextTranslator__TranslatorW
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3085,9 +2982,8 @@ void TextTranslator__TranslatorWidget_SuperResizeEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnResizeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3114,9 +3010,8 @@ void TextTranslator__TranslatorWidget_SuperCloseEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnCloseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3143,9 +3038,8 @@ void TextTranslator__TranslatorWidget_SuperContextMenuEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnContextMenuEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3172,9 +3066,8 @@ void TextTranslator__TranslatorWidget_SuperTabletEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnTabletEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3201,9 +3094,8 @@ void TextTranslator__TranslatorWidget_SuperActionEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnActionEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3230,9 +3122,8 @@ void TextTranslator__TranslatorWidget_SuperDragEnterEvent(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragEnterEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3259,9 +3150,8 @@ void TextTranslator__TranslatorWidget_SuperDragMoveEvent(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3288,9 +3178,8 @@ void TextTranslator__TranslatorWidget_SuperDragLeaveEvent(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragLeaveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3317,9 +3206,8 @@ void TextTranslator__TranslatorWidget_SuperDropEvent(TextTranslator__TranslatorW
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDropEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3346,9 +3234,8 @@ void TextTranslator__TranslatorWidget_SuperShowEvent(TextTranslator__TranslatorW
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnShowEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3375,9 +3262,8 @@ void TextTranslator__TranslatorWidget_SuperHideEvent(TextTranslator__TranslatorW
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnHideEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3406,9 +3292,8 @@ bool TextTranslator__TranslatorWidget_SuperNativeEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnNativeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3435,9 +3320,8 @@ void TextTranslator__TranslatorWidget_SuperChangeEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnChangeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3464,9 +3348,8 @@ int TextTranslator__TranslatorWidget_SuperMetric(const TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetric(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3493,9 +3376,8 @@ void TextTranslator__TranslatorWidget_SuperInitPainter(const TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnInitPainter(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3522,9 +3404,8 @@ QPaintDevice* TextTranslator__TranslatorWidget_SuperRedirected(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnRedirected(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3551,9 +3432,8 @@ QPainter* TextTranslator__TranslatorWidget_SuperSharedPainter(const TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSharedPainter(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3580,9 +3460,8 @@ void TextTranslator__TranslatorWidget_SuperInputMethodEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnInputMethodEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3609,9 +3488,8 @@ QVariant* TextTranslator__TranslatorWidget_SuperInputMethodQuery(const TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnInputMethodQuery(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3638,9 +3516,8 @@ bool TextTranslator__TranslatorWidget_SuperFocusNextPrevChild(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusNextPrevChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3667,9 +3544,8 @@ bool TextTranslator__TranslatorWidget_SuperEventFilter(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEventFilter(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3696,9 +3572,8 @@ void TextTranslator__TranslatorWidget_SuperTimerEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnTimerEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3725,9 +3600,8 @@ void TextTranslator__TranslatorWidget_SuperChildEvent(TextTranslator__Translator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnChildEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3754,9 +3628,8 @@ void TextTranslator__TranslatorWidget_SuperCustomEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnCustomEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3783,9 +3656,8 @@ void TextTranslator__TranslatorWidget_SuperConnectNotify(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnConnectNotify(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3812,9 +3684,8 @@ void TextTranslator__TranslatorWidget_SuperDisconnectNotify(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDisconnectNotify(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3841,9 +3712,8 @@ void TextTranslator__TranslatorWidget_SuperUpdateMicroFocus(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnUpdateMicroFocus(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3870,9 +3740,8 @@ void TextTranslator__TranslatorWidget_SuperCreate(TextTranslator__TranslatorWidg
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnCreate(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3899,9 +3768,8 @@ void TextTranslator__TranslatorWidget_SuperDestroy(TextTranslator__TranslatorWid
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDestroy(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3928,9 +3796,8 @@ bool TextTranslator__TranslatorWidget_SuperFocusNextChild(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusNextChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3957,9 +3824,8 @@ bool TextTranslator__TranslatorWidget_SuperFocusPreviousChild(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusPreviousChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3986,9 +3852,8 @@ QObject* TextTranslator__TranslatorWidget_SuperSender(const TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSender(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4015,9 +3880,8 @@ int TextTranslator__TranslatorWidget_SuperSenderSignalIndex(const TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSenderSignalIndex(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4044,9 +3908,8 @@ int TextTranslator__TranslatorWidget_SuperReceivers(const TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnReceivers(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4073,9 +3936,8 @@ bool TextTranslator__TranslatorWidget_SuperIsSignalConnected(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnIsSignalConnected(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4102,9 +3964,8 @@ double TextTranslator__TranslatorWidget_SuperGetDecodedMetricF(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnGetDecodedMetricF(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
         vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorWidget_Delete(TextTranslator__TranslatorWidget* self) {

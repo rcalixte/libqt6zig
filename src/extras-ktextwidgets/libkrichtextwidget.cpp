@@ -126,9 +126,8 @@ QMetaObject* KRichTextWidget_SuperMetaObject(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMetaObject(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MetaObject_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +144,8 @@ void* KRichTextWidget_SuperMetacast(KRichTextWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMetacast(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Metacast_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +162,8 @@ int KRichTextWidget_SuperMetacall(KRichTextWidget* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMetacall(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Metacall_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +198,8 @@ libqt_list /* of QAction* */ KRichTextWidget_SuperCreateActions(KRichTextWidget*
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCreateActions(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CreateActions_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CreateActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +216,8 @@ void KRichTextWidget_SuperMouseReleaseEvent(KRichTextWidget* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMouseReleaseEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +244,8 @@ void KRichTextWidget_SuperKeyPressEvent(KRichTextWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnKeyPressEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +272,8 @@ void KRichTextWidget_SuperSetReadOnly(KRichTextWidget* self, bool readOnly) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSetReadOnly(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SetReadOnly_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +300,8 @@ void KRichTextWidget_SuperSetCheckSpellingEnabled(KRichTextWidget* self, bool ch
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSetCheckSpellingEnabled(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SetCheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SetCheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +328,8 @@ bool KRichTextWidget_SuperCheckSpellingEnabled(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCheckSpellingEnabled(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +358,8 @@ bool KRichTextWidget_SuperShouldBlockBeSpellChecked(const KRichTextWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnShouldBlockBeSpellChecked(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ShouldBlockBeSpellChecked_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ShouldBlockBeSpellChecked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +386,8 @@ void KRichTextWidget_SuperCreateHighlighter(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCreateHighlighter(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CreateHighlighter_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CreateHighlighter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +414,8 @@ QMenu* KRichTextWidget_SuperMousePopupMenu(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMousePopupMenu(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MousePopupMenu_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MousePopupMenu_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +442,8 @@ bool KRichTextWidget_SuperEvent(KRichTextWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Event_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +470,8 @@ void KRichTextWidget_SuperFocusInEvent(KRichTextWidget* self, QFocusEvent* param
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnFocusInEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +498,8 @@ void KRichTextWidget_SuperDeleteWordBack(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDeleteWordBack(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DeleteWordBack_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DeleteWordBack_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +526,8 @@ void KRichTextWidget_SuperDeleteWordForward(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDeleteWordForward(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DeleteWordForward_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DeleteWordForward_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +554,8 @@ void KRichTextWidget_SuperContextMenuEvent(KRichTextWidget* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnContextMenuEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +582,8 @@ QVariant* KRichTextWidget_SuperLoadResource(KRichTextWidget* self, int typeVal, 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnLoadResource(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_LoadResource_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +610,8 @@ QVariant* KRichTextWidget_SuperInputMethodQuery(const KRichTextWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnInputMethodQuery(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +638,8 @@ void KRichTextWidget_SuperTimerEvent(KRichTextWidget* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnTimerEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_TimerEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +666,8 @@ void KRichTextWidget_SuperKeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnKeyReleaseEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +694,8 @@ void KRichTextWidget_SuperResizeEvent(KRichTextWidget* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnResizeEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +722,8 @@ void KRichTextWidget_SuperPaintEvent(KRichTextWidget* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnPaintEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_PaintEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +750,8 @@ void KRichTextWidget_SuperMousePressEvent(KRichTextWidget* self, QMouseEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMousePressEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +778,8 @@ void KRichTextWidget_SuperMouseMoveEvent(KRichTextWidget* self, QMouseEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMouseMoveEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +806,8 @@ void KRichTextWidget_SuperMouseDoubleClickEvent(KRichTextWidget* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMouseDoubleClickEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +834,8 @@ bool KRichTextWidget_SuperFocusNextPrevChild(KRichTextWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnFocusNextPrevChild(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +862,8 @@ void KRichTextWidget_SuperDragEnterEvent(KRichTextWidget* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDragEnterEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +890,8 @@ void KRichTextWidget_SuperDragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDragLeaveEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +918,8 @@ void KRichTextWidget_SuperDragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDragMoveEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +946,8 @@ void KRichTextWidget_SuperDropEvent(KRichTextWidget* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDropEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DropEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +974,8 @@ void KRichTextWidget_SuperFocusOutEvent(KRichTextWidget* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnFocusOutEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1002,8 @@ void KRichTextWidget_SuperShowEvent(KRichTextWidget* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnShowEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ShowEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1030,8 @@ void KRichTextWidget_SuperChangeEvent(KRichTextWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnChangeEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1058,8 @@ void KRichTextWidget_SuperWheelEvent(KRichTextWidget* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnWheelEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_WheelEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1086,8 @@ QMimeData* KRichTextWidget_SuperCreateMimeDataFromSelection(const KRichTextWidge
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCreateMimeDataFromSelection(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1114,8 @@ bool KRichTextWidget_SuperCanInsertFromMimeData(const KRichTextWidget* self, con
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCanInsertFromMimeData(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1142,8 @@ void KRichTextWidget_SuperInsertFromMimeData(KRichTextWidget* self, const QMimeD
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnInsertFromMimeData(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_InsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1170,8 @@ void KRichTextWidget_SuperInputMethodEvent(KRichTextWidget* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnInputMethodEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1198,8 @@ void KRichTextWidget_SuperScrollContentsBy(KRichTextWidget* self, int dx, int dy
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnScrollContentsBy(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ScrollContentsBy_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1226,8 @@ void KRichTextWidget_SuperDoSetTextCursor(KRichTextWidget* self, const QTextCurs
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDoSetTextCursor(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DoSetTextCursor_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1254,8 @@ QSize* KRichTextWidget_SuperMinimumSizeHint(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMinimumSizeHint(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1282,8 @@ QSize* KRichTextWidget_SuperSizeHint(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSizeHint(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SizeHint_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1310,8 @@ void KRichTextWidget_SuperSetupViewport(KRichTextWidget* self, QWidget* viewport
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSetupViewport(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SetupViewport_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1338,8 @@ bool KRichTextWidget_SuperEventFilter(KRichTextWidget* self, QObject* param1, QE
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnEventFilter(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_EventFilter_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1366,8 @@ bool KRichTextWidget_SuperViewportEvent(KRichTextWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnViewportEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ViewportEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1392,8 @@ QSize* KRichTextWidget_SuperViewportSizeHint(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnViewportSizeHint(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ViewportSizeHint_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1420,8 @@ void KRichTextWidget_SuperInitStyleOption(const KRichTextWidget* self, QStyleOpt
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnInitStyleOption(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1448,8 @@ int KRichTextWidget_SuperDevType(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDevType(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DevType_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1476,8 @@ void KRichTextWidget_SuperSetVisible(KRichTextWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSetVisible(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SetVisible_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1504,8 @@ int KRichTextWidget_SuperHeightForWidth(const KRichTextWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnHeightForWidth(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1532,8 @@ bool KRichTextWidget_SuperHasHeightForWidth(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnHasHeightForWidth(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1560,8 @@ QPaintEngine* KRichTextWidget_SuperPaintEngine(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnPaintEngine(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_PaintEngine_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1588,8 @@ void KRichTextWidget_SuperEnterEvent(KRichTextWidget* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnEnterEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_EnterEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1616,8 @@ void KRichTextWidget_SuperLeaveEvent(KRichTextWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnLeaveEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1644,8 @@ void KRichTextWidget_SuperMoveEvent(KRichTextWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMoveEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_MoveEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1672,8 @@ void KRichTextWidget_SuperCloseEvent(KRichTextWidget* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCloseEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CloseEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1700,8 @@ void KRichTextWidget_SuperTabletEvent(KRichTextWidget* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnTabletEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_TabletEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1728,8 @@ void KRichTextWidget_SuperActionEvent(KRichTextWidget* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnActionEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ActionEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1756,8 @@ void KRichTextWidget_SuperHideEvent(KRichTextWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnHideEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_HideEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1786,8 @@ bool KRichTextWidget_SuperNativeEvent(KRichTextWidget* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnNativeEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_NativeEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1814,8 @@ int KRichTextWidget_SuperMetric(const KRichTextWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnMetric(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Metric_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1842,8 @@ void KRichTextWidget_SuperInitPainter(const KRichTextWidget* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnInitPainter(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_InitPainter_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1870,8 @@ QPaintDevice* KRichTextWidget_SuperRedirected(const KRichTextWidget* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnRedirected(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Redirected_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1898,8 @@ QPainter* KRichTextWidget_SuperSharedPainter(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSharedPainter(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SharedPainter_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1926,8 @@ void KRichTextWidget_SuperChildEvent(KRichTextWidget* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnChildEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ChildEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1954,8 @@ void KRichTextWidget_SuperCustomEvent(KRichTextWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCustomEvent(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_CustomEvent_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1982,8 @@ void KRichTextWidget_SuperConnectNotify(KRichTextWidget* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnConnectNotify(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2078,9 +2010,8 @@ void KRichTextWidget_SuperDisconnectNotify(KRichTextWidget* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDisconnectNotify(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2107,9 +2038,8 @@ void KRichTextWidget_SuperSlotDoReplace(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotDoReplace(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotDoReplace_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotDoReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2136,9 +2066,8 @@ void KRichTextWidget_SuperSlotReplaceNext(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotReplaceNext(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotReplaceNext_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotReplaceNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2165,9 +2094,8 @@ void KRichTextWidget_SuperSlotDoFind(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotDoFind(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotDoFind_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotDoFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2194,9 +2122,8 @@ void KRichTextWidget_SuperSlotFind(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotFind(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotFind_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2223,9 +2150,8 @@ void KRichTextWidget_SuperSlotFindNext(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotFindNext(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotFindNext_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotFindNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2252,9 +2178,8 @@ void KRichTextWidget_SuperSlotFindPrevious(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotFindPrevious(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotFindPrevious_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotFindPrevious_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2281,9 +2206,8 @@ void KRichTextWidget_SuperSlotReplace(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotReplace(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotReplace_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2310,9 +2234,8 @@ void KRichTextWidget_SuperSlotSpeakText(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSlotSpeakText(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SlotSpeakText_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SlotSpeakText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2339,9 +2262,8 @@ void KRichTextWidget_SuperZoomInF(KRichTextWidget* self, float range) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnZoomInF(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ZoomInF_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2368,9 +2290,8 @@ void KRichTextWidget_SuperSetViewportMargins(KRichTextWidget* self, int left, in
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSetViewportMargins(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SetViewportMargins_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2395,9 +2316,8 @@ QMargins* KRichTextWidget_SuperViewportMargins(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnViewportMargins(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_ViewportMargins_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2424,9 +2344,8 @@ void KRichTextWidget_SuperDrawFrame(KRichTextWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDrawFrame(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_DrawFrame_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2453,9 +2372,8 @@ void KRichTextWidget_SuperUpdateMicroFocus(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnUpdateMicroFocus(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2482,9 +2400,8 @@ void KRichTextWidget_SuperCreate(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnCreate(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Create_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2511,9 +2428,8 @@ void KRichTextWidget_SuperDestroy(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnDestroy(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Destroy_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2540,9 +2456,8 @@ bool KRichTextWidget_SuperFocusNextChild(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnFocusNextChild(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2569,9 +2484,8 @@ bool KRichTextWidget_SuperFocusPreviousChild(KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnFocusPreviousChild(KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2598,9 +2512,8 @@ QObject* KRichTextWidget_SuperSender(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSender(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Sender_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2627,9 +2540,8 @@ int KRichTextWidget_SuperSenderSignalIndex(const KRichTextWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnSenderSignalIndex(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2656,9 +2568,8 @@ int KRichTextWidget_SuperReceivers(const KRichTextWidget* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnReceivers(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_Receivers_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2685,9 +2596,8 @@ bool KRichTextWidget_SuperIsSignalConnected(const KRichTextWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnIsSignalConnected(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2714,9 +2624,8 @@ double KRichTextWidget_SuperGetDecodedMetricF(const KRichTextWidget* self, int m
 // Auxiliary method to allow providing re-implementation
 void KRichTextWidget_OnGetDecodedMetricF(const KRichTextWidget* self, intptr_t slot) {
     auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget)
         vkrichtextwidget->setKRichTextWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KRichTextWidget_Delete(KRichTextWidget* self) {

@@ -181,9 +181,8 @@ QMetaObject* Attica__ProviderManager_SuperMetaObject(const Attica__ProviderManag
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_MetaObject_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +199,8 @@ void* Attica__ProviderManager_SuperMetacast(Attica__ProviderManager* self, const
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_Metacast_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +217,8 @@ int Attica__ProviderManager_SuperMetacall(Attica__ProviderManager* self, int par
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnMetacall(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_Metacall_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -248,9 +245,8 @@ bool Attica__ProviderManager_SuperEvent(Attica__ProviderManager* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnEvent(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_Event_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -277,9 +273,8 @@ bool Attica__ProviderManager_SuperEventFilter(Attica__ProviderManager* self, QOb
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnEventFilter(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_EventFilter_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +301,8 @@ void Attica__ProviderManager_SuperTimerEvent(Attica__ProviderManager* self, QTim
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnTimerEvent(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_TimerEvent_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +329,8 @@ void Attica__ProviderManager_SuperChildEvent(Attica__ProviderManager* self, QChi
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnChildEvent(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_ChildEvent_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +357,8 @@ void Attica__ProviderManager_SuperCustomEvent(Attica__ProviderManager* self, QEv
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnCustomEvent(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_CustomEvent_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +385,8 @@ void Attica__ProviderManager_SuperConnectNotify(Attica__ProviderManager* self, c
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnConnectNotify(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_ConnectNotify_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +413,8 @@ void Attica__ProviderManager_SuperDisconnectNotify(Attica__ProviderManager* self
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnDisconnectNotify(Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_DisconnectNotify_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +441,8 @@ QObject* Attica__ProviderManager_SuperSender(const Attica__ProviderManager* self
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnSender(const Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_Sender_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +469,8 @@ int Attica__ProviderManager_SuperSenderSignalIndex(const Attica__ProviderManager
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnSenderSignalIndex(const Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +497,8 @@ int Attica__ProviderManager_SuperReceivers(const Attica__ProviderManager* self, 
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnReceivers(const Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_Receivers_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +525,8 @@ bool Attica__ProviderManager_SuperIsSignalConnected(const Attica__ProviderManage
 // Auxiliary method to allow providing re-implementation
 void Attica__ProviderManager_OnIsSignalConnected(const Attica__ProviderManager* self, intptr_t slot) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
-    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager)
         vatticaprovidermanager->setAttica__ProviderManager_IsSignalConnected_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Attica__ProviderManager_Delete(Attica__ProviderManager* self) {

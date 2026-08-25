@@ -62,9 +62,8 @@ QMetaObject* KParts__ListingFilterExtension_SuperMetaObject(const KParts__Listin
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnMetaObject(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -81,9 +80,8 @@ void* KParts__ListingFilterExtension_SuperMetacast(KParts__ListingFilterExtensio
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnMetacast(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +98,8 @@ int KParts__ListingFilterExtension_SuperMetacall(KParts__ListingFilterExtension*
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnMetacall(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacall_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +116,8 @@ int KParts__ListingFilterExtension_SuperSupportedFilterModes(const KParts__Listi
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnSupportedFilterModes(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SupportedFilterModes_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_SupportedFilterModes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +134,8 @@ bool KParts__ListingFilterExtension_SuperSupportsMultipleFilters(const KParts__L
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnSupportsMultipleFilters(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SupportsMultipleFilters_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_SupportsMultipleFilters_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +152,8 @@ QVariant* KParts__ListingFilterExtension_SuperFilter(const KParts__ListingFilter
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnFilter(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Filter_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Filter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +170,8 @@ void KParts__ListingFilterExtension_SuperSetFilter(KParts__ListingFilterExtensio
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnSetFilter(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SetFilter_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_SetFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -205,9 +198,8 @@ bool KParts__ListingFilterExtension_SuperEvent(KParts__ListingFilterExtension* s
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnEvent(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Event_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -234,9 +226,8 @@ bool KParts__ListingFilterExtension_SuperEventFilter(KParts__ListingFilterExtens
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnEventFilter(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_EventFilter_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +254,8 @@ void KParts__ListingFilterExtension_SuperTimerEvent(KParts__ListingFilterExtensi
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnTimerEvent(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_TimerEvent_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +282,8 @@ void KParts__ListingFilterExtension_SuperChildEvent(KParts__ListingFilterExtensi
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnChildEvent(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_ChildEvent_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +310,8 @@ void KParts__ListingFilterExtension_SuperCustomEvent(KParts__ListingFilterExtens
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnCustomEvent(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_CustomEvent_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +338,8 @@ void KParts__ListingFilterExtension_SuperConnectNotify(KParts__ListingFilterExte
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnConnectNotify(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +366,8 @@ void KParts__ListingFilterExtension_SuperDisconnectNotify(KParts__ListingFilterE
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnDisconnectNotify(KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +394,8 @@ QObject* KParts__ListingFilterExtension_SuperSender(const KParts__ListingFilterE
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnSender(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Sender_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +422,8 @@ int KParts__ListingFilterExtension_SuperSenderSignalIndex(const KParts__ListingF
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnSenderSignalIndex(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +450,8 @@ int KParts__ListingFilterExtension_SuperReceivers(const KParts__ListingFilterExt
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnReceivers(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Receivers_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +478,8 @@ bool KParts__ListingFilterExtension_SuperIsSignalConnected(const KParts__Listing
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingFilterExtension_OnIsSignalConnected(const KParts__ListingFilterExtension* self, intptr_t slot) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
-    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension)
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KParts__ListingFilterExtension_Delete(KParts__ListingFilterExtension* self) {

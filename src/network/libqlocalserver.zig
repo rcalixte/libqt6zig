@@ -2502,7 +2502,7 @@ pub const QLocalServer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocalserver.html#public-types)
 pub const enums = struct {
-    pub const SocketOption = enum(i32) {
+    pub const SocketOption = enum {
         pub const NoOptions: i32 = 0;
         pub const UserAccessOption: i32 = 1;
         pub const GroupAccessOption: i32 = 2;

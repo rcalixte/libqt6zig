@@ -6753,13 +6753,13 @@ pub const QDesignerIntegration = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/abstractintegration.html#public-types)
 pub const enums = struct {
-    pub const ResourceFileWatcherBehaviour = enum(i32) {
+    pub const ResourceFileWatcherBehaviour = enum {
         pub const NoResourceFileWatcher: i32 = 0;
         pub const ReloadResourceFileSilently: i32 = 1;
         pub const PromptToReloadResourceFile: i32 = 2;
     };
 
-    pub const FeatureFlag = enum(i32) {
+    pub const FeatureFlag = enum {
         pub const ResourceEditorFeature: i32 = 1;
         pub const SlotNavigationFeature: i32 = 2;
         pub const DefaultWidgetActionFeature: i32 = 4;

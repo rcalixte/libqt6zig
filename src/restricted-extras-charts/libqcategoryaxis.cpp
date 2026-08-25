@@ -141,9 +141,8 @@ QMetaObject* QCategoryAxis_SuperMetaObject(const QCategoryAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnMetaObject(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_MetaObject_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +159,8 @@ void* QCategoryAxis_SuperMetacast(QCategoryAxis* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnMetacast(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Metacast_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -179,9 +177,8 @@ int QCategoryAxis_SuperMetacall(QCategoryAxis* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnMetacall(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Metacall_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -198,9 +195,8 @@ int QCategoryAxis_SuperType(const QCategoryAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnType(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Type_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +223,8 @@ bool QCategoryAxis_SuperEvent(QCategoryAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnEvent(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Event_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +251,8 @@ bool QCategoryAxis_SuperEventFilter(QCategoryAxis* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnEventFilter(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_EventFilter_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +279,8 @@ void QCategoryAxis_SuperTimerEvent(QCategoryAxis* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnTimerEvent(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_TimerEvent_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +307,8 @@ void QCategoryAxis_SuperChildEvent(QCategoryAxis* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnChildEvent(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_ChildEvent_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +335,8 @@ void QCategoryAxis_SuperCustomEvent(QCategoryAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnCustomEvent(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_CustomEvent_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +363,8 @@ void QCategoryAxis_SuperConnectNotify(QCategoryAxis* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnConnectNotify(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +391,8 @@ void QCategoryAxis_SuperDisconnectNotify(QCategoryAxis* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnDisconnectNotify(QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +419,8 @@ QObject* QCategoryAxis_SuperSender(const QCategoryAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnSender(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Sender_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +447,8 @@ int QCategoryAxis_SuperSenderSignalIndex(const QCategoryAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnSenderSignalIndex(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +475,8 @@ int QCategoryAxis_SuperReceivers(const QCategoryAxis* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnReceivers(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_Receivers_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +503,8 @@ bool QCategoryAxis_SuperIsSignalConnected(const QCategoryAxis* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QCategoryAxis_OnIsSignalConnected(const QCategoryAxis* self, intptr_t slot) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis)
         vqcategoryaxis->setQCategoryAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QCategoryAxis_Delete(QCategoryAxis* self) {

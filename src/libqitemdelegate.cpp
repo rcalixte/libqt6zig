@@ -145,9 +145,8 @@ QMetaObject* QItemDelegate_SuperMetaObject(const QItemDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnMetaObject(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +163,8 @@ void* QItemDelegate_SuperMetacast(QItemDelegate* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnMetacast(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +181,8 @@ int QItemDelegate_SuperMetacall(QItemDelegate* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnMetacall(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Metacall_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +199,8 @@ void QItemDelegate_SuperPaint(const QItemDelegate* self, QPainter* painter, cons
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnPaint(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Paint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +217,8 @@ QSize* QItemDelegate_SuperSizeHint(const QItemDelegate* self, const QStyleOption
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSizeHint(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +235,8 @@ QWidget* QItemDelegate_SuperCreateEditor(const QItemDelegate* self, QWidget* par
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnCreateEditor(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_CreateEditor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +253,8 @@ void QItemDelegate_SuperSetEditorData(const QItemDelegate* self, QWidget* editor
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSetEditorData(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetEditorData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +271,8 @@ void QItemDelegate_SuperSetModelData(const QItemDelegate* self, QWidget* editor,
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSetModelData(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetModelData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -297,9 +289,8 @@ void QItemDelegate_SuperUpdateEditorGeometry(const QItemDelegate* self, QWidget*
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnUpdateEditorGeometry(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +308,8 @@ void QItemDelegate_SuperDrawDisplay(const QItemDelegate* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDrawDisplay(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DrawDisplay_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDisplay_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +326,8 @@ void QItemDelegate_SuperDrawDecoration(const QItemDelegate* self, QPainter* pain
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDrawDecoration(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DrawDecoration_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawDecoration_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -355,9 +344,8 @@ void QItemDelegate_SuperDrawFocus(const QItemDelegate* self, QPainter* painter, 
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDrawFocus(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DrawFocus_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawFocus_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -374,9 +362,8 @@ void QItemDelegate_SuperDrawCheck(const QItemDelegate* self, QPainter* painter, 
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDrawCheck(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DrawCheck_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawCheck_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -393,9 +380,8 @@ bool QItemDelegate_SuperEventFilter(QItemDelegate* self, QObject* object, QEvent
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnEventFilter(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -412,9 +398,8 @@ bool QItemDelegate_SuperEditorEvent(QItemDelegate* self, QEvent* event, QAbstrac
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnEditorEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +426,8 @@ void QItemDelegate_SuperDestroyEditor(const QItemDelegate* self, QWidget* editor
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDestroyEditor(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DestroyEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +454,8 @@ bool QItemDelegate_SuperHelpEvent(QItemDelegate* self, QHelpEvent* event, QAbstr
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnHelpEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_HelpEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +518,8 @@ libqt_list /* of int */ QItemDelegate_SuperPaintingRoles(const QItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnPaintingRoles(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_PaintingRoles_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -564,9 +546,8 @@ bool QItemDelegate_SuperEvent(QItemDelegate* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Event_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +574,8 @@ void QItemDelegate_SuperTimerEvent(QItemDelegate* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnTimerEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +602,8 @@ void QItemDelegate_SuperChildEvent(QItemDelegate* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnChildEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +630,8 @@ void QItemDelegate_SuperCustomEvent(QItemDelegate* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnCustomEvent(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +658,8 @@ void QItemDelegate_SuperConnectNotify(QItemDelegate* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnConnectNotify(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -709,9 +686,8 @@ void QItemDelegate_SuperDisconnectNotify(QItemDelegate* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDisconnectNotify(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -738,9 +714,8 @@ void QItemDelegate_SuperDrawBackground(const QItemDelegate* self, QPainter* pain
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDrawBackground(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DrawBackground_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DrawBackground_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -767,9 +742,8 @@ void QItemDelegate_SuperDoLayout(const QItemDelegate* self, const QStyleOptionVi
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDoLayout(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DoLayout_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DoLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +768,8 @@ QRect* QItemDelegate_SuperRect(const QItemDelegate* self, const QStyleOptionView
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnRect(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Rect_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Rect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +794,8 @@ QStyleOptionViewItem* QItemDelegate_SuperSetOptions(const QItemDelegate* self, c
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSetOptions(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SetOptions_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SetOptions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +820,8 @@ QPixmap* QItemDelegate_SuperDecoration(const QItemDelegate* self, const QStyleOp
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDecoration(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Decoration_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Decoration_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +846,8 @@ QPixmap* QItemDelegate_SuperSelectedPixmap(QItemDelegate* self, const QPixmap* p
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSelectedPixmap(QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SelectedPixmap_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SelectedPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +872,8 @@ QRect* QItemDelegate_SuperDoCheck(const QItemDelegate* self, const QStyleOptionV
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnDoCheck(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_DoCheck_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_DoCheck_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +900,8 @@ QRect* QItemDelegate_SuperTextRectangle(const QItemDelegate* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnTextRectangle(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_TextRectangle_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_TextRectangle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +928,8 @@ QObject* QItemDelegate_SuperSender(const QItemDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSender(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Sender_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +956,8 @@ int QItemDelegate_SuperSenderSignalIndex(const QItemDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnSenderSignalIndex(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +984,8 @@ int QItemDelegate_SuperReceivers(const QItemDelegate* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnReceivers(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_Receivers_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1012,8 @@ bool QItemDelegate_SuperIsSignalConnected(const QItemDelegate* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QItemDelegate_OnIsSignalConnected(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate)
         vqitemdelegate->setQItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QItemDelegate_Delete(QItemDelegate* self) {

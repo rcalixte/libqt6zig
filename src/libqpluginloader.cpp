@@ -140,9 +140,8 @@ QMetaObject* QPluginLoader_SuperMetaObject(const QPluginLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnMetaObject(const QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_MetaObject_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +158,8 @@ void* QPluginLoader_SuperMetacast(QPluginLoader* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnMetacast(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_Metacast_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +176,8 @@ int QPluginLoader_SuperMetacall(QPluginLoader* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnMetacall(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_Metacall_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +204,8 @@ bool QPluginLoader_SuperEvent(QPluginLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnEvent(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_Event_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +232,8 @@ bool QPluginLoader_SuperEventFilter(QPluginLoader* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnEventFilter(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_EventFilter_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +260,8 @@ void QPluginLoader_SuperTimerEvent(QPluginLoader* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnTimerEvent(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_TimerEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +288,8 @@ void QPluginLoader_SuperChildEvent(QPluginLoader* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnChildEvent(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_ChildEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +316,8 @@ void QPluginLoader_SuperCustomEvent(QPluginLoader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnCustomEvent(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_CustomEvent_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +344,8 @@ void QPluginLoader_SuperConnectNotify(QPluginLoader* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnConnectNotify(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_ConnectNotify_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +372,8 @@ void QPluginLoader_SuperDisconnectNotify(QPluginLoader* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnDisconnectNotify(QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +400,8 @@ QObject* QPluginLoader_SuperSender(const QPluginLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnSender(const QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_Sender_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +428,8 @@ int QPluginLoader_SuperSenderSignalIndex(const QPluginLoader* self) {
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnSenderSignalIndex(const QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +456,8 @@ int QPluginLoader_SuperReceivers(const QPluginLoader* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnReceivers(const QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_Receivers_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +484,8 @@ bool QPluginLoader_SuperIsSignalConnected(const QPluginLoader* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QPluginLoader_OnIsSignalConnected(const QPluginLoader* self, intptr_t slot) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader)
         vqpluginloader->setQPluginLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPluginLoader_Delete(QPluginLoader* self) {

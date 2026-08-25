@@ -1717,7 +1717,7 @@ pub const QInputMethod = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputmethod.html#public-types)
 pub const enums = struct {
-    pub const Action = enum(i32) {
+    pub const Action = enum {
         pub const Click: i32 = 0;
         pub const ContextMenu: i32 = 1;
     };

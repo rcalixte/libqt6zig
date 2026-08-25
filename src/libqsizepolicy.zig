@@ -498,14 +498,14 @@ pub const QSizePolicy = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#public-types)
 pub const enums = struct {
-    pub const PolicyFlag = enum(i32) {
+    pub const PolicyFlag = enum {
         pub const GrowFlag: i32 = 1;
         pub const ExpandFlag: i32 = 2;
         pub const ShrinkFlag: i32 = 4;
         pub const IgnoreFlag: i32 = 8;
     };
 
-    pub const Policy = enum(i32) {
+    pub const Policy = enum {
         pub const Fixed: i32 = 0;
         pub const Minimum: i32 = 1;
         pub const Maximum: i32 = 4;
@@ -515,7 +515,7 @@ pub const enums = struct {
         pub const Ignored: i32 = 13;
     };
 
-    pub const ControlType = enum(i32) {
+    pub const ControlType = enum {
         pub const DefaultType: i32 = 1;
         pub const ButtonBox: i32 = 2;
         pub const CheckBox: i32 = 4;

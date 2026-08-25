@@ -1107,7 +1107,7 @@ pub const QTransform = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#public-types)
 pub const enums = struct {
-    pub const TransformationType = enum(i32) {
+    pub const TransformationType = enum {
         pub const TxNone: i32 = 0;
         pub const TxTranslate: i32 = 1;
         pub const TxScale: i32 = 2;

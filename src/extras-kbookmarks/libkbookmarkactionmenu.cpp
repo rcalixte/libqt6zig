@@ -26,6 +26,14 @@ KBookmarkActionMenu* KBookmarkActionMenu_new2(const KBookmark* bm, const libqt_s
     return new VirtualKBookmarkActionMenu(*bm, text_QString, parent);
 }
 
+KBookmarkActionInterface* KBookmarkActionMenu_AsKBookmarkActionInterface(KBookmarkActionMenu* self) {
+    return static_cast<KBookmarkActionInterface*>(self);
+}
+
+KBookmarkActionMenu* KBookmarkActionMenu_FromKBookmarkActionInterface(KBookmarkActionInterface* _kbookmarkactioninterface) {
+    return dynamic_cast<KBookmarkActionMenu*>(static_cast<KBookmarkActionInterface*>(_kbookmarkactioninterface));
+}
+
 QMetaObject* KBookmarkActionMenu_MetaObject(const KBookmarkActionMenu* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -52,9 +60,8 @@ QMetaObject* KBookmarkActionMenu_SuperMetaObject(const KBookmarkActionMenu* self
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnMetaObject(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +78,8 @@ void* KBookmarkActionMenu_SuperMetacast(KBookmarkActionMenu* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnMetacast(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_Metacast_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +96,8 @@ int KBookmarkActionMenu_SuperMetacall(KBookmarkActionMenu* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnMetacall(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_Metacall_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -119,9 +124,8 @@ QWidget* KBookmarkActionMenu_SuperCreateWidget(KBookmarkActionMenu* self, QWidge
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnCreateWidget(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_CreateWidget_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -148,9 +152,8 @@ bool KBookmarkActionMenu_SuperEvent(KBookmarkActionMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnEvent(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_Event_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -177,9 +180,8 @@ bool KBookmarkActionMenu_SuperEventFilter(KBookmarkActionMenu* self, QObject* pa
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnEventFilter(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_EventFilter_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +208,8 @@ void KBookmarkActionMenu_SuperDeleteWidget(KBookmarkActionMenu* self, QWidget* w
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnDeleteWidget(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_DeleteWidget_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +236,8 @@ void KBookmarkActionMenu_SuperTimerEvent(KBookmarkActionMenu* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnTimerEvent(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_TimerEvent_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +264,8 @@ void KBookmarkActionMenu_SuperChildEvent(KBookmarkActionMenu* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnChildEvent(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_ChildEvent_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +292,8 @@ void KBookmarkActionMenu_SuperCustomEvent(KBookmarkActionMenu* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnCustomEvent(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_CustomEvent_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +320,8 @@ void KBookmarkActionMenu_SuperConnectNotify(KBookmarkActionMenu* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnConnectNotify(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +348,8 @@ void KBookmarkActionMenu_SuperDisconnectNotify(KBookmarkActionMenu* self, const 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnDisconnectNotify(KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +412,8 @@ libqt_list /* of QWidget* */ KBookmarkActionMenu_SuperCreatedWidgets(const KBook
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnCreatedWidgets(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_CreatedWidgets_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +440,8 @@ QObject* KBookmarkActionMenu_SuperSender(const KBookmarkActionMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnSender(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_Sender_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +468,8 @@ int KBookmarkActionMenu_SuperSenderSignalIndex(const KBookmarkActionMenu* self) 
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnSenderSignalIndex(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +496,8 @@ int KBookmarkActionMenu_SuperReceivers(const KBookmarkActionMenu* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnReceivers(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_Receivers_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +524,8 @@ bool KBookmarkActionMenu_SuperIsSignalConnected(const KBookmarkActionMenu* self,
 // Auxiliary method to allow providing re-implementation
 void KBookmarkActionMenu_OnIsSignalConnected(const KBookmarkActionMenu* self, intptr_t slot) {
     auto* vkbookmarkactionmenu = const_cast<VirtualKBookmarkActionMenu*>(dynamic_cast<const VirtualKBookmarkActionMenu*>(self));
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
+    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu)
         vkbookmarkactionmenu->setKBookmarkActionMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKBookmarkActionMenu::KBookmarkActionMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KBookmarkActionMenu_Delete(KBookmarkActionMenu* self) {

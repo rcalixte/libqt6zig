@@ -235,7 +235,7 @@ pub const QTreeWidgetItemIterator = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#public-types)
 pub const enums = struct {
-    pub const IteratorFlag = enum(i32) {
+    pub const IteratorFlag = enum {
         pub const All: i32 = 0;
         pub const Hidden: i32 = 1;
         pub const NotHidden: i32 = 2;

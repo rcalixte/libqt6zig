@@ -48,9 +48,8 @@ QGesture* QGestureRecognizer_SuperCreate(QGestureRecognizer* self, QObject* targ
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnCreate(QGestureRecognizer* self, intptr_t slot) {
     auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
+    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
         vqgesturerecognizer->setQGestureRecognizer_Create_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Create_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -67,9 +66,8 @@ int QGestureRecognizer_SuperRecognize(QGestureRecognizer* self, QGesture* state,
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnRecognize(QGestureRecognizer* self, intptr_t slot) {
     auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
+    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
         vqgesturerecognizer->setQGestureRecognizer_Recognize_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Recognize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -86,9 +84,8 @@ void QGestureRecognizer_SuperReset(QGestureRecognizer* self, QGesture* state) {
 // Auxiliary method to allow providing re-implementation
 void QGestureRecognizer_OnReset(QGestureRecognizer* self, intptr_t slot) {
     auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
+    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer)
         vqgesturerecognizer->setQGestureRecognizer_Reset_Callback(reinterpret_cast<VirtualQGestureRecognizer::QGestureRecognizer_Reset_Callback>(slot));
-    }
 }
 
 void QGestureRecognizer_Delete(QGestureRecognizer* self) {

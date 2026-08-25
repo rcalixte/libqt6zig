@@ -1004,7 +1004,7 @@ pub const QHttpHeaders = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#public-types)
 pub const enums = struct {
-    pub const WellKnownHeader = enum(i32) {
+    pub const WellKnownHeader = enum {
         pub const AIM: i32 = 0;
         pub const Accept: i32 = 1;
         pub const AcceptAdditions: i32 = 2;

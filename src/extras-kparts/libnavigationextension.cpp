@@ -272,9 +272,8 @@ QMetaObject* KParts__NavigationExtension_SuperMetaObject(const KParts__Navigatio
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnMetaObject(const KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +290,8 @@ void* KParts__NavigationExtension_SuperMetacast(KParts__NavigationExtension* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnMetacast(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +308,8 @@ int KParts__NavigationExtension_SuperMetacall(KParts__NavigationExtension* self,
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnMetacall(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_Metacall_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -329,9 +326,8 @@ int KParts__NavigationExtension_SuperXOffset(KParts__NavigationExtension* self) 
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnXOffset(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_XOffset_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_XOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -348,9 +344,8 @@ int KParts__NavigationExtension_SuperYOffset(KParts__NavigationExtension* self) 
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnYOffset(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_YOffset_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_YOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -367,9 +362,8 @@ void KParts__NavigationExtension_SuperSaveState(KParts__NavigationExtension* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnSaveState(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_SaveState_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_SaveState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -386,9 +380,8 @@ void KParts__NavigationExtension_SuperRestoreState(KParts__NavigationExtension* 
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnRestoreState(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_RestoreState_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_RestoreState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +408,8 @@ bool KParts__NavigationExtension_SuperEvent(KParts__NavigationExtension* self, Q
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnEvent(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_Event_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +436,8 @@ bool KParts__NavigationExtension_SuperEventFilter(KParts__NavigationExtension* s
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnEventFilter(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_EventFilter_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +464,8 @@ void KParts__NavigationExtension_SuperTimerEvent(KParts__NavigationExtension* se
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnTimerEvent(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_TimerEvent_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +492,8 @@ void KParts__NavigationExtension_SuperChildEvent(KParts__NavigationExtension* se
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnChildEvent(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_ChildEvent_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +520,8 @@ void KParts__NavigationExtension_SuperCustomEvent(KParts__NavigationExtension* s
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnCustomEvent(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_CustomEvent_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +548,8 @@ void KParts__NavigationExtension_SuperConnectNotify(KParts__NavigationExtension*
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnConnectNotify(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +576,8 @@ void KParts__NavigationExtension_SuperDisconnectNotify(KParts__NavigationExtensi
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnDisconnectNotify(KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +604,8 @@ QObject* KParts__NavigationExtension_SuperSender(const KParts__NavigationExtensi
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnSender(const KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_Sender_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +632,8 @@ int KParts__NavigationExtension_SuperSenderSignalIndex(const KParts__NavigationE
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnSenderSignalIndex(const KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +660,8 @@ int KParts__NavigationExtension_SuperReceivers(const KParts__NavigationExtension
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnReceivers(const KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_Receivers_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +688,8 @@ bool KParts__NavigationExtension_SuperIsSignalConnected(const KParts__Navigation
 // Auxiliary method to allow providing re-implementation
 void KParts__NavigationExtension_OnIsSignalConnected(const KParts__NavigationExtension* self, intptr_t slot) {
     auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
-    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension)
         vkpartsnavigationextension->setKParts__NavigationExtension_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KParts__NavigationExtension_Delete(KParts__NavigationExtension* self) {

@@ -10220,6 +10220,31 @@ pub const QsciScintilla = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    pub fn asQPaintDevice(self: QsciScintilla) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QsciScintilla object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QsciScintilla {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -16185,7 +16210,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn paintingActive(self: QsciScintilla) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -16201,7 +16226,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn widthMM(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -16217,7 +16242,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn heightMM(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -16233,7 +16258,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn logicalDpiX(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -16249,7 +16274,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn logicalDpiY(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -16265,7 +16290,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn physicalDpiX(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -16281,7 +16306,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn physicalDpiY(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -16297,7 +16322,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn devicePixelRatio(self: QsciScintilla) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -16313,7 +16338,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn devicePixelRatioF(self: QsciScintilla) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -16329,7 +16354,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn colorCount(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -16345,7 +16370,7 @@ pub const QsciScintilla = extern struct {
     /// ` self: QsciScintilla `
     ///
     pub fn depth(self: QsciScintilla) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -20632,7 +20657,7 @@ pub const QsciScintilla = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciScintilla = enum(i32) {
+    pub const QsciScintilla = enum {
         pub const AiMaintain: i32 = 1;
         pub const AiOpening: i32 = 2;
         pub const AiClosing: i32 = 4;
@@ -20640,58 +20665,58 @@ pub const enums = struct {
         pub const MoSublineSelect: i32 = 1;
     };
 
-    pub const AnnotationDisplay = enum(i32) {
+    pub const AnnotationDisplay = enum {
         pub const AnnotationHidden: i32 = 0;
         pub const AnnotationStandard: i32 = 1;
         pub const AnnotationBoxed: i32 = 2;
         pub const AnnotationIndented: i32 = 3;
     };
 
-    pub const AutoCompletionUseSingle = enum(i32) {
+    pub const AutoCompletionUseSingle = enum {
         pub const AcusNever: i32 = 0;
         pub const AcusExplicit: i32 = 1;
         pub const AcusAlways: i32 = 2;
     };
 
-    pub const AutoCompletionSource = enum(i32) {
+    pub const AutoCompletionSource = enum {
         pub const AcsNone: i32 = 0;
         pub const AcsAll: i32 = 1;
         pub const AcsDocument: i32 = 2;
         pub const AcsAPIs: i32 = 3;
     };
 
-    pub const BraceMatch = enum(i32) {
+    pub const BraceMatch = enum {
         pub const NoBraceMatch: i32 = 0;
         pub const StrictBraceMatch: i32 = 1;
         pub const SloppyBraceMatch: i32 = 2;
     };
 
-    pub const CallTipsPosition = enum(i32) {
+    pub const CallTipsPosition = enum {
         pub const CallTipsBelowText: i32 = 0;
         pub const CallTipsAboveText: i32 = 1;
     };
 
-    pub const CallTipsStyle = enum(i32) {
+    pub const CallTipsStyle = enum {
         pub const CallTipsNone: i32 = 0;
         pub const CallTipsNoContext: i32 = 1;
         pub const CallTipsNoAutoCompletionContext: i32 = 2;
         pub const CallTipsContext: i32 = 3;
     };
 
-    pub const EdgeMode = enum(i32) {
+    pub const EdgeMode = enum {
         pub const EdgeNone: i32 = 0;
         pub const EdgeLine: i32 = 1;
         pub const EdgeBackground: i32 = 2;
         pub const EdgeMultipleLines: i32 = 3;
     };
 
-    pub const EolMode = enum(i32) {
+    pub const EolMode = enum {
         pub const EolWindows: i32 = 0;
         pub const EolUnix: i32 = 2;
         pub const EolMac: i32 = 1;
     };
 
-    pub const FoldStyle = enum(i32) {
+    pub const FoldStyle = enum {
         pub const NoFoldStyle: i32 = 0;
         pub const PlainFoldStyle: i32 = 1;
         pub const CircledFoldStyle: i32 = 2;
@@ -20700,7 +20725,7 @@ pub const enums = struct {
         pub const BoxedTreeFoldStyle: i32 = 5;
     };
 
-    pub const IndicatorStyle = enum(i32) {
+    pub const IndicatorStyle = enum {
         pub const PlainIndicator: i32 = 0;
         pub const SquiggleIndicator: i32 = 1;
         pub const TTIndicator: i32 = 2;
@@ -20725,7 +20750,7 @@ pub const enums = struct {
         pub const CentreGradientIndicator: i32 = 21;
     };
 
-    pub const MarginType = enum(i32) {
+    pub const MarginType = enum {
         pub const SymbolMargin: i32 = 0;
         pub const SymbolMarginDefaultForegroundColor: i32 = 3;
         pub const SymbolMarginDefaultBackgroundColor: i32 = 2;
@@ -20735,7 +20760,7 @@ pub const enums = struct {
         pub const SymbolMarginColor: i32 = 6;
     };
 
-    pub const MarkerSymbol = enum(i32) {
+    pub const MarkerSymbol = enum {
         pub const Circle: i32 = 0;
         pub const Rectangle: i32 = 1;
         pub const RightTriangle: i32 = 2;
@@ -20767,33 +20792,33 @@ pub const enums = struct {
         pub const Bookmark: i32 = 31;
     };
 
-    pub const TabDrawMode = enum(i32) {
+    pub const TabDrawMode = enum {
         pub const TabLongArrow: i32 = 0;
         pub const TabStrikeOut: i32 = 1;
     };
 
-    pub const WhitespaceVisibility = enum(i32) {
+    pub const WhitespaceVisibility = enum {
         pub const WsInvisible: i32 = 0;
         pub const WsVisible: i32 = 1;
         pub const WsVisibleAfterIndent: i32 = 2;
         pub const WsVisibleOnlyInIndent: i32 = 3;
     };
 
-    pub const WrapMode = enum(i32) {
+    pub const WrapMode = enum {
         pub const WrapNone: i32 = 0;
         pub const WrapWord: i32 = 1;
         pub const WrapCharacter: i32 = 2;
         pub const WrapWhitespace: i32 = 3;
     };
 
-    pub const WrapVisualFlag = enum(i32) {
+    pub const WrapVisualFlag = enum {
         pub const WrapFlagNone: i32 = 0;
         pub const WrapFlagByText: i32 = 1;
         pub const WrapFlagByBorder: i32 = 2;
         pub const WrapFlagInMargin: i32 = 3;
     };
 
-    pub const WrapIndentMode = enum(i32) {
+    pub const WrapIndentMode = enum {
         pub const WrapIndentFixed: i32 = 0;
         pub const WrapIndentSame: i32 = 1;
         pub const WrapIndentIndented: i32 = 2;

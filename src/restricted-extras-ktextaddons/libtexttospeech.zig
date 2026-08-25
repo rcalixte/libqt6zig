@@ -1496,7 +1496,7 @@ pub const TextEditTextToSpeech__TextToSpeech = extern struct {
 };
 
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Ready: i32 = 0;
         pub const Speaking: i32 = 1;
         pub const Paused: i32 = 2;

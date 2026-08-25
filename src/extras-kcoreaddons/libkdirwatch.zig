@@ -2409,13 +2409,13 @@ pub const KDirWatch = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kdirwatch.html#public-types)
 pub const enums = struct {
-    pub const WatchMode = enum(i32) {
+    pub const WatchMode = enum {
         pub const WatchDirOnly: i32 = 0;
         pub const WatchFiles: i32 = 1;
         pub const WatchSubDirs: i32 = 2;
     };
 
-    pub const Method = enum(i32) {
+    pub const Method = enum {
         pub const INotify: i32 = 0;
         pub const Stat: i32 = 1;
         pub const QFSWatch: i32 = 2;

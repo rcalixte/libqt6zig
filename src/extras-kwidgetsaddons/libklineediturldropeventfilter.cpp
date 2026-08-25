@@ -52,9 +52,8 @@ QMetaObject* KLineEditUrlDropEventFilter_SuperMetaObject(const KLineEditUrlDropE
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnMetaObject(const KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_MetaObject_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +70,8 @@ void* KLineEditUrlDropEventFilter_SuperMetacast(KLineEditUrlDropEventFilter* sel
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnMetacast(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Metacast_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +88,8 @@ int KLineEditUrlDropEventFilter_SuperMetacall(KLineEditUrlDropEventFilter* self,
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnMetacall(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Metacall_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +106,8 @@ bool KLineEditUrlDropEventFilter_SuperEventFilter(KLineEditUrlDropEventFilter* s
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnEventFilter(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -138,9 +134,8 @@ bool KLineEditUrlDropEventFilter_SuperEvent(KLineEditUrlDropEventFilter* self, Q
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnEvent(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Event_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +162,8 @@ void KLineEditUrlDropEventFilter_SuperTimerEvent(KLineEditUrlDropEventFilter* se
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnTimerEvent(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_TimerEvent_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +190,8 @@ void KLineEditUrlDropEventFilter_SuperChildEvent(KLineEditUrlDropEventFilter* se
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnChildEvent(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_ChildEvent_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +218,8 @@ void KLineEditUrlDropEventFilter_SuperCustomEvent(KLineEditUrlDropEventFilter* s
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnCustomEvent(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_CustomEvent_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +246,8 @@ void KLineEditUrlDropEventFilter_SuperConnectNotify(KLineEditUrlDropEventFilter*
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnConnectNotify(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_ConnectNotify_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +274,8 @@ void KLineEditUrlDropEventFilter_SuperDisconnectNotify(KLineEditUrlDropEventFilt
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnDisconnectNotify(KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_DisconnectNotify_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +302,8 @@ QObject* KLineEditUrlDropEventFilter_SuperSender(const KLineEditUrlDropEventFilt
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnSender(const KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Sender_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +330,8 @@ int KLineEditUrlDropEventFilter_SuperSenderSignalIndex(const KLineEditUrlDropEve
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnSenderSignalIndex(const KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +358,8 @@ int KLineEditUrlDropEventFilter_SuperReceivers(const KLineEditUrlDropEventFilter
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnReceivers(const KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Receivers_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +386,8 @@ bool KLineEditUrlDropEventFilter_SuperIsSignalConnected(const KLineEditUrlDropEv
 // Auxiliary method to allow providing re-implementation
 void KLineEditUrlDropEventFilter_OnIsSignalConnected(const KLineEditUrlDropEventFilter* self, intptr_t slot) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
+    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter)
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_IsSignalConnected_Callback(reinterpret_cast<VirtualKLineEditUrlDropEventFilter::KLineEditUrlDropEventFilter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KLineEditUrlDropEventFilter_Delete(KLineEditUrlDropEventFilter* self) {

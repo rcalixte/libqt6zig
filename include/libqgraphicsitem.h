@@ -355,6 +355,8 @@ void QGraphicsItem_Delete(QGraphicsItem* self);
 
 QGraphicsObject* QGraphicsObject_new();
 QGraphicsObject* QGraphicsObject_new2(QGraphicsItem* parent);
+QGraphicsItem* QGraphicsObject_AsQGraphicsItem(QGraphicsObject* self);
+QGraphicsObject* QGraphicsObject_FromQGraphicsItem(QGraphicsItem* _qgraphicsitem);
 QMetaObject* QGraphicsObject_MetaObject(const QGraphicsObject* self);
 void* QGraphicsObject_Metacast(QGraphicsObject* self, const char* param1);
 int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void** param3);

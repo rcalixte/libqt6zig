@@ -115,9 +115,8 @@ QMetaObject* KTextEditor__Command_SuperMetaObject(const KTextEditor__Command* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnMetaObject(const KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +133,8 @@ void* KTextEditor__Command_SuperMetacast(KTextEditor__Command* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnMetacast(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Metacast_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +151,8 @@ int KTextEditor__Command_SuperMetacall(KTextEditor__Command* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnMetacall(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Metacall_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +170,8 @@ bool KTextEditor__Command_SuperSupportsRange(KTextEditor__Command* self, const l
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnSupportsRange(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_SupportsRange_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_SupportsRange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +190,8 @@ bool KTextEditor__Command_SuperExec(KTextEditor__Command* self, KTextEditor__Vie
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnExec(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Exec_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Exec_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +210,8 @@ bool KTextEditor__Command_SuperHelp(KTextEditor__Command* self, KTextEditor__Vie
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnHelp(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Help_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Help_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +229,8 @@ KCompletion* KTextEditor__Command_SuperCompletionObject(KTextEditor__Command* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnCompletionObject(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_CompletionObject_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_CompletionObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -255,9 +248,8 @@ bool KTextEditor__Command_SuperWantsToProcessText(KTextEditor__Command* self, co
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnWantsToProcessText(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_WantsToProcessText_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_WantsToProcessText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -275,9 +267,8 @@ void KTextEditor__Command_SuperProcessText(KTextEditor__Command* self, KTextEdit
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnProcessText(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_ProcessText_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_ProcessText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +295,8 @@ bool KTextEditor__Command_SuperEvent(KTextEditor__Command* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnEvent(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Event_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +323,8 @@ bool KTextEditor__Command_SuperEventFilter(KTextEditor__Command* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnEventFilter(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +351,8 @@ void KTextEditor__Command_SuperTimerEvent(KTextEditor__Command* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnTimerEvent(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +379,8 @@ void KTextEditor__Command_SuperChildEvent(KTextEditor__Command* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnChildEvent(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +407,8 @@ void KTextEditor__Command_SuperCustomEvent(KTextEditor__Command* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnCustomEvent(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +435,8 @@ void KTextEditor__Command_SuperConnectNotify(KTextEditor__Command* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnConnectNotify(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +463,8 @@ void KTextEditor__Command_SuperDisconnectNotify(KTextEditor__Command* self, cons
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnDisconnectNotify(KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +491,8 @@ QObject* KTextEditor__Command_SuperSender(const KTextEditor__Command* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnSender(const KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Sender_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +519,8 @@ int KTextEditor__Command_SuperSenderSignalIndex(const KTextEditor__Command* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnSenderSignalIndex(const KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +547,8 @@ int KTextEditor__Command_SuperReceivers(const KTextEditor__Command* self, const 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnReceivers(const KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_Receivers_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +575,8 @@ bool KTextEditor__Command_SuperIsSignalConnected(const KTextEditor__Command* sel
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Command_OnIsSignalConnected(const KTextEditor__Command* self, intptr_t slot) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
-    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
+    if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand)
         vktexteditorcommand->setKTextEditor__Command_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorCommand::KTextEditor__Command_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__Command_Delete(KTextEditor__Command* self) {

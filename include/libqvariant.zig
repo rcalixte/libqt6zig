@@ -1943,7 +1943,7 @@ pub const QVariant = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Invalid: i32 = 0;
         pub const Bool: i32 = 1;
         pub const Int: i32 = 2;

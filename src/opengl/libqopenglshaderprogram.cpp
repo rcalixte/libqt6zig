@@ -118,9 +118,8 @@ QMetaObject* QOpenGLShader_SuperMetaObject(const QOpenGLShader* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnMetaObject(const QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +136,8 @@ void* QOpenGLShader_SuperMetacast(QOpenGLShader* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnMetacast(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +154,8 @@ int QOpenGLShader_SuperMetacall(QOpenGLShader* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnMetacall(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_Metacall_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +182,8 @@ bool QOpenGLShader_SuperEvent(QOpenGLShader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnEvent(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_Event_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +210,8 @@ bool QOpenGLShader_SuperEventFilter(QOpenGLShader* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnEventFilter(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +238,8 @@ void QOpenGLShader_SuperTimerEvent(QOpenGLShader* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnTimerEvent(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +266,8 @@ void QOpenGLShader_SuperChildEvent(QOpenGLShader* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnChildEvent(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +294,8 @@ void QOpenGLShader_SuperCustomEvent(QOpenGLShader* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnCustomEvent(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +322,8 @@ void QOpenGLShader_SuperConnectNotify(QOpenGLShader* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnConnectNotify(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +350,8 @@ void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnDisconnectNotify(QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +378,8 @@ QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnSender(const QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_Sender_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +406,8 @@ int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnSenderSignalIndex(const QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +434,8 @@ int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnReceivers(const QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_Receivers_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +462,8 @@ bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnIsSignalConnected(const QOpenGLShader* self, intptr_t slot) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
         vqopenglshader->setQOpenGLShader_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLShader_Delete(QOpenGLShader* self) {
@@ -1093,9 +1079,8 @@ QMetaObject* QOpenGLShaderProgram_SuperMetaObject(const QOpenGLShaderProgram* se
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnMetaObject(const QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1112,9 +1097,8 @@ void* QOpenGLShaderProgram_SuperMetacast(QOpenGLShaderProgram* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnMetacast(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1131,9 +1115,8 @@ int QOpenGLShaderProgram_SuperMetacall(QOpenGLShaderProgram* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnMetacall(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Metacall_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1150,9 +1133,8 @@ bool QOpenGLShaderProgram_SuperLink(QOpenGLShaderProgram* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnLink(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Link_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Link_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1161,8 @@ bool QOpenGLShaderProgram_SuperEvent(QOpenGLShaderProgram* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnEvent(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Event_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1189,8 @@ bool QOpenGLShaderProgram_SuperEventFilter(QOpenGLShaderProgram* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnEventFilter(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1217,8 @@ void QOpenGLShaderProgram_SuperTimerEvent(QOpenGLShaderProgram* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnTimerEvent(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1245,8 @@ void QOpenGLShaderProgram_SuperChildEvent(QOpenGLShaderProgram* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnChildEvent(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1273,8 @@ void QOpenGLShaderProgram_SuperCustomEvent(QOpenGLShaderProgram* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnCustomEvent(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1301,8 @@ void QOpenGLShaderProgram_SuperConnectNotify(QOpenGLShaderProgram* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnConnectNotify(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1329,8 @@ void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, cons
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnDisconnectNotify(QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1357,8 @@ QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnSender(const QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Sender_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1385,8 @@ int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnSenderSignalIndex(const QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1413,8 @@ int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnReceivers(const QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_Receivers_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1441,8 @@ bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* sel
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnIsSignalConnected(const QOpenGLShaderProgram* self, intptr_t slot) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
         vqopenglshaderprogram->setQOpenGLShaderProgram_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLShaderProgram_Delete(QOpenGLShaderProgram* self) {

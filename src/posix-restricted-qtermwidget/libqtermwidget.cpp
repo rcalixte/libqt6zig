@@ -58,6 +58,14 @@ QTermWidget* QTermWidget_new4(int startnow, QWidget* parent) {
     return new VirtualQTermWidget(static_cast<int>(startnow), parent);
 }
 
+QTermWidgetInterface* QTermWidget_AsQTermWidgetInterface(QTermWidget* self) {
+    return static_cast<QTermWidgetInterface*>(self);
+}
+
+QTermWidget* QTermWidget_FromQTermWidgetInterface(QTermWidgetInterface* _qtermwidgetinterface) {
+    return dynamic_cast<QTermWidget*>(static_cast<QTermWidgetInterface*>(_qtermwidgetinterface));
+}
+
 QMetaObject* QTermWidget_MetaObject(const QTermWidget* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -720,9 +728,8 @@ QMetaObject* QTermWidget_SuperMetaObject(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMetaObject(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MetaObject_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -739,9 +746,8 @@ void* QTermWidget_SuperMetacast(QTermWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMetacast(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Metacast_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -758,9 +764,8 @@ int QTermWidget_SuperMetacall(QTermWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMetacall(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Metacall_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -777,9 +782,8 @@ QSize* QTermWidget_SuperSizeHint(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSizeHint(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SizeHint_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -796,9 +800,8 @@ void QTermWidget_SuperSetTerminalSizeHint(QTermWidget* self, bool enabled) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTerminalSizeHint(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTerminalSizeHint_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTerminalSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -815,9 +818,8 @@ bool QTermWidget_SuperTerminalSizeHint(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnTerminalSizeHint(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_TerminalSizeHint_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_TerminalSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -834,9 +836,8 @@ void QTermWidget_SuperStartShellProgram(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnStartShellProgram(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_StartShellProgram_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_StartShellProgram_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -853,9 +854,8 @@ void QTermWidget_SuperStartTerminalTeletype(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnStartTerminalTeletype(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_StartTerminalTeletype_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_StartTerminalTeletype_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -872,9 +872,8 @@ int QTermWidget_SuperGetShellPID(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetShellPID(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetShellPID_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetShellPID_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -891,9 +890,8 @@ int QTermWidget_SuperGetForegroundProcessId(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetForegroundProcessId(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetForegroundProcessId_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetForegroundProcessId_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -911,9 +909,8 @@ void QTermWidget_SuperChangeDir(QTermWidget* self, const libqt_string dir) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnChangeDir(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ChangeDir_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ChangeDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -930,9 +927,8 @@ void QTermWidget_SuperSetTerminalFont(QTermWidget* self, const QFont* font) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTerminalFont(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTerminalFont_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTerminalFont_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -949,9 +945,8 @@ QFont* QTermWidget_SuperGetTerminalFont(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetTerminalFont(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetTerminalFont_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetTerminalFont_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -968,9 +963,8 @@ void QTermWidget_SuperSetTerminalOpacity(QTermWidget* self, double level) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTerminalOpacity(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTerminalOpacity_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTerminalOpacity_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -988,9 +982,8 @@ void QTermWidget_SuperSetTerminalBackgroundImage(QTermWidget* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTerminalBackgroundImage(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTerminalBackgroundImage_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTerminalBackgroundImage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1007,9 +1000,8 @@ void QTermWidget_SuperSetTerminalBackgroundMode(QTermWidget* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTerminalBackgroundMode(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTerminalBackgroundMode_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTerminalBackgroundMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1033,9 +1025,8 @@ void QTermWidget_SuperSetEnvironment(QTermWidget* self, const libqt_list /* of l
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetEnvironment(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetEnvironment_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetEnvironment_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1053,9 +1044,8 @@ void QTermWidget_SuperSetShellProgram(QTermWidget* self, const libqt_string prog
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetShellProgram(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetShellProgram_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetShellProgram_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1073,9 +1063,8 @@ void QTermWidget_SuperSetWorkingDirectory(QTermWidget* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetWorkingDirectory(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetWorkingDirectory_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetWorkingDirectory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1108,9 +1097,8 @@ libqt_string QTermWidget_SuperWorkingDirectory(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnWorkingDirectory(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_WorkingDirectory_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_WorkingDirectory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1134,9 +1122,8 @@ void QTermWidget_SuperSetArgs(QTermWidget* self, const libqt_list /* of libqt_st
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetArgs(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetArgs_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetArgs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1154,9 +1141,8 @@ void QTermWidget_SuperSetColorScheme(QTermWidget* self, const libqt_string name)
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetColorScheme(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetColorScheme_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetColorScheme_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1207,9 +1193,8 @@ libqt_list /* of libqt_string */ QTermWidget_SuperGetAvailableColorSchemes(QTerm
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetAvailableColorSchemes(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetAvailableColorSchemes_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetAvailableColorSchemes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1226,9 +1211,8 @@ void QTermWidget_SuperSetHistorySize(QTermWidget* self, int lines) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetHistorySize(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetHistorySize_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetHistorySize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1245,9 +1229,8 @@ int QTermWidget_SuperHistorySize(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnHistorySize(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_HistorySize_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_HistorySize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1264,9 +1247,8 @@ void QTermWidget_SuperSetScrollBarPosition(QTermWidget* self, int scrollBarPosit
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetScrollBarPosition(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetScrollBarPosition_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetScrollBarPosition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1283,9 +1265,8 @@ void QTermWidget_SuperScrollToEnd(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnScrollToEnd(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ScrollToEnd_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ScrollToEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1303,9 +1284,8 @@ void QTermWidget_SuperSendText(QTermWidget* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSendText(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SendText_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SendText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1322,9 +1302,8 @@ void QTermWidget_SuperSendKeyEvent(QTermWidget* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSendKeyEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SendKeyEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SendKeyEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1341,9 +1320,8 @@ void QTermWidget_SuperSetFlowControlEnabled(QTermWidget* self, bool enabled) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetFlowControlEnabled(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetFlowControlEnabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetFlowControlEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1360,9 +1338,8 @@ bool QTermWidget_SuperFlowControlEnabled(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFlowControlEnabled(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FlowControlEnabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FlowControlEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1379,9 +1356,8 @@ void QTermWidget_SuperSetFlowControlWarningEnabled(QTermWidget* self, bool enabl
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetFlowControlWarningEnabled(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetFlowControlWarningEnabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetFlowControlWarningEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1414,9 +1390,8 @@ libqt_string QTermWidget_SuperKeyBindings(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnKeyBindings(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_KeyBindings_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_KeyBindings_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1433,9 +1408,8 @@ void QTermWidget_SuperSetMotionAfterPasting(QTermWidget* self, int motionAfterPa
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetMotionAfterPasting(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetMotionAfterPasting_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetMotionAfterPasting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1452,9 +1426,8 @@ int QTermWidget_SuperHistoryLinesCount(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnHistoryLinesCount(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_HistoryLinesCount_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_HistoryLinesCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1471,9 +1444,8 @@ int QTermWidget_SuperScreenColumnsCount(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnScreenColumnsCount(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ScreenColumnsCount_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ScreenColumnsCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1490,9 +1462,8 @@ int QTermWidget_SuperScreenLinesCount(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnScreenLinesCount(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ScreenLinesCount_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ScreenLinesCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1509,9 +1480,8 @@ void QTermWidget_SuperSetSelectionStart(QTermWidget* self, int row, int column) 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetSelectionStart(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetSelectionStart_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetSelectionStart_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1528,9 +1498,8 @@ void QTermWidget_SuperSetSelectionEnd(QTermWidget* self, int row, int column) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetSelectionEnd(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetSelectionEnd_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetSelectionEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1547,9 +1516,8 @@ void QTermWidget_SuperGetSelectionStart(QTermWidget* self, int* row, int* column
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetSelectionStart(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetSelectionStart_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetSelectionStart_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1566,9 +1534,8 @@ void QTermWidget_SuperGetSelectionEnd(QTermWidget* self, int* row, int* column) 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetSelectionEnd(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetSelectionEnd_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetSelectionEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1601,9 +1568,8 @@ libqt_string QTermWidget_SuperSelectedText(QTermWidget* self, bool preserveLineB
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSelectedText(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SelectedText_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SelectedText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1620,9 +1586,8 @@ void QTermWidget_SuperSetMonitorActivity(QTermWidget* self, bool monitorActivity
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetMonitorActivity(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetMonitorActivity_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetMonitorActivity_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1639,9 +1604,8 @@ void QTermWidget_SuperSetMonitorSilence(QTermWidget* self, bool monitorSilence) 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetMonitorSilence(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetMonitorSilence_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetMonitorSilence_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1658,9 +1622,8 @@ void QTermWidget_SuperSetSilenceTimeout(QTermWidget* self, int seconds) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetSilenceTimeout(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetSilenceTimeout_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetSilenceTimeout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1695,9 +1658,8 @@ libqt_list /* of QAction* */ QTermWidget_SuperFilterActions(QTermWidget* self, c
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFilterActions(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FilterActions_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FilterActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1714,9 +1676,8 @@ int QTermWidget_SuperGetPtySlaveFd(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetPtySlaveFd(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetPtySlaveFd_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetPtySlaveFd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1733,9 +1694,8 @@ void QTermWidget_SuperSetBlinkingCursor(QTermWidget* self, bool blink) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetBlinkingCursor(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetBlinkingCursor_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetBlinkingCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1752,9 +1712,8 @@ void QTermWidget_SuperSetBidiEnabled(QTermWidget* self, bool enabled) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetBidiEnabled(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetBidiEnabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetBidiEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1771,9 +1730,8 @@ bool QTermWidget_SuperIsBidiEnabled(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnIsBidiEnabled(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_IsBidiEnabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_IsBidiEnabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1790,9 +1748,8 @@ void QTermWidget_SuperSetAutoClose(QTermWidget* self, bool autoClose) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetAutoClose(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetAutoClose_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetAutoClose_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1825,9 +1782,8 @@ libqt_string QTermWidget_SuperTitle(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnTitle(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Title_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Title_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1860,9 +1816,8 @@ libqt_string QTermWidget_SuperIcon(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnIcon(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Icon_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Icon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1879,9 +1834,8 @@ bool QTermWidget_SuperIsTitleChanged(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnIsTitleChanged(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_IsTitleChanged_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_IsTitleChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1899,9 +1853,8 @@ void QTermWidget_SuperBracketText(QTermWidget* self, libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnBracketText(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_BracketText_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_BracketText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1918,9 +1871,8 @@ void QTermWidget_SuperDisableBracketedPasteMode(QTermWidget* self, bool disable)
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDisableBracketedPasteMode(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DisableBracketedPasteMode_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DisableBracketedPasteMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1937,9 +1889,8 @@ bool QTermWidget_SuperBracketedPasteModeIsDisabled(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnBracketedPasteModeIsDisabled(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_BracketedPasteModeIsDisabled_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_BracketedPasteModeIsDisabled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1956,9 +1907,8 @@ void QTermWidget_SuperSetMargin(QTermWidget* self, int margin) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetMargin(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetMargin_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetMargin_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1975,9 +1925,8 @@ int QTermWidget_SuperGetMargin(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetMargin(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetMargin_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetMargin_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1994,9 +1943,8 @@ void QTermWidget_SuperSetDrawLineChars(QTermWidget* self, bool drawLineChars) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetDrawLineChars(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetDrawLineChars_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetDrawLineChars_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2013,9 +1961,8 @@ void QTermWidget_SuperSetBoldIntense(QTermWidget* self, bool boldIntense) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetBoldIntense(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetBoldIntense_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetBoldIntense_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2032,9 +1979,8 @@ void QTermWidget_SuperSetConfirmMultilinePaste(QTermWidget* self, bool confirmMu
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetConfirmMultilinePaste(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetConfirmMultilinePaste_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetConfirmMultilinePaste_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2051,9 +1997,8 @@ void QTermWidget_SuperSetTrimPastedTrailingNewlines(QTermWidget* self, bool trim
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetTrimPastedTrailingNewlines(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetTrimPastedTrailingNewlines_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetTrimPastedTrailingNewlines_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2086,9 +2031,8 @@ libqt_string QTermWidget_SuperWordCharacters(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnWordCharacters(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_WordCharacters_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_WordCharacters_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2106,9 +2050,8 @@ void QTermWidget_SuperSetWordCharacters(QTermWidget* self, const libqt_string ch
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetWordCharacters(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetWordCharacters_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetWordCharacters_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2125,9 +2068,8 @@ QTermWidgetInterface* QTermWidget_SuperCreateWidget(const QTermWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnCreateWidget(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_CreateWidget_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2144,9 +2086,8 @@ void QTermWidget_SuperResizeEvent(QTermWidget* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnResizeEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2173,9 +2114,8 @@ int QTermWidget_SuperDevType(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDevType(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DevType_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2202,9 +2142,8 @@ void QTermWidget_SuperSetVisible(QTermWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSetVisible(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SetVisible_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2231,9 +2170,8 @@ QSize* QTermWidget_SuperMinimumSizeHint(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMinimumSizeHint(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2260,9 +2198,8 @@ int QTermWidget_SuperHeightForWidth(const QTermWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnHeightForWidth(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2289,9 +2226,8 @@ bool QTermWidget_SuperHasHeightForWidth(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnHasHeightForWidth(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2318,9 +2254,8 @@ QPaintEngine* QTermWidget_SuperPaintEngine(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnPaintEngine(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_PaintEngine_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2347,9 +2282,8 @@ bool QTermWidget_SuperEvent(QTermWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Event_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2376,9 +2310,8 @@ void QTermWidget_SuperMousePressEvent(QTermWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMousePressEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2405,9 +2338,8 @@ void QTermWidget_SuperMouseReleaseEvent(QTermWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMouseReleaseEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2434,9 +2366,8 @@ void QTermWidget_SuperMouseDoubleClickEvent(QTermWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMouseDoubleClickEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2463,9 +2394,8 @@ void QTermWidget_SuperMouseMoveEvent(QTermWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMouseMoveEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2492,9 +2422,8 @@ void QTermWidget_SuperWheelEvent(QTermWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnWheelEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_WheelEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2521,9 +2450,8 @@ void QTermWidget_SuperKeyPressEvent(QTermWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnKeyPressEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2550,9 +2478,8 @@ void QTermWidget_SuperKeyReleaseEvent(QTermWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnKeyReleaseEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2579,9 +2506,8 @@ void QTermWidget_SuperFocusInEvent(QTermWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFocusInEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2608,9 +2534,8 @@ void QTermWidget_SuperFocusOutEvent(QTermWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFocusOutEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2637,9 +2562,8 @@ void QTermWidget_SuperEnterEvent(QTermWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnEnterEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_EnterEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2666,9 +2590,8 @@ void QTermWidget_SuperLeaveEvent(QTermWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnLeaveEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2695,9 +2618,8 @@ void QTermWidget_SuperPaintEvent(QTermWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnPaintEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_PaintEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2724,9 +2646,8 @@ void QTermWidget_SuperMoveEvent(QTermWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMoveEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_MoveEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2753,9 +2674,8 @@ void QTermWidget_SuperCloseEvent(QTermWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnCloseEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_CloseEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2782,9 +2702,8 @@ void QTermWidget_SuperContextMenuEvent(QTermWidget* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnContextMenuEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2811,9 +2730,8 @@ void QTermWidget_SuperTabletEvent(QTermWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnTabletEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_TabletEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2840,9 +2758,8 @@ void QTermWidget_SuperActionEvent(QTermWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnActionEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ActionEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2869,9 +2786,8 @@ void QTermWidget_SuperDragEnterEvent(QTermWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDragEnterEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2898,9 +2814,8 @@ void QTermWidget_SuperDragMoveEvent(QTermWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDragMoveEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2927,9 +2842,8 @@ void QTermWidget_SuperDragLeaveEvent(QTermWidget* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDragLeaveEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2956,9 +2870,8 @@ void QTermWidget_SuperDropEvent(QTermWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDropEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DropEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2985,9 +2898,8 @@ void QTermWidget_SuperShowEvent(QTermWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnShowEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ShowEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3014,9 +2926,8 @@ void QTermWidget_SuperHideEvent(QTermWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnHideEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_HideEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3045,9 +2956,8 @@ bool QTermWidget_SuperNativeEvent(QTermWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnNativeEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_NativeEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3074,9 +2984,8 @@ void QTermWidget_SuperChangeEvent(QTermWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnChangeEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3103,9 +3012,8 @@ int QTermWidget_SuperMetric(const QTermWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnMetric(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Metric_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3132,9 +3040,8 @@ void QTermWidget_SuperInitPainter(const QTermWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnInitPainter(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_InitPainter_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3161,9 +3068,8 @@ QPaintDevice* QTermWidget_SuperRedirected(const QTermWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnRedirected(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Redirected_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3190,9 +3096,8 @@ QPainter* QTermWidget_SuperSharedPainter(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSharedPainter(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SharedPainter_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3219,9 +3124,8 @@ void QTermWidget_SuperInputMethodEvent(QTermWidget* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnInputMethodEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3248,9 +3152,8 @@ QVariant* QTermWidget_SuperInputMethodQuery(const QTermWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnInputMethodQuery(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3277,9 +3180,8 @@ bool QTermWidget_SuperFocusNextPrevChild(QTermWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFocusNextPrevChild(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3306,9 +3208,8 @@ bool QTermWidget_SuperEventFilter(QTermWidget* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnEventFilter(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_EventFilter_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3335,9 +3236,8 @@ void QTermWidget_SuperTimerEvent(QTermWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnTimerEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_TimerEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3364,9 +3264,8 @@ void QTermWidget_SuperChildEvent(QTermWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnChildEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ChildEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3393,9 +3292,8 @@ void QTermWidget_SuperCustomEvent(QTermWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnCustomEvent(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_CustomEvent_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3422,9 +3320,8 @@ void QTermWidget_SuperConnectNotify(QTermWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnConnectNotify(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3451,9 +3348,8 @@ void QTermWidget_SuperDisconnectNotify(QTermWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDisconnectNotify(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3480,9 +3376,8 @@ void QTermWidget_SuperSessionFinished(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSessionFinished(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SessionFinished_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SessionFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3509,9 +3404,8 @@ void QTermWidget_SuperSelectionChanged(QTermWidget* self, bool textSelected) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSelectionChanged(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SelectionChanged_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3538,9 +3432,8 @@ void QTermWidget_SuperUpdateMicroFocus(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnUpdateMicroFocus(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3567,9 +3460,8 @@ void QTermWidget_SuperCreate(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnCreate(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Create_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3596,9 +3488,8 @@ void QTermWidget_SuperDestroy(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnDestroy(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Destroy_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3625,9 +3516,8 @@ bool QTermWidget_SuperFocusNextChild(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFocusNextChild(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3654,9 +3544,8 @@ bool QTermWidget_SuperFocusPreviousChild(QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnFocusPreviousChild(QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3683,9 +3572,8 @@ QObject* QTermWidget_SuperSender(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSender(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Sender_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3712,9 +3600,8 @@ int QTermWidget_SuperSenderSignalIndex(const QTermWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnSenderSignalIndex(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3741,9 +3628,8 @@ int QTermWidget_SuperReceivers(const QTermWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnReceivers(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_Receivers_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3770,9 +3656,8 @@ bool QTermWidget_SuperIsSignalConnected(const QTermWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnIsSignalConnected(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3799,9 +3684,8 @@ double QTermWidget_SuperGetDecodedMetricF(const QTermWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QTermWidget_OnGetDecodedMetricF(const QTermWidget* self, intptr_t slot) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget)
         vqtermwidget->setQTermWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QTermWidget_Delete(QTermWidget* self) {

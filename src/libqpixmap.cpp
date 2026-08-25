@@ -374,9 +374,8 @@ int QPixmap_SuperDevType(const QPixmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnDevType(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_DevType_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_DevType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -393,9 +392,8 @@ QPaintEngine* QPixmap_SuperPaintEngine(const QPixmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnPaintEngine(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_PaintEngine_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_PaintEngine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -412,9 +410,8 @@ int QPixmap_SuperMetric(const QPixmap* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnMetric(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_Metric_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +438,8 @@ void QPixmap_SuperInitPainter(const QPixmap* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnInitPainter(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_InitPainter_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +466,8 @@ QPaintDevice* QPixmap_SuperRedirected(const QPixmap* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnRedirected(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_Redirected_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +494,8 @@ QPainter* QPixmap_SuperSharedPainter(const QPixmap* self) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnSharedPainter(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_SharedPainter_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +520,8 @@ QPixmap* QPixmap_SuperFromImageInPlace(QPixmap* self, QImage* image) {
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnFromImageInPlace(QPixmap* self, intptr_t slot) {
     auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_FromImageInPlace_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_FromImageInPlace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +546,8 @@ QPixmap* QPixmap_SuperFromImageInPlace2(QPixmap* self, QImage* image, int flags)
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnFromImageInPlace2(QPixmap* self, intptr_t slot) {
     auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_FromImageInPlace2_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_FromImageInPlace2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +574,8 @@ double QPixmap_SuperGetDecodedMetricF(const QPixmap* self, int metricA, int metr
 // Auxiliary method to allow providing re-implementation
 void QPixmap_OnGetDecodedMetricF(const QPixmap* self, intptr_t slot) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+    if (vqpixmap && vqpixmap->isVirtualQPixmap)
         vqpixmap->setQPixmap_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QPixmap_Delete(QPixmap* self) {

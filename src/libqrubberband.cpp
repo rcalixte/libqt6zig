@@ -151,9 +151,8 @@ QMetaObject* QRubberBand_SuperMetaObject(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetaObject(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MetaObject_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +169,8 @@ void* QRubberBand_SuperMetacast(QRubberBand* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetacast(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Metacast_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +187,8 @@ int QRubberBand_SuperMetacall(QRubberBand* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetacall(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Metacall_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +205,8 @@ bool QRubberBand_SuperEvent(QRubberBand* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Event_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +223,8 @@ void QRubberBand_SuperPaintEvent(QRubberBand* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnPaintEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_PaintEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +241,8 @@ void QRubberBand_SuperChangeEvent(QRubberBand* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnChangeEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ChangeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -265,9 +259,8 @@ void QRubberBand_SuperShowEvent(QRubberBand* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnShowEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ShowEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -284,9 +277,8 @@ void QRubberBand_SuperResizeEvent(QRubberBand* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnResizeEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ResizeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -303,9 +295,8 @@ void QRubberBand_SuperMoveEvent(QRubberBand* self, QMoveEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMoveEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -322,9 +313,8 @@ void QRubberBand_SuperInitStyleOption(const QRubberBand* self, QStyleOptionRubbe
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnInitStyleOption(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_InitStyleOption_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ int QRubberBand_SuperDevType(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDevType(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DevType_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ void QRubberBand_SuperSetVisible(QRubberBand* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSetVisible(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_SetVisible_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ QSize* QRubberBand_SuperSizeHint(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSizeHint(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_SizeHint_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ QSize* QRubberBand_SuperMinimumSizeHint(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMinimumSizeHint(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MinimumSizeHint_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ int QRubberBand_SuperHeightForWidth(const QRubberBand* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnHeightForWidth(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_HeightForWidth_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ bool QRubberBand_SuperHasHeightForWidth(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnHasHeightForWidth(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_HasHeightForWidth_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +509,8 @@ QPaintEngine* QRubberBand_SuperPaintEngine(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnPaintEngine(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_PaintEngine_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +537,8 @@ void QRubberBand_SuperMousePressEvent(QRubberBand* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMousePressEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MousePressEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +565,8 @@ void QRubberBand_SuperMouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseReleaseEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +593,8 @@ void QRubberBand_SuperMouseDoubleClickEvent(QRubberBand* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseDoubleClickEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +621,8 @@ void QRubberBand_SuperMouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMouseMoveEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_MouseMoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +649,8 @@ void QRubberBand_SuperWheelEvent(QRubberBand* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnWheelEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_WheelEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +677,8 @@ void QRubberBand_SuperKeyPressEvent(QRubberBand* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnKeyPressEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_KeyPressEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +705,8 @@ void QRubberBand_SuperKeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnKeyReleaseEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +733,8 @@ void QRubberBand_SuperFocusInEvent(QRubberBand* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusInEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_FocusInEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +761,8 @@ void QRubberBand_SuperFocusOutEvent(QRubberBand* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusOutEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_FocusOutEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +789,8 @@ void QRubberBand_SuperEnterEvent(QRubberBand* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEnterEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_EnterEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +817,8 @@ void QRubberBand_SuperLeaveEvent(QRubberBand* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnLeaveEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_LeaveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +845,8 @@ void QRubberBand_SuperCloseEvent(QRubberBand* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnCloseEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_CloseEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +873,8 @@ void QRubberBand_SuperContextMenuEvent(QRubberBand* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnContextMenuEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ContextMenuEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +901,8 @@ void QRubberBand_SuperTabletEvent(QRubberBand* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnTabletEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_TabletEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +929,8 @@ void QRubberBand_SuperActionEvent(QRubberBand* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnActionEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ActionEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +957,8 @@ void QRubberBand_SuperDragEnterEvent(QRubberBand* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragEnterEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DragEnterEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +985,8 @@ void QRubberBand_SuperDragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragMoveEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DragMoveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1013,8 @@ void QRubberBand_SuperDragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDragLeaveEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DragLeaveEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1041,8 @@ void QRubberBand_SuperDropEvent(QRubberBand* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDropEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DropEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1069,8 @@ void QRubberBand_SuperHideEvent(QRubberBand* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnHideEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_HideEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1099,8 @@ bool QRubberBand_SuperNativeEvent(QRubberBand* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnNativeEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_NativeEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1127,8 @@ int QRubberBand_SuperMetric(const QRubberBand* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnMetric(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Metric_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1155,8 @@ void QRubberBand_SuperInitPainter(const QRubberBand* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnInitPainter(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_InitPainter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1223,9 +1183,8 @@ QPaintDevice* QRubberBand_SuperRedirected(const QRubberBand* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnRedirected(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Redirected_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1211,8 @@ QPainter* QRubberBand_SuperSharedPainter(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSharedPainter(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_SharedPainter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1239,8 @@ void QRubberBand_SuperInputMethodEvent(QRubberBand* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnInputMethodEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_InputMethodEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1267,8 @@ QVariant* QRubberBand_SuperInputMethodQuery(const QRubberBand* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnInputMethodQuery(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_InputMethodQuery_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1295,8 @@ bool QRubberBand_SuperFocusNextPrevChild(QRubberBand* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusNextPrevChild(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1323,8 @@ bool QRubberBand_SuperEventFilter(QRubberBand* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnEventFilter(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_EventFilter_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1351,8 @@ void QRubberBand_SuperTimerEvent(QRubberBand* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnTimerEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_TimerEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1379,8 @@ void QRubberBand_SuperChildEvent(QRubberBand* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnChildEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ChildEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1407,8 @@ void QRubberBand_SuperCustomEvent(QRubberBand* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnCustomEvent(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_CustomEvent_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1435,8 @@ void QRubberBand_SuperConnectNotify(QRubberBand* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnConnectNotify(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_ConnectNotify_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1463,8 @@ void QRubberBand_SuperDisconnectNotify(QRubberBand* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDisconnectNotify(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_DisconnectNotify_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1491,8 @@ void QRubberBand_SuperUpdateMicroFocus(QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnUpdateMicroFocus(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1519,8 @@ void QRubberBand_SuperCreate(QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnCreate(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Create_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1547,8 @@ void QRubberBand_SuperDestroy(QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnDestroy(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Destroy_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1575,8 @@ bool QRubberBand_SuperFocusNextChild(QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusNextChild(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_FocusNextChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1603,8 @@ bool QRubberBand_SuperFocusPreviousChild(QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnFocusPreviousChild(QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_FocusPreviousChild_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1631,8 @@ QObject* QRubberBand_SuperSender(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSender(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Sender_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1659,8 @@ int QRubberBand_SuperSenderSignalIndex(const QRubberBand* self) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnSenderSignalIndex(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_SenderSignalIndex_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1687,8 @@ int QRubberBand_SuperReceivers(const QRubberBand* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnReceivers(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_Receivers_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1715,8 @@ bool QRubberBand_SuperIsSignalConnected(const QRubberBand* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnIsSignalConnected(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_IsSignalConnected_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1743,8 @@ double QRubberBand_SuperGetDecodedMetricF(const QRubberBand* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QRubberBand_OnGetDecodedMetricF(const QRubberBand* self, intptr_t slot) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
-    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand)
         vqrubberband->setQRubberBand_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QRubberBand_Delete(QRubberBand* self) {

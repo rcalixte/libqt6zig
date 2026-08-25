@@ -77,9 +77,8 @@ QMetaObject* TextEditTextToSpeech__TextToSpeechActions_SuperMetaObject(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnMetaObject(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = const_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechActions*>(self));
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_MetaObject_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -96,9 +95,8 @@ void* TextEditTextToSpeech__TextToSpeechActions_SuperMetacast(TextEditTextToSpee
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnMetacast(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_Metacast_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -115,9 +113,8 @@ int TextEditTextToSpeech__TextToSpeechActions_SuperMetacall(TextEditTextToSpeech
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnMetacall(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_Metacall_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -144,9 +141,8 @@ bool TextEditTextToSpeech__TextToSpeechActions_SuperEvent(TextEditTextToSpeech__
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_Event_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -173,9 +169,8 @@ bool TextEditTextToSpeech__TextToSpeechActions_SuperEventFilter(TextEditTextToSp
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnEventFilter(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_EventFilter_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -202,9 +197,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SuperTimerEvent(TextEditTextToSpe
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnTimerEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_TimerEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +225,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SuperChildEvent(TextEditTextToSpe
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnChildEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_ChildEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +253,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SuperCustomEvent(TextEditTextToSp
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnCustomEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_CustomEvent_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +281,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SuperConnectNotify(TextEditTextTo
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnConnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_ConnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +309,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SuperDisconnectNotify(TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnDisconnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(self);
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +337,8 @@ QObject* TextEditTextToSpeech__TextToSpeechActions_SuperSender(const TextEditTex
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnSender(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = const_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechActions*>(self));
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_Sender_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +365,8 @@ int TextEditTextToSpeech__TextToSpeechActions_SuperSenderSignalIndex(const TextE
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = const_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechActions*>(self));
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +393,8 @@ int TextEditTextToSpeech__TextToSpeechActions_SuperReceivers(const TextEditTextT
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnReceivers(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = const_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechActions*>(self));
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_Receivers_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +421,8 @@ bool TextEditTextToSpeech__TextToSpeechActions_SuperIsSignalConnected(const Text
 // Auxiliary method to allow providing re-implementation
 void TextEditTextToSpeech__TextToSpeechActions_OnIsSignalConnected(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot) {
     auto* vtextedittexttospeechtexttospeechactions = const_cast<VirtualTextEditTextToSpeechTextToSpeechActions*>(dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechActions*>(self));
-    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions) {
+    if (vtextedittexttospeechtexttospeechactions && vtextedittexttospeechtexttospeechactions->isVirtualTextEditTextToSpeechTextToSpeechActions)
         vtextedittexttospeechtexttospeechactions->setTextEditTextToSpeech__TextToSpeechActions_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEditTextToSpeechTextToSpeechActions::TextEditTextToSpeech__TextToSpeechActions_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextEditTextToSpeech__TextToSpeechActions_Delete(TextEditTextToSpeech__TextToSpeechActions* self) {

@@ -2907,7 +2907,7 @@ pub const QImageIOPlugin = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qimageiohandler.html#public-types)
 pub const enums = struct {
-    pub const ImageOption = enum(i32) {
+    pub const ImageOption = enum {
         pub const Size: i32 = 0;
         pub const ClipRect: i32 = 1;
         pub const Description: i32 = 2;
@@ -2929,7 +2929,7 @@ pub const enums = struct {
         pub const ImageTransformation: i32 = 18;
     };
 
-    pub const Transformation = enum(i32) {
+    pub const Transformation = enum {
         pub const TransformationNone: i32 = 0;
         pub const TransformationMirror: i32 = 1;
         pub const TransformationFlip: i32 = 2;
@@ -2940,7 +2940,7 @@ pub const enums = struct {
         pub const TransformationRotate270: i32 = 7;
     };
 
-    pub const Capability = enum(i32) {
+    pub const Capability = enum {
         pub const CanRead: i32 = 1;
         pub const CanWrite: i32 = 2;
         pub const CanReadIncremental: i32 = 4;

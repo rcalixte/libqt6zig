@@ -256,9 +256,8 @@ QMetaObject* QSpinBox_SuperMetaObject(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMetaObject(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MetaObject_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -275,9 +274,8 @@ void* QSpinBox_SuperMetacast(QSpinBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMetacast(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Metacast_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -294,9 +292,8 @@ int QSpinBox_SuperMetacall(QSpinBox* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMetacall(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Metacall_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -313,9 +310,8 @@ bool QSpinBox_SuperEvent(QSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Event_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +329,8 @@ int QSpinBox_SuperValidate(const QSpinBox* self, libqt_string input, int* pos) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnValidate(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Validate_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -353,9 +348,8 @@ int QSpinBox_SuperValueFromText(const QSpinBox* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnValueFromText(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ValueFromText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -388,9 +382,8 @@ libqt_string QSpinBox_SuperTextFromValue(const QSpinBox* self, int val) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnTextFromValue(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_TextFromValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -408,9 +401,8 @@ void QSpinBox_SuperFixup(const QSpinBox* self, libqt_string str) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFixup(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Fixup_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +429,8 @@ QSize* QSpinBox_SuperSizeHint(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSizeHint(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +457,8 @@ QSize* QSpinBox_SuperMinimumSizeHint(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMinimumSizeHint(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +485,8 @@ QVariant* QSpinBox_SuperInputMethodQuery(const QSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnInputMethodQuery(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +513,8 @@ void QSpinBox_SuperStepBy(QSpinBox* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnStepBy(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_StepBy_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_StepBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +541,8 @@ void QSpinBox_SuperClear(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnClear(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Clear_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +569,8 @@ void QSpinBox_SuperResizeEvent(QSpinBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnResizeEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +597,8 @@ void QSpinBox_SuperKeyPressEvent(QSpinBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnKeyPressEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +625,8 @@ void QSpinBox_SuperKeyReleaseEvent(QSpinBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnKeyReleaseEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +653,8 @@ void QSpinBox_SuperWheelEvent(QSpinBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnWheelEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +681,8 @@ void QSpinBox_SuperFocusInEvent(QSpinBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFocusInEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +709,8 @@ void QSpinBox_SuperFocusOutEvent(QSpinBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFocusOutEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +737,8 @@ void QSpinBox_SuperContextMenuEvent(QSpinBox* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnContextMenuEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +765,8 @@ void QSpinBox_SuperChangeEvent(QSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnChangeEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +793,8 @@ void QSpinBox_SuperCloseEvent(QSpinBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnCloseEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +821,8 @@ void QSpinBox_SuperHideEvent(QSpinBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnHideEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +849,8 @@ void QSpinBox_SuperMousePressEvent(QSpinBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMousePressEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +877,8 @@ void QSpinBox_SuperMouseReleaseEvent(QSpinBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMouseReleaseEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +905,8 @@ void QSpinBox_SuperMouseMoveEvent(QSpinBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMouseMoveEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +933,8 @@ void QSpinBox_SuperTimerEvent(QSpinBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnTimerEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +961,8 @@ void QSpinBox_SuperPaintEvent(QSpinBox* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnPaintEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +989,8 @@ void QSpinBox_SuperShowEvent(QSpinBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnShowEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1017,8 @@ void QSpinBox_SuperInitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* op
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnInitStyleOption(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1045,8 @@ int QSpinBox_SuperStepEnabled(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnStepEnabled(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1073,8 @@ int QSpinBox_SuperDevType(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDevType(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DevType_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1101,8 @@ void QSpinBox_SuperSetVisible(QSpinBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSetVisible(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_SetVisible_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1129,8 @@ int QSpinBox_SuperHeightForWidth(const QSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnHeightForWidth(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_HeightForWidth_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1157,8 @@ bool QSpinBox_SuperHasHeightForWidth(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnHasHeightForWidth(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1185,8 @@ QPaintEngine* QSpinBox_SuperPaintEngine(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnPaintEngine(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_PaintEngine_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1213,8 @@ void QSpinBox_SuperMouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMouseDoubleClickEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1241,8 @@ void QSpinBox_SuperEnterEvent(QSpinBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnEnterEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_EnterEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1269,8 @@ void QSpinBox_SuperLeaveEvent(QSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnLeaveEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_LeaveEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1297,8 @@ void QSpinBox_SuperMoveEvent(QSpinBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMoveEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_MoveEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1325,8 @@ void QSpinBox_SuperTabletEvent(QSpinBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnTabletEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_TabletEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1353,8 @@ void QSpinBox_SuperActionEvent(QSpinBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnActionEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ActionEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1381,8 @@ void QSpinBox_SuperDragEnterEvent(QSpinBox* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDragEnterEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1409,8 @@ void QSpinBox_SuperDragMoveEvent(QSpinBox* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDragMoveEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1437,8 @@ void QSpinBox_SuperDragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDragLeaveEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1465,8 @@ void QSpinBox_SuperDropEvent(QSpinBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDropEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DropEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1495,8 @@ bool QSpinBox_SuperNativeEvent(QSpinBox* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnNativeEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_NativeEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1523,8 @@ int QSpinBox_SuperMetric(const QSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnMetric(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Metric_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1551,8 @@ void QSpinBox_SuperInitPainter(const QSpinBox* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnInitPainter(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_InitPainter_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1579,8 @@ QPaintDevice* QSpinBox_SuperRedirected(const QSpinBox* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnRedirected(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Redirected_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1607,8 @@ QPainter* QSpinBox_SuperSharedPainter(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSharedPainter(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_SharedPainter_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1635,8 @@ void QSpinBox_SuperInputMethodEvent(QSpinBox* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnInputMethodEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1663,8 @@ bool QSpinBox_SuperFocusNextPrevChild(QSpinBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFocusNextPrevChild(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1691,8 @@ bool QSpinBox_SuperEventFilter(QSpinBox* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnEventFilter(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_EventFilter_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1719,8 @@ void QSpinBox_SuperChildEvent(QSpinBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnChildEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ChildEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1747,8 @@ void QSpinBox_SuperCustomEvent(QSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnCustomEvent(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_CustomEvent_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1775,8 @@ void QSpinBox_SuperConnectNotify(QSpinBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnConnectNotify(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_ConnectNotify_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1803,8 @@ void QSpinBox_SuperDisconnectNotify(QSpinBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDisconnectNotify(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1831,8 @@ QLineEdit* QSpinBox_SuperLineEdit(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnLineEdit(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_LineEdit_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1859,8 @@ void QSpinBox_SuperSetLineEdit(QSpinBox* self, QLineEdit* edit) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSetLineEdit(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_SetLineEdit_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1887,8 @@ void QSpinBox_SuperUpdateMicroFocus(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnUpdateMicroFocus(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1915,8 @@ void QSpinBox_SuperCreate(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnCreate(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Create_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2005,9 +1943,8 @@ void QSpinBox_SuperDestroy(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnDestroy(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Destroy_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2034,9 +1971,8 @@ bool QSpinBox_SuperFocusNextChild(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFocusNextChild(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_FocusNextChild_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2063,9 +1999,8 @@ bool QSpinBox_SuperFocusPreviousChild(QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnFocusPreviousChild(QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2092,9 +2027,8 @@ QObject* QSpinBox_SuperSender(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSender(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Sender_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2121,9 +2055,8 @@ int QSpinBox_SuperSenderSignalIndex(const QSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnSenderSignalIndex(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2150,9 +2083,8 @@ int QSpinBox_SuperReceivers(const QSpinBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnReceivers(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_Receivers_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2179,9 +2111,8 @@ bool QSpinBox_SuperIsSignalConnected(const QSpinBox* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnIsSignalConnected(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2208,9 +2139,8 @@ double QSpinBox_SuperGetDecodedMetricF(const QSpinBox* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QSpinBox_OnGetDecodedMetricF(const QSpinBox* self, intptr_t slot) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox)
         vqspinbox->setQSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSpinBox_Delete(QSpinBox* self) {
@@ -2409,9 +2339,8 @@ QMetaObject* QDoubleSpinBox_SuperMetaObject(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMetaObject(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MetaObject_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2428,9 +2357,8 @@ void* QDoubleSpinBox_SuperMetacast(QDoubleSpinBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMetacast(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Metacast_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2447,9 +2375,8 @@ int QDoubleSpinBox_SuperMetacall(QDoubleSpinBox* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMetacall(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Metacall_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2467,9 +2394,8 @@ int QDoubleSpinBox_SuperValidate(const QDoubleSpinBox* self, libqt_string input,
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnValidate(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Validate_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2487,9 +2413,8 @@ double QDoubleSpinBox_SuperValueFromText(const QDoubleSpinBox* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnValueFromText(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ValueFromText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2522,9 +2447,8 @@ libqt_string QDoubleSpinBox_SuperTextFromValue(const QDoubleSpinBox* self, doubl
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnTextFromValue(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_TextFromValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2542,9 +2466,8 @@ void QDoubleSpinBox_SuperFixup(const QDoubleSpinBox* self, libqt_string str) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFixup(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Fixup_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2571,9 +2494,8 @@ QSize* QDoubleSpinBox_SuperSizeHint(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSizeHint(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2600,9 +2522,8 @@ QSize* QDoubleSpinBox_SuperMinimumSizeHint(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMinimumSizeHint(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2629,9 +2550,8 @@ bool QDoubleSpinBox_SuperEvent(QDoubleSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Event_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2658,9 +2578,8 @@ QVariant* QDoubleSpinBox_SuperInputMethodQuery(const QDoubleSpinBox* self, int p
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnInputMethodQuery(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2687,9 +2606,8 @@ void QDoubleSpinBox_SuperStepBy(QDoubleSpinBox* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnStepBy(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_StepBy_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_StepBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2716,9 +2634,8 @@ void QDoubleSpinBox_SuperClear(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnClear(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Clear_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2745,9 +2662,8 @@ void QDoubleSpinBox_SuperResizeEvent(QDoubleSpinBox* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnResizeEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2774,9 +2690,8 @@ void QDoubleSpinBox_SuperKeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnKeyPressEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2803,9 +2718,8 @@ void QDoubleSpinBox_SuperKeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnKeyReleaseEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2832,9 +2746,8 @@ void QDoubleSpinBox_SuperWheelEvent(QDoubleSpinBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnWheelEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2861,9 +2774,8 @@ void QDoubleSpinBox_SuperFocusInEvent(QDoubleSpinBox* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFocusInEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2890,9 +2802,8 @@ void QDoubleSpinBox_SuperFocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFocusOutEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2919,9 +2830,8 @@ void QDoubleSpinBox_SuperContextMenuEvent(QDoubleSpinBox* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnContextMenuEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2948,9 +2858,8 @@ void QDoubleSpinBox_SuperChangeEvent(QDoubleSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnChangeEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2977,9 +2886,8 @@ void QDoubleSpinBox_SuperCloseEvent(QDoubleSpinBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnCloseEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3006,9 +2914,8 @@ void QDoubleSpinBox_SuperHideEvent(QDoubleSpinBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnHideEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3035,9 +2942,8 @@ void QDoubleSpinBox_SuperMousePressEvent(QDoubleSpinBox* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMousePressEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3064,9 +2970,8 @@ void QDoubleSpinBox_SuperMouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMouseReleaseEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3093,9 +2998,8 @@ void QDoubleSpinBox_SuperMouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMouseMoveEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3122,9 +3026,8 @@ void QDoubleSpinBox_SuperTimerEvent(QDoubleSpinBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnTimerEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3151,9 +3054,8 @@ void QDoubleSpinBox_SuperPaintEvent(QDoubleSpinBox* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnPaintEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3180,9 +3082,8 @@ void QDoubleSpinBox_SuperShowEvent(QDoubleSpinBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnShowEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3209,9 +3110,8 @@ void QDoubleSpinBox_SuperInitStyleOption(const QDoubleSpinBox* self, QStyleOptio
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnInitStyleOption(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3238,9 +3138,8 @@ int QDoubleSpinBox_SuperStepEnabled(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnStepEnabled(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3267,9 +3166,8 @@ int QDoubleSpinBox_SuperDevType(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDevType(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DevType_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3296,9 +3194,8 @@ void QDoubleSpinBox_SuperSetVisible(QDoubleSpinBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSetVisible(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_SetVisible_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3325,9 +3222,8 @@ int QDoubleSpinBox_SuperHeightForWidth(const QDoubleSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnHeightForWidth(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_HeightForWidth_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3354,9 +3250,8 @@ bool QDoubleSpinBox_SuperHasHeightForWidth(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnHasHeightForWidth(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3383,9 +3278,8 @@ QPaintEngine* QDoubleSpinBox_SuperPaintEngine(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnPaintEngine(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_PaintEngine_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3412,9 +3306,8 @@ void QDoubleSpinBox_SuperMouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMouseDoubleClickEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3441,9 +3334,8 @@ void QDoubleSpinBox_SuperEnterEvent(QDoubleSpinBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnEnterEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_EnterEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3470,9 +3362,8 @@ void QDoubleSpinBox_SuperLeaveEvent(QDoubleSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnLeaveEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_LeaveEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3499,9 +3390,8 @@ void QDoubleSpinBox_SuperMoveEvent(QDoubleSpinBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMoveEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_MoveEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3528,9 +3418,8 @@ void QDoubleSpinBox_SuperTabletEvent(QDoubleSpinBox* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnTabletEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_TabletEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3557,9 +3446,8 @@ void QDoubleSpinBox_SuperActionEvent(QDoubleSpinBox* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnActionEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ActionEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3586,9 +3474,8 @@ void QDoubleSpinBox_SuperDragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDragEnterEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3615,9 +3502,8 @@ void QDoubleSpinBox_SuperDragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDragMoveEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3644,9 +3530,8 @@ void QDoubleSpinBox_SuperDragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDragLeaveEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3673,9 +3558,8 @@ void QDoubleSpinBox_SuperDropEvent(QDoubleSpinBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDropEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DropEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3704,9 +3588,8 @@ bool QDoubleSpinBox_SuperNativeEvent(QDoubleSpinBox* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnNativeEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_NativeEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3733,9 +3616,8 @@ int QDoubleSpinBox_SuperMetric(const QDoubleSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnMetric(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Metric_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3762,9 +3644,8 @@ void QDoubleSpinBox_SuperInitPainter(const QDoubleSpinBox* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnInitPainter(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_InitPainter_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3791,9 +3672,8 @@ QPaintDevice* QDoubleSpinBox_SuperRedirected(const QDoubleSpinBox* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnRedirected(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Redirected_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3820,9 +3700,8 @@ QPainter* QDoubleSpinBox_SuperSharedPainter(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSharedPainter(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_SharedPainter_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3849,9 +3728,8 @@ void QDoubleSpinBox_SuperInputMethodEvent(QDoubleSpinBox* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnInputMethodEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3878,9 +3756,8 @@ bool QDoubleSpinBox_SuperFocusNextPrevChild(QDoubleSpinBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFocusNextPrevChild(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3907,9 +3784,8 @@ bool QDoubleSpinBox_SuperEventFilter(QDoubleSpinBox* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnEventFilter(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_EventFilter_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3936,9 +3812,8 @@ void QDoubleSpinBox_SuperChildEvent(QDoubleSpinBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnChildEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ChildEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3965,9 +3840,8 @@ void QDoubleSpinBox_SuperCustomEvent(QDoubleSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnCustomEvent(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_CustomEvent_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3994,9 +3868,8 @@ void QDoubleSpinBox_SuperConnectNotify(QDoubleSpinBox* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnConnectNotify(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_ConnectNotify_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4023,9 +3896,8 @@ void QDoubleSpinBox_SuperDisconnectNotify(QDoubleSpinBox* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDisconnectNotify(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4052,9 +3924,8 @@ QLineEdit* QDoubleSpinBox_SuperLineEdit(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnLineEdit(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_LineEdit_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4081,9 +3952,8 @@ void QDoubleSpinBox_SuperSetLineEdit(QDoubleSpinBox* self, QLineEdit* edit) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSetLineEdit(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_SetLineEdit_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4110,9 +3980,8 @@ void QDoubleSpinBox_SuperUpdateMicroFocus(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnUpdateMicroFocus(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4139,9 +4008,8 @@ void QDoubleSpinBox_SuperCreate(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnCreate(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Create_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4168,9 +4036,8 @@ void QDoubleSpinBox_SuperDestroy(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnDestroy(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Destroy_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4197,9 +4064,8 @@ bool QDoubleSpinBox_SuperFocusNextChild(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFocusNextChild(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_FocusNextChild_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4226,9 +4092,8 @@ bool QDoubleSpinBox_SuperFocusPreviousChild(QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnFocusPreviousChild(QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4255,9 +4120,8 @@ QObject* QDoubleSpinBox_SuperSender(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSender(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Sender_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4284,9 +4148,8 @@ int QDoubleSpinBox_SuperSenderSignalIndex(const QDoubleSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnSenderSignalIndex(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4313,9 +4176,8 @@ int QDoubleSpinBox_SuperReceivers(const QDoubleSpinBox* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnReceivers(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_Receivers_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4342,9 +4204,8 @@ bool QDoubleSpinBox_SuperIsSignalConnected(const QDoubleSpinBox* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnIsSignalConnected(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4371,9 +4232,8 @@ double QDoubleSpinBox_SuperGetDecodedMetricF(const QDoubleSpinBox* self, int met
 // Auxiliary method to allow providing re-implementation
 void QDoubleSpinBox_OnGetDecodedMetricF(const QDoubleSpinBox* self, intptr_t slot) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox)
         vqdoublespinbox->setQDoubleSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDoubleSpinBox_Delete(QDoubleSpinBox* self) {

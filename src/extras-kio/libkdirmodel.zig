@@ -7041,13 +7041,13 @@ pub const KDirModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#public-types)
 pub const enums = struct {
-    pub const OpenUrlFlag = enum(i32) {
+    pub const OpenUrlFlag = enum {
         pub const NoFlags: i32 = 0;
         pub const Reload: i32 = 1;
         pub const ShowRoot: i32 = 2;
     };
 
-    pub const ModelColumns = enum(i32) {
+    pub const ModelColumns = enum {
         pub const Name: i32 = 0;
         pub const Size: i32 = 1;
         pub const ModifiedTime: i32 = 2;
@@ -7058,18 +7058,18 @@ pub const enums = struct {
         pub const ColumnCount: i32 = 7;
     };
 
-    pub const KDirModel = enum(i32) {
+    pub const KDirModel = enum {
         pub const ChildCountUnknown: i32 = -1;
     };
 
-    pub const AdditionalRoles = enum(i32) {
+    pub const AdditionalRoles = enum {
         pub const FileItemRole: i32 = 128082943;
         pub const ChildCountRole: i32 = 743246400;
         pub const HasJobRole: i32 = 31806885;
         pub const HandleSequencesRole: i32 = 509878898;
     };
 
-    pub const DropsAllowedFlag = enum(i32) {
+    pub const DropsAllowedFlag = enum {
         pub const NoDrops: i32 = 0;
         pub const DropOnDirectory: i32 = 1;
         pub const DropOnAnyFile: i32 = 2;

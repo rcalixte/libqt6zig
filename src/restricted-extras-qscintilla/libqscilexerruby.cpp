@@ -136,9 +136,8 @@ QMetaObject* QsciLexerRuby_SuperMetaObject(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnMetaObject(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +154,8 @@ void* QsciLexerRuby_SuperMetacast(QsciLexerRuby* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnMetacast(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Metacast_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +172,8 @@ int QsciLexerRuby_SuperMetacall(QsciLexerRuby* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnMetacall(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Metacall_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +200,8 @@ int QsciLexerRuby_SuperLexerId(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnLexerId(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_LexerId_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +228,8 @@ const char* QsciLexerRuby_SuperAutoCompletionFillups(const QsciLexerRuby* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnAutoCompletionFillups(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +324,8 @@ libqt_list /* of libqt_string */ QsciLexerRuby_SuperAutoCompletionWordSeparators
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnAutoCompletionWordSeparators(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +352,8 @@ int QsciLexerRuby_SuperBlockLookback(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnBlockLookback(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +380,8 @@ bool QsciLexerRuby_SuperCaseSensitive(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnCaseSensitive(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +408,8 @@ QColor* QsciLexerRuby_SuperColor(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnColor(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Color_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +436,8 @@ bool QsciLexerRuby_SuperEolFill(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnEolFill(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_EolFill_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +464,8 @@ QFont* QsciLexerRuby_SuperFont(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnFont(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Font_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +492,8 @@ int QsciLexerRuby_SuperIndentationGuideView(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnIndentationGuideView(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +520,8 @@ int QsciLexerRuby_SuperDefaultStyle(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnDefaultStyle(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +548,8 @@ QColor* QsciLexerRuby_SuperPaper(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnPaper(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Paper_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +576,8 @@ QColor* QsciLexerRuby_SuperDefaultColor2(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnDefaultColor2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +604,8 @@ QFont* QsciLexerRuby_SuperDefaultFont2(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnDefaultFont2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +632,8 @@ QColor* QsciLexerRuby_SuperDefaultPaper2(const QsciLexerRuby* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnDefaultPaper2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +660,8 @@ void QsciLexerRuby_SuperSetEditor(QsciLexerRuby* self, QsciScintilla* editor) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetEditor(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +688,8 @@ int QsciLexerRuby_SuperStyleBitsNeeded(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnStyleBitsNeeded(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +716,8 @@ const char* QsciLexerRuby_SuperWordCharacters(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnWordCharacters(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +744,8 @@ void QsciLexerRuby_SuperSetAutoIndentStyle(QsciLexerRuby* self, int autoindentst
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetAutoIndentStyle(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +772,8 @@ void QsciLexerRuby_SuperSetColor(QsciLexerRuby* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetColor(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetColor_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +800,8 @@ void QsciLexerRuby_SuperSetEolFill(QsciLexerRuby* self, bool eoffill, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetEolFill(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +828,8 @@ void QsciLexerRuby_SuperSetFont(QsciLexerRuby* self, const QFont* f, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetFont(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetFont_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +856,8 @@ void QsciLexerRuby_SuperSetPaper(QsciLexerRuby* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSetPaper(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +886,8 @@ bool QsciLexerRuby_SuperReadProperties(QsciLexerRuby* self, QSettings* qs, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnReadProperties(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +916,8 @@ bool QsciLexerRuby_SuperWriteProperties(const QsciLexerRuby* self, QSettings* qs
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnWriteProperties(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +944,8 @@ bool QsciLexerRuby_SuperEvent(QsciLexerRuby* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnEvent(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Event_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +972,8 @@ bool QsciLexerRuby_SuperEventFilter(QsciLexerRuby* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnEventFilter(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +1000,8 @@ void QsciLexerRuby_SuperTimerEvent(QsciLexerRuby* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnTimerEvent(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1028,8 @@ void QsciLexerRuby_SuperChildEvent(QsciLexerRuby* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnChildEvent(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1056,8 @@ void QsciLexerRuby_SuperCustomEvent(QsciLexerRuby* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnCustomEvent(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1084,8 @@ void QsciLexerRuby_SuperConnectNotify(QsciLexerRuby* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnConnectNotify(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1112,8 @@ void QsciLexerRuby_SuperDisconnectNotify(QsciLexerRuby* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnDisconnectNotify(QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1162,8 @@ libqt_string QsciLexerRuby_SuperTextAsBytes(const QsciLexerRuby* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnTextAsBytes(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1222,8 @@ libqt_string QsciLexerRuby_SuperBytesAsText(const QsciLexerRuby* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnBytesAsText(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1250,8 @@ QObject* QsciLexerRuby_SuperSender(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSender(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Sender_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1315,9 +1278,8 @@ int QsciLexerRuby_SuperSenderSignalIndex(const QsciLexerRuby* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnSenderSignalIndex(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1306,8 @@ int QsciLexerRuby_SuperReceivers(const QsciLexerRuby* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnReceivers(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_Receivers_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1334,8 @@ bool QsciLexerRuby_SuperIsSignalConnected(const QsciLexerRuby* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QsciLexerRuby_OnIsSignalConnected(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
-    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby)
         vqscilexerruby->setQsciLexerRuby_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerRuby_Delete(QsciLexerRuby* self) {

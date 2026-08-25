@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QDateTime = @import("libqt6").QDateTime;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -451,6 +452,18 @@ pub const QFileDevice = extern struct {
     ///
     pub fn map3(self: QFileDevice, offset: i64, _size: i64, flags: i32) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_size), @bitCast(flags)));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFileDevice `
+    ///
+    pub fn asQIODeviceBase(self: QFileDevice) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -2430,7 +2443,7 @@ pub const QFileDevice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#public-types)
 pub const enums = struct {
-    pub const FileError = enum(i32) {
+    pub const FileError = enum {
         pub const NoError: i32 = 0;
         pub const ReadError: i32 = 1;
         pub const WriteError: i32 = 2;
@@ -2448,14 +2461,14 @@ pub const enums = struct {
         pub const CopyError: i32 = 14;
     };
 
-    pub const FileTime = enum(i32) {
+    pub const FileTime = enum {
         pub const FileAccessTime: i32 = 0;
         pub const FileBirthTime: i32 = 1;
         pub const FileMetadataChangeTime: i32 = 2;
         pub const FileModificationTime: i32 = 3;
     };
 
-    pub const Permission = enum(i32) {
+    pub const Permission = enum {
         pub const ReadOwner: i32 = 16384;
         pub const WriteOwner: i32 = 8192;
         pub const ExeOwner: i32 = 4096;
@@ -2470,12 +2483,12 @@ pub const enums = struct {
         pub const ExeOther: i32 = 1;
     };
 
-    pub const FileHandleFlag = enum(i32) {
+    pub const FileHandleFlag = enum {
         pub const AutoCloseHandle: i32 = 1;
         pub const DontCloseHandle: i32 = 0;
     };
 
-    pub const MemoryMapFlag = enum(i32) {
+    pub const MemoryMapFlag = enum {
         pub const NoOptions: i32 = 0;
         pub const MapPrivateOption: i32 = 1;
     };

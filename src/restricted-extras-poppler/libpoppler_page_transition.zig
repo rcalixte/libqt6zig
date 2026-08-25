@@ -175,7 +175,7 @@ pub const Poppler__PageTransition = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Replace: i32 = 0;
         pub const Split: i32 = 1;
         pub const Blinds: i32 = 2;
@@ -190,12 +190,12 @@ pub const enums = struct {
         pub const Fade: i32 = 11;
     };
 
-    pub const Alignment = enum(i32) {
+    pub const Alignment = enum {
         pub const Horizontal: i32 = 0;
         pub const Vertical: i32 = 1;
     };
 
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const Inward: i32 = 0;
         pub const Outward: i32 = 1;
     };

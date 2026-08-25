@@ -66,9 +66,8 @@ QMetaObject* KDirLister_SuperMetaObject(const KDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnMetaObject(const KDirLister* self, intptr_t slot) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_MetaObject_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -85,9 +84,8 @@ void* KDirLister_SuperMetacast(KDirLister* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnMetacast(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_Metacast_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -104,9 +102,8 @@ int KDirLister_SuperMetacall(KDirLister* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnMetacall(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_Metacall_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -123,9 +120,8 @@ void KDirLister_SuperJobStarted(KDirLister* self, KIO__ListJob* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnJobStarted(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_JobStarted_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_JobStarted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -152,9 +148,8 @@ bool KDirLister_SuperEvent(KDirLister* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnEvent(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_Event_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +176,8 @@ bool KDirLister_SuperEventFilter(KDirLister* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnEventFilter(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_EventFilter_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +204,8 @@ void KDirLister_SuperTimerEvent(KDirLister* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnTimerEvent(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_TimerEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +232,8 @@ void KDirLister_SuperChildEvent(KDirLister* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnChildEvent(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_ChildEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +260,8 @@ void KDirLister_SuperCustomEvent(KDirLister* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnCustomEvent(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_CustomEvent_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +288,8 @@ void KDirLister_SuperConnectNotify(KDirLister* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnConnectNotify(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_ConnectNotify_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +316,8 @@ void KDirLister_SuperDisconnectNotify(KDirLister* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnDisconnectNotify(KDirLister* self, intptr_t slot) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +344,8 @@ QObject* KDirLister_SuperSender(const KDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnSender(const KDirLister* self, intptr_t slot) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_Sender_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +372,8 @@ int KDirLister_SuperSenderSignalIndex(const KDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnSenderSignalIndex(const KDirLister* self, intptr_t slot) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +400,8 @@ int KDirLister_SuperReceivers(const KDirLister* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnReceivers(const KDirLister* self, intptr_t slot) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_Receivers_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +428,8 @@ bool KDirLister_SuperIsSignalConnected(const KDirLister* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KDirLister_OnIsSignalConnected(const KDirLister* self, intptr_t slot) {
     auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
-    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+    if (vkdirlister && vkdirlister->isVirtualKDirLister)
         vkdirlister->setKDirLister_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDirLister_Delete(KDirLister* self) {

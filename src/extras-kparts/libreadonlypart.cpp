@@ -196,9 +196,8 @@ QMetaObject* KParts__ReadOnlyPart_SuperMetaObject(const KParts__ReadOnlyPart* se
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnMetaObject(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_MetaObject_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +214,8 @@ void* KParts__ReadOnlyPart_SuperMetacast(KParts__ReadOnlyPart* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnMetacast(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacast_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +232,8 @@ int KParts__ReadOnlyPart_SuperMetacall(KParts__ReadOnlyPart* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnMetacall(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacall_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +250,8 @@ bool KParts__ReadOnlyPart_SuperOpenUrl(KParts__ReadOnlyPart* self, const QUrl* u
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnOpenUrl(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_OpenUrl_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_OpenUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -272,9 +268,8 @@ bool KParts__ReadOnlyPart_SuperCloseUrl(KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnCloseUrl(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_CloseUrl_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_CloseUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +286,8 @@ bool KParts__ReadOnlyPart_SuperOpenFile(KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnOpenFile(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_OpenFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_OpenFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +304,8 @@ void KParts__ReadOnlyPart_SuperGuiActivateEvent(KParts__ReadOnlyPart* self, KPar
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnGuiActivateEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_GuiActivateEvent_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_GuiActivateEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +332,8 @@ QWidget* KParts__ReadOnlyPart_SuperWidget(KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnWidget(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Widget_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +360,8 @@ void KParts__ReadOnlyPart_SuperSetManager(KParts__ReadOnlyPart* self, KParts__Pa
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetManager(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetManager_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetManager_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +388,8 @@ KParts__Part* KParts__ReadOnlyPart_SuperHitTest(KParts__ReadOnlyPart* self, QWid
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnHitTest(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_HitTest_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_HitTest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +416,8 @@ void KParts__ReadOnlyPart_SuperSetWidget(KParts__ReadOnlyPart* self, QWidget* wi
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetWidget(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetWidget_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +444,8 @@ void KParts__ReadOnlyPart_SuperCustomEvent(KParts__ReadOnlyPart* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnCustomEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_CustomEvent_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +472,8 @@ void KParts__ReadOnlyPart_SuperPartActivateEvent(KParts__ReadOnlyPart* self, KPa
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnPartActivateEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_PartActivateEvent_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_PartActivateEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +500,8 @@ bool KParts__ReadOnlyPart_SuperEvent(KParts__ReadOnlyPart* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Event_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +528,8 @@ bool KParts__ReadOnlyPart_SuperEventFilter(KParts__ReadOnlyPart* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnEventFilter(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_EventFilter_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +556,8 @@ void KParts__ReadOnlyPart_SuperTimerEvent(KParts__ReadOnlyPart* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnTimerEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_TimerEvent_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +584,8 @@ void KParts__ReadOnlyPart_SuperChildEvent(KParts__ReadOnlyPart* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnChildEvent(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ChildEvent_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +612,8 @@ void KParts__ReadOnlyPart_SuperConnectNotify(KParts__ReadOnlyPart* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnConnectNotify(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +640,8 @@ void KParts__ReadOnlyPart_SuperDisconnectNotify(KParts__ReadOnlyPart* self, cons
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnDisconnectNotify(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +668,8 @@ QAction* KParts__ReadOnlyPart_SuperAction2(const KParts__ReadOnlyPart* self, con
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnAction2(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Action2_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Action2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -716,9 +696,8 @@ KActionCollection* KParts__ReadOnlyPart_SuperActionCollection(const KParts__Read
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnActionCollection(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ActionCollection_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_ActionCollection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +756,8 @@ libqt_string KParts__ReadOnlyPart_SuperComponentName(const KParts__ReadOnlyPart*
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnComponentName(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ComponentName_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_ComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +784,8 @@ QDomDocument* KParts__ReadOnlyPart_SuperDomDocument(const KParts__ReadOnlyPart* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnDomDocument(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_DomDocument_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_DomDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +844,8 @@ libqt_string KParts__ReadOnlyPart_SuperXmlFile(const KParts__ReadOnlyPart* self)
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnXmlFile(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_XmlFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_XmlFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +904,8 @@ libqt_string KParts__ReadOnlyPart_SuperLocalXMLFile(const KParts__ReadOnlyPart* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnLocalXMLFile(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalXMLFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_LocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +936,8 @@ void KParts__ReadOnlyPart_SuperSetComponentName(KParts__ReadOnlyPart* self, cons
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetComponentName(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetComponentName_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +966,8 @@ void KParts__ReadOnlyPart_SuperSetXMLFile(KParts__ReadOnlyPart* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetXMLFile(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetXMLFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1023,9 +996,8 @@ void KParts__ReadOnlyPart_SuperSetLocalXMLFile(KParts__ReadOnlyPart* self, const
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetLocalXMLFile(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetLocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1026,8 @@ void KParts__ReadOnlyPart_SuperSetXML(KParts__ReadOnlyPart* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetXML(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetXML_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetXML_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1054,8 @@ void KParts__ReadOnlyPart_SuperSetDOMDocument(KParts__ReadOnlyPart* self, const 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetDOMDocument(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetDOMDocument_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetDOMDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1084,8 @@ void KParts__ReadOnlyPart_SuperStateChanged(KParts__ReadOnlyPart* self, const li
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnStateChanged(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_StateChanged_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_StateChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1112,8 @@ void KParts__ReadOnlyPart_SuperAbortLoad(KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnAbortLoad(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_AbortLoad_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_AbortLoad_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1140,8 @@ void KParts__ReadOnlyPart_SuperSetUrl(KParts__ReadOnlyPart* self, const QUrl* ur
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetUrl(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetUrl_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1233,9 +1200,8 @@ libqt_string KParts__ReadOnlyPart_SuperLocalFilePath(const KParts__ReadOnlyPart*
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnLocalFilePath(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalFilePath_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_LocalFilePath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1230,8 @@ void KParts__ReadOnlyPart_SuperSetLocalFilePath(KParts__ReadOnlyPart* self, cons
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSetLocalFilePath(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SetLocalFilePath_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SetLocalFilePath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1260,8 @@ QWidget* KParts__ReadOnlyPart_SuperHostContainer(KParts__ReadOnlyPart* self, con
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnHostContainer(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_HostContainer_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_HostContainer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1288,8 @@ void KParts__ReadOnlyPart_SuperSlotWidgetDestroyed(KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSlotWidgetDestroyed(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SlotWidgetDestroyed_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SlotWidgetDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1316,8 @@ QObject* KParts__ReadOnlyPart_SuperSender(const KParts__ReadOnlyPart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSender(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Sender_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1344,8 @@ int KParts__ReadOnlyPart_SuperSenderSignalIndex(const KParts__ReadOnlyPart* self
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnSenderSignalIndex(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1372,8 @@ int KParts__ReadOnlyPart_SuperReceivers(const KParts__ReadOnlyPart* self, const 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnReceivers(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_Receivers_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1400,8 @@ bool KParts__ReadOnlyPart_SuperIsSignalConnected(const KParts__ReadOnlyPart* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnIsSignalConnected(const KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1460,8 @@ libqt_string KParts__ReadOnlyPart_SuperStandardsXmlFileLocation(KParts__ReadOnly
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnStandardsXmlFileLocation(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_StandardsXmlFileLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1488,8 @@ void KParts__ReadOnlyPart_SuperLoadStandardsXmlFile(KParts__ReadOnlyPart* self) 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadOnlyPart_OnLoadStandardsXmlFile(KParts__ReadOnlyPart* self, intptr_t slot) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart)
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_LoadStandardsXmlFile_Callback>(slot));
-    }
 }
 
 void KParts__ReadOnlyPart_Delete(KParts__ReadOnlyPart* self) {

@@ -21,6 +21,9 @@ typedef struct KSharedConfig KSharedConfig;
 typedef struct QSharedData QSharedData;
 #endif
 
+QSharedData* KSharedConfig_AsQSharedData(KSharedConfig* self);
+void KSharedConfig_Delete(KSharedConfig* self);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

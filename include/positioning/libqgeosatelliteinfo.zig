@@ -264,12 +264,12 @@ pub const QGeoSatelliteInfo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#public-types)
 pub const enums = struct {
-    pub const Attribute = enum(i32) {
+    pub const Attribute = enum {
         pub const Elevation: i32 = 0;
         pub const Azimuth: i32 = 1;
     };
 
-    pub const SatelliteSystem = enum(i32) {
+    pub const SatelliteSystem = enum {
         pub const Undefined: i32 = 0;
         pub const GPS: i32 = 1;
         pub const GLONASS: i32 = 2;

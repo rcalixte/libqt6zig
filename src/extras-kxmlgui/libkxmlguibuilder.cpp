@@ -131,9 +131,8 @@ libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperContainerTags(const KXMLGUI
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnContainerTags(const KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = const_cast<VirtualKXMLGUIBuilder*>(dynamic_cast<const VirtualKXMLGUIBuilder*>(self));
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_ContainerTags_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_ContainerTags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ QWidget* KXMLGUIBuilder_SuperCreateContainer(KXMLGUIBuilder* self, QWidget* pare
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnCreateContainer(KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_CreateContainer_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_CreateContainer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ void KXMLGUIBuilder_SuperRemoveContainer(KXMLGUIBuilder* self, QWidget* containe
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnRemoveContainer(KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_RemoveContainer_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_RemoveContainer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +219,8 @@ libqt_list /* of libqt_string */ KXMLGUIBuilder_SuperCustomTags(const KXMLGUIBui
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnCustomTags(const KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = const_cast<VirtualKXMLGUIBuilder*>(dynamic_cast<const VirtualKXMLGUIBuilder*>(self));
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_CustomTags_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_CustomTags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +237,8 @@ QAction* KXMLGUIBuilder_SuperCreateCustomElement(KXMLGUIBuilder* self, QWidget* 
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnCreateCustomElement(KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_CreateCustomElement_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_CreateCustomElement_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +255,8 @@ void KXMLGUIBuilder_SuperFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client
 // Auxiliary method to allow providing re-implementation
 void KXMLGUIBuilder_OnFinalizeGUI(KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
+    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder)
         vkxmlguibuilder->setKXMLGUIBuilder_FinalizeGUI_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_FinalizeGUI_Callback>(slot));
-    }
 }
 
 void KXMLGUIBuilder_Delete(KXMLGUIBuilder* self) {
