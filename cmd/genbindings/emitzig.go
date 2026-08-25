@@ -908,6 +908,8 @@ type zigFileState struct {
 	currentPackageName string
 	parentClasses      []string
 	currentMethods     map[string]struct{}
+	castType           string
+	isFromMethod       bool
 }
 
 func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
@@ -1010,11 +1012,15 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	return returnComment
 }
 
-func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod) (preamble, forwarding string) {
+func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod, manualUpcast bool) (preamble, forwarding string) {
 	tmp := make([]string, 0, len(m.Parameters)+2)
 
 	if !(m.IsStatic && !m.IsProtected) {
-		tmp = append(tmp, "@ptrCast(self.ptr)")
+		if manualUpcast {
+			tmp = append(tmp, "@ptrCast(self.as"+zfs.castType+"().ptr)")
+		} else {
+			tmp = append(tmp, "@ptrCast(self.ptr)")
+		}
 	}
 
 	for _, p := range m.Parameters {
@@ -1179,7 +1185,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "defer allocator.free(" + nameprefix + "_keys);\n"
 			preamble += "var i: usize = 0;\n"
 			preamble += "var " + nameprefix + "_it = " + p.ParameterName + ".iterator();\n"
-			preamble += "while (" + nameprefix + "_it.next()) |" + nameprefix + "_item| : (i += 1) \n"
+			preamble += "while (" + nameprefix + "_it.next()) |" + nameprefix + "_item| : (i += 1)\n"
 			preamble += nameprefix + "_keys[i] = @bitCast(" + nameprefix + "_item.key_ptr.*);\n"
 
 			preamble += "const " + nameprefix + "_set = qtc.libqt_list{\n"
@@ -1795,7 +1801,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "var " + namePrefix + "_ret: Set_" + t.RenderTypeMapZig(zfs, false) + " = .empty;\n"
 			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + `_set.len)) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Total capacity allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
-			afterword += "for (0.." + namePrefix + "_set.len) |i| \n"
+			afterword += "for (0.." + namePrefix + "_set.len) |i|\n"
 			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + namePrefix + "_data_val[i].data[0.." + namePrefix + "_data_val[i].len], {});\n"
 
 			afterword += assignExpr + " " + namePrefix + "_ret;"
@@ -2112,7 +2118,11 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		shouldReturn = "return"
 
 		if rt.PointerCount <= 1 {
-			rvalue = ".{ .ptr = " + rvalue + " }"
+			if zfs.isFromMethod {
+				rvalue = ".{ .ptr = @ptrCast(" + rvalue + ") }"
+			} else {
+				rvalue = ".{ .ptr = " + rvalue + " }"
+			}
 		}
 
 		_, ok := KnownClassnames[rt.ParameterType]
@@ -2479,7 +2489,7 @@ const qtc = @import("qt6c");`)
 			}
 
 			zfs.currentMethodName = "new" + maybeSuffix(i)
-			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(ctor)
+			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(ctor, false)
 
 			var maybeAllocatorComment, maybeParamsLine, maybeFinalNewLine string
 			allocatorParam := ifv(strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
@@ -2552,7 +2562,10 @@ const qtc = @import("qt6c");`)
 				"qtc." + zigStructName + "_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));\n}\n\n")
 		}
 
+		var manualUpcast bool
+
 		for _, m := range baseMethods {
+			manualUpcast = false
 			if m.IsProtected && m.InheritedFrom != "" {
 				continue
 			}
@@ -2629,7 +2642,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			zfs.currentMethodName = methodName
 			cSafeMethodName := mSafeMethodName
 
-			if methodName != mSafeMethodName {
+			if methodName != mSafeMethodName && !m.IsAsMethod && !m.IsFromMethod {
 				ret.WriteString("\n/// ### DEPRECATED: Use `" + methodName + "` instead\n///\n" +
 					"\n    pub const " + mSafeMethodName + " = " + methodName + ";\n")
 			}
@@ -2660,6 +2673,15 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			if m.IsVariable {
 				cmdURL = m.VariableFieldName + "-var"
 			}
+			if m.IsAsMethod {
+				ret.WriteString("\n/// Upcasts to a " + m.ReturnType.ParameterType + " object\n///")
+				subjectURL = ""
+			}
+			if m.IsFromMethod {
+				ret.WriteString("\n/// Downcasts to a " + zfs.currentClassName + " object\n///")
+				m.ReturnType.ParameterType = zfs.currentClassName
+				subjectURL = ""
+			}
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
 				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
@@ -2671,7 +2693,16 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			previousMethods[m.MethodName] = struct{}{}
 			previousMethods[mSafeMethodName] = struct{}{}
 
-			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(m)
+			for _, base := range zfs.parentClasses {
+				if m.InheritedFrom != "" && slices.Contains(inheritanceMap[base]["secondary"], m.InheritedFrom) {
+					manualUpcast = true
+					break
+				}
+			}
+
+			zfs.castType = cmdStructName
+			zfs.isFromMethod = m.IsFromMethod
+			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(m, manualUpcast)
 			returnTypeDecl, maybeReturnWarning, maybeReturnString := m.ReturnType.renderReturnTypeZig(&zfs, false)
 			rvalue := "qtc." + cmdStructName + "_" + cSafeMethodName + "(" + forwarding + ")"
 			returnFunc := zfs.emitCabiToZig("return ", m.ReturnType, rvalue)
@@ -2815,6 +2846,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 		seenVirtuals := map[string]bool{}
 
 		for _, m := range virtualMethods {
+			manualUpcast = false
 			if !virtualEligible || m.HasStdFunctionPointerParam {
 				continue
 			}
@@ -2882,9 +2914,18 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
 			documentationURL := pageURL + "\n///\n"
 
+			for _, base := range zfs.parentClasses {
+				if m.InheritedFrom != "" && slices.Contains(inheritanceMap[base]["secondary"], m.InheritedFrom) {
+					manualUpcast = true
+					break
+				}
+			}
+
+			zfs.castType = cmdStructName
+			zfs.isFromMethod = m.IsFromMethod
 			// Add a package-private function to call the C++ base class method
 			// QWidget_PaintEvent
-			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(m)
+			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(m, manualUpcast)
 			forwarding = strings.TrimPrefix(forwarding, "self")
 			returnTypeDecl, maybeReturnWarning, _ := m.ReturnType.renderReturnTypeZig(&zfs, false)
 			zfsParams := zfs.emitParametersZig(m.Parameters, showHiddenParams)
@@ -3067,7 +3108,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 		seenEnums = append(seenEnums, zigEnumName)
 
 		enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
-		enumTag := ifv(enumType == "bool", "(u1)", "("+enumType+")")
+		enumTag := ifv(len(e.Entries) == 0, ifv(enumType == "bool", "(u1)", "("+enumType+")"), "")
 
 		ret.WriteString("pub const " + zigEnumName + " = enum" + enumTag + " {\n")
 
